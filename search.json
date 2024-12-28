@@ -1,0 +1,141 @@
+[
+  {
+    "objectID": "rags/rags-index.html",
+    "href": "rags/rags-index.html",
+    "title": "RAGs",
+    "section": "",
+    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n\n\n Back to top",
+    "crumbs": [
+      "Retrieval-Augmented Generation",
+      "RAGs"
+    ]
+  },
+  {
+    "objectID": "ann/ann-index.html",
+    "href": "ann/ann-index.html",
+    "title": "Artificial Neural Networks",
+    "section": "",
+    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n\n\n Back to top",
+    "crumbs": [
+      "What is ANN?",
+      "Artificial Neural Networks"
+    ]
+  },
+  {
+    "objectID": "bigdata/bigdata-index.html",
+    "href": "bigdata/bigdata-index.html",
+    "title": "Big Data",
+    "section": "",
+    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n\n\n Back to top",
+    "crumbs": [
+      "What is Big Data?",
+      "Big Data"
+    ]
+  },
+  {
+    "objectID": "python/python-index.html",
+    "href": "python/python-index.html",
+    "title": "Python",
+    "section": "",
+    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n\n\n Back to top",
+    "crumbs": [
+      "Python Programming",
+      "Python"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Wiki-ML",
+    "section": "",
+    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "about/about-roadmap.html",
+    "href": "about/about-roadmap.html",
+    "title": "Roadmap",
+    "section": "",
+    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n\n\n Back to top",
+    "crumbs": [
+      "About",
+      "Roadmap"
+    ]
+  },
+  {
+    "objectID": "books/books-index.html",
+    "href": "books/books-index.html",
+    "title": "Books",
+    "section": "",
+    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n\n\n Back to top",
+    "crumbs": [
+      "Book Resources",
+      "Books"
+    ]
+  },
+  {
+    "objectID": "about/about-index.html",
+    "href": "about/about-index.html",
+    "title": "About",
+    "section": "",
+    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n\n\n Back to top",
+    "crumbs": [
+      "About",
+      "About"
+    ]
+  },
+  {
+    "objectID": "labs/labs-index.html",
+    "href": "labs/labs-index.html",
+    "title": "Labs",
+    "section": "",
+    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n\n\n Back to top",
+    "crumbs": [
+      "Lab Exercises",
+      "Labs"
+    ]
+  },
+  {
+    "objectID": "resources/resources-index.html",
+    "href": "resources/resources-index.html",
+    "title": "Resources",
+    "section": "",
+    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n\n\n Back to top",
+    "crumbs": [
+      "Additional Resources",
+      "Resources"
+    ]
+  },
+  {
+    "objectID": "algorithms/algo-index.html",
+    "href": "algorithms/algo-index.html",
+    "title": "Algorithms",
+    "section": "",
+    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n\n\n Back to top",
+    "crumbs": [
+      "What is Algorithms?",
+      "Algorithms"
+    ]
+  },
+  {
+    "objectID": "deep/deep-index.html",
+    "href": "deep/deep-index.html",
+    "title": "Deep Learning",
+    "section": "",
+    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n\n\n Back to top",
+    "crumbs": [
+      "Introduction to Deep Learning",
+      "Deep Learning"
+    ]
+  },
+  {
+    "objectID": "machine/machine-index.html",
+    "href": "machine/machine-index.html",
+    "title": "Machine Lerning",
+    "section": "",
+    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n\n\n Back to top",
+    "crumbs": [
+      "Machine Learning Basics",
+      "Machine Lerning"
+    ]
+  }
+]
