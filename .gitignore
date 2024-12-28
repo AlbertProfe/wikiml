@@ -1,0 +1,6 @@
+/.quarto/
+/_site/
+/.vscode/
+/_extensions/
+/.luarc.json
+/qpubli.sh

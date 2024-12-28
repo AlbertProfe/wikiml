@@ -1,0 +1,166 @@
+project:
+  type: website
+
+website:
+  title: "Wiki-ML"
+  favicon: /images/home/favicon.ico
+  page-navigation: true
+  back-to-top-navigation: true
+  repo-url: https://github.com/Albertprofe/wikiml
+  #repo-actions: [edit, issue]
+  repo-branch: master
+  repo-link-target: '_blank'
+
+  page-footer:
+    background: secondary
+    left: "[Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/)" 
+    center: "Attention is all you need"
+    right:
+      - icon: github
+        href: https://github.com/AlbertProfe/
+      - icon: twitter
+        href: https://twitter.com/
+  
+  navbar:
+    background: secondary
+    style: "floating"
+    search: true
+    right:
+      - href: index.qmd
+        text: Home
+      - sidebar:algorithms
+      - sidebar:ann
+      - sidebar:bigdata
+      - sidebar:deeplearning
+      - sidebar:machinelearning
+      - sidebar:python
+      - sidebar:rags
+      - sidebar:labs
+      - sidebar:resources
+      - sidebar:books
+      - sidebar:about
+
+  sidebar:
+    - id: "algorithms"
+      title: "Algorithms"
+      border: true
+      collapse-level: 1
+      background: light
+      search: true
+      style: "floating"
+      contents:
+        - text: "Algorithms"
+        - text: "---"
+        - section: "What is Algorithms?"
+          contents:
+            - algorithms/algo-index.qmd
+        
+    - id: "ann"
+      title: "ANN"
+      contents:
+        - text: "ANN"
+        - text: "---"
+        - section: "What is ANN?"
+          contents:
+            - ann/ann-index.qmd
+
+    - id: "bigdata"
+      title: "Big Data"
+      contents:
+        - text: "Big Data"
+        - text: "---"
+        - section: "What is Big Data?"
+          contents:
+            - bigdata/bigdata-index.qmd
+
+    - id: "books"
+      title: "Books"
+      contents:
+        - text: "Books"
+        - text: "---"
+        - section: "Book Resources"
+          contents:
+            - books/books-index.qmd
+
+    - id: "deeplearning"
+      title: "Deep Learning"
+      contents:
+        - text: "Deep Learning"
+        - text: "---"
+        - section: "Introduction to Deep Learning"
+          contents:
+            - deep/deep-index.qmd
+
+    - id: "labs"
+      title: "Labs"
+      contents:
+        - text: "Labs"
+        - text: "---"
+        - section: "Lab Exercises"
+          contents:
+            - labs/labs-index.qmd
+
+    - id: "machinelearning"
+      title: "Machine Learning"
+      contents:
+        - text: "Machine Learning"
+        - text: "---"
+        - section: "Machine Learning Basics"
+          contents:
+            - machine/machine-index.qmd
+
+    - id: "python"
+      title: "Python"
+      contents:
+        - text: "Python"
+        - text: "---"
+        - section: "Python Programming"
+          contents:
+            - python/python-index.qmd
+
+    - id: "rags"
+      title: "RAGs"
+      contents:
+        - text: "RAGs"
+        - text: "---"
+        - section: "Retrieval-Augmented Generation"
+          contents:
+            - rags/rags-index.qmd
+
+    - id: "resources"
+      title: "Resources"
+      contents:
+        - text: "Resources"
+        - text: "---"
+        - section: "Additional Resources"
+          contents:
+            - resources/resources-index.qmd
+    
+    - id: "about"
+      title: "About"
+      contents:
+        - text: "About"
+        - text: "---"
+        - section: "About"
+          contents:
+            - about/about-index.qmd
+            - about/about-roadmap.qmd
+
+format:
+  html:
+    fontsize: "1.0em"
+    theme: cosmo
+    css: styles.css
+    toc: true
+    toc-depth: 5
+
+execute:
+  cache: true
+  freeze: auto
+
+editor:
+    render-on-save: true
+
+
+
+
