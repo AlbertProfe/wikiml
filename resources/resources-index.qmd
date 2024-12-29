@@ -8,6 +8,12 @@ title: "Resources"
 
 - <span class="chip chip-primary">book</span> [Welcome to the Physics-based Deep Learning Book (v0.2)](http://physicsbaseddeeplearning.org/intro.html){.external target='_blank'}
 
+### Algorithms
+
+MIT's Introduction to Algorithms:
+
+- Lecture Notes: https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/pages/lecture-notes/ 
+- Lecture Videos: http://www.youtube.com/playlist?list=PLUl4u3cNGP63EdVPNLG3ToM6LaEUuStEY
 
 # Introduction
 
