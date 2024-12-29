@@ -1,1 +1,42 @@
 /* css styles */
+.chip {
+  display: inline-block;
+  padding: 4px 8px; /* Padding for horizontal space */
+  height: auto; /* Allow height to adjust based on content */
+  font-size: 12px; /* Font size */
+  line-height: 16px; /* Set line height to match font size for symmetry */
+  border-radius: 12px; /* Rounded corners */
+  background-color: #f7f7f7; /* Soft light gray as default */
+  color: #555; /* Softer dark text color */
+}
+
+/* Soft color variations */
+.chip-primary { background-color: #a3c1e0; color: #fff; } /* Soft Blue */
+.chip-success { background-color: #a8e6cf; color: #fff; } /* Soft Green */
+.chip-warning { background-color: #ffeaa7; color: #333; } /* Soft Yellow */
+.chip-danger { background-color: #ffabab; color: #333; } /* Soft Red */
+
+
+
+
+
+/*
+https://www.w3schools.com/howto/howto_css_contact_chips.asp
+.chip {
+  display: inline-block;
+  padding: 0 25px;
+  height: 50px;
+  font-size: 16px;
+  line-height: 50px;
+  border-radius: 25px;
+  background-color: #f1f1f1;
+}
+
+.chip img {
+  float: left;
+  margin: 0 10px 0 -25px;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+  */
