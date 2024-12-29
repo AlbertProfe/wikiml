@@ -46,9 +46,9 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Wiki-ML",
+    "title": "Wiki Machine Learning",
     "section": "",
-    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n\n\n Back to top"
+    "text": "Machine learning (ML) is a branch of artificial intelligence (AI) focused on enabling computers and machines to imitate the way that humans learn, to perform tasks autonomously, and to improve their performance and accuracy through experience and exposure to more data.\nUC Berkeley breaks out the learning system of a machine learning algorithm into three main parts.\n\nA Decision Process: In general, machine learning algorithms are used to make a prediction or classification. Based on some input data, which can be labeled or unlabeled, your algorithm will produce an estimate about a pattern in the data.\nAn Error Function: An error function evaluates the prediction of the model. If there are known examples, an error function can make a comparison to assess the accuracy of the model.\nA Model Optimization Process: If the model can fit better to the data points in the training set, then weights are adjusted to reduce the discrepancy between the known example and the model estimate. The algorithm will repeat this iterative “evaluate and optimize” process, updating weights autonomously until a threshold of accuracy has been met.\nWhat is machine learning?\n\n\nMachine learning is a subfield of artificial intelligence, which is broadly defined as the capability of a machine to imitate intelligent human behavior. Artificial intelligence systems are used to perform complex tasks in a way that is similar to how humans solve problems.\n\n\n\n\nFrom: Optical neural networks: progress and challenges\n\n\nNeuron structure and artificial neural network. a Structure of biological neurons. b Mathematical inferring process of artificial neurons in multi-layer perceptron, including the input, weights, summation, activation function, and output. c Multi-layer perceptron artificial neural network\n\n\n\n Back to top"
   },
   {
     "objectID": "about/about-roadmap.html",
