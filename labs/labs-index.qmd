@@ -2,6 +2,19 @@
 title: "Labs"
 ---
 
-This is a Quarto website.
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+# Lab#ANN001: Buiding ANN recognises numbers
+
+https://youtu.be/w8yWXqWQYmU?feature=shared
+
+Kaggle notebook with all the code: https://www.kaggle.com/wwsalmon/...
+
+Blog article with more/clearer math explanation: https://www.samsonzhang.com/2020...
+
+# Lab#GPT: Pyrhon extractor
+
+AI reads books: Page-by-Page PDF Knowledge Extractor & Summarizer
+
+The read_books.py script performs an intelligent page-by-page analysis of PDF books, methodically extracting knowledge points and generating progressive summaries at specified intervals. It processes each page individually, allowing for detailed content understanding while maintaining the contextual flow of the book. Below is a detailed explanation of how the script works: 
+
+https://github.com/echohive42/AI-reads-books-page-by-pag
