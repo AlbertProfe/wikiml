@@ -2,6 +2,48 @@
 title: "Resources"
 ---
 
-This is a Quarto website.
+# Math and Physics
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+### Physics and Deep Learning
+
+- <span class="chip chip-primary">book</span> [Welcome to the Physics-based Deep Learning Book (v0.2)](http://physicsbaseddeeplearning.org/intro.html){.external target='_blank'}
+
+
+# Introduction
+
+### Neural Network
+
+- [A Brief Introduction to Neural Networks](https://dkriesel.com/en/science/neural_networks#dokuwiki__top){.external target='_blank'}
+- [Making neural nets uncool again](https://www.fast.ai/){.external target='_blank'}
+- [3blue1brown github videos](https://github.com/3b1b/videos/?tab=readme-ov-file){.external target='_blank'}
+- [3blue1brown](https://www.3blue1brown.com/){.external target='_blank'}
+- <span class="chip">repo</span> [manim](https://github.com/3b1b/manim){.external target='_blank'}
+- [But what is a neural network? | Deep learning chapter 1](https://youtu.be/aircAruvnKk?feature=shared){.external target='_blank'}
+
+### Deep Learning
+
+- [MIT Introduction to Deep Learning | 6.S191](https://youtu.be/ErnWZxJovaM?feature=shared){.external target='_blank'}
+- [Practical Deep Learning](https://course.fast.ai/){.external target='_blank'}
+
+### Generative AI
+
+- [Generative AI in a Nutshell - how to survive and thrive in the age of AI](https://youtu.be/2IK3DFHRFfw?feature=shared){.external target='_blank'}
+- [Generative AI in a Nutshell: poster](https://blog.crisp.se/wp-content/uploads/2024/01/generative-AI-in-a-nutshell.png){.external target='_blank'}
+
+### Machine Learning
+
+- <span class="chip chip-danger">youtube</span> [Learn Machine Learning Like a GENIUS and Not Waste Time](https://youtu.be/qNxrPri1V0I?feature=shared){.external target='_blank'}
+
+
+# Tools, papers and labs
+
+- <span class="chip chip-warning">paper</span> [Attention Is All You Need](https://proceedings.neurips.cc/paper_files/paper/2017/file/3f5ee243547dee91fbd053c1c4a845aa-Paper.pdf){.external target='_blank'}
+- <span class="chip chip-success">web</span> [IT-Tools](https://it-tools.tech/){.external target='_blank'}
+- <span class="chip chip-danger">youtube</span> [Building a neural network FROM SCRATCH (no Tensorflow/Pytorch, just numpy & math)](https://youtu.be/w8yWXqWQYmU?feature=shared){.external target='_blank'}
+
+
+
+
+
+
+
