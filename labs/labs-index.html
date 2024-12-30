@@ -149,7 +149,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="dropdown-header">Machine Learning Basics</li>
         <li>
     <a class="dropdown-item" href="../machine/machine-index.html">
- <span class="dropdown-text">Machine Lerning</span></a>
+ <span class="dropdown-text">Machine Learning</span></a>
   </li>  
     </ul>
   </li>
@@ -199,16 +199,10 @@ ul.task-list li input[type="checkbox"] {
     <a class="dropdown-item" href="../resources/resources-index.html">
  <span class="dropdown-text">Resources</span></a>
   </li>  
-    </ul>
-  </li>
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-books" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Books</span>
-    </a>
-    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-books">    
-        <li class="dropdown-header">Book Resources</li>
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Books</li>
         <li>
-    <a class="dropdown-item" href="../books/books-index.html">
+    <a class="dropdown-item" href="../resources/resources-books.html">
  <span class="dropdown-text">Books</span></a>
   </li>  
     </ul>
@@ -286,8 +280,16 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#labann001-building-ann-recognizes-numbers" id="toc-labann001-building-ann-recognizes-numbers" class="nav-link active" data-scroll-target="#labann001-building-ann-recognizes-numbers">Lab#ANN001: Building ANN recognizes numbers</a></li>
+  <li><a href="#labgpt001-python-extractor" id="toc-labgpt001-python-extractor" class="nav-link" data-scroll-target="#labgpt001-python-extractor">Lab#GPT001: Python extractor</a></li>
+  <li><a href="#labann002-tensor-for-back-propagation" id="toc-labann002-tensor-for-back-propagation" class="nav-link" data-scroll-target="#labann002-tensor-for-back-propagation">Lab#ANN002: Tensor for back propagation</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -311,10 +313,40 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>This is a Quarto website.</p>
-<p>To learn more about Quarto websites visit <a href="https://quarto.org/docs/websites" class="uri">https://quarto.org/docs/websites</a>.</p>
+<section id="labann001-building-ann-recognizes-numbers" class="level1">
+<h1>Lab#ANN001: Building ANN recognizes numbers</h1>
+<ul>
+<li><a href="https://youtu.be/w8yWXqWQYmU?feature=shared" class="external" target="_blank">Building a neural network FROM SCRATCH (no Tensorflow/Pytorch, just numpy &amp; math)</a></li>
+<li><a href="https://www.kaggle.com/code/wwsalmon/simple-mnist-nn-from-scratch-numpy-no-tf-keras" class="external" target="_blank">Kaggle notebook with all the code</a></li>
+<li><a href="https://www.samsonzhang.com/building" class="external" target="_blank">Blog article with more/clearer math explanation</a></li>
+</ul>
+</section>
+<section id="labgpt001-python-extractor" class="level1">
+<h1>Lab#GPT001: Python extractor</h1>
+<p><strong>AI reads books</strong>: Page-by-Page PDF Knowledge Extractor &amp; Summarizer</p>
+<blockquote class="blockquote">
+<p>The <code>read_books.py</code> script performs an intelligent page-by-page analysis of PDF books, methodically extracting knowledge points and generating progressive summaries at specified intervals. It processes each page individually, allowing for detailed content understanding while maintaining the contextual flow of the book.</p>
+</blockquote>
+<ul>
+<li><a href="https://github.com/echohive42/AI-reads-books-page-by-pag" class="external" target="_blank">Python extractor</a></li>
+</ul>
+</section>
+<section id="labann002-tensor-for-back-propagation" class="level1">
+<h1>Lab#ANN002: Tensor for back propagation</h1>
+<p>A small auto-grad engine (inspired from <code>Karpathy's micrograd and PyTorch</code>) using <code>Apple's MLX and Numpy</code>. That’s why the name: smolgrad</p>
+<blockquote class="blockquote">
+<p>It will help y’all understand the core concepts behind automatic differentiation and backpropagation. I mean, AI is literally powered by these things.</p>
+</blockquote>
+<p><strong>what is autograd?</strong></p>
+<p>Auto-grad, short for automatic differentiation, is a technique used in machine learning to efficiently compute gradients of complex functions. In the context of neural networks, autograd enables the computation of gradients with respect to the model’s parameters, which is crucial for training the network using optimization algorithms like gradient descent.</p>
+<p>It works by constructing a computational graph that represents the flow of data through the network. Each node in the graph represents a mathematical operation, and the edges represent the flow of data between these operations. By tracking the operations and their dependencies, autograd can automatically compute the gradients using the chain rule of calculus.</p>
+<p>An algorithm used in conjuction with autograd is Backpropagation to train neural networks. It is the process of propagating the gradients backward through the computational graph, from the output layer to the input layer, in order to update the model’s parameters. This is the stuff which makes ML/DL models “learn”.</p>
+<ul>
+<li><a href="https://github.com/smolorg/smolgrad" class="external" target="_blank">utograd: repo</a></li>
+</ul>
 
 
+</section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

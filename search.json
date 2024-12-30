@@ -37,7 +37,7 @@
     "href": "python/python-index.html",
     "title": "Python",
     "section": "",
-    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n\n\n Back to top",
+    "text": "Python Programming MOOC 2024\n\n\n\n\nThis is the course material page for the Introduction to Programming course (BSCS1001, 5 ECTS) and the Advanced Course in Programming (BSCS1002, 5 ECTS) from the Department of Computer Science at the University of Helsinki.\n\n\n\nThere are no more live lectures for this year’s MOOC instance. The lecture recordings can be viewed on the table below.\n\nLectures\n\n\n\n\n\nPython Programming MOOC 2024\nAll exercises\nPart 1: Getting started",
     "crumbs": [
       "Python Programming",
       "Python"
@@ -55,7 +55,7 @@
     "href": "about/about-roadmap.html",
     "title": "Roadmap",
     "section": "",
-    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n\n\n Back to top",
+    "text": "Step by step guide to becoming an AI and Data Scientist in 2024:\n\nAI and Data Scientist\n\nStep by step guide to becoming an AI Engineer in 2024:\n\nAI Engineer\n\n\n\n\n\n\n\n\n\n\n\n\n#\nDate\nTitle\nDescription\nTasks\n\n\n\n\n1\n2024-01-06\nPython Basics 1/4\nIntroduction to Python programming\nVariables, data types\n\n\n1\n2024-01-06\nML Foundations 1/4\nBasic machine learning concepts\nTypes of ML, learning paradigms\n\n\n1\n2024-01-06\nANN Foundation 1/4\nIntroduction to neural networks\nNetwork architecture basics\n\n\n2\n2024-01-13\nPython Basics 2/4\nControl structures\nLoops, conditionals, functions\n\n\n2\n2024-01-13\nML Foundations 2/4\nModel evaluation\nMetrics, validation techniques\n\n\n2\n2024-01-13\nANN Foundation 2/4\nForward propagation\nActivation functions, layers\n\n\n3\n2024-01-20\nPython Basics 3/4\nFunctions and modules\nFunction creation, importing modules\n\n\n3\n2024-01-20\nML Foundations 3/4\nData preprocessing\nCleaning, normalization, feature engineering\n\n\n3\n2024-01-20\nANN Foundation 3/4\nBackpropagation\nGradient descent basics\n\n\n4\n2024-01-27\nPython Basics 4/4\nError handling\nTry-except, debugging\n\n\n4\n2024-01-27\nML Foundations 4/4\nModel selection\nCross-validation, hyperparameter tuning\n\n\n4\n2024-01-27\nANN Foundation 4/4\nLoss functions\nCommon losses, optimization basics\n\n\n5\n2024-02-03\nPython Intermediate 1/4\nOOP concepts\nClasses, objects, inheritance\n\n\n5\n2024-02-03\nSupervised Learning 1/4\nLinear regression\nSimple and multiple regression\n\n\n5\n2024-02-03\nANN Training 1/4\nOptimization algorithms\nSGD, Adam, RMSprop\n\n\n6\n2024-02-10\nPython Intermediate 2/4\nAdvanced functions\nLambda, decorators, generators\n\n\n6\n2024-02-10\nSupervised Learning 2/4\nClassification basics\nLogistic regression, decision trees\n\n\n6\n2024-02-10\nANN Training 2/4\nRegularization\nL1, L2, dropout\n\n\n7\n2024-02-17\nPython Intermediate 3/4\nFile handling\nReading/writing files, JSON\n\n\n7\n2024-02-17\nSupervised Learning 3/4\nEnsemble methods\nRandom forests, boosting\n\n\n7\n2024-02-17\nANN Training 3/4\nBatch normalization\nImplementation and effects\n\n\n8\n2024-02-24\nPython Intermediate 4/4\nPackage management\nPip, virtual environments\n\n\n8\n2024-02-24\nSupervised Learning 4/4\nModel deployment\nSaving, loading, serving models\n\n\n8\n2024-02-24\nANN Training 4/4\nModel evaluation\nMetrics, validation strategies\n\n\n9\n2024-03-02\nPython for DS 1/4\nNumPy basics\nArrays, operations, indexing\n\n\n9\n2024-03-02\nDeep Learning 1/4\nDL frameworks\nPyTorch basics\n\n\n9\n2024-03-02\nANN Advanced 1/4\nAdvanced architectures\nResNet, Inception\n\n\n10\n2024-03-09\nPython for DS 2/4\nPandas basics\nDataFrames, series, indexing\n\n\n10\n2024-03-09\nDeep Learning 2/4\nData loading\nDatasets, dataloaders\n\n\n10\n2024-03-09\nANN Advanced 2/4\nTransfer learning\nPre-trained models, fine-tuning\n\n\n11\n2024-03-16\nPython for DS 3/4\nData visualization\nMatplotlib, Seaborn\n\n\n11\n2024-03-16\nDeep Learning 3/4\nCustom layers\nBuilding network components\n\n\n11\n2024-03-16\nANN Advanced 3/4\nAdvanced training\nLearning rate scheduling\n\n\n12\n2024-03-23\nPython for DS 4/4\nData analysis\nEDA, statistical analysis\n\n\n12\n2024-03-23\nDeep Learning 4/4\nModel optimization\nPerformance tuning\n\n\n12\n2024-03-23\nANN Advanced 4/4\nDeployment\nProduction considerations\n\n\n13\n2024-03-30\nLinear Algebra 1/4\nVectors and matrices\nBasic operations\n\n\n13\n2024-03-30\nCNN 1/4\nCNN basics\nConvolution operations\n\n\n13\n2024-03-30\nANN Applications 1/4\nImage classification\nMNIST implementation\n\n\n14\n2024-04-06\nLinear Algebra 2/4\nMatrix operations\nMultiplication, inverse\n\n\n14\n2024-04-06\nCNN 2/4\nPooling layers\nMax pooling, average pooling\n\n\n14\n2024-04-06\nANN Applications 2/4\nObject detection\nYOLO implementation\n\n\n15\n2024-04-13\nLinear Algebra 3/4\nEigenvalues\nDecomposition\n\n\n15\n2024-04-13\nCNN 3/4\nModern architectures\nVGG, ResNet\n\n\n15\n2024-04-13\nANN Applications 3/4\nSegmentation\nU-Net implementation\n\n\n16\n2024-04-20\nLinear Algebra 4/4\nPCA\nDimensionality reduction\n\n\n16\n2024-04-20\nCNN 4/4\nTransfer learning\nFine-tuning CNNs\n\n\n16\n2024-04-20\nANN Applications 4/4\nStyle transfer\nNeural style transfer\n\n\n17\n2024-04-27\nStatistics 1/4\nProbability basics\nDistributions\n\n\n17\n2024-04-27\nRNN 1/4\nRNN basics\nSequential data\n\n\n17\n2024-04-27\nRAG Basics 1/4\nVector databases\nEmbedding basics\n\n\n18\n2024-05-04\nStatistics 2/4\nHypothesis testing\nT-tests, chi-square\n\n\n18\n2024-05-04\nRNN 2/4\nLSTM\nLong-term dependencies\n\n\n18\n2024-05-04\nRAG Basics 2/4\nRetrieval methods\nVector similarity\n\n\n19\n2024-05-11\nStatistics 3/4\nRegression analysis\nStatistical modeling\n\n\n19\n2024-05-11\nRNN 3/4\nGRU\nGated recurrent units\n\n\n19\n2024-05-11\nRAG Basics 3/4\nQuery processing\nEmbedding generation\n\n\n20\n2024-05-18\nStatistics 4/4\nBayesian stats\nProbabilistic modeling\n\n\n20\n2024-05-18\nRNN 4/4\nAttention mechanism\nSelf-attention basics\n\n\n20\n2024-05-18\nRAG Basics 4/4\nResponse generation\nCombining retrieved info\n\n\n21\n2024-05-25\nBig Data 1/4\nDistributed systems\nHadoop ecosystem\n\n\n21\n2024-05-25\nLab: Classification 1/4\nProject setup\nData preparation\n\n\n21\n2024-05-25\nRAG Implementation 1/4\nSystem design\nArchitecture planning\n\n\n22\n2024-06-01\nBig Data 2/4\nMapReduce\nProgramming paradigm\n\n\n22\n2024-06-01\nLab: Classification 2/4\nModel development\nTraining pipeline\n\n\n22\n2024-06-01\nRAG Implementation 2/4\nIntegration\nConnecting components\n\n\n23\n2024-06-08\nBig Data 3/4\nSpark basics\nRDD operations\n\n\n23\n2024-06-08\nLab: Classification 3/4\nModel evaluation\nPerformance analysis\n\n\n23\n2024-06-08\nRAG Implementation 3/4\nOptimization\nPerformance tuning\n\n\n24\n2024-06-15\nBig Data 4/4\nSpark ML\nML pipelines\n\n\n24\n2024-06-15\nLab: Classification 4/4\nDeployment\nProduction readiness\n\n\n24\n2024-06-15\nRAG Implementation 4/4\nDeployment\nSystem deployment\n\n\n25\n2024-06-22\nLab: NLP 1/4\nText preprocessing\nTokenization, cleaning\n\n\n25\n2024-06-22\nLab: CV 1/4\nImage preprocessing\nAugmentation pipeline\n\n\n25\n2024-06-22\nLab: Full Stack 1/4\nFrontend design\nUI/UX planning\n\n\n26\n2024-06-29\nLab: NLP 2/4\nModel architecture\nBERT implementation\n\n\n26\n2024-06-29\nLab: CV 2/4\nModel development\nCNN architecture\n\n\n26\n2024-06-29\nLab: Full Stack 2/4\nBackend setup\nAPI development\n\n\n27\n2024-07-06\nLab: NLP 3/4\nFine-tuning\nTransfer learning\n\n\n27\n2024-07-06\nLab: CV 3/4\nTraining\nModel optimization\n\n\n27\n2024-07-06\nLab: Full Stack 3/4\nIntegration\nAPI endpoints\n\n\n28\n2024-07-13\nLab: NLP 4/4\nDeployment\nProduction system\n\n\n28\n2024-07-13\nLab: CV 4/4\nDeployment\nModel serving\n\n\n28\n2024-07-13\nLab: Full Stack 4/4\nDeployment\nSystem launch\n\n\n29\n2024-07-20\nFinal Project 1/4\nProject planning\nRequirements analysis\n\n\n29\n2024-07-20\nFinal Project 2/4\nImplementation\nCore development\n\n\n29\n2024-07-20\nFinal Project 3/4\nTesting\nSystem validation\n\n\n\n\n\n\n\n Back to top",
     "crumbs": [
       "About",
       "Roadmap"
@@ -77,7 +77,7 @@
     "href": "about/about-index.html",
     "title": "About",
     "section": "",
-    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n\n\n Back to top",
+    "text": "Complementary to albertprofe.dev\n\n\n\n Back to top",
     "crumbs": [
       "About",
       "About"
@@ -88,7 +88,7 @@
     "href": "labs/labs-index.html",
     "title": "Labs",
     "section": "",
-    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n\n\n Back to top",
+    "text": "Lab#ANN001: Building ANN recognizes numbers\n\nBuilding a neural network FROM SCRATCH (no Tensorflow/Pytorch, just numpy & math)\nKaggle notebook with all the code\nBlog article with more/clearer math explanation\n\n\n\nLab#GPT001: Python extractor\nAI reads books: Page-by-Page PDF Knowledge Extractor & Summarizer\n\nThe read_books.py script performs an intelligent page-by-page analysis of PDF books, methodically extracting knowledge points and generating progressive summaries at specified intervals. It processes each page individually, allowing for detailed content understanding while maintaining the contextual flow of the book.\n\n\nPython extractor\n\n\n\nLab#ANN002: Tensor for back propagation\nA small auto-grad engine (inspired from Karpathy's micrograd and PyTorch) using Apple's MLX and Numpy. That’s why the name: smolgrad\n\nIt will help y’all understand the core concepts behind automatic differentiation and backpropagation. I mean, AI is literally powered by these things.\n\nwhat is autograd?\nAuto-grad, short for automatic differentiation, is a technique used in machine learning to efficiently compute gradients of complex functions. In the context of neural networks, autograd enables the computation of gradients with respect to the model’s parameters, which is crucial for training the network using optimization algorithms like gradient descent.\nIt works by constructing a computational graph that represents the flow of data through the network. Each node in the graph represents a mathematical operation, and the edges represent the flow of data between these operations. By tracking the operations and their dependencies, autograd can automatically compute the gradients using the chain rule of calculus.\nAn algorithm used in conjuction with autograd is Backpropagation to train neural networks. It is the process of propagating the gradients backward through the computational graph, from the output layer to the input layer, in order to update the model’s parameters. This is the stuff which makes ML/DL models “learn”.\n\nutograd: repo\n\n\n\n\n\n Back to top",
     "crumbs": [
       "Lab Exercises",
       "Labs"
@@ -99,7 +99,7 @@
     "href": "resources/resources-index.html",
     "title": "Resources",
     "section": "",
-    "text": "Math and Physics\n\nPhysics and Deep Learning\n\nbook Welcome to the Physics-based Deep Learning Book (v0.2)\n\n\n\n\nIntroduction\n\nNeural Network\n\nA Brief Introduction to Neural Networks\nMaking neural nets uncool again\n3blue1brown github videos\n3blue1brown\nrepo manim\nBut what is a neural network? | Deep learning chapter 1\n\n\n\nDeep Learning\n\nMIT Introduction to Deep Learning | 6.S191\nPractical Deep Learning\n\n\n\nGenerative AI\n\nGenerative AI in a Nutshell - how to survive and thrive in the age of AI\nGenerative AI in a Nutshell: poster\n\n\n\nMachine Learning\n\nyoutube Learn Machine Learning Like a GENIUS and Not Waste Time\n\n\n\n\nTools, papers and labs\n\npaper Attention Is All You Need\nweb IT-Tools\nyoutube Building a neural network FROM SCRATCH (no Tensorflow/Pytorch, just numpy & math)\n\n\n\n\n\n Back to top",
+    "text": "Math and Physics\n\nPhysics and Deep Learning\n\nbook Welcome to the Physics-based Deep Learning Book (v0.2)\nRob J Hyndman | Professor of Statistics\n\n\n\nAlgorithms\nMIT’s Introduction to Algorithms:\n\nLecture Notes\nLecture Videos\n\n\n\n\nIntroduction\n\nNeural Network\n\nA Brief Introduction to Neural Networks\nMaking neural nets uncool again\n3blue1brown github videos\n3blue1brown\nrepo manim\nBut what is a neural network? | Deep learning chapter 1\n\n\n\nDeep Learning\n\nMIT Introduction to Deep Learning | 6.S191\nPractical Deep Learning\n\n\n\nGenerative AI\n\nGenerative AI in a Nutshell - how to survive and thrive in the age of AI\nGenerative AI in a Nutshell: poster\n\n\n\nMachine Learning\n\nyoutube Learn Machine Learning Like a GENIUS and Not Waste Time\n\n\n\n\nTools, papers and labs\n\npaper Attention Is All You Need\nweb IT-Tools\nyoutube Building a neural network FROM SCRATCH (no Tensorflow/Pytorch, just numpy & math)\nAI by hand\n\n\n\n\n\n Back to top",
     "crumbs": [
       "Additional Resources",
       "Resources"
@@ -130,12 +130,210 @@
   {
     "objectID": "machine/machine-index.html",
     "href": "machine/machine-index.html",
-    "title": "Machine Lerning",
+    "title": "Machine Learning",
     "section": "",
-    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n\n\n Back to top",
+    "text": "Machine learning (ML) is a branch of artificial intelligence (AI) focused on enabling computers and machines to imitate the way that humans learn, to perform tasks autonomously, and to improve their performance and accuracy through experience and exposure to more data.\nUC Berkeley breaks out the learning system of a machine learning algorithm into three main parts.\n\nA Decision Process: In general, machine learning algorithms are used to make a prediction or classification. Based on some input data, which can be labeled or unlabeled, your algorithm will produce an estimate about a pattern in the data.\nAn Error Function: An error function evaluates the prediction of the model. If there are known examples, an error function can make a comparison to assess the accuracy of the model.\nA Model Optimization Process: If the model can fit better to the data points in the training set, then weights are adjusted to reduce the discrepancy between the known example and the model estimate. The algorithm will repeat this iterative “evaluate and optimize” process, updating weights autonomously until a threshold of accuracy has been met.\nWhat is machine learning?\n\n\nMachine learning is a subfield of artificial intelligence, which is broadly defined as the capability of a machine to imitate intelligent human behavior. Artificial intelligence systems are used to perform complex tasks in a way that is similar to how humans solve problems.\n\n\n\n\nFrom: Optical neural networks: progress and challenges\n\n\nNeuron structure and artificial neural network. a Structure of biological neurons. b Mathematical inferring process of artificial neurons in multi-layer perceptron, including the input, weights, summation, activation function, and output. c Multi-layer perceptron artificial neural network\n\n\n\n Back to top",
     "crumbs": [
       "Machine Learning Basics",
-      "Machine Lerning"
+      "Machine Learning"
+    ]
+  },
+  {
+    "objectID": "resources/resources-books.html",
+    "href": "resources/resources-books.html",
+    "title": "Books",
+    "section": "",
+    "text": "book Welcome to the Physics-based Deep Learning Book (v0.2)\n\n\n\n\n Back to top",
+    "crumbs": [
+      "Books",
+      "Books"
+    ]
+  },
+  {
+    "objectID": "python/python-index.html#about-this-course",
+    "href": "python/python-index.html#about-this-course",
+    "title": "Python",
+    "section": "",
+    "text": "This is the course material page for the Introduction to Programming course (BSCS1001, 5 ECTS) and the Advanced Course in Programming (BSCS1002, 5 ECTS) from the Department of Computer Science at the University of Helsinki.",
+    "crumbs": [
+      "Python Programming",
+      "Python"
+    ]
+  },
+  {
+    "objectID": "python/python-index.html#lectures",
+    "href": "python/python-index.html#lectures",
+    "title": "Python",
+    "section": "",
+    "text": "There are no more live lectures for this year’s MOOC instance. The lecture recordings can be viewed on the table below.\n\nLectures",
+    "crumbs": [
+      "Python Programming",
+      "Python"
+    ]
+  },
+  {
+    "objectID": "python/python-index.html#links",
+    "href": "python/python-index.html#links",
+    "title": "Python",
+    "section": "",
+    "text": "Python Programming MOOC 2024\nAll exercises\nPart 1: Getting started",
+    "crumbs": [
+      "Python Programming",
+      "Python"
+    ]
+  },
+  {
+    "objectID": "python/python-part1.html",
+    "href": "python/python-part1.html",
+    "title": "Python Helsinki: 1",
+    "section": "",
+    "text": "Getting started\n- Part 1: Getting started\n\n\n\n\n Back to top",
+    "crumbs": [
+      "Python Programming",
+      "Python Helsinki: 1"
+    ]
+  },
+  {
+    "objectID": "python/python-part2.html",
+    "href": "python/python-part2.html",
+    "title": "Python Helsinki: 2",
+    "section": "",
+    "text": "Programming terminology\n- Part 2: Programming terminology\n\n\n\n\n Back to top",
+    "crumbs": [
+      "Python Programming",
+      "Python Helsinki: 2"
+    ]
+  },
+  {
+    "objectID": "python/python-part3.html",
+    "href": "python/python-part3.html",
+    "title": "Python Helsinki: 3",
+    "section": "",
+    "text": "More about variables\n- Part 3: More about variables\n\n\n\n\n Back to top",
+    "crumbs": [
+      "Python Programming",
+      "Python Helsinki: 3"
+    ]
+  },
+  {
+    "objectID": "python/python-part4.html",
+    "href": "python/python-part4.html",
+    "title": "Python Helsinki: 4",
+    "section": "",
+    "text": "Functions\n- Part 4: Functions\n\n\n\n\n Back to top",
+    "crumbs": [
+      "Python Programming",
+      "Python Helsinki: 4"
+    ]
+  },
+  {
+    "objectID": "python/python-part5.html",
+    "href": "python/python-part5.html",
+    "title": "Python Helsinki: 5",
+    "section": "",
+    "text": "Lists\n- Part 5: Lists\n\n\n\n\n Back to top",
+    "crumbs": [
+      "Python Programming",
+      "Python Helsinki: 5"
+    ]
+  },
+  {
+    "objectID": "python/python-part6.html",
+    "href": "python/python-part6.html",
+    "title": "Python Helsinki: 6",
+    "section": "",
+    "text": "File I/O and Strings\n- Part 6: File I/O and Strings\n\n\n\n\n Back to top",
+    "crumbs": [
+      "Python Programming",
+      "Python Helsinki: 6"
+    ]
+  },
+  {
+    "objectID": "python/python-part7.html",
+    "href": "python/python-part7.html",
+    "title": "Python Helsinki: 7",
+    "section": "",
+    "text": "Tuples\n- Part 7: Tuples\n\n\n\n\n Back to top",
+    "crumbs": [
+      "Python Programming",
+      "Python Helsinki: 7"
+    ]
+  },
+  {
+    "objectID": "python/python-part8.html",
+    "href": "python/python-part8.html",
+    "title": "Python Helsinki: 8",
+    "section": "",
+    "text": "Dictionaries\n- Part 8: Dictionaries\n\n\n\n\n Back to top",
+    "crumbs": [
+      "Python Programming",
+      "Python Helsinki: 8"
+    ]
+  },
+  {
+    "objectID": "python/python-part9.html",
+    "href": "python/python-part9.html",
+    "title": "Python Helsinki: 9",
+    "section": "",
+    "text": "Objects and Classes\n- Part 9: Objects and Classes\n\n\n\n\n Back to top",
+    "crumbs": [
+      "Python Programming",
+      "Python Helsinki: 9"
+    ]
+  },
+  {
+    "objectID": "python/python-part10.html",
+    "href": "python/python-part10.html",
+    "title": "Python Helsinki: 10",
+    "section": "",
+    "text": "Object-Oriented Programming\n- Part 10: Object-Oriented Programming\n\n\n\n\n Back to top",
+    "crumbs": [
+      "Python Programming",
+      "Python Helsinki: 10"
+    ]
+  },
+  {
+    "objectID": "python/python-part11.html",
+    "href": "python/python-part11.html",
+    "title": "Python Helsinki: 11",
+    "section": "",
+    "text": "Advanced Object-Oriented Programming\n- Part 11: Advanced Object-Oriented Programming\n\n\n\n\n Back to top",
+    "crumbs": [
+      "Python Programming",
+      "Python Helsinki: 11"
+    ]
+  },
+  {
+    "objectID": "python/python-part12.html",
+    "href": "python/python-part12.html",
+    "title": "Python Helsinki: 12",
+    "section": "",
+    "text": "Libraries and Modules\n- Part 12: Libraries and Modules\n\n\n\n\n Back to top",
+    "crumbs": [
+      "Python Programming",
+      "Python Helsinki: 12"
+    ]
+  },
+  {
+    "objectID": "python/python-part13.html",
+    "href": "python/python-part13.html",
+    "title": "Python Helsinki: 13",
+    "section": "",
+    "text": "Data Processing\n- Part 13: Data Processing\n\n\n\n\n Back to top",
+    "crumbs": [
+      "Python Programming",
+      "Python Helsinki: 13"
+    ]
+  },
+  {
+    "objectID": "python/python-part14.html",
+    "href": "python/python-part14.html",
+    "title": "Python Helsinki: 14",
+    "section": "",
+    "text": "GUI Programming\n- Part 14: GUI Programming\n\n\n\n\n Back to top",
+    "crumbs": [
+      "Python Programming",
+      "Python Helsinki: 14"
     ]
   }
 ]
