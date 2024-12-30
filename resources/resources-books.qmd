@@ -3,3 +3,8 @@ title: "Books"
 ---
 
 - <span class="chip chip-primary">book</span> [Welcome to the Physics-based Deep Learning Book (v0.2)](http://physicsbaseddeeplearning.org/intro.html){.external target='_blank'}
+- [LLM Engineer's Handbook: Master the art of engineering large language models from concept to production ](https://www.packtpub.com/en-us/product/llm-engineers-handbook-9781836200062?srsltid=AfmBOorsghxj1A2sZIK6UQc4ZwnKaaQ2vD5_mKI-ke1-LL-N984ALpOt){.external target='_blank'}
+- [Repo](https://github.com/SylphAI-Inc/LLM-engineer-handbook){.external target='_blank'}
+- [The Little Book of Deep Learning](https://fleuret.org/francois/lbdl.html){.external target='_blank'}
+- [Understand Deep Learning: Python notebooks covering the whole text](https://udlbook.github.io/udlbook/){.external target='_blank'}
+- [Deep Learning An MIT Press book Ian Goodfellow and Yoshua Bengio and Aaron Courville](https://www.deeplearningbook.org/){.external target='_blank'}

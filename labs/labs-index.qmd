@@ -30,8 +30,54 @@ A small auto-grad engine (inspired from `Karpathy's micrograd and PyTorch`) usin
 
 Auto-grad, short for automatic differentiation, is a technique used in machine learning to efficiently compute gradients of complex functions. In the context of neural networks, autograd enables the computation of gradients with respect to the model's parameters, which is crucial for training the network using optimization algorithms like gradient descent.
 
-It works by constructing a computational graph that represents the flow of data through the network. Each node in the graph represents a mathematical operation, and the edges represent the flow of data between these operations. By tracking the operations and their dependencies, autograd can automatically compute the gradients using the chain rule of calculus.
+> It works by constructing a computational graph that represents the flow of data through the network. Each node in the graph represents a mathematical operation, and the edges represent the flow of data between these operations. By tracking the operations and their dependencies, autograd can automatically compute the gradients using the chain rule of calculus.
 
-An algorithm used in conjuction with autograd is Backpropagation to train neural networks. It is the process of propagating the gradients backward through the computational graph, from the output layer to the input layer, in order to update the model's parameters. This is the stuff which makes ML/DL models "learn".
+An algorithm used in conjuction with autograd is **Backpropagation** to train `neural networks`. It is the process of propagating the gradients backward through the computational graph, from the output layer to the input layer, in order to update the model's parameters. This is the stuff which makes ML/DL models "learn".
 
-- [utograd: repo](https://github.com/smolorg/smolgrad){.external target='_blank'}
+- [autograd: repo](https://github.com/smolorg/smolgrad){.external target='_blank'}
+
+
+# Lab#RAG001: Hedge fund trading team
+
+This lab outlines the creation of a hedge fund trading team using AI agents. The process involves setting up multiple specialized agents to handle different aspects of trading:
+
+1. A **Market Data Agent** to gather and process financial data
+2. A **Quant Agent** for developing trading strategies
+3. A **Risk Managemen**t Agent to assess and mitigate risks
+4. A **Portfolio Management** Agent for overall fund management
+
+<mark>These agents are then integrated into an Agent Graph, allowing them to collaborate and share information efficiently.</mark>
+
+> The lab also covers obtaining stock price data and generating trading signals, which are crucial for making informed investment decisions.
+
+A key component of the lab is the creation of a `Backtester`. This tool allows the team to simulate and evaluate their trading strategies using historical data, providing valuable insights into potential performance without risking real capital.
+
+The final step involves running the `backtest` to assess the effectiveness of the developed strategies and the overall performance of the AI-driven hedge fund team. This approach combines advanced AI techniques with traditional financial analysis, potentially offering a powerful new paradigm for hedge fund management.
+
+
+### Syllabus
+
+1. Setup
+1. Create Market Data Agent
+1. Create Quant Agent
+1. Create Risk Management Agent
+1. Create Portfolio Management Agent
+1. Create Agent Graph
+1. Get Stock Price and Trading Signals
+1. Create Backtester
+1. Run the Backtest
+
+
+### Citations
+
+- [How Hedge Fund Operations Are Organized](https://electronictradinghub.com/how-hedge-fund-operations-are-organized/){.external target='_blank'}
+- [I Gave an AI Hedge Fund $1000 to invest with](https://www.youtube.com/watch?v=vnzt4lwzbXU){.external target='_blank'}
+- [Hedge Fund Strategies Introduction](https://www.lgtcp.com/files/2024-04/lgt_capital_partners_-_hedge_fund_strategies_introduction_-_2024_en.pdf){.external target='_blank'}
+- [Hedge Fund Trading Team Gist](https://gist.github.com/virattt/0e4c7740472177a327b61449c9af721d){.external target='_blank'}
+- [Hedge Fund Structure](https://www.fundlaunch.com/articles/hedge-fund-structure){.external target='_blank'}
+- [Hedge Fund Performance Evaluation Using Data Envelopment Analysis](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3004520){.external target='_blank'}
+- [How to Set Up a Hedge Fund](https://fundfront.com/blog/how-to-set-up-a-hedge-fund/){.external target='_blank'}
+- [Four dimensions of risk management for hedge funds](https://www.researchgate.net/publication/271946569_Four_dimensions_of_risk_management_for_hedge_funds){.external target='_blank'}
+- [hedge-fund-trading-team.ipynb](https://colab.research.google.com/gist/virattt/251cfea5e66b21c7b6a58b8952476117/hedge-fund-trading-team.ipynb#scrollTo=TcKHO2SE4tFQ){.external target='_blank'}
+
+
