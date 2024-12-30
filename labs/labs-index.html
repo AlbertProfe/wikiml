@@ -163,6 +163,62 @@ ul.task-list li input[type="checkbox"] {
     <a class="dropdown-item" href="../python/python-index.html">
  <span class="dropdown-text">Python</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../python/python-part1.html">
+ <span class="dropdown-text">Python Helsinki: 1</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../python/python-part2.html">
+ <span class="dropdown-text">Python Helsinki: 2</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../python/python-part3.html">
+ <span class="dropdown-text">Python Helsinki: 3</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../python/python-part4.html">
+ <span class="dropdown-text">Python Helsinki: 4</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../python/python-part5.html">
+ <span class="dropdown-text">Python Helsinki: 5</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../python/python-part6.html">
+ <span class="dropdown-text">Python Helsinki: 6</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../python/python-part7.html">
+ <span class="dropdown-text">Python Helsinki: 7</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../python/python-part8.html">
+ <span class="dropdown-text">Python Helsinki: 8</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../python/python-part9.html">
+ <span class="dropdown-text">Python Helsinki: 9</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../python/python-part10.html">
+ <span class="dropdown-text">Python Helsinki: 10</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../python/python-part11.html">
+ <span class="dropdown-text">Python Helsinki: 11</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../python/python-part12.html">
+ <span class="dropdown-text">Python Helsinki: 12</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../python/python-part13.html">
+ <span class="dropdown-text">Python Helsinki: 13</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../python/python-part14.html">
+ <span class="dropdown-text">Python Helsinki: 14</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
@@ -288,6 +344,11 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#labann001-building-ann-recognizes-numbers" id="toc-labann001-building-ann-recognizes-numbers" class="nav-link active" data-scroll-target="#labann001-building-ann-recognizes-numbers">Lab#ANN001: Building ANN recognizes numbers</a></li>
   <li><a href="#labgpt001-python-extractor" id="toc-labgpt001-python-extractor" class="nav-link" data-scroll-target="#labgpt001-python-extractor">Lab#GPT001: Python extractor</a></li>
   <li><a href="#labann002-tensor-for-back-propagation" id="toc-labann002-tensor-for-back-propagation" class="nav-link" data-scroll-target="#labann002-tensor-for-back-propagation">Lab#ANN002: Tensor for back propagation</a></li>
+  <li><a href="#labrag001-hedge-fund-trading-team" id="toc-labrag001-hedge-fund-trading-team" class="nav-link" data-scroll-target="#labrag001-hedge-fund-trading-team">Lab#RAG001: Hedge fund trading team</a>
+  <ul>
+  <li><a href="#syllabus" id="toc-syllabus" class="nav-link" data-scroll-target="#syllabus">Syllabus</a></li>
+  <li><a href="#citations" id="toc-citations" class="nav-link" data-scroll-target="#citations">Citations</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -339,13 +400,59 @@ ul.task-list li input[type="checkbox"] {
 </blockquote>
 <p><strong>what is autograd?</strong></p>
 <p>Auto-grad, short for automatic differentiation, is a technique used in machine learning to efficiently compute gradients of complex functions. In the context of neural networks, autograd enables the computation of gradients with respect to the model’s parameters, which is crucial for training the network using optimization algorithms like gradient descent.</p>
+<blockquote class="blockquote">
 <p>It works by constructing a computational graph that represents the flow of data through the network. Each node in the graph represents a mathematical operation, and the edges represent the flow of data between these operations. By tracking the operations and their dependencies, autograd can automatically compute the gradients using the chain rule of calculus.</p>
-<p>An algorithm used in conjuction with autograd is Backpropagation to train neural networks. It is the process of propagating the gradients backward through the computational graph, from the output layer to the input layer, in order to update the model’s parameters. This is the stuff which makes ML/DL models “learn”.</p>
+</blockquote>
+<p>An algorithm used in conjuction with autograd is <strong>Backpropagation</strong> to train <code>neural networks</code>. It is the process of propagating the gradients backward through the computational graph, from the output layer to the input layer, in order to update the model’s parameters. This is the stuff which makes ML/DL models “learn”.</p>
 <ul>
-<li><a href="https://github.com/smolorg/smolgrad" class="external" target="_blank">utograd: repo</a></li>
+<li><a href="https://github.com/smolorg/smolgrad" class="external" target="_blank">autograd: repo</a></li>
+</ul>
+</section>
+<section id="labrag001-hedge-fund-trading-team" class="level1">
+<h1>Lab#RAG001: Hedge fund trading team</h1>
+<p>This lab outlines the creation of a hedge fund trading team using AI agents. The process involves setting up multiple specialized agents to handle different aspects of trading:</p>
+<ol type="1">
+<li>A <strong>Market Data Agent</strong> to gather and process financial data</li>
+<li>A <strong>Quant Agent</strong> for developing trading strategies</li>
+<li>A <strong>Risk Managemen</strong>t Agent to assess and mitigate risks</li>
+<li>A <strong>Portfolio Management</strong> Agent for overall fund management</li>
+</ol>
+<p><mark>These agents are then integrated into an Agent Graph, allowing them to collaborate and share information efficiently.</mark></p>
+<blockquote class="blockquote">
+<p>The lab also covers obtaining stock price data and generating trading signals, which are crucial for making informed investment decisions.</p>
+</blockquote>
+<p>A key component of the lab is the creation of a <code>Backtester</code>. This tool allows the team to simulate and evaluate their trading strategies using historical data, providing valuable insights into potential performance without risking real capital.</p>
+<p>The final step involves running the <code>backtest</code> to assess the effectiveness of the developed strategies and the overall performance of the AI-driven hedge fund team. This approach combines advanced AI techniques with traditional financial analysis, potentially offering a powerful new paradigm for hedge fund management.</p>
+<section id="syllabus" class="level3">
+<h3 class="anchored" data-anchor-id="syllabus">Syllabus</h3>
+<ol type="1">
+<li>Setup</li>
+<li>Create Market Data Agent</li>
+<li>Create Quant Agent</li>
+<li>Create Risk Management Agent</li>
+<li>Create Portfolio Management Agent</li>
+<li>Create Agent Graph</li>
+<li>Get Stock Price and Trading Signals</li>
+<li>Create Backtester</li>
+<li>Run the Backtest</li>
+</ol>
+</section>
+<section id="citations" class="level3">
+<h3 class="anchored" data-anchor-id="citations">Citations</h3>
+<ul>
+<li><a href="https://electronictradinghub.com/how-hedge-fund-operations-are-organized/" class="external" target="_blank">How Hedge Fund Operations Are Organized</a></li>
+<li><a href="https://www.youtube.com/watch?v=vnzt4lwzbXU" class="external" target="_blank">I Gave an AI Hedge Fund $1000 to invest with</a></li>
+<li><a href="https://www.lgtcp.com/files/2024-04/lgt_capital_partners_-_hedge_fund_strategies_introduction_-_2024_en.pdf" class="external" target="_blank">Hedge Fund Strategies Introduction</a></li>
+<li><a href="https://gist.github.com/virattt/0e4c7740472177a327b61449c9af721d" class="external" target="_blank">Hedge Fund Trading Team Gist</a></li>
+<li><a href="https://www.fundlaunch.com/articles/hedge-fund-structure" class="external" target="_blank">Hedge Fund Structure</a></li>
+<li><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3004520" class="external" target="_blank">Hedge Fund Performance Evaluation Using Data Envelopment Analysis</a></li>
+<li><a href="https://fundfront.com/blog/how-to-set-up-a-hedge-fund/" class="external" target="_blank">How to Set Up a Hedge Fund</a></li>
+<li><a href="https://www.researchgate.net/publication/271946569_Four_dimensions_of_risk_management_for_hedge_funds" class="external" target="_blank">Four dimensions of risk management for hedge funds</a></li>
+<li><a href="https://colab.research.google.com/gist/virattt/251cfea5e66b21c7b6a58b8952476117/hedge-fund-trading-team.ipynb#scrollTo=TcKHO2SE4tFQ" class="external" target="_blank">hedge-fund-trading-team.ipynb</a></li>
 </ul>
 
 
+</section>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
