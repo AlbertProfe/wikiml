@@ -1,0 +1,7 @@
+---
+title: "Python Helsinki: 11"
+---
+
+# Advanced Object-Oriented Programming
+
+**-** [Part 11: Advanced Object-Oriented Programming](https://programming-24.mooc.fi/part-11/1-advanced-oop){.external target='_blank'}

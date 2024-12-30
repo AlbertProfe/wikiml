@@ -1,0 +1,7 @@
+---
+title: "Python Helsinki: 8"
+---
+
+# Dictionaries
+
+**-** [Part 8: Dictionaries](https://programming-24.mooc.fi/part-8/1-dictionaries){.external target='_blank'}

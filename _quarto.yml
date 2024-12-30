@@ -37,7 +37,6 @@ website:
       - sidebar:rags
       - sidebar:labs
       - sidebar:resources
-      - sidebar:books
       - sidebar:about
 
   sidebar:
@@ -72,15 +71,6 @@ website:
         - section: "What is Big Data?"
           contents:
             - bigdata/bigdata-index.qmd
-
-    - id: "books"
-      title: "Books"
-      contents:
-        - text: "Books"
-        - text: "---"
-        - section: "Book Resources"
-          contents:
-            - books/books-index.qmd
 
     - id: "deeplearning"
       title: "Deep Learning"
@@ -117,6 +107,20 @@ website:
         - section: "Python Programming"
           contents:
             - python/python-index.qmd
+            - python/python-part1.qmd
+            - python/python-part2.qmd
+            - python/python-part3.qmd
+            - python/python-part4.qmd
+            - python/python-part5.qmd
+            - python/python-part6.qmd
+            - python/python-part7.qmd
+            - python/python-part8.qmd
+            - python/python-part9.qmd
+            - python/python-part10.qmd
+            - python/python-part11.qmd
+            - python/python-part12.qmd
+            - python/python-part13.qmd
+            - python/python-part14.qmd
 
     - id: "rags"
       title: "RAGs"
@@ -135,6 +139,10 @@ website:
         - section: "Additional Resources"
           contents:
             - resources/resources-index.qmd
+        - text: "---"
+        - section: "Books"
+          contents:
+            - resources/resources-books.qmd
     
     - id: "about"
       title: "About"

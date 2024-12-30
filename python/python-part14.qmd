@@ -1,0 +1,7 @@
+---
+title: "Python Helsinki: 14"
+---
+
+# GUI Programming
+
+**-** [Part 14: GUI Programming](https://programming-24.mooc.fi/part-14/1-gui-programming){.external target='_blank'}

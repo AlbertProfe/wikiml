@@ -1,0 +1,5 @@
+---
+title: "Books"
+---
+
+- <span class="chip chip-primary">book</span> [Welcome to the Physics-based Deep Learning Book (v0.2)](http://physicsbaseddeeplearning.org/intro.html){.external target='_blank'}

@@ -7,13 +7,14 @@ title: "Resources"
 ### Physics and Deep Learning
 
 - <span class="chip chip-primary">book</span> [Welcome to the Physics-based Deep Learning Book (v0.2)](http://physicsbaseddeeplearning.org/intro.html){.external target='_blank'}
+- [Rob J Hyndman | Professor of Statistics](https://robjhyndman.com/){.external target='_blank'}
 
 ### Algorithms
 
 MIT's Introduction to Algorithms:
 
-- Lecture Notes: https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/pages/lecture-notes/ 
-- Lecture Videos: http://www.youtube.com/playlist?list=PLUl4u3cNGP63EdVPNLG3ToM6LaEUuStEY
+- [Lecture Notes](https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/pages/lecture-notes/ ){.external target='_blank'}
+- [Lecture Videos](http://www.youtube.com/playlist?list=PLUl4u3cNGP63EdVPNLG3ToM6LaEUuStEY){.external target='_blank'}
 
 # Introduction
 
@@ -46,6 +47,7 @@ MIT's Introduction to Algorithms:
 - <span class="chip chip-warning">paper</span> [Attention Is All You Need](https://proceedings.neurips.cc/paper_files/paper/2017/file/3f5ee243547dee91fbd053c1c4a845aa-Paper.pdf){.external target='_blank'}
 - <span class="chip chip-success">web</span> [IT-Tools](https://it-tools.tech/){.external target='_blank'}
 - <span class="chip chip-danger">youtube</span> [Building a neural network FROM SCRATCH (no Tensorflow/Pytorch, just numpy & math)](https://youtu.be/w8yWXqWQYmU?feature=shared){.external target='_blank'}
+- [AI by hand](https://aibyhand.substack.com/){.external target='_blank'}
 
 
 

@@ -1,0 +1,7 @@
+---
+title: "Python Helsinki: 12"
+---
+
+# Libraries and Modules
+
+**-** [Part 12: Libraries and Modules](https://programming-24.mooc.fi/part-12/1-libraries-modules){.external target='_blank'}

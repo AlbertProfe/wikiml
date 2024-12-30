@@ -1,0 +1,7 @@
+---
+title: "Python Helsinki: 6"
+---
+
+# File I/O and Strings
+
+**-** [Part 6: File I/O and Strings](https://programming-24.mooc.fi/part-6/1-file-io-strings){.external target='_blank'}

@@ -2,6 +2,22 @@
 title: "Python"
 ---
 
-This is a Quarto website.
+# Python Programming MOOC 2024
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+![Python Programming MOOC 2024](/images/machine/mooc-title.png)
+
+## About this course
+
+This is the course material page for the *Introduction to Programming* course (`BSCS1001, 5 ECTS`) and the *Advanced Course in Programming* (`BSCS1002, 5 ECTS`) from the Department of **Computer Science at the University of Helsinki**.
+
+## Lectures
+
+There are no more live lectures for this year's MOOC instance. The lecture recordings can be viewed on the table below.
+
+- [Lectures]([Getting started](https://programming-24.mooc.fi/#lecture)){.external target='_blank'}
+
+## Links
+
+- [Python Programming MOOC 2024](https://programming-24.mooc.fi/){.external target='_blank'}
+- [All exercises](https://programming-24.mooc.fi/all-exercises){.external target='_blank'}
+- [Part 1: Getting started](https://programming-24.mooc.fi/part-1/1-getting-started){.external target='_blank'}

@@ -1,0 +1,7 @@
+---
+title: "Python Helsinki: 2"
+---
+
+# Programming terminology
+
+**-** [Part 2: Programming terminology](https://programming-24.mooc.fi/part-2/1-programming-terminology){.external target='_blank'}

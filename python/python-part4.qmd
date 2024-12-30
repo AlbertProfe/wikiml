@@ -1,0 +1,7 @@
+---
+title: "Python Helsinki: 4"
+---
+
+# Functions
+
+**-** [Part 4: Functions](https://programming-24.mooc.fi/part-4/1-functions){.external target='_blank'}

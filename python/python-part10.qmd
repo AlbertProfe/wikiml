@@ -1,0 +1,7 @@
+---
+title: "Python Helsinki: 10"
+---
+
+# Object-Oriented Programming
+
+**-** [Part 10: Object-Oriented Programming](https://programming-24.mooc.fi/part-10/1-object-oriented-programming){.external target='_blank'}

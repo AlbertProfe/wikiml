@@ -1,0 +1,7 @@
+---
+title: "Python Helsinki: 9"
+---
+
+# Objects and Classes
+
+**-** [Part 9: Objects and Classes](https://programming-24.mooc.fi/part-9/1-objects-and-classes){.external target='_blank'}

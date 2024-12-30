@@ -2,6 +2,105 @@
 title: "Roadmap"
 ---
 
-This is a Quarto website.
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+Step by step guide to becoming an **AI and Data Scientist** in 2024:
+
+
+- [AI and Data Scientist](https://roadmap.sh/ai-data-scientist){.external target='_blank'}
+
+Step by step guide to becoming an **AI Engineer** in 2024:
+
+
+- [AI Engineer](https://roadmap.sh/ai-engineer){.external target='_blank'}
+
+::: {.column-page-right}
+| # | Date | Title | Description | Tasks |
+|---|------|-------|-------------|--------|
+| 1 | 2024-01-06 | Python Basics 1/4 | Introduction to Python programming | Variables, data types |
+| 1 | 2024-01-06 | ML Foundations 1/4 | Basic machine learning concepts | Types of ML, learning paradigms |
+| 1 | 2024-01-06 | ANN Foundation 1/4 | Introduction to neural networks | Network architecture basics |
+| 2 | 2024-01-13 | Python Basics 2/4 | Control structures | Loops, conditionals, functions |
+| 2 | 2024-01-13 | ML Foundations 2/4 | Model evaluation | Metrics, validation techniques |
+| 2 | 2024-01-13 | ANN Foundation 2/4 | Forward propagation | Activation functions, layers |
+| 3 | 2024-01-20 | Python Basics 3/4 | Functions and modules | Function creation, importing modules |
+| 3 | 2024-01-20 | ML Foundations 3/4 | Data preprocessing | Cleaning, normalization, feature engineering |
+| 3 | 2024-01-20 | ANN Foundation 3/4 | Backpropagation | Gradient descent basics |
+| 4 | 2024-01-27 | Python Basics 4/4 | Error handling | Try-except, debugging |
+| 4 | 2024-01-27 | ML Foundations 4/4 | Model selection | Cross-validation, hyperparameter tuning |
+| 4 | 2024-01-27 | ANN Foundation 4/4 | Loss functions | Common losses, optimization basics |
+| 5 | 2024-02-03 | Python Intermediate 1/4 | OOP concepts | Classes, objects, inheritance |
+| 5 | 2024-02-03 | Supervised Learning 1/4 | Linear regression | Simple and multiple regression |
+| 5 | 2024-02-03 | ANN Training 1/4 | Optimization algorithms | SGD, Adam, RMSprop |
+| 6 | 2024-02-10 | Python Intermediate 2/4 | Advanced functions | Lambda, decorators, generators |
+| 6 | 2024-02-10 | Supervised Learning 2/4 | Classification basics | Logistic regression, decision trees |
+| 6 | 2024-02-10 | ANN Training 2/4 | Regularization | L1, L2, dropout |
+| 7 | 2024-02-17 | Python Intermediate 3/4 | File handling | Reading/writing files, JSON |
+| 7 | 2024-02-17 | Supervised Learning 3/4 | Ensemble methods | Random forests, boosting |
+| 7 | 2024-02-17 | ANN Training 3/4 | Batch normalization | Implementation and effects |
+| 8 | 2024-02-24 | Python Intermediate 4/4 | Package management | Pip, virtual environments |
+| 8 | 2024-02-24 | Supervised Learning 4/4 | Model deployment | Saving, loading, serving models |
+| 8 | 2024-02-24 | ANN Training 4/4 | Model evaluation | Metrics, validation strategies |
+| 9 | 2024-03-02 | Python for DS 1/4 | NumPy basics | Arrays, operations, indexing |
+| 9 | 2024-03-02 | Deep Learning 1/4 | DL frameworks | PyTorch basics |
+| 9 | 2024-03-02 | ANN Advanced 1/4 | Advanced architectures | ResNet, Inception |
+| 10 | 2024-03-09 | Python for DS 2/4 | Pandas basics | DataFrames, series, indexing |
+| 10 | 2024-03-09 | Deep Learning 2/4 | Data loading | Datasets, dataloaders |
+| 10 | 2024-03-09 | ANN Advanced 2/4 | Transfer learning | Pre-trained models, fine-tuning |
+| 11 | 2024-03-16 | Python for DS 3/4 | Data visualization | Matplotlib, Seaborn |
+| 11 | 2024-03-16 | Deep Learning 3/4 | Custom layers | Building network components |
+| 11 | 2024-03-16 | ANN Advanced 3/4 | Advanced training | Learning rate scheduling |
+| 12 | 2024-03-23 | Python for DS 4/4 | Data analysis | EDA, statistical analysis |
+| 12 | 2024-03-23 | Deep Learning 4/4 | Model optimization | Performance tuning |
+| 12 | 2024-03-23 | ANN Advanced 4/4 | Deployment | Production considerations |
+| 13 | 2024-03-30 | Linear Algebra 1/4 | Vectors and matrices | Basic operations |
+| 13 | 2024-03-30 | CNN 1/4 | CNN basics | Convolution operations |
+| 13 | 2024-03-30 | ANN Applications 1/4 | Image classification | MNIST implementation |
+| 14 | 2024-04-06 | Linear Algebra 2/4 | Matrix operations | Multiplication, inverse |
+| 14 | 2024-04-06 | CNN 2/4 | Pooling layers | Max pooling, average pooling |
+| 14 | 2024-04-06 | ANN Applications 2/4 | Object detection | YOLO implementation |
+| 15 | 2024-04-13 | Linear Algebra 3/4 | Eigenvalues | Decomposition |
+| 15 | 2024-04-13 | CNN 3/4 | Modern architectures | VGG, ResNet |
+| 15 | 2024-04-13 | ANN Applications 3/4 | Segmentation | U-Net implementation |
+| 16 | 2024-04-20 | Linear Algebra 4/4 | PCA | Dimensionality reduction |
+| 16 | 2024-04-20 | CNN 4/4 | Transfer learning | Fine-tuning CNNs |
+| 16 | 2024-04-20 | ANN Applications 4/4 | Style transfer | Neural style transfer |
+| 17 | 2024-04-27 | Statistics 1/4 | Probability basics | Distributions |
+| 17 | 2024-04-27 | RNN 1/4 | RNN basics | Sequential data |
+| 17 | 2024-04-27 | RAG Basics 1/4 | Vector databases | Embedding basics |
+| 18 | 2024-05-04 | Statistics 2/4 | Hypothesis testing | T-tests, chi-square |
+| 18 | 2024-05-04 | RNN 2/4 | LSTM | Long-term dependencies |
+| 18 | 2024-05-04 | RAG Basics 2/4 | Retrieval methods | Vector similarity |
+| 19 | 2024-05-11 | Statistics 3/4 | Regression analysis | Statistical modeling |
+| 19 | 2024-05-11 | RNN 3/4 | GRU | Gated recurrent units |
+| 19 | 2024-05-11 | RAG Basics 3/4 | Query processing | Embedding generation |
+| 20 | 2024-05-18 | Statistics 4/4 | Bayesian stats | Probabilistic modeling |
+| 20 | 2024-05-18 | RNN 4/4 | Attention mechanism | Self-attention basics |
+| 20 | 2024-05-18 | RAG Basics 4/4 | Response generation | Combining retrieved info |
+| 21 | 2024-05-25 | Big Data 1/4 | Distributed systems | Hadoop ecosystem |
+| 21 | 2024-05-25 | Lab: Classification 1/4 | Project setup | Data preparation |
+| 21 | 2024-05-25 | RAG Implementation 1/4 | System design | Architecture planning |
+| 22 | 2024-06-01 | Big Data 2/4 | MapReduce | Programming paradigm |
+| 22 | 2024-06-01 | Lab: Classification 2/4 | Model development | Training pipeline |
+| 22 | 2024-06-01 | RAG Implementation 2/4 | Integration | Connecting components |
+| 23 | 2024-06-08 | Big Data 3/4 | Spark basics | RDD operations |
+| 23 | 2024-06-08 | Lab: Classification 3/4 | Model evaluation | Performance analysis |
+| 23 | 2024-06-08 | RAG Implementation 3/4 | Optimization | Performance tuning |
+| 24 | 2024-06-15 | Big Data 4/4 | Spark ML | ML pipelines |
+| 24 | 2024-06-15 | Lab: Classification 4/4 | Deployment | Production readiness |
+| 24 | 2024-06-15 | RAG Implementation 4/4 | Deployment | System deployment |
+| 25 | 2024-06-22 | Lab: NLP 1/4 | Text preprocessing | Tokenization, cleaning |
+| 25 | 2024-06-22 | Lab: CV 1/4 | Image preprocessing | Augmentation pipeline |
+| 25 | 2024-06-22 | Lab: Full Stack 1/4 | Frontend design | UI/UX planning |
+| 26 | 2024-06-29 | Lab: NLP 2/4 | Model architecture | BERT implementation |
+| 26 | 2024-06-29 | Lab: CV 2/4 | Model development | CNN architecture |
+| 26 | 2024-06-29 | Lab: Full Stack 2/4 | Backend setup | API development |
+| 27 | 2024-07-06 | Lab: NLP 3/4 | Fine-tuning | Transfer learning |
+| 27 | 2024-07-06 | Lab: CV 3/4 | Training | Model optimization |
+| 27 | 2024-07-06 | Lab: Full Stack 3/4 | Integration | API endpoints |
+| 28 | 2024-07-13 | Lab: NLP 4/4 | Deployment | Production system |
+| 28 | 2024-07-13 | Lab: CV 4/4 | Deployment | Model serving |
+| 28 | 2024-07-13 | Lab: Full Stack 4/4 | Deployment | System launch |
+| 29 | 2024-07-20 | Final Project 1/4 | Project planning | Requirements analysis |
+| 29 | 2024-07-20 | Final Project 2/4 | Implementation | Core development |
+| 29 | 2024-07-20 | Final Project 3/4 | Testing | System validation |
+:::

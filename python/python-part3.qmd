@@ -1,0 +1,7 @@
+---
+title: "Python Helsinki: 3"
+---
+
+# More about variables
+
+**-** [Part 3: More about variables](https://programming-24.mooc.fi/part-3/1-more-about-variables){.external target='_blank'}
