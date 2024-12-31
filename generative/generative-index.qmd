@@ -1,0 +1,76 @@
+---
+title: "Generative AI"
+---
+
+# Generative AI Models
+
+> **Generative AI models** are machine learning models that can generate new data from existing data.
+
+Generative AI models are used in many applications, such as image generation, text generation, speech synthesis, and music generation.
+
+Table with key technologies and models that play crucial roles in Generative AI:
+
+::: {.column-page-right}
+| Technology                      | Year Released | Description                                                                 | Key Differences                               | Applications                                   |
+|---------------------------------|---------------|-----------------------------------------------------------------------------|----------------------------------------------|------------------------------------------------|
+| **Retrieval-Augmented Generation (RAG)** | 2020 | Combines information retrieval with text generation.                      | Focuses on enhancing generation with retrieved data. | Chatbots, question answering systems            |
+| **Generative Adversarial Networks (GANs)** | 2014 | Consists of a generator and a discriminator competing against each other. | Uses adversarial training for realistic data generation. | Image and video generation                      |
+| **Large Language Models (LLMs)** | 2018 | Deep learning models trained on vast amounts of text data.                 | Specializes in understanding and generating human-like text. | Text generation, summarization, translation     |
+| **GPT (Generative Pre-trained Transformer)** | 2018 | A specific type of LLM developed by OpenAI using transformer architecture. | Pre-trained on large datasets for coherent text generation. | Conversational agents, content creation         |
+| **Autoencoders**                | 1987 | Neural networks for learning efficient data representations.               | Composed of an encoder and decoder for data compression. | Denoising, anomaly detection                    |
+| **Transformers**                | 2017 | Neural network architecture using self-attention mechanisms.               | Designed for processing sequential data effectively. | Natural language processing, image analysis     |
+
+:::
+
+
+![Comparison of three categories of generative models.](/images/generative/three-generative-models.png)
+
+# Variational Autoencoders (VAEs)
+
+> **Variational AutoEncoders (VAEs)** is a type of *autoencoder* that extends the basic architecture to learn a probabilistic model of the data.
+
+This allows them to generate new data similar to the original input but not identical.
+
+The key innovation in **VAEs** is the introduction of a regularization term known as the **Kullback-Leibler (KL) divergence**, which encourages the learned distribution to match a prior distribution, typically a standard normal distribution.
+
+This regularization term allows **VAEs** to generate more diverse and realistic data than traditional **autoencoders**.
+
+
+![Illustration of variational autoencoder model](/images/generative/generative-encoders.png)
+
+- [From Autoencoder to Beta-VAE](https://lilianweng.github.io/posts/2018-08-12-vae/){.external target='_blank'}
+
+# Generative Adversarial Networks (GANs)
+
+**Generative Adversarial Networks (GANs**) were introduced by **Ian Goodfellow in 2014**. They are a class of *generative models* that use two neural networks, a generator, and a discriminator, to generate new data.
+
+> The generator network takes a random noise vector as input and generates a sample from the data distribution. The discriminator network takes a sample from the data distribution and a sample from the generator network and tries to distinguish between them.
+
+The generator network is trained to fool the discriminator network, while the discriminator network is trained to distinguish between real and fake samples.
+
+![Illustration of GAN model](/images/generative/generative-gan.png)
+
+- [From GAN to WGAN](https://lilianweng.github.io/posts/2017-08-20-gan/){.external target='_blank'}
+
+# Transformers
+
+The **Transformer** was introduced in *2017 by Vaswani et al*. 
+
+> It is a neural network architecture that uses **attention** mechanisms to process data sequences.
+
+The **Transformer** has been used in many applications, such as machine translation, text summarization, and image captioning.
+
+
+![Transformer model architecture](/images/generative/transformer_model_architecture.png)
+
+- [The Transformer Blueprint: A Holistic Guide to the Transformer Neural Network Architecture](https://deeprevision.github.io/posts/001-transformer/#ref-vaswani2017attention){.external target='_blank'}
+
+# Large Language Models (LLM)
+
+> LLMs are trained on vast amounts of textual data and use transformer models to analyze and produce coherent, contextually relevant language.
+
+They excel at tasks such as text generation, translation, and answering questions based on their training data.
+
+# Resources
+
+- [An overview of Generative AI in 2023](https://www.vietanh.dev/notes/2023-05-02-overview-of-generative-ai){.external target='_blank'}

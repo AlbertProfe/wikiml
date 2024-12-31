@@ -1,0 +1,12 @@
+# This file is used internally by FFMPEG.
+file 'file:/home/albert/MyProjects/MachineLearning/WIKI-ML/media/videos/1080p60/partial_movie_files/FourierSeriesAnimation/3977891868_1192611878_918577481.mp4'
+file 'file:/home/albert/MyProjects/MachineLearning/WIKI-ML/media/videos/1080p60/partial_movie_files/FourierSeriesAnimation/2852726489_2919340033_3453741227.mp4'
+file 'file:/home/albert/MyProjects/MachineLearning/WIKI-ML/media/videos/1080p60/partial_movie_files/FourierSeriesAnimation/2852726489_3477404133_731380776.mp4'
+file 'file:/home/albert/MyProjects/MachineLearning/WIKI-ML/media/videos/1080p60/partial_movie_files/FourierSeriesAnimation/2852726489_2919340033_2647377360.mp4'
+file 'file:/home/albert/MyProjects/MachineLearning/WIKI-ML/media/videos/1080p60/partial_movie_files/FourierSeriesAnimation/2852726489_3947299937_2701482823.mp4'
+file 'file:/home/albert/MyProjects/MachineLearning/WIKI-ML/media/videos/1080p60/partial_movie_files/FourierSeriesAnimation/2852726489_2919340033_1566753157.mp4'
+file 'file:/home/albert/MyProjects/MachineLearning/WIKI-ML/media/videos/1080p60/partial_movie_files/FourierSeriesAnimation/2852726489_1360846126_2385188015.mp4'
+file 'file:/home/albert/MyProjects/MachineLearning/WIKI-ML/media/videos/1080p60/partial_movie_files/FourierSeriesAnimation/2852726489_2919340033_2794577675.mp4'
+file 'file:/home/albert/MyProjects/MachineLearning/WIKI-ML/media/videos/1080p60/partial_movie_files/FourierSeriesAnimation/2852726489_482246897_1012974014.mp4'
+file 'file:/home/albert/MyProjects/MachineLearning/WIKI-ML/media/videos/1080p60/partial_movie_files/FourierSeriesAnimation/2852726489_2919340033_719805256.mp4'
+file 'file:/home/albert/MyProjects/MachineLearning/WIKI-ML/media/videos/1080p60/partial_movie_files/FourierSeriesAnimation/2852726489_784179552_1651026670.mp4'

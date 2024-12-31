@@ -4,3 +4,5 @@
 /_extensions/
 /.luarc.json
 /qpubli.sh
+/_freeze
+/.jupyter_cache

@@ -31,10 +31,10 @@ website:
       - sidebar:algorithms
       - sidebar:ann
       - sidebar:bigdata
-      - sidebar:deeplearning
       - sidebar:machinelearning
+      - sidebar:deeplearning
+      - sidebar:generative
       - sidebar:python
-      - sidebar:rags
       - sidebar:labs
       - sidebar:resources
       - sidebar:about
@@ -122,14 +122,26 @@ website:
             - python/python-part13.qmd
             - python/python-part14.qmd
 
-    - id: "rags"
-      title: "RAGs"
+    - id: "generative"
+      title: "Generative AI"
       contents:
-        - text: "RAGs"
         - text: "---"
-        - section: "Retrieval-Augmented Generation"
+        - section: "Generative AI"
           contents:
-            - rags/rags-index.qmd
+            - generative/generative-index.qmd
+        - text: "---"
+        - section: "Generative LLM"
+          contents:
+            - generative/generative-llm.qmd
+            - generative/generative-gpt.qmd
+        - text: "---"
+        - section: "Generative AI Transformer"
+          contents:
+            - generative/generative-transformer.qmd
+        - text: "---"
+        - section: "Generative RAG"
+          contents:
+            - generative/generative-rag.qmd
 
     - id: "resources"
       title: "Resources"

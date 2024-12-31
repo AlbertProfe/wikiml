@@ -81,3 +81,33 @@ The final step involves running the `backtest` to assess the effectiveness of th
 - [hedge-fund-trading-team.ipynb](https://colab.research.google.com/gist/virattt/251cfea5e66b21c7b6a58b8952476117/hedge-fund-trading-team.ipynb#scrollTo=TcKHO2SE4tFQ){.external target='_blank'}
 
 
+# Lab#MAL001: How to structure your ML code
+
+ML apps, like any other piece of software, can only generate business value once they are deployed and used in a production environment.
+
+And the thing is, deploying all-in-one messy Jupyter notebooks from your local machine to a production environment is neither easy, nor recommended from an MLOps perspective.
+
+Often a DevOps or MLOps senior colleague needs to re-write your all-in-on messy notebook, which adds excessive friction and frustration for you and the guy helping you.
+
+So the question is:
+
+> Is there a better way to develop and package your ML code, so you ship faster and better?
+
+**Yes, there is**
+
+- [How to structure your ML code](https://www.realworldml.net/blog/how-to-structure-your-ml-code){.external target='_blank'}
+
+
+# Lab#MAL002: How to structure your ML code
+
+This is the first article in the series where we will build AI Agents from scratch without using any LLM orchestration frameworks. In this one you will learn:
+
+- What are agents?
+- How the Tool usage actually works.
+- How to build a decorator wrapper that extracts relevant details from a Python function to be passed to the LLM via system prompt.
+- How to think about constructing effective system prompts that can be used for Agents.
+- How to build an Agent class that is able to plan and execute actions using provided Tools.
+
+You can find the code examples for this and following projects in this [repo](https://github.com/swirl-ai/ai-angineers-handbook){.external target='_blank'}
+
+- [Building AI Agents from scratch - Part 1: Tool use](https://www.newsletter.swirlai.com/p/building-ai-agents-from-scratch-part){.external target='_blank'}

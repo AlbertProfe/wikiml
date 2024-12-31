@@ -3,20 +3,74 @@ title: "Wiki Machine Learning"
 ---
 
 
-
-
 **Machine learning (ML)** is a branch of *artificial intelligence (AI)* focused on enabling computers and machines to imitate the way that humans learn, to perform tasks autonomously, and to improve their performance and accuracy through experience and exposure to more data.
 
-[UC Berkeley](https://ischoolonline.berkeley.edu/blog/what-is-machine-learning/){.external target='_blank'} breaks out the learning system of a machine learning algorithm into three main parts.
-
-- **A Decision Process**: In general, machine learning algorithms are used to make a prediction or classification. Based on some input data, which can be labeled or unlabeled, your algorithm will produce an estimate about a pattern in the data.
-- **An Error Function**: An error function evaluates the prediction of the model. If there are known examples, an error function can make a comparison to assess the accuracy of the model.
-- **A Model Optimization Process**: If the model can fit better to the data points in the training set, then weights are adjusted to reduce the discrepancy between the known example and the model estimate. The algorithm will repeat this iterative “evaluate and optimize” process, updating weights autonomously until a threshold of accuracy has been met.
-
-- [What is machine learning?](https://www.ibm.com/think/topics/machine-learning){.external target='_blank'}
 
 > Machine learning is a subfield of artificial intelligence, which is broadly defined as the capability of a machine to imitate intelligent human behavior. Artificial intelligence systems are used to perform complex tasks in a way that is similar to how humans solve problems.
 
-![[From: Optical neural networks: progress and challenges](https://www.nature.com/articles/s41377-024-01590-3){.external target='_blank'}](https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs41377-024-01590-3/MediaObjects/41377_2024_1590_Fig3_HTML.png?as=webp)
+![[From: Optical neural networks: progress and challenges](https://www.nature.com/articles/s41377-024-01590-3){.external target='_blank'}](https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs41377-024-01590-3/MediaObjects/41377_2024_1590_Fig3_HTML.png?as=webp){width=80%}
 
-Neuron structure and artificial neural network. a Structure of biological neurons. b Mathematical inferring process of artificial neurons in multi-layer perceptron, including the input, weights, summation, activation function, and output. c Multi-layer perceptron artificial neural network
+*Neuron structure and artificial neural network*. **a** Structure of biological neurons. **b** Mathematical inferring process of artificial neurons in multi-layer perceptron, including the input, weights, summation, activation function, and output. **c** Multi-layer perceptron artificial neural network
+
+# Python, Manim and Machine Learning
+
+**Python** is a versatile programming language widely used for coding **Artificial Neural Networks (ANNs)** and **Machine Learning (ML)** algorithms.
+
+### Fourier Series
+
+> The **Fourier** series animation using **Manim** serves as an excellent example of how **Python** can be used to create complex visualizations and animations for mathematical concepts.
+
+
+![](/images/home/FourierSeriesAnimation.mp4)
+
+<mark>The Fourier series animation showcases Python's ability to visualize complex mathematical concepts, which is crucial in ML for understanding data distributions, model architectures, and algorithm behavior.</mark>
+
+Similarly, when working with ANNs and ML, you would use Python to create visualizations of your model's architecture, training progress, and prediction results.
+
+
+``` python
+from manim import *
+
+class FourierSeriesAnimation(Scene):
+    def construct(self):
+        # Create axes
+        axes = Axes(
+            x_range=[-2*PI, 2*PI, PI/2],
+            y_range=[-2, 2, 1],
+            axis_config={"color": BLUE},
+        )
+        
+        # Create the original function (square wave)
+        def square_wave(x):
+            return np.sign(np.sin(x))
+        
+        original_func = axes.plot(square_wave, color=WHITE)
+        
+        # Define a list of colors for the approximations
+        colors = [RED, GREEN, YELLOW, PURPLE, ORANGE]
+        
+        # Create Fourier series approximations
+        approximations = []
+        for n in range(1, 6):
+            def fourier_series(x):
+                return sum([(4 / ((2*k - 1) * PI)) * np.sin((2*k - 1) * x) for k in range(1, n+1)])
+            
+            approximations.append(axes.plot(fourier_series, color=colors[n-1]))
+        
+        # Add elements to the scene
+        self.add(axes, original_func)
+        
+        # Animate the Fourier series approximations
+        for approx in approximations:
+            self.play(Create(approx), run_time=2)
+            self.wait(1)
+        
+        self.wait(2)
+
+# Render the scene
+if __name__ == "__main__":
+    scene = FourierSeriesAnimation()
+    scene.render()
+
+```
+
