@@ -358,11 +358,23 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#deep-learning-and-machine-learning" id="toc-deep-learning-and-machine-learning" class="nav-link" data-scroll-target="#deep-learning-and-machine-learning">Deep Learning and Machine Learning</a></li>
+  <li><a href="#machine-learning-fields" id="toc-machine-learning-fields" class="nav-link" data-scroll-target="#machine-learning-fields">Machine Learning fields</a></li>
+  <li><a href="#deep-learning-as-distinct-field" id="toc-deep-learning-as-distinct-field" class="nav-link" data-scroll-target="#deep-learning-as-distinct-field">Deep Learning as distinct field</a>
+  <ul>
+  <li><a href="#relationship-to-other-machine-learning-subfields" id="toc-relationship-to-other-machine-learning-subfields" class="nav-link" data-scroll-target="#relationship-to-other-machine-learning-subfields">Relationship to Other Machine Learning Subfields</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../machine/machine-index.html">Machine Learning Basics</a></li><li class="breadcrumb-item"><a href="../machine/machine-index.html">Machine Learning</a></li></ol></nav>
 <div class="quarto-title">
@@ -383,6 +395,8 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
 <p><strong>Machine learning (ML)</strong> is a branch of <em>artificial intelligence (AI)</em> focused on enabling computers and machines to imitate the way that humans learn, to perform tasks autonomously, and to improve their performance and accuracy through experience and exposure to more data.</p>
 <p><a href="https://ischoolonline.berkeley.edu/blog/what-is-machine-learning/" class="external" target="_blank">UC Berkeley</a> breaks out the learning system of a machine learning algorithm into three main parts.</p>
 <ul>
@@ -394,6 +408,9 @@ ul.task-list li input[type="checkbox"] {
 <blockquote class="blockquote">
 <p>Machine learning is a subfield of artificial intelligence, which is broadly defined as the capability of a machine to imitate intelligent human behavior. Artificial intelligence systems are used to perform complex tasks in a way that is similar to how humans solve problems.</p>
 </blockquote>
+</section>
+<section id="deep-learning-and-machine-learning" class="level1">
+<h1>Deep Learning and Machine Learning</h1>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs41377-024-01590-3/MediaObjects/41377_2024_1590_Fig3_HTML.png?as=webp" class="img-fluid figure-img"></p>
@@ -401,8 +418,120 @@ ul.task-list li input[type="checkbox"] {
 </figure>
 </div>
 <p>Neuron structure and artificial neural network. a Structure of biological neurons. b Mathematical inferring process of artificial neurons in multi-layer perceptron, including the input, weights, summation, activation function, and output. c Multi-layer perceptron artificial neural network</p>
+</section>
+<section id="machine-learning-fields" class="level1 page-columns page-full">
+<h1>Machine Learning fields</h1>
+<p>The core idea that classifies Deep Learning as a field of Machine Learning (ML) lies in its use of artificial neural networks (ANNs) with multiple layers to automatically learn patterns and representations from data. Unlike traditional ML, which often requires manual feature engineering, deep learning models extract features hierarchically, enabling them to handle complex tasks such as image recognition and natural language processing.</p>
+<p>Key fields in Machine Learning:</p>
+<ul>
+<li>Supervised Learning</li>
+<li>Unsupervised Learning</li>
+<li>Semi-Supervised Learning</li>
+<li>Reinforcement Learning</li>
+</ul>
+<p>Supervised Learning, Unsupervised Learning, Semi-Supervised Learning, and Reinforcement Learning are key paradigms in machine learning. Each approach addresses different types of problems and data availability.</p>
+<p>Supervised learning uses labeled data for training, while unsupervised learning identifies patterns in unlabeled data. Semi-supervised learning combines both, and reinforcement learning focuses on decision-making through trial and error in dynamic environments.</p>
+<div class="column-page-right">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 7%">
+<col style="width: 31%">
+<col style="width: 29%">
+<col style="width: 16%">
+<col style="width: 15%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Subfield</th>
+<th>Definition</th>
+<th>Objective</th>
+<th>Examples</th>
+<th>Applications</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Supervised Learning</strong></td>
+<td>Trains a model on a labeled dataset where each training example is paired with an output label.</td>
+<td>Learn a mapping from inputs to outputs for predictions on unseen data.</td>
+<td>Linear regression, logistic regression, decision trees, SVMs</td>
+<td>Classification (e.g., spam detection), regression (e.g., house prices)</td>
+</tr>
+<tr class="even">
+<td><strong>Unsupervised Learning</strong></td>
+<td>Trains a model on data without labeled outputs to learn the underlying structure or distribution of the data.</td>
+<td>Identify patterns, groupings, or relationships within the data.</td>
+<td>Clustering (e.g., k-means, hierarchical), dimensionality reduction (e.g., PCA)</td>
+<td>Market segmentation, anomaly detection, exploratory data analysis</td>
+</tr>
+<tr class="odd">
+<td><strong>Semi-Supervised Learning</strong></td>
+<td>Combines both labeled and unlabeled data for training, typically with a small amount of labeled data.</td>
+<td>Improve learning accuracy by leveraging additional unlabeled data while benefiting from labeled examples.</td>
+<td>Techniques using supervised methods enhanced by clustering.</td>
+<td>Scenarios where labeling data is expensive or time-consuming (e.g., image classification)</td>
+</tr>
+<tr class="even">
+<td><strong>Reinforcement Learning</strong></td>
+<td>Involves training an agent to make decisions by interacting with an environment and learning through trial and error.</td>
+<td>Learn a policy that maximizes cumulative rewards over time.</td>
+<td>Q-learning, deep reinforcement learning (using neural networks)</td>
+<td>Robotics, game playing (e.g., AlphaGo), autonomous systems</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="deep-learning-as-distinct-field" class="level1">
+<h1>Deep Learning as distinct field</h1>
+<p>Deep learning is indeed considered a distinct field within the broader domain of machine learning.</p>
+<p><mark>It is characterized by its use of deep neural networks to learn complex patterns from large datasets</mark>.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Deep Learning as a Distinct Field
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Core Concept</strong>: Deep learning utilizes artificial neural networks with multiple layers (deep architectures) to automatically learn representations from data, distinguishing it from traditional machine learning methods that often rely on manual feature extraction.</p>
+<p><strong>Complexity Handling</strong>: Deep learning excels at managing high-dimensional data and capturing non-linear relationships, making it particularly effective for tasks like image and speech recognition.</p>
+</div>
+</div>
+<section id="relationship-to-other-machine-learning-subfields" class="level3">
+<h3 class="anchored" data-anchor-id="relationship-to-other-machine-learning-subfields">Relationship to Other Machine Learning Subfields</h3>
+<p>Deep learning can be viewed as a specialized approach within the following main subfields of machine learning, here’s how deep learning fits into the classification of machine learning and its relationship with other fields:</p>
+<ol type="1">
+<li><strong>Supervised Learning</strong>:
+<ul>
+<li><strong>Definition</strong>: Involves training models on labeled datasets where the output is known.</li>
+<li><strong>Deep Learning Application</strong>: Deep learning models, such as Convolutional Neural Networks (CNNs) and Recurrent Neural Networks (RNNs), are frequently used for supervised tasks like classification and regression.</li>
+</ul></li>
+<li><strong>Unsupervised Learning</strong>:
+<ul>
+<li><strong>Definition</strong>: Involves training models on unlabeled data to discover hidden patterns or structures.</li>
+<li><strong>Deep Learning Application</strong>: Techniques like autoencoders and generative adversarial networks (GANs) are used in deep learning for tasks such as clustering and anomaly detection.</li>
+</ul></li>
+<li><strong>Semi-Supervised Learning</strong>:
+<ul>
+<li><strong>Definition</strong>: Combines both labeled and unlabeled data for training, leveraging the strengths of both approaches.</li>
+<li><strong>Deep Learning Application</strong>: Deep learning can enhance semi-supervised methods by using pre-trained models to extract features from unlabeled data.</li>
+</ul></li>
+<li><strong>Reinforcement Learning</strong>:
+<ul>
+<li><strong>Definition</strong>: Involves training agents to make decisions by interacting with an environment, receiving feedback in the form of rewards or penalties.</li>
+<li><strong>Deep Learning Application</strong>: Deep reinforcement learning combines neural networks with reinforcement learning principles, enabling agents to learn complex behaviors in environments with high-dimensional state spaces.</li>
+</ul></li>
+</ol>
+<blockquote class="blockquote">
+<p>Deep learning represents a significant advancement in machine learning, offering powerful tools for both supervised and unsupervised tasks. Its ability to automatically learn features from raw data sets it apart from traditional machine learning methods, making it a critical area of research and application in modern AI systems.</p>
+</blockquote>
 
 
+</section>
+</section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

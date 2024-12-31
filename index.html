@@ -102,6 +102,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -351,7 +380,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#python-manim-and-machine-learning" id="toc-python-manim-and-machine-learning" class="nav-link active" data-scroll-target="#python-manim-and-machine-learning">Python, Manim and Machine Learning</a>
+  <li><a href="#mathematical-model-of-an-ann" id="toc-mathematical-model-of-an-ann" class="nav-link active" data-scroll-target="#mathematical-model-of-an-ann">Mathematical Model of an ANN</a></li>
+  <li><a href="#python-manim-and-machine-learning" id="toc-python-manim-and-machine-learning" class="nav-link" data-scroll-target="#python-manim-and-machine-learning">Python, Manim and Machine Learning</a>
   <ul>
   <li><a href="#fourier-series" id="toc-fourier-series" class="nav-link" data-scroll-target="#fourier-series">Fourier Series</a></li>
   </ul></li>
@@ -381,9 +411,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p><strong>Machine learning (ML)</strong> is a branch of <em>artificial intelligence (AI)</em> focused on enabling computers and machines to imitate the way that humans learn, to perform tasks autonomously, and to improve their performance and accuracy through experience and exposure to more data.</p>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/wjZofJX0v4M?start=269&amp;end=356" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 <blockquote class="blockquote">
 <p>Machine learning is a subfield of artificial intelligence, which is broadly defined as the capability of a machine to imitate intelligent human behavior. Artificial intelligence systems are used to perform complex tasks in a way that is similar to how humans solve problems.</p>
 </blockquote>
+<section id="mathematical-model-of-an-ann" class="level1">
+<h1>Mathematical Model of an ANN</h1>
+<p>Each neuron computes a <strong>weighted sum</strong> of its inputs, adds a <em>bias term</em>, and applies an activation function. The output of a neuron can be represented as:</p>
+<p><span class="math display">\[
+y = f\left( \sum_{i=1}^{n} w_i x_i + b \right)
+\]</span></p>
+<p>where ( <strong>w_i</strong> ) are the weights, ( <strong>x_i</strong> ) are the inputs, ( <strong>b</strong> ) is the bias, and ( <strong>f</strong> ) is the activation function.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs41377-024-01590-3/MediaObjects/41377_2024_1590_Fig3_HTML.png?as=webp" class="img-fluid figure-img" style="width:80.0%"></p>
@@ -391,6 +429,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </figure>
 </div>
 <p><em>Neuron structure and artificial neural network</em>. <strong>a</strong> Structure of biological neurons. <strong>b</strong> Mathematical inferring process of artificial neurons in multi-layer perceptron, including the input, weights, summation, activation function, and output. <strong>c</strong> Multi-layer perceptron artificial neural network</p>
+</section>
 <section id="python-manim-and-machine-learning" class="level1">
 <h1>Python, Manim and Machine Learning</h1>
 <p><strong>Python</strong> is a versatile programming language widely used for coding <strong>Artificial Neural Networks (ANNs)</strong> and <strong>Machine Learning (ML)</strong> algorithms.</p>
