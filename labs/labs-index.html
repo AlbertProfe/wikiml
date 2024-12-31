@@ -130,6 +130,18 @@ ul.task-list li input[type="checkbox"] {
     </ul>
   </li>
   <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-machine-learning" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Machine Learning</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-machine-learning">    
+        <li class="dropdown-header">Machine Learning Basics</li>
+        <li>
+    <a class="dropdown-item" href="../machine/machine-index.html">
+ <span class="dropdown-text">Machine Learning</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-deep-learning" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Deep Learning</span>
     </a>
@@ -142,14 +154,36 @@ ul.task-list li input[type="checkbox"] {
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-machine-learning" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Machine Learning</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-generative-ai" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Generative AI</span>
     </a>
-    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-machine-learning">    
-        <li class="dropdown-header">Machine Learning Basics</li>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-generative-ai">    
+        <li class="dropdown-header">Generative AI</li>
         <li>
-    <a class="dropdown-item" href="../machine/machine-index.html">
- <span class="dropdown-text">Machine Learning</span></a>
+    <a class="dropdown-item" href="../generative/generative-index.html">
+ <span class="dropdown-text">Generative AI</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Generative LLM</li>
+        <li>
+    <a class="dropdown-item" href="../generative/generative-llm.html">
+ <span class="dropdown-text">Generative LLM</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../generative/generative-gpt.html">
+ <span class="dropdown-text">Generative AI GPT</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Generative AI Transformer</li>
+        <li>
+    <a class="dropdown-item" href="../generative/generative-transformer.html">
+ <span class="dropdown-text">Generative AI Transformer</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Generative RAG</li>
+        <li>
+    <a class="dropdown-item" href="../generative/generative-rag.html">
+ <span class="dropdown-text">Generative AI RAG</span></a>
   </li>  
     </ul>
   </li>
@@ -218,18 +252,6 @@ ul.task-list li input[type="checkbox"] {
         <li>
     <a class="dropdown-item" href="../python/python-part14.html">
  <span class="dropdown-text">Python Helsinki: 14</span></a>
-  </li>  
-    </ul>
-  </li>
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-rags" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">RAGs</span>
-    </a>
-    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-rags">    
-        <li class="dropdown-header">Retrieval-Augmented Generation</li>
-        <li>
-    <a class="dropdown-item" href="../rags/rags-index.html">
- <span class="dropdown-text">RAGs</span></a>
   </li>  
     </ul>
   </li>
@@ -349,6 +371,8 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#syllabus" id="toc-syllabus" class="nav-link" data-scroll-target="#syllabus">Syllabus</a></li>
   <li><a href="#citations" id="toc-citations" class="nav-link" data-scroll-target="#citations">Citations</a></li>
   </ul></li>
+  <li><a href="#labmal001-how-to-structure-your-ml-code" id="toc-labmal001-how-to-structure-your-ml-code" class="nav-link" data-scroll-target="#labmal001-how-to-structure-your-ml-code">Lab#MAL001: How to structure your ML code</a></li>
+  <li><a href="#labmal002-how-to-structure-your-ml-code" id="toc-labmal002-how-to-structure-your-ml-code" class="nav-link" data-scroll-target="#labmal002-how-to-structure-your-ml-code">Lab#MAL002: How to structure your ML code</a></li>
   </ul>
 </nav>
     </div>
@@ -450,9 +474,38 @@ ul.task-list li input[type="checkbox"] {
 <li><a href="https://www.researchgate.net/publication/271946569_Four_dimensions_of_risk_management_for_hedge_funds" class="external" target="_blank">Four dimensions of risk management for hedge funds</a></li>
 <li><a href="https://colab.research.google.com/gist/virattt/251cfea5e66b21c7b6a58b8952476117/hedge-fund-trading-team.ipynb#scrollTo=TcKHO2SE4tFQ" class="external" target="_blank">hedge-fund-trading-team.ipynb</a></li>
 </ul>
-
-
 </section>
+</section>
+<section id="labmal001-how-to-structure-your-ml-code" class="level1">
+<h1>Lab#MAL001: How to structure your ML code</h1>
+<p>ML apps, like any other piece of software, can only generate business value once they are deployed and used in a production environment.</p>
+<p>And the thing is, deploying all-in-one messy Jupyter notebooks from your local machine to a production environment is neither easy, nor recommended from an MLOps perspective.</p>
+<p>Often a DevOps or MLOps senior colleague needs to re-write your all-in-on messy notebook, which adds excessive friction and frustration for you and the guy helping you.</p>
+<p>So the question is:</p>
+<blockquote class="blockquote">
+<p>Is there a better way to develop and package your ML code, so you ship faster and better?</p>
+</blockquote>
+<p><strong>Yes, there is</strong></p>
+<ul>
+<li><a href="https://www.realworldml.net/blog/how-to-structure-your-ml-code" class="external" target="_blank">How to structure your ML code</a></li>
+</ul>
+</section>
+<section id="labmal002-how-to-structure-your-ml-code" class="level1">
+<h1>Lab#MAL002: How to structure your ML code</h1>
+<p>This is the first article in the series where we will build AI Agents from scratch without using any LLM orchestration frameworks. In this one you will learn:</p>
+<ul>
+<li>What are agents?</li>
+<li>How the Tool usage actually works.</li>
+<li>How to build a decorator wrapper that extracts relevant details from a Python function to be passed to the LLM via system prompt.</li>
+<li>How to think about constructing effective system prompts that can be used for Agents.</li>
+<li>How to build an Agent class that is able to plan and execute actions using provided Tools.</li>
+</ul>
+<p>You can find the code examples for this and following projects in this <a href="https://github.com/swirl-ai/ai-angineers-handbook" class="external" target="_blank">repo</a></p>
+<ul>
+<li><a href="https://www.newsletter.swirlai.com/p/building-ai-agents-from-scratch-part" class="external" target="_blank">Building AI Agents from scratch - Part 1: Tool use</a></li>
+</ul>
+
+
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
