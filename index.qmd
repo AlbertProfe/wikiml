@@ -11,7 +11,7 @@ jupyter: python3
 
 ### Transformers are all you need
 
-![](/images/home/Transformers-Matrix.mp4)
+{{< video https://youtu.be/23_bQlXVKcA >}}
 
 [Transformers (how LLMs work) explained visually | DL5 by 3Blue1Brown](https://youtu.be/wjZofJX0v4M?si=NFUsR95VrkedYn7B){.external target='_blank'}
 
