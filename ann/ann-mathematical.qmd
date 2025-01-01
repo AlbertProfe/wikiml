@@ -1,0 +1,67 @@
+---
+title: "ANN: Mathematical Model"
+---
+
+# Mathematical Model of an ANN
+
+Each neuron computes a **weighted sum** of its inputs, adds a *bias term*, and applies an activation function. The output of a neuron can be represented as:
+
+$$
+y = f\left( \sum_{i=1}^{n} w_i x_i + b \right)
+$$
+
+where ( **w_i** ) are the weights, ( **x_i** ) are the inputs, ( **b** ) is the bias, and ( **f** ) is the activation function.
+
+![[From: Optical neural networks: progress and challenges](https://www.nature.com/articles/s41377-024-01590-3){.external target='_blank'}](https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs41377-024-01590-3/MediaObjects/41377_2024_1590_Fig3_HTML.png?as=webp){width=80%}
+
+*Neuron structure and artificial neural network*. **a** Structure of biological neurons. **b** Mathematical inferring process of artificial neurons in multi-layer perceptron, including the input, weights, summation, activation function, and output. **c** Multi-layer perceptron artificial neural network
+
+
+## Structure of Biological Neurons
+
+![Simplified model](/images/ann/ANN_MathematicalModel.jpg){.lightbox fig-align="center" width="60%"}
+
+> A biological neuron consists of three main components: dendrites, soma, and axon[2]. Dendrites receive input signals from other neurons. The soma, or cell body, contains the nucleus and processes information. The axon transmits signals to other neurons through synapses[2][8].
+
+
+An artificial neuron in a multi-layer perceptron (MLP) mimics the biological neuron's function:
+
+1. **Inputs**: Represented as a vector [1] $$x = [x_1, x_2, ..., x_n]$$
+2. **Weights**: Each input is associated with a weight [1] $$w_i$$
+3. **Summation**: The neuron computes a weighted sum of inputs:
+
+   $$v = \sum_{i=1}^n w_i x_i + b$$
+
+   where $$b$$ is the bias term[1].
+
+4. **Activation Function**: The sum is passed through an activation function $$f$$
+
+   $$y = f(v)$$
+
+   Common activation functions include sigmoid, hyperbolic tangent, and ReLU[1][10].
+
+5. **Output**: The result $$y$$ is the neuron's output[1].
+
+**Multi-layer Perceptron Neural Network**
+
+An MLP consists of multiple layers of interconnected neurons:
+
+1. **Input Layer**: Receives the initial data[3].
+2. **Hidden Layers**: Process information through weighted connections and activation functions[3].
+3. **Output Layer**: Produces the final result[3].
+
+The network learns by adjusting weights and biases through backpropagation, minimizing a cost function[4][9]. This process allows the MLP to model complex relationships between inputs and outputs, making it suitable for various machine learning tasks[3][9].
+
+Citations:
+
+1. [Neural Networks ‐ The Mathematical Model](https://wiki.eecs.yorku.ca/course_archive/2011-12/F/4403/_media/ann_-_math_model.pdf){.external target='_blank'}
+2. [The Structure of the Neuron](https://rotel.pressbooks.pub/biologicalpsychology/chapter/the-structure-of-the-neuron/){.external target='_blank'}
+3. [Multi-Layer Perceptron Learning in TensorFlow](https://www.geeksforgeeks.org/multi-layer-perceptron-learning-in-tensorflow/){.external target='_blank'}
+4. [YouTube Video](https://www.youtube.com/watch?v=b7NnMZPNIXA){.external target='_blank'}
+5. [Neuron - Wikipedia](https://en.wikipedia.org/wiki/Neuron){.external target='_blank'}
+6. [Multilayer Perceptrons in Machine Learning](https://www.datacamp.com/tutorial/multilayer-perceptrons-in-machine-learning){.external target='_blank'}
+7. [TFM Lichtner Bajjaoui Aisha](https://diposit.ub.edu/dspace/bitstream/2445/180441/2/tfm_lichtner_bajjaoui_aisha.pdf){.external target='_blank'}
+8. [Overview of Neuron Structure and Function](https://www.khanacademy.org/science/biology/human-biology/neuron-nervous-system/a/overview-of-neuron-structure-and-function){.external target='_blank'}
+9. [Multilayer Perceptron Definition](https://blog.marketmuse.com/glossary/multilayer-percpetron-definition/){.external target='_blank'}
+10. [Conference Proceedings Paper](https://www.iitf.lbtu.lv/conference/proceedings2023/Papers/TF007.pdf){.external target='_blank'}
+

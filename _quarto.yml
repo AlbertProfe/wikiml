@@ -62,6 +62,8 @@ website:
         - section: "What is ANN?"
           contents:
             - ann/ann-index.qmd
+            - ann/ann-introduction.qmd
+            - ann/ann-mathematical.qmd
 
     - id: "bigdata"
       title: "Big Data"

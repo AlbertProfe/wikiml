@@ -1,0 +1,4812 @@
+%PDF-1.3
+%ÿÿÿÿ
+9 0 obj
+<<
+/Type /ExtGState
+/ca 1
+>>
+endobj
+8 0 obj
+<<
+/Type /Page
+/Parent 1 0 R
+/MediaBox [0 0 595.280029 841.890015]
+/Contents 6 0 R
+/Resources 7 0 R
+/UserUnit 1
+>>
+endobj
+7 0 obj
+<<
+/ProcSet [/PDF /Text /ImageB /ImageC /ImageI]
+/ExtGState <<
+/Gs1 9 0 R
+>>
+/Font <<
+/F1 10 0 R
+>>
+>>
+endobj
+14 0 obj
+<<
+/S /URI
+/URI (https://storm.genie.stanford.edu/article/440689)
+>>
+endobj
+15 0 obj
+<<
+/Subtype /Link
+/A 14 0 R
+/Type /Annot
+/Rect [83.288 628.890009 372.276 645.690009]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+16 0 obj
+<<
+/S /URI
+/URI (https://aws.amazon.com/what-is/neural-network/)
+>>
+endobj
+17 0 obj
+<<
+/Subtype /Link
+/A 16 0 R
+/Type /Annot
+/Rect [102.818 344.690021 106.71 361.490021]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+18 0 obj
+<<
+/S /URI
+/URI (https://aws.amazon.com/what-is/neural-network/)
+>>
+endobj
+19 0 obj
+<<
+/Subtype /Link
+/A 18 0 R
+/Type /Annot
+/Rect [106.71 344.690021 114.494 361.490021]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+20 0 obj
+<<
+/S /URI
+/URI (https://aws.amazon.com/what-is/neural-network/)
+>>
+endobj
+21 0 obj
+<<
+/Subtype /Link
+/A 20 0 R
+/Type /Annot
+/Rect [114.494 344.690021 118.386 361.490021]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+22 0 obj
+<<
+/S /URI
+/URI (https://dotnettutorials.net/lesson/architecture-of-artificial-neural-network/)
+>>
+endobj
+23 0 obj
+<<
+/Subtype /Link
+/A 22 0 R
+/Type /Annot
+/Rect [118.386 344.690021 122.278 361.490021]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+24 0 obj
+<<
+/S /URI
+/URI (https://dotnettutorials.net/lesson/architecture-of-artificial-neural-network/)
+>>
+endobj
+25 0 obj
+<<
+/Subtype /Link
+/A 24 0 R
+/Type /Annot
+/Rect [122.278 344.690021 130.062 361.490021]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+26 0 obj
+<<
+/S /URI
+/URI (https://dotnettutorials.net/lesson/architecture-of-artificial-neural-network/)
+>>
+endobj
+27 0 obj
+<<
+/Subtype /Link
+/A 26 0 R
+/Type /Annot
+/Rect [130.062 344.690021 133.954 361.490021]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+28 0 obj
+<<
+/S /URI
+/URI (https://www.analyticssteps.com/blogs/8-applications-neural-networks)
+>>
+endobj
+29 0 obj
+<<
+/Subtype /Link
+/A 28 0 R
+/Type /Annot
+/Rect [317.032 272.490039 320.924 289.290039]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+30 0 obj
+<<
+/S /URI
+/URI (https://www.analyticssteps.com/blogs/8-applications-neural-networks)
+>>
+endobj
+31 0 obj
+<<
+/Subtype /Link
+/A 30 0 R
+/Type /Annot
+/Rect [320.924 272.490039 328.708 289.290039]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+32 0 obj
+<<
+/S /URI
+/URI (https://www.analyticssteps.com/blogs/8-applications-neural-networks)
+>>
+endobj
+33 0 obj
+<<
+/Subtype /Link
+/A 32 0 R
+/Type /Annot
+/Rect [328.708 272.490039 332.6 289.290039]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+34 0 obj
+<<
+/S /URI
+/URI (https://medium.com/machine-learning-researcher/artificial-neural-network-ann-4481fa33d85a)
+>>
+endobj
+35 0 obj
+<<
+/Subtype /Link
+/A 34 0 R
+/Type /Annot
+/Rect [332.6 272.490039 336.492 289.290039]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+36 0 obj
+<<
+/S /URI
+/URI (https://medium.com/machine-learning-researcher/artificial-neural-network-ann-4481fa33d85a)
+>>
+endobj
+37 0 obj
+<<
+/Subtype /Link
+/A 36 0 R
+/Type /Annot
+/Rect [336.492 272.490039 344.276 289.290039]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+38 0 obj
+<<
+/S /URI
+/URI (https://medium.com/machine-learning-researcher/artificial-neural-network-ann-4481fa33d85a)
+>>
+endobj
+39 0 obj
+<<
+/Subtype /Link
+/A 38 0 R
+/Type /Annot
+/Rect [344.276 272.490039 348.168 289.290039]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+40 0 obj
+<<
+/S /URI
+/URI (https://medium.com/@alifyafebriana/from-biological-to-artificial-understanding-neurons-and-their-role-in-neural-networks-8eb8c80fddc4)
+>>
+endobj
+41 0 obj
+<<
+/Subtype /Link
+/A 40 0 R
+/Type /Annot
+/Rect [408.956 188.490039 412.848 205.290039]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+42 0 obj
+<<
+/S /URI
+/URI (https://medium.com/@alifyafebriana/from-biological-to-artificial-understanding-neurons-and-their-role-in-neural-networks-8eb8c80fddc4)
+>>
+endobj
+43 0 obj
+<<
+/Subtype /Link
+/A 42 0 R
+/Type /Annot
+/Rect [412.848 188.490039 420.632 205.290039]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+44 0 obj
+<<
+/S /URI
+/URI (https://medium.com/@alifyafebriana/from-biological-to-artificial-understanding-neurons-and-their-role-in-neural-networks-8eb8c80fddc4)
+>>
+endobj
+45 0 obj
+<<
+/Subtype /Link
+/A 44 0 R
+/Type /Annot
+/Rect [420.632 188.490039 424.524 205.290039]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+46 0 obj
+<<
+/S /URI
+/URI (https://www.digitaltrends.com/computing/what-is-an-artificial-neural-network/)
+>>
+endobj
+47 0 obj
+<<
+/Subtype /Link
+/A 46 0 R
+/Type /Annot
+/Rect [424.524 188.490039 428.416 205.290039]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+48 0 obj
+<<
+/S /URI
+/URI (https://www.digitaltrends.com/computing/what-is-an-artificial-neural-network/)
+>>
+endobj
+49 0 obj
+<<
+/Subtype /Link
+/A 48 0 R
+/Type /Annot
+/Rect [428.416 188.490039 436.2 205.290039]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+50 0 obj
+<<
+/S /URI
+/URI (https://www.digitaltrends.com/computing/what-is-an-artificial-neural-network/)
+>>
+endobj
+51 0 obj
+<<
+/Subtype /Link
+/A 50 0 R
+/Type /Annot
+/Rect [436.2 188.490039 440.092 205.290039]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+52 0 obj
+<<
+/S /URI
+/URI (https://www.neurond.com/blog/what-are-neural-networks-and-how-can-they-be-used-in-the-real-world)
+>>
+endobj
+53 0 obj
+<<
+/Subtype /Link
+/A 52 0 R
+/Type /Annot
+/Rect [333.804 82.690027 337.696 99.490027]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+54 0 obj
+<<
+/S /URI
+/URI (https://www.neurond.com/blog/what-are-neural-networks-and-how-can-they-be-used-in-the-real-world)
+>>
+endobj
+55 0 obj
+<<
+/Subtype /Link
+/A 54 0 R
+/Type /Annot
+/Rect [337.696 82.690027 345.48 99.490027]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+56 0 obj
+<<
+/S /URI
+/URI (https://www.neurond.com/blog/what-are-neural-networks-and-how-can-they-be-used-in-the-real-world)
+>>
+endobj
+57 0 obj
+<<
+/Subtype /Link
+/A 56 0 R
+/Type /Annot
+/Rect [345.48 82.690027 349.372 99.490027]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+58 0 obj
+<<
+/S /URI
+/URI (https://www.explainthatstuff.com/introduction-to-neural-networks.html)
+>>
+endobj
+59 0 obj
+<<
+/Subtype /Link
+/A 58 0 R
+/Type /Annot
+/Rect [349.372 82.690027 353.264 99.490027]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+60 0 obj
+<<
+/S /URI
+/URI (https://www.explainthatstuff.com/introduction-to-neural-networks.html)
+>>
+endobj
+61 0 obj
+<<
+/Subtype /Link
+/A 60 0 R
+/Type /Annot
+/Rect [353.264 82.690027 361.048 99.490027]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+62 0 obj
+<<
+/S /URI
+/URI (https://www.explainthatstuff.com/introduction-to-neural-networks.html)
+>>
+endobj
+63 0 obj
+<<
+/Subtype /Link
+/A 62 0 R
+/Type /Annot
+/Rect [361.048 82.690027 364.94 99.490027]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+64 0 obj
+<<
+/S /URI
+/URI (https://www.intellspot.com/artificial-neural-networks-types/)
+>>
+endobj
+65 0 obj
+<<
+/Subtype /Link
+/A 64 0 R
+/Type /Annot
+/Rect [214.104 32.290027 217.996 49.090027]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+66 0 obj
+<<
+/S /URI
+/URI (https://www.intellspot.com/artificial-neural-networks-types/)
+>>
+endobj
+67 0 obj
+<<
+/Subtype /Link
+/A 66 0 R
+/Type /Annot
+/Rect [217.996 32.290027 225.78 49.090027]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+68 0 obj
+<<
+/S /URI
+/URI (https://www.intellspot.com/artificial-neural-networks-types/)
+>>
+endobj
+69 0 obj
+<<
+/Subtype /Link
+/A 68 0 R
+/Type /Annot
+/Rect [225.78 32.290027 229.672 49.090027]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+13 0 obj
+<<
+/Type /Page
+/Parent 1 0 R
+/MediaBox [0 0 595.280029 841.890015]
+/Contents 11 0 R
+/Resources 12 0 R
+/UserUnit 1
+/Annots [15 0 R 17 0 R 19 0 R 21 0 R 23 0 R 25 0 R 27 0 R 29 0 R 31 0 R 33 0 R 35 0 R 37 0 R 39 0 R 41 0 R 43 0 R 45 0 R 47 0 R 49 0 R 51 0 R 53 0 R 55 0 R 57 0 R 59 0 R 61 0 R 63 0 R 65 0 R 67 0 R 69 0 R]
+>>
+endobj
+12 0 obj
+<<
+/ProcSet [/PDF /Text /ImageB /ImageC /ImageI]
+/ExtGState <<
+/Gs1 9 0 R
+>>
+/Font <<
+/F1 10 0 R
+>>
+>>
+endobj
+73 0 obj
+<<
+/S /URI
+/URI (https://www.coursera.org/articles/deep-learning-applications)
+>>
+endobj
+74 0 obj
+<<
+/Subtype /Link
+/A 73 0 R
+/Type /Annot
+/Rect [324.214 690.690015 328.106 707.490015]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+75 0 obj
+<<
+/S /URI
+/URI (https://www.coursera.org/articles/deep-learning-applications)
+>>
+endobj
+76 0 obj
+<<
+/Subtype /Link
+/A 75 0 R
+/Type /Annot
+/Rect [328.106 690.690015 343.674 707.490015]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+77 0 obj
+<<
+/S /URI
+/URI (https://www.coursera.org/articles/deep-learning-applications)
+>>
+endobj
+78 0 obj
+<<
+/Subtype /Link
+/A 77 0 R
+/Type /Annot
+/Rect [343.674 690.690015 347.566 707.490015]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+79 0 obj
+<<
+/S /URI
+/URI (https://medium.com/data-science-365/overview-of-a-neural-networks-learning-process-61690a502fa)
+>>
+endobj
+80 0 obj
+<<
+/Subtype /Link
+/A 79 0 R
+/Type /Annot
+/Rect [347.566 690.690015 351.458 707.490015]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+81 0 obj
+<<
+/S /URI
+/URI (https://medium.com/data-science-365/overview-of-a-neural-networks-learning-process-61690a502fa)
+>>
+endobj
+82 0 obj
+<<
+/Subtype /Link
+/A 81 0 R
+/Type /Annot
+/Rect [351.458 690.690015 367.026 707.490015]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+83 0 obj
+<<
+/S /URI
+/URI (https://medium.com/data-science-365/overview-of-a-neural-networks-learning-process-61690a502fa)
+>>
+endobj
+84 0 obj
+<<
+/Subtype /Link
+/A 83 0 R
+/Type /Annot
+/Rect [367.026 690.690015 370.918 707.490015]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+85 0 obj
+<<
+/S /URI
+/URI (https://aws.amazon.com/what-is/neural-network/)
+>>
+endobj
+86 0 obj
+<<
+/Subtype /Link
+/A 85 0 R
+/Type /Annot
+/Rect [386.402 441.090002 390.294 457.890002]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+87 0 obj
+<<
+/S /URI
+/URI (https://aws.amazon.com/what-is/neural-network/)
+>>
+endobj
+88 0 obj
+<<
+/Subtype /Link
+/A 87 0 R
+/Type /Annot
+/Rect [390.294 441.090002 398.078 457.890002]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+89 0 obj
+<<
+/S /URI
+/URI (https://aws.amazon.com/what-is/neural-network/)
+>>
+endobj
+90 0 obj
+<<
+/Subtype /Link
+/A 89 0 R
+/Type /Annot
+/Rect [398.078 441.090002 401.97 457.890002]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+91 0 obj
+<<
+/S /URI
+/URI (https://dotnettutorials.net/lesson/architecture-of-artificial-neural-network/)
+>>
+endobj
+92 0 obj
+<<
+/Subtype /Link
+/A 91 0 R
+/Type /Annot
+/Rect [401.97 441.090002 405.862 457.890002]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+93 0 obj
+<<
+/S /URI
+/URI (https://dotnettutorials.net/lesson/architecture-of-artificial-neural-network/)
+>>
+endobj
+94 0 obj
+<<
+/Subtype /Link
+/A 93 0 R
+/Type /Annot
+/Rect [405.862 441.090002 413.646 457.890002]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+95 0 obj
+<<
+/S /URI
+/URI (https://dotnettutorials.net/lesson/architecture-of-artificial-neural-network/)
+>>
+endobj
+96 0 obj
+<<
+/Subtype /Link
+/A 95 0 R
+/Type /Annot
+/Rect [413.646 441.090002 417.538 457.890002]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+97 0 obj
+<<
+/S /URI
+/URI (https://aws.amazon.com/what-is/neural-network/)
+>>
+endobj
+98 0 obj
+<<
+/Subtype /Link
+/A 97 0 R
+/Type /Annot
+/Rect [108.488 276.490002 112.38 293.290002]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+99 0 obj
+<<
+/S /URI
+/URI (https://aws.amazon.com/what-is/neural-network/)
+>>
+endobj
+100 0 obj
+<<
+/Subtype /Link
+/A 99 0 R
+/Type /Annot
+/Rect [112.38 276.490002 120.164 293.290002]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+101 0 obj
+<<
+/S /URI
+/URI (https://aws.amazon.com/what-is/neural-network/)
+>>
+endobj
+102 0 obj
+<<
+/Subtype /Link
+/A 101 0 R
+/Type /Annot
+/Rect [120.164 276.490002 124.056 293.290002]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+103 0 obj
+<<
+/S /URI
+/URI (https://www.analyticssteps.com/blogs/8-applications-neural-networks)
+>>
+endobj
+104 0 obj
+<<
+/Subtype /Link
+/A 103 0 R
+/Type /Annot
+/Rect [124.056 276.490002 127.948 293.290002]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+105 0 obj
+<<
+/S /URI
+/URI (https://www.analyticssteps.com/blogs/8-applications-neural-networks)
+>>
+endobj
+106 0 obj
+<<
+/Subtype /Link
+/A 105 0 R
+/Type /Annot
+/Rect [127.948 276.490002 135.732 293.290002]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+107 0 obj
+<<
+/S /URI
+/URI (https://www.analyticssteps.com/blogs/8-applications-neural-networks)
+>>
+endobj
+108 0 obj
+<<
+/Subtype /Link
+/A 107 0 R
+/Type /Annot
+/Rect [135.732 276.490002 139.624 293.290002]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+109 0 obj
+<<
+/S /URI
+/URI (https://dotnettutorials.net/lesson/architecture-of-artificial-neural-network/)
+>>
+endobj
+110 0 obj
+<<
+/Subtype /Link
+/A 109 0 R
+/Type /Annot
+/Rect [139.624 276.490002 143.516 293.290002]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+111 0 obj
+<<
+/S /URI
+/URI (https://dotnettutorials.net/lesson/architecture-of-artificial-neural-network/)
+>>
+endobj
+112 0 obj
+<<
+/Subtype /Link
+/A 111 0 R
+/Type /Annot
+/Rect [143.516 276.490002 151.3 293.290002]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+113 0 obj
+<<
+/S /URI
+/URI (https://dotnettutorials.net/lesson/architecture-of-artificial-neural-network/)
+>>
+endobj
+114 0 obj
+<<
+/Subtype /Link
+/A 113 0 R
+/Type /Annot
+/Rect [151.3 276.490002 155.192 293.290002]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+115 0 obj
+<<
+/S /URI
+/URI (https://medium.com/machine-learning-researcher/artificial-neural-network-ann-4481fa33d85a)
+>>
+endobj
+116 0 obj
+<<
+/Subtype /Link
+/A 115 0 R
+/Type /Annot
+/Rect [72.676 147.690039 76.568 164.490039]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+117 0 obj
+<<
+/S /URI
+/URI (https://medium.com/machine-learning-researcher/artificial-neural-network-ann-4481fa33d85a)
+>>
+endobj
+118 0 obj
+<<
+/Subtype /Link
+/A 117 0 R
+/Type /Annot
+/Rect [76.568 147.690039 84.352 164.490039]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+119 0 obj
+<<
+/S /URI
+/URI (https://medium.com/machine-learning-researcher/artificial-neural-network-ann-4481fa33d85a)
+>>
+endobj
+120 0 obj
+<<
+/Subtype /Link
+/A 119 0 R
+/Type /Annot
+/Rect [84.352 147.690039 88.244 164.490039]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+121 0 obj
+<<
+/S /URI
+/URI (https://medium.com/@alifyafebriana/from-biological-to-artificial-understanding-neurons-and-their-role-in-neural-networks-8eb8c80fddc4)
+>>
+endobj
+122 0 obj
+<<
+/Subtype /Link
+/A 121 0 R
+/Type /Annot
+/Rect [88.244 147.690039 92.136 164.490039]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+123 0 obj
+<<
+/S /URI
+/URI (https://medium.com/@alifyafebriana/from-biological-to-artificial-understanding-neurons-and-their-role-in-neural-networks-8eb8c80fddc4)
+>>
+endobj
+124 0 obj
+<<
+/Subtype /Link
+/A 123 0 R
+/Type /Annot
+/Rect [92.136 147.690039 99.92 164.490039]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+125 0 obj
+<<
+/S /URI
+/URI (https://medium.com/@alifyafebriana/from-biological-to-artificial-understanding-neurons-and-their-role-in-neural-networks-8eb8c80fddc4)
+>>
+endobj
+126 0 obj
+<<
+/Subtype /Link
+/A 125 0 R
+/Type /Annot
+/Rect [99.92 147.690039 103.812 164.490039]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+72 0 obj
+<<
+/Type /Page
+/Parent 1 0 R
+/MediaBox [0 0 595.280029 841.890015]
+/Contents 70 0 R
+/Resources 71 0 R
+/UserUnit 1
+/Annots [74 0 R 76 0 R 78 0 R 80 0 R 82 0 R 84 0 R 86 0 R 88 0 R 90 0 R 92 0 R 94 0 R 96 0 R 98 0 R 100 0 R 102 0 R 104 0 R 106 0 R 108 0 R 110 0 R 112 0 R 114 0 R 116 0 R 118 0 R 120 0 R 122 0 R 124 0 R 126 0 R]
+>>
+endobj
+71 0 obj
+<<
+/ProcSet [/PDF /Text /ImageB /ImageC /ImageI]
+/ExtGState <<
+/Gs1 9 0 R
+>>
+/Font <<
+/F1 10 0 R
+>>
+>>
+endobj
+130 0 obj
+<<
+/S /URI
+/URI (https://aws.amazon.com/what-is/neural-network/)
+>>
+endobj
+131 0 obj
+<<
+/Subtype /Link
+/A 130 0 R
+/Type /Annot
+/Rect [175.38 779.690015 179.272 796.490015]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+132 0 obj
+<<
+/S /URI
+/URI (https://aws.amazon.com/what-is/neural-network/)
+>>
+endobj
+133 0 obj
+<<
+/Subtype /Link
+/A 132 0 R
+/Type /Annot
+/Rect [179.272 779.690015 187.056 796.490015]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+134 0 obj
+<<
+/S /URI
+/URI (https://aws.amazon.com/what-is/neural-network/)
+>>
+endobj
+135 0 obj
+<<
+/Subtype /Link
+/A 134 0 R
+/Type /Annot
+/Rect [187.056 779.690015 190.948 796.490015]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+136 0 obj
+<<
+/S /URI
+/URI (https://www.analyticssteps.com/blogs/8-applications-neural-networks)
+>>
+endobj
+137 0 obj
+<<
+/Subtype /Link
+/A 136 0 R
+/Type /Annot
+/Rect [190.948 779.690015 194.84 796.490015]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+138 0 obj
+<<
+/S /URI
+/URI (https://www.analyticssteps.com/blogs/8-applications-neural-networks)
+>>
+endobj
+139 0 obj
+<<
+/Subtype /Link
+/A 138 0 R
+/Type /Annot
+/Rect [194.84 779.690015 202.624 796.490015]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+140 0 obj
+<<
+/S /URI
+/URI (https://www.analyticssteps.com/blogs/8-applications-neural-networks)
+>>
+endobj
+141 0 obj
+<<
+/Subtype /Link
+/A 140 0 R
+/Type /Annot
+/Rect [202.624 779.690015 206.516 796.490015]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+142 0 obj
+<<
+/S /URI
+/URI (https://medium.com/@alifyafebriana/from-biological-to-artificial-understanding-neurons-and-their-role-in-neural-networks-8eb8c80fddc4)
+>>
+endobj
+143 0 obj
+<<
+/Subtype /Link
+/A 142 0 R
+/Type /Annot
+/Rect [206.516 779.690015 210.408 796.490015]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+144 0 obj
+<<
+/S /URI
+/URI (https://medium.com/@alifyafebriana/from-biological-to-artificial-understanding-neurons-and-their-role-in-neural-networks-8eb8c80fddc4)
+>>
+endobj
+145 0 obj
+<<
+/Subtype /Link
+/A 144 0 R
+/Type /Annot
+/Rect [210.408 779.690015 218.192 796.490015]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+146 0 obj
+<<
+/S /URI
+/URI (https://medium.com/@alifyafebriana/from-biological-to-artificial-understanding-neurons-and-their-role-in-neural-networks-8eb8c80fddc4)
+>>
+endobj
+147 0 obj
+<<
+/Subtype /Link
+/A 146 0 R
+/Type /Annot
+/Rect [218.192 779.690015 222.084 796.490015]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+148 0 obj
+<<
+/S /URI
+/URI (https://www.digitaltrends.com/computing/what-is-an-artificial-neural-network/)
+>>
+endobj
+149 0 obj
+<<
+/Subtype /Link
+/A 148 0 R
+/Type /Annot
+/Rect [346.39 546.890009 350.282 563.690009]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+150 0 obj
+<<
+/S /URI
+/URI (https://www.digitaltrends.com/computing/what-is-an-artificial-neural-network/)
+>>
+endobj
+151 0 obj
+<<
+/Subtype /Link
+/A 150 0 R
+/Type /Annot
+/Rect [350.282 546.890009 358.066 563.690009]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+152 0 obj
+<<
+/S /URI
+/URI (https://www.digitaltrends.com/computing/what-is-an-artificial-neural-network/)
+>>
+endobj
+153 0 obj
+<<
+/Subtype /Link
+/A 152 0 R
+/Type /Annot
+/Rect [358.066 546.890009 361.958 563.690009]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+154 0 obj
+<<
+/S /URI
+/URI (https://aws.amazon.com/what-is/neural-network/)
+>>
+endobj
+155 0 obj
+<<
+/Subtype /Link
+/A 154 0 R
+/Type /Annot
+/Rect [361.958 546.890009 365.85 563.690009]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+156 0 obj
+<<
+/S /URI
+/URI (https://aws.amazon.com/what-is/neural-network/)
+>>
+endobj
+157 0 obj
+<<
+/Subtype /Link
+/A 156 0 R
+/Type /Annot
+/Rect [365.85 546.890009 373.634 563.690009]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+158 0 obj
+<<
+/S /URI
+/URI (https://aws.amazon.com/what-is/neural-network/)
+>>
+endobj
+159 0 obj
+<<
+/Subtype /Link
+/A 158 0 R
+/Type /Annot
+/Rect [373.634 546.890009 377.526 563.690009]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+160 0 obj
+<<
+/S /URI
+/URI (https://www.neurond.com/blog/what-are-neural-networks-and-how-can-they-be-used-in-the-real-world)
+>>
+endobj
+161 0 obj
+<<
+/Subtype /Link
+/A 160 0 R
+/Type /Annot
+/Rect [509.742 399.08999 513.634 415.88999]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+162 0 obj
+<<
+/S /URI
+/URI (https://www.neurond.com/blog/what-are-neural-networks-and-how-can-they-be-used-in-the-real-world)
+>>
+endobj
+163 0 obj
+<<
+/Subtype /Link
+/A 162 0 R
+/Type /Annot
+/Rect [513.634 399.08999 521.418 415.88999]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+164 0 obj
+<<
+/S /URI
+/URI (https://www.neurond.com/blog/what-are-neural-networks-and-how-can-they-be-used-in-the-real-world)
+>>
+endobj
+165 0 obj
+<<
+/Subtype /Link
+/A 164 0 R
+/Type /Annot
+/Rect [521.418 399.08999 525.31 415.88999]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+166 0 obj
+<<
+/S /URI
+/URI (https://www.explainthatstuff.com/introduction-to-neural-networks.html)
+>>
+endobj
+167 0 obj
+<<
+/Subtype /Link
+/A 166 0 R
+/Type /Annot
+/Rect [525.31 399.08999 529.202 415.88999]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+168 0 obj
+<<
+/S /URI
+/URI (https://www.explainthatstuff.com/introduction-to-neural-networks.html)
+>>
+endobj
+169 0 obj
+<<
+/Subtype /Link
+/A 168 0 R
+/Type /Annot
+/Rect [529.202 399.08999 536.986 415.88999]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+170 0 obj
+<<
+/S /URI
+/URI (https://www.explainthatstuff.com/introduction-to-neural-networks.html)
+>>
+endobj
+171 0 obj
+<<
+/Subtype /Link
+/A 170 0 R
+/Type /Annot
+/Rect [536.986 399.08999 540.878 415.88999]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+172 0 obj
+<<
+/S /URI
+/URI (https://medium.com/machine-learning-researcher/artificial-neural-network-ann-4481fa33d85a)
+>>
+endobj
+173 0 obj
+<<
+/Subtype /Link
+/A 172 0 R
+/Type /Annot
+/Rect [134.948 251.290002 138.84 268.090002]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+174 0 obj
+<<
+/S /URI
+/URI (https://medium.com/machine-learning-researcher/artificial-neural-network-ann-4481fa33d85a)
+>>
+endobj
+175 0 obj
+<<
+/Subtype /Link
+/A 174 0 R
+/Type /Annot
+/Rect [138.84 251.290002 146.624 268.090002]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+176 0 obj
+<<
+/S /URI
+/URI (https://medium.com/machine-learning-researcher/artificial-neural-network-ann-4481fa33d85a)
+>>
+endobj
+177 0 obj
+<<
+/Subtype /Link
+/A 176 0 R
+/Type /Annot
+/Rect [146.624 251.290002 150.516 268.090002]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+178 0 obj
+<<
+/S /URI
+/URI (https://www.intellspot.com/artificial-neural-networks-types/)
+>>
+endobj
+179 0 obj
+<<
+/Subtype /Link
+/A 178 0 R
+/Type /Annot
+/Rect [146.61 103.490015 150.502 120.290015]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+180 0 obj
+<<
+/S /URI
+/URI (https://www.intellspot.com/artificial-neural-networks-types/)
+>>
+endobj
+181 0 obj
+<<
+/Subtype /Link
+/A 180 0 R
+/Type /Annot
+/Rect [150.502 103.490015 158.286 120.290015]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+182 0 obj
+<<
+/S /URI
+/URI (https://www.intellspot.com/artificial-neural-networks-types/)
+>>
+endobj
+183 0 obj
+<<
+/Subtype /Link
+/A 182 0 R
+/Type /Annot
+/Rect [158.286 103.490015 162.178 120.290015]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+129 0 obj
+<<
+/Type /Page
+/Parent 1 0 R
+/MediaBox [0 0 595.280029 841.890015]
+/Contents 127 0 R
+/Resources 128 0 R
+/UserUnit 1
+/Annots [131 0 R 133 0 R 135 0 R 137 0 R 139 0 R 141 0 R 143 0 R 145 0 R 147 0 R 149 0 R 151 0 R 153 0 R 155 0 R 157 0 R 159 0 R 161 0 R 163 0 R 165 0 R 167 0 R 169 0 R 171 0 R 173 0 R 175 0 R 177 0 R 179 0 R 181 0 R 183 0 R]
+>>
+endobj
+128 0 obj
+<<
+/ProcSet [/PDF /Text /ImageB /ImageC /ImageI]
+/ExtGState <<
+/Gs1 9 0 R
+>>
+/Font <<
+/F1 10 0 R
+>>
+>>
+endobj
+187 0 obj
+<<
+/S /URI
+/URI (https://medium.com/machine-learning-researcher/artificial-neural-network-ann-4481fa33d85a)
+>>
+endobj
+188 0 obj
+<<
+/Subtype /Link
+/A 187 0 R
+/Type /Annot
+/Rect [167.96 729.290015 171.852 746.090015]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+189 0 obj
+<<
+/S /URI
+/URI (https://medium.com/machine-learning-researcher/artificial-neural-network-ann-4481fa33d85a)
+>>
+endobj
+190 0 obj
+<<
+/Subtype /Link
+/A 189 0 R
+/Type /Annot
+/Rect [171.852 729.290015 179.636 746.090015]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+191 0 obj
+<<
+/S /URI
+/URI (https://medium.com/machine-learning-researcher/artificial-neural-network-ann-4481fa33d85a)
+>>
+endobj
+192 0 obj
+<<
+/Subtype /Link
+/A 191 0 R
+/Type /Annot
+/Rect [179.636 729.290015 183.528 746.090015]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+193 0 obj
+<<
+/S /URI
+/URI (https://www.coursera.org/articles/deep-learning-applications)
+>>
+endobj
+194 0 obj
+<<
+/Subtype /Link
+/A 193 0 R
+/Type /Annot
+/Rect [141.164 401.290045 145.056 418.090045]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+195 0 obj
+<<
+/S /URI
+/URI (https://www.coursera.org/articles/deep-learning-applications)
+>>
+endobj
+196 0 obj
+<<
+/Subtype /Link
+/A 195 0 R
+/Type /Annot
+/Rect [145.056 401.290045 160.624 418.090045]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+197 0 obj
+<<
+/S /URI
+/URI (https://www.coursera.org/articles/deep-learning-applications)
+>>
+endobj
+198 0 obj
+<<
+/Subtype /Link
+/A 197 0 R
+/Type /Annot
+/Rect [160.624 401.290045 164.516 418.090045]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+199 0 obj
+<<
+/S /URI
+/URI (https://medium.com/data-science-365/overview-of-a-neural-networks-learning-process-61690a502fa)
+>>
+endobj
+200 0 obj
+<<
+/Subtype /Link
+/A 199 0 R
+/Type /Annot
+/Rect [164.516 401.290045 168.408 418.090045]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+201 0 obj
+<<
+/S /URI
+/URI (https://medium.com/data-science-365/overview-of-a-neural-networks-learning-process-61690a502fa)
+>>
+endobj
+202 0 obj
+<<
+/Subtype /Link
+/A 201 0 R
+/Type /Annot
+/Rect [168.408 401.290045 183.976 418.090045]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+203 0 obj
+<<
+/S /URI
+/URI (https://medium.com/data-science-365/overview-of-a-neural-networks-learning-process-61690a502fa)
+>>
+endobj
+204 0 obj
+<<
+/Subtype /Link
+/A 203 0 R
+/Type /Annot
+/Rect [183.976 401.290045 187.868 418.090045]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+205 0 obj
+<<
+/S /URI
+/URI (https://www.geeksforgeeks.org/neural-networks-a-beginners-guide/)
+>>
+endobj
+206 0 obj
+<<
+/Subtype /Link
+/A 205 0 R
+/Type /Annot
+/Rect [395.67 289.290057 399.562 306.090057]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+207 0 obj
+<<
+/S /URI
+/URI (https://www.geeksforgeeks.org/neural-networks-a-beginners-guide/)
+>>
+endobj
+208 0 obj
+<<
+/Subtype /Link
+/A 207 0 R
+/Type /Annot
+/Rect [399.562 289.290057 415.13 306.090057]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+209 0 obj
+<<
+/S /URI
+/URI (https://www.geeksforgeeks.org/neural-networks-a-beginners-guide/)
+>>
+endobj
+210 0 obj
+<<
+/Subtype /Link
+/A 209 0 R
+/Type /Annot
+/Rect [415.13 289.290057 419.022 306.090057]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+211 0 obj
+<<
+/S /URI
+/URI (https://mybrainrewired.com/the-brain/how-synaptic-plasticity-shapes-learning-and-memory/)
+>>
+endobj
+212 0 obj
+<<
+/Subtype /Link
+/A 211 0 R
+/Type /Annot
+/Rect [419.022 289.290057 422.914 306.090057]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+213 0 obj
+<<
+/S /URI
+/URI (https://mybrainrewired.com/the-brain/how-synaptic-plasticity-shapes-learning-and-memory/)
+>>
+endobj
+214 0 obj
+<<
+/Subtype /Link
+/A 213 0 R
+/Type /Annot
+/Rect [422.914 289.290057 438.482 306.090057]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+215 0 obj
+<<
+/S /URI
+/URI (https://mybrainrewired.com/the-brain/how-synaptic-plasticity-shapes-learning-and-memory/)
+>>
+endobj
+216 0 obj
+<<
+/Subtype /Link
+/A 215 0 R
+/Type /Annot
+/Rect [438.482 289.290057 442.374 306.090057]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+217 0 obj
+<<
+/S /URI
+/URI (https://medium.com/@jeslurrahman/simply-understanding-artificial-neural-networks-ann-deep-learning-10b19e2eadca)
+>>
+endobj
+218 0 obj
+<<
+/Subtype /Link
+/A 217 0 R
+/Type /Annot
+/Rect [254.746 160.490088 258.638 177.290088]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+219 0 obj
+<<
+/S /URI
+/URI (https://medium.com/@jeslurrahman/simply-understanding-artificial-neural-networks-ann-deep-learning-10b19e2eadca)
+>>
+endobj
+220 0 obj
+<<
+/Subtype /Link
+/A 219 0 R
+/Type /Annot
+/Rect [258.638 160.490088 274.206 177.290088]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+221 0 obj
+<<
+/S /URI
+/URI (https://medium.com/@jeslurrahman/simply-understanding-artificial-neural-networks-ann-deep-learning-10b19e2eadca)
+>>
+endobj
+222 0 obj
+<<
+/Subtype /Link
+/A 221 0 R
+/Type /Annot
+/Rect [274.206 160.490088 278.098 177.290088]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+223 0 obj
+<<
+/S /URI
+/URI (https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0316453)
+>>
+endobj
+224 0 obj
+<<
+/Subtype /Link
+/A 223 0 R
+/Type /Annot
+/Rect [278.098 160.490088 281.99 177.290088]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+225 0 obj
+<<
+/S /URI
+/URI (https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0316453)
+>>
+endobj
+226 0 obj
+<<
+/Subtype /Link
+/A 225 0 R
+/Type /Annot
+/Rect [281.99 160.490088 297.558 177.290088]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+227 0 obj
+<<
+/S /URI
+/URI (https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0316453)
+>>
+endobj
+228 0 obj
+<<
+/Subtype /Link
+/A 227 0 R
+/Type /Annot
+/Rect [297.558 160.490088 301.45 177.290088]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+186 0 obj
+<<
+/Type /Page
+/Parent 1 0 R
+/MediaBox [0 0 595.280029 841.890015]
+/Contents 184 0 R
+/Resources 185 0 R
+/UserUnit 1
+/Annots [188 0 R 190 0 R 192 0 R 194 0 R 196 0 R 198 0 R 200 0 R 202 0 R 204 0 R 206 0 R 208 0 R 210 0 R 212 0 R 214 0 R 216 0 R 218 0 R 220 0 R 222 0 R 224 0 R 226 0 R 228 0 R]
+>>
+endobj
+185 0 obj
+<<
+/ProcSet [/PDF /Text /ImageB /ImageC /ImageI]
+/ExtGState <<
+/Gs1 9 0 R
+>>
+/Font <<
+/F1 10 0 R
+>>
+>>
+endobj
+232 0 obj
+<<
+/S /URI
+/URI (https://medium.com/data-science-365/overview-of-a-neural-networks-learning-process-61690a502fa)
+>>
+endobj
+233 0 obj
+<<
+/Subtype /Link
+/A 232 0 R
+/Type /Annot
+/Rect [215.532 746.090015 219.424 762.890015]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+234 0 obj
+<<
+/S /URI
+/URI (https://medium.com/data-science-365/overview-of-a-neural-networks-learning-process-61690a502fa)
+>>
+endobj
+235 0 obj
+<<
+/Subtype /Link
+/A 234 0 R
+/Type /Annot
+/Rect [219.424 746.090015 234.992 762.890015]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+236 0 obj
+<<
+/S /URI
+/URI (https://medium.com/data-science-365/overview-of-a-neural-networks-learning-process-61690a502fa)
+>>
+endobj
+237 0 obj
+<<
+/Subtype /Link
+/A 236 0 R
+/Type /Annot
+/Rect [234.992 746.090015 238.884 762.890015]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+238 0 obj
+<<
+/S /URI
+/URI (https://medium.com/@jeslurrahman/simply-understanding-artificial-neural-networks-ann-deep-learning-10b19e2eadca)
+>>
+endobj
+239 0 obj
+<<
+/Subtype /Link
+/A 238 0 R
+/Type /Annot
+/Rect [238.884 746.090015 242.776 762.890015]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+240 0 obj
+<<
+/S /URI
+/URI (https://medium.com/@jeslurrahman/simply-understanding-artificial-neural-networks-ann-deep-learning-10b19e2eadca)
+>>
+endobj
+241 0 obj
+<<
+/Subtype /Link
+/A 240 0 R
+/Type /Annot
+/Rect [242.776 746.090015 258.344 762.890015]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+242 0 obj
+<<
+/S /URI
+/URI (https://medium.com/@jeslurrahman/simply-understanding-artificial-neural-networks-ann-deep-learning-10b19e2eadca)
+>>
+endobj
+243 0 obj
+<<
+/Subtype /Link
+/A 242 0 R
+/Type /Annot
+/Rect [258.344 746.090015 262.236 762.890015]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+244 0 obj
+<<
+/S /URI
+/URI (https://medium.com/data-science-365/overview-of-a-neural-networks-learning-process-61690a502fa)
+>>
+endobj
+245 0 obj
+<<
+/Subtype /Link
+/A 244 0 R
+/Type /Annot
+/Rect [504.684029 650.890015 508.576029 667.690015]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+246 0 obj
+<<
+/S /URI
+/URI (https://medium.com/data-science-365/overview-of-a-neural-networks-learning-process-61690a502fa)
+>>
+endobj
+247 0 obj
+<<
+/Subtype /Link
+/A 246 0 R
+/Type /Annot
+/Rect [508.576029 650.890015 524.144029 667.690015]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+248 0 obj
+<<
+/S /URI
+/URI (https://medium.com/data-science-365/overview-of-a-neural-networks-learning-process-61690a502fa)
+>>
+endobj
+249 0 obj
+<<
+/Subtype /Link
+/A 248 0 R
+/Type /Annot
+/Rect [524.144029 650.890015 528.036029 667.690015]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+250 0 obj
+<<
+/S /URI
+/URI (https://medium.com/@jeslurrahman/simply-understanding-artificial-neural-networks-ann-deep-learning-10b19e2eadca)
+>>
+endobj
+251 0 obj
+<<
+/Subtype /Link
+/A 250 0 R
+/Type /Annot
+/Rect [528.036029 650.890015 531.928029 667.690015]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+252 0 obj
+<<
+/S /URI
+/URI (https://medium.com/@jeslurrahman/simply-understanding-artificial-neural-networks-ann-deep-learning-10b19e2eadca)
+>>
+endobj
+253 0 obj
+<<
+/Subtype /Link
+/A 252 0 R
+/Type /Annot
+/Rect [531.928029 650.890015 547.496029 667.690015]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+254 0 obj
+<<
+/S /URI
+/URI (https://medium.com/@jeslurrahman/simply-understanding-artificial-neural-networks-ann-deep-learning-10b19e2eadca)
+>>
+endobj
+255 0 obj
+<<
+/Subtype /Link
+/A 254 0 R
+/Type /Annot
+/Rect [547.496029 650.890015 551.388029 667.690015]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+256 0 obj
+<<
+/S /URI
+/URI (https://medium.com/data-science-365/overview-of-a-neural-networks-learning-process-61690a502fa)
+>>
+endobj
+257 0 obj
+<<
+/Subtype /Link
+/A 256 0 R
+/Type /Annot
+/Rect [66.306 505.290018 70.198 522.090018]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+258 0 obj
+<<
+/S /URI
+/URI (https://medium.com/data-science-365/overview-of-a-neural-networks-learning-process-61690a502fa)
+>>
+endobj
+259 0 obj
+<<
+/Subtype /Link
+/A 258 0 R
+/Type /Annot
+/Rect [70.198 505.290018 85.766 522.090018]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+260 0 obj
+<<
+/S /URI
+/URI (https://medium.com/data-science-365/overview-of-a-neural-networks-learning-process-61690a502fa)
+>>
+endobj
+261 0 obj
+<<
+/Subtype /Link
+/A 260 0 R
+/Type /Annot
+/Rect [85.766 505.290018 89.658 522.090018]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+262 0 obj
+<<
+/S /URI
+/URI (https://medium.com/@jeslurrahman/simply-understanding-artificial-neural-networks-ann-deep-learning-10b19e2eadca)
+>>
+endobj
+263 0 obj
+<<
+/Subtype /Link
+/A 262 0 R
+/Type /Annot
+/Rect [89.658 505.290018 93.55 522.090018]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+264 0 obj
+<<
+/S /URI
+/URI (https://medium.com/@jeslurrahman/simply-understanding-artificial-neural-networks-ann-deep-learning-10b19e2eadca)
+>>
+endobj
+265 0 obj
+<<
+/Subtype /Link
+/A 264 0 R
+/Type /Annot
+/Rect [93.55 505.290018 109.118 522.090018]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+266 0 obj
+<<
+/S /URI
+/URI (https://medium.com/@jeslurrahman/simply-understanding-artificial-neural-networks-ann-deep-learning-10b19e2eadca)
+>>
+endobj
+267 0 obj
+<<
+/Subtype /Link
+/A 266 0 R
+/Type /Annot
+/Rect [109.118 505.290018 113.01 522.090018]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+268 0 obj
+<<
+/S /URI
+/URI (https://www.smartsheet.com/neural-network-applications)
+>>
+endobj
+269 0 obj
+<<
+/Subtype /Link
+/A 268 0 R
+/Type /Annot
+/Rect [526.328029 449.890015 530.220029 466.690015]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+270 0 obj
+<<
+/S /URI
+/URI (https://www.smartsheet.com/neural-network-applications)
+>>
+endobj
+271 0 obj
+<<
+/Subtype /Link
+/A 270 0 R
+/Type /Annot
+/Rect [530.220029 449.890015 545.788029 466.690015]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+272 0 obj
+<<
+/S /URI
+/URI (https://www.smartsheet.com/neural-network-applications)
+>>
+endobj
+273 0 obj
+<<
+/Subtype /Link
+/A 272 0 R
+/Type /Annot
+/Rect [545.788029 449.890015 555.280029 466.690015]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+274 0 obj
+<<
+/S /URI
+/URI (https://www.geeksforgeeks.org/neural-networks-a-beginners-guide/)
+>>
+endobj
+275 0 obj
+<<
+/Subtype /Link
+/A 274 0 R
+/Type /Annot
+/Rect [40 433.090015 43.892 449.890015]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+276 0 obj
+<<
+/S /URI
+/URI (https://www.geeksforgeeks.org/neural-networks-a-beginners-guide/)
+>>
+endobj
+277 0 obj
+<<
+/Subtype /Link
+/A 276 0 R
+/Type /Annot
+/Rect [43.892 433.090015 59.46 449.890015]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+278 0 obj
+<<
+/S /URI
+/URI (https://www.geeksforgeeks.org/neural-networks-a-beginners-guide/)
+>>
+endobj
+279 0 obj
+<<
+/Subtype /Link
+/A 278 0 R
+/Type /Annot
+/Rect [59.46 433.090015 63.352 449.890015]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+280 0 obj
+<<
+/S /URI
+/URI (https://www.frontiersin.org/journals/computational-neuroscience/articles/10.3389/fncom.2023.1092185/full)
+>>
+endobj
+281 0 obj
+<<
+/Subtype /Link
+/A 280 0 R
+/Type /Annot
+/Rect [274.01 166.690027 277.902 183.490027]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+282 0 obj
+<<
+/S /URI
+/URI (https://www.frontiersin.org/journals/computational-neuroscience/articles/10.3389/fncom.2023.1092185/full)
+>>
+endobj
+283 0 obj
+<<
+/Subtype /Link
+/A 282 0 R
+/Type /Annot
+/Rect [277.902 166.690027 293.47 183.490027]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+284 0 obj
+<<
+/S /URI
+/URI (https://www.frontiersin.org/journals/computational-neuroscience/articles/10.3389/fncom.2023.1092185/full)
+>>
+endobj
+285 0 obj
+<<
+/Subtype /Link
+/A 284 0 R
+/Type /Annot
+/Rect [293.47 166.690027 297.362 183.490027]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+286 0 obj
+<<
+/S /URI
+/URI (https://www.analyticsvidhya.com/blog/2021/10/applications-of-convolutional-neural-networkscnn/)
+>>
+endobj
+287 0 obj
+<<
+/Subtype /Link
+/A 286 0 R
+/Type /Annot
+/Rect [297.362 166.690027 301.254 183.490027]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+288 0 obj
+<<
+/S /URI
+/URI (https://www.analyticsvidhya.com/blog/2021/10/applications-of-convolutional-neural-networkscnn/)
+>>
+endobj
+289 0 obj
+<<
+/Subtype /Link
+/A 288 0 R
+/Type /Annot
+/Rect [301.254 166.690027 316.822 183.490027]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+290 0 obj
+<<
+/S /URI
+/URI (https://www.analyticsvidhya.com/blog/2021/10/applications-of-convolutional-neural-networkscnn/)
+>>
+endobj
+291 0 obj
+<<
+/Subtype /Link
+/A 290 0 R
+/Type /Annot
+/Rect [316.822 166.690027 320.714 183.490027]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+292 0 obj
+<<
+/S /URI
+/URI (https://resource-allocation.biomedcentral.com/articles/10.1186/s12962-021-00322-3)
+>>
+endobj
+293 0 obj
+<<
+/Subtype /Link
+/A 292 0 R
+/Type /Annot
+/Rect [140.085206 35.690039 143.977206 52.490039]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+294 0 obj
+<<
+/S /URI
+/URI (https://resource-allocation.biomedcentral.com/articles/10.1186/s12962-021-00322-3)
+>>
+endobj
+295 0 obj
+<<
+/Subtype /Link
+/A 294 0 R
+/Type /Annot
+/Rect [143.977206 35.690039 159.545206 52.490039]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+296 0 obj
+<<
+/S /URI
+/URI (https://resource-allocation.biomedcentral.com/articles/10.1186/s12962-021-00322-3)
+>>
+endobj
+297 0 obj
+<<
+/Subtype /Link
+/A 296 0 R
+/Type /Annot
+/Rect [159.545206 35.690039 163.437206 52.490039]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+231 0 obj
+<<
+/Type /Page
+/Parent 1 0 R
+/MediaBox [0 0 595.280029 841.890015]
+/Contents 229 0 R
+/Resources 230 0 R
+/UserUnit 1
+/Annots [233 0 R 235 0 R 237 0 R 239 0 R 241 0 R 243 0 R 245 0 R 247 0 R 249 0 R 251 0 R 253 0 R 255 0 R 257 0 R 259 0 R 261 0 R 263 0 R 265 0 R 267 0 R 269 0 R 271 0 R 273 0 R 275 0 R 277 0 R 279 0 R 281 0 R 283 0 R 285 0 R 287 0 R 289 0 R 291 0 R 293 0 R 295 0 R 297 0 R]
+>>
+endobj
+230 0 obj
+<<
+/ProcSet [/PDF /Text /ImageB /ImageC /ImageI]
+/ExtGState <<
+/Gs1 9 0 R
+>>
+/Font <<
+/F1 10 0 R
+>>
+>>
+endobj
+301 0 obj
+<<
+/S /URI
+/URI (https://resource-allocation.biomedcentral.com/articles/10.1186/s12962-021-00322-3)
+>>
+endobj
+302 0 obj
+<<
+/Subtype /Link
+/A 301 0 R
+/Type /Annot
+/Rect [453.168 779.690015 457.06 796.490015]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+303 0 obj
+<<
+/S /URI
+/URI (https://resource-allocation.biomedcentral.com/articles/10.1186/s12962-021-00322-3)
+>>
+endobj
+304 0 obj
+<<
+/Subtype /Link
+/A 303 0 R
+/Type /Annot
+/Rect [457.06 779.690015 472.628 796.490015]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+305 0 obj
+<<
+/S /URI
+/URI (https://resource-allocation.biomedcentral.com/articles/10.1186/s12962-021-00322-3)
+>>
+endobj
+306 0 obj
+<<
+/Subtype /Link
+/A 305 0 R
+/Type /Annot
+/Rect [472.628 779.690015 476.52 796.490015]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+307 0 obj
+<<
+/S /URI
+/URI (https://www.ideamotive.co/blog/business-applications-of-neural-network)
+>>
+endobj
+308 0 obj
+<<
+/Subtype /Link
+/A 307 0 R
+/Type /Annot
+/Rect [371.058 648.690016 374.95 665.490016]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+309 0 obj
+<<
+/S /URI
+/URI (https://www.ideamotive.co/blog/business-applications-of-neural-network)
+>>
+endobj
+310 0 obj
+<<
+/Subtype /Link
+/A 309 0 R
+/Type /Annot
+/Rect [374.95 648.690016 390.518 665.490016]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+311 0 obj
+<<
+/S /URI
+/URI (https://www.ideamotive.co/blog/business-applications-of-neural-network)
+>>
+endobj
+312 0 obj
+<<
+/Subtype /Link
+/A 311 0 R
+/Type /Annot
+/Rect [390.518 648.690016 394.41 665.490016]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+313 0 obj
+<<
+/S /URI
+/URI (https://iq.opengenus.org/applications-of-rnn/)
+>>
+endobj
+314 0 obj
+<<
+/Subtype /Link
+/A 313 0 R
+/Type /Annot
+/Rect [394.41 648.690016 398.302 665.490016]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+315 0 obj
+<<
+/S /URI
+/URI (https://iq.opengenus.org/applications-of-rnn/)
+>>
+endobj
+316 0 obj
+<<
+/Subtype /Link
+/A 315 0 R
+/Type /Annot
+/Rect [398.302 648.690016 413.87 665.490016]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+317 0 obj
+<<
+/S /URI
+/URI (https://iq.opengenus.org/applications-of-rnn/)
+>>
+endobj
+318 0 obj
+<<
+/Subtype /Link
+/A 317 0 R
+/Type /Annot
+/Rect [413.87 648.690016 417.762 665.490016]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+319 0 obj
+<<
+/S /URI
+/URI (https://www.ideamotive.co/blog/business-applications-of-neural-network)
+>>
+endobj
+320 0 obj
+<<
+/Subtype /Link
+/A 319 0 R
+/Type /Annot
+/Rect [528.036029 615.090016 531.928029 631.890016]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+321 0 obj
+<<
+/S /URI
+/URI (https://www.ideamotive.co/blog/business-applications-of-neural-network)
+>>
+endobj
+322 0 obj
+<<
+/Subtype /Link
+/A 321 0 R
+/Type /Annot
+/Rect [531.928029 615.090016 547.496029 631.890016]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+323 0 obj
+<<
+/S /URI
+/URI (https://www.ideamotive.co/blog/business-applications-of-neural-network)
+>>
+endobj
+324 0 obj
+<<
+/Subtype /Link
+/A 323 0 R
+/Type /Annot
+/Rect [547.496029 615.090016 551.388029 631.890016]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+325 0 obj
+<<
+/S /URI
+/URI (https://iq.opengenus.org/applications-of-rnn/)
+>>
+endobj
+326 0 obj
+<<
+/Subtype /Link
+/A 325 0 R
+/Type /Annot
+/Rect [236.924 467.290018 240.816 484.090018]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+327 0 obj
+<<
+/S /URI
+/URI (https://iq.opengenus.org/applications-of-rnn/)
+>>
+endobj
+328 0 obj
+<<
+/Subtype /Link
+/A 327 0 R
+/Type /Annot
+/Rect [240.816 467.290018 256.384 484.090018]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+329 0 obj
+<<
+/S /URI
+/URI (https://iq.opengenus.org/applications-of-rnn/)
+>>
+endobj
+330 0 obj
+<<
+/Subtype /Link
+/A 329 0 R
+/Type /Annot
+/Rect [256.384 467.290018 260.276 484.090018]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+331 0 obj
+<<
+/S /URI
+/URI (https://theappsolutions.com/blog/development/recurrent-neural-networks/)
+>>
+endobj
+332 0 obj
+<<
+/Subtype /Link
+/A 331 0 R
+/Type /Annot
+/Rect [260.276 467.290018 264.168 484.090018]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+333 0 obj
+<<
+/S /URI
+/URI (https://theappsolutions.com/blog/development/recurrent-neural-networks/)
+>>
+endobj
+334 0 obj
+<<
+/Subtype /Link
+/A 333 0 R
+/Type /Annot
+/Rect [264.168 467.290018 279.736 484.090018]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+335 0 obj
+<<
+/S /URI
+/URI (https://theappsolutions.com/blog/development/recurrent-neural-networks/)
+>>
+endobj
+336 0 obj
+<<
+/Subtype /Link
+/A 335 0 R
+/Type /Annot
+/Rect [279.736 467.290018 283.628 484.090018]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+337 0 obj
+<<
+/S /URI
+/URI (https://theappsolutions.com/blog/development/recurrent-neural-networks/)
+>>
+endobj
+338 0 obj
+<<
+/Subtype /Link
+/A 337 0 R
+/Type /Annot
+/Rect [94.46 433.690018 98.352 450.490018]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+339 0 obj
+<<
+/S /URI
+/URI (https://theappsolutions.com/blog/development/recurrent-neural-networks/)
+>>
+endobj
+340 0 obj
+<<
+/Subtype /Link
+/A 339 0 R
+/Type /Annot
+/Rect [98.352 433.690018 113.92 450.490018]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+341 0 obj
+<<
+/S /URI
+/URI (https://theappsolutions.com/blog/development/recurrent-neural-networks/)
+>>
+endobj
+342 0 obj
+<<
+/Subtype /Link
+/A 341 0 R
+/Type /Annot
+/Rect [113.92 433.690018 117.812 450.490018]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+343 0 obj
+<<
+/S /URI
+/URI (https://www.news-medical.net/news/20240123/AI-risks-in-healthcare-Misdiagnosis-inequality-and-ethical-concerns.aspx)
+>>
+endobj
+344 0 obj
+<<
+/Subtype /Link
+/A 343 0 R
+/Type /Annot
+/Rect [196.408 234.490051 200.3 251.290051]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+345 0 obj
+<<
+/S /URI
+/URI (https://www.news-medical.net/news/20240123/AI-risks-in-healthcare-Misdiagnosis-inequality-and-ethical-concerns.aspx)
+>>
+endobj
+346 0 obj
+<<
+/Subtype /Link
+/A 345 0 R
+/Type /Annot
+/Rect [200.3 234.490051 215.868 251.290051]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+347 0 obj
+<<
+/S /URI
+/URI (https://www.news-medical.net/news/20240123/AI-risks-in-healthcare-Misdiagnosis-inequality-and-ethical-concerns.aspx)
+>>
+endobj
+348 0 obj
+<<
+/Subtype /Link
+/A 347 0 R
+/Type /Annot
+/Rect [215.868 234.490051 219.76 251.290051]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+349 0 obj
+<<
+/S /URI
+/URI (https://www.news-medical.net/news/20240123/AI-risks-in-healthcare-Misdiagnosis-inequality-and-ethical-concerns.aspx)
+>>
+endobj
+350 0 obj
+<<
+/Subtype /Link
+/A 349 0 R
+/Type /Annot
+/Rect [325.894 200.890051 329.786 217.690051]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+351 0 obj
+<<
+/S /URI
+/URI (https://www.news-medical.net/news/20240123/AI-risks-in-healthcare-Misdiagnosis-inequality-and-ethical-concerns.aspx)
+>>
+endobj
+352 0 obj
+<<
+/Subtype /Link
+/A 351 0 R
+/Type /Annot
+/Rect [329.786 200.890051 345.354 217.690051]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+353 0 obj
+<<
+/S /URI
+/URI (https://www.news-medical.net/news/20240123/AI-risks-in-healthcare-Misdiagnosis-inequality-and-ethical-concerns.aspx)
+>>
+endobj
+354 0 obj
+<<
+/Subtype /Link
+/A 353 0 R
+/Type /Annot
+/Rect [345.354 200.890051 349.246 217.690051]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+355 0 obj
+<<
+/S /URI
+/URI (https://ml4a.github.io/ml4a/how_neural_networks_are_trained/)
+>>
+endobj
+356 0 obj
+<<
+/Subtype /Link
+/A 355 0 R
+/Type /Annot
+/Rect [233.088 103.490051 236.98 120.290051]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+357 0 obj
+<<
+/S /URI
+/URI (https://ml4a.github.io/ml4a/how_neural_networks_are_trained/)
+>>
+endobj
+358 0 obj
+<<
+/Subtype /Link
+/A 357 0 R
+/Type /Annot
+/Rect [236.98 103.490051 252.548 120.290051]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+359 0 obj
+<<
+/S /URI
+/URI (https://ml4a.github.io/ml4a/how_neural_networks_are_trained/)
+>>
+endobj
+360 0 obj
+<<
+/Subtype /Link
+/A 359 0 R
+/Type /Annot
+/Rect [252.548 103.490051 256.44 120.290051]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+361 0 obj
+<<
+/S /URI
+/URI (https://ml4a.github.io/ml4a/how_neural_networks_are_trained/)
+>>
+endobj
+362 0 obj
+<<
+/Subtype /Link
+/A 361 0 R
+/Type /Annot
+/Rect [99.92 36.290051 103.812 53.090051]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+363 0 obj
+<<
+/S /URI
+/URI (https://ml4a.github.io/ml4a/how_neural_networks_are_trained/)
+>>
+endobj
+364 0 obj
+<<
+/Subtype /Link
+/A 363 0 R
+/Type /Annot
+/Rect [103.812 36.290051 119.38 53.090051]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+365 0 obj
+<<
+/S /URI
+/URI (https://ml4a.github.io/ml4a/how_neural_networks_are_trained/)
+>>
+endobj
+366 0 obj
+<<
+/Subtype /Link
+/A 365 0 R
+/Type /Annot
+/Rect [119.38 36.290051 123.272 53.090051]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+300 0 obj
+<<
+/Type /Page
+/Parent 1 0 R
+/MediaBox [0 0 595.280029 841.890015]
+/Contents 298 0 R
+/Resources 299 0 R
+/UserUnit 1
+/Annots [302 0 R 304 0 R 306 0 R 308 0 R 310 0 R 312 0 R 314 0 R 316 0 R 318 0 R 320 0 R 322 0 R 324 0 R 326 0 R 328 0 R 330 0 R 332 0 R 334 0 R 336 0 R 338 0 R 340 0 R 342 0 R 344 0 R 346 0 R 348 0 R 350 0 R 352 0 R 354 0 R 356 0 R 358 0 R 360 0 R 362 0 R 364 0 R 366 0 R]
+>>
+endobj
+299 0 obj
+<<
+/ProcSet [/PDF /Text /ImageB /ImageC /ImageI]
+/ExtGState <<
+/Gs1 9 0 R
+>>
+/Font <<
+/F1 10 0 R
+>>
+>>
+endobj
+370 0 obj
+<<
+/S /URI
+/URI (https://journals.plos.org/plosone/article?id=10.1371%2Fjournal.pone.0212356)
+>>
+endobj
+371 0 obj
+<<
+/Subtype /Link
+/A 370 0 R
+/Type /Annot
+/Rect [465.614 715.890015 469.506 732.690015]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+372 0 obj
+<<
+/S /URI
+/URI (https://journals.plos.org/plosone/article?id=10.1371%2Fjournal.pone.0212356)
+>>
+endobj
+373 0 obj
+<<
+/Subtype /Link
+/A 372 0 R
+/Type /Annot
+/Rect [469.506 715.890015 485.074 732.690015]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+374 0 obj
+<<
+/S /URI
+/URI (https://journals.plos.org/plosone/article?id=10.1371%2Fjournal.pone.0212356)
+>>
+endobj
+375 0 obj
+<<
+/Subtype /Link
+/A 374 0 R
+/Type /Annot
+/Rect [485.074 715.890015 488.966 732.690015]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+376 0 obj
+<<
+/S /URI
+/URI (https://journals.plos.org/plosone/article?id=10.1371%2Fjournal.pone.0212356)
+>>
+endobj
+377 0 obj
+<<
+/Subtype /Link
+/A 376 0 R
+/Type /Annot
+/Rect [413.912 665.490015 417.804 682.290015]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+378 0 obj
+<<
+/S /URI
+/URI (https://journals.plos.org/plosone/article?id=10.1371%2Fjournal.pone.0212356)
+>>
+endobj
+379 0 obj
+<<
+/Subtype /Link
+/A 378 0 R
+/Type /Annot
+/Rect [417.804 665.490015 433.372 682.290015]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+380 0 obj
+<<
+/S /URI
+/URI (https://journals.plos.org/plosone/article?id=10.1371%2Fjournal.pone.0212356)
+>>
+endobj
+381 0 obj
+<<
+/Subtype /Link
+/A 380 0 R
+/Type /Annot
+/Rect [433.372 665.490015 437.264 682.290015]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+382 0 obj
+<<
+/S /URI
+/URI (https://journals.plos.org/plosone/article?id=10.1371%2Fjournal.pone.0212356)
+>>
+endobj
+383 0 obj
+<<
+/Subtype /Link
+/A 382 0 R
+/Type /Annot
+/Rect [337.346 568.090012 341.238 584.890012]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+384 0 obj
+<<
+/S /URI
+/URI (https://journals.plos.org/plosone/article?id=10.1371%2Fjournal.pone.0212356)
+>>
+endobj
+385 0 obj
+<<
+/Subtype /Link
+/A 384 0 R
+/Type /Annot
+/Rect [341.238 568.090012 356.806 584.890012]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+386 0 obj
+<<
+/S /URI
+/URI (https://journals.plos.org/plosone/article?id=10.1371%2Fjournal.pone.0212356)
+>>
+endobj
+387 0 obj
+<<
+/Subtype /Link
+/A 386 0 R
+/Type /Annot
+/Rect [356.806 568.090012 360.698 584.890012]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+388 0 obj
+<<
+/S /URI
+/URI (https://journals.plos.org/plosone/article?id=10.1371%2Fjournal.pone.0212356)
+>>
+endobj
+389 0 obj
+<<
+/Subtype /Link
+/A 388 0 R
+/Type /Annot
+/Rect [523.224 534.490012 527.116 551.290012]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+390 0 obj
+<<
+/S /URI
+/URI (https://journals.plos.org/plosone/article?id=10.1371%2Fjournal.pone.0212356)
+>>
+endobj
+391 0 obj
+<<
+/Subtype /Link
+/A 390 0 R
+/Type /Annot
+/Rect [527.116 534.490012 542.684 551.290012]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+392 0 obj
+<<
+/S /URI
+/URI (https://journals.plos.org/plosone/article?id=10.1371%2Fjournal.pone.0212356)
+>>
+endobj
+393 0 obj
+<<
+/Subtype /Link
+/A 392 0 R
+/Type /Annot
+/Rect [542.684 534.490012 546.576 551.290012]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+394 0 obj
+<<
+/S /URI
+/URI (https://journals.plos.org/plosone/article?id=10.1371%2Fjournal.pone.0212356)
+>>
+endobj
+395 0 obj
+<<
+/Subtype /Link
+/A 394 0 R
+/Type /Annot
+/Rect [444.185804 437.090027 448.077804 453.890027]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+396 0 obj
+<<
+/S /URI
+/URI (https://journals.plos.org/plosone/article?id=10.1371%2Fjournal.pone.0212356)
+>>
+endobj
+397 0 obj
+<<
+/Subtype /Link
+/A 396 0 R
+/Type /Annot
+/Rect [448.077804 437.090027 463.645804 453.890027]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+398 0 obj
+<<
+/S /URI
+/URI (https://journals.plos.org/plosone/article?id=10.1371%2Fjournal.pone.0212356)
+>>
+endobj
+399 0 obj
+<<
+/Subtype /Link
+/A 398 0 R
+/Type /Annot
+/Rect [463.645804 437.090027 467.537804 453.890027]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+400 0 obj
+<<
+/S /URI
+/URI (https://journals.plos.org/plosone/article?id=10.1371%2Fjournal.pone.0212356)
+>>
+endobj
+401 0 obj
+<<
+/Subtype /Link
+/A 400 0 R
+/Type /Annot
+/Rect [109.244 386.690027 113.136 403.490027]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+402 0 obj
+<<
+/S /URI
+/URI (https://journals.plos.org/plosone/article?id=10.1371%2Fjournal.pone.0212356)
+>>
+endobj
+403 0 obj
+<<
+/Subtype /Link
+/A 402 0 R
+/Type /Annot
+/Rect [113.136 386.690027 128.704 403.490027]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+404 0 obj
+<<
+/S /URI
+/URI (https://journals.plos.org/plosone/article?id=10.1371%2Fjournal.pone.0212356)
+>>
+endobj
+405 0 obj
+<<
+/Subtype /Link
+/A 404 0 R
+/Type /Annot
+/Rect [128.704 386.690027 132.596 403.490027]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+406 0 obj
+<<
+/S /URI
+/URI (https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0316453)
+>>
+endobj
+407 0 obj
+<<
+/Subtype /Link
+/A 406 0 R
+/Type /Annot
+/Rect [289.858 192.490015 293.75 209.290015]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+408 0 obj
+<<
+/S /URI
+/URI (https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0316453)
+>>
+endobj
+409 0 obj
+<<
+/Subtype /Link
+/A 408 0 R
+/Type /Annot
+/Rect [293.75 192.490015 309.318 209.290015]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+410 0 obj
+<<
+/S /URI
+/URI (https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0316453)
+>>
+endobj
+411 0 obj
+<<
+/Subtype /Link
+/A 410 0 R
+/Type /Annot
+/Rect [309.318 192.490015 313.21 209.290015]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+412 0 obj
+<<
+/S /URI
+/URI (https://www.frontiersin.org/journals/computational-neuroscience/articles/10.3389/fncom.2023.1092185/full)
+>>
+endobj
+413 0 obj
+<<
+/Subtype /Link
+/A 412 0 R
+/Type /Annot
+/Rect [162.934 125.290015 166.826 142.090015]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+414 0 obj
+<<
+/S /URI
+/URI (https://www.frontiersin.org/journals/computational-neuroscience/articles/10.3389/fncom.2023.1092185/full)
+>>
+endobj
+415 0 obj
+<<
+/Subtype /Link
+/A 414 0 R
+/Type /Annot
+/Rect [166.826 125.290015 182.394 142.090015]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+416 0 obj
+<<
+/S /URI
+/URI (https://www.frontiersin.org/journals/computational-neuroscience/articles/10.3389/fncom.2023.1092185/full)
+>>
+endobj
+417 0 obj
+<<
+/Subtype /Link
+/A 416 0 R
+/Type /Annot
+/Rect [182.394 125.290015 186.286 142.090015]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+369 0 obj
+<<
+/Type /Page
+/Parent 1 0 R
+/MediaBox [0 0 595.280029 841.890015]
+/Contents 367 0 R
+/Resources 368 0 R
+/UserUnit 1
+/Annots [371 0 R 373 0 R 375 0 R 377 0 R 379 0 R 381 0 R 383 0 R 385 0 R 387 0 R 389 0 R 391 0 R 393 0 R 395 0 R 397 0 R 399 0 R 401 0 R 403 0 R 405 0 R 407 0 R 409 0 R 411 0 R 413 0 R 415 0 R 417 0 R]
+>>
+endobj
+368 0 obj
+<<
+/ProcSet [/PDF /Text /ImageB /ImageC /ImageI]
+/ExtGState <<
+/Gs1 9 0 R
+>>
+/Font <<
+/F1 10 0 R
+>>
+>>
+endobj
+421 0 obj
+<<
+/S /URI
+/URI (https://journals.plos.org/plosone/article?id=10.1371%2Fjournal.pone.0212356)
+>>
+endobj
+422 0 obj
+<<
+/Subtype /Link
+/A 421 0 R
+/Type /Annot
+/Rect [335.106 762.890015 338.998 779.690015]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+423 0 obj
+<<
+/S /URI
+/URI (https://journals.plos.org/plosone/article?id=10.1371%2Fjournal.pone.0212356)
+>>
+endobj
+424 0 obj
+<<
+/Subtype /Link
+/A 423 0 R
+/Type /Annot
+/Rect [338.998 762.890015 354.566 779.690015]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+425 0 obj
+<<
+/S /URI
+/URI (https://journals.plos.org/plosone/article?id=10.1371%2Fjournal.pone.0212356)
+>>
+endobj
+426 0 obj
+<<
+/Subtype /Link
+/A 425 0 R
+/Type /Annot
+/Rect [354.566 762.890015 358.458 779.690015]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+427 0 obj
+<<
+/S /URI
+/URI (https://journals.plos.org/plosone/article?id=10.1371%2Fjournal.pone.0212356)
+>>
+endobj
+428 0 obj
+<<
+/Subtype /Link
+/A 427 0 R
+/Type /Annot
+/Rect [217.422 729.290015 221.314 746.090015]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+429 0 obj
+<<
+/S /URI
+/URI (https://journals.plos.org/plosone/article?id=10.1371%2Fjournal.pone.0212356)
+>>
+endobj
+430 0 obj
+<<
+/Subtype /Link
+/A 429 0 R
+/Type /Annot
+/Rect [221.314 729.290015 236.882 746.090015]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+431 0 obj
+<<
+/S /URI
+/URI (https://journals.plos.org/plosone/article?id=10.1371%2Fjournal.pone.0212356)
+>>
+endobj
+432 0 obj
+<<
+/Subtype /Link
+/A 431 0 R
+/Type /Annot
+/Rect [236.882 729.290015 240.774 746.090015]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+433 0 obj
+<<
+/S /URI
+/URI (https://www.restack.io/p/ai-powered-forecasting-answer-rnn-applications-time-series-forecasting-cat-ai)
+>>
+endobj
+434 0 obj
+<<
+/Subtype /Link
+/A 433 0 R
+/Type /Annot
+/Rect [310.914 598.290015 314.806 615.090015]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+435 0 obj
+<<
+/S /URI
+/URI (https://www.restack.io/p/ai-powered-forecasting-answer-rnn-applications-time-series-forecasting-cat-ai)
+>>
+endobj
+436 0 obj
+<<
+/Subtype /Link
+/A 435 0 R
+/Type /Annot
+/Rect [314.806 598.290015 330.374 615.090015]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+437 0 obj
+<<
+/S /URI
+/URI (https://www.restack.io/p/ai-powered-forecasting-answer-rnn-applications-time-series-forecasting-cat-ai)
+>>
+endobj
+438 0 obj
+<<
+/Subtype /Link
+/A 437 0 R
+/Type /Annot
+/Rect [330.374 598.290015 334.266 615.090015]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+439 0 obj
+<<
+/S /URI
+/URI (https://www.coursera.org/articles/artificial-neural-network)
+>>
+endobj
+440 0 obj
+<<
+/Subtype /Link
+/A 439 0 R
+/Type /Annot
+/Rect [92.906 547.890015 96.798 564.690015]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+441 0 obj
+<<
+/S /URI
+/URI (https://www.coursera.org/articles/artificial-neural-network)
+>>
+endobj
+442 0 obj
+<<
+/Subtype /Link
+/A 441 0 R
+/Type /Annot
+/Rect [96.798 547.890015 112.366 564.690015]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+443 0 obj
+<<
+/S /URI
+/URI (https://www.coursera.org/articles/artificial-neural-network)
+>>
+endobj
+444 0 obj
+<<
+/Subtype /Link
+/A 443 0 R
+/Type /Annot
+/Rect [112.366 547.890015 116.258 564.690015]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+445 0 obj
+<<
+/S /URI
+/URI (https://www.frontiersin.org/research-topics/68919/spiking-neural-networks-enhancing-learning-through-neuro-inspired-adaptations)
+>>
+endobj
+446 0 obj
+<<
+/Subtype /Link
+/A 445 0 R
+/Type /Annot
+/Rect [40 433.690021 43.892 450.490021]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+447 0 obj
+<<
+/S /URI
+/URI (https://www.frontiersin.org/research-topics/68919/spiking-neural-networks-enhancing-learning-through-neuro-inspired-adaptations)
+>>
+endobj
+448 0 obj
+<<
+/Subtype /Link
+/A 447 0 R
+/Type /Annot
+/Rect [43.892 433.690021 59.46 450.490021]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+449 0 obj
+<<
+/S /URI
+/URI (https://www.frontiersin.org/research-topics/68919/spiking-neural-networks-enhancing-learning-through-neuro-inspired-adaptations)
+>>
+endobj
+450 0 obj
+<<
+/Subtype /Link
+/A 449 0 R
+/Type /Annot
+/Rect [59.46 433.690021 63.352 450.490021]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+451 0 obj
+<<
+/S /URI
+/URI (https://aws.amazon.com/what-is/neural-network/)
+>>
+endobj
+452 0 obj
+<<
+/Subtype /Link
+/A 451 0 R
+/Type /Annot
+/Rect [76.543999 331.890009 514.25399 347.290009]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+453 0 obj
+<<
+/S /URI
+/URI (https://dotnettutorials.net/lesson/architecture-of-artificial-neural-network/)
+>>
+endobj
+454 0 obj
+<<
+/Subtype /Link
+/A 453 0 R
+/Type /Annot
+/Rect [76.543999 311.490015 435.839989 326.890015]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+455 0 obj
+<<
+/S /URI
+/URI (https://www.analyticssteps.com/blogs/8-applications-neural-networks)
+>>
+endobj
+456 0 obj
+<<
+/Subtype /Link
+/A 455 0 R
+/Type /Annot
+/Rect [76.543999 291.090021 394.693993 306.490021]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+457 0 obj
+<<
+/S /URI
+/URI (https://medium.com/machine-learning-researcher/artificial-neural-network-ann-4481fa33d85a)
+>>
+endobj
+458 0 obj
+<<
+/Subtype /Link
+/A 457 0 R
+/Type /Annot
+/Rect [76.543999 270.690027 454.964012 286.090027]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+459 0 obj
+<<
+/S /URI
+/URI (https://medium.com/@alifyafebriana/from-biological-to-artificial-understanding-neurons-and-their-role-in-neural-networks-8eb8c80fddc4)
+>>
+endobj
+460 0 obj
+<<
+/Subtype /Link
+/A 459 0 R
+/Type /Annot
+/Rect [76.543999 250.290003 535.603996 265.690002]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+461 0 obj
+<<
+/S /URI
+/URI (https://www.digitaltrends.com/computing/what-is-an-artificial-neural-network/)
+>>
+endobj
+462 0 obj
+<<
+/Subtype /Link
+/A 461 0 R
+/Type /Annot
+/Rect [76.543999 229.889978 502.368004 245.289978]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+463 0 obj
+<<
+/S /URI
+/URI (https://www.neurond.com/blog/what-are-neural-networks-and-how-can-they-be-used-in-the-real-world)
+>>
+endobj
+464 0 obj
+<<
+/Subtype /Link
+/A 463 0 R
+/Type /Annot
+/Rect [76.543999 209.489954 479.645988 224.889954]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+465 0 obj
+<<
+/S /URI
+/URI (https://www.explainthatstuff.com/introduction-to-neural-networks.html)
+>>
+endobj
+466 0 obj
+<<
+/Subtype /Link
+/A 465 0 R
+/Type /Annot
+/Rect [76.543999 189.08993 501.149986 204.489929]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+467 0 obj
+<<
+/S /URI
+/URI (https://www.intellspot.com/artificial-neural-networks-types/)
+>>
+endobj
+468 0 obj
+<<
+/Subtype /Link
+/A 467 0 R
+/Type /Annot
+/Rect [76.543999 168.689905 514.954002 184.089905]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+469 0 obj
+<<
+/S /URI
+/URI (https://www.coursera.org/articles/deep-learning-applications)
+>>
+endobj
+470 0 obj
+<<
+/Subtype /Link
+/A 469 0 R
+/Type /Annot
+/Rect [84.327999 148.289881 426.123989 163.68988]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+471 0 obj
+<<
+/S /URI
+/URI (https://medium.com/data-science-365/overview-of-a-neural-networks-learning-process-61690a502fa)
+>>
+endobj
+472 0 obj
+<<
+/Subtype /Link
+/A 471 0 R
+/Type /Annot
+/Rect [84.327999 127.889856 454.795986 143.289856]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+473 0 obj
+<<
+/S /URI
+/URI (https://www.geeksforgeeks.org/neural-networks-a-beginners-guide/)
+>>
+endobj
+474 0 obj
+<<
+/Subtype /Link
+/A 473 0 R
+/Type /Annot
+/Rect [84.327999 107.489832 360.029995 122.889832]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+475 0 obj
+<<
+/S /URI
+/URI (https://mybrainrewired.com/the-brain/how-synaptic-plasticity-shapes-learning-and-memory/)
+>>
+endobj
+476 0 obj
+<<
+/Subtype /Link
+/A 475 0 R
+/Type /Annot
+/Rect [84.327999 87.089808 421.014004 102.489807]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+477 0 obj
+<<
+/S /URI
+/URI (https://medium.com/@jeslurrahman/simply-understanding-artificial-neural-networks-ann-deep-learning-10b19e2eadca)
+>>
+endobj
+478 0 obj
+<<
+/Subtype /Link
+/A 477 0 R
+/Type /Annot
+/Rect [84.327999 66.689783 539.943996 82.089783]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+479 0 obj
+<<
+/S /URI
+/URI (https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0316453)
+>>
+endobj
+480 0 obj
+<<
+/Subtype /Link
+/A 479 0 R
+/Type /Annot
+/Rect [84.327999 46.289759 502.227993 61.689758]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+481 0 obj
+<<
+/S /URI
+/URI (https://www.smartsheet.com/neural-network-applications)
+>>
+endobj
+482 0 obj
+<<
+/Subtype /Link
+/A 481 0 R
+/Type /Annot
+/Rect [50 30.000015 50 41.289734]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+420 0 obj
+<<
+/Type /Page
+/Parent 1 0 R
+/MediaBox [0 0 595.280029 841.890015]
+/Contents 418 0 R
+/Resources 419 0 R
+/UserUnit 1
+/Annots [422 0 R 424 0 R 426 0 R 428 0 R 430 0 R 432 0 R 434 0 R 436 0 R 438 0 R 440 0 R 442 0 R 444 0 R 446 0 R 448 0 R 450 0 R 452 0 R 454 0 R 456 0 R 458 0 R 460 0 R 462 0 R 464 0 R 466 0 R 468 0 R 470 0 R 472 0 R 474 0 R 476 0 R 478 0 R 480 0 R 482 0 R]
+>>
+endobj
+419 0 obj
+<<
+/ProcSet [/PDF /Text /ImageB /ImageC /ImageI]
+/ExtGState <<
+/Gs1 9 0 R
+>>
+/Font <<
+/F1 10 0 R
+>>
+>>
+endobj
+486 0 obj
+<<
+/S /URI
+/URI (https://www.smartsheet.com/neural-network-applications)
+>>
+endobj
+487 0 obj
+<<
+/Subtype /Link
+/A 486 0 R
+/Type /Annot
+/Rect [84.327999 796.490015 426.726009 811.890015]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+488 0 obj
+<<
+/S /URI
+/URI (https://www.frontiersin.org/journals/computational-neuroscience/articles/10.3389/fncom.2023.1092185/full)
+>>
+endobj
+489 0 obj
+<<
+/Subtype /Link
+/A 488 0 R
+/Type /Annot
+/Rect [84.327999 776.090015 480.514004 791.490015]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+490 0 obj
+<<
+/S /URI
+/URI (https://www.analyticsvidhya.com/blog/2021/10/applications-of-convolutional-neural-networkscnn/)
+>>
+endobj
+491 0 obj
+<<
+/Subtype /Link
+/A 490 0 R
+/Type /Annot
+/Rect [84.327999 755.690016 410.373989 771.090015]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+492 0 obj
+<<
+/S /URI
+/URI (https://resource-allocation.biomedcentral.com/articles/10.1186/s12962-021-00322-3)
+>>
+endobj
+493 0 obj
+<<
+/Subtype /Link
+/A 492 0 R
+/Type /Annot
+/Rect [84.327999 735.290018 527.260006 750.690018]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+494 0 obj
+<<
+/S /URI
+/URI (https://www.ideamotive.co/blog/business-applications-of-neural-network)
+>>
+endobj
+495 0 obj
+<<
+/Subtype /Link
+/A 494 0 R
+/Type /Annot
+/Rect [84.220768 714.890017 545.280033 730.290016]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+496 0 obj
+<<
+/S /URI
+/URI (https://iq.opengenus.org/applications-of-rnn/)
+>>
+endobj
+497 0 obj
+<<
+/Subtype /Link
+/A 496 0 R
+/Type /Annot
+/Rect [84.327999 694.490015 505.014004 709.890015]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+498 0 obj
+<<
+/S /URI
+/URI (https://theappsolutions.com/blog/development/recurrent-neural-networks/)
+>>
+endobj
+499 0 obj
+<<
+/Subtype /Link
+/A 498 0 R
+/Type /Annot
+/Rect [83.135788 674.090014 545.280045 689.490013]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+500 0 obj
+<<
+/S /URI
+/URI (https://www.news-medical.net/news/20240123/AI-risks-in-healthcare-Misdiagnosis-inequality-and-ethical-concerns.aspx)
+>>
+endobj
+501 0 obj
+<<
+/Subtype /Link
+/A 500 0 R
+/Type /Annot
+/Rect [84.327999 653.690012 504.299984 669.090012]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+502 0 obj
+<<
+/S /URI
+/URI (https://ml4a.github.io/ml4a/how_neural_networks_are_trained/)
+>>
+endobj
+503 0 obj
+<<
+/Subtype /Link
+/A 502 0 R
+/Type /Annot
+/Rect [84.327999 633.290018 384.459988 648.690018]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+504 0 obj
+<<
+/S /URI
+/URI (https://journals.plos.org/plosone/article?id=10.1371%2Fjournal.pone.0212356)
+>>
+endobj
+505 0 obj
+<<
+/Subtype /Link
+/A 504 0 R
+/Type /Annot
+/Rect [84.327999 612.890024 482.361996 628.290024]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+506 0 obj
+<<
+/S /URI
+/URI (https://www.restack.io/p/ai-powered-forecasting-answer-rnn-applications-time-series-forecasting-cat-ai)
+>>
+endobj
+507 0 obj
+<<
+/Subtype /Link
+/A 506 0 R
+/Type /Annot
+/Rect [84.327999 592.49003 432.227993 607.89003]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+508 0 obj
+<<
+/S /URI
+/URI (https://www.coursera.org/articles/artificial-neural-network)
+>>
+endobj
+509 0 obj
+<<
+/Subtype /Link
+/A 508 0 R
+/Type /Annot
+/Rect [84.327999 572.090036 543.443996 587.490036]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+510 0 obj
+<<
+/S /URI
+/URI (https://www.frontiersin.org/research-topics/68919/spiking-neural-networks-enhancing-learning-through-neuro-inspired-adaptations)
+>>
+endobj
+511 0 obj
+<<
+/Subtype /Link
+/A 510 0 R
+/Type /Annot
+/Rect [84.327999 551.690042 536.835995 567.090042]
+/Border [0 0 0]
+/F 4
+>>
+endobj
+485 0 obj
+<<
+/Type /Page
+/Parent 1 0 R
+/MediaBox [0 0 595.280029 841.890015]
+/Contents 483 0 R
+/Resources 484 0 R
+/UserUnit 1
+/Annots [487 0 R 489 0 R 491 0 R 493 0 R 495 0 R 497 0 R 499 0 R 501 0 R 503 0 R 505 0 R 507 0 R 509 0 R 511 0 R]
+>>
+endobj
+484 0 obj
+<<
+/ProcSet [/PDF /Text /ImageB /ImageC /ImageI]
+/ExtGState <<
+/Gs1 9 0 R
+>>
+/Font <<
+/F1 10 0 R
+>>
+>>
+endobj
+513 0 obj
+(react-pdf)
+endobj
+514 0 obj
+(react-pdf)
+endobj
+515 0 obj
+(D:20250101074536Z)
+endobj
+512 0 obj
+<<
+/Producer 513 0 R
+/Creator 514 0 R
+/CreationDate 515 0 R
+>>
+endobj
+10 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+>>
+endobj
+4 0 obj
+<<
+>>
+endobj
+3 0 obj
+<<
+/Type /Catalog
+/Pages 1 0 R
+/Names 2 0 R
+/ViewerPreferences 5 0 R
+>>
+endobj
+1 0 obj
+<<
+/Type /Pages
+/Count 10
+/Kids [8 0 R 13 0 R 72 0 R 129 0 R 186 0 R 231 0 R 300 0 R 369 0 R 420 0 R 485 0 R]
+>>
+endobj
+2 0 obj
+<<
+/Dests <<
+  /Names [
+]
+>>
+>>
+endobj
+5 0 obj
+<<
+/DisplayDocTitle true
+>>
+endobj
+483 0 obj
+<<
+/Length 1251
+/Filter /FlateDecode
+>>
+stream
+xœíZÍnÜ6¾ïSè¢Ãá’¶z(àÚ·¢‡Z+š…öõ;3$W²-m6N\)€,ïjWC)òû8kÃÇËom“1Ö7İÇÃßå°ÚÀ6ÎÈÔ‹VN‹×ê~AKrííwı?tıÏŞ5İÃÁ¨ü¡ûëğöÃƒm~à{nN÷ÍŒéİİDçDtÇšà±¹¿\ù{gù£ûíºñ¦¹æº1¿6w?¾¿ã.NÏ„­ƒ˜‡{£ßèy:J‹RŸó‚çjm4.õ	znÚ¢µ0#8¬°¥ô¸ÙkLğƒ7WäÉRGì(]ËJò50hUL0$"G6 ŸêƒÃgâF}Ñ|`uV>‹¶‰ C(‚Aš¼á\Ñ½¨€#ïr»c>Ym‚Ò/ÇÏîEÃÂAëÒd…dFşeàXä‰ÿx¨rıúçtŞß¾|nßÿt¸-`'ÖµQè‡ú<ˆn)8ÅtOzğşŒ{`ÄòHrS?‚Ÿ@éĞñ+d‚òYÙ36èµe"p£¤GÏj<3Œ¿A/Çü
+%âÉ¤eìù
+ØGÓ
+0Û$@Ü	 ¸hs/{3_d^HóÊ=C¼ÜğtÃÿ|KKO¥i9Aš_ Öàìù
+Ø'ÛZ~Ø(öÓ}ÁşR/Ü¥ydÛÃöËìÙø{¬äQËb³;Ò8í¢EŞç¨Çw!z¯Wù0±=g²³“,’¢ÊW E´­RÄM’œùZ¤ ^8Šß()xwXzx›Úºİnvø˜c¦SwÏBÙ×a.Ñ‡êI*÷Ñç#k8–¾ewàŞ,¤ò`"Ô «Ä<Ãc×sß.ò;¯Ñë°;w5é·‚Ö\c;±6º‘Øİº^êY©±t qÆ<_–OˆEïc?’E•yÏQAŞ³– &oç‰Ç±<‰´ª|& ´høo«„€¯C×ZçCüV-ëë`}J³g$ãÛ<©•aªİ»8%Ül®o–7Ÿ0Ÿş8O˜ÛÎx¢E¾aØ	B·QÂ¸İ‚Œ“$Ä*è;v9
+K?Åeñº–ÌªqêğxJï‘àÕR`Ÿpß08&+„.«b’Ù ªÄ…IèfŠ¸Æ{^{|N³®dÕkëEïØmJçØPäk°Ü–³àpgƒ°!–(!ã6„²7¿(Í,4‘$Ãä6å€À\¤ ,(]2-8¤õ<ñ˜›‰cæ—ÁğŒI?Tù0.çìFaîw˜_6<*Š£ÓËë.Ïl‰îî…&5İFye™b™:üRl[Ó«|•¢¤k5ç7J„½*?zæ'XŠß<e^®¿Çuu?q¡rí«ß?”r£=AÛ†n,ä6¹\ı¡{éyaYB›–A¯Ò5 ñp¶YŒ„½Ÿ§¢äP£ [P]«-#–·ı—go'.~vqNã¨UV‚µZÒD:ÀÓUÇÃİÎÙŠSñTƒş,äÑÍG
+>µÖI4ù4b€	¼ÂVãæ½¦¯SájÁ!éV­ûù$™&ñ´¯6)*cÜI»>í$®‚“MŠú+Ï±C|2à(¬”R¡D!gjœ^ŠË?øªòÿƒ!õø±¢ß
+endstream
+endobj
+6 0 obj
+<<
+/Length 1216
+/Filter /FlateDecode
+>>
+stream
+xœÕYMoÛ8½ûWè,;$g†$ôPl[ ·¾-ö°UíÅvE€şşÎ”ü!*Vã´–“ÀNDZÈ<¾yófd;ïß¬¼D´&& K]ÿïæÿúmóÛyè†…á¢ıÉ‡Kd¢wzgëÒ›ßwßşéwŸ?¾ëú§ämOı›7Ÿl÷÷“|ôqüxãÿx·o}²´•;°Ãn»ßüñ@á­¬?÷VnBİ§€LØòN_óêäÄûºèx( ´‡Œû8ïM²¯—»¼ƒI> »¬ş~¶€!Ô…ıá?ùÙñg·ı´y¿•pG¬,c—!|lXWóê	îÌA¾Ü)ü0‡»±|r–8²H²Õ µ1 Åè<¹$—8nûG…‚‘+è	Hù·r{fAÓ4÷¼Ó#Ô×à›ğÙÈ‚;À×Ê‚3Q‘òçì…ÎÁ³îWÖV$‚Ä_K¸õ­Õ+S›3ÁµÏcnÅíĞ°ÆÍ«‹›ÊËÁI"8xùSëˆ?3#›Ø:ï·Ïñ)§WHúuª»9¬˜$Y ÊYÏßÀ#WÀpÍ¨9“,šFŞWy,ç9kÆ 3“!Šç,<x¼yø£¢†@Âôc
+]‰‹E2È-jLñ‰ÁX…'¬¹Æ¿ 5¢ÔgßÛ†àªz¬Upg	òë5V"8Áô~D–w$›HrjøK"Ï(P©áŒWúE%cË¾ú&WÛ@y7Ñ®û’ïƒå+	VGùJ¯I+d”µW°á«?õ"¶èÀE»%vœŒWtq}è’«¸ˆÅR©wÅT_d½ïR$m’^gÍXq©¾UğëE<¿JYq´Ã”nó/áèƒ€7:y¨8UÆíëÊ,DÚÏ„%d³°BahfÇÚ1\
+RNd1ú;µú%£”jõ/’x.m…Û3æ^ÚM’÷ö …û Ê³ÊµZÄ_¹DÛ`¥T¼Ô¯€‰Ïƒ6$¨Ö•(Î€÷/DaMAm²);¾qªÀš‰j]²¦:pÈÅ¶"ÔÃ%#™}Y›fmÆ
+¡rğ;»¼*ˆ&ØækÖ¬ •ÑhœG~–!Wªcø!l’ñn‘¯´¢ÍDë€ vM¢^Û©YQÏóÒ^çöÔÀgº›#‚ÒÅU½…ñš>exøÁâôê¥åÕœL©Å¹¦PÎ”½òbêyÚè$a
+4'-w#$£Ûc_Ç*_®&‚ñÔBeÆÊCÁøI÷p{xê¨$ò>OXÆØgä#Áé¨ÿnlØà>mìŸÓ>wMA2CI@MI}®¶D\ÖL®yè‡Ò*dÙğ9M¨=¤†Óòpûx™cÓg^T¼F;Ø¸‰¿«¡ÁyÔe­AëSa’+ÄuJŸ9?«…àLh?ùk¡ÚÕ
+a$æ:ªk§‡Òª
+Åg¦ú ÿ’RZÂı*%Õç¡‚I.Y#ƒûüçHD/áá¥[ów®ûq
+¬¡æ°Ëäc`JÈü9©/ywÁXH	°  j~Ü‹Ç],hùĞta'±÷±tÀªªMc:¢1”ê“­êÌTMˆüQ§>îqóUS›§
+endstream
+endobj
+184 0 obj
+<<
+/Length 2858
+/Filter /FlateDecode
+>>
+stream
+xœåÛn¹íİ_q~`µ£»~Øm»@
+l“·¢ëãsŠM"@÷÷KRÒŒ4GâØNÇ'ñ®./¢HŠ’<Mğóƒ„_ÁHâ4I{:¾ûOş‘Ô@ô„ÿåŠòQâ_ô­|ÿ•pøíÇ?\şûÏóå¯¿üt:¹›¨şËùßw?şòEşñúü:÷ëÀÿéS5fUõ	Fş@6§O×»¿}°êê?8éŒ‹ğû¬&S>yí¢×ğÁyë.N{lruørIM¬7Şß#ÜÕC¿ Â÷€½TÈcçñŒË½ 2ªÉ[ŞÂß*÷¯fàÔÜ­€Ó7™~§¯ŞİŸ”¥	Ï@?}úóİ?•
+ì¤„‰â¿6ôÃß*
+ózt¿EÈ H( ‘3"ºIMŠ€‰]ŠÖ¸à, ‹dŒ÷§¶áRR(l7ª÷HBd—Áp
+¦sÎ‰‡gv|ëàÏ=J4ş»ewîCÂ2l„'ƒÍaºWš]&ß•©}L²†¸âXê‘dî13r!@1d¨§=	b:ólJ­zb'£ ÂN*.¢W-w'ÂíWã„zu%ĞY¨`)qAñ'øQîš8èÃB8ä‹¥¦×ü	èsFê¤–£E_¬VİË_È	C¨³õÀe
+1-¨Äa"MS“œhõØe…‰Q8oz|Ğ:©İö«Ó¯Ç>‡k±Ödğ/Ô…Énò{R3P­¨t—u…Ğ.Î/ÌÚHoá·ÊT>“¶60Ğ•ttµ”¡T`Áäj‡J8§z°SRÀíWÓúx%µXf-HD¸TšHøö Öîà(•e‘p\Í6 IG%-Iyc¡‹0RzgüdCPÚ¢š.¶ÍöXôİ¹kh®>umºS÷Âsğ©Û¾bS}'AÇ=‹ŸÇJú´!á·ßï²€K:óóÔ ÅªTüWÀÏ_Nû?ÿåîcÅï-	Š\»AV0 ¤ÑÂª°Èô³ò¢Y;Jvƒ·—oUä–¦$ót±ëc¥F¯ÎÕîƒ­šŸâWt¥VE#¤k,û5¥¶BGøsCÕWv¹ÈˆÇ½”£n¡kòĞ·±Ç•&‰fĞ\{¸.~U²ĞpVÓnp3#ëÒîõs}öÓ›Œ=0Rõu¸Ëƒ Nît_k½©“¥fsŠ†ötY™X³AóP¬Ìäq¢§´p%Y¾DWë’Õsè²s`§ìÂ£ÖÜ˜Míd+ª¡SAû¸êÓôÆ®®º"ÿ±ü–;è,iÃ¤‰ºäMS‡ö¬Ş+|"bU$u°´%‡cˆÙ¦¶ª$.•²èÌM,iÆ­Šè”0}õ¹ªôØLpbZ^Öh?˜I$ç¢âÑdx´BãÜ i§Ór“Ó³œnÇ	7|bOïÜô^<õ–¯+1äĞº	‰œd Jf®f2·ôYóô¥çyé,hf>çñV i_0"€¾Šáy|QÄçí#°KEŠ”T¬3`…íKW½cg)0§,ÚYòÆÎêyò°]'ÆvÍûìòà«yD;&ÆĞ(`¥¨¸ß'”‰#B½ªA:4Ç·ìÍ¹óÓRQEªoÄ»±w)nGç ÙòEš’%eÉÖ‰u™¾_¼©c]9Ü#èß’u….qZ¹Ğ„E`ƒÕª„:ª©šIƒÆ;Å§ä˜¾Åª%"â×*x‡hgF¨	¯QíòÆfOü£¤?¨ñï[£o¯)@%M¡S4ú–9p8bné8k‘¾ÖpNL›¬Æèüqñõ…Ü_*“>»ÁÏtt‹›[¢İäaÛd}’=£ˆãÓ$:T4Ã8İÅ<´„‰Ah{ÓÃ‚d ptH§¸£{ôBm
+ÀZFíjÔ#É™J^E¯¶=TdF:o©|Î%0°Á§è8ßt~–ÂtÜQ&`SãIÙ#œ¾Ö"Ê}ó†Î­*ç³ë#±fKLRR:óM à“œÍLE÷è
+¨ùÌr‡ğ´çõ”¸•7‚´2JÁÿ–ÆÊ'@a|¸îe=_ë[ùW	£‚©¡ª"*JÄ-öáÚû|DÏ´h™maá¯y:nI›ü×Í-åTĞ¹ßùY³²)Àõp°å©‡”©8”(µÓ•ÇˆQ$œ›v„ãÈy½ƒÎAÂÕÑoßŒ˜¤îğGaïø Rê¾Hş³Å~;ììŸ}y ©¿k™‘ß‘Ìì¤¿òÜ:+Ær¤;Y1ÙO‘k RAeöYÃ@FX¹3–5„™ö:+/ +éx>ú±¬a H/‚{ÕŒ £äÈõ?|Ìd¿úÊIÀI¾ëÑÍ:ánÖ¿ñÙ¿ÍØ¼(jÒ	Šf›°>Ì~áĞ1gæŒ€‡gçÑF ë0µDƒª6ÊWÇI¥ØD•¸†%Ä–‰¼1Îc l›`Àp&¨²³™öM´Œm95Ä¶GXŠ%w¡Ëø¡äû2’©Ó"nğØälƒ1Kpé%êXHŠSÜ`÷8brôäğt ï&¥Â|::—LSjZ&^¡£÷rN˜kcÓ320ğtt¼´FgÚÎ¥” 2i8ø+<¸7x´8f“Î•Ç”b15-%3³-z«ŠŞ|ı|?æÅ
+bà¹6„ÀÂQ”‘‹–j+1Ô^É,Cí¶´[3f˜KùäxÀ™VÖVØ_ÚË1†+ŞsÜÕÌ(73{šlsğVc.1kpC—°úâ½fe,b´×”ë› ÿ×‹2¾:äiÓ© V8ôÅ»©ï(8t ©¿k™å}‹2³“Ö}n@±¥ˆPÖ‹9 ¤mÊï{¦ ½Rï± £€vgˆ ”ˆrß˜i@Æ LØËÆç;3)¡ı^Xv£bŒŒ&êwM¤L¶äÓÙSŒRÄ°•†ØQLQ½uLQl·2ûîñş˜•
+UYíUqd»t.±í%[{hÜlİArİRŒçTØÓU¯Ş:v33lõ¢AÆ®:Ág ´aG@J$z²ãó¦I®”¢JdZ‘ûÒ,Y¨“A†ŒëR4ôÆƒÖ×†kƒ!ó™tS7¬}Ş„hYx¬¸V”'gë×5¶›3é0ÅH¡¤åõÉBrO!*bó¶GZ>l‡+vá‘¯X’^xQîyr~¬Xjz,Á—ë–ôIN×LOŞ$=¹ûyI×ºbIµÂ>o)íµÊ%œÓøÌüúÆ,7”C4ÑñP•K)Y¾Ì¢º:‡ßÃ °Ÿ%ğĞ£ÿ,øÈMõL
+®,Jùñ#‘ë…ı‰b±R ù´¥a¹<²$3?å=
+ï0ïîÌ P (?é/VTWX\óBÛ›>o—G9°Ubª¯®éš”H\îQÕÅİêZI~B¥‹½‹štÎ¼ßD ¢ÿ`Ç·¨8ĞÔßµÌØïHfvÒœ_—-WcP(„Óû&u50 ¤6”ü¾ k2ˆ)îŒe@LêÚb Z°²íÎ8Ö0 ¤“Ú¼bpË95
+Ïû2®R“m^¨H'êûQ}òÄxŒèÕrÅ¡Ÿ˜vóLJzG¾øæ ESÚ7\Z#ºØ–:¹\Ø+»bº¹¥<[›qø‹‰V‚9"öFHf}iºöİ[Ï§Ğßç»hõ[‚ã[)ù1›óìÆÔ½
+y›ØÄ¡ö÷3|í&ô½Nö²7š^„šŞßdÃpÌN)`EÀ9U ¯4pï·[y´Ş¼³âBÓôó?vk˜e
+endstream
+endobj
+367 0 obj
+<<
+/Length 3201
+/Filter /FlateDecode
+>>
+stream
+xœí\Ûn¹}×WÌ˜Ëû0ô°›d<pì· «Ñt Èş~ªŠ—&{H$¸Gã`ÖkKİÍf‘ÅK:Ulqàğçƒ€¼ÌÎ…9¿>ü'ıT@ÇÿÓƒ|SpüŸnæ[ğ×ãŸşpúï?§¿şúóáøí3á¹
+Rë­tÚ@A¦…pV;n¼—ÊÈ ·lh‹¾ÿığÓ¯ßÄáß@È§"¨ÓâŸ¿T¨}ÆüI$?|YşöQ{rÚ' Kw.µVÚğ/´Çø#^9í‚äğødµä÷Œ~<‰¡eá±SŠamPT9|ûï‡/~øãhyn›ô)} µ}¢>}¢ŸVµ;Óªd¶£Wzşı”$tR’ˆ
+8ÙãQ[ çxSØßà6Ş8ÚoT üv±'x´X+yªFŸêNÁã€ÿÆªáw¨Ëá+±Öù ¡PT;<”P©ÅŸÜ˜ÜflÖÓ#øGkPL5HšZJ­„«#gg´×ŒKYR=20}½ÁÈ*^ ñÆ‚Îè14Ş¹øÈC”õ <…~‚2HwŞÅaRÔï#Íä@H–îÀ[Î85Bø¸&Ü‡úa*Áã‘…wT=ün]\	ë´X¦«rÃã°w•Wsß2~W[&¯7RZ™¦¨ÆªôûôIÚ%+;ş„Éª¤¬GÇ Nó„OUĞ,„énUchi—i—•G%ªuLÊ""C£°FÙŸÍÒ0+ÒsssÖ°yê6^AqyãMW «Ûxaˆ½ñÖ›çW*~¯%V¶òlcißQdhš%×m¯5Œ{ÛÛ?”Š¶ïışWƒĞp÷+\f¸—ÿª»úËç·Òç_şòğ95ã÷VˆÔĞT§÷YË@‘Áf¿“ÈVİV]Ñ6‚¹yÄ^)«…qòT—íï ´ñ›Ñ’NK¤İ:B•Kmø€¦¬ÓÓJ	f^(¡àqœ nş&æé{†ºo
+ ¡G00-æİóe r0Ò ”yÛ/€DÔÆ¬	D`0\gßù²6<¢°ö®¬ç€ì4ÿ@¥&!/‚6dµA¹d¿Uœk=¸–ÉçEû2X ` HËX½M#"eğ@¨¼° z.EOqÚ(Ğ@æ!Ş ˜éiÙº³Ú»Á^Ó¡ ZJYûc[¯#v_Uë-Ïö3İÉèÚDxU¶XÅA qY]?Ú<ğ)ápÏl:Å‚¸uÄr[w°u¡í‚÷zEPyŠ'l¡œcïg v+XåûŠ¬e HØí^½ì²@Â`§á?õƒql=v,dv¦ü6NÇíÊ¤xì×‰sÃÿyºÑJí˜®ø‚¾
+ƒ©ğ=µs¾Ä•~GD@Ä‹{nÈîdêÇ%Mdf­Áµ¡bŠBáß…LBÊôe$œkF¦ÈÚòÜ$XÀ\‰Ä´Mù&jü Y8T3PïÈ¥¡f8Ò™@4â"Z²`´ó™¤—ïF’%Xh·¨n+¢ÓZ*ˆÀlˆÌ[6lªAÈ‘ ÜnäU+ªÊV7 ×ì
+Kn^³‘S‰ö¥îœÊúP•Y0ZÑR‰J^hº.IÄñ*X1d§¬´½udq‡twHù³¾ÑÛpÇv;Ï|4.³e]MÑÆôGÄY¬·´4[^4>qÁ$X][-DâÆ¶3³×È ‘’Şø¿£ÙFpcjpMÁì´Ëç¸Ùu’í]B/ÉÑ®|}˜š¦-æY¼Æ	Ó†_óO‰nA>Oê*@I¢|“A¾©7¹o†l*L‘Ó…Ù˜«+QD‘ğ)¤!5·ÆWõRD©¡£–dGU‰_™<Zd¢û8]{Å¤¼GŸîÖóæ­çk‘Ì‹¦pKšä9Üâbç R-ãëƒáàĞú}Y˜FŠ´Ì¸ı‚J^zÏ\ÁûŒÑ` 1ò‘™ëÄmÄ:çw€ÁÔ˜l!r¹Rü„ŒÀ‘L5¹*Å)iFŠ»*BÔã `â€GÛ\aÒ
+¸ XJ;ª.QMUÙS}åô¶ê
+œgQ•Í%zèÃzZ‰ËVş¤­mY;+«›èÓø
+Çÿ»èg™Öƒ£P½êÇ*¡Œ —)ï´’q\;`­.# XP I±µO[MWWÇ³ñ³kEîª“¾èi_Z½\{í~~s[c‰óiàøVí£Ömj5/†úqj—íD!›æÈ³QÔòª¸ó»²–É(&/¦€ÜœÕçèæ€ƒ`2m–røLÊ'[êÔJ@ì<å-D§®“Y‰Ã•FVÙ„ßª€ë±r#r´Z‰ôjup
+FˆÂº^ràà‚¯é™×‡8o×«LÕ¢»éÇÅ(c/:Ò*šûY…be-‰}²^_âHgÊ¹,Ãç¡¸”hh&Í)‰‰“21)"{Ş˜:é 9™‹ãS
+VsXÎ`ğÆİ™»y÷#ı`ªkëb|Có¼’ÎBK›2ÔíTÌ*-e7ag“í¸.œì›rÏ¸s{Gì·b0ÓZ¦Íî‚7bP°cFíØã÷$f“Ù­)@„	9#½ÄÉünP¨2­b¾„ÎÍwÉëïñª‘T|Æ
+w|
+ÁQ[(Â©k¸±fşMÎ2ã˜ZŞ,E»á½7¼«|‘Ö÷C’iXB¤¨¿t……,³)ŒS"ûdxW6w;ÎúsSB8†Y©{CqIƒ”~ÉkhKı>‡b8wlqÇ7-Şš´—fx2‰N1¡öå§k_·İÙğ×"¾>ÉL¸*7­•‘võ-Å*Ewã{ÿ	.³›‹ÀT»”]¤uöaeÎËÆº·‚½dN\âŸ5”İ~0â¾ÊeŒ	çñè]JbL‰‹*¾Ë'¢%×]l•Q>Ï!€ş’¯.¨Fê½¹ü>-åÄm¡yR–\rsr]Wcb}>ò=İå:PßÒ2Jú\.ã	×ˆ{¶#°À}›ĞN:C<@!sÿæ 7®‡şæ¯ƒaª=Èı~áÙ\Ó-hPAxœ¾>Ú2I/§ÌCµn—nóF¢¯v.’C«ù*ˆ<Ì)ç„å Y ÀÒ¿ÙSÀí>ùBç)f[¬Ú$*r¶ülÉP=›”‰½	Ô9TMH]m’`ğXWÜ«urR†k9d/†ç~(/´‹á3ğ‡ûLíOFeUSV‘:NçÉm:›5uÚtz×¯¹GÉ_kœ&gQC<oíŒÍNoÎ‡)¹2ëjlxØ]÷]§[ğbÛ= çsEgª‚7e³/G©Öi¿’Ykšr9¨¶•5)—º¨qo¾¸ljR†RY=5ƒ6LF—Ì›núâMø¬”ŒŸŒef^²¦Eaâ©ÏvÊáÿ”8]v÷Ş.ÜÍ €éenŞûİ_qwwHp^?"S¥ƒ&yN6–ı*áO:0›±sı-CJÉdŸq¬ıë¼†’û)bÎìêïÖ"@ 8øJì›`İÈ ‘àâKqN]uİcBñ¾bBBÃ|ÊN(WÙ	ã"	„”Ù¸‚‘õ°şğİO"OÊ§ƒı+Lš”MxğB‰I¼éÓr¾Î&oÊÆË3¸ò¦¥‚…Ò~†eËßô­ ÁyÏ{Š_õ”}ş€æ…Hã:ı˜S²òx:°x×§­ÈPt’PoNˆE/cj‰Uò8-òñMRIË æFVO¤©m0,°¸.Ò…Í çaˆøñ³+!İVç0ı³ "ÆÙ¸^^¡˜éÛ!†| œ©ò“²%3)3ğ~fïP¤N!£RmAãÒ™Áµ~¡kGò‡ªÃy¿t¢,åLZdO›†©ãb—tXö›éqë¼½ewQºç´Á¿jì1# cJÁÊDqtÉ%¥İc@åÔ	êÛÓpw?à{ø¯	ƒ	#ê³y–'pƒy¹o,¬‘"1c?ìkd HË¤¿j<BşX±½Ô¦=æÔ´ß«0˜Q“|ÏõäF|ö†“Ş_ş„…Sæ}Ã<9hÑÜ²°†iı 9Òçì7}Ba[ÉF¨í”å&y
+»ƒï6¬Øæ—¦äèbÏØŞõïÓn"ÔcJ”åñà™W¿òG-_¯ZzVnÍ—jsÉ'åÈ{˜µé¹ç1ão_¼àíìÙO:á/©vN3MŞ¥ŸVŸ{
+-²úÏÿ ]O[8
+endstream
+endobj
+127 0 obj
+<<
+/Length 3048
+/Filter /FlateDecode
+>>
+stream
+xœí\ÛÜ¸}Ÿ¯èX.ïÃ»›,‡ ıäaGİˆd?UÅ‹H5Éîñ@=êØÏEÅ"«ÈbSd‹‡¯ü˜´`“ç\˜Ãüùé?ñKPqPÿÇé¦€W­c2ÜOwùÁy6á½9ı÷_óéo¿şt˜¿<qzşeşıéÇ_¿ˆÃ?¿À;ò{6üô©¨³xô	jş3H×‡Oç§¿¿³òıA0¡”âæğÎŠòÊ©ê™©®ôûƒ²LNÜ«éğNòêÒ«²§QY§«²ÓZæàM^µ¶îIİ‚AOê^¾¢Ï~İçâÊBÑ^ã°á?HÅ&k­Ç§ÇIjeùA—«Èùv"{¨«]ikşÊ†×ºrÛŒ–•Óosµ.­%
+k=—O=<5µ~-²7ëäEÚ»Yş •ÏÃzê¢n¶û`À®êµÊî@3ØşÃ§¿<ıéxÅä÷ŒğL8É¥?÷ıPùÙä{ë»Ş2{GïëíÉ)øéìä´S’Û³“’;î¤5VÃåğçË5;)”a`Şh4W^
+c'+6ğ
+ÓB8«7Ó$•AÍ0ëëbôÓ<7Û³ÈË7]‰fÓs“ŞyÓÍñaµşÈ¦=O¿˜ï¦3`Ì·3`6ZGåéZ;êUQ×OqşÏpå™t2\ş»lşÏ¿^óşëÓÇØ†?j R;ÆİVd)DÎ¼¶YÊ@‘šÚ·•¸ˆ V2+7–XÊ@‘–±±%K ÒA%|cK–2PäÄ„ßxŠ”2@ä$ßlô„¯7£3şMk~pH!¼½S–É)#ä’°—wÜš€*¬•\c(¬Æ?YXÄğ-ì%NT^2Äàß«šĞ1ş}P˜0pœ(«™ãzqÁMUOf­c!ï‰Â6ÕÀÏ)
+ˆ…ã/xäÁ2
+*:Áo‰0¯@º<XÔâİoP5!]«¡‚FmÏ QX™€L%êö!;!y ;Â€·t¡V‰å”Wvê!iî˜­ÌXÍÏô1³Æ¦f>E…Ø „ˆvlG6ÄƒVU0j›Ş§åf²²(16©¤OÀ¢Í´·­ˆBØÀÚ6¸³şÙ‹Ş¢zwàJxœI³†ØˆBÏ4Ú‰§qõ©OëÉAƒ<>N«Oú„³¡íBÔ5÷!¬éi÷¾näÊz;±-O‚ŒQàĞ- ‹ ‘?‘_9†zÏ0949ASH-Ş -öÂñ–í`ßğ‰Á÷>œC¤n­SZùÄ0¦«Dİ*äÖD nDSFpâÈyuÈòİ¢^U]MÕ•¯ŞÓÕ3Ó¯¥.éÌ@:>³ù•ïvCWÍ‰©˜›º<.«mYVŸúW1÷Ğ“Y+H”'†õ«²çJE´<Ú"IŞ«÷%ú;¯ËÖF»YşŠñoB«–Úæ]õÌ¤×µ_¦¹¢V>ìzXëiĞÁd£¥İŞ8(WŠœnUHİ[«µ\ÓK`QŞÕ6$/îrM°Vh¼(T=ÁJ¡°øÄ¦„E^x<Å”)ÔÂ0ì„+‰Cü‰±+¬E¸ÊqüYÖ¹`–»ømh!s!Hñ÷‰êQC¸9áêA(¨Ãû]Õ6‰f@§TˆVI#uÇµúìê(õXÄ˜7®ÖêÆBIĞqÔhÉ+Ì4Xc‚“”‚ º‚Ï«0¥eUb‘ƒg0Eå²mĞÊ+9ÔŒuŒ®‹#æ¿F!S'ô0Ì‹©e>ÃCØQß½ïŞ
+šgœ`
+·NÖÓ"è’8o1dq/Ì™0·.ÁNm¢¶—‰’£¿zª‘\šl:ÀÅjù„ª Ú3N«Ğ ÊÀF ÙJÂ4m±‡LkÖ‚ç¤	MSF,ªóTì« 	É÷™Ò$dÇàòüÆ‰çLšÅ÷Hn™Š¾~wÈïÿ!Ÿb¿|ÊšşÀæJñoä^_“€‹ş0RıJp&§m³•91XW7YÈ ‘R0o¶MÛT2P$Äºfc‰‹ˆ!´Ú6WÉ@‘¹•%›ì£t–iÎ¹Ì#úQ¸]
+obT—ÒçÈÛb„øÍ ŞJ>÷ëˆ^5&zµa®pMm+¡zÚ¾/×«²n.5”·èMiæ-—\Da¹ìÁ·½ÒÏÄõßF+trQ£×ä•(².«”Õ°æ
+Îêo`©+íicÔ+Í‰*-£ı.úlğ6oœpf&²@µV.ô°¸Å ™¦QÄ”ÃçRä^‘6Sı’[.…“Pä°‰aşT£hØœ'[ÏÃA3‘Ë©ea~É±*
+d
+õF”Ãol”˜ÏLyg4Ú°æ%Ù$ÒĞF7û¨£GÖjÒC–M©JŞ(Şë/A™vDªPDb‰ÙXæ¼	[’C;Ã,C¡?)½¢ON]ík«¾m2#oO2Bm1–h·ù²™ ¹T&/ÙŞ
+R&1ÍŠÇèR±6¬éYC$msÎEs
+Ê_râ²º”g’9šûeÖßa›ÎËÀé°Š’5Iá=°ŠHl—Û<Ê~Æm!´Ì‘›74ò7‘ÏŠ.ù.b3sèƒm:Ÿ4)®@`†%˜˜ş´Aæffz^’ÑÂ>í Q<|·ì°F1Dò	Õ"\hç’ËL.ŞF±ôcfÄëÒpÍûx.Ö…£Z’ iÔÛ@a’ÿÁôÎ‡yÚöXÖ3˜~‡sÌ8¹o‡qÚQÓxÀLßÎ€ÙÈ_¿†¢L1ÒLÚmÏlU2@ä$ ’m	ÃJŠ4L‰%."P g R6–XÈ ‘3øi[ê·’ñù	ÃËÉmeÉö^v©¡Ó0).>l`ç¥¡ÈÑ-Å8´§ñë	H#Ç¤PLa[•VôTyWÒÈÑ_¨çU{Kc½Í­êißÍÕØğ\8Ch]-p¢>Î\Æ¸Ë—€†p_íh‡io—…2òÍû
+Xƒ²Ï‰‘#· 6yÌ(,Ò‘&Ú"ŒÏ;ŸN‰ªöïÎTŞ9“ CøZ:ç³S¨¹&³½Ë‘KXñ¦Ü"VòÍíK/Ùw86DÈUæj‘ôzgh¦ÚgŞE¢é9†ø‡s¡·Of!ù*†¦ÁıF5ù‚cÒ¹Æ)îs?_3SV¶3´ØÕİéF.OáUwó»cBí–+JÜsà‡ßc°«=÷1í‘.Ğ~v­Ñ­yÈ.vßªsBí2İó;½>6YB›3IíŞë<œÍ)rtmAèßÃ|×qô!EÒëHøú	&åb_Ğqåkv
+Ş9j}`®@ç
+^Ù×pqxG´ç§­O½>?	á6?ô^Ê ‘‚oxè½	Â`5{4 ‹ù’ T5bG®?l²q¿¥İ6ê#­o‘)}ÖÇ.j•Ö^ß6ca¥y[¸ªRp8¯û]O½NñtîzæÏñÉ
+‡ŠËÓ‹2\Î¤YN]åíó3eÌ—´mÎjuÏ=vòÉxĞ3cöU\£(#ªø¬sC@W»vr¬£Ÿy	¹hÛ<§³°•¡—€¾½9ÙNW1A,È#tÃqÏ¼lºè= ØN¶uv·•/JÏ&>Iùî™2ƒaWÉ_Î9ä%®/>(¢¤4âÁ¥c\ƒ ¦­ü·G¨KDJËÏxqI{ØğcÌ²ŸÉÕ¥ír™Pâ¨Ælğp®„Î'ö_©,²V’A=|ÔWòo#¥Äıb‰â65 1ç³İP'ÔcWÎ›bfŒ›„şm¬îUı+Ø.0~‹›éóf•ĞbJ›—Ë…9*ZüVÙŞ5¬:ZhP©´jÈèf×[Ÿåòãv/naÔĞkZ*	®¼uJP¨1î`ëØÙ£‰ã7ñ¼o
+·„%3ö>¾Á„8ì–>0ĞFßÉ€ûqx—Pyãw%ENLnœà®d€H)ÁWİ5ÁíÀ=:ü°¶‹OkÛ;/€ğóI›"—?¡'g±4†}§À ç£'·å¼%~^P?ëmo8v²ı~(¾ş®ğR
+endstream
+endobj
+70 0 obj
+<<
+/Length 3336
+/Filter /FlateDecode
+>>
+stream
+xœí][©~?¿âüe¹ÓH–v“¬”‡HÏ[”»}N))²”ıû©* >@Ïe{¦ÇOÖšKAQÅWg??økÒ‚MsaÎóıé?ñGPqVÿ3ÒGÁÏ±púÿIfñÛ¸ü÷Ÿóå¯¿üt¿8å›ÿ}úñ—oâüoPç×¥^ƒşOwE›EÖ´ü' ¬Ïw×Óß>hıò?Xã”ãÖ;mäğ÷d¤$şîäGìè+ìÅ)k?â@>Ø+~ÿAøõkhC@=ï Ÿ>b;JA‹Pr ş,gÉµ âúRşã”äKÓÂ*¬OX	~ 	ë°“Ğh›/PbvÆjúİ¥Ã¿Ø5,ıQö‹ä@ãïç»?Ÿşx\K|ÑÓÄ´’gš–_+†âßÒ3ıra¯ÖÂ ®a€™‹NZ‹óâÒ çr˜/Í°(N±»àæ§ÑšrSœµšªrš‘Pä(ğ§UÇA ¬Îäû×HÔqg\(êáã…æºÃu¯ØÄ§ÌõBô-›n¿jËäËÍñæó
+‡^€e(fÆ6ó“¾«nÖ@›± õ¾Áj°H	ÄU#‰³7ëŠÊ’ßä?.’4ÅÔc˜$Ùê®»æ4î˜³¶5MJUµêeKcIÖj	|»Öê+èb
+p‚L©>g©EÇf¤´P@b…«ÄßAX‰+4p9Íy¡”`R†öË²†<­G$‚<ôÁ€ŞÒ©¿Xné•
+«	¥Pw§Æ3adkj:«şê|XW/´‚’xâ)ÒÀ»_¼¡¡^ÃBsi¹A^`ù²®À¯eQÁ"ÌËG,bW®ÁéÆi_waòC~ Rl# : <)¯ÚHmCí90º©Å¬úªşêíKnë ·>qÛ—Š™åBÆŸæ°OŸm³ì§(„TL…îøj%ù¤"S›ØâLëÄPuâw±ÿ§%ŠúŒŸÖÖz‡nB[]Ä1£šk`j¬ !ÔKnæÃgK	CacAY”6@D˜FNš&$Oi”æK“SrÒLBÇxcøLL\y)ğ\:m ÓB8XÜL“TFzød}]l™/ÍÎƒ©àåÁ»®„jË¨0È¼÷æë›eüÛ–ñ=ËÌJûrüøÛ)i$¡aK¼‡äÄ·!ù¯rÔ?zú¨?ıü—Ó§Øßj÷'ÅÁ„uzW’$	–İw” )ÓfÚ—dIHJÇ¸Üy”% ©8ób¯Q†Ÿf#”d–Ã»o¤hZy¯¿teZº*Xz99:´6Šå¹Ô‡“K²f¢å¶‰)LÂ*C»hxG¨ˆÎ[_ĞZiéï™/N›m¾;ıÊhÙ_àHh(Ä$ğpR%;{X•>/ûµAÍvŒM?ªFÇ'3*áTG|¬VÓtvîNç•üËp|á¤0lq9XTr!‡ €qO±\‡å£ã œ^pM¼iK?äGqÂšœÉ'r?dUÑñ¸Ädñp—O“á„8À °ÈZP—°BÈ>ükb¯;H.hsXL1!_ÏëÎw`–@¦“a Egp˜/$éæß®ı~YèGô?óíìü²
+ò„ÈÔTÏÊ"i1/)õãAÇ˜çu
+A¿(Æ>ÂtWŸ?İp(Ã@uD@ùã©‡E {pHKÿ
+°EIÛÙ6\¡rµ«ñx˜×«YÔAA@(×bN†L‡4‚	ÜáÑBT`çñh©,²&Y‡]6Æ·¬0<KI0~…|]c,í¶j[2@T	¯g`M%Èß‘šNp%ZÄ>zÔÂ¦š<b<à{¹Y¿ö-^níä‘‘ÑmòeŞ>rn™Óú F‡"¯KÁ]ÚKcƒ+’5†mØ\÷Ë$½<h¥òæ\‚}>ª˜äƒE³ôÂnØïÄGQx«HÙÚeé¸C§Ø(Ã¶ÅíKô´,v¥\+ö'ì^‡°àfZ­úvŸŠáèÆ³ÁŸRå±ÏŒ‹>;Áà* ü¸òMª@,««ÕIAÕêjK÷¡½†¦EŒñ@-œ¥¨È:ªE0Ûöp½¾=A#!ïb8~ûƒùÑÄE^%ï¼È–÷ <™‡ıüE¡ô[ˆ[Ä°Z½tÒÒZ¹GÁ&š‡­’İ4,áİ0ßUräÆœP•nvCâ8Øyƒ¹Ao¦g°”İ ùØú5t×ºOGù®ƒÃÕ;¹)`(Åuñ› —VJ´ÒÃi°ì¦Öüè™7íKjvİ17Şëûî||iŸı¾KÙIwP†®4ÅEVT‰Éƒ[‹ô;{#KHrbÜíì,i I+˜wûR,H AÃ ØÎ@Òe¬wv–4$B½¨ûSM² ã)ØGÙÆÆ:¦Œù
+lipGƒyxLÃù’³	™¬Ğü­Rz2U
+²L(7‰ˆUI´æ‹²ÄÉ%Úi—ğÇœRC*¢_“°›nMÇ«²×5ÍœğîºæO—wz8ª›qôè°GäÓµÖôpF®XPºf²»ÈC'vÅÊqÍë˜æïÒ»WîGñàéËb$zªÏ½‘è–Sˆ¦ÏÉš±Ãë#ùÔÛØş‚ì}.A|D|r,÷uZ~î:c­x¯Àqü>v&ä¦}]ÿ˜ª"ìCìÏ%:ÛdÏÑî<³¢äw˜öë@Ït‡‡ ÷G»Í¼g·^İŠºº)ÊÂ%‡R?nªÉX£¾e¨Cùî"4]Ğö .`òËËfÚÁ‰‹S$»&ÃJ6å›q¢D!µ¯¡¯	E,íGµ‚3¨—¿Äô[(ãú¥–ymåûÖù5úÇ	¯=`C^ú·Š¦"?—óKè*_üÁ‚0R##/x§£tæ,>òShÏLÚ5\Ó z„³vB™VA¶¸„S(ã¨®®2°|Ô;J’<8×¬BUÇ±Õuªg¿íFPH)Á›Äé‚ír_)(ôîñöš	Šàé^ïìEP€ÜÛLùæ•ÊÜYÊ{†uOesvbz:ü…7Ï¾ãùïó(i£Uïó.0ï vËÇ:€VWàâ1|'Ùn~ WP¸?Mo:ìJ¯$5ãf_¯HI"N¿/GK÷'o…»,I AÏ¬ÜwK÷'Á3bßI¬h Iöò¾3$g˜ğ{MbÓW'Aæ¼÷Ó¢
+4­…›@O)úR2‰ñIî>×É6áõÎóØÉf&Á†åßÜÀ|'[D[tpŒ>…È´œàı:*\ôé—XÅ	§æMú—çs6:†‚›Î5À²aİ¥Ø/aé…µ„±]ÂÕ›¢´ÍI³@k›c_cáÃÂ¦¯ªùYŞJĞÛpqäûSËm±zÒª|,i5I%‚^¾1€t.K`3EšGHŞš	‡¡—{’—$A°G7ëÆ~n°9Ÿ0Hä¨C@S~~*á¶T ¤ˆA÷E2ôöóÃµÛAı90~Á|‡…h|¿Ò¿Sà;ˆpå~…
+;„ã¶6‡_€°¥Cfªk¸œ\´ÍˆK]RåÂEÄ~ş`ñ½Ík€kµÎÃşF´`#!›>ô]<İg‘#”ÕS)†€G]Sãµ¼‘•®]ôïätµFwIk:áAÜZõ_e cÊÙ£CoˆÑÿ?@Ìºş†¦í’ù.f'•÷ÌĞí —cz­kßãLâş¤5ƒj»,I Á‰I½/ÎT’¸?‰‡©]	–$€ g»>‘^¦p² hâEA&°¹zXÉÁÃµ«øˆG¼b »[’òR'¤w™×WQ–SÁ|íÖØ(äİ'Š§8èX'ñEe_RÌ]lÕ}¯ÇÆòjA¼M½§è&!­ôj	vJÉxXëæñ]½úï¥Ç8«^Ó[§zÏj@XflìY¿Y1u+æÿ—z4#=Ø¿ÁîË³{[Ü÷~îÄ¾Ù§Ò¯z9şaº&ÍëØ•Â—c|m~ ¤’A?Õo¤(
+ºĞ¶~Ëxy1¡ÈÛ9ccPróŒ} È¥˜¥%áÃ×*¥«”)SñÖ€Ÿ„òf‰àOIbs¯Yäö *²¶(\Q¥ÀØœW÷Ï—)|¦ÈSıV(Ô¼×ƒGùŒV{ı¦µŞËS
+^¬fõ2Ş¨¨§ªÛæu‡_OÛ×õğ…Ë3ıñİşhÓóŠÓp®j4}Ş­8pSr@ãQkiĞ°òÒÏ#¼ğò˜Å,†#Çíö{+”İò´Í­~8-ıüñ
+endstream
+endobj
+11 0 obj
+<<
+/Length 3504
+/Filter /FlateDecode
+>>
+stream
+xœí\Io%¹¾¿_á?ĞíĞğa&É 9˜tß‚¦ŸßÄdş~Hj¯'É½ ì²“voU¥%’¢ø‘T‰;?ïüåµ`>p.Ìİùñô[úÔ@Ü)¿Óƒ|Sà?ƒÆ²ÜÏwàdïığ‡Ëşy¾üõçïÎŸOœ>ÿûôÃÏŸÅİ?>Ã;¿”÷ãúñcÓgóè#ôü'‘¾ûx=ıí½Ñ÷@‘ß½wò‡ùŞ
+ì…ş8É5<¦›N[hfd¼4N8cƒ“ÖØ‡tË^œv
+.ş~÷ñÏ§?~„á•é;Å¤²q®¿ĞÈóÏoıÜ-sm#4/Ë(ÒL·çÍ´‰=Á^í8¦âŒ<SK`$0lÂ˜•zÄ™-w@8Ê3ƒÜñ[ö¼<w¬3 ~ƒQµ&*ˆÊÌ™ñ€[f¼Üò ŸŸ‡ÕŒf	‘´aH¨]/
+	h ¬‡‡›U>™{´ï½¿“†”êl¯ g­Y'•bJ<½®´š(ÎËsO_ë´‰?×<íl‚L\vÔ)ªR¼ıUëLrÁÂ—X k˜BNér*3Â%*¬É0‘i
+ÀCñÔ’Ó†ñìğ	d‡; ;’}yˆ˜CM`ŒBÑRêÑ-©f!–¾P•„•°üÊ~ˆ¼¬::YÔC6+Å7_hÜa|ÌrøeÁW¦ûıŞ~’|8A°+Òû8ÁÍè˜ğ\)t$6ğ
+ÓB80Üx/•‘nÙĞ7ÛaBÖƒ2 U§Ô¯ò*¯dEH¾ïH¤Q%$™ò|@i ¸C-QEl4Ğø¨ËÚÁ^'¯(|èE£ÖiZx`‡äUiøáÊ*¯ÂØyÏÂ„o;It½™„,{Ë5îØ`LÍ5ØóÄf„À‚nLé÷SÒ ¡AEOJI&—ÿj§öÓ‡oW‰?ıåôa¸l@9EĞLã²	ı²\3+Ùˆëg¨9ÜƒÚm,I¶X¸ïôîï´4¶¸REÓÀÂÁWí¾¢×“®¢YÓdÃ&ªgAõ1ø•l”yàµğfKÏ¤	/Àlv
+ô7®]ÓYmƒGı–^şAs…¬ª«@ØOÉÒ™z3³´<Â…Ã˜µÆ3gå€µ•;Ö*Ã$²Vnõœ~ØHŸµ<²áL›œ"Î¨èS€•@{!éN·Od—Ä6h©e}ÖPj×¬Ş7xjÂê zÀêÊ­«î´àIxv@%NŒ×Åoõşwö5§¿Unår¿zŠ0Pˆûq6n|„c\Ê	ºKAKÍ¼ºBåãBîÆÍˆ7búË;2É	ì8ğ·}bèxƒ‡½RùT¿EóÂuXãÅ¾´t®Œ%w&¤æ’=ŞF7û•FÔÕŒvÒ~BÍ’>HÓ?ğ( üŠû@‹MR‰”Š¿‚ÊŒ>J´! Â¸,dRàĞ(¿ÄnäÃXƒƒbVt¡‡N#ÓÏ'\’`¿Ñ”/·§{s^7&ÕDdãà›º×áÙÇûÊÖvN¾ ÊŞÙKÚCÁÜÀßh^®0:ƒÇFf¸M$ã©‹1²İp€:ëM@{W[&ŸQ	Fó8ß¥ˆ/¸3ëÉ8¤èNâÎÿGœ´=*G.GcM ^µ÷êqKÜ"İK´óÄxQnİ&-)y¤ü¸0¦`WGP*Úş®UÏÉÿ©iz>ŒqEXÛ’yo=œfÚ\¢óŒ– ®°aÕº·6e	§¢“·¢K	E°J>-†PœG‰øóşÎÍßÉ/{ÅuJÆñëi?5'Ôµe›¨v¦ƒ-KNp^¶B¿æåu®Ä€F@W8îÿ·*N¾½ëB40Ï¤Ê“bNzÈ¦Ò^‘®ÏĞzZfœW&1¡¹ÄøRÓ6tWzqeº«Ë’Æ¹k‹JÔuiÖo?T‹9×Ïoi6ıèe?|>Ïgm7“[!¼“ŠI'¼ÑÑ´)Ñ™®_DDÓá©ùÕF´—îÊ}+cW#ufK£ïe¡0‹±º…nF£\¼,®Ì¼—u»T«ëöÍ•Lç½Jÿ¥óp+N-xÓk‘ì$ƒ^Å7ØOë¢ÓÕßö9¡Iv†’Óz¥$#m’7ºäø‹„’çn"m4°† Ç:"g‡ĞBWoj†\
+nIP9DĞí¸ñĞ~u(]vI·o$?ØÏ„PÏ‰Q\q,ïï ã<Nê^¯(ˆñE3k‡¨bÑKŒ;UßwÑÔ0yXv†s¸Ø¦m’ÃBN ®€hñFÆ¸×r®>fŸ¦-x£¨WŠ”­H‡CJ?¢qniõ¨•Øf	Ä¿ÁˆÎG€N(ş¬ˆ¥xÌ™š4-Ê˜l€—¢|s¼¡¸ˆĞ¤ègêÇQŒúías"ß ½š’ÔûOX[Š¢6!Ü¶	í‘ËšâEB’”‘X†Ë-øøâè¹CóiœØ…æòàCWb8tÇ\Lvèf­{\Í
+3Î¾…Ùî?š•¨ûï§dŠRÛZæÄN)ìD¯Rx<9JĞ»ÒkI AÏ”ß+GŸ6$O‹ü®[§À·rW‚-	 ¨X0{Ép˜<•JúnÓh/•»LÕW’`ª)YÄìo•ŒB‰†“O†¯^­]@-ÊÂçìELrdw?áK¬{SS½Øs®­(—!d$–êS›Ìè%'8&øXÁ»Ò¹L	=«Å„L­€;Óœ(+“²ÅÅÙİf{znÒü}Nv•"×ôsÿ%á3%i˜(ÚZkÍ¨Z/õµ`šŸÓ£j•cdŠR6 “mbeŠ9pı¥M z9äTNhöå›€løF L[ôAH{şF¤+f¬¢_¾s[!*%ÑiÖÃ®éÜ'*¬ûŒz€ŒW\$:f JµÍj@ª&½@ù÷­.#Ğ|„cR@ããêèékv¦ÇE”oÃ™>îĞ_±ÂŒOx¼I…ÙÉŒ‚é“—Q]P1<`ƒŞ
+JP%Fã@RíšĞkN-Ü8ã6>Ùiğœ‰&Ö|tÄÙ ' !=gAî‹;HÒ3Ç÷…e ›ìJ°R@rpï¾8°£ñxR\ïX Iv4¤gÂî%Ç—¬hKÔ\ÅëÂbCË¹ÑmJ–ÛC=Ûü•\õ:JµY”šás”QªéLy‰X6Cê.í“b‚óUR…æÌÈŠ'+¦¨råyJ%5—Ñ¤®ZØî8íMÊiñâ¡ûâ¹ òÑk[JnÖ£µ›ÒÌî<2{Ë©\–ÌˆÙ*¦ê´ì“Ê±3zÍ\uøGÖÅİOPÈÀOêd0¶	€:@^šôGÖ“[›>Y+e€EÌÊ·ê–#¨©øk=ÀãzÏñ­¶6U!_¼nü‹k•ÌÍ<A¹FƒGÑ±i­˜¸‘wE”ZLx¬Õé´B#è™qB	U²^e3}„RËğcıÆ•và±vDv.á¢µi£U.š“ùØQ–Ó§ª-7m"'ó(d¤º2à¶8añb4:Ù±Yû\ó-Iş$Ÿ£ªcc°rS#Ÿ¶tOlÈì´´âÄSÈe|Ê è)zöñöPU­J'Æ!ÆÛ½bDmşwõ†şŠÆ¾a…Y&À³-Ê)è}C éáµ/Vïh IÍÌÎ1—’ôĞÉÎá–˜Û•`¥ğxÒàxòİb.ÃT¸•¾ä7‡ÒŸ=æÃñaÕ%%l¹şÅï˜ ‡ÜV-êš¶Æ»M91ù;©æ“>iòg6íà¸æ¹ıRÊeã@_q¤3üÈAÜAÎYöK¿—Ojv¶µ)ñ,_Œ¡LºŒÈ}¿R¿âÑÍ5ñ³ˆµáX»2.*=@ŠİÆÃÈEí+ïÚÃ—¥²£œ;%PA=EØ­0CA:—dK¤®ßX¼¿)„½‹•Â]ºœ ë¿‘Âı7WâeK_¬¬¦3#É¼|Êz¦÷MU<µ©·~ I›u´òlr§³—x,İ…ZPÈæCêÑÚĞJ:DÚÕ¡”C‰õè†§€ÁùrÃ@3FB8ÂÃ™¨ëELiÅÜU¬Ô£sŠ¯“~'NG¶üÚp¦V9.’:hk€rÌmV)?.øÁ•º¬‡ˆ|oªûSÒjlWk¥û/jÖOy”ê©˜Vl¹ÊIß§>9ÀÃç‡'¯º7	;ôW¬0ã/¾I…ÙÉÈö±h,&åÙRk‚U7•„Bê×xÙáSCïÊ·uÉÂ–’¢Ø»†¡¡ù}ÃöÅ4$``°íL±¡$…b€Z÷%ÙÒ ’R0¾7_[HR³İNzàXpÊ¡<ñ‰"ŸÜGEÌßnHÑ¶6yûÍñâİoª7ºoX•Dî™ò4.©·¨
+9O“­Æ?ZtŒdk>oAyüú)¸„Òá÷®jÿÜŠ';¨—Íwà˜|‘§ƒŞ%EŠºp¥3MwAtçLŸŸğİ2?FGÈ;Æ³$IÑRbûkOš,]|@NLüßÅßÑcÂïmxlË¬OV­´=¡Cvöm:@Ò¶óÉÀ–ˆŞ3=‘şg†W
+endstream
+endobj
+229 0 obj
+<<
+/Length 3402
+/Filter /FlateDecode
+>>
+stream
+xœí]K·¾Ï¯˜?šï°ØƒÄ@í-ÈÁjÍ²ñßOU‘ì&»IÎZFïö¬×²¤eóQd‘,V}U¤Ä™Ã¯?øÃkÁ|à\˜óô|úoú%¨€8+ÿ§ŒüQà_ô-ß’Yüöİ/ÿû×tùÛßŸ§¯'Nù_§ÿœ¾ûñ«8ÿó+Ôùi®× ÿıSÑf‘õ-ÿ(ëóÓõô÷­!ÿÁ'¡s~°Á^¬“ÜÚGìñƒ½:éÜã™ò„“VKî8ü}uÜ
+ëà›†:W{‘ÔÒ”ğSp
+KBZ9eÕÓÖSMõ|L[e'+"5Ï©B‡°>´k‹rø®©7©g¹ÓŸ‘8fà÷€å%‡Ä?ÎO9ıé	X•™agÁÉÈ÷Ÿ*.âŸ20ızÜ®«°¯42ƒ¼>&şB!Ş¥™¹ i(œ@Iäpäoªùc $ğêEîã\È”'ì—È,ƒÙ‘ÙÒo«	Ğ†ê`™WC‹¥9Û¯Ú2ùŠ,–0bŒ$ÈËãÙs¦¥^pHnIb0.ÀªD‘lñgTŞêÌ_X¨jâ:Né˜Òí¾(êÃş´ğ[Ñ,©qÜNÃü´ ‡eæå'§[¼Â¡z¨0İèV1I·HÃ`'&¶»ËƒµÎeh­K¥¢ˆ­¿Zõz«rŞÊÀmŸg%
+Ø,L[¢/	dRcĞÂfòN\ƒ	ÏUÂ@kÒiu˜ÂYí¸ñ^*ƒ¬b6ÔÅvºùÜì¼‚âGïºJ´9Œ·şà½7_î–ñ÷½fôïhÍì$/ñÜ÷£–å†G5¿ırÊ‚QhûÏ%Oê˜üw9‚>};ó?ığ×Ó§Ô_j@2h‚Ü—dIIzæıÎ£,i<Ÿà¼eÎÙ]IV4€¤ğLé}GYÑ ’R2©öeüµ2c"Ànc,¶uéŸìKTK§¨*PÛÒ¤æÄºÀ´ShyhëHÑ«Š7E4–	YÙuF
+!ßØŞq6[@¦Di•İ"Ù7ÀGµz¦ù°N²5}ŞÕÑAÕ+Yªd0Ë…í˜„Ìª2Ù"Z·ÃšÄ
+2[Ô¸/`N^Àä[TiÜ²}€8ı¥ç•}ò–@„C;‹qéÈ¹gªSYæ i\f‘\•Ue
+÷l‘ºT)7j•à ~îTµtí÷ SƒvlÔ«Şª5Gº£¼ö[A-&Ô½ñKÒÔ­ú>#Œj°"Ä€¾è÷fHßò6+pĞ·Í«/ïÊín÷d¿ë£É¹Ñ¹A«õI„w;°éÎœ\ÉšCF<­İU+ß¼$à¸ö‹QÚëÄÌ%$<Q(öË­NMÂÙğü–ãZ¤LÄ’AF±èq†¹u&· âYfXœğÊA¾Ÿ»7ìTÛN7•T€Í¾.4¬FúÍˆ×¨–J_2vmŞ‚)âõ¼g¼çûûX3Øßá±¿ìİ‰àM!~gç/;¡Fk2@Øk&´ŞğŠöŒ«ıG¼"„ƒ`ìÜ½	¯È<ŸwL‡İG¼&„…`Êï8â6¬å$SêûeBI¡ÇŸ>¯£M1*+\kŒ
+tó›ó”¼¬¾.*x›	ƒPcHQ»_:†å$¤µ4É8,ÔÒög‡ßô:ø¤!Ò±¯4“JŸpå–*„Bi^^ÔŠ³ÉÕãğvÆ#)¦‰@ìdgÁ*µ<*ı†§P“8Š `;'p¶Ö®`­åŸMŒ§ÊÛC9gÁ7'/Ç:¢	ds!WÛ /İfÙ86Œ¦h*­ÅÙ¦*Úø’…
+NâDWšJC§¢A†K'–ï­®˜°#åíP0F×¦eNsaMÄ’šNZMÛ–7ª”àŠn~HÍÖ¸B^ß£ŠãŞŞ´çĞ¨A×.ƒ\K>ŒWô{½Œ•EnµÿëŠfIfi0æ@rÍş³—pn-à¿Ë¾ôú«Q˜¼ÒrUÄL§IPÄjˆ&}ŸªpÒä?Œ"¶DPÂ²²N¢Åõ´D9¾ì4 09hmí•ŠRi†Ô¼&c Wl$º¦FàØèŠróØ ÖE¡]ö5•–"”TaØnË)k™âi ÇÓ@ßÀğJ}¬™Pêğ ”/ÂÑ’TLˆî¿+LQ’x>iÃœİ7H«$(³fß–$OF1cö~
+Ï'Ú“Øw|%‰ç“SŒ‹×Ä—@f !¥ÉX;kUf>F•Q³mFöş¥6ô] İnÑ`Š2åÅ¦`yfu3§ğ£.!ús£ÓP‰ìªã:ÄQ®(Ñ½è>óV/RœÓœ"ëp6×ãE^ÙbZEIöãæÏŸ‰Ï½f“ÙÙÍŸÀÙŠ”ä#PZ¦ÒÃ1u¾~gÁjTª¸RÜËÃˆ²aÓ_é2ĞÆî7"ùs œ¡ŠKi³Á›SÕsóå«^qŒj ‹T)H²Ûì9ZïîAé‰Ö¤£¸íóıÖM¿QË3ÄÒÉ·ÔFÄ;Â^Öh×(ÀÀC­è`9¸zx×z¹½g½¼bÀaõ"7í²Âf­‘3)ùş¾ÃšúA{İÓ…—}‡5ôÎAÁ{év7áæ­¨»ŞÊò·ò}šØõ/>Û×T~Wóz¡€×®˜Ş×¸.(<Ÿ¤bPëUmA˜&ls“FŠ¦Iøö+[Ö—ozZrkÃ‚±¥|åÂn°D+9°„Û7¶’ÓøĞdĞœŒ§ü6@ˆæ¨¾dÛve§.}cUúD NÑ»
+fM¬œ×t¿½x•ÕLH.t/¨/AíyI—äevé4M£ò¡ƒfFÙó1,i2ß¢›ßê]QZw–ĞzÜx2%ä‚ìN:~-®ÑZú‘	… Ì$-„x¡.,˜©ÿª°ƒ¾s&ĞñPY¦¹oIã#Ø]°¦ŒağRW±¼èM”ÄÈ‰Ğ¡E°ÔÌñ )n ãh4âÉÙÃ?f\©€rÁ9J…&í4ÂFL|:¦{Á,ÈæÌ ø@Ğ¨<½62ëx˜L3Zeó4­Æ—“Ñ—?m™ü8“¥i_,÷†)Ÿ *MöÎ#<m„"CÓS»xÏ‡á¹‚÷›ƒ£å\?ÀIÊÓIÓ„Chéë#ÍŠ‘q{XL.“•Èn1=mÆ½î‰[Åˆ"‹t²ı–‡§n:n§	Ç-Ø³˜çX‰òlIr%nñéEW7 ¯R¾ßôÊj¾«/áĞ%‰çÚ::ƒBCˆ‡=l‚îòûk·N–Ü7Ú¶AÁ'HÕ"}£l†Çû%6på ÷¥×FšBCÄ:½‚çƒÖ<ï¡Ö5”JÛÅìp€ı]XÚĞ_FÆ•itOuŞ0ºİãMıJ-Y<Y9Vé²„LÙôè¹oâ±è)Âå¶ê–¦Üê{CÃ*¼¨W	ë“U¡ìõé©±%¹(tÃ2×Q¾M–T¡–+Ç‡5rœÛ¬ÒÍÖ~ù´·}T¶œVUjØh^ÌQ#¼éŠÅqó¸¿}İŒ[’Kôã1‚ÂÙå¢ß`L[Q¿× Èb÷“A0
+¤¥í¬RüşµĞ›éäßŠáô¤d`Zz3±‘‚T‰¹íí³uhôpò¡‡zYP#‹Ow,R,>§Ñš“C@Æ`Tú²~ÕµÎ×STê‚ºu?¼É¶Q^ã-Yi 98Œ|×ø}Û6yŸøıº~×kÆÿÖÌN"õ7…UF©8;F|_ÇOEHÅ´Û—bA	:¦ìÎc,i I+˜4;¿·WÒ ’<¹ó(K@ÒsæÄ^£l"Z 60ƒ7Q·>¤ƒC	Æúh…å¶ÂA,sç1¶gƒêqâ°½1Jİá¨ Œpt´XÊëF‹ƒ€<4®È­<\ R©Ù"#Äª¸©»  	Ç+ßà'Ğ;b‰åUŞ®ÃÀä5ºtV3m¹ä	K*’4XA æ5¥·Ê“,êİQM\çô¸¾î5²Ùû½¡‡Ëåvi6öGMsêÄrÇí=×·†Š5,:ìQ©÷‚ßUàš„bŞz±À
+9™‘\.”ÎÓÖ¯³	¿YºçƒVLÚƒÎéå›Ò9y]ÿƒ	gêT±°>ç´Íw5mozmÑ^ªÿİ„ËÑ‡ñØ7Û³_R’7üšï›ÃŠ~{¼“N+A‡%Eµ‹äş©ÿ”äÈ~'|rwŠøsC,P¨A_~º<•2(>ˆÚ°Õæ‰	ß³ËN÷6èµë£âuÑqÄŒ(#õsªP$:%/ïÑl˜œ3î”kZjo¯)¾ë¾Å}X÷¿Òº·½Ÿ_ÆÖ6AÆ9|©ô#Lı³UÅ»»¯ï´íÕˆÏôsg‹ËúVŸø¬ò«ôäu¯dÃ-8jã Dó¥=ñÁ0§4,Á–øÌĞzŠ6]¤KpåŠçæ/{…¹®È a8t6»^‘ÂR1­vqıëÿ‡_
+endstream
+endobj
+298 0 obj
+<<
+/Length 3349
+/Filter /FlateDecode
+>>
+stream
+xœí\Ûn¹}Ÿ¯˜0·y'Ã»IÈC€ıäÁÍ¢ ø÷S^gÈÖJ›–ZkylÉÓÍfu«Y§N)|ŞIøŒ!.‹´ÇÓıá?é#©<êÿ¦ù „Kƒá£ùØrŒN8<öÃÎÿıçéü×Ÿ<¾:ÿõôïÃ?•Ç|…k~)×îàÇOMŸÍ©OĞóŸ@¶9~ºşöŞ/^¹‹»û ­Ş»èµ³jqÑá§qÖÃ?§á'qIø]šKw‚ÖërI:a^¡±*í=¶şp„ûx¯à”×ºw;Æ^¼ï©ñÅ«Ú±WP]Øö|Áç}T4şûñÓŸüúÈOlâ"Ü¢¤ò_:õ²ÂûcRjaQçšTsî4a\ İ(P<ª‚GÅ‡ƒVÑå•€ƒz»é¾4£"½­à¸²ÒqÄégº3ö6V+èIºÀj½Ò•aÑQIÏ¡¼±p0RzgübCPÚª‡\ì›m ^ûexóš«ßº–:o^Za÷¯ø»G*~£÷Kº«×YDÈÓğ·C¶ri`"¾‡¯^,¿ı«}‚Ÿ>>]ùúËácºo¨•p*l+±•"°j#‰ü¹r|FáO¸v2ìÒÆaF&Ûrt>8[Ãä9~_— bµµ¡
+Â2SzN`ØÁ’ÿ— Ï—üoöÙ1ğã¢ÓN˜à‚şÄ.ìÀŒ¤fæÜş"Ÿ¾€Ÿ‚“ºø4ø§ñÒwèü DF
+ENÀ¥Q =3ØğŸ‹3L7gÜ	¶Mg†b%l‹ú)@Åç h4¤ÀO˜TX
+lŠp(Ñ¡z«ò‚ˆª<iíœ\?±/P+i4
+ğŸ¹KÔdBq¦¶‚‹å	P¯ùNômÙ
+
+ñ$Õ¼õQêIâ	Ú_Ú8€wÅLÆ£cÔÃ9Ûñ”İ5N¨gÄqğ
+Ñ¢	ß¼.¬â„¯×f”¦v!D†ÿÓp 0C¦èÎ]2!@‡(Ë¦7ëJÂ‹d1K›1l3	FÒûã›÷g‚›%ÌIn¤p­yRê:ıŒoBUòczŸ§LfÂZ21²¼3©»ªg°Àê‡3¡s²JŸĞ¸—’óœG“Éª¿T1Õ†Ö§°Æs°ãM2¾‡=Òÿò…5
+˜¾!„Ñ ØEÂÅÈ‰n6™‚©¹Œ¤ÚÆ{Ğ\:À(3ëQ¦è²›—¨MZ“ÍS<É¦>‚wZ
+ ÇcäWœ(=6Ğßgp²£[Õ6#¿#›ÙhŠmœºcçAÏ‘8£Ş¡k*r˜ÇÃ‰³qÁGyºM¤ÖFD»iÌÚŠ àû¬Ü6Jîd Hl,±Š@Aèe«¸<Kld€HÖí·•Øˆ@^x·÷ğrÔ:ÂøED”„N5_(ªrğlAG‰¯u÷•(…Òô®ídiÏœÚ/ÄS¥]Ä ¢•V¿˜UÑ±mz~TÓ*C¿±øsû8æê	:m½ƒ˜|ìùyVî¤UQ§ôNZÆ_ÇXáë÷¾rKó»X¿ÎüºÛzj÷®µ’O$ë™d¯§ƒymcÅ«Óêİ†é-µ¦ß¿«‚Wd©Î€íì)WúŸ^ÓwĞ7›†|QHyT9â¤°ˆq35³Á„S›Z²šë×êDT}Yk;"ŸÜ	•¹r«w€A%±1ëwŠŒçÕÖåQêìÂ&‡÷«Ò}V—Aë^é8óïv­<‹×{Á×ú1Ã¡@Úy
+0±hW,s¿ØıUMßS ½aĞô[²€ÕĞs’,JU(G¶JÍ]‰¹?ØÅİÖ‚¯Å€`)…>ñ0/¦– $&Æü+ËrfˆfÃ„'§Ç¬#ØÀtuN®­S'B—¥)ÈØ™‚7s8cÀ*bØ+[Néfs6ö±¾¦ø9¦‘íU5J©m©y–VÍ˜(!YäSJ4,ID>šø’~:Q^„;íë“¦	DJwÇ]$KÎÉƒºb%Ğ1=Šør›J–h8éA-©òŠÊ¹J1qù2W 1ÙNÃÉ	*éÊÒ¨—«ú­–Öo’ºÃ{kYççdüJ‚ââ”ûÌiğ›B¹l„	ëR[ |SIìeTW›EêE§Ÿ¤”çk'Şm—DÅaƒË8“eÛdTN||ê¦&Ğ:<ÁHë;Hûu5…¤A˜ò•Qšíºùúk²tõÅÓ~Lwı\é]viûÓê5š'ÿÎà¤Ù¬Ì«=œÁ(Ú<üÃ­Z™¬!ã¡Yb~¡
+©äf~«ò$ÓÏ+£¤±êLÒå*QŸï"Jo.<
+Îp”àM•œû×¥œ"ÏM:>GÍÙ‰y›ŠfÙYJÅ´†=!ªÌÇ’e-u ”û¶\¸qU-PÉ¶’tšü÷v¤äÌü¿,›:©aeåëvR\Z¿İ°y¿à™¢Jáîpæï#´ıò;ºõWm3ê;²™æÏ&‡,Œ¨r¹r«†¼M^`SéÍ‹º'“pê])!Ä¦×¢„Gj0ë˜o‡<ı&úA!##·-½îd€Hˆ2t0ÛŠle€H€FÊoü”­ij…ûf"M[E¯t`EÛŠle€H£7¬£ñô‹ë¡PÂ;µî£ ÖÈsR¤G€g˜ÔÑ0Ôi†°¦«[îº¥ ˆĞpHÜkÖ˜Mî”:0£ÑÄQøÚ«ÃzyvF€±<óLc`‰enïê"¼A„GeL¤ç0åÈÆsê ½ÙŠ¢$¯qğ Ã¦ò	 ÎlxÖS:DZ/ä‹Ê÷,‡øË¸Ê‰©P¢z’‡é¸
+ƒ òøáÎ›ÀdB>”#1Xç\ÜE¤ÏF0í•ÙÄ«]szí‰}§†I¯¸ø´lke1Ï‰ĞıÊÄ/åæ*`h]…é`÷Oi½ –`ûÈ§P%-<ã×0kÄé·‹™nÙ¼6;â.ÏÊÄ|âíKr«]ê…UhÙ×É™n9øã2XB±=†.Ù·tƒÊB-7¬óİE¢¥ Â`iÄ•¿<U°Y=°|i4YD)4Núµeœ-yJ*kÎp¯ùÕÌçÌu¸PòĞS*4ß¥;Š³*Ì÷¼³lZ½hR¶-G‘¦²~aL/ï	cjé^Ê´Ø«­ÒjVš¦µ`L(O’ß…‰GñôÒÖm60@Âæ¶2ØÓ×ØÄ½,kUT×Æ DÚsúŸÒdÍìØ¬´+	‹¼¹ñ!ƒ¬sbô%¥Ìêf$eu§¶kEÀİhKŒTOĞ/H-¶3Q¶Êì89WÌó1	˜À –İGL¯:TL¸o¡ê“Ølú)ß-¥¯».ãäYéÄUı’DhX÷:ğ¦ÎgÊgó»wÅ’u¥!|Ï"¤$6<½Š)â”nzÓ ·‘ â¼ac¸“"£ØŒÁ–'XË«’û/ş)ÖEë¼; nšPWUÓİ­qomœS9äx¥»M{h5Ån9°É5'¹åŸ÷iåút ó²×rÜË4»XÈ¡ÚiáÃe`Y¾RâuèŒ;%(œĞ`Üñ­–àÍ“îŞ“>†ôíWg#Ï)· 3xØ8Ë×Ê¸?èb~»mÆ¶“"#ÄÛ9ªA í”z¥Å¥e]©„7•ƒ¨K"Ló‰cëÊ—´ò.ü|E_Œç^öûyálÜyqáÊ‰RBXë"ÏÄ¨ŞĞ²eçÆnáÙq1¯ÏGäè°Ù×“¿œK¤=XŒ†·ÈƒHã7™½¬»à'jE¶åø×€	Æx.Q­ßX3óóe§¢N+¯ö†¢ºÃiãš¦håÂvUD³l2¬\’J®h€öãÍ$hyyº&»H*’íÓšÆé}—²Ø•6MÔ–ê’Vzd|÷„Êã]P>ƒÙÒõUÅ_Ï\’Í+P]c-1Ä6mÑ–T;aƒµXÂî1Õ«³æÌşi¡ÜÑx«RÇH”x£v½í6Äìçz¾Ö/m½ı‚D˜<Üj.*=ò«•I¬Ü˜viD`É£Öl\ØÊà*K³dA¢P“O»:¦ÜNIÑòÇŞ¡?¼ua­Ä5mÊª˜&¢´œ³ªäÏ9¥áÏ-é1r³uÎ§ú^Ó®œ¬ÓnXÄ»Ú§ì‘êüu-æ¨¡¬’ÌPô²dÙ2é˜—Zœ© ÁU—¼‰mŞgµ.õi#"eóLò¾i½eÍè5Ù±~|ÊCktª;Úé"boOe ¼í)
+˜¼ÕiSØ’AÈ`¶cÛRb‘Ë0&P¨ø1×úø< Ò§ö=lÍr."Šİƒ¢7<÷†ç~Ëlã	t %´YÅ&ËkEÜÀıémaU#áş´P~ÛŠÔüùMb¸Q
+endstream
+endobj
+418 0 obj
+<<
+/Length 3178
+/Filter /FlateDecode
+>>
+stream
+xœí][·~ß_¡?†÷`ìCÒ6@
+¸ñ[Ñ‡xV*
+ÔÍßï¹RâÌÊv¤™,”×ÒÃËá¹~çÌX$ü|§àW´JÄ$¥r‡éÓÓ¯ùGQu0ÿÏå¢‚[¯—«ò`½Ğxíû?ÿ÷ïéø÷Ÿ~8LŸŸ$µşûôıOŸÕá_Ÿá÷õ¾Á~øĞŒÙ4}€‘ÿ³ÛÃ‡ÓÓ?ŞùäŞ?ãúŞùSĞÏ‡ï´ƒ/Ï¼¢‚…'Ô>9o|„ş'?ÁŸ’–:ÚH]mrVÃºà“n8|‚OÊO0DxÆm—‰NôÑ{àv€ö`ø«>><|×Ò*^õ6hï‚	††´®ˆW¼£)#N?[ñº–pë?şúôç@²B'öIè\Şw'PN¥¿êÍıN%Ó¶[ZDáT€#)º¯DœOøi­§W«­/|20Ò„G®_*S( ª£Ã·ëã	?ïˆzuİt<ú2Ÿ	·×3]İğÌ…™­V§Áñ•»`KÄÜ•«‰ÑV¶D|+¢•Yä°1/©$°¢N#vrRØË«!‰xG†BZOÁÍaiÄÄH’X'êÁò:a¸bšï
+ÈaQĞ˜S`Deš$ÜG¼¤šPô†ÄÒÉ	%=Sêl÷BEi’VXëàa•
+ õÒÅ¨CƒÜöİn@0÷q¸xİõÎ—n`®áâ•0íÎWï^¾ğ7’˜Ùö<ƒŞ923ºè¸lO³}„ßš\!!-‚°hTTÂè8R>°€×~{*ò¢,X¥Oğ5Š”"ıOKŒşúsüùÇ¿=ıœ—ñ[?Ç§';ïo:e7N…u·ÚeOîäÙÜßÉáª”ô°%nb‡Å²“uá„¥Ùå‚ÏäÒ V†ßì9ò¸RÖÀ½VÏ\ûgËLã“—V-/Ngâ‘Ô9SgïËf÷n£m²Bš¡GP)ÃvñNt: …ˆ"†„Ó5öì”İH¤RÅ(¸`ÃÀAVïİ<lØÃ†½²3‘”’RÖÉ…Ë³N&‹CßÒtsÀ” ›áŞÛNÙÎöhÂ­vù>[ŸHöP£Ğ`{şÖ’ùÊºCÖ>±é XÜRˆ1Ù-şË°AÉ]£¸@8‡™-‡¤RF]ĞJßÓ|gSH6ÚJŠGIŞ°ã«àT,02ûÍW ‘ë¦W{Û!d‚\¹Q1°Öì &{hCZë‰şI].œÜ
+T”C÷•Y±FŒ†GåÍ$W–€¡&Dü¯ly$&W:¸.­S¿qôX;°E:Ê.êïõ©NwõpL9yŞ^ãİ°_çZ®UD‘Öï£; ‡&(Øâ="¶Äø /­¯™Åƒ[(şUE‘ÈëôMì„ËâÆµcÆ 7¸	½†~¦Áí—góÕ_½/ Z„!G’€ø£	ÊKÀø©s¾‘gà”«èçDTW½®!à%_$špÈ
+¿2ù%KŒ—1P“CKhi‚`âXƒ„kcVèÍêâ)H‘ÜNñSÏAŒ
+]r¨ä}ÕÓÌÄª>py²¬‘‰÷CáÏeö¦(ˆ™gÑÜë#@ôs¤¿5£ä9ØÃ³«'?ÇXN%pS‘ dx{¼"Z;"şĞÆ¢wˆ¿g¶…ß3gİ„
+6#Öèˆ™9œ™tU™;Ç®D ŞTvèjoïE½ğÌ?Â³ßb´>tÆ9P SoÛ+²S(©ªÓì¯£8^·Ê_Cf™*aR°"ÊÛb‚İˆ|Jan™ä³™§´BßùÜ†ìÔ1]Ä\A$/µÌşpó=— ³s²Ømµ}½Ò{9*NüÊ ‰ş)°âÔârïb‡Ù¬Æ*Ó\¬ìúœlÃq“ô‰üêÕYÉV®ö ç!û&åÈºl{ã_‘šÜ.{Í!7.båÙ½R%ZÉ.«É!DÍÎ¤ğK>8ösIĞ	MÙùªŞ0$ÉËÑıRm{‚Mf¹	lOa¥ü b˜mt(…;»lä]C:R¬¸ Û8-Ò#›{SW+<\­ßÃÕú"$ô¯ŸŸÌäÙ+p^„g`Û)>=-Ìó¯í0¡ú†Ù×°«ƒ&Á8,œª˜šú©c†ºë±l+ÚèÆAæèæŒ–OE×ês'‡kbg§¹à­À<c€&(Ñ dCª¥—¨~WT½WxŒƒ2Vu|>¶1Z ÆÜdè*5&™c¹º¬?:—ßBĞ3mÉ˜ŸQ·€GòÍÚ P1ñ‘öÇ¢+`øz]âcCùÆ²°|ëÈ«=eä—‚pnÓ«”Ë e4ÓKV|'Wıu!@È…›\1`ÿ|ªÂ¹îóì˜òÂ°£Áå³â|Y‘ì0èİ„L±bÇ)£ÇnXÑTX?ûœD¯Ğ%…oºËŞp&ÀĞm)ƒí‹ïÊFüÇ¦j2{ŞT¡’OkîM†CWMñJÙåRBEFaÍğX¾ RŞŞ4¼¯slU^ç·ÖråÖŠ¾k-=…¡©5Uv.şj€?.Xj³9X„Úqò®ŞÍĞaà^ÕÒV½s™’ÂĞdi–ò¯ËêG"\ìoÊZéG‡rÓÒÂy¬(ö¶t3Ã§'mÜuüğŞ)Qn¬â!ÕŸ£lÛÄ%v})áDUwì”G9\ãLÜ)pºq½\u´Üe5ûU¨ø*G%¤Æ†ß¾-;œ}×‰èÙ¥ôÇao4<ƒÑŞ
+ 8ˆ,ğ²–‰r+h5Üúöö@{P<Õâep–mY(ñ„]¥ÅƒdQ¤<Ş%7ª>å^Ì/l{´\Ê yáÚTòå>öÀ0±ìè×kvµıñWBd‹Lfó	>r&ÏsmÃ™6`aõKÕf‹Õ`ß0B<8«0®×!_f&—‚÷æÆLlMAÍg{f{só-a¸ÇF·KÑi‹G5Dg–ü6¼O,në36İ-etNmLÈĞ8pIèäE¢´o NöèÎDÃ<Dã¸ô<8Aaïy°"³Kem,Ø_+¶8Dc/ë»ÈJñ3¼°„•^ØĞğĞ™€f:ß4‚k¦àGÑ`[(íD Q‰q—
+Á>Â|›ŒÃì‡¾¬øu².#O`š'¹1-qÅó~cQ´…
+ç“›·Då›€tgâáââÑ&J²ÁêRÌ3?ÖZ^BèåkB5Ö¹bk,'€êã×Sê¤o~<¡@?ó£İü˜ƒ>âOmÉšUYAx”Egiß(—İÊÜ¼…”xO…	»”ÿ’e„¢<d°hZ.ë)óµeØ"¿®‡0ºLÂï'(·à³)g†OÁñDmÊ¡ˆÎH:À“‰zÙ©+í[ÈG‚ <µKùù¸”Ÿpß®\€WB$›ßĞ¾d†—s®ÍÀœ9›ròÖœÆ‚eørÙË*íˆ—AX"vñ! èfe­Ş×l|± ŠèDNåaéùÁ6 (ï}#ssfÎ³Ñ—XvÎ’@W` äJ«¡ÁTËŠ‹•Û·D„cÙ§	I	AàN™¥ÍsÆ~ßÈİvçÇpî Ã·‘R¸ŞD’¼ó[ 1'=QË)Ø±T«(RS¦zöİ·\ÃšCl¢BlD0C™}‚ÿ <WhcûWš]îÔbğĞ"[¹	Å×jZ6ß:±Å—¥Z;qmyµ–ê\£LÉßåçgí3æ­…1ËşÎºÀ Ã6™@ï#b6Ê¥*ƒkêJŞ¾2°§bB%oõkT_ù-%'I3½)]’Êš€	¿ğK@L0Ô  Í™]`ıÜ¾…HÄ„0Šf§"qMåÈÛ‰–ZB?öï š¯ÃšàDXUJûdBXEË}&wÕUõoŸ¡—€•‚XĞkÅòÛ|LUÀôö¤’€Ío}ÊwhänQ×ç«Ú_R‘ùñ‰@œS,«ğÜ¾Çë„(‰6ûÌ×ª«
+Ş>Ç>m>z“[I²Ş„X,ƒ˜ë,nùú4®°®Eñ)í[ˆ“ˆh·ÓRó«
+Ş¾ø,Ö6d)â7ëñøú×—~>‹Ğ¶Ë—È|”ö.ğá¿¾’%x-y‹ï¢Y–jİB  YÇêRjmäøypoe­ó9ğçÿ£Û9
+endstream
+endobj
+xref
+0 516
+0000000000 65535 f 
+0000063674 00000 n 
+0000063802 00000 n 
+0000063587 00000 n 
+0000063566 00000 n 
+0000063849 00000 n 
+0000065218 00000 n 
+0000000189 00000 n 
+0000000059 00000 n 
+0000000015 00000 n 
+0000063468 00000 n 
+0000079249 00000 n 
+0000007421 00000 n 
+0000007082 00000 n 
+0000000307 00000 n 
+0000000392 00000 n 
+0000000518 00000 n 
+0000000602 00000 n 
+0000000728 00000 n 
+0000000812 00000 n 
+0000000938 00000 n 
+0000001022 00000 n 
+0000001149 00000 n 
+0000001264 00000 n 
+0000001391 00000 n 
+0000001506 00000 n 
+0000001633 00000 n 
+0000001748 00000 n 
+0000001875 00000 n 
+0000001980 00000 n 
+0000002107 00000 n 
+0000002212 00000 n 
+0000002339 00000 n 
+0000002444 00000 n 
+0000002569 00000 n 
+0000002696 00000 n 
+0000002821 00000 n 
+0000002948 00000 n 
+0000003075 00000 n 
+0000003202 00000 n 
+0000003329 00000 n 
+0000003500 00000 n 
+0000003627 00000 n 
+0000003798 00000 n 
+0000003925 00000 n 
+0000004096 00000 n 
+0000004223 00000 n 
+0000004338 00000 n 
+0000004465 00000 n 
+0000004580 00000 n 
+0000004705 00000 n 
+0000004820 00000 n 
+0000004945 00000 n 
+0000005079 00000 n 
+0000005204 00000 n 
+0000005338 00000 n 
+0000005462 00000 n 
+0000005596 00000 n 
+0000005720 00000 n 
+0000005827 00000 n 
+0000005952 00000 n 
+0000006059 00000 n 
+0000006184 00000 n 
+0000006291 00000 n 
+0000006415 00000 n 
+0000006513 00000 n 
+0000006638 00000 n 
+0000006736 00000 n 
+0000006860 00000 n 
+0000006958 00000 n 
+0000075839 00000 n 
+0000014427 00000 n 
+0000014081 00000 n 
+0000007540 00000 n 
+0000007638 00000 n 
+0000007765 00000 n 
+0000007863 00000 n 
+0000007990 00000 n 
+0000008088 00000 n 
+0000008215 00000 n 
+0000008347 00000 n 
+0000008474 00000 n 
+0000008606 00000 n 
+0000008733 00000 n 
+0000008865 00000 n 
+0000008992 00000 n 
+0000009076 00000 n 
+0000009203 00000 n 
+0000009287 00000 n 
+0000009414 00000 n 
+0000009498 00000 n 
+0000009624 00000 n 
+0000009739 00000 n 
+0000009865 00000 n 
+0000009980 00000 n 
+0000010107 00000 n 
+0000010222 00000 n 
+0000010349 00000 n 
+0000010433 00000 n 
+0000010559 00000 n 
+0000010643 00000 n 
+0000010770 00000 n 
+0000010855 00000 n 
+0000010984 00000 n 
+0000011090 00000 n 
+0000011219 00000 n 
+0000011325 00000 n 
+0000011454 00000 n 
+0000011560 00000 n 
+0000011689 00000 n 
+0000011805 00000 n 
+0000011934 00000 n 
+0000012050 00000 n 
+0000012177 00000 n 
+0000012293 00000 n 
+0000012420 00000 n 
+0000012548 00000 n 
+0000012675 00000 n 
+0000012803 00000 n 
+0000012930 00000 n 
+0000013058 00000 n 
+0000013185 00000 n 
+0000013357 00000 n 
+0000013484 00000 n 
+0000013656 00000 n 
+0000013782 00000 n 
+0000013954 00000 n 
+0000072716 00000 n 
+0000021470 00000 n 
+0000021108 00000 n 
+0000014546 00000 n 
+0000014631 00000 n 
+0000014759 00000 n 
+0000014844 00000 n 
+0000014973 00000 n 
+0000015058 00000 n 
+0000015187 00000 n 
+0000015293 00000 n 
+0000015421 00000 n 
+0000015527 00000 n 
+0000015655 00000 n 
+0000015761 00000 n 
+0000015890 00000 n 
+0000016062 00000 n 
+0000016191 00000 n 
+0000016363 00000 n 
+0000016492 00000 n 
+0000016664 00000 n 
+0000016793 00000 n 
+0000016909 00000 n 
+0000017037 00000 n 
+0000017153 00000 n 
+0000017282 00000 n 
+0000017398 00000 n 
+0000017527 00000 n 
+0000017612 00000 n 
+0000017740 00000 n 
+0000017825 00000 n 
+0000017953 00000 n 
+0000018038 00000 n 
+0000018167 00000 n 
+0000018302 00000 n 
+0000018429 00000 n 
+0000018564 00000 n 
+0000018691 00000 n 
+0000018826 00000 n 
+0000018952 00000 n 
+0000019060 00000 n 
+0000019186 00000 n 
+0000019294 00000 n 
+0000019421 00000 n 
+0000019529 00000 n 
+0000019656 00000 n 
+0000019784 00000 n 
+0000019912 00000 n 
+0000020040 00000 n 
+0000020168 00000 n 
+0000020296 00000 n 
+0000020425 00000 n 
+0000020524 00000 n 
+0000020652 00000 n 
+0000020751 00000 n 
+0000020880 00000 n 
+0000020979 00000 n 
+0000066507 00000 n 
+0000027162 00000 n 
+0000026848 00000 n 
+0000021590 00000 n 
+0000021718 00000 n 
+0000021846 00000 n 
+0000021974 00000 n 
+0000022103 00000 n 
+0000022231 00000 n 
+0000022360 00000 n 
+0000022459 00000 n 
+0000022588 00000 n 
+0000022687 00000 n 
+0000022816 00000 n 
+0000022915 00000 n 
+0000023044 00000 n 
+0000023177 00000 n 
+0000023306 00000 n 
+0000023439 00000 n 
+0000023568 00000 n 
+0000023701 00000 n 
+0000023830 00000 n 
+0000023933 00000 n 
+0000024061 00000 n 
+0000024164 00000 n 
+0000024292 00000 n 
+0000024395 00000 n 
+0000024523 00000 n 
+0000024650 00000 n 
+0000024779 00000 n 
+0000024906 00000 n 
+0000025035 00000 n 
+0000025162 00000 n 
+0000025291 00000 n 
+0000025441 00000 n 
+0000025570 00000 n 
+0000025720 00000 n 
+0000025849 00000 n 
+0000025999 00000 n 
+0000026128 00000 n 
+0000026240 00000 n 
+0000026368 00000 n 
+0000026480 00000 n 
+0000026608 00000 n 
+0000026720 00000 n 
+0000082827 00000 n 
+0000036311 00000 n 
+0000035901 00000 n 
+0000027282 00000 n 
+0000027415 00000 n 
+0000027544 00000 n 
+0000027677 00000 n 
+0000027806 00000 n 
+0000027939 00000 n 
+0000028068 00000 n 
+0000028218 00000 n 
+0000028347 00000 n 
+0000028497 00000 n 
+0000028626 00000 n 
+0000028776 00000 n 
+0000028905 00000 n 
+0000029038 00000 n 
+0000029173 00000 n 
+0000029306 00000 n 
+0000029441 00000 n 
+0000029574 00000 n 
+0000029709 00000 n 
+0000029859 00000 n 
+0000029994 00000 n 
+0000030144 00000 n 
+0000030279 00000 n 
+0000030429 00000 n 
+0000030564 00000 n 
+0000030697 00000 n 
+0000030824 00000 n 
+0000030957 00000 n 
+0000031084 00000 n 
+0000031217 00000 n 
+0000031344 00000 n 
+0000031494 00000 n 
+0000031620 00000 n 
+0000031770 00000 n 
+0000031897 00000 n 
+0000032047 00000 n 
+0000032175 00000 n 
+0000032268 00000 n 
+0000032403 00000 n 
+0000032496 00000 n 
+0000032631 00000 n 
+0000032724 00000 n 
+0000032859 00000 n 
+0000032962 00000 n 
+0000033085 00000 n 
+0000033188 00000 n 
+0000033314 00000 n 
+0000033417 00000 n 
+0000033543 00000 n 
+0000033686 00000 n 
+0000033814 00000 n 
+0000033957 00000 n 
+0000034085 00000 n 
+0000034228 00000 n 
+0000034356 00000 n 
+0000034489 00000 n 
+0000034618 00000 n 
+0000034751 00000 n 
+0000034880 00000 n 
+0000035013 00000 n 
+0000035142 00000 n 
+0000035262 00000 n 
+0000035395 00000 n 
+0000035515 00000 n 
+0000035648 00000 n 
+0000035768 00000 n 
+0000086304 00000 n 
+0000044779 00000 n 
+0000044369 00000 n 
+0000036431 00000 n 
+0000036551 00000 n 
+0000036679 00000 n 
+0000036799 00000 n 
+0000036927 00000 n 
+0000037047 00000 n 
+0000037175 00000 n 
+0000037284 00000 n 
+0000037412 00000 n 
+0000037521 00000 n 
+0000037649 00000 n 
+0000037758 00000 n 
+0000037886 00000 n 
+0000037970 00000 n 
+0000038098 00000 n 
+0000038182 00000 n 
+0000038310 00000 n 
+0000038394 00000 n 
+0000038522 00000 n 
+0000038631 00000 n 
+0000038766 00000 n 
+0000038875 00000 n 
+0000039010 00000 n 
+0000039119 00000 n 
+0000039254 00000 n 
+0000039338 00000 n 
+0000039467 00000 n 
+0000039551 00000 n 
+0000039680 00000 n 
+0000039764 00000 n 
+0000039893 00000 n 
+0000040003 00000 n 
+0000040132 00000 n 
+0000040242 00000 n 
+0000040371 00000 n 
+0000040481 00000 n 
+0000040610 00000 n 
+0000040720 00000 n 
+0000040846 00000 n 
+0000040956 00000 n 
+0000041083 00000 n 
+0000041193 00000 n 
+0000041321 00000 n 
+0000041475 00000 n 
+0000041602 00000 n 
+0000041756 00000 n 
+0000041883 00000 n 
+0000042037 00000 n 
+0000042165 00000 n 
+0000042319 00000 n 
+0000042448 00000 n 
+0000042602 00000 n 
+0000042731 00000 n 
+0000042885 00000 n 
+0000043014 00000 n 
+0000043113 00000 n 
+0000043241 00000 n 
+0000043340 00000 n 
+0000043468 00000 n 
+0000043567 00000 n 
+0000043695 00000 n 
+0000043794 00000 n 
+0000043919 00000 n 
+0000044018 00000 n 
+0000044144 00000 n 
+0000044243 00000 n 
+0000069440 00000 n 
+0000051165 00000 n 
+0000050827 00000 n 
+0000044899 00000 n 
+0000045013 00000 n 
+0000045142 00000 n 
+0000045256 00000 n 
+0000045385 00000 n 
+0000045499 00000 n 
+0000045628 00000 n 
+0000045742 00000 n 
+0000045871 00000 n 
+0000045985 00000 n 
+0000046114 00000 n 
+0000046228 00000 n 
+0000046357 00000 n 
+0000046471 00000 n 
+0000046600 00000 n 
+0000046714 00000 n 
+0000046843 00000 n 
+0000046957 00000 n 
+0000047086 00000 n 
+0000047200 00000 n 
+0000047329 00000 n 
+0000047443 00000 n 
+0000047572 00000 n 
+0000047686 00000 n 
+0000047815 00000 n 
+0000047929 00000 n 
+0000048064 00000 n 
+0000048178 00000 n 
+0000048313 00000 n 
+0000048427 00000 n 
+0000048562 00000 n 
+0000048676 00000 n 
+0000048805 00000 n 
+0000048919 00000 n 
+0000049048 00000 n 
+0000049162 00000 n 
+0000049291 00000 n 
+0000049403 00000 n 
+0000049531 00000 n 
+0000049643 00000 n 
+0000049771 00000 n 
+0000049883 00000 n 
+0000050011 00000 n 
+0000050154 00000 n 
+0000050283 00000 n 
+0000050426 00000 n 
+0000050555 00000 n 
+0000050698 00000 n 
+0000089728 00000 n 
+0000059499 00000 n 
+0000059105 00000 n 
+0000051285 00000 n 
+0000051399 00000 n 
+0000051528 00000 n 
+0000051642 00000 n 
+0000051771 00000 n 
+0000051885 00000 n 
+0000052014 00000 n 
+0000052128 00000 n 
+0000052257 00000 n 
+0000052371 00000 n 
+0000052500 00000 n 
+0000052614 00000 n 
+0000052743 00000 n 
+0000052884 00000 n 
+0000053013 00000 n 
+0000053154 00000 n 
+0000053283 00000 n 
+0000053424 00000 n 
+0000053553 00000 n 
+0000053651 00000 n 
+0000053778 00000 n 
+0000053876 00000 n 
+0000054004 00000 n 
+0000054102 00000 n 
+0000054231 00000 n 
+0000054397 00000 n 
+0000054520 00000 n 
+0000054686 00000 n 
+0000054812 00000 n 
+0000054978 00000 n 
+0000055104 00000 n 
+0000055189 00000 n 
+0000055322 00000 n 
+0000055438 00000 n 
+0000055572 00000 n 
+0000055678 00000 n 
+0000055812 00000 n 
+0000055940 00000 n 
+0000056074 00000 n 
+0000056246 00000 n 
+0000056380 00000 n 
+0000056496 00000 n 
+0000056630 00000 n 
+0000056765 00000 n 
+0000056899 00000 n 
+0000057007 00000 n 
+0000057140 00000 n 
+0000057239 00000 n 
+0000057373 00000 n 
+0000057472 00000 n 
+0000057605 00000 n 
+0000057738 00000 n 
+0000057872 00000 n 
+0000057975 00000 n 
+0000058109 00000 n 
+0000058236 00000 n 
+0000058369 00000 n 
+0000058519 00000 n 
+0000058651 00000 n 
+0000058763 00000 n 
+0000058895 00000 n 
+0000058988 00000 n 
+0000063892 00000 n 
+0000063173 00000 n 
+0000062923 00000 n 
+0000059619 00000 n 
+0000059712 00000 n 
+0000059846 00000 n 
+0000059989 00000 n 
+0000060123 00000 n 
+0000060256 00000 n 
+0000060390 00000 n 
+0000060510 00000 n 
+0000060644 00000 n 
+0000060753 00000 n 
+0000060887 00000 n 
+0000060971 00000 n 
+0000061105 00000 n 
+0000061215 00000 n 
+0000061349 00000 n 
+0000061503 00000 n 
+0000061637 00000 n 
+0000061736 00000 n 
+0000061870 00000 n 
+0000061984 00000 n 
+0000062118 00000 n 
+0000062259 00000 n 
+0000062391 00000 n 
+0000062489 00000 n 
+0000062623 00000 n 
+0000062789 00000 n 
+0000063388 00000 n 
+0000063293 00000 n 
+0000063322 00000 n 
+0000063351 00000 n 
+trailer
+<<
+/Size 516
+/Root 3 0 R
+/Info 512 0 R
+/ID [<822fb88b6a7ce94008433dd4afccc181> <822fb88b6a7ce94008433dd4afccc181>]
+>>
+startxref
+92981
+%%EOF
