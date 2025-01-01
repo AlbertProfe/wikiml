@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="description" content="About books">
 
-<title>Books – Wiki-ML</title>
+<title>Books cards – Wiki-ML</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -31,6 +32,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
 <link href="..//images/home/favicon.ico" rel="icon">
+<script src="../site_libs/quarto-listing/list.min.js"></script>
+<script src="../site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -67,7 +70,65 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script>
 
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-books .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-image','listing-categories','listing-title','listing-description','listing-reading-time','listing-date','listing-author','listing-file-modified',{ data: ['index'] },{ data: ['categories'] }],
+      
+      searchColumns: ["listing-title","listing-genre"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-books'] = new List('listing-books', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
 </head>
@@ -115,6 +176,10 @@ ul.task-list li input[type="checkbox"] {
     <a class="dropdown-item" href="../ann/ann-index.html">
  <span class="dropdown-text">Artificial Neural Networks</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../ann/ann-introduction.html">
+ <span class="dropdown-text">ANN: Introduction</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
@@ -126,6 +191,18 @@ ul.task-list li input[type="checkbox"] {
         <li>
     <a class="dropdown-item" href="../bigdata/bigdata-index.html">
  <span class="dropdown-text">Big Data</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-machine-learning" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Machine Learning</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-machine-learning">    
+        <li class="dropdown-header">Machine Learning Basics</li>
+        <li>
+    <a class="dropdown-item" href="../machine/machine-index.html">
+ <span class="dropdown-text">Machine Learning</span></a>
   </li>  
     </ul>
   </li>
@@ -142,14 +219,36 @@ ul.task-list li input[type="checkbox"] {
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-machine-learning" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Machine Learning</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-generative-ai" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Generative AI</span>
     </a>
-    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-machine-learning">    
-        <li class="dropdown-header">Machine Learning Basics</li>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-generative-ai">    
+        <li class="dropdown-header">Generative AI</li>
         <li>
-    <a class="dropdown-item" href="../machine/machine-index.html">
- <span class="dropdown-text">Machine Learning</span></a>
+    <a class="dropdown-item" href="../generative/generative-index.html">
+ <span class="dropdown-text">Generative AI</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Generative LLM</li>
+        <li>
+    <a class="dropdown-item" href="../generative/generative-llm.html">
+ <span class="dropdown-text">Generative LLM</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../generative/generative-gpt.html">
+ <span class="dropdown-text">Generative AI GPT</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Generative AI Transformer</li>
+        <li>
+    <a class="dropdown-item" href="../generative/generative-transformer.html">
+ <span class="dropdown-text">Generative AI Transformer</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Generative RAG</li>
+        <li>
+    <a class="dropdown-item" href="../generative/generative-rag.html">
+ <span class="dropdown-text">Generative AI RAG</span></a>
   </li>  
     </ul>
   </li>
@@ -222,18 +321,6 @@ ul.task-list li input[type="checkbox"] {
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-rags" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">RAGs</span>
-    </a>
-    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-rags">    
-        <li class="dropdown-header">Retrieval-Augmented Generation</li>
-        <li>
-    <a class="dropdown-item" href="../rags/rags-index.html">
- <span class="dropdown-text">RAGs</span></a>
-  </li>  
-    </ul>
-  </li>
-  <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-labs" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Labs</span>
     </a>
@@ -259,7 +346,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="dropdown-header">Books</li>
         <li>
     <a class="dropdown-item" href="../resources/resources-books.html">
- <span class="dropdown-text">Books</span></a>
+ <span class="dropdown-text">Books cards</span></a>
   </li>  
     </ul>
   </li>
@@ -290,7 +377,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../resources/resources-books.html">Books</a></li><li class="breadcrumb-item"><a href="../resources/resources-books.html">Books</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../resources/resources-books.html">Books</a></li><li class="breadcrumb-item"><a href="../resources/resources-books.html">Books cards</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -344,7 +431,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../resources/resources-books.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Books</span></a>
+ <span class="menu-text">Books cards</span></a>
   </div>
 </li>
       </ul>
@@ -354,23 +441,46 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    </div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(1)</span></div><div class="category" data-category="YXJ0aWZpY2lhbCBuZXVyYWwgbmV0d29ya3M=">artificial neural networks <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bWFjaGluZSBsZWFybmluZw==">machine learning <span class="quarto-category-count">(1)</span></div></div></div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../resources/resources-books.html">Books</a></li><li class="breadcrumb-item"><a href="../resources/resources-books.html">Books</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../resources/resources-books.html">Books</a></li><li class="breadcrumb-item"><a href="../resources/resources-books.html">Books cards</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Books</h1>
-</div>
+<h1 class="title">Books cards</h1>
+<p class="subtitle lead">Recommended book list</p>
+  <div class="quarto-categories">
+    <div class="quarto-category">listing</div>
+    <div class="quarto-category">books</div>
+    <div class="quarto-category">reading</div>
+  </div>
+  </div>
 
+<div>
+  <div class="description">
+    About books
+  </div>
+</div>
 
 
 <div class="quarto-title-meta">
 
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">Tuesday, June 1, 2021</p>
+    </div>
+  </div>
   
+    <div>
+    <div class="quarto-title-meta-heading">Modified</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">Wednesday, January 1, 2025</p>
+    </div>
+  </div>
     
   </div>
   
@@ -379,14 +489,77 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<ul>
-<li><span class="chip chip-primary">book</span> <a href="http://physicsbaseddeeplearning.org/intro.html" class="external" target="_blank">Welcome to the Physics-based Deep Learning Book (v0.2)</a></li>
-<li><a href="https://www.packtpub.com/en-us/product/llm-engineers-handbook-9781836200062?srsltid=AfmBOorsghxj1A2sZIK6UQc4ZwnKaaQ2vD5_mKI-ke1-LL-N984ALpOt" class="external" target="_blank">LLM Engineer’s Handbook: Master the art of engineering large language models from concept to production</a></li>
-<li><a href="https://github.com/SylphAI-Inc/LLM-engineer-handbook" class="external" target="_blank">Repo</a></li>
-<li><a href="https://fleuret.org/francois/lbdl.html" class="external" target="_blank">The Little Book of Deep Learning</a></li>
-<li><a href="https://udlbook.github.io/udlbook/" class="external" target="_blank">Understand Deep Learning: Python notebooks covering the whole text</a></li>
-<li><a href="https://www.deeplearningbook.org/" class="external" target="_blank">Deep Learning An MIT Press book Ian Goodfellow and Yoshua Bengio and Aaron Courville</a></li>
-</ul>
+<p><br><br></p>
+<blockquote class="blockquote">
+<p>Reading is essential for those who seek to rise above the ordinary. - Jim Rohn</p>
+</blockquote>
+<p><br></p>
+<div id="listing-books" class="quarto-listing quarto-listing-container-default">
+<div class="listing-actions-group">
+   <div class="input-group input-group-sm quarto-listing-sort">
+     <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
+     <select id="listing-books-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-books'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
+       <option value="" disabled="" selected="" hidden="">Order By</option>
+       <option value="index" data-direction="asc">Default</option>
+         <option value="listing-title" data-direction="asc">
+          Title
+        </option>
+     </select>
+  </div>
+    <div class="input-group input-group-sm quarto-listing-filter">
+      <span class="input-group-text"><i class="bi bi-search"></i></span>
+      <input type="text" class="search form-control" placeholder="Filter">
+    </div>
+</div>
+<div class="list quarto-listing-default">
+<div class="quarto-post image-left" data-index="0" data-categories="YXJ0aWZpY2lhbCBuZXVyYWwgbmV0d29ya3MsbWFjaGluZSBsZWFybmluZw==" data-listing-date-sort="1735686000000" data-listing-file-modified-sort="1735714167798" data-listing-date-modified-sort="1735714167000" data-listing-reading-time-sort="5" data-listing-word-count-sort="920">
+<div class="thumbnail">
+<p><a href="../resources/books/articles/A_Brief_Introduction_to_Neural_Networks_DavidKriesel.html" class="no-external"></a></p><a href="../resources/books/articles/A_Brief_Introduction_to_Neural_Networks_DavidKriesel.html" class="no-external">
+<p class="card-img-top"><img src="books/cover/cover_A_Brief_Introduction_to_Neural_Networks_DavidKriesel.png"  class="thumbnail-image card-img"/></p>
+</a><p><a href="../resources/books/articles/A_Brief_Introduction_to_Neural_Networks_DavidKriesel.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../resources/books/articles/A_Brief_Introduction_to_Neural_Networks_DavidKriesel.html" class="no-external">A Brief Introduction to Neural Networks</a>
+</h3>
+<div class="listing-subtitle">
+<a href="../resources/books/articles/A_Brief_Introduction_to_Neural_Networks_DavidKriesel.html" class="no-external">Artificial Neural Networks</a>
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('YXJ0aWZpY2lhbCBuZXVyYWwgbmV0d29ya3M='); return false;">
+artificial neural networks
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('bWFjaGluZSBsZWFybmluZw=='); return false;">
+machine learning
+</div>
+</div>
+<div class="listing-description">
+<a href="../resources/books/articles/A_Brief_Introduction_to_Neural_Networks_DavidKriesel.html" class="no-external">An introduction to the fundamentals of neural networks and their applications in artificial intelligence.</a>
+</div>
+</div>
+<div class="metadata">
+<a href="../resources/books/articles/A_Brief_Introduction_to_Neural_Networks_DavidKriesel.html" class="no-external">
+<div class="listing-date">
+Wednesday, January 1, 2025
+</div>
+<div class="listing-author">
+David Kriesel
+</div>
+<div class="listing-reading-time">
+5 min
+</div>
+<div class="metadata-value listing-file-modified">
+Wednesday, January 1, 2025
+</div>
+</a>
+</div>
+</div>
+</div>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+</div>
+
 
 
 

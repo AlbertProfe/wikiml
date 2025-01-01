@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Resources – Wiki-ML</title>
+<title>ANN: Mathematical Model – Wiki-ML</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,6 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
+<link href="../ann/ann-introduction.html" rel="prev">
 <link href="..//images/home/favicon.ico" rel="icon">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -40,6 +41,9 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-b3c97a93b5fc5b3d26d95016fc46a210.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -68,6 +72,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
 </head>
@@ -118,6 +151,10 @@ ul.task-list li input[type="checkbox"] {
         <li>
     <a class="dropdown-item" href="../ann/ann-introduction.html">
  <span class="dropdown-text">ANN: Introduction</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../ann/ann-mathematical.html">
+ <span class="dropdown-text">ANN: Mathematical Model</span></a>
   </li>  
     </ul>
   </li>
@@ -316,7 +353,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../resources/resources-index.html">Additional Resources</a></li><li class="breadcrumb-item"><a href="../resources/resources-index.html">Resources</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../ann/ann-index.html">What is ANN?</a></li><li class="breadcrumb-item"><a href="../ann/ann-mathematical.html">ANN: Mathematical Model</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -337,13 +374,13 @@ ul.task-list li input[type="checkbox"] {
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
- <span class="menu-text">Resources</span>
+ <span class="menu-text">ANN</span>
   </li>
         <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">Additional Resources</span></a>
+ <span class="menu-text">What is ANN?</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -351,26 +388,20 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../resources/resources-index.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Resources</span></a>
+  <a href="../ann/ann-index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Artificial Neural Networks</span></a>
   </div>
 </li>
-      </ul>
-  </li>
-        <li class="px-0"><hr class="sidebar-divider hi "></li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
- <span class="menu-text">Books</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../resources/resources-books.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Books cards</span></a>
+  <a href="../ann/ann-introduction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">ANN: Introduction</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ann/ann-mathematical.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">ANN: Mathematical Model</span></a>
   </div>
 </li>
       </ul>
@@ -385,29 +416,19 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#math-and-physics" id="toc-math-and-physics" class="nav-link active" data-scroll-target="#math-and-physics">Math and Physics</a>
+  <li><a href="#mathematical-model-of-an-ann" id="toc-mathematical-model-of-an-ann" class="nav-link active" data-scroll-target="#mathematical-model-of-an-ann">Mathematical Model of an ANN</a>
   <ul>
-  <li><a href="#physics-and-deep-learning" id="toc-physics-and-deep-learning" class="nav-link" data-scroll-target="#physics-and-deep-learning">Physics and Deep Learning</a></li>
-  <li><a href="#algorithms" id="toc-algorithms" class="nav-link" data-scroll-target="#algorithms">Algorithms</a></li>
+  <li><a href="#structure-of-biological-neurons" id="toc-structure-of-biological-neurons" class="nav-link" data-scroll-target="#structure-of-biological-neurons">Structure of Biological Neurons</a></li>
   </ul></li>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a>
-  <ul>
-  <li><a href="#neural-network" id="toc-neural-network" class="nav-link" data-scroll-target="#neural-network">Neural Network</a></li>
-  <li><a href="#deep-learning" id="toc-deep-learning" class="nav-link" data-scroll-target="#deep-learning">Deep Learning</a></li>
-  <li><a href="#generative-ai" id="toc-generative-ai" class="nav-link" data-scroll-target="#generative-ai">Generative AI</a></li>
-  <li><a href="#machine-learning" id="toc-machine-learning" class="nav-link" data-scroll-target="#machine-learning">Machine Learning</a></li>
-  </ul></li>
-  <li><a href="#tools-papers-and-labs" id="toc-tools-papers-and-labs" class="nav-link" data-scroll-target="#tools-papers-and-labs">Tools, papers and labs</a></li>
-  <li><a href="#workflows-and-automation" id="toc-workflows-and-automation" class="nav-link" data-scroll-target="#workflows-and-automation">Workflows and automation</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../resources/resources-index.html">Additional Resources</a></li><li class="breadcrumb-item"><a href="../resources/resources-index.html">Resources</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../ann/ann-index.html">What is ANN?</a></li><li class="breadcrumb-item"><a href="../ann/ann-mathematical.html">ANN: Mathematical Model</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Resources</h1>
+<h1 class="title">ANN: Mathematical Model</h1>
 </div>
 
 
@@ -424,91 +445,71 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="math-and-physics" class="level1">
-<h1>Math and Physics</h1>
-<section id="physics-and-deep-learning" class="level3">
-<h3 class="anchored" data-anchor-id="physics-and-deep-learning">Physics and Deep Learning</h3>
-<ul>
-<li><span class="chip chip-primary">book</span> <a href="http://physicsbaseddeeplearning.org/intro.html" class="external" target="_blank">Welcome to the Physics-based Deep Learning Book (v0.2)</a></li>
-<li><a href="https://robjhyndman.com/" class="external" target="_blank">Rob J Hyndman | Professor of Statistics</a></li>
-</ul>
-</section>
-<section id="algorithms" class="level3">
-<h3 class="anchored" data-anchor-id="algorithms">Algorithms</h3>
-<p>MIT’s Introduction to Algorithms:</p>
-<ul>
-<li><a href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/pages/lecture-notes/" class="external" target="_blank">Lecture Notes</a></li>
-<li><a href="http://www.youtube.com/playlist?list=PLUl4u3cNGP63EdVPNLG3ToM6LaEUuStEY" class="external" target="_blank">Lecture Videos</a></li>
-</ul>
-</section>
-</section>
-<section id="introduction" class="level1">
-<h1>Introduction</h1>
-<section id="neural-network" class="level3">
-<h3 class="anchored" data-anchor-id="neural-network">Neural Network</h3>
-<ul>
-<li><a href="https://dkriesel.com/en/science/neural_networks#dokuwiki__top" class="external" target="_blank">A Brief Introduction to Neural Networks</a></li>
-<li><a href="https://www.fast.ai/" class="external" target="_blank">Making neural nets uncool again</a></li>
-<li><a href="https://github.com/3b1b/videos/?tab=readme-ov-file" class="external" target="_blank">3blue1brown github videos</a></li>
-<li><a href="https://www.3blue1brown.com/" class="external" target="_blank">3blue1brown</a></li>
-<li><span class="chip">repo</span> <a href="https://github.com/3b1b/manim" class="external" target="_blank">manim</a></li>
-<li><a href="https://youtu.be/aircAruvnKk?feature=shared" class="external" target="_blank">But what is a neural network? | Deep learning chapter 1</a></li>
-</ul>
-</section>
-<section id="deep-learning" class="level3">
-<h3 class="anchored" data-anchor-id="deep-learning">Deep Learning</h3>
-<ul>
-<li><a href="https://youtu.be/ErnWZxJovaM?feature=shared" class="external" target="_blank">MIT Introduction to Deep Learning | 6.S191</a></li>
-<li><a href="https://course.fast.ai/" class="external" target="_blank">Practical Deep Learning</a></li>
-<li><a href="https://introtodeeplearning.com/" class="external" target="_blank">MIT 6.S191 Introduction to Deep Learning 2025</a></li>
-<li><a href="https://introtodeeplearning.com/2024/index.html" class="external" target="_blank">MIT 6.S191 Introduction to Deep Learning 2024</a></li>
-</ul>
-</section>
-<section id="generative-ai" class="level3">
-<h3 class="anchored" data-anchor-id="generative-ai">Generative AI</h3>
-<ul>
-<li><a href="https://youtu.be/2IK3DFHRFfw?feature=shared" class="external" target="_blank">Generative AI in a Nutshell - how to survive and thrive in the age of AI</a></li>
-<li><a href="https://blog.crisp.se/wp-content/uploads/2024/01/generative-AI-in-a-nutshell.png" class="external" target="_blank">Generative AI in a Nutshell: poster</a></li>
-</ul>
-</section>
-<section id="machine-learning" class="level3">
-<h3 class="anchored" data-anchor-id="machine-learning">Machine Learning</h3>
-<ul>
-<li><span class="chip chip-danger">youtube</span> <a href="https://youtu.be/qNxrPri1V0I?feature=shared" class="external" target="_blank">Learn Machine Learning Like a GENIUS and Not Waste Time</a></li>
-<li><a href="http://www.ai.mit.edu/courses/6.867-f04/" class="external" target="_blank">6.867 Machine Learning (Fall 2004)</a></li>
-<li><a href="https://ocw.mit.edu/courses/6-867-machine-learning-fall-2006/" class="external" target="_blank">6.867 | Fall 2006 | GraduateMachine Learning</a></li>
-<li><a href="https://ml-resources.vercel.app/" class="external" target="_blank">Machine Learning Resources</a></li>
-</ul>
-</section>
-</section>
-<section id="tools-papers-and-labs" class="level1">
-<h1>Tools, papers and labs</h1>
-<ul>
-<li><span class="chip chip-warning">paper</span> <a href="https://proceedings.neurips.cc/paper_files/paper/2017/file/3f5ee243547dee91fbd053c1c4a845aa-Paper.pdf" class="external" target="_blank">Attention Is All You Need</a></li>
-<li><span class="chip chip-success">web</span> <a href="https://it-tools.tech/" class="external" target="_blank">IT-Tools</a></li>
-<li><span class="chip chip-danger">youtube</span> <a href="https://youtu.be/w8yWXqWQYmU?feature=shared" class="external" target="_blank">Building a neural network FROM SCRATCH (no Tensorflow/Pytorch, just numpy &amp; math)</a></li>
-<li><a href="https://aibyhand.substack.com/" class="external" target="_blank">AI by hand</a></li>
-<li><span class="chip chip-warning">paper</span> <a href="https://www.cs.toronto.edu/~hinton/absps/NatureDeepReview.pdf?utm_source=perplexity" class="external" target="_blank">Deep learning Yann LeCun1,2, Yoshua Bengio3 &amp; Geoffrey Hinton4,</a></li>
-</ul>
-</section>
-<section id="workflows-and-automation" class="level1">
-<h1>Workflows and automation</h1>
-<ul>
-<li><a href="https://n8n.io/" class="external" target="_blank">n8n</a></li>
-<li><a href="https://flowiseai.com/" class="external" target="_blank">Build LLM Apps Easily</a></li>
-<li><a href="https://abacus.ai/chatllm" class="external" target="_blank">Abacus</a></li>
-</ul>
-<p>to classify:</p>
-<ul>
-<li><span class="chip chip-primary">book</span> <a href="http://physicsbaseddeeplearning.org/intro.html" class="external" target="_blank">Welcome to the Physics-based Deep Learning Book (v0.2)</a></li>
-<li><a href="https://www.packtpub.com/en-us/product/llm-engineers-handbook-9781836200062?srsltid=AfmBOorsghxj1A2sZIK6UQc4ZwnKaaQ2vD5_mKI-ke1-LL-N984ALpOt" class="external" target="_blank">LLM Engineer’s Handbook: Master the art of engineering large language models from concept to production</a></li>
-<li><a href="https://github.com/SylphAI-Inc/LLM-engineer-handbook" class="external" target="_blank">Repo</a></li>
-<li><a href="https://fleuret.org/francois/lbdl.html" class="external" target="_blank">The Little Book of Deep Learning</a></li>
-<li><a href="https://udlbook.github.io/udlbook/" class="external" target="_blank">Understand Deep Learning: Python notebooks covering the whole text</a></li>
-<li><a href="https://www.deeplearningbook.org/" class="external" target="_blank">Deep Learning An MIT Press book Ian Goodfellow and Yoshua Bengio and Aaron Courville</a></li>
-</ul>
+<section id="mathematical-model-of-an-ann" class="level1">
+<h1>Mathematical Model of an ANN</h1>
+<p>Each neuron computes a <strong>weighted sum</strong> of its inputs, adds a <em>bias term</em>, and applies an activation function. The output of a neuron can be represented as:</p>
+<p><span class="math display">\[
+y = f\left( \sum_{i=1}^{n} w_i x_i + b \right)
+\]</span></p>
+<p>where ( <strong>w_i</strong> ) are the weights, ( <strong>x_i</strong> ) are the inputs, ( <strong>b</strong> ) is the bias, and ( <strong>f</strong> ) is the activation function.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs41377-024-01590-3/MediaObjects/41377_2024_1590_Fig3_HTML.png?as=webp" class="img-fluid figure-img" style="width:80.0%"></p>
+<figcaption><a href="https://www.nature.com/articles/s41377-024-01590-3" class="external" target="_blank">From: Optical neural networks: progress and challenges</a></figcaption>
+</figure>
+</div>
+<p><em>Neuron structure and artificial neural network</em>. <strong>a</strong> Structure of biological neurons. <strong>b</strong> Mathematical inferring process of artificial neurons in multi-layer perceptron, including the input, weights, summation, activation function, and output. <strong>c</strong> Multi-layer perceptron artificial neural network</p>
+<section id="structure-of-biological-neurons" class="level2">
+<h2 class="anchored" data-anchor-id="structure-of-biological-neurons">Structure of Biological Neurons</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/ann/ANN_MathematicalModel.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Simplified model"><img src="../images/ann/ANN_MathematicalModel.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:60.0%" alt="Simplified model"></a></p>
+</figure>
+</div>
+<figcaption>Simplified model</figcaption>
+</figure>
+</div>
+<blockquote class="blockquote">
+<p>A biological neuron consists of three main components: dendrites, soma, and axon[2]. Dendrites receive input signals from other neurons. The soma, or cell body, contains the nucleus and processes information. The axon transmits signals to other neurons through synapses[2][8].</p>
+</blockquote>
+<p>An artificial neuron in a multi-layer perceptron (MLP) mimics the biological neuron’s function:</p>
+<ol type="1">
+<li><p><strong>Inputs</strong>: Represented as a vector [1] <span class="math display">\[x = [x_1, x_2, ..., x_n]\]</span></p></li>
+<li><p><strong>Weights</strong>: Each input is associated with a weight [1] <span class="math display">\[w_i\]</span></p></li>
+<li><p><strong>Summation</strong>: The neuron computes a weighted sum of inputs:</p>
+<p><span class="math display">\[v = \sum_{i=1}^n w_i x_i + b\]</span></p>
+<p>where <span class="math display">\[b\]</span> is the bias term[1].</p></li>
+<li><p><strong>Activation Function</strong>: The sum is passed through an activation function <span class="math display">\[f\]</span></p>
+<p><span class="math display">\[y = f(v)\]</span></p>
+<p>Common activation functions include sigmoid, hyperbolic tangent, and ReLU[1][10].</p></li>
+<li><p><strong>Output</strong>: The result <span class="math display">\[y\]</span> is the neuron’s output[1].</p></li>
+</ol>
+<p><strong>Multi-layer Perceptron Neural Network</strong></p>
+<p>An MLP consists of multiple layers of interconnected neurons:</p>
+<ol type="1">
+<li><strong>Input Layer</strong>: Receives the initial data[3].</li>
+<li><strong>Hidden Layers</strong>: Process information through weighted connections and activation functions[3].</li>
+<li><strong>Output Layer</strong>: Produces the final result[3].</li>
+</ol>
+<p>The network learns by adjusting weights and biases through backpropagation, minimizing a cost function[4][9]. This process allows the MLP to model complex relationships between inputs and outputs, making it suitable for various machine learning tasks[3][9].</p>
+<p>Citations:</p>
+<ol type="1">
+<li><a href="https://wiki.eecs.yorku.ca/course_archive/2011-12/F/4403/_media/ann_-_math_model.pdf" class="external" target="_blank">Neural Networks ‐ The Mathematical Model</a></li>
+<li><a href="https://rotel.pressbooks.pub/biologicalpsychology/chapter/the-structure-of-the-neuron/" class="external" target="_blank">The Structure of the Neuron</a></li>
+<li><a href="https://www.geeksforgeeks.org/multi-layer-perceptron-learning-in-tensorflow/" class="external" target="_blank">Multi-Layer Perceptron Learning in TensorFlow</a></li>
+<li><a href="https://www.youtube.com/watch?v=b7NnMZPNIXA" class="external" target="_blank">YouTube Video</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Neuron" class="external" target="_blank">Neuron - Wikipedia</a></li>
+<li><a href="https://www.datacamp.com/tutorial/multilayer-perceptrons-in-machine-learning" class="external" target="_blank">Multilayer Perceptrons in Machine Learning</a></li>
+<li><a href="https://diposit.ub.edu/dspace/bitstream/2445/180441/2/tfm_lichtner_bajjaoui_aisha.pdf" class="external" target="_blank">TFM Lichtner Bajjaoui Aisha</a></li>
+<li><a href="https://www.khanacademy.org/science/biology/human-biology/neuron-nervous-system/a/overview-of-neuron-structure-and-function" class="external" target="_blank">Overview of Neuron Structure and Function</a></li>
+<li><a href="https://blog.marketmuse.com/glossary/multilayer-percpetron-definition/" class="external" target="_blank">Multilayer Perceptron Definition</a></li>
+<li><a href="https://www.iitf.lbtu.lv/conference/proceedings2023/Papers/TF007.pdf" class="external" target="_blank">Conference Proceedings Paper</a></li>
+</ol>
 
 
+</section>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
@@ -932,6 +933,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../ann/ann-introduction.html" class="pagination-link" aria-label="ANN: Introduction">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">ANN: Introduction</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
@@ -959,6 +969,38 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
   </div>
 </footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 

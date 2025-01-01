@@ -30,6 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
+<link href="../ann/ann-introduction.html" rel="next">
 <link href="..//images/home/favicon.ico" rel="icon">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -40,6 +41,9 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-b3c97a93b5fc5b3d26d95016fc46a210.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -114,6 +118,14 @@ ul.task-list li input[type="checkbox"] {
         <li>
     <a class="dropdown-item" href="../ann/ann-index.html">
  <span class="dropdown-text">Artificial Neural Networks</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../ann/ann-introduction.html">
+ <span class="dropdown-text">ANN: Introduction</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../ann/ann-mathematical.html">
+ <span class="dropdown-text">ANN: Mathematical Model</span></a>
   </li>  
     </ul>
   </li>
@@ -281,7 +293,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="dropdown-header">Books</li>
         <li>
     <a class="dropdown-item" href="../resources/resources-books.html">
- <span class="dropdown-text">Books</span></a>
+ <span class="dropdown-text">Books cards</span></a>
   </li>  
     </ul>
   </li>
@@ -351,6 +363,18 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Artificial Neural Networks</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ann/ann-introduction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">ANN: Introduction</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ann/ann-mathematical.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">ANN: Mathematical Model</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -363,10 +387,15 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#from-biology-to-formalization" id="toc-from-biology-to-formalization" class="nav-link active" data-scroll-target="#from-biology-to-formalization">From Biology to Formalization</a></li>
-  <li><a href="#supervised-learning-network-paradigms" id="toc-supervised-learning-network-paradigms" class="nav-link" data-scroll-target="#supervised-learning-network-paradigms">Supervised learning Network Paradigms</a></li>
-  <li><a href="#unsupervised-learning-network-paradigms" id="toc-unsupervised-learning-network-paradigms" class="nav-link" data-scroll-target="#unsupervised-learning-network-paradigms">Unsupervised learning Network Paradigms</a></li>
-  <li><a href="#excursi-appendices-and-registers" id="toc-excursi-appendices-and-registers" class="nav-link" data-scroll-target="#excursi-appendices-and-registers">Excursi, Appendices and Registers</a></li>
+  <li><a href="#artificial-neural-networks-anns" id="toc-artificial-neural-networks-anns" class="nav-link active" data-scroll-target="#artificial-neural-networks-anns">Artificial Neural Networks (ANNs)</a>
+  <ul>
+  <li><a href="#overview" id="toc-overview" class="nav-link" data-scroll-target="#overview">Overview</a></li>
+  <li><a href="#architecture" id="toc-architecture" class="nav-link" data-scroll-target="#architecture">Architecture</a></li>
+  <li><a href="#types-of-neural-networks" id="toc-types-of-neural-networks" class="nav-link" data-scroll-target="#types-of-neural-networks">Types of Neural Networks</a></li>
+  <li><a href="#training-methods" id="toc-training-methods" class="nav-link" data-scroll-target="#training-methods">Training Methods</a></li>
+  <li><a href="#applications" id="toc-applications" class="nav-link" data-scroll-target="#applications">Applications</a></li>
+  <li><a href="#challenges" id="toc-challenges" class="nav-link" data-scroll-target="#challenges">Challenges</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -392,56 +421,97 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="artificial-neural-networks-anns" class="level1">
+<h1>Artificial Neural Networks (ANNs)</h1>
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<blockquote class="blockquote">
+<p><strong>Artificial Neural Networks (ANNs)</strong> are computational models inspired by biological neural networks in human brains. They are designed to process complex data and perform tasks like classification, prediction, and pattern recognition.</p>
+</blockquote>
+</section>
+<section id="architecture" class="level2">
+<h2 class="anchored" data-anchor-id="architecture">Architecture</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://dkriesel.com/_media/science/nncover-zeta-en.png" class="img-fluid figure-img" style="width:40.0%"></p>
-<figcaption>A Brief Introduction to Neural Networks David Kriesel</figcaption>
+<p><a href="../images/ann/ANNs_DataProcessinginANNs.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="../images/ann/ANNs_DataProcessinginANNs.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%"></a></p>
 </figure>
 </div>
+<p>Layers:</p>
 <ul>
-<li><a href="https://dkriesel.com/_media/science/neuronalenetze-en-zeta2-2col-dkrieselcom.pdf" class="external" target="_blank">A Brief Introduction to Neural Networks David Kriesel</a></li>
+<li><strong>Input Layer</strong>: Initial point of data entry</li>
+<li><strong>Hidden Layers</strong>: Process and analyze data</li>
+<li><strong>Output Layer</strong>: Provides final computational results</li>
 </ul>
-<section id="from-biology-to-formalization" class="level1">
-<h1>From Biology to Formalization</h1>
-<p><strong>Introduction, Motivation and History</strong></p>
-<p>How to teach a computer? You can either write a rigid program – or you can enable the computer to learn on its own. Living beings don’t have any programmer writing a program for developing their skills, which only has to be executed. They learn by themselves – without the initial experience of external knowledge – and thus can solve problems better than any computer today. KaWhat qualities are needed to achieve such a behavior for devices like computers? Can such cognition be adapted from biology? History, development, decline and resurgence of a wide approach to solve problems.</p>
-<p><strong>Biological Neural Networks</strong></p>
-<p>How do biological systems solve problems? How is a system of neurons working? How can we understand its functionality? What are different quantities of neurons able to do? Where in the nervous system are information processed? A short biological overview of the complexity of simple elements of neural information processing followed by some thoughts about their simplification in order to technically adapt them.</p>
-<p><strong>Components of Artificial Neural Networks</strong></p>
-<p>Formal definitions and colloquial explanations of the components that realize the technical adaptations of biological neural networks. Initial descriptions of how to combine these components to a neural network.</p>
-<p><strong>How to Train a Neural Network?</strong></p>
-<p>Approaches and thoughts of how to teach machines. Should neural networks be corrected? Should they only be encouraged? Or should they even learn without any help? Thoughts about what we want to change during the learning procedure and how we will change it, about the measurement of errors and when we have learned enough.</p>
 </section>
-<section id="supervised-learning-network-paradigms" class="level1">
-<h1>Supervised learning Network Paradigms</h1>
-<p><strong>The Perceptron</strong></p>
-<p>A classic among the neural networks. If we talk about a neural network, then in the majority of cases we speak about a percepton or a variation of it. Perceptrons are multi-layer networks without recurrence and with fixed input and output layers. Description of a perceptron, its limits and extensions that should avoid the limitations. Derivation of learning procedures and discussion about their problems.</p>
-<p><strong>Radial Basis Functions</strong></p>
-<p>RBF networks approximate functions by stretching and compressing Gaussians and then summing them spatially shifted. Description of their functions and their learning process. Comparison with multi-layer perceptrons.</p>
-<p><strong>Recurrent Multi-layer Perceptrons</strong></p>
-<p>Some thoughts about networks with internal states. Learning approaches using such networks, overview of their dynamics.</p>
-<p><strong>Hopfield Networks</strong></p>
-<p>In a magnetic field, each particle applies a force to any other particle so that all particles adjust their movements in the energetically most favorable way. This natural mechanism is copied to adjust noisy inputs in order to match their real models.</p>
-<p><strong>Learning Vector Quantisation</strong></p>
-<p>Learning vector quantization is a learning procedure with the aim to reproduce the vector training sets divided in predefined classes as good as possible by using a few representative vectors. If this has been managed, vectors which were unkown until then could easily be assigned to one of these classes.</p>
+<section id="types-of-neural-networks" class="level2">
+<h2 class="anchored" data-anchor-id="types-of-neural-networks">Types of Neural Networks</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/ann/ANNs_TypesofNeuralNetworks.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="../images/ann/ANNs_TypesofNeuralNetworks.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:60.0%"></a></p>
+</figure>
+</div>
+<p><strong>Feedforward Neural Networks (FNNs)</strong></p>
+<ul>
+<li>Data moves in one direction</li>
+<li>No cycles or loops</li>
+<li>Straightforward processing</li>
+</ul>
+<p><strong>Convolutional Neural Networks (CNNs)</strong></p>
+<ul>
+<li>Specialized for processing grid data (images)</li>
+<li>Uses convolutional layers</li>
+<li>Effective for image recognition</li>
+</ul>
+<p><strong>Recurrent Neural Networks (RNNs)</strong></p>
+<ul>
+<li>Designed for sequence prediction</li>
+<li>Maintains context across inputs</li>
+<li>Useful for time-series and language processing</li>
+</ul>
 </section>
-<section id="unsupervised-learning-network-paradigms" class="level1">
-<h1>Unsupervised learning Network Paradigms</h1>
-<p><strong>Self Organizing Feature Maps</strong></p>
-<p>A paradigm of unsupervised learning neural networks, which maps an input space by its fixed topology and thus independently looks for simililarities. Function, learning procedure, variations and neural gas.</p>
-<p><strong>Adaptive Resonance Theory</strong></p>
-<p>An ART network in its original form shall classify binary input vectors, i.e.&nbsp;to assign them to a 1-out-of-n output. Simultaneously, the so far unclassified patterns shall be recognized and assigned to a new class.</p>
+<section id="training-methods" class="level2">
+<h2 class="anchored" data-anchor-id="training-methods">Training Methods</h2>
+<p>Learning Approaches:</p>
+<ol type="1">
+<li><strong>Supervised Learning</strong>: Uses labeled training data</li>
+<li><strong>Unsupervised Learning</strong>: Discovers patterns in unlabeled data</li>
+<li><strong>Reinforcement Learning</strong>: Learns through environmental interaction</li>
+</ol>
+<p>Training Process:</p>
+<ul>
+<li>Forward Propagation</li>
+<li>Loss Function Calculation</li>
+<li>Backward Propagation (Backpropagation)</li>
+</ul>
 </section>
-<section id="excursi-appendices-and-registers" class="level1">
-<h1>Excursi, Appendices and Registers</h1>
-<p><strong>Cluster Analysis and Regional and Online Learnable Fields</strong></p>
-<p>In Grimm’s dictionary the extinct German word “Kluster” is described by “was dicht und dick zusammensitzet (a thick and dense group of sth.)”. In static cluster analysis, the formation of groups within point clouds is explored. Introduction of some procedures, comparison of their advantages and disadvantages. Discussion of an adaptive clustering method based on neural networks. A regional and online learnable field models from a point cloud, possibly with a lot of points, a comparatively small set of neurons being representative for the point cloud.</p>
-<p><strong>Neural Networks Used for Prediction</strong></p>
-<p>Discussion of an application of neural networks: A look ahead into the future of time series.</p>
-<p><strong>Reinforcement Learning</strong></p>
-<p>What if there were no training examples but it would nevertheless be possible to evaluate how good we have learned to solve a problem? et us regard a learning paradigm that is situated between supervised and unsupervised learning.</p>
+<section id="applications" class="level2">
+<h2 class="anchored" data-anchor-id="applications">Applications</h2>
+<p>Key Areas:</p>
+<ul>
+<li>Natural Language Processing</li>
+<li>Healthcare</li>
+<li>eCommerce</li>
+<li>Computer Vision</li>
+</ul>
+</section>
+<section id="challenges" class="level2">
+<h2 class="anchored" data-anchor-id="challenges">Challenges</h2>
+<p>Limitations:</p>
+<ul>
+<li>Overfitting</li>
+<li>Lack of Interpretability</li>
+<li>High Training Data Requirements</li>
+<li>Computational Intensity</li>
+</ul>
+<p>Ethical Considerations:</p>
+<ul>
+<li>Bias in decision-making</li>
+<li>Accountability</li>
+<li>Transparency in automated systems</li>
+</ul>
 
 
+</section>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
@@ -865,6 +935,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../ann/ann-introduction.html" class="pagination-link" aria-label="ANN: Introduction">
+        <span class="nav-page-text">ANN: Introduction</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
@@ -892,6 +971,38 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
   </div>
 </footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 
