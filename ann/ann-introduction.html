@@ -42,6 +42,9 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-b3c97a93b5fc5b3d26d95016fc46a210.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -74,7 +77,7 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="../styles.css">
 </head>
 
-<body class="nav-sidebar floating nav-fixed">
+<body class="nav-sidebar floating nav-fixed slimcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -115,7 +118,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="dropdown-header">What is ANN?</li>
         <li>
     <a class="dropdown-item" href="../ann/ann-index.html">
- <span class="dropdown-text">Artificial Neural Networks</span></a>
+ <span class="dropdown-text">ANN: Table of Contents</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../ann/ann-introduction.html">
@@ -358,7 +361,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../ann/ann-index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Artificial Neural Networks</span></a>
+ <span class="menu-text">ANN: Table of Contents</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -387,66 +390,21 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#artificial-neural-networks-anns" id="toc-artificial-neural-networks-anns" class="nav-link active" data-scroll-target="#artificial-neural-networks-anns">Artificial Neural Networks (ANNs)</a>
   <ul>
-  <li><a href="#structure-of-artificial-neural-networks" id="toc-structure-of-artificial-neural-networks" class="nav-link" data-scroll-target="#structure-of-artificial-neural-networks">Structure of Artificial Neural Networks</a>
+  <li><a href="#structure-of-anns" id="toc-structure-of-anns" class="nav-link" data-scroll-target="#structure-of-anns">Structure of ANNs</a></li>
+  <li><a href="#types-of-anns" id="toc-types-of-anns" class="nav-link" data-scroll-target="#types-of-anns">Types of ANNs</a></li>
+  <li><a href="#training-of-nns" id="toc-training-of-nns" class="nav-link" data-scroll-target="#training-of-nns">Training of NNs</a>
   <ul>
-  <li><a href="#input-layer" id="toc-input-layer" class="nav-link" data-scroll-target="#input-layer">Input Layer</a></li>
-  <li><a href="#hidden-layers" id="toc-hidden-layers" class="nav-link" data-scroll-target="#hidden-layers">Hidden Layers</a>
-  <ul class="collapse">
-  <li><a href="#types-of-hidden-layers" id="toc-types-of-hidden-layers" class="nav-link" data-scroll-target="#types-of-hidden-layers">Types of Hidden Layers</a></li>
+  <li><a href="#learning-process" id="toc-learning-process" class="nav-link" data-scroll-target="#learning-process">Learning Process</a></li>
   </ul></li>
-  <li><a href="#output-layer" id="toc-output-layer" class="nav-link" data-scroll-target="#output-layer">Output Layer</a></li>
-  </ul></li>
-  <li><a href="#types-of-artificial-neural-networks" id="toc-types-of-artificial-neural-networks" class="nav-link" data-scroll-target="#types-of-artificial-neural-networks">Types of Artificial Neural Networks</a>
-  <ul>
-  <li><a href="#feedforward-neural-networks-fnns" id="toc-feedforward-neural-networks-fnns" class="nav-link" data-scroll-target="#feedforward-neural-networks-fnns">Feedforward Neural Networks (FNNs)</a></li>
-  <li><a href="#convolutional-neural-networks-cnns" id="toc-convolutional-neural-networks-cnns" class="nav-link" data-scroll-target="#convolutional-neural-networks-cnns">Convolutional Neural Networks (CNNs)</a></li>
-  <li><a href="#recurrent-neural-networks-rnns" id="toc-recurrent-neural-networks-rnns" class="nav-link" data-scroll-target="#recurrent-neural-networks-rnns">Recurrent Neural Networks (RNNs)</a></li>
-  <li><a href="#self-organizing-maps-soms" id="toc-self-organizing-maps-soms" class="nav-link" data-scroll-target="#self-organizing-maps-soms">Self-Organizing Maps (SOMs)</a></li>
-  <li><a href="#radial-basis-function-networks-rbfns" id="toc-radial-basis-function-networks-rbfns" class="nav-link" data-scroll-target="#radial-basis-function-networks-rbfns">Radial Basis Function Networks (RBFNs)</a></li>
-  </ul></li>
-  <li><a href="#training-of-neural-networks" id="toc-training-of-neural-networks" class="nav-link" data-scroll-target="#training-of-neural-networks">Training of Neural Networks</a>
-  <ul>
-  <li><a href="#training-methods" id="toc-training-methods" class="nav-link" data-scroll-target="#training-methods">Training Methods</a>
-  <ul class="collapse">
-  <li><a href="#supervised-learning" id="toc-supervised-learning" class="nav-link" data-scroll-target="#supervised-learning">Supervised Learning</a></li>
-  <li><a href="#unsupervised-learning" id="toc-unsupervised-learning" class="nav-link" data-scroll-target="#unsupervised-learning">Unsupervised Learning</a></li>
-  <li><a href="#reinforcement-learning" id="toc-reinforcement-learning" class="nav-link" data-scroll-target="#reinforcement-learning">Reinforcement Learning</a></li>
-  </ul></li>
-  <li><a href="#learning-process" id="toc-learning-process" class="nav-link" data-scroll-target="#learning-process">Learning Process</a>
-  <ul class="collapse">
-  <li><a href="#forward-propagation" id="toc-forward-propagation" class="nav-link" data-scroll-target="#forward-propagation">Forward Propagation</a></li>
-  <li><a href="#calculation-of-the-loss-function" id="toc-calculation-of-the-loss-function" class="nav-link" data-scroll-target="#calculation-of-the-loss-function">Calculation of the Loss Function</a></li>
-  <li><a href="#backward-propagation" id="toc-backward-propagation" class="nav-link" data-scroll-target="#backward-propagation">Backward Propagation</a></li>
-  </ul></li>
-  </ul></li>
-  <li><a href="#applications" id="toc-applications" class="nav-link" data-scroll-target="#applications">Applications</a>
-  <ul>
-  <li><a href="#natural-language-processing" id="toc-natural-language-processing" class="nav-link" data-scroll-target="#natural-language-processing">Natural Language Processing</a></li>
-  <li><a href="#healthcare" id="toc-healthcare" class="nav-link" data-scroll-target="#healthcare">Healthcare</a></li>
-  <li><a href="#ecommerce" id="toc-ecommerce" class="nav-link" data-scroll-target="#ecommerce">eCommerce</a></li>
-  <li><a href="#computer-vision" id="toc-computer-vision" class="nav-link" data-scroll-target="#computer-vision">Computer Vision</a></li>
-  </ul></li>
-  <li><a href="#challenges-and-limitations" id="toc-challenges-and-limitations" class="nav-link" data-scroll-target="#challenges-and-limitations">Challenges and Limitations</a>
-  <ul>
-  <li><a href="#ethical-considerations" id="toc-ethical-considerations" class="nav-link" data-scroll-target="#ethical-considerations">Ethical Considerations</a></li>
-  <li><a href="#overfitting-and-generalization" id="toc-overfitting-and-generalization" class="nav-link" data-scroll-target="#overfitting-and-generalization">Overfitting and Generalization</a></li>
-  <li><a href="#interpretability-and-transparency" id="toc-interpretability-and-transparency" class="nav-link" data-scroll-target="#interpretability-and-transparency">Interpretability and Transparency</a></li>
-  <li><a href="#training-data-requirements" id="toc-training-data-requirements" class="nav-link" data-scroll-target="#training-data-requirements">Training Data Requirements</a></li>
-  <li><a href="#implementation-challenges" id="toc-implementation-challenges" class="nav-link" data-scroll-target="#implementation-challenges">Implementation Challenges</a></li>
-  </ul></li>
-  <li><a href="#future-directions" id="toc-future-directions" class="nav-link" data-scroll-target="#future-directions">Future Directions</a>
-  <ul>
-  <li><a href="#trends-in-research-and-development" id="toc-trends-in-research-and-development" class="nav-link" data-scroll-target="#trends-in-research-and-development">Trends in Research and Development</a></li>
-  <li><a href="#overcoming-existing-challenges" id="toc-overcoming-existing-challenges" class="nav-link" data-scroll-target="#overcoming-existing-challenges">Overcoming Existing Challenges</a></li>
-  <li><a href="#expanding-applications" id="toc-expanding-applications" class="nav-link" data-scroll-target="#expanding-applications">Expanding Applications</a></li>
-  <li><a href="#community-engagement-and-collaborative-research" id="toc-community-engagement-and-collaborative-research" class="nav-link" data-scroll-target="#community-engagement-and-collaborative-research">Community Engagement and Collaborative Research</a></li>
-  </ul></li>
+  <li><a href="#applications" id="toc-applications" class="nav-link" data-scroll-target="#applications">Applications</a></li>
+  <li><a href="#challenges-and-limitations" id="toc-challenges-and-limitations" class="nav-link" data-scroll-target="#challenges-and-limitations">Challenges and Limitations</a></li>
+  <li><a href="#future-directions" id="toc-future-directions" class="nav-link" data-scroll-target="#future-directions">Future Directions</a></li>
   </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../ann/ann-index.html">What is ANN?</a></li><li class="breadcrumb-item"><a href="../ann/ann-introduction.html">ANN: Introduction</a></li></ol></nav>
 <div class="quarto-title">
@@ -467,160 +425,211 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="artificial-neural-networks-anns" class="level1">
+<section id="artificial-neural-networks-anns" class="level1 page-columns page-full">
 <h1>Artificial Neural Networks (ANNs)</h1>
-<p>Artificial Neural Networks (ANNs) are computational models inspired by the biological neural networks found in human brains, designed to process complex data and perform tasks such as classification, prediction, and pattern recognition. Their architecture typically comprises three layers: an input layer that receives data, one or more hidden layers that perform processing through interconnected nodes (neurons), and an output layer that delivers the final result. ANNs are widely recognized for their ability to learn from large datasets, making them pivotal in various applications, including image and speech recognition, natural language processing, and medical diagnosis[1][2].</p>
-<p>The growing significance of ANNs stems from their versatility and effectiveness across multiple domains, from enhancing customer experiences in eCommerce through personalized recommendations to advancing medical technologies by aiding in disease diagnosis and treatment planning[3][4]. However, their deployment also raises important ethical considerations, particularly regarding bias, accountability, and the implications of automated decision-making in sensitive fields such as healthcare. As organizations increasingly integrate ANNs into their operations, issues of transparency and interpretability have emerged as critical concerns, challenging the trustworthiness of these models in high-stakes applications[5][6].</p>
-<p>Various types of ANNs, including Feedforward Neural Networks (FNNs), Convolutional Neural Networks (CNNs), and Recurrent Neural Networks (RNNs), cater to different tasks and data structures, each offering unique advantages. For instance, CNNs excel in image-related tasks by identifying spatial hierarchies in data, while RNNs are adept at processing sequential data, such as time series or natural language, by maintaining context across inputs[7][8]. The continuous evolution of these networks has spurred significant advancements in artificial intelligence (AI), with researchers exploring new architectures and methodologies to enhance their efficiency and effectiveness[9].</p>
-<p>Despite their transformative potential, ANNs face challenges, including the risk of overfitting, the requirement for extensive training data, and the computational resources needed for effective training. Furthermore, the complex nature of ANNs often leads to their characterization as “black boxes,” making it difficult to interpret the decision-making processes involved. As research progresses, addressing these limitations while promoting ethical practices will be essential to unlocking the full potential of ANNs across diverse applications[10][11].</p>
-<section id="structure-of-artificial-neural-networks" class="level2">
-<h2 class="anchored" data-anchor-id="structure-of-artificial-neural-networks">Structure of Artificial Neural Networks</h2>
-<p>Artificial Neural Networks (ANNs) are structured to mimic the interconnected network of neurons in the human brain, facilitating complex information processing. The architecture of an ANN typically consists of three main types of layers: the input layer, hidden layers, and the output layer.</p>
-<section id="input-layer" class="level3">
-<h3 class="anchored" data-anchor-id="input-layer">Input Layer</h3>
-<p>The input layer serves as the initial point of data entry for the neural network. It receives information from the external environment in various forms such as numbers, letters, audio files, or image pixels. Each node in the input layer corresponds to a specific feature of the data being processed, and it plays a critical role in transmitting this information to subsequent layers for further analysis[1][2].</p>
+<p><mark><strong>Artificial Neural Networks (ANNs)</strong> are computational models inspired by the biological neural networks found in human brains, designed to process complex data and perform tasks such as classification, prediction, and pattern recognition.</mark></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/ann/ANNs_simple.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="The Basic Layers in ANN"><img src="../images/ann/ANNs_simple.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%" alt="The Basic Layers in ANN"></a></p>
+</figure>
+</div>
+<figcaption>The Basic Layers in ANN</figcaption>
+</figure>
+</div>
+<p>Their architecture typically comprises <strong>three layers</strong>:</p>
+<ul>
+<li>an <code>input layer</code> that receives <strong>data,</strong></li>
+<li>one or more <code>hidden layers</code> that perform processing through interconnected nodes (neurons),</li>
+<li>and an <code>output layer</code> that delivers the <strong>final result</strong>.</li>
+</ul>
+<p><code>ANNs</code> are widely recognized for their ability to learn from large datasets, making them pivotal in various applications, including image and speech recognition, natural language processing, and medical diagnosis[1][2].</p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p>The growing significance of <code>ANNs</code> stems from their versatility and effectiveness across multiple domains, from enhancing customer experiences in eCommerce through personalized recommendations to advancing medical technologies by aiding in disease diagnosis and treatment planning[3][4].</p>
+<p>However, their deployment also raises important <strong>ethical considerations, particularly regarding bias, accountability, and the implications of automated decision-making in sensitive fields such as healthcare</strong>.</p>
+<p>As organizations increasingly integrate <code>ANNs</code> into their operations, issues of transparency and interpretability have emerged as critical concerns, challenging the trustworthiness of these models in high-stakes applications[5][6].</p>
+</div></div><p>Various types of <code>ANNs</code>, including <code>Feedforward Neural Networks (FNNs)</code>, <code>Convolutional Neural Networks (CNNs)</code>, and <code>Recurrent Neural Networks (RNNs)</code>, cater to different tasks and data structures, each offering unique advantages.</p>
+<blockquote class="blockquote">
+<p>For instance, CNNs excel in image-related tasks by identifying spatial hierarchies in data, while RNNs are adept at processing sequential data, such as time series or natural language, by maintaining context across inputs[7][8].</p>
+</blockquote>
+<p>Despite their transformative potential, <code>ANNs</code> face challenges, including the risk of overfitting, the requirement for extensive training data, and the computational resources needed for effective training.</p>
+<p>Furthermore, the complex nature of <code>ANNs</code> often leads to their characterization as “black boxes,” making it <mark>difficult to interpret the decision-making processes involved</mark>.</p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p>As research progresses, addressing these limitations while promoting ethical practices will be essential to unlocking the full potential of <code>ANNs</code> across diverse applications[10][11].</p>
+</div></div><section id="structure-of-anns" class="level2">
+<h2 class="anchored" data-anchor-id="structure-of-anns">Structure of ANNs</h2>
+<blockquote class="blockquote">
+<p><code>Artificial Neural Networks (ANNs)</code> are structured to mimic the interconnected network of neurons in the human brain, facilitating complex information processing.</p>
+<p>The architecture of an ANN typically consists of three main types of layers: <code>the input layer</code>, <code>hidden layers</code>, and the <code>output layer</code>.</p>
+</blockquote>
+<p><strong>Input Layer</strong></p>
+<p>The <code>input layer</code> serves as the initial point of data entry for the neural network. It receives information from the external environment in various forms such as numbers, letters, audio files, or image pixels.</p>
+<p>Each node in the input layer corresponds to a specific feature of the data being processed, and it plays a critical role in transmitting this information to subsequent layers for further analysis[1][2].</p>
+<p><strong>Hidden Layers</strong></p>
+<p><code>Hidden layers</code> are positioned between the input and output layers and are responsible for the majority of the processing within the ANN. A network may have one or multiple <code>hidden layers,</code> each containing numerous artificial neurons.</p>
+<p>These layers <mark>perform complex mathematical operations on the input data, identifying patterns and relationships that are not immediately apparent</mark>. The output from one hidden layer becomes the input for the next layer, allowing for a deeper analysis of the data at each stage[1][3][2].</p>
+<blockquote class="blockquote">
+<p><strong>Types of Hidden Layers</strong>: Hidden layers can vary in their configuration and function. They may employ <strong>different types of activation functions, which introduce non-linear properties to the network</strong>, enabling it to learn complex mappings from inputs to outputs.</p>
+<p>The choice of activation function can significantly impact the performance of the neural network in various tasks[4][5].</p>
+</blockquote>
+<p><strong>Output Layer</strong></p>
+<p>The <code>output layer</code> is the final layer in the ANN structure and provides the ultimate result of the computations performed by the network. Depending on the nature of the task, the <code>output layer</code> can contain a single node for binary classification or multiple nodes for multi-class classification problems.</p>
+<p>Each output node generates a response based on the processed information, translating the network’s findings into actionable insights or predictions[1][3][5].</p>
 </section>
-<section id="hidden-layers" class="level3">
-<h3 class="anchored" data-anchor-id="hidden-layers">Hidden Layers</h3>
-<p>Hidden layers are positioned between the input and output layers and are responsible for the majority of the processing within the ANN. A network may have one or multiple hidden layers, each containing numerous artificial neurons. These layers perform complex mathematical operations on the input data, identifying patterns and relationships that are not immediately apparent. The output from one hidden layer becomes the input for the next layer, allowing for a deeper analysis of the data at each stage[1][3][2].</p>
-<section id="types-of-hidden-layers" class="level4">
-<h4 class="anchored" data-anchor-id="types-of-hidden-layers">Types of Hidden Layers</h4>
-<p>Hidden layers can vary in their configuration and function. They may employ different types of activation functions, which introduce non-linear properties to the network, enabling it to learn complex mappings from inputs to outputs. The choice of activation function can significantly impact the performance of the neural network in various tasks[4][5].</p>
+<section id="types-of-anns" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="types-of-anns">Types of ANNs</h2>
+<p><code>Artificial Neural Networks (ANNs)</code> can be categorized into several key types, each designed for specific tasks and applications.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/ann/llustration-of-various-types-of-artificial-neural-networks-ANN-and-their-associated.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figure 1. Illustration of various types of artificial neural networks (ANN) and their associated components"><img src="../images/ann/llustration-of-various-types-of-artificial-neural-networks-ANN-and-their-associated.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%" alt="Figure 1. Illustration of various types of artificial neural networks (ANN) and their associated components"></a></p>
+</figure>
+</div>
+<figcaption>Figure 1. Illustration of various types of artificial neural networks (ANN) and their associated components</figcaption>
+</figure>
+</div>
+<details>
+<summary>
+Figure 1. Illustration of various types of artificial neural networks (ANN) and their associated components
+</summary>
+<strong>(A)</strong> A basic ANN consists of an input layer (red circles), one or more hidden layers (peach circles), and an output layer (blue circle). In the case of neuronal modelling, the input could be features such as the membrane potential (V m ), and the excitatory (exc) and inhibitory (inh) synaptic inputs. The hidden layers perform computations on the inputs, with the actual operations depending on the type of ANN. Their objective is to identify features in the inputs and use these to correlate a given input and the correct output. An ANN can have multiple outputs: in this example, the output is a prediction of the membrane potential. <strong>(B)</strong> A deep neural network (DNN) is an ANN with multiple hidden layers. <strong>(C)</strong> A convolutional neural network (CNN) is a type of DNN that can be trained to extract important features contained in the input data, which can then be used as inputs to the other hidden layers, significantly improving the performance of the overall network. <strong>(D)</strong> Some details of the feature extraction process of a CNN, which consists of several hidden layers. First, it has multiple filters (F1, F2, F3), each configured to capture specific features. This process can greatly increase the size of the data, so a pooling layer (P1, P2, P3) is then used to reduce this size. The pooling process does not lead to the loss of valuable data; instead, it helps remove noise and consolidate meaningful data. The flattening layer converts the pooled data into a 1-dimensional stream. This serves as an input for the subsequent fully connected layer, which does the final evaluation to produce the output based on the features extracted by the convolution layers. <strong>(E)</strong> A CNN with a long short-term memory (LSTM) layer. The additional LSTM layer enables the network to benefit from long-term memory, in addition to the existent short-term working memory. <strong>(F)</strong> The LSTM layer achieves this long-term memory through its ability to relay both the cell state (dashed green arrows) and the output generated by each module (solid maroon arrows) across its several modules, allowing the flow of useful information. This enables the network to better identify context in the input data over longer time periods. CNN-LSTMs have been found useful for predicting time series data.
+</details>
+<ul>
+<li><a href="https://www.researchgate.net/figure/llustration-of-various-types-of-artificial-neural-networks-ANN-and-their-associated_fig1_365971988" class="external" target="_blank">A faster way to model neuronal circuitry - Scientific Figure on ResearchGate. Available from:</a></li>
+</ul>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/ann/ANNS-types.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Complete chart of Neural Networks"><img src="../images/ann/ANNS-types.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%" alt="Complete chart of Neural Networks"></a></p>
+</figure>
+</div>
+<figcaption>Complete chart of Neural Networks</figcaption>
+</figure>
+</div>
+</div></div><p><strong>Feedforward Neural Networks (FNNs)</strong></p>
+<p><code>Feedforward Neural Networks (FNNs)</code> represent the most basic type of neural network architecture. In an FNN, data moves in one direction—from input nodes, through hidden nodes (if present), and finally to output nodes. There are no cycles or loops; thus, information does not flow backward. This structure allows for straightforward processing and is primarily used for tasks where the output is determined solely by the input data without considering previous states[6][1].</p>
+<p><strong>Convolutional Neural Networks (CNNs)</strong></p>
+<p><code>Convolutional Neural Networks (CNNs)</code> are specialized for processing structured grid data, such as images. They utilize convolutional layers that detect significant features in the input data, enabling the network to classify images or recognize patterns effectively. CNNs consist of multiple layers that perform convolutions and pooling operations to reduce dimensionality while preserving essential information, making them particularly suitable for tasks like image recognition and video analysis[7][8].</p>
+<p><strong>Recurrent Neural Networks (RNNs)</strong></p>
+<p><code>Recurrent Neural Networks (RNNs)</code> are designed for sequence prediction tasks, where the order of data matters, such as time-series analysis or natural language processing. RNNs have loops that allow information to persist, enabling them to remember previous inputs and utilize this context to inform their output. This architecture is particularly effective for applications involving temporal dependencies and sequential data[4].</p>
+<p><strong>Self-Organizing Maps (SOMs)</strong></p>
+<p><code>Self-Organizing Maps (SOMs)</code> are a type of <code>unsupervised learning</code> neural network that clusters and visualizes complex data. They organize input data into a lower-dimensional representation while preserving the topological properties of the original data space. This method is useful for tasks such as market segmentation and image processing, where hidden patterns and relationships within data are revealed without predefined labels[9].</p>
+<p><strong>Radial Basis Function Networks (RBFNs)</strong></p>
+<p><code>Radial Basis Function Networks (RBFNs)</code> use radial basis functions as activation functions. They are particularly effective for interpolation in multi-dimensional space. RBFNs can approximate complex functions and are commonly employed in classification tasks and function approximation, serving as a valuable tool for machine learning applications[4].</p>
 </section>
-</section>
-<section id="output-layer" class="level3">
-<h3 class="anchored" data-anchor-id="output-layer">Output Layer</h3>
-<p>The output layer is the final layer in the ANN structure and provides the ultimate result of the computations performed by the network. Depending on the nature of the task, the output layer can contain a single node for binary classification or multiple nodes for multi-class classification problems. Each output node generates a response based on the processed information, translating the network’s findings into actionable insights or predictions[1][3][5].</p>
-</section>
-</section>
-<section id="types-of-artificial-neural-networks" class="level2">
-<h2 class="anchored" data-anchor-id="types-of-artificial-neural-networks">Types of Artificial Neural Networks</h2>
-<p>Artificial Neural Networks (ANNs) can be categorized into several key types, each designed for specific tasks and applications.</p>
-<section id="feedforward-neural-networks-fnns" class="level3">
-<h3 class="anchored" data-anchor-id="feedforward-neural-networks-fnns">Feedforward Neural Networks (FNNs)</h3>
-<p>Feedforward Neural Networks (FNNs) represent the most basic type of neural network architecture. In an FNN, data moves in one direction—from input nodes, through hidden nodes (if present), and finally to output nodes. There are no cycles or loops; thus, information does not flow backward. This structure allows for straightforward processing and is primarily used for tasks where the output is determined solely by the input data without considering previous states[6][1].</p>
-</section>
-<section id="convolutional-neural-networks-cnns" class="level3">
-<h3 class="anchored" data-anchor-id="convolutional-neural-networks-cnns">Convolutional Neural Networks (CNNs)</h3>
-<p>Convolutional Neural Networks (CNNs) are specialized for processing structured grid data, such as images. They utilize convolutional layers that detect significant features in the input data, enabling the network to classify images or recognize patterns effectively. CNNs consist of multiple layers that perform convolutions and pooling operations to reduce dimensionality while preserving essential information, making them particularly suitable for tasks like image recognition and video analysis[7][8].</p>
-</section>
-<section id="recurrent-neural-networks-rnns" class="level3">
-<h3 class="anchored" data-anchor-id="recurrent-neural-networks-rnns">Recurrent Neural Networks (RNNs)</h3>
-<p>Recurrent Neural Networks (RNNs) are designed for sequence prediction tasks, where the order of data matters, such as time-series analysis or natural language processing. RNNs have loops that allow information to persist, enabling them to remember previous inputs and utilize this context to inform their output. This architecture is particularly effective for applications involving temporal dependencies and sequential data[4].</p>
-</section>
-<section id="self-organizing-maps-soms" class="level3">
-<h3 class="anchored" data-anchor-id="self-organizing-maps-soms">Self-Organizing Maps (SOMs)</h3>
-<p>Self-Organizing Maps (SOMs) are a type of unsupervised learning neural network that clusters and visualizes complex data. They organize input data into a lower-dimensional representation while preserving the topological properties of the original data space. This method is useful for tasks such as market segmentation and image processing, where hidden patterns and relationships within data are revealed without predefined labels[9].</p>
-</section>
-<section id="radial-basis-function-networks-rbfns" class="level3">
-<h3 class="anchored" data-anchor-id="radial-basis-function-networks-rbfns">Radial Basis Function Networks (RBFNs)</h3>
-<p>Radial Basis Function Networks (RBFNs) use radial basis functions as activation functions. They are particularly effective for interpolation in multi-dimensional space. RBFNs can approximate complex functions and are commonly employed in classification tasks and function approximation, serving as a valuable tool for machine learning applications[4].</p>
-</section>
-</section>
-<section id="training-of-neural-networks" class="level2">
-<h2 class="anchored" data-anchor-id="training-of-neural-networks">Training of Neural Networks</h2>
-<p>The training of neural networks is a crucial process that enables these models to learn from data and make accurate predictions. This process can be broken down into several key components, including the training methods and the iterative learning cycle.</p>
-<section id="training-methods" class="level3">
-<h3 class="anchored" data-anchor-id="training-methods">Training Methods</h3>
-<p>Neural networks are primarily trained using three different approaches: supervised learning, unsupervised learning, and reinforcement learning.</p>
-<section id="supervised-learning" class="level4">
-<h4 class="anchored" data-anchor-id="supervised-learning">Supervised Learning</h4>
-<p>In supervised learning, the neural network is provided with labeled training data, which includes input-output pairs. This allows the network to learn specific features by comparing its predictions against the known outputs. The goal is to minimize the difference between the predicted outputs and the actual outputs, often referred to as the loss function[10][11].</p>
-</section>
-<section id="unsupervised-learning" class="level4">
-<h4 class="anchored" data-anchor-id="unsupervised-learning">Unsupervised Learning</h4>
-<p>Unsupervised learning differs from supervised learning in that the neural network works with data that does not have labeled outputs. The primary aim is to discover the underlying structure and patterns within the input data. Techniques such as clustering and association are commonly employed in this approach[12][13].</p>
-</section>
-<section id="reinforcement-learning" class="level4">
-<h4 class="anchored" data-anchor-id="reinforcement-learning">Reinforcement Learning</h4>
-<p>Reinforcement learning enables a neural network to learn through interaction with its environment. In this framework, the network receives feedback in the form of rewards or penalties based on its actions, guiding it to develop strategies that maximize cumulative rewards over time. This method is particularly effective in areas like gaming and decision-making tasks[14][15].</p>
-</section>
-</section>
+<section id="training-of-nns" class="level2">
+<h2 class="anchored" data-anchor-id="training-of-nns">Training of NNs</h2>
+<p>The training of neural networks is a <mark>crucial process that enables these models to learn from data and make accurate predictions</mark>.</p>
+<p>This process can be broken down into several key components, including the <code>training methods</code> and the iterative learning cycle.</p>
+<p><strong>Training Methods</strong>: <code>Neural networks</code> are primarily trained using three different approaches:</p>
+<ul>
+<li><code>supervised</code> learning,</li>
+<li><code>unsupervised</code> learning,</li>
+<li>and <code>reinforcement</code> learning.</li>
+</ul>
+<p><strong>Supervised Learning</strong></p>
+<p>In <code>supervised learning</code>, the neural network is provided with labeled training data, which includes input-output pairs. This allows the network to learn specific features by comparing its predictions against the known outputs. The goal is to minimize the difference between the predicted outputs and the actual outputs, often referred to as the loss function[10][11].</p>
+<p><strong>Unsupervised Learning</strong></p>
+<p><code>Unsupervised learning</code> differs from supervised learning in that the neural network works with data that does not have labeled outputs. The primary aim is to discover the underlying structure and patterns within the input data. Techniques such as clustering and association are commonly employed in this approach[12][13].</p>
+<p><strong>Reinforcement Learning</strong></p>
+<p><code>Reinforcement learning</code> enables a neural network to learn through interaction with its environment. In this framework, the network receives feedback in the form of rewards or penalties based on its actions, guiding it to develop strategies that maximize cumulative rewards over time. This method is particularly effective in areas like gaming and decision-making tasks[14][15].</p>
 <section id="learning-process" class="level3">
 <h3 class="anchored" data-anchor-id="learning-process">Learning Process</h3>
-<p>The learning process of a neural network is iterative and consists of three main phases: forward propagation, loss function calculation, and backward propagation.</p>
-<section id="forward-propagation" class="level4">
-<h4 class="anchored" data-anchor-id="forward-propagation">Forward Propagation</h4>
-<p>During forward propagation, data is passed through the layers of the network, with each neuron processing the inputs based on weighted parameters (weights and biases). The weights determine the significance of each input, while biases influence the activation of the neurons[11][14].</p>
-</section>
-<section id="calculation-of-the-loss-function" class="level4">
-<h4 class="anchored" data-anchor-id="calculation-of-the-loss-function">Calculation of the Loss Function</h4>
-<p>After forward propagation, the network’s output is evaluated against the desired output using a loss function. This function quantifies the difference between the predicted and actual values, providing a measure of how well the network is performing[11][14].</p>
-</section>
-<section id="backward-propagation" class="level4">
-<h4 class="anchored" data-anchor-id="backward-propagation">Backward Propagation</h4>
-<p>Backward propagation, or backpropagation, is the process of adjusting the weights and biases in the network based on the calculated loss. This step involves propagating the error backwards through the network, allowing the model to learn from its mistakes and improve its performance in future predictions. This iterative process continues until the loss is minimized, and the network achieves satisfactory accuracy[11][14].</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/ann/ANNS-learning-process.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="ANNs learning process"><img src="../images/ann/ANNS-learning-process.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%" alt="ANNs learning process"></a></p>
+</figure>
+</div>
+<figcaption>ANNs learning process</figcaption>
+</figure>
+</div>
+<p>The <code>learning process</code> of a neural network is iterative and consists of three main phases:</p>
+<ul>
+<li><code>forward</code> propagation,</li>
+<li><code>loss function</code> calculation,</li>
+<li>and <code>backward</code> propagation.</li>
+</ul>
+<p><strong>Forward Propagation</strong></p>
+<p>During <code>forward propagation</code>, data is passed through the layers of the network, with each neuron processing the inputs based on weighted parameters (weights and biases). The weights determine the significance of each input, while biases influence the activation of the neurons[11][14].</p>
+<p><strong>Calculation of the Loss Function</strong></p>
+<p>After <code>forward propagation</code>, the network’s output is evaluated against the desired output using a loss function. This function quantifies the difference between the predicted and actual values, providing a measure of how well the network is performing[11][14].</p>
+<p><strong>Backward Propagation</strong></p>
+<p><code>Backward propagation</code>, or backpropagation, is the process of adjusting the weights and biases in the network based on the calculated loss. This step involves propagating the error backwards through the network, allowing the model to learn from its mistakes and improve its performance in future predictions. This iterative process continues until the loss is minimized, and the network achieves satisfactory accuracy[11][14].</p>
 <p>By effectively combining these training methods and processes, neural networks can tackle complex tasks and make reliable predictions across various applications, including computer vision, natural language processing, and financial modeling[16][12].</p>
-</section>
 </section>
 </section>
 <section id="applications" class="level2">
 <h2 class="anchored" data-anchor-id="applications">Applications</h2>
-<p>Artificial Neural Networks (ANNs) have a wide range of applications across various industries, significantly enhancing operational efficiency and decision-making processes. Their versatility allows them to address complex problems in fields such as healthcare, eCommerce, computer vision, and natural language processing.</p>
-<section id="natural-language-processing" class="level3">
-<h3 class="anchored" data-anchor-id="natural-language-processing">Natural Language Processing</h3>
-<p>In the realm of natural language processing (NLP), ANNs contribute significantly to the development of applications such as chatbots and language translation services. Models like BERT have transformed how machines understand human language, enabling them to grasp context and semantics more effectively. This capability allows for improved customer service interactions and the automation of repetitive tasks, thereby enhancing overall productivity[17][18].</p>
-</section>
-<section id="healthcare" class="level3">
-<h3 class="anchored" data-anchor-id="healthcare">Healthcare</h3>
-<p>In healthcare, ANNs are utilized to analyze vast amounts of medical data, assisting in diagnosing diseases, predicting patient outcomes, and optimizing treatment plans. For instance, neural networks can be employed to identify patterns in patient records that correlate with successful treatment outcomes, ultimately improving the quality of care provided[19]. Additionally, ANN applications in imaging analysis have shown promise in detecting anomalies in medical images, such as tumors in radiology scans, thereby aiding radiologists in making accurate assessments[19].</p>
-</section>
-<section id="ecommerce" class="level3">
-<h3 class="anchored" data-anchor-id="ecommerce">eCommerce</h3>
-<p>In the eCommerce sector, ANNs play a crucial role in personalizing the shopping experience. Retail giants like Amazon and AliExpress leverage AI-driven algorithms to recommend products based on user behavior and preferences. By analyzing browsing patterns and purchase history, these platforms can suggest related items, enhancing customer satisfaction and increasing sales[20][21]. Furthermore, ANNs are employed in inventory management and demand forecasting, helping businesses optimize stock levels and reduce costs associated with overstocking or stockouts[20].</p>
-</section>
-<section id="computer-vision" class="level3">
-<h3 class="anchored" data-anchor-id="computer-vision">Computer Vision</h3>
-<p>ANNs are foundational to advancements in computer vision, particularly in image recognition tasks. This technology enables applications such as facial recognition and object detection, which have widespread uses in security systems and social media platforms. For instance, convolutional neural networks (CNNs) are specifically designed to process and analyze visual data, identifying features and providing accurate descriptions of images[21][22]. As a result, businesses can streamline operations, improve customer engagement, and derive insights from visual data analytics[22].</p>
-</section>
+<p><code>Artificial Neural Networks (ANNs)</code> have a wide range of applications across various industries, significantly enhancing operational efficiency and decision-making processes. Their versatility allows them to address complex problems in fields such as healthcare, eCommerce, computer vision, and natural language processing:</p>
+<ul>
+<li><strong>Natural Language Processing</strong>: In the realm of <code>natural language processing (NLP)</code>, <code>ANNs</code> contribute significantly to the development of applications such as chatbots and language translation services.
+<ul>
+<li>Models like BERT have transformed how machines understand human language, enabling them to grasp context and semantics more effectively. This capability allows for improved customer service interactions and the automation of repetitive tasks, thereby enhancing overall productivity[17][18].</li>
+</ul></li>
+<li><strong>Healthcare</strong>: In healthcare, <code>ANNs</code> are utilized to analyze vast amounts of medical data, assisting in diagnosing diseases, predicting patient outcomes, and optimizing treatment plans.
+<ul>
+<li>For instance, neural networks can be employed to identify patterns in patient records that correlate with successful treatment outcomes, ultimately improving the quality of care provided[19].
+<ul>
+<li>Additionally, <code>ANN</code> applications in imaging analysis have shown promise in detecting anomalies in medical images, such as tumors in radiology scans, thereby aiding radiologists in making accurate assessments[19].</li>
+</ul></li>
+</ul></li>
+<li><strong>eCommerce</strong>: In the eCommerce sector, <code>ANNs</code> play a crucial role in personalizing the shopping experience.
+<ul>
+<li>Retail giants like <code>Amazon</code> and <code>AliExpress</code> <em>leverage AI-driven algorithms to recommend products based on user behavior and preferences</em>. By analyzing browsing patterns and purchase history, these platforms can suggest related items, enhancing customer satisfaction and increasing sales[20][21]. Furthermore, <code>ANNs</code> are employed in inventory management and demand forecasting, helping businesses optimize stock levels and reduce costs associated with overstocking or stockouts[20].</li>
+</ul></li>
+<li><strong>Computer Vision</strong>: <code>ANNs</code> are foundational to advancements in computer vision, particularly in image recognition tasks. This technology enables applications such as facial recognition and object detection, which have widespread uses in security systems and social media platforms.
+<ul>
+<li>For instance, <code>convolutional neural networks (CNNs)</code> are specifically designed to process and analyze visual data, identifying features and providing accurate descriptions of images[21][22]. As a result, businesses can streamline operations, improve customer engagement, and derive insights from visual data analytics[22].</li>
+</ul></li>
+</ul>
 </section>
 <section id="challenges-and-limitations" class="level2">
 <h2 class="anchored" data-anchor-id="challenges-and-limitations">Challenges and Limitations</h2>
-<p>Artificial Neural Networks (ANN) face several challenges and limitations that impact their effectiveness and applicability in various fields, particularly in healthcare and data analysis.</p>
-<section id="ethical-considerations" class="level3">
-<h3 class="anchored" data-anchor-id="ethical-considerations">Ethical Considerations</h3>
-<p>Ethical dilemmas also arise with the use of ANNs, particularly regarding issues of bias, accountability, and the implications of automated decision-making in critical areas such as healthcare[23]. Ensuring that ANN systems are fair, transparent, and accountable remains an ongoing concern that researchers and practitioners must address as the technology continues to evolve[23].</p>
-</section>
-<section id="overfitting-and-generalization" class="level3">
-<h3 class="anchored" data-anchor-id="overfitting-and-generalization">Overfitting and Generalization</h3>
-<p>One significant challenge associated with ANNs is the phenomenon of overfitting, where the model becomes overly complex and tailored to the training data, failing to generalize to new, unseen data[24]. Overfitting can occur when the model captures not only the underlying patterns but also the noise present in the training dataset. Regularization techniques are often employed to mitigate this issue, but finding the right balance between model complexity and generalization remains a critical challenge[24].</p>
-</section>
-<section id="interpretability-and-transparency" class="level3">
-<h3 class="anchored" data-anchor-id="interpretability-and-transparency">Interpretability and Transparency</h3>
-<p>Another major limitation of ANNs is their poor interpretability. Unlike traditional models, which can explicitly identify causal relationships, ANNs often function as “black boxes” where the reasoning behind their predictions is unclear[25]. This lack of transparency can hinder trust and acceptance, especially in sensitive applications such as healthcare, where understanding the basis for a diagnosis or treatment recommendation is crucial for both practitioners and patients[25].</p>
-</section>
-<section id="training-data-requirements" class="level3">
-<h3 class="anchored" data-anchor-id="training-data-requirements">Training Data Requirements</h3>
-<p>ANNs require large amounts of training data to perform effectively, which can be a significant barrier in scenarios where data availability is limited or where privacy concerns restrict access to sensitive information[25]. Additionally, the process of training ANNs can be time-consuming and computationally intensive, necessitating substantial computational resources and potentially leading to increased costs[25].</p>
-</section>
-<section id="implementation-challenges" class="level3">
-<h3 class="anchored" data-anchor-id="implementation-challenges">Implementation Challenges</h3>
-<p>The integration of ANNs into existing workflows and systems also presents numerous challenges. Issues related to interoperability, standardization, and the alignment of ANNs with clinical workflows can impede their successful adoption[25]. Furthermore, the complexity of model development often necessitates multiple iterations, which can be resource-intensive and may deter organizations from fully leveraging ANN capabilities[25].</p>
-</section>
+<p><code>Artificial Neural Networks (ANN)</code> face several challenges and limitations that impact their effectiveness and applicability in various fields, particularly in healthcare and data analysis:</p>
+<ul>
+<li><strong>Ethical Considerations</strong>: Ethical dilemmas also arise with the use of <code>ANNs</code>, particularly regarding issues of bias, accountability, and the implications of <mark>automated decision-making in critical areas such as healthcare[23]. Ensuring that ANN systems are fair, transparent, and accountable</mark> remains an ongoing concern that researchers and practitioners must address as the technology continues to evolve[23].</li>
+<li><strong>Overfitting and Generalization</strong>: One significant challenge associated with <code>ANNs</code> is the phenomenon of <strong>overfitting</strong>, where the model becomes <em>overly complex and tailored to the training data, failing to generalize to new, unseen data</em>[24].
+<ul>
+<li>Overfitting can occur when the model captures not only the underlying patterns but also the noise present in the training dataset.</li>
+<li><strong>Regularization techniques</strong> are often employed to mitigate this issue, but finding the right balance between model complexity and generalization remains a critical challenge[24].</li>
+</ul></li>
+<li><strong>Interpretability and Transparency</strong>: Another major limitation of <code>ANNs</code> is their <em>poor interpretability</em>.
+<ul>
+<li>Unlike traditional models, which can explicitly identify causal relationships, <code>ANNs</code> often function as <strong>“black boxes”</strong> where the reasoning behind their predictions is unclear[25]. <em>This lack of transparency</em> can hinder trust and acceptance, especially in sensitive applications such as healthcare, where understanding the basis for a diagnosis or treatment recommendation is crucial for both practitioners and patients[25].</li>
+</ul></li>
+<li><strong>Training Data Requirements</strong>: <code>ANNs</code> <mark>require large amounts of training data to perform effectively, which can be a significant barrier in scenarios where data availability is limited or where privacy concerns restrict access to sensitive information</mark>[25].
+<ul>
+<li>Additionally, the process of training <code>ANNs</code> can be time-consuming and computationally intensive, necessitating substantial computational resources and potentially leading to increased costs[25].</li>
+</ul></li>
+<li><strong>Implementation Challenges</strong>: The integration of <code>ANNs</code> into existing workflows and systems also presents numerous challenges. Issues related to interoperability, standardization, and the alignment of <code>ANNs</code> with clinical workflows can impede their successful adoption[25].
+<ul>
+<li>Furthermore, the complexity of model development often necessitates multiple iterations, which can be <em>resource-intensive</em> and may deter organizations from fully leveraging <code>ANN</code> capabilities[25].</li>
+</ul></li>
+</ul>
 </section>
 <section id="future-directions" class="level2">
 <h2 class="anchored" data-anchor-id="future-directions">Future Directions</h2>
-<section id="trends-in-research-and-development" class="level3">
-<h3 class="anchored" data-anchor-id="trends-in-research-and-development">Trends in Research and Development</h3>
-<p>The field of artificial neural networks (ANNs) is rapidly evolving, with ongoing research aimed at enhancing the architecture and functionality of these systems. Future developments are anticipated to focus on biologically inspired designs that emulate the cognitive processes of the human brain. This includes creating architectures capable of both memorization and forgetting, which could lead to more efficient and adaptable learning systems[15]. As the integration of neuroscience and AI progresses, researchers speculate that the collaboration between bottom-up approaches, which build on neural circuit principles, and top-down methodologies, which leverage insights from cognitive tasks, will illuminate new pathways for creating intelligent machines[17].</p>
-</section>
-<section id="overcoming-existing-challenges" class="level3">
-<h3 class="anchored" data-anchor-id="overcoming-existing-challenges">Overcoming Existing Challenges</h3>
-<p>Despite the advancements in ANN technology, several barriers to adoption remain. These include issues related to interoperability, privacy, and the integration of health information technology (HIT) into clinical workflows. Addressing these challenges will require a multi-faceted approach, encompassing technical innovations alongside solutions for political, fiscal, and cultural hurdles[25]. The promotion of standards and controlled terminologies is essential for the broader implementation of AI in healthcare and other sectors[25].</p>
-</section>
-<section id="expanding-applications" class="level3">
-<h3 class="anchored" data-anchor-id="expanding-applications">Expanding Applications</h3>
-<p>Artificial neural networks are already transforming industries such as finance, healthcare, and entertainment, but their potential applications are far from exhausted. As scalability improves, particularly with architectures designed to handle large datasets efficiently, new applications in areas like energy consumption forecasting and predictive analytics are likely to emerge[26]. Furthermore, the exploration of diverse types of neural networks, including feedforward, recurrent, and convolutional networks, will enable customized solutions tailored to specific challenges in various domains[27].</p>
-</section>
-<section id="community-engagement-and-collaborative-research" class="level3">
-<h3 class="anchored" data-anchor-id="community-engagement-and-collaborative-research">Community Engagement and Collaborative Research</h3>
-<p>The future of ANNs also hinges on community-driven research efforts. Initiatives like Frontiers’ Research Topics encourage collaboration among researchers across disciplines, fostering a vibrant ecosystem for knowledge exchange and innovation[28]. This collaborative spirit is expected to accelerate the pace of discovery and application in the field of AI, opening up new opportunities for exploration and development.</p>
+<blockquote class="blockquote">
+<p>The field of <code>artificial neural networks (ANNs)</code> is rapidly evolving, with ongoing research aimed at enhancing the architecture and functionality of these systems. Future developments are anticipated to focus on biologically inspired designs that emulate the cognitive processes of the human brain. This includes creating architectures capable of both memorization and forgetting, which could lead to more efficient and adaptable learning systems[15].</p>
+</blockquote>
+<p>As the integration of neuroscience and AI progresses, researchers speculate that the collaboration between bottom-up approaches, which build on neural circuit principles, and top-down methodologies, which leverage insights from cognitive tasks, will illuminate new pathways for creating intelligent machines[17].</p>
+<p>Despite the advancements in <code>ANN</code> technology, several barriers to adoption remain. These include issues related to interoperability, privacy, and the integration of health information technology (HIT) into clinical workflows. Addressing these challenges will require a multi-faceted approach, encompassing technical innovations alongside solutions for political, fiscal, and cultural hurdles[25]. The promotion of standards and controlled terminologies is essential for the broader implementation of AI in healthcare and other sectors[25].</p>
+<p><code>ANNs</code> are already transforming industries such as finance, healthcare, and entertainment, but their potential applications are far from exhausted. As scalability improves, particularly with architectures designed to handle large datasets efficiently, new applications in areas like energy consumption forecasting and predictive analytics are likely to emerge[26]. Furthermore, the exploration of diverse types of neural networks, including feedforward, recurrent, and convolutional networks, will enable customized solutions tailored to specific challenges in various domains[27].</p>
+<p>The future of <code>ANNs</code> also hinges on community-driven research efforts. Initiatives like Frontiers’ Research Topics encourage collaboration among researchers across disciplines, fostering a vibrant ecosystem for knowledge exchange and innovation[28]. This collaborative spirit is expected to accelerate the pace of discovery and application in the field of AI, opening up new opportunities for exploration and development.</p>
 <ul>
 <li><a href="../files/ArtificialNeuralNetworks.pdf" class="external" target="_blank">Artificial Neural Networks</a></li>
 </ul>
 
 
-</section>
 </section>
 </section>
 
@@ -1047,8 +1056,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../ann/ann-index.html" class="pagination-link" aria-label="Artificial Neural Networks">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Artificial Neural Networks</span>
+      <a href="../ann/ann-index.html" class="pagination-link" aria-label="ANN: Table of Contents">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">ANN: Table of Contents</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
@@ -1084,6 +1093,38 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
   </div>
 </footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 

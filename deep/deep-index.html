@@ -40,6 +40,9 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-b3c97a93b5fc5b3d26d95016fc46a210.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -72,7 +75,7 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="../styles.css">
 </head>
 
-<body class="nav-sidebar floating nav-fixed">
+<body class="nav-sidebar floating nav-fixed slimcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -113,7 +116,15 @@ ul.task-list li input[type="checkbox"] {
         <li class="dropdown-header">What is ANN?</li>
         <li>
     <a class="dropdown-item" href="../ann/ann-index.html">
- <span class="dropdown-text">Artificial Neural Networks</span></a>
+ <span class="dropdown-text">ANN: Table of Contents</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../ann/ann-introduction.html">
+ <span class="dropdown-text">ANN: Introduction</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../ann/ann-mathematical.html">
+ <span class="dropdown-text">ANN: Mathematical Model</span></a>
   </li>  
     </ul>
   </li>
@@ -281,7 +292,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="dropdown-header">Books</li>
         <li>
     <a class="dropdown-item" href="../resources/resources-books.html">
- <span class="dropdown-text">Books</span></a>
+ <span class="dropdown-text">Books cards</span></a>
   </li>  
     </ul>
   </li>
@@ -358,11 +369,20 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a>
+  <ul>
+  <li><a href="#types-of-deep-learning-models" id="toc-types-of-deep-learning-models" class="nav-link" data-scroll-target="#types-of-deep-learning-models">Types of <code>deep learning</code> Models</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../deep/deep-index.html">Introduction to Deep Learning</a></li><li class="breadcrumb-item"><a href="../deep/deep-index.html">Deep Learning</a></li></ol></nav>
 <div class="quarto-title">
@@ -383,10 +403,65 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>This is a Quarto website.</p>
-<p>To learn more about Quarto websites visit <a href="https://quarto.org/docs/websites" class="uri">https://quarto.org/docs/websites</a>.</p>
+<section id="overview" class="level1 page-columns page-full">
+<h1>Overview</h1>
+<p><code>Deep learning</code> is a <mark>transformative subset of machine learning that utilizes artificial neural networks (ANNs) to model complex patterns in data, inspired by the human brain’s architecture</mark>.</p>
+<p>Characterized by its ability <em>to process vast amounts of information through multiple interconnected layers</em>, <code>deep learning</code> has driven significant advancements in various fields, including computer vision, natural language processing, and automation.[1][2]</p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p>The rise of <code>deep learning</code> has enabled machines to achieve performance levels that surpass human capabilities in tasks such as image recognition and language translation, marking a pivotal shift in how artificial intelligence (AI) is applied across industries.[1]</p>
+<p>Notably, <code>deep learning</code> models, particularly deep neural networks (DNNs), have demonstrated remarkable success in diverse applications, such as Convolutional Neural Networks (CNNs) for image analysis and Recurrent Neural Networks (RNNs) for sequential data tasks.[3][4]</p>
+<p>However, the technology is not without its challenges; issues related to data quality, the demand for skilled professionals, and the interpretability of complex models pose significant hurdles for practitioners and organizations aiming to leverage <code>deep learning</code> effectively.[5][6]</p>
+<p>Moreover, ethical concerns regarding bias and transparency in AI decision-making processes have sparked ongoing debates about the responsible development and deployment of <code>deep learning</code> technologies.[7][8]</p>
+</div></div><div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/deep/DEEP-general-approach.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="AI fields"><img src="../images/deep/DEEP-general-approach.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:60.0%" alt="AI fields"></a></p>
+</figure>
+</div>
+<figcaption>AI fields</figcaption>
+</figure>
+</div>
+<p>As industries increasingly rely on <code>deep learning</code> to enhance efficiency and innovation, understanding its foundational principles, capabilities, and limitations has become essential. The architecture of <code>deep learning</code> models involves intricate design choices, including layer composition and training algorithms like backpropagation, which are crucial for optimizing performance.[2][9]</p>
+<blockquote class="blockquote">
+<p>With continuous research and development, the field of <code>deep learning</code> is poised for further growth, presenting both opportunities and challenges that must be addressed to harness its full potential in a responsible manner.</p>
+</blockquote>
+<section id="types-of-deep-learning-models" class="level2">
+<h2 class="anchored" data-anchor-id="types-of-deep-learning-models">Types of <code>deep learning</code> Models</h2>
+<p><code>Deep learning</code> encompasses various types of models designed to address different types of data and tasks. Each model type has its unique architecture and application area, making them suitable for specific use cases.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/deep/A-comparative-view-of-AI-machine-learning-deep-learning-and-generative-AI-source.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="A comparative view of AI, machine learning, deep learning, and generative AI (source [16])."><img src="../images/deep/A-comparative-view-of-AI-machine-learning-deep-learning-and-generative-AI-source.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%" alt="A comparative view of AI, machine learning, deep learning, and generative AI (source [16])."></a></p>
+</figure>
+</div>
+<figcaption>A comparative view of AI, machine learning, deep learning, and generative AI (source [16]).</figcaption>
+</figure>
+</div>
+<ul>
+<li><a href="https://www.researchgate.net/figure/A-comparative-view-of-AI-machine-learning-deep-learning-and-generative-AI-source_fig1_373797588" class="external" target="_blank">A comparative view of AI, machine learning, deep learning, and generative AI (source [16]).</a></li>
+</ul>
+<p><strong>Deep Neural Networks and Generative AI</strong></p>
+<p>Deep neural networks (DNNs) extend traditional neural networks by adding multiple hidden layers, which allows them to learn more complex patterns within the data. As of 2017, DNNs typically contained thousands to millions of units and connections, enabling them to perform tasks such as image recognition and natural language processing at levels that can surpass human capabilities[1]</p>
+<p>Each layer in a DNN builds on the previous one, allowing the model to capture intricate patterns through its architecture, which can involve convolutional layers for spatial data processing, pooling layers for dimensionality reduction, and fully connected layers for final classification tasks[9][2]</p>
+<ul>
+<li><strong>Generative Adversarial Networks (GANs)</strong>: <mark><code>Generative Adversarial Networks (GANs)</code> consist of <strong>two neural networks</strong>: a <code>generator</code> and a <code>discriminator</code>, which are trained simultaneously in a competitive framework</mark>.
+<ul>
+<li>The <code>generator</code> aims to create realistic synthetic data, while the <code>discriminator</code> evaluates the authenticity of the generated data against real data samples.</li>
+<li>This adversarial training process helps improve the quality of generated outputs, making GANs popular in applications such as image generation, video creation, and data augmentation. Their ability to produce high-quality visuals has significantly impacted fields like art, entertainment, and gaming[11][12].</li>
+</ul></li>
+<li><strong>Transformer Models</strong>: <code>Transformer</code> models have gained prominence in <code>natural language processing tasks</code> due to their efficiency in handling sequential data without relying on recurrence.
+<ul>
+<li><code>Transformers</code> utilize <mark><strong>self-attention</strong> mechanisms to weigh the influence of different words in a sentence, allowing for a better understanding of context and relationships within the text</mark>.</li>
+<li>This architecture has led to significant advancements in machine translation, text summarization, and conversational AI applications, making Transformers a crucial development in the <code>deep learning</code> landscape[3].</li>
+</ul></li>
+</ul>
 
 
+</section>
+</section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -836,6 +911,38 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
   </div>
 </footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 
