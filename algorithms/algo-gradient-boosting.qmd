@@ -1,0 +1,13 @@
+---
+title: "Algorithms: Gradient boosting"
+---
+
+# Overview
+
+
+`Gradient boosting` algorithms produce a prediction model that bundles weak prediction models—typically decision trees—through an ensembling process that improves the overall performance of the model.
+
+
+::: {.column-margin}
+![](/images/algorithms/what-are-machine-learning-algorithms_gradient.svg){.lightbox width=100% fig-align="center"}
+:::

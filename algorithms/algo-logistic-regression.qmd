@@ -1,0 +1,13 @@
+---
+title: "Algorithms: Logistic regression"
+---
+
+
+# Overview
+
+`Logistic regression` algorithms fit a continuous S-shaped curve to the data. Logistic regression is another popular type of regression analysis.
+
+
+::: {.column-margin}
+![](/images/algorithms/what-are-machine-learning-algorithms_logistic.svg){.lightbox width=100% fig-align="center"}
+:::

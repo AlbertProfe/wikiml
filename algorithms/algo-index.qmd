@@ -1,5 +1,5 @@
 ---
-title: "Algorithms"
+title: "Algorithms: Introduction"
 ---
 
 # Overview
@@ -150,12 +150,12 @@ predictions = model.predict(X_test)
 
 
 Citations:
-[1] https://azure.microsoft.com/en-us/resources/cloud-computing-dictionary/what-are-machine-learning-algorithms
-[2] https://www.activestate.com/blog/top-10-python-machine-learning-algorithms/
-[3] https://www.tutorialspoint.com/machine_learning_with_python/machine_learning_with_python_tutorial.pdf
-[4] https://www.geeksforgeeks.org/machine-learning-algorithms/
-[5] https://www.linkedin.com/pulse/what-machine-learning-algorithms-python-guide-analytics-insight-hz3ec
-[6] https://gist.github.com/bgoonz/213503c2cad5be1696da3069c5d5d378
-[7] https://www.simplilearn.com/10-algorithms-machine-learning-engineers-need-to-know-article
-[8] https://www.machinelearningmastery.com/machine-learning-in-python-step-by-step/
-[9] https://www.javatpoint.com/machine-learning-algorithms
+
+- [1] [Machine learning algorithms](https://azure.microsoft.com/en-us/resources/cloud-computing-dictionary/what-are-machine-learning-algorithms){.external target='_blank'}
+- [2] [Top 10 Python Machine Learning Algorithms](https://www.activestate.com/blog/top-10-python-machine-learning-algorithms/){.external target='_blank'}
+- [3] [Machine Learning with Python Tutorial](https://www.tutorialspoint.com/machine_learning_with_python/machine_learning_with_python_tutorial.pdf){.external target='_blank'}
+- [4] [Machine Learning Algorithms](https://www.geeksforgeeks.org/machine-learning-algorithms/){.external target='_blank'}
+- [5] [What are Machine Learning Algorithms in Python?](https://www.linkedin.com/pulse/what-machine-learning-algorithms-python-guide-analytics-insight-hz3ec){.external target='_blank'}
+- [6] [Machine Learning Algorithms Gist](https://gist.github.com/bgoonz/213503c2cad5be1696da3069c5d5d378){.external target='_blank'}
+- [7] [10 Algorithms Machine Learning Engineers Need to Know](https://www.simplilearn.com/10-algorithms-machine-learning-engineers-need-to-know-article){.external target='_blank'}
+- [8] [Machine Learning in Python Step-by-Step](https://www.machinelearningmastery.com/machine-learning-in-python-step-by-step/){.external target='_blank'}

@@ -1,0 +1,12 @@
+---
+title: "Algorithms: Decision tree"
+---
+
+# Overview
+
+
+`Decision tree` algorithms split the data into two or more homogeneous sets. They use if–then rules to separate the data based on the most significant differentiator between data points.
+
+::: {.column-margin}
+![](/images/algorithms/what-are-machine-learning-algorithms_decision.svg){.lightbox width=100% fig-align="center"}
+:::

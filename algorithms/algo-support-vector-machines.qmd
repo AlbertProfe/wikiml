@@ -1,0 +1,12 @@
+---
+title: "Algorithms: Support Vector Machines"
+---
+
+# Overview
+
+`Support Vector Machines` draw a hyperplane between the two closest data points. This marginalizes the classes and maximizes the distances between them to more clearly differentiate them.
+
+
+::: {.column-margin}
+![](/images/algorithms/what-are-machine-learning-algorithms_support.svg){.lightbox width=100% fig-align="center"}
+:::

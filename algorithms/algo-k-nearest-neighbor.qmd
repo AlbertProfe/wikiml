@@ -1,0 +1,16 @@
+---
+title: "Algorithms: K-Nearest neighbor"
+---
+
+
+# Overview
+
+
+`K-Nearest neighbor` algorithms store all available data points and classify each new data point based on the data points that are closest to it, as measured by a distance function.
+
+
+::: {.column-margin}
+![](/images/algorithms/what-are-machine-learning-algorithms_k-nearest.svg){.lightbox width=100% fig-align="center"}
+:::
+
+

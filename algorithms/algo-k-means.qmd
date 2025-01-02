@@ -1,0 +1,11 @@
+---
+title: "Algorithms: K-Means"
+---
+
+# Overview
+
+`K-Means` algorithms classify data into clusters—where K equals the number of clusters. The data points inside of each cluster are homogeneous, and they’re heterogeneous to data points in other clusters.
+
+::: {.column-margin}
+![](/images/algorithms/what-are-machine-learning-algorithms_k-means.svg){.lightbox width=100% fig-align="center"}
+:::

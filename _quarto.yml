@@ -53,7 +53,19 @@ website:
         - section: "What is Algorithms?"
           contents:
             - algorithms/algo-index.qmd
-        
+        - text: "---"
+        - section: "Algorithm Types"
+          contents:
+            - algorithms/algo-linear-regression.qmd
+            - algorithms/algo-logistic-regression.qmd
+            - algorithms/algo-naive-bayes.qmd
+            - algorithms/algo-support-vector-machines.qmd
+            - algorithms/algo-decision-tree.qmd
+            - algorithms/algo-k-nearest-neighbor.qmd
+            - algorithms/algo-random-forest.qmd
+            - algorithms/algo-gradient-boosting.qmd
+            - algorithms/algo-k-means.qmd
+
     - id: "ann"
       title: "ANN"
       contents:
