@@ -26,7 +26,7 @@
     "href": "bigdata/bigdata-index.html",
     "title": "Big Data",
     "section": "",
-    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n\n\n Back to top",
+    "text": "Overview\nBig data refers to extremely large and complex data sets that cannot be easily managed or analyzed with traditional data processing tools, particularly spreadsheets.\nBig data includes:\n\nstructured data, like an inventory database or list of financial transactions;\nunstructured data, such as social posts or videos;\nand mixed data sets, like those used to train large language models for AI.\n\nThese data sets might include anything from the works of Shakespeare to a company’s budget spreadsheets for the last 10 years.\n\n\nBig data has only gotten bigger as recent technological breakthroughs have significantly reduced the cost of storage and compute, making it easier and less expensive to store more data than ever before. With that increased volume, companies can make more accurate and precise business decisions with their data.\nBut achieving full value from Big data isn’t only about analyzing it—which is a whole other benefit. It’s an entire discovery process that requires insightful analysts, business users, and executives who ask the right questions, recognize patterns, make informed assumptions, and predict behavior.\n\n\n\n\n\n\nWhat is big data analytics?\n\n\n\nBig data analytics refers to the systematic processing and analysis of large amounts of data and complex data sets, known as big data, to extract valuable insights.\nBig data analytics allows for the uncovering of trends, patterns and correlations in large amounts of raw data to help analysts make data-informed decisions. This process allows organizations to leverage the exponentially growing data generated from diverse sources, including internet-of-things (IoT) sensors, social media, financial transactions and smart devices to derive actionable intelligence through advanced analytic techniques.\n\n\n\n\nWhat are the Five “Vs” of Big data?\nTraditionally, we’ve recognized Big data by three characteristics: variety, volume, and vel**ocity, also known as the “three Vs.”\nHowever, two additional Vs have emerged over the past few years: value and veracity.\n\nVolume. The amount of data matters. With Big data, you’ll have to process high volumes of low-density, unstructured data.\n\nThis can be data of unknown value, such as X (formerly Twitter) data feeds, clickstreams on a web page or a mobile app, or sensor-enabled equipment. For some organizations, this might be tens of terabytes of data. For others, it may be hundreds of petabytes.\n\nVelocity. Velocity is the fast rate at which data is received and (perhaps) acted on. Normally, the highest velocity of data streams directly into memory versus being written to disk.\n\nSome internet-enabled smart products operate in real time or near real time and will require real-time evaluation and action.\n\nVariety. Variety refers to the many types of data that are available.\n\nTraditional data types were structured and fit neatly in a relational database. With the rise of Big data, data comes in new unstructured data types. Unstructured and semistructured data types, such as text, audio, and video, require additional preprocessing to derive meaning and support metadata.\n\nVeracity. How truthful is your data—and how much can you rely on it?\n\nThe idea of veracity in data is tied to other functional concepts, such as data quality and data integrity. Ultimately, these all overlap and steward the organization to a data repository that delivers high-quality, accurate, and reliable data to power insights and decisions.\n\nValue. Data has intrinsic value in business. But it’s of no use until that value is discovered.\n\nBecause Big data assembles both breadth and depth of insights, somewhere within all of that information lies insights that can benefit your organization. This value can be internal, such as operational processes that might be optimized, or external, such as customer profile suggestions that can maximize engagement.\n\n\n\n\n\n\n Back to top",
     "crumbs": [
       "What is Big Data?",
       "Big Data"
@@ -110,7 +110,7 @@
     "href": "algorithms/algo-index.html",
     "title": "Algorithms",
     "section": "",
-    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n\n\n Back to top",
+    "text": "Machine learning algorithms are sets of instructions that enable computers to learn from data, identify patterns, and make predictions without explicit programming.\n\n\nWhat you can do with machine learning algorithms\nMachine learning algorithms help you answer questions that are too complex to answer through manual analysis.\nUse cases for machine learning algorithms typically fall into one of these categories:\n\nPredict a target,\nFind unusual data points,\nPredict values,\nSee how values change over time,\nDiscover similarities,\nClassification\n\nThese algorithms form the backbone of machine learning systems, allowing machines to improve their performance over time as they process more data.\nAt their core, machine learning algorithms:\n\nAnalyze large amounts of data\nDiscover patterns and relationships\nMake decisions or predictions based on the learned patterns\n\nMachine learning algorithms are typically categorized into three main types:\n\nSupervised Learning: algorithms make predictions based on a set of labeled examples that you provide.\n\nThis technique is useful when you know what the outcome should look like.\n\nUnsupervised Learning: the data points aren’t labeled—the algorithm labels them for you by organizing the data or describing its structure.\n\nThis technique is useful when you don’t know what the outcome should look like.\n\nReinforcement Learning: uses algorithms that learn from outcomes and decide which action to take next.\n\nAfter each action, the algorithm receives feedback that helps it determine whether the choice it made was correct, neutral, or incorrect.\nIt’s a good technique to use for automated systems that have to make a lot of small decisions without human guidance.\nFor example, you’re designing an autonomous car, and you want to ensure that it’s obeying the law and keeping people safe. As the car gains experience and a history of reinforcement, it learns how to stay in its lane, go the speed limit, and brake for pedestrians.\n\n\n\n\n\n\n\n\nMachine learning algorithms\n\n\n\nMachine learning algorithms are mathematical models that implement a finite set of unambiguous step-by-step instructions to achieve a specific goal, such as classification, regression, or clustering. They utilize statistical techniques to enable computers to “learn” from data without being explicitly programmed[1].",
     "crumbs": [
       "What is Algorithms?",
       "Algorithms"
@@ -731,6 +731,39 @@
     "crumbs": [
       "Introduction to Deep Learning",
       "Deep Learning"
+    ]
+  },
+  {
+    "objectID": "algorithms/algo-index.html#linear-regression",
+    "href": "algorithms/algo-index.html#linear-regression",
+    "title": "Algorithms",
+    "section": "Linear Regression",
+    "text": "Linear Regression\nfrom sklearn.linear_model import LinearRegression\nfrom sklearn.model_selection import train_test_split\n\n# Assuming X and y are your feature and target variables\nX_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)\n\nmodel = LinearRegression()\nmodel.fit(X_train, y_train)\n\npredictions = model.predict(X_test)",
+    "crumbs": [
+      "What is Algorithms?",
+      "Algorithms"
+    ]
+  },
+  {
+    "objectID": "algorithms/algo-index.html#logistic-regression",
+    "href": "algorithms/algo-index.html#logistic-regression",
+    "title": "Algorithms",
+    "section": "Logistic Regression",
+    "text": "Logistic Regression\nfrom sklearn.linear_model import LogisticRegression\nfrom sklearn.model_selection import train_test_split\n\n# Assuming X and y are your feature and target variables\nX_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)\n\nmodel = LogisticRegression()\nmodel.fit(X_train, y_train)\n\npredictions = model.predict(X_test)",
+    "crumbs": [
+      "What is Algorithms?",
+      "Algorithms"
+    ]
+  },
+  {
+    "objectID": "algorithms/algo-index.html#random-forest",
+    "href": "algorithms/algo-index.html#random-forest",
+    "title": "Algorithms",
+    "section": "Random Forest",
+    "text": "Random Forest\nfrom sklearn.ensemble import RandomForestClassifier\nfrom sklearn.model_selection import train_test_split\n\n# Assuming X and y are your feature and target variables\nX_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)\n\nmodel = RandomForestClassifier(n_estimators=100)\nmodel.fit(X_train, y_train)\n\npredictions = model.predict(X_test)\nCitations: [1] https://azure.microsoft.com/en-us/resources/cloud-computing-dictionary/what-are-machine-learning-algorithms [2] https://www.activestate.com/blog/top-10-python-machine-learning-algorithms/ [3] https://www.tutorialspoint.com/machine_learning_with_python/machine_learning_with_python_tutorial.pdf [4] https://www.geeksforgeeks.org/machine-learning-algorithms/ [5] https://www.linkedin.com/pulse/what-machine-learning-algorithms-python-guide-analytics-insight-hz3ec [6] https://gist.github.com/bgoonz/213503c2cad5be1696da3069c5d5d378 [7] https://www.simplilearn.com/10-algorithms-machine-learning-engineers-need-to-know-article [8] https://www.machinelearningmastery.com/machine-learning-in-python-step-by-step/ [9] https://www.javatpoint.com/machine-learning-algorithms",
+    "crumbs": [
+      "What is Algorithms?",
+      "Algorithms"
     ]
   }
 ]

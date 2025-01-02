@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -40,6 +74,9 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-b3c97a93b5fc5b3d26d95016fc46a210.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -72,7 +109,7 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="../styles.css">
 </head>
 
-<body class="nav-sidebar floating nav-fixed">
+<body class="nav-sidebar floating nav-fixed slimcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -113,7 +150,15 @@ ul.task-list li input[type="checkbox"] {
         <li class="dropdown-header">What is ANN?</li>
         <li>
     <a class="dropdown-item" href="../ann/ann-index.html">
- <span class="dropdown-text">Artificial Neural Networks</span></a>
+ <span class="dropdown-text">ANN: Table of Contents</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../ann/ann-introduction.html">
+ <span class="dropdown-text">ANN: Introduction</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../ann/ann-mathematical.html">
+ <span class="dropdown-text">ANN: Mathematical Model</span></a>
   </li>  
     </ul>
   </li>
@@ -281,7 +326,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="dropdown-header">Books</li>
         <li>
     <a class="dropdown-item" href="../resources/resources-books.html">
- <span class="dropdown-text">Books</span></a>
+ <span class="dropdown-text">Books cards</span></a>
   </li>  
     </ul>
   </li>
@@ -358,11 +403,24 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
+  <li><a href="#most-relevant-algorithms" id="toc-most-relevant-algorithms" class="nav-link" data-scroll-target="#most-relevant-algorithms">Most Relevant Algorithms</a></li>
+  <li><a href="#examples-in-python" id="toc-examples-in-python" class="nav-link" data-scroll-target="#examples-in-python">Examples in Python</a>
+  <ul>
+  <li><a href="#linear-regression" id="toc-linear-regression" class="nav-link" data-scroll-target="#linear-regression">Linear Regression</a></li>
+  <li><a href="#logistic-regression" id="toc-logistic-regression" class="nav-link" data-scroll-target="#logistic-regression">Logistic Regression</a></li>
+  <li><a href="#random-forest" id="toc-random-forest" class="nav-link" data-scroll-target="#random-forest">Random Forest</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../algorithms/algo-index.html">What is Algorithms?</a></li><li class="breadcrumb-item"><a href="../algorithms/algo-index.html">Algorithms</a></li></ol></nav>
 <div class="quarto-title">
@@ -383,10 +441,141 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>This is a Quarto website.</p>
-<p>To learn more about Quarto websites visit <a href="https://quarto.org/docs/websites" class="uri">https://quarto.org/docs/websites</a>.</p>
+<section id="overview" class="level1 page-columns page-full">
+<h1>Overview</h1>
+<p><mark><code>Machine learning algorithms</code> are sets of instructions that enable computers to learn from data, identify patterns, and make predictions without explicit programming.</mark></p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p><strong>What you can do with machine learning algorithms</strong></p>
+<p><code>Machine learning</code> algorithms help you answer questions that are too complex to answer through manual analysis.</p>
+<p>Use cases for machine learning algorithms typically fall into one of these categories:</p>
+<ul>
+<li>Predict a target,</li>
+<li>Find unusual data points,</li>
+<li>Predict values,</li>
+<li>See how values change over time,</li>
+<li>Discover similarities,</li>
+<li>Classification</li>
+</ul>
+</div></div><p>These <strong>algorithms form the backbone of machine learning systems</strong>, allowing machines to improve their performance over time as they process more data.</p>
+<p>At their core, <code>machine learning algorithms</code>:</p>
+<ul>
+<li>Analyze <code>large amounts of data</code></li>
+<li>Discover <code>patterns</code> and <code>relationships</code></li>
+<li>Make <code>decisions or predictions</code> based on the learned patterns</li>
+</ul>
+<p><code>Machine learning algorithms</code> are typically categorized into three main types:</p>
+<ol type="1">
+<li><code>Supervised</code> Learning: algorithms <strong>make predictions</strong> based on a set of labeled examples that you provide.
+<ol type="1">
+<li>This technique is useful <em>when you know what the outcome should look like</em>.</li>
+</ol></li>
+<li><code>Unsupervised</code> Learning: the <strong>data points aren’t labeled</strong>—the algorithm labels them for you by organizing the data or describing its structure.
+<ol type="1">
+<li>This technique is useful <em>when you don’t know what the outcome should look like</em>.</li>
+</ol></li>
+<li><code>Reinforcement</code> Learning: uses algorithms that <strong>learn from outcomes and decide which action to take next.</strong>
+<ol type="1">
+<li>After each action, the algorithm receives <strong>feedback</strong> that helps it determine whether the choice it made was <mark>correct, neutral, or incorrect</mark>.</li>
+<li>It’s a good technique to use for <strong>automated systems</strong> that have to make a <em>lot of small decisions without human guidance.</em></li>
+<li>For example, you’re designing an autonomous car, and you want to ensure that it’s obeying the law and keeping people safe. As the car gains experience and a history of reinforcement, it learns how to stay in its lane, go the speed limit, and brake for pedestrians.</li>
+</ol></li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Machine learning algorithms
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>Machine learning algorithms</code> are mathematical models that implement a finite set of unambiguous step-by-step instructions to achieve a specific goal, such as classification, regression, or clustering. They utilize statistical techniques to enable computers to “learn” from data without being explicitly programmed[1].</p>
+</div>
+</div>
+</section>
+<section id="most-relevant-algorithms" class="level1">
+<h1>Most Relevant Algorithms</h1>
+<p><a href="../images/algorithms/ALGO-types-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Machine learning algorithms 1"><img src="../images/algorithms/ALGO-types-1.png" class="img-fluid quarto-figure quarto-figure-center" style="width:100.0%" alt="Machine learning algorithms 1"></a> <a href="../images/algorithms/ALGO-types-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Machine learning algorithms 2"><img src="../images/algorithms/ALGO-types-2.png" class="img-fluid quarto-figure quarto-figure-center" style="width:100.0%" alt="Machine learning algorithms 2"></a> <a href="../images/algorithms/ALGO-types-3.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Machine learning algorithms 3"><img src="../images/algorithms/ALGO-types-3.png" class="img-fluid quarto-figure quarto-figure-center" style="width:100.0%" alt="Machine learning algorithms 3"></a></p>
+<p><strong>Linear Regression</strong></p>
+<p>Linear regression is used to predict continuous values by finding the best-fit line between input and output variables.</p>
+<ul>
+<li><em>Use case</em>: Predicting house prices based on square footage.</li>
+</ul>
+<p><code>Linear regression</code> minimizes the difference between actual and predicted values using the method of least squares to fit a linear relationship between dependent and independent variables[4].</p>
+<p><strong>Logistic Regression</strong></p>
+<p>Logistic regression predicts probabilities and assigns data points to binary classes.</p>
+<ul>
+<li><em>Use case</em>: Predicting whether an email is spam or not</li>
+</ul>
+<p>Logistic regression uses a logistic function to model the probability of a binary outcome, transforming the output of a linear combination of features into a value between 0 and 1[4].</p>
+<p><strong>Decision Trees</strong></p>
+<p>Decision trees make predictions by following a tree-like model of decisions based on feature values.</p>
+<ul>
+<li><em>Use case:</em> Classifying patients based on symptoms</li>
+</ul>
+<p>Decision trees recursively split the data based on feature values, creating a tree structure where each internal node represents a decision based on a feature, each branch represents an outcome of that decision, and each leaf node represents a class label or numerical value[4].</p>
+<p><strong>Random Forest</strong></p>
+<p>Random Forest is an ensemble learning method that constructs multiple decision trees and merges their predictions.</p>
+<ul>
+<li><em>Use case:</em> Predicting customer churn</li>
+</ul>
+<p>Random Forest builds multiple decision trees on randomly selected subsets of the training data and features, then aggregates their predictions through voting (for classification) or averaging (for regression) to improve accuracy and reduce overfitting[7].</p>
+<p><strong>Support Vector Machines (SVM)</strong></p>
+<p>SVM finds the optimal hyperplane that best separates different classes in high-dimensional space.</p>
+<ul>
+<li><em>Use case:</em> Image classification</li>
+</ul>
+<p>SVM constructs a hyperplane or set of hyperplanes in a high-dimensional space to maximize the margin between different classes, effectively creating a decision boundary for classification or regression tasks[4].</p>
+</section>
+<section id="examples-in-python" class="level1">
+<h1>Examples in Python</h1>
+<p>These examples demonstrate the basic structure of implementing machine learning algorithms in Python. Each algorithm requires data preparation, model initialization, training, and prediction steps[2][8].</p>
+<p>Here are simple examples of how to implement some of these algorithms using Python and the scikit-learn library:</p>
+<section id="linear-regression" class="level2">
+<h2 class="anchored" data-anchor-id="linear-regression">Linear Regression</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.linear_model <span class="im">import</span> LinearRegression</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Assuming X and y are your feature and target variables</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(X, y, test_size<span class="op">=</span><span class="fl">0.2</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> LinearRegression()</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>model.fit(X_train, y_train)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>predictions <span class="op">=</span> model.predict(X_test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="logistic-regression" class="level2">
+<h2 class="anchored" data-anchor-id="logistic-regression">Logistic Regression</h2>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.linear_model <span class="im">import</span> LogisticRegression</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Assuming X and y are your feature and target variables</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(X, y, test_size<span class="op">=</span><span class="fl">0.2</span>)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> LogisticRegression()</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>model.fit(X_train, y_train)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>predictions <span class="op">=</span> model.predict(X_test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="random-forest" class="level2">
+<h2 class="anchored" data-anchor-id="random-forest">Random Forest</h2>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.ensemble <span class="im">import</span> RandomForestClassifier</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Assuming X and y are your feature and target variables</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(X, y, test_size<span class="op">=</span><span class="fl">0.2</span>)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> RandomForestClassifier(n_estimators<span class="op">=</span><span class="dv">100</span>)</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>model.fit(X_train, y_train)</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>predictions <span class="op">=</span> model.predict(X_test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Citations: [1] https://azure.microsoft.com/en-us/resources/cloud-computing-dictionary/what-are-machine-learning-algorithms [2] https://www.activestate.com/blog/top-10-python-machine-learning-algorithms/ [3] https://www.tutorialspoint.com/machine_learning_with_python/machine_learning_with_python_tutorial.pdf [4] https://www.geeksforgeeks.org/machine-learning-algorithms/ [5] https://www.linkedin.com/pulse/what-machine-learning-algorithms-python-guide-analytics-insight-hz3ec [6] https://gist.github.com/bgoonz/213503c2cad5be1696da3069c5d5d378 [7] https://www.simplilearn.com/10-algorithms-machine-learning-engineers-need-to-know-article [8] https://www.machinelearningmastery.com/machine-learning-in-python-step-by-step/ [9] https://www.javatpoint.com/machine-learning-algorithms</p>
 
 
+</section>
+</section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -836,6 +1025,38 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
   </div>
 </footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 
