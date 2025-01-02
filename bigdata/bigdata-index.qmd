@@ -2,6 +2,45 @@
 title: "Big Data"
 ---
 
-This is a Quarto website.
+# Overview
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+<mark>`Big data` refers to extremely large and complex data sets that cannot be easily managed or analyzed with traditional data processing tools, particularly spreadsheets.</mark>
+
+`Big data` includes:
+
+- **structured data**, like an inventory database or list of financial transactions;
+- **unstructured data**, such as social posts or videos;
+- and **mixed data sets**, like those used to train large language models for AI.
+
+These data sets might include anything from the works of Shakespeare to a company’s budget spreadsheets for the last 10 years.
+
+::: {.column-margin}
+`Big data` has only gotten bigger as recent technological breakthroughs have significantly reduced the cost of storage and compute, making it easier and less expensive to store more data than ever before. With that increased volume, companies can make more accurate and precise business decisions with their data.
+
+But achieving full value from `Big data` isn’t only about analyzing it—which is a whole other benefit. It’s an entire discovery process that requires insightful analysts, business users, and executives who ask the right questions, recognize patterns, make informed assumptions, and predict behavior.
+:::
+
+::: {.callout-note}
+# What is big data analytics?
+**Big data analytics** refers to the systematic processing and analysis of large amounts of data and complex data sets, known as big data, to extract valuable insights.
+
+**Big data analytics** allows for the uncovering of trends, patterns and correlations in large amounts of raw data to help analysts make data-informed decisions. This process allows organizations to leverage the exponentially growing data generated from diverse sources, including internet-of-things (IoT) sensors, social media, financial transactions and smart devices to derive actionable intelligence through advanced analytic techniques.
+
+:::
+
+# What are the Five “Vs” of `Big data`?
+
+Traditionally, we’ve recognized `Big data` by three characteristics: **variety**, **volume**, and vel**ocity, also known as the “three Vs.”
+
+However, two additional Vs have emerged over the past few years: **value** and **veracity**.
+
+- **Volume**. The amount of data matters. With `Big data`, you’ll have to process high volumes of low-density, unstructured data.
+  - This can be data of unknown value, such as X (formerly Twitter) data feeds, clickstreams on a web page or a mobile app, or sensor-enabled equipment. For some organizations, this might be tens of terabytes of data. For others, it may be hundreds of petabytes.
+- **Velocity**. Velocity is the fast rate at which data is received and (perhaps) acted on. Normally, the highest velocity of data streams directly into memory versus being written to disk.
+  - Some internet-enabled smart products operate in real time or near real time and will require real-time evaluation and action.
+- **Variety**. Variety refers to the many types of data that are available.
+  - Traditional data types were structured and fit neatly in a relational database. With the rise of `Big data`, data comes in new unstructured data types. Unstructured and semistructured data types, such as text, audio, and video, require additional preprocessing to derive meaning and support metadata.
+- **Veracity**. How truthful is your data—and how much can you rely on it?
+  - The idea of veracity in data is tied to other functional concepts, such as data quality and data integrity. Ultimately, these all overlap and steward the organization to a data repository that delivers high-quality, accurate, and reliable data to power insights and decisions.
+- **Value**. Data has intrinsic value in business. But it’s of no use until that value is discovered.
+  - Because `Big data` assembles both breadth and depth of insights, somewhere within all of that information lies insights that can benefit your organization. This value can be internal, such as operational processes that might be optimized, or external, such as customer profile suggestions that can maximize engagement.
