@@ -3,17 +3,143 @@ title: "Roadmap"
 ---
 
 
-Step by step guide to becoming an **AI and Data Scientist** in 2024:
+
+- Step by step guide to becoming an **AI and Data Scientist** in 2024: [AI and Data Scientist](https://roadmap.sh/ai-data-scientist){.external target='_blank'}
+- Step by step guide to becoming an **AI Engineer** in 2024: [AI Engineer](https://roadmap.sh/ai-engineer){.external target='_blank'}
+
+## Tasks
+
+<Details>
+<Summary> January </Summary>
+
+**Sprint#0** 2024-30-12
+
+- [X] Documentation
+- [X] Roadmap
+- [X] Tools: Linux, VCode, Accounts, Git, etc..
+
+**Sprint#1** 2025-01-06
+
+- [ ] Python Week 1
+- [ ] Algorithms Week 1
+- [ ] Lab
+- [ ] Documentation
+
+**Sprint#2** 2025-01-13
+
+- [ ] Python Week 2
+- [ ] Algorithms Week 2
+- [ ] Lab
+- [ ] Documentation
+
+**Sprint#3** 2025-01-20
+
+- [ ] Python Week 3
+- [ ] Algorithms Week 3
+- [ ] Lab
+- [ ] Documentation
+
+**Sprint#4** 2025-01-27
+
+- [ ] Python Week 4
+- [ ] Algorithms Week 4
+- [ ] Lab
+- [ ] Documentation
+
+</Details>
+
+<Details>
+<Summary> February </Summary>
+
+**Sprint#5** 2025-02-03
+
+- [ ] Python Week 5
+- [ ] Algorithms Week 5
+- [ ] Lab
+- [ ] Documentation
+
+**Sprint#6** 2025-02-10
+
+- [ ] Python Week 6
+- [ ] Algorithms Week 6
+- [ ] Lab
+- [ ] Documentation
+
+**Sprint#7** 2025-02-17
+
+- [ ] Python Week 7
+- [ ] Algorithms Week 7
+- [ ] Lab
+- [ ] Documentation
+
+**Sprint#8** 2025-02-24
+
+- [ ] Python Week 8
+- [ ] Algorithms Week 8
+- [ ] Lab
+- [ ] Documentation
+
+</Details>
+
+<Details>
+<Summary> March </Summary>
+
+**Sprint#9** 2025-03-03
+
+- [ ] Python Week 9
+- [ ] Algorithms Week 9
+- [ ] Lab
+- [ ] Documentation
+
+**Sprint#10** 2025-03-10
+
+- [ ] Python Week 10
+- [ ] Algorithms Week 10
+- [ ] Lab
+- [ ] Documentation
+
+**Sprint#11** 2025-03-17
+
+- [ ] Python Week 11
+- [ ] Algorithms Week 11
+- [ ] Lab
+- [ ] Documentation
+
+**Sprint#12** 2025-03-24
+
+- [ ] Python Week 12
+- [ ] Algorithms Week 12
+- [ ] Lab
+- [ ] Documentation
+
+**Sprint#13** 2025-03-31
+
+- [ ] Python Week 13
+- [ ] Algorithms Week 13
+- [ ] Lab
+- [ ] Documentation
+
+</Details>
+
+<Details>
+<Summary> April </Summary>
+
+**Sprint#14** 2025-04-07
+
+- [ ] Python Week 14
+- [ ] Algorithms Week 14
+- [ ] Lab
+- [ ] Documentation
+
+</Details>
 
 
-- [AI and Data Scientist](https://roadmap.sh/ai-data-scientist){.external target='_blank'}
-
-Step by step guide to becoming an **AI Engineer** in 2024:
-
-
-- [AI Engineer](https://roadmap.sh/ai-engineer){.external target='_blank'}
+## Calendar
 
 ::: {.column-page-right}
+<Details>
+<Summary> Calendar </Summary>
+
 | # | Date | Title | Description | Tasks |
 |---|------|-------|-------------|--------|
 | 1 | 2024-01-06 | Python Basics 1/4 | Introduction to Python programming | Variables, data types |
@@ -103,4 +229,5 @@ Step by step guide to becoming an **AI Engineer** in 2024:
 | 29 | 2024-07-20 | Final Project 1/4 | Project planning | Requirements analysis |
 | 29 | 2024-07-20 | Final Project 2/4 | Implementation | Core development |
 | 29 | 2024-07-20 | Final Project 3/4 | Testing | System validation |
+</Details>
 :::
