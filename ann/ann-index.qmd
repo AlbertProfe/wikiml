@@ -1,5 +1,5 @@
 ---
-title: "Artificial Neural Networks"
+title: "ANN: Table of Contents"
 ---
 
 # Artificial Neural Networks (ANNs)
@@ -53,6 +53,10 @@ Training Process:
 - Forward Propagation
 - Loss Function Calculation
 - Backward Propagation (Backpropagation)
+
+## ANNs Mathematics
+
+- [Structure of Biological Neurons](/ann/ann-mathematical.qmd#structure-of-biological-neurons)
 
 ## Applications
 
