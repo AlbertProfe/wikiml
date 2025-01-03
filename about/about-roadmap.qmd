@@ -7,7 +7,9 @@ title: "Roadmap"
 - Step by step guide to becoming an **AI and Data Scientist** in 2024: [AI and Data Scientist](https://roadmap.sh/ai-data-scientist){.external target='_blank'}
 - Step by step guide to becoming an **AI Engineer** in 2024: [AI Engineer](https://roadmap.sh/ai-engineer){.external target='_blank'}
 
-## Tasks
+# Tasks 2025
+
+## Q1
 
 <Details>
 <Summary> January </Summary>
@@ -21,6 +23,7 @@ title: "Roadmap"
 - [X] Roadmap
 - [X] Tools: Linux, VCode, Accounts, Git, etc..
 - [ ] Py: TMC VCode
+- [ ] Py: VCode, Interpreter, env, Jupyter etc..
 
 **Sprint#1** 2025-01-06
 
@@ -28,6 +31,7 @@ title: "Roadmap"
 - [ ] Algorithms Week 1
 - [ ] Lab
 - [ ] Documentation
+- [ ] Core concept:
 
 **Sprint#2** 2025-01-13
 
@@ -35,6 +39,7 @@ title: "Roadmap"
 - [ ] Algorithms Week 2
 - [ ] Lab
 - [ ] Documentation
+- [ ] Core concept:
 
 **Sprint#3** 2025-01-20
 
@@ -42,6 +47,7 @@ title: "Roadmap"
 - [ ] Algorithms Week 3
 - [ ] Lab
 - [ ] Documentation
+- [ ] Core concept:
 
 **Sprint#4** 2025-01-27
 
@@ -49,6 +55,7 @@ title: "Roadmap"
 - [ ] Algorithms Week 4
 - [ ] Lab
 - [ ] Documentation
+- [ ] Core concept:
 
 </Details>
 
@@ -137,8 +144,20 @@ title: "Roadmap"
 
 </Details>
 
+## Q2
 
-## Calendar
+<Details>
+<Summary> April </Summary>
+
+**Sprint#0** 2025-04-14
+
+- [ ] Lab
+- [ ] Documentation
+- [ ] Core Concepts
+
+</Details>
+
+# Calendar
 
 ::: {.column-page-right}
 <Details>

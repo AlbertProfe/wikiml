@@ -183,11 +183,13 @@ else:
 
 ```
 
-> With nested conditional statements it is crucial to get the indentations right. **Indentations determine which branches are linked together**.
-> 
+> With **nested conditional statements** it is crucial to get the indentations right. **Indentations determine which branches are linked together**.
+>
 > For example, an if branch and an else branch with the same amount of whitespace are determined to be branches of the same conditional statement.
 
-The same result can often be achieved using either nested conditional statements or conditions combined with logical operators. The example below is functionally no different from the example above, in the sense that it will print out the exactly same things with the same inputs:
+The same result can often be achieved using either **nested conditional statements** or conditions combined with logical operators.
+
+The example below is functionally no different from the example above, in the sense that it will print out the exactly same things with the same inputs:
 
 
 ``` py
@@ -199,4 +201,41 @@ elif number > 0 and number % 2 != 0:
     print("The number is odd")
 else:
     print("The number is negative or zero")
+```
+
+
+## Loops
+
+We have now covered conditional structures in some detail. Another central technique in programming is repetition, or iteration. Together these form the fundamental control structures any programmer must master.
+
+> They are called control structures because essentially they allow you to control which lines of code get executed when. While conditional structures allow you to choose between sections of code, iteration structures allow you to repeat sections of code.
+
+They are often called `loops` because they allow the program to "loop back" to some line that was already executed before. The process of executing one repetition of a loop is also referred to as an iteration of the loop.
+
+
+``` py
+from math import sqrt
+# Write your solution here
+
+while True:
+    number = int(input("Please type in a number: "))
+    if number == 0:
+        break
+    elif number < 0:
+        print("Invalid number")
+    else:
+        print(sqrt(number))
+print("Exiting...")
+```
+
+Sample output
+```
+Please type in a number: 5
+2.23606797749979
+Please type in a number: 4
+2
+Please type in a number: -4
+Invalid number
+Please type in a number: 0
+Exiting...
 ```

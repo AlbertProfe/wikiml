@@ -16,6 +16,34 @@ There are no more live lectures for this year's MOOC instance. The lecture recor
 
 - [Lectures]([Getting started](https://programming-24.mooc.fi/#lecture)){.external target='_blank'}
 
+## VCode
+
+- [Installing VCode to Linux](https://www.mooc.fi/en/installation/vscode/){.external target='_blank'}
+
+**Installing Visual Studio Code**
+
+You can install *Visual Studio Code* with the following terminal command (works for Ubuntu):
+
+``` bash
+sudo apt-get install code
+```
+
+If this doesn't work, please consult the Visual Studio Code installation instructions at https://code.visualstudio.com/docs/setup/linux
+
+**Installing TestMyCode Extension**
+
+Installing *TestMyCode Extension for VS Code*
+
+1. Open Visual Studio Code by typing `code` in the terminal.
+1. At the left you can see icons, choose the `Extension view` (see picture point 1).
+1. Type `TestMyCode` in the search field (see picture point 2).
+1. Press the search result TestMyCode.
+1. Press "Install" (see picture point 3).
+
+The first initilization of the extension will download some necessary components (this will take a while).
+
+![Installing TestMyCode Extension for VS Code ](/images/python/download_extension.jpeg){.lightbox width=80% fig-align="center"}
+
 ## Links
 
 - [Python Programming MOOC 2024](https://programming-24.mooc.fi/){.external target='_blank'}
