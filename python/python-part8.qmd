@@ -2,6 +2,15 @@
 title: "Python Helsinki: 8"
 ---
 
-# Dictionaries
+# Advanced Course in Programming: Part 8
 
-**-** [Part 8: Dictionaries](https://programming-24.mooc.fi/part-8/1-dictionaries){.external target='_blank'}
+## Classes, Objects and methods
+
+- [Part 8](https://programming-24.mooc.fi/part-8/){.external target='_blank'}
+- [Part 1: Objects and methods](https://programming-24.mooc.fi/part-8/1-objects-and-methods){.external target='_blank'}
+- [Part 2: Classes and objects](https://programming-24.mooc.fi/part-8/2-classes-and-objects){.external target='_blank'}
+- [Part 3: Defining classes](https://programming-24.mooc.fi/part-8/3-defining-classes){.external target='_blank'}
+- [Part 4: Defining methods](https://programming-24.mooc.fi/part-8/4-defining-methods){.external target='_blank'}
+- [Part 5: More examples of classes](https://programming-24.mooc.fi/part-8/5-more-examples-of-classes){.external target='_blank'}
+
+# Some notes

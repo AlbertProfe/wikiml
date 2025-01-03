@@ -2,6 +2,15 @@
 title: "Python Helsinki: 10"
 ---
 
-# Object-Oriented Programming
+# Advanced Course in Programming: Part 10
 
-**-** [Part 10: Object-Oriented Programming](https://programming-24.mooc.fi/part-10/1-object-oriented-programming){.external target='_blank'}
+## Object-oriented programming techniques
+
+- [Part 10](https://programming-24.mooc.fi/part-10/){.external target='_blank'}
+- [Part 1: Class hierarchies](https://programming-24.mooc.fi/part-10/1-class-hierarchies){.external target='_blank'}
+- [Part 2: Access modifiers](https://programming-24.mooc.fi/part-10/2-access-modifiers){.external target='_blank'}
+- [Part 3: Object oriented programming techniques](https://programming-24.mooc.fi/part-10/3-object-oriented-programming-techniques){.external target='_blank'}
+
+
+# Some notes
+

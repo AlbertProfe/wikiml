@@ -2,6 +2,14 @@
 title: "Python Helsinki: 14"
 ---
 
-# GUI Programming
+# Advanced Course in Programming: Part 14
 
-**-** [Part 14: GUI Programming](https://programming-24.mooc.fi/part-14/1-gui-programming){.external target='_blank'}
+## Data processing
+
+- [Part 14](https://programming-24.mooc.fi/part-14/){.external target='_blank'}
+- [Part 1: Data processing with Python](https://programming-24.mooc.fi/part-14/1-data-processing-with-python){.external target='_blank'}
+- [Part 2: Visualizing data](https://programming-24.mooc.fi/part-14/2-visualizing-data){.external target='_blank'}
+- [Part 3: More PyQt](https://programming-24.mooc.fi/part-14/3-more-pyqt){.external target='_blank'}
+
+# Some notes
+

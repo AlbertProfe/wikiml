@@ -2,6 +2,15 @@
 title: "Python Helsinki: 12"
 ---
 
-# Libraries and Modules
+# Advanced Course in Programming: Part 12
 
-**-** [Part 12: Libraries and Modules](https://programming-24.mooc.fi/part-12/1-libraries-modules){.external target='_blank'}
+## Generators and iterators
+
+- [Part 12](https://programming-24.mooc.fi/part-12/){.external target='_blank'}
+- [Part 1: Functions as arguments](https://programming-24.mooc.fi/part-12/1-functions-as-arguments){.external target='_blank'}
+- [Part 2: Generators](https://programming-24.mooc.fi/part-12/2-generators){.external target='_blank'}
+- [Part 3: Functional programming](https://programming-24.mooc.fi/part-12/3-functional-programming){.external target='_blank'}
+
+
+# Some notes
+

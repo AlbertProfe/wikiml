@@ -2,6 +2,13 @@
 title: "Python Helsinki: 6"
 ---
 
-# File I/O and Strings
+# Introduction to Programming: Part 6
 
-**-** [Part 6: File I/O and Strings](https://programming-24.mooc.fi/part-6/1-file-io-strings){.external target='_blank'}
+## Reading and writing files
+
+- [Part 6](https://programming-24.mooc.fi/part-6/){.external target='_blank'}
+- [Part 1: Reading files](https://programming-24.mooc.fi/part-6/1-reading-files){.external target='_blank'}
+- [Part 2: Writing files](https://programming-24.mooc.fi/part-6/2-writing-files){.external target='_blank'}
+- [Part 3: Handling errors](https://programming-24.mooc.fi/part-6/3-handling-errors){.external target='_blank'}
+
+# Some notes

@@ -2,6 +2,14 @@
 title: "Python Helsinki: 7"
 ---
 
-# Tuples
+# Introduction to Programming: Part 7
 
-**-** [Part 7: Tuples](https://programming-24.mooc.fi/part-7/1-tuples){.external target='_blank'}
+# Modules
+
+- [Part 7](https://programming-24.mooc.fi/part-7/){.external target='_blank'}
+- [Part 1: Modules](https://programming-24.mooc.fi/part-7/1-modules){.external target='_blank'}
+- [Part 2: Randomness](https://programming-24.mooc.fi/part-7/2-randomness){.external target='_blank'}
+- [Part 3: Times and dates](https://programming-24.mooc.fi/part-7/3-times-and-dates){.external target='_blank'}
+- [Part 4: Data processing](https://programming-24.mooc.fi/part-7/4-data-processing){.external target='_blank'}
+
+# Some notes

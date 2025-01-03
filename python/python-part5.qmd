@@ -2,6 +2,18 @@
 title: "Python Helsinki: 5"
 ---
 
-# Lists
+# Introduction to Programming: Part 5
 
-**-** [Part 5: Lists](https://programming-24.mooc.fi/part-5/1-lists){.external target='_blank'}
+## Lists, References, Dictionary and Tuple
+
+# References
+
+- [Part 5](https://programming-24.mooc.fi/part-5/){.external target='_blank'}
+- [Part 1: More lists](https://programming-24.mooc.fi/part-5/1-more-lists){.external target='_blank'}
+- [Part 2: References](https://programming-24.mooc.fi/part-5/2-references){.external target='_blank'}
+- [Part 3: Dictionary](https://programming-24.mooc.fi/part-5/3-dictionary){.external target='_blank'}
+- [Part 4: Tuple](https://programming-24.mooc.fi/part-5/4-tuple){.external target='_blank'}
+
+# Some notes
+
+

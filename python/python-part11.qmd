@@ -2,6 +2,15 @@
 title: "Python Helsinki: 11"
 ---
 
-# Advanced Object-Oriented Programming
+# Advanced Course in Programming: Part 11
 
-**-** [Part 11: Advanced Object-Oriented Programming](https://programming-24.mooc.fi/part-11/1-advanced-oop){.external target='_blank'}
+## Exceptions
+
+- [Part 11](https://programming-24.mooc.fi/part-11/){.external target='_blank'}
+- [Part 1: Exceptions](https://programming-24.mooc.fi/part-11/1-exceptions){.external target='_blank'}
+- [Part 2: More about exceptions](https://programming-24.mooc.fi/part-11/2-more-about-exceptions){.external target='_blank'}
+- [Part 3: Recursion](https://programming-24.mooc.fi/part-11/3-recursion){.external target='_blank'}
+
+
+# Some notes
+

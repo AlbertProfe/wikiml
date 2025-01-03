@@ -2,6 +2,16 @@
 title: "Python Helsinki: 3"
 ---
 
-# More about variables
+# Introduction to Programming: Part 3
 
-**-** [Part 3: More about variables](https://programming-24.mooc.fi/part-3/1-more-about-variables){.external target='_blank'}
+## Loops
+
+- [Part 3](https://programming-24.mooc.fi/part-3/){.external target='_blank'}
+- [Part 1: Loops with conditions](https://programming-24.mooc.fi/part-3/1-loops-with-conditions){.external target='_blank'}
+- [Part 2: Working with strings](https://programming-24.mooc.fi/part-3/2-working-with-strings){.external target='_blank'}
+- [Part 3: More loops](https://programming-24.mooc.fi/part-3/3-more-loops){.external target='_blank'}
+- [Part 4: Defining functions](https://programming-24.mooc.fi/part-3/4-defining-functions){.external target='_blank'}
+
+
+# Some notes
+

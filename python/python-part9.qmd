@@ -2,6 +2,16 @@
 title: "Python Helsinki: 9"
 ---
 
-# Objects and Classes
+# Advanced Course in Programming: Part 9
 
-**-** [Part 9: Objects and Classes](https://programming-24.mooc.fi/part-9/1-objects-and-classes){.external target='_blank'}
+## Objects and references, Scope
+
+- [Part 9](https://programming-24.mooc.fi/part-9/){.external target='_blank'}
+- [Part 1: Objects and references](https://programming-24.mooc.fi/part-9/1-objects-and-references){.external target='_blank'}
+- [Part 2: Objects as attributes](https://programming-24.mooc.fi/part-9/2-objects-as-attributes){.external target='_blank'}
+- [Part 3: Encapsulation](https://programming-24.mooc.fi/part-9/3-encapsulation){.external target='_blank'}
+- [Part 4: Scope of methods](https://programming-24.mooc.fi/part-9/4-scope-of-methods){.external target='_blank'}
+
+
+# Some notes
+
