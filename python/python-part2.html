@@ -542,6 +542,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#alternative-branches-using-the-elif-statement" id="toc-alternative-branches-using-the-elif-statement" class="nav-link" data-scroll-target="#alternative-branches-using-the-elif-statement">Alternative branches using the elif statement</a></li>
   <li><a href="#conditions" id="toc-conditions" class="nav-link" data-scroll-target="#conditions">Conditions</a></li>
   <li><a href="#nested-conditionals" id="toc-nested-conditionals" class="nav-link" data-scroll-target="#nested-conditionals">Nested conditionals</a></li>
+  <li><a href="#loops" id="toc-loops" class="nav-link" data-scroll-target="#loops">Loops</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -744,10 +745,11 @@ Simplified combined conditions
 <span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
 <span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"The number is negative or zero"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <blockquote class="blockquote">
-<p>With nested conditional statements it is crucial to get the indentations right. <strong>Indentations determine which branches are linked together</strong>.</p>
+<p>With <strong>nested conditional statements</strong> it is crucial to get the indentations right. <strong>Indentations determine which branches are linked together</strong>.</p>
 <p>For example, an if branch and an else branch with the same amount of whitespace are determined to be branches of the same conditional statement.</p>
 </blockquote>
-<p>The same result can often be achieved using either nested conditional statements or conditions combined with logical operators. The example below is functionally no different from the example above, in the sense that it will print out the exactly same things with the same inputs:</p>
+<p>The same result can often be achieved using either <strong>nested conditional statements</strong> or conditions combined with logical operators.</p>
+<p>The example below is functionally no different from the example above, in the sense that it will print out the exactly same things with the same inputs:</p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode py code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>number <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">"Please type in a number: "</span>))</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> number <span class="op">&gt;</span> <span class="dv">0</span> <span class="kw">and</span> number <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span>:</span>
@@ -756,6 +758,35 @@ Simplified combined conditions
 <span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"The number is odd"</span>)</span>
 <span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
 <span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"The number is negative or zero"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="loops" class="level2">
+<h2 class="anchored" data-anchor-id="loops">Loops</h2>
+<p>We have now covered conditional structures in some detail. Another central technique in programming is repetition, or iteration. Together these form the fundamental control structures any programmer must master.</p>
+<blockquote class="blockquote">
+<p>They are called control structures because essentially they allow you to control which lines of code get executed when. While conditional structures allow you to choose between sections of code, iteration structures allow you to repeat sections of code.</p>
+</blockquote>
+<p>They are often called <code>loops</code> because they allow the program to “loop back” to some line that was already executed before. The process of executing one repetition of a loop is also referred to as an iteration of the loop.</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode py code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> math <span class="im">import</span> sqrt</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Write your solution here</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="va">True</span>:</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    number <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">"Please type in a number: "</span>))</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> number <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">break</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> number <span class="op">&lt;</span> <span class="dv">0</span>:</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"Invalid number"</span>)</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(sqrt(number))</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Exiting..."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Sample output</p>
+<pre><code>Please type in a number: 5
+2.23606797749979
+Please type in a number: 4
+2
+Please type in a number: -4
+Invalid number
+Please type in a number: 0
+Exiting...</code></pre>
 
 
 </section>
