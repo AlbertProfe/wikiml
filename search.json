@@ -313,7 +313,7 @@
     "href": "python/python-part1.html",
     "title": "Python Helsinki: 1",
     "section": "",
-    "text": "Getting started\n- Part 1: Getting started\n\n\n\n\n Back to top",
+    "text": "Part 1\nPart 1: Getting started\nPart 2: Information from the user\nPart 3: More about variables\nPart 4: Arithmetic operations\nPart 5: Conditional statements",
     "crumbs": [
       "Python Programming",
       "Python Helsinki: 1"
@@ -324,7 +324,7 @@
     "href": "python/python-part14.html",
     "title": "Python Helsinki: 14",
     "section": "",
-    "text": "GUI Programming\n- Part 14: GUI Programming\n\n\n\n\n Back to top",
+    "text": "Part 14\nPart 1: Data processing with Python\nPart 2: Visualizing data\nPart 3: More PyQt",
     "crumbs": [
       "Python Programming",
       "Python Helsinki: 14"
@@ -335,7 +335,7 @@
     "href": "python/python-part2.html",
     "title": "Python Helsinki: 2",
     "section": "",
-    "text": "Programming terminology\n- Part 2: Programming terminology\n\n\n\n\n Back to top",
+    "text": "Part 2\nPart 1: Programming terminology\nPart 2: More conditionals\nPart 3: Combining conditions\nPart 4: Simple loops",
     "crumbs": [
       "Python Programming",
       "Python Helsinki: 2"
@@ -346,7 +346,7 @@
     "href": "python/python-part10.html",
     "title": "Python Helsinki: 10",
     "section": "",
-    "text": "Object-Oriented Programming\n- Part 10: Object-Oriented Programming\n\n\n\n\n Back to top",
+    "text": "Part 10\nPart 1: Class hierarchies\nPart 2: Access modifiers\nPart 3: Object oriented programming techniques",
     "crumbs": [
       "Python Programming",
       "Python Helsinki: 10"
@@ -412,7 +412,7 @@
     "href": "python/python-part4.html",
     "title": "Python Helsinki: 4",
     "section": "",
-    "text": "Functions\n- Part 4: Functions\n\n\n\n\n Back to top",
+    "text": "Part 4\nPart 1: The Visual Studio Code editor, Python interpreter and built-in debugging tool\nPart 2: More functions\nPart 3: Lists\nPart 4: Definite iteration\nPart 5: Print statement formatting\nPart 6: More strings and lists",
     "crumbs": [
       "Python Programming",
       "Python Helsinki: 4"
@@ -463,7 +463,7 @@
     "href": "python/python-part13.html",
     "title": "Python Helsinki: 13",
     "section": "",
-    "text": "Data Processing\n- Part 13: Data Processing\n\n\n\n\n Back to top",
+    "text": "Part 13\nPart 1: Regular expressions\nPart 2: More regular expressions\nPart 3: More SQL",
     "crumbs": [
       "Python Programming",
       "Python Helsinki: 13"
@@ -474,7 +474,7 @@
     "href": "python/python-part3.html",
     "title": "Python Helsinki: 3",
     "section": "",
-    "text": "More about variables\n- Part 3: More about variables\n\n\n\n\n Back to top",
+    "text": "Part 3\nPart 1: Loops with conditions\nPart 2: Working with strings\nPart 3: More loops\nPart 4: Defining functions",
     "crumbs": [
       "Python Programming",
       "Python Helsinki: 3"
@@ -485,7 +485,7 @@
     "href": "python/python-part9.html",
     "title": "Python Helsinki: 9",
     "section": "",
-    "text": "Objects and Classes\n- Part 9: Objects and Classes\n\n\n\n\n Back to top",
+    "text": "Part 9\nPart 1: Objects and references\nPart 2: Objects as attributes\nPart 3: Encapsulation\nPart 4: Scope of methods",
     "crumbs": [
       "Python Programming",
       "Python Helsinki: 9"
@@ -496,7 +496,7 @@
     "href": "python/python-part6.html",
     "title": "Python Helsinki: 6",
     "section": "",
-    "text": "File I/O and Strings\n- Part 6: File I/O and Strings\n\n\n\n\n Back to top",
+    "text": "Part 6\nPart 1: Reading files\nPart 2: Writing files\nPart 3: Handling errors",
     "crumbs": [
       "Python Programming",
       "Python Helsinki: 6"
@@ -507,7 +507,7 @@
     "href": "python/python-part12.html",
     "title": "Python Helsinki: 12",
     "section": "",
-    "text": "Libraries and Modules\n- Part 12: Libraries and Modules\n\n\n\n\n Back to top",
+    "text": "Part 12\nPart 1: Functions as arguments\nPart 2: Generators\nPart 3: Functional programming",
     "crumbs": [
       "Python Programming",
       "Python Helsinki: 12"
@@ -518,7 +518,7 @@
     "href": "python/python-part8.html",
     "title": "Python Helsinki: 8",
     "section": "",
-    "text": "Dictionaries\n- Part 8: Dictionaries\n\n\n\n\n Back to top",
+    "text": "Part 8\nPart 1: Objects and methods\nPart 2: Classes and objects\nPart 3: Defining classes\nPart 4: Defining methods\nPart 5: More examples of classes",
     "crumbs": [
       "Python Programming",
       "Python Helsinki: 8"
@@ -529,7 +529,7 @@
     "href": "python/python-part7.html",
     "title": "Python Helsinki: 7",
     "section": "",
-    "text": "Tuples\n- Part 7: Tuples\n\n\n\n\n Back to top",
+    "text": "Introduction to Programming: Part 7\n\n\nModules\n\nPart 7\nPart 1: Modules\nPart 2: Randomness\nPart 3: Times and dates\nPart 4: Data processing\n\n\n\nSome notes\n\n\n\n\n Back to top",
     "crumbs": [
       "Python Programming",
       "Python Helsinki: 7"
@@ -540,7 +540,7 @@
     "href": "python/python-part11.html",
     "title": "Python Helsinki: 11",
     "section": "",
-    "text": "Advanced Object-Oriented Programming\n- Part 11: Advanced Object-Oriented Programming\n\n\n\n\n Back to top",
+    "text": "Part 11\nPart 1: Exceptions\nPart 2: More about exceptions\nPart 3: Recursion",
     "crumbs": [
       "Python Programming",
       "Python Helsinki: 11"
@@ -745,7 +745,7 @@
     "href": "about/about-roadmap.html#tasks",
     "title": "Roadmap",
     "section": "Tasks",
-    "text": "Tasks\n\n\nJanuary\n\nSprint#0 2024-30-12\n\nDocumentation\nRoadmap\nTools: Linux, VCode, Accounts, Git, etc..\n\nSprint#1 2025-01-06\n\nPython Week 1\nAlgorithms Week 1\nLab\nDocumentation\n\nSprint#2 2025-01-13\n\nPython Week 2\nAlgorithms Week 2\nLab\nDocumentation\n\nSprint#3 2025-01-20\n\nPython Week 3\nAlgorithms Week 3\nLab\nDocumentation\n\nSprint#4 2025-01-27\n\nPython Week 4\nAlgorithms Week 4\nLab\nDocumentation\n\n\n\n\nFebruary\n\nSprint#5 2025-02-03\n\nPython Week 5\nAlgorithms Week 5\nLab\nDocumentation\n\nSprint#6 2025-02-10\n\nPython Week 6\nAlgorithms Week 6\nLab\nDocumentation\n\nSprint#7 2025-02-17\n\nPython Week 7\nAlgorithms Week 7\nLab\nDocumentation\n\nSprint#8 2025-02-24\n\nPython Week 8\nAlgorithms Week 8\nLab\nDocumentation\n\n\n\n\nMarch\n\nSprint#9 2025-03-03\n\nPython Week 9\nAlgorithms Week 9\nLab\nDocumentation\n\nSprint#10 2025-03-10\n\nPython Week 10\nAlgorithms Week 10\nLab\nDocumentation\n\nSprint#11 2025-03-17\n\nPython Week 11\nAlgorithms Week 11\nLab\nDocumentation\n\nSprint#12 2025-03-24\n\nPython Week 12\nAlgorithms Week 12\nLab\nDocumentation\n\nSprint#13 2025-03-31\n\nPython Week 13\nAlgorithms Week 13\nLab\nDocumentation\n\n\n\n\nApril\n\nSprint#14 2025-04-07\n\nPython Week 14\nAlgorithms Week 14\nLab\nDocumentation",
+    "text": "Tasks\n\n\nJanuary\n\nSprint#0 2024-30-12\n\nDocumentation: Quarto web\nDomain web\nPlanning Python\nPlaning Algorithms\nRoadmap\nTools: Linux, VCode, Accounts, Git, etc..\nPy: TMC VCode\n\nSprint#1 2025-01-06\n\nPython Week 1\nAlgorithms Week 1\nLab\nDocumentation\n\nSprint#2 2025-01-13\n\nPython Week 2\nAlgorithms Week 2\nLab\nDocumentation\n\nSprint#3 2025-01-20\n\nPython Week 3\nAlgorithms Week 3\nLab\nDocumentation\n\nSprint#4 2025-01-27\n\nPython Week 4\nAlgorithms Week 4\nLab\nDocumentation\n\n\n\n\nFebruary\n\nSprint#5 2025-02-03\n\nPython Week 5\nAlgorithms Week 5\nLab\nDocumentation\n\nSprint#6 2025-02-10\n\nPython Week 6\nAlgorithms Week 6\nLab\nDocumentation\n\nSprint#7 2025-02-17\n\nPython Week 7\nAlgorithms Week 7\nLab\nDocumentation\n\nSprint#8 2025-02-24\n\nPython Week 8\nAlgorithms Week 8\nLab\nDocumentation\n\n\n\n\nMarch\n\nSprint#9 2025-03-03\n\nPython Week 9\nAlgorithms Week 9\nLab\nDocumentation\n\nSprint#10 2025-03-10\n\nPython Week 10\nAlgorithms Week 10\nLab\nDocumentation\n\nSprint#11 2025-03-17\n\nPython Week 11\nAlgorithms Week 11\nLab\nDocumentation\n\nSprint#12 2025-03-24\n\nPython Week 12\nAlgorithms Week 12\nLab\nDocumentation\n\nSprint#13 2025-03-31\n\nPython Week 13\nAlgorithms Week 13\nLab\nDocumentation\n\n\n\n\nApril\n\nSprint#14 2025-04-07\n\nPython Week 14\nAlgorithms Week 14\nLab\nDocumentation",
     "crumbs": [
       "About",
       "Roadmap"
@@ -760,6 +760,391 @@
     "crumbs": [
       "About",
       "Roadmap"
+    ]
+  },
+  {
+    "objectID": "python/python-part1.html#getting-started-exercises",
+    "href": "python/python-part1.html#getting-started-exercises",
+    "title": "Python Helsinki: 1",
+    "section": "Getting Started Exercises",
+    "text": "Getting Started Exercises\n\nProgramming exercise: Emoticon\nProgramming exercise: Fix the code: Seven Brothers\nProgramming exercise: Row, Row, Row Your Boat\nProgramming exercise: Minutes in a year\nProgramming exercise: Print some code",
+    "crumbs": [
+      "Python Programming",
+      "Python Helsinki: 1"
+    ]
+  },
+  {
+    "objectID": "python/python-part1.html#information-from-the-user-exercises",
+    "href": "python/python-part1.html#information-from-the-user-exercises",
+    "title": "Python Helsinki: 1",
+    "section": "Information from the User Exercises",
+    "text": "Information from the User Exercises\n\nProgramming exercise: Name twice\nProgramming exercise: Name and exclamation marks\nProgramming exercise: Name and address\nProgramming exercise: Fix the code: Utterances\nProgramming exercise: Story",
+    "crumbs": [
+      "Python Programming",
+      "Python Helsinki: 1"
+    ]
+  },
+  {
+    "objectID": "python/python-part1.html#more-about-variables-exercises",
+    "href": "python/python-part1.html#more-about-variables-exercises",
+    "title": "Python Helsinki: 1",
+    "section": "More About Variables Exercises",
+    "text": "More About Variables Exercises\n\nProgramming exercise: Extra space\nProgramming exercise: Arithmetics\nProgramming exercise: Fix the code: Print a single line\nProgramming exercise: Times five\nProgramming exercise: Name and age",
+    "crumbs": [
+      "Python Programming",
+      "Python Helsinki: 1"
+    ]
+  },
+  {
+    "objectID": "python/python-part1.html#arithmetic-operations-exercises",
+    "href": "python/python-part1.html#arithmetic-operations-exercises",
+    "title": "Python Helsinki: 1",
+    "section": "Arithmetic Operations Exercises",
+    "text": "Arithmetic Operations Exercises\n\nProgramming exercise: Sum of two numbers\nProgramming exercise: Sum and product\nProgramming exercise: Food expenditure\nProgramming exercise: Students in groups",
+    "crumbs": [
+      "Python Programming",
+      "Python Helsinki: 1"
+    ]
+  },
+  {
+    "objectID": "python/python-part1.html#conditional-statements-exercises",
+    "href": "python/python-part1.html#conditional-statements-exercises",
+    "title": "Python Helsinki: 1",
+    "section": "Conditional Statements Exercises",
+    "text": "Conditional Statements Exercises\n\nProgramming exercise: Orwell\nProgramming exercise: Absolute value\nProgramming exercise: Soup or no soup\nProgramming exercise: Calculator\nProgramming exercise: Daily wages\nProgramming exercise: Temperatures\nProgramming exercise: Age check\nProgramming exercise: Loyalty bonus\nProgramming exercise: What to wear tomorrow",
+    "crumbs": [
+      "Python Programming",
+      "Python Helsinki: 1"
+    ]
+  },
+  {
+    "objectID": "python/python-part1.html#printing-with-f-strings",
+    "href": "python/python-part1.html#printing-with-f-strings",
+    "title": "Python Helsinki: 1",
+    "section": "Printing with f-strings",
+    "text": "Printing with f-strings\nWhat if we want to have more flexibility and control over what we print out? So called f-strings are another way of formatting printouts in Python. The syntax can initially look a bit confusing, but in the end f-strings are often the simplest way of formatting text.\nWith f-strings the previous example would look like this:\nresult = 10 * 25\nprint(f\"The result is {result}\")\nLet’s break this apart. In the very beginning of the string we are printing out there is the character f. This tells Python that what follows is an f-string. Within the string, enclosed in curly brackets, is the variable name result. The value it contains becomes a part of the printed string. The printout is exactly the same as in the previous examples:\nSample output\nThe result is 250",
+    "crumbs": [
+      "Python Programming",
+      "Python Helsinki: 1"
+    ]
+  },
+  {
+    "objectID": "python/python-part1.html#numbers-as-input",
+    "href": "python/python-part1.html#numbers-as-input",
+    "title": "Python Helsinki: 1",
+    "section": "Numbers as input",
+    "text": "Numbers as input\nUsually you do not need to create two separate variables (like input_str and year above) to read a number value from the user. Instead, reading the input with the input function and converting it with the int function can be achieved in one go.\nSimilarly, a string can be converted into a floating point number with the function float. This programs asks the user for their height and weight, and uses these to calculate their BMI:\nyear = int(input(\"Which year were you born? \"))\nprint(f\"Your age at the end of the year 2021: {2021 - year}\" )\n\nheight = float(input(\"What is your height? \"))\nweight = float(input(\"What is your weight? \"))\n\nheight = height / 100\nbmi = weight / height ** 2\n\nprint(f\"The BMI is {bmi}\")\nSample output\nWhich year were you born? 1995\nYour age at the end of the year 2021: 26\n\nWhat is your height? 163\nWhat is your weight? 74.45\nThe BMI is 28.02137829801649",
+    "crumbs": [
+      "Python Programming",
+      "Python Helsinki: 1"
+    ]
+  },
+  {
+    "objectID": "python/python-part1.html#conditional-statements",
+    "href": "python/python-part1.html#conditional-statements",
+    "title": "Python Helsinki: 1",
+    "section": "Conditional statements",
+    "text": "Conditional statements\n\n\n\n\n\n\nIndentation\n\n\n\nPython recognises that a block of code is part of a conditional statement if each line of code in the block is indented the same. That is, there should be a bit of whitespace at the beginning of every line of code within the code block. Each line should have the same amount of whitespace.\n\n\na = 3\ncondition = a &lt; 5\nprint(condition)\nif condition:\n    print(\"a is less than 5\")\nSample output\nTrue\na is less than 5\npoints = int(input(\"How many points are on your card? \"))\nif points &lt; 100:\n    points *= 1.1\n    print(\"Your bonus is 10 %\")\n\nelif points &gt;= 100:\n    points *= 1.15\n    print(\"Your bonus is 15 %\")\n\nprint(\"You now have\", points, \"points\")\nSample output\nHow many points are on your card? 55\nYour bonus is 10 %\nYou now have 60.5 points",
+    "crumbs": [
+      "Python Programming",
+      "Python Helsinki: 1"
+    ]
+  },
+  {
+    "objectID": "python/python-part1.html#variables-and-conditionals",
+    "href": "python/python-part1.html#variables-and-conditionals",
+    "title": "Python Helsinki: 1",
+    "section": "",
+    "text": "Part 1\nPart 1: Getting started\nPart 2: Information from the user\nPart 3: More about variables\nPart 4: Arithmetic operations\nPart 5: Conditional statements",
+    "crumbs": [
+      "Python Programming",
+      "Python Helsinki: 1"
+    ]
+  },
+  {
+    "objectID": "python/python-part1.html#commenting",
+    "href": "python/python-part1.html#commenting",
+    "title": "Python Helsinki: 1",
+    "section": "Commenting",
+    "text": "Commenting\nAny line beginning with the pound sign #, also known as a hash or a number sign, is a comment. This means that any text on that line following the # symbol will not in any way affect how the program functions. Python will simply ignore it.\nComments are used for explaining how a program works, to both the programmer themselves, and others reading the program code. In this program a comment explains the calculation performed in the code:\nprint(\"Hours in a year:\")\n# there are 365 days in a year and 24 hours in each day\nprint(365*24)\n\n\n\n\n\n\nChoosing a good name for a variable\n\n\n\nIt is often useful to name variables according to what they are used for.\n\nFor example, if the variable contains a word, the name word is a better choice than, say, a.\n\nThere is no set limit to the length of a variable name in Python, but there are some other limitations. A variable name should begin with a letter, and it can only contain letters, numbers and underscores _.\nLowercase and uppercase letters are different characters. The variables name, Name and NAME are all different variables. While this rule has a few exceptions, we will ignore those for now.\nIt is a common programming practice in Python to use only lowercase characters in variable names. If the variable name consists of multiple words, use an underscore between the words. While this rule also has a few exceptions, we will ignore those for now.",
+    "crumbs": [
+      "Python Programming",
+      "Python Helsinki: 1"
+    ]
+  },
+  {
+    "objectID": "python/python-part2.html#more-conditionals-and-loops",
+    "href": "python/python-part2.html#more-conditionals-and-loops",
+    "title": "Python Helsinki: 2",
+    "section": "",
+    "text": "Part 2\nPart 1: Programming terminology\nPart 2: More conditionals\nPart 3: Combining conditions\nPart 4: Simple loops",
+    "crumbs": [
+      "Python Programming",
+      "Python Helsinki: 2"
+    ]
+  },
+  {
+    "objectID": "python/python-part2.html#statement",
+    "href": "python/python-part2.html#statement",
+    "title": "Python Helsinki: 2",
+    "section": "Statement",
+    "text": "Statement\nA statement is a part of the program which executes something. It often, but not always, refers to a single command.\nFor example, print(“Hi!”) is a statement which prints out a line of text. Likewise, number = 2 is a statement which assigns a value to a variable.\nA statement can also be more complicated. It can, for instance, contain other statements. The following statement spans three lines:\nif name == \"Anna\":\n    print(\"Hi!\")\n    number = 2\nIn the above case there are two statements (a print statement and an assignment statement) within a conditional statement.",
+    "crumbs": [
+      "Python Programming",
+      "Python Helsinki: 2"
+    ]
+  },
+  {
+    "objectID": "python/python-part2.html#block",
+    "href": "python/python-part2.html#block",
+    "title": "Python Helsinki: 2",
+    "section": "Block",
+    "text": "Block\nA block is a group of consecutive statements that are at the same level in the structure of the program. For example, the block of a conditional statement contains those sta\nif age &gt; 17:\n    # beginning of the conditional block\n    print(\"You are of age!\")\n    age = age + 1\n    print(\"You are now one year older...\")\n    # end of the conditional block\n\nprint(\"This here belongs to another block\")\nIn Python blocks are expressed by indenting all code in the block by the same amount of whitespace.\n\nNB: the main block of a Python program must always be at the leftmost edge of the file, without indentation:\n\n# this program will not work because it is not written at the leftmost egde of the file\n  print(\"hello world\")\n  print(\"this program is not very good...\")",
+    "crumbs": [
+      "Python Programming",
+      "Python Helsinki: 2"
+    ]
+  },
+  {
+    "objectID": "python/python-part2.html#expression",
+    "href": "python/python-part2.html#expression",
+    "title": "Python Helsinki: 2",
+    "section": "Expression",
+    "text": "Expression\nAn expression is a bit of code that results in a determined data type. When the program is executed, the expression is evaluated so that it has a value that can then be used in the program.\nHere are a few examples of expressions:\n\n\n\nExpression\nValue\nType\nPython data type\n\n\n\n\n2 + 4 + 3\n9\ninteger\nint\n\n\n“abc” + “de”\n“abcde”\nstring\nstr\n\n\n11 / 2\n5.5\nfloating point number\nfloat\n\n\n2 * 5 &gt; 9\nTrue\nBoolean value\nbool\n\n\n\nBecause all expressions have a type, they can be assigned to variables:\n# the variable x is assigned the value of the expression 1 + 2\nx = 1 + 2\nSimple expressions can be assembled together to form more complicated expressions, for example with arithmetic operations:\n# the variable y is assigned the value of the expression '3 times x plus x squared'\ny = 3 * x + x**2",
+    "crumbs": [
+      "Python Programming",
+      "Python Helsinki: 2"
+    ]
+  },
+  {
+    "objectID": "python/python-part2.html#function",
+    "href": "python/python-part2.html#function",
+    "title": "Python Helsinki: 2",
+    "section": "Function",
+    "text": "Function\n\nA function executes some functionality. Functions can also take one or more arguments, which are data that can be fed to and processed by the function. Arguments are sometimes also referred to as parameters. There is a technical distinction between an argument and a parameter, but the words are often used interchangeably. For now it should suffice to remember that both terms refer to the idea of some data passed to the function.\n\nA function is executed when it is called. That is, when the function (and its arguments, if any) is mentioned in the code. The following statement calls the print function with the argument “this is an argument”:\nprint(\"this is an argument\")\nAnother function you’ve already used often is the input function, which asks the user for input. The argument of this function is the message that is shown to the user:\nname = input(\"Please type in your name: \")\nIn this case the function also returns a value. After the function has been executed, the section of code where it was called is replaced by the value it returns; it is another expression that has now been evaluated. The function input returns a string value containing whatever the user typed in at the prompt. The value a function returns is often stored in a variable so that it can be used in the program later on.",
+    "crumbs": [
+      "Python Programming",
+      "Python Helsinki: 2"
+    ]
+  },
+  {
+    "objectID": "python/python-part2.html#data-type",
+    "href": "python/python-part2.html#data-type",
+    "title": "Python Helsinki: 2",
+    "section": "Data type",
+    "text": "Data type\nData type refers to the characteristics of any value present in the program. In the following bit of code the data type of the variable name is string or str, and the data type of the variable result is integer or int:\nname = \"Anna\"\nresult = 100\nYou can use the function type to find out the data type of any expression. An example of its use:\nprint(type(\"Anna\"))\nprint(type(100))\nSample output\n&lt;class 'str'&gt;\n&lt;class 'int'&gt;",
+    "crumbs": [
+      "Python Programming",
+      "Python Helsinki: 2"
+    ]
+  },
+  {
+    "objectID": "python/python-part3.html#loops",
+    "href": "python/python-part3.html#loops",
+    "title": "Python Helsinki: 3",
+    "section": "",
+    "text": "Part 3\nPart 1: Loops with conditions\nPart 2: Working with strings\nPart 3: More loops\nPart 4: Defining functions",
+    "crumbs": [
+      "Python Programming",
+      "Python Helsinki: 3"
+    ]
+  },
+  {
+    "objectID": "python/python-part4.html#lists-and-strings",
+    "href": "python/python-part4.html#lists-and-strings",
+    "title": "Python Helsinki: 4",
+    "section": "",
+    "text": "Part 4\nPart 1: The Visual Studio Code editor, Python interpreter and built-in debugging tool\nPart 2: More functions\nPart 3: Lists\nPart 4: Definite iteration\nPart 5: Print statement formatting\nPart 6: More strings and lists",
+    "crumbs": [
+      "Python Programming",
+      "Python Helsinki: 4"
+    ]
+  },
+  {
+    "objectID": "python/python-part6.html#reading-and-writing-files",
+    "href": "python/python-part6.html#reading-and-writing-files",
+    "title": "Python Helsinki: 6",
+    "section": "",
+    "text": "Part 6\nPart 1: Reading files\nPart 2: Writing files\nPart 3: Handling errors",
+    "crumbs": [
+      "Python Programming",
+      "Python Helsinki: 6"
+    ]
+  },
+  {
+    "objectID": "python/python-part8.html#classes-objects-and-methods",
+    "href": "python/python-part8.html#classes-objects-and-methods",
+    "title": "Python Helsinki: 8",
+    "section": "",
+    "text": "Part 8\nPart 1: Objects and methods\nPart 2: Classes and objects\nPart 3: Defining classes\nPart 4: Defining methods\nPart 5: More examples of classes",
+    "crumbs": [
+      "Python Programming",
+      "Python Helsinki: 8"
+    ]
+  },
+  {
+    "objectID": "python/python-part9.html#objects-and-references",
+    "href": "python/python-part9.html#objects-and-references",
+    "title": "Python Helsinki: 9",
+    "section": "",
+    "text": "Part 9\nPart 1: Objects and references\nPart 2: Objects as attributes\nPart 3: Encapsulation\nPart 4: Scope of methods",
+    "crumbs": [
+      "Python Programming",
+      "Python Helsinki: 9"
+    ]
+  },
+  {
+    "objectID": "python/python-part9.html#objects-and-references-scope",
+    "href": "python/python-part9.html#objects-and-references-scope",
+    "title": "Python Helsinki: 9",
+    "section": "",
+    "text": "Part 9\nPart 1: Objects and references\nPart 2: Objects as attributes\nPart 3: Encapsulation\nPart 4: Scope of methods",
+    "crumbs": [
+      "Python Programming",
+      "Python Helsinki: 9"
+    ]
+  },
+  {
+    "objectID": "python/python-part11.html#classes-objects-and-methods",
+    "href": "python/python-part11.html#classes-objects-and-methods",
+    "title": "Python Helsinki: 11",
+    "section": "",
+    "text": "Part 8\nPart 1: Objects and methods\nPart 2: Classes and objects\nPart 3: Defining classes\nPart 4: Defining methods\nPart 5: More examples of classes",
+    "crumbs": [
+      "Python Programming",
+      "Python Helsinki: 11"
+    ]
+  },
+  {
+    "objectID": "python/python-part12.html#classes-objects-and-methods",
+    "href": "python/python-part12.html#classes-objects-and-methods",
+    "title": "Python Helsinki: 12",
+    "section": "",
+    "text": "Part 8\nPart 1: Objects and methods\nPart 2: Classes and objects\nPart 3: Defining classes\nPart 4: Defining methods\nPart 5: More examples of classes",
+    "crumbs": [
+      "Python Programming",
+      "Python Helsinki: 12"
+    ]
+  },
+  {
+    "objectID": "python/python-part13.html#classes-objects-and-methods",
+    "href": "python/python-part13.html#classes-objects-and-methods",
+    "title": "Python Helsinki: 13",
+    "section": "",
+    "text": "Part 8\nPart 1: Objects and methods\nPart 2: Classes and objects\nPart 3: Defining classes\nPart 4: Defining methods\nPart 5: More examples of classes",
+    "crumbs": [
+      "Python Programming",
+      "Python Helsinki: 13"
+    ]
+  },
+  {
+    "objectID": "python/python-part14.html#classes-objects-and-methods",
+    "href": "python/python-part14.html#classes-objects-and-methods",
+    "title": "Python Helsinki: 14",
+    "section": "",
+    "text": "Part 8\nPart 1: Objects and methods\nPart 2: Classes and objects\nPart 3: Defining classes\nPart 4: Defining methods\nPart 5: More examples of classes",
+    "crumbs": [
+      "Python Programming",
+      "Python Helsinki: 14"
+    ]
+  },
+  {
+    "objectID": "python/python-part10.html#classes-objects-and-methods",
+    "href": "python/python-part10.html#classes-objects-and-methods",
+    "title": "Python Helsinki: 10",
+    "section": "",
+    "text": "Part 8\nPart 1: Objects and methods\nPart 2: Classes and objects\nPart 3: Defining classes\nPart 4: Defining methods\nPart 5: More examples of classes",
+    "crumbs": [
+      "Python Programming",
+      "Python Helsinki: 10"
+    ]
+  },
+  {
+    "objectID": "python/python-part10.html#object-oriented-programming-techniques",
+    "href": "python/python-part10.html#object-oriented-programming-techniques",
+    "title": "Python Helsinki: 10",
+    "section": "",
+    "text": "Part 10\nPart 1: Class hierarchies\nPart 2: Access modifiers\nPart 3: Object oriented programming techniques",
+    "crumbs": [
+      "Python Programming",
+      "Python Helsinki: 10"
+    ]
+  },
+  {
+    "objectID": "python/python-part11.html#exceptions",
+    "href": "python/python-part11.html#exceptions",
+    "title": "Python Helsinki: 11",
+    "section": "",
+    "text": "Part 11\nPart 1: Exceptions\nPart 2: More about exceptions\nPart 3: Recursion",
+    "crumbs": [
+      "Python Programming",
+      "Python Helsinki: 11"
+    ]
+  },
+  {
+    "objectID": "python/python-part12.html#generators-and-iterators",
+    "href": "python/python-part12.html#generators-and-iterators",
+    "title": "Python Helsinki: 12",
+    "section": "",
+    "text": "Part 12\nPart 1: Functions as arguments\nPart 2: Generators\nPart 3: Functional programming",
+    "crumbs": [
+      "Python Programming",
+      "Python Helsinki: 12"
+    ]
+  },
+  {
+    "objectID": "python/python-part13.html#regular-expressions",
+    "href": "python/python-part13.html#regular-expressions",
+    "title": "Python Helsinki: 13",
+    "section": "",
+    "text": "Part 13\nPart 1: Regular expressions\nPart 2: More regular expressions\nPart 3: More SQL",
+    "crumbs": [
+      "Python Programming",
+      "Python Helsinki: 13"
+    ]
+  },
+  {
+    "objectID": "python/python-part14.html#data-processing",
+    "href": "python/python-part14.html#data-processing",
+    "title": "Python Helsinki: 14",
+    "section": "",
+    "text": "Part 14\nPart 1: Data processing with Python\nPart 2: Visualizing data\nPart 3: More PyQt",
+    "crumbs": [
+      "Python Programming",
+      "Python Helsinki: 14"
+    ]
+  },
+  {
+    "objectID": "python/python-part2.html#alternative-branches-using-the-elif-statement",
+    "href": "python/python-part2.html#alternative-branches-using-the-elif-statement",
+    "title": "Python Helsinki: 2",
+    "section": "Alternative branches using the elif statement",
+    "text": "Alternative branches using the elif statement\nOften there are more than two options the program should account for. For example, the result of a football match could go three ways: home wins, away wins, or there is a tie.\nA conditional statement can be added to with an elif branch. It is short for the words “else if”, which means the branch will contain an alternative to the original condition.\n\nImportantly, an elif statement is executed only if none of the preceding branches is executed.\n\n\n\n\n\n\n\n\nconditional statement can be added to with an elif branch\n\n\nLet’s have a look at a program which determines the winner of a match:\ngoals_home = int(input(\"Home goals scored: \"))\ngoals_away = int(input(\"Away goals scored: \"))\n\nif goals_home &gt; goals_away:\n    print(\"The home team won!\")\nelif goals_away &gt; goals_home:\n    print(\"The away team won!\")\nelse:\n    print(\"It's a tie!\")",
+    "crumbs": [
+      "Python Programming",
+      "Python Helsinki: 2"
+    ]
+  },
+  {
+    "objectID": "python/python-part2.html#conditions",
+    "href": "python/python-part2.html#conditions",
+    "title": "Python Helsinki: 2",
+    "section": "Conditions",
+    "text": "Conditions\n\n\n\n\n\n\nSimplified combined conditions\n\n\n\nThe condition x &gt;= a and x &lt;= b is a very common way of checking whether the number x falls within the range of a to b.\nAn expression with this structure works the same way in most programming languages.\nPython also allows a simplified notation for combining conditions:\na &lt;= x &lt;= b\nachieves the same result as the longer version using and.\nThis shorter notation might be more familiar from mathematics, but it is not very widely used in Python programming, possibly because very few other programming languages have a similar shorthand.",
+    "crumbs": [
+      "Python Programming",
+      "Python Helsinki: 2"
+    ]
+  },
+  {
+    "objectID": "python/python-part2.html#nested-conditionals",
+    "href": "python/python-part2.html#nested-conditionals",
+    "title": "Python Helsinki: 2",
+    "section": "Nested conditionals",
+    "text": "Nested conditionals\nConditional statements can also be nested within other conditional statements. For example, the following program checks whether a number is above zero, and then whether it is odd or even:\nnumber = int(input(\"Please type in a number: \"))\n\nif number &gt; 0:\n    if number % 2 == 0:\n        print(\"The number is even\")\n    else:\n        print(\"The number is odd\")\nelse:\n    print(\"The number is negative or zero\")\n\nWith nested conditional statements it is crucial to get the indentations right. Indentations determine which branches are linked together.\nFor example, an if branch and an else branch with the same amount of whitespace are determined to be branches of the same conditional statement.\n\nThe same result can often be achieved using either nested conditional statements or conditions combined with logical operators. The example below is functionally no different from the example above, in the sense that it will print out the exactly same things with the same inputs:\nnumber = int(input(\"Please type in a number: \"))\n\nif number &gt; 0 and number % 2 == 0:\n    print(\"The number is even\")\nelif number &gt; 0 and number % 2 != 0:\n    print(\"The number is odd\")\nelse:\n    print(\"The number is negative or zero\")",
+    "crumbs": [
+      "Python Programming",
+      "Python Helsinki: 2"
     ]
   }
 ]
