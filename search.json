@@ -1212,5 +1212,93 @@
       "About",
       "Roadmap"
     ]
+  },
+  {
+    "objectID": "python/python-part3.html#writing-conditions",
+    "href": "python/python-part3.html#writing-conditions",
+    "title": "Python Helsinki: 3",
+    "section": "Writing conditions",
+    "text": "Writing conditions\nAny Boolean expression or combination thereof is a valid condition in a loop. For example, the following program prints out every third number, but only as long as the number is less than 100 and not divisible by 5:\nnumber = int(input(\"Please type in a number: \"))\n\nwhile number &lt; 100 and number % 5 != 0:\n    print(number)\n    number += 3\nTwo examples of the program's execution with different inputs:\nSample output\nPlease type in a number: 28\n28\n31\n34\n37\nSample output\nPlease type in a number: 96\n96\n99",
+    "crumbs": [
+      "Python Programming",
+      "Python Helsinki: 3"
+    ]
+  },
+  {
+    "objectID": "python/python-part3.html#debugging",
+    "href": "python/python-part3.html#debugging",
+    "title": "Python Helsinki: 3",
+    "section": "Debugging",
+    "text": "Debugging\n\nPython Tutor helps you do programming homework assignments in Python, Java, C, C++, and JavaScript. It contains a step-by-step visual debugger and AI tutor to help you understand and debug code.\n\n\nOnline Compiler, AI Tutor, and Visual Debugger for Python, Java, C, C++, and JavaScript\nPython Tutor: Visualize Code and Get AI Help for Python, JavaScript, C, C++, and Java",
+    "crumbs": [
+      "Python Programming",
+      "Python Helsinki: 3"
+    ]
+  },
+  {
+    "objectID": "python/python-part3.html#building-strings",
+    "href": "python/python-part3.html#building-strings",
+    "title": "Python Helsinki: 3",
+    "section": "Building strings",
+    "text": "Building strings\nThe += operator allows us to write this a little more compactly, this also applies to f-strings, which may come in handy if values stored in variables are needed as parts of the resulting string. For example this would work:\ncourse = \"Introduction to Programming\"\ngrade = 4\n\nverdict = \"You have received \"\nverdict += f\"the grade {grade} \"\nverdict += f\"from the course {course}\"\n\nprint(verdict)\nSample output\nYou have received the grade 4 from the course Introduction to Programming",
+    "crumbs": [
+      "Python Programming",
+      "Python Helsinki: 3"
+    ]
+  },
+  {
+    "objectID": "python/python-part3.html#string",
+    "href": "python/python-part3.html#string",
+    "title": "Python Helsinki: 3",
+    "section": "String",
+    "text": "String\nThe * operator can also be used with a string, when the other operand is an integer.\nThe string operand is then repeated the number of times specified by the integer. For example this would work:\nword = \"banana\"\nprint(word*3)\nSample output\nbananabananabanana\n\nAs strings are essentially sequences of characters, any single character in a string can also be retrieved. The operator [] finds the character with the index specified within the brackets.\n\nThe index refers to a position in the string, counting up from zero. The first character in the string has index 0, the second character has index 1, and so forth.\n\n\n\n\n\n\n\nThe index refers to a position in the string\n\n\nFor example, this program\ninput_string = input(\"Please type in a string: \")\nprint(input_string[0])\nprint(input_string[1])\nprint(input_string[3])\nwould print out this:\nSample output\nPlease type in a string: monkey\nm\no\nk\n\nIndexError: string index out of range\nIf you tried the above examples for yourself, you may already have come across the error message IndexError: string index out of range.\n\nThis error appears if you try to access an index which is not present in the string.\n\ninput_string = input(\"Please type in a string: \")\nprint(\"The tenth character: \" + input_string[9])\nSample output\nPlease type in a string: introduction to programming\nThe tenth character: i\nSample output\nPlease type in a string: python\n\nTraceback (most recent call last):\nFile \"\", line 1, in \nIndexError: string index out of range",
+    "crumbs": [
+      "Python Programming",
+      "Python Helsinki: 3"
+    ]
+  },
+  {
+    "objectID": "python/python-part3.html#substrings-and-slices",
+    "href": "python/python-part3.html#substrings-and-slices",
+    "title": "Python Helsinki: 3",
+    "section": "Substrings and slices",
+    "text": "Substrings and slices\n\nA substring of a string is a sequence of characters that forms a part of the string.\nFor example, the string example contains the substrings exam, amp and ple, among others.\n\nIn Python programming, the process of selecting substrings is usually called slicing, and a substring is often referred to as a slice of the string. The two terms can often be used interchangeably.\nIf you know the beginning and end indexes of the slice you wish to extract, you can do so with the notation [a:b]. This means the slice begins at the index a and ends at the last character before index b - that is, including the first, but excluding the last.\nYou can think of the indexes as separator lines drawn on the left side of the indexed character, as illustrated in the image below:\n\n\n\n\n\n\n\nYou can think of the indexes as separator lines drawn on the left side of the indexed character\n\n\nLet’s have a closer look at some sliced strings:\ninput_string = \"presumptious\"\n\nprint(input_string[0:3])\nprint(input_string[4:10])\n\n# if the beginning index is left out, it defaults to 0\nprint(input_string[:3])\n\n# if the end index is left out, it defaults to the length of the string\nprint(input_string[4:])\nSample output\npre\numptio\npre\numptious\n\n\n\n\n\n\nHalf open intervals\n\n\n\nIn Python string processing the interval [a:b] is half open, which in this case means that the character at the beginning index a is included in the interval, but the character at the end index b is left out.\nWhy is that?\nThere is no profound reason for this feature. Rather it is a convention inherited from other programming languages.\nHalf open intervals may feel unintuitive, but in practice they do have some advantages. For example, you can easily calculate the length of a slice with b-a. On the other hand, you must always remember that the character at the end index b will not be included in the slice.",
+    "crumbs": [
+      "Python Programming",
+      "Python Helsinki: 3"
+    ]
+  },
+  {
+    "objectID": "python/python-part3.html#searching-for-substrings",
+    "href": "python/python-part3.html#searching-for-substrings",
+    "title": "Python Helsinki: 3",
+    "section": "Searching for substrings",
+    "text": "Searching for substrings\nThe in operator can tell us if a string contains a particular substring.\n\nThe Boolean expression a in b is true, if b contains the substring a.\n\nThe operator in returns a Boolean value, so it will only tell us if a substring exists in a string, but it will not be useful in finding out where exactly it is.\nInstead, the Python string method find can be used for this purpose.\n\nIt takes the substring searched for as an argument, and returns either the first index where it is found, or -1 if the substring is not found within the string.\n\nThe image below illustrates how it is used:",
+    "crumbs": [
+      "Python Programming",
+      "Python Helsinki: 3"
+    ]
+  },
+  {
+    "objectID": "python/python-part3.html#the-continue-command",
+    "href": "python/python-part3.html#the-continue-command",
+    "title": "Python Helsinki: 3",
+    "section": "The continue command",
+    "text": "The continue command\nAnother way to change the way a loop is executed is the continue command. It causes the execution of the loop to jump straight to the beginning of the loop, where the condition of the loop is. Then the execution continues normally with checking the condition:\n\n\n\n\n\n\nMore helper variables with loops\nExample\nsentence = input('Please type in a sentence: ')\n\nwords = sentence.split(' ')\nfor word in words:\n    print(word[0])\nSample output\nPlease type in a sentence: Love Python a lot\nL\nP\na\nl",
+    "crumbs": [
+      "Python Programming",
+      "Python Helsinki: 3"
+    ]
+  },
+  {
+    "objectID": "python/python-part3.html#the-function-definition",
+    "href": "python/python-part3.html#the-function-definition",
+    "title": "Python Helsinki: 3",
+    "section": "The function definition",
+    "text": "The function definition\nBefore a function can be used, it must be defined. Any function definition begins with the keyword def, short for define. Then comes the name of the function, followed by parentheses and a colon character. This is called the header of the function. After this, indented just like while and if blocks, comes the body of the function.\nFor example, the following code defines the function message:\ndef message():\n    print(\"This is my very own function!\")",
+    "crumbs": [
+      "Python Programming",
+      "Python Helsinki: 3"
+    ]
   }
 ]
