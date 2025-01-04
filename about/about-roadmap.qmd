@@ -43,7 +43,7 @@ title: "Roadmap"
 
 **Sprint#3** 2025-01-20
 
-- [ ] Python Week 3
+- [X] Python Week 3
 - [ ] Algorithms Week 3
 - [ ] Lab
 - [ ] Documentation
@@ -51,7 +51,7 @@ title: "Roadmap"
 
 **Sprint#4** 2025-01-27
 
-- [ ] Python Week 4
+- [X] Python Week 4
 - [ ] Algorithms Week 4
 - [ ] Lab
 - [ ] Documentation
