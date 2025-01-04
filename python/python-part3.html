@@ -547,6 +547,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#more-helper-variables-with-loops" id="toc-more-helper-variables-with-loops" class="nav-link" data-scroll-target="#more-helper-variables-with-loops">More helper variables with loops</a></li>
   </ul></li>
+  <li><a href="#else-without-if" id="toc-else-without-if" class="nav-link" data-scroll-target="#else-without-if">Else without if</a></li>
   <li><a href="#the-function-definition" id="toc-the-function-definition" class="nav-link" data-scroll-target="#the-function-definition">The function definition</a></li>
   </ul></li>
   </ul>
@@ -779,12 +780,41 @@ a
 l</code></pre>
 </section>
 </section>
+<section id="else-without-if" class="level2">
+<h2 class="anchored" data-anchor-id="else-without-if">Else without if</h2>
+<p>In Python, <strong>a <code>while</code> loop can have an <code>else</code> block without an <code>if</code> statement</strong>. This structure is unique to Python and can be useful in certain scenarios. Here’s an example:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode py code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>count <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> count <span class="op">&lt;</span> <span class="dv">5</span>:</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Count: </span><span class="sc">{</span>count<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>    count <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Loop completed successfully"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<blockquote class="blockquote">
+<p>In this example, the while loop executes as long as the condition <code>count &lt; 5</code> is <code>true</code>.</p>
+<p>The loop body increments the count and prints its value.</p>
+<p>Once the condition becomes <code>false</code> (<em>when count reaches 5</em>), the <strong>else block is executed.</strong></p>
+</blockquote>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The else block in a while loop runs if the loop completes normally, without encountering a break statement.</p>
+<p>It’s particularly useful for scenarios where you want to perform an action after a loop finishes its normal execution, such as in search algorithms or when you need to confirm that a loop has completed without interruption</p>
+</div>
+</div>
+</section>
 <section id="the-function-definition" class="level2">
 <h2 class="anchored" data-anchor-id="the-function-definition">The function definition</h2>
 <p>Before a function can be used, it must be defined. Any function definition begins with the keyword def, short for define. Then comes the name of the function, followed by parentheses and a colon character. This is called the header of the function. After this, indented just like while and if blocks, comes the body of the function.</p>
 <p>For example, the following code defines the function message:</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode py code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> message():</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"This is my very own function!"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode py code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> message():</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"This is my very own function!"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
 </section>

@@ -1300,5 +1300,16 @@
       "Python Programming",
       "Python Helsinki: 3"
     ]
+  },
+  {
+    "objectID": "python/python-part3.html#else-without-if",
+    "href": "python/python-part3.html#else-without-if",
+    "title": "Python Helsinki: 3",
+    "section": "Else without if",
+    "text": "Else without if\nIn Python, a while loop can have an else block without an if statement. This structure is unique to Python and can be useful in certain scenarios. Here’s an example:\ncount = 0\nwhile count &lt; 5:\n    print(f\"Count: {count}\")\n    count += 1\nelse:\n    print(\"Loop completed successfully\")\n\nIn this example, the while loop executes as long as the condition count &lt; 5 is true.\nThe loop body increments the count and prints its value.\nOnce the condition becomes false (when count reaches 5), the else block is executed.\n\n\n\n\n\n\n\nNote\n\n\n\nThe else block in a while loop runs if the loop completes normally, without encountering a break statement.\nIt’s particularly useful for scenarios where you want to perform an action after a loop finishes its normal execution, such as in search algorithms or when you need to confirm that a loop has completed without interruption",
+    "crumbs": [
+      "Python Programming",
+      "Python Helsinki: 3"
+    ]
   }
 ]
