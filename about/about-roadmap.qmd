@@ -22,8 +22,9 @@ title: "Roadmap"
 - [ ] Planing Algorithms
 - [X] Roadmap
 - [X] Tools: Linux, VCode, Accounts, Git, etc..
-- [ ] Py: TMC VCode
-- [ ] Py: VCode, Interpreter, env, Jupyter etc..
+- [X] Py: TMC VCode, download exercises part 4, send
+- [X] Py: VCode, Interpreter, env, Jupyter etc..
+- [X] Core concept: AI vs Machine/Deep Learning and ANN: backpropagation
 
 **Sprint#1** 2025-01-06
 
