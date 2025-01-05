@@ -495,7 +495,10 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#lists-and-strings" id="toc-lists-and-strings" class="nav-link" data-scroll-target="#lists-and-strings">Lists and Strings</a></li>
   </ul></li>
-  <li><a href="#some-notes" id="toc-some-notes" class="nav-link" data-scroll-target="#some-notes">Some notes</a></li>
+  <li><a href="#some-notes" id="toc-some-notes" class="nav-link" data-scroll-target="#some-notes">Some notes</a>
+  <ul>
+  <li><a href="#formal-vs-actual-parameter-vs-argument" id="toc-formal-vs-actual-parameter-vs-argument" class="nav-link" data-scroll-target="#formal-vs-actual-parameter-vs-argument">Formal vs actual, parameter vs argument</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -527,7 +530,7 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="lists-and-strings">Lists and Strings</h2>
 <ul>
 <li><a href="https://programming-24.mooc.fi/part-4/" class="external" target="_blank">Part 4</a></li>
-<li><a href="https://programming-24.mooc.fi/part-4/1-vscode-python-revisited" class="external" target="_blank">Part 1: The Visual Studio Code editor, Python interpreter and built-in debugging tool</a></li>
+<li><a href="https://programming-24.mooc.fi/part-4/1-vscode" class="external" target="_blank">Part 1: The Visual Studio Code editor, Python interpreter and built-in debugging tool</a></li>
 <li><a href="https://programming-24.mooc.fi/part-4/2-more-functions" class="external" target="_blank">Part 2: More functions</a></li>
 <li><a href="https://programming-24.mooc.fi/part-4/3-lists" class="external" target="_blank">Part 3: Lists</a></li>
 <li><a href="https://programming-24.mooc.fi/part-4/4-definite-iteration" class="external" target="_blank">Part 4: Definite iteration</a></li>
@@ -538,8 +541,19 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="some-notes" class="level1">
 <h1>Some notes</h1>
+<section id="formal-vs-actual-parameter-vs-argument" class="level2">
+<h2 class="anchored" data-anchor-id="formal-vs-actual-parameter-vs-argument">Formal vs actual, parameter vs argument</h2>
+<blockquote class="blockquote">
+<p>The terminology around data passed to functions can feel confusing. To make matters worse, some sources refer to what we have called parameters and arguments as formal and actual parameters. Other sources call them formal and actual arguments. The Python documentation specifies only the terms argument and parameter, so that is what we will use as well.</p>
+</blockquote>
+<p>What actually happens when the function call <code>greet("Emily")</code> is executed?</p>
+<p>In the function definition <code>greet(name)</code> the <strong>parameter</strong> name behaves for all intents and purposes just like a normal variable. We can use it within the function just like we have used variables in the many main functions in our programs thus far.</p>
+<p>In the function call <code>greet("Emily")</code> the argument <strong>“Emily”</strong> is just like any other string we have come across before. For example, we can assign it to a variable.</p>
+<p>So, when the function call is executed, the value of the argument, <strong>“Emily”</strong>, <mark>is assigned to the parameter variable name. For the duration of this execution of the function, <strong>name = “Emily”</strong>. When the function is called with a different argument, the value of name will be different. </mark></p>
+<p>This terminology may all seem a bit superfluous, but computer science as a discipline does aim to be as exact a science as possible. Using well defined terminology helps.</p>
 
 
+</section>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->

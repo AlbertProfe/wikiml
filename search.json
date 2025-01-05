@@ -1196,7 +1196,7 @@
     "href": "about/about-roadmap.html#q1",
     "title": "Roadmap",
     "section": "Q1",
-    "text": "Q1\n\n\nJanuary\n\nSprint#0 2024-30-12\n\nDocumentation: Quarto web\nDomain web\nPlanning Python\nPlaning Algorithms\nRoadmap\nTools: Linux, VCode, Accounts, Git, etc..\nPy: TMC VCode\nPy: VCode, Interpreter, env, Jupyter etc..\n\nSprint#1 2025-01-06\n\nPython Week 1\nAlgorithms Week 1\nLab\nDocumentation\nCore concept:\n\nSprint#2 2025-01-13\n\nPython Week 2\nAlgorithms Week 2\nLab\nDocumentation\nCore concept:\n\nSprint#3 2025-01-20\n\nPython Week 3\nAlgorithms Week 3\nLab\nDocumentation\nCore concept:\n\nSprint#4 2025-01-27\n\nPython Week 4\nAlgorithms Week 4\nLab\nDocumentation\nCore concept:\n\n\n\n\nFebruary\n\nSprint#5 2025-02-03\n\nPython Week 5\nAlgorithms Week 5\nLab\nDocumentation\n\nSprint#6 2025-02-10\n\nPython Week 6\nAlgorithms Week 6\nLab\nDocumentation\n\nSprint#7 2025-02-17\n\nPython Week 7\nAlgorithms Week 7\nLab\nDocumentation\n\nSprint#8 2025-02-24\n\nPython Week 8\nAlgorithms Week 8\nLab\nDocumentation\n\n\n\n\nMarch\n\nSprint#9 2025-03-03\n\nPython Week 9\nAlgorithms Week 9\nLab\nDocumentation\n\nSprint#10 2025-03-10\n\nPython Week 10\nAlgorithms Week 10\nLab\nDocumentation\n\nSprint#11 2025-03-17\n\nPython Week 11\nAlgorithms Week 11\nLab\nDocumentation\n\nSprint#12 2025-03-24\n\nPython Week 12\nAlgorithms Week 12\nLab\nDocumentation\n\nSprint#13 2025-03-31\n\nPython Week 13\nAlgorithms Week 13\nLab\nDocumentation\n\n\n\n\nApril\n\nSprint#14 2025-04-07\n\nPython Week 14\nAlgorithms Week 14\nLab\nDocumentation",
+    "text": "Q1\n\n\nJanuary\n\nSprint#0 2024-30-12\n\nDocumentation: Quarto web\nDomain web\nPlanning Python\nPlaning Algorithms\nRoadmap\nTools: Linux, VCode, Accounts, Git, etc..\nPy: TMC VCode, download exercises part 4, send\nPy: VCode, Interpreter, env, Jupyter etc..\nCore concept: AI vs Machine/Deep Learning and ANN: backpropagation\n\nSprint#1 2025-01-06\n\nPython Week 1\nAlgorithms Week 1\nLab\nDocumentation\nCore concept:\n\nSprint#2 2025-01-13\n\nPython Week 2\nAlgorithms Week 2\nLab\nDocumentation\nCore concept:\n\nSprint#3 2025-01-20\n\nPython Week 3\nAlgorithms Week 3\nLab\nDocumentation\nCore concept:\n\nSprint#4 2025-01-27\n\nPython Week 4\nAlgorithms Week 4\nLab\nDocumentation\nCore concept:\n\n\n\n\nFebruary\n\nSprint#5 2025-02-03\n\nPython Week 5\nAlgorithms Week 5\nLab\nDocumentation\n\nSprint#6 2025-02-10\n\nPython Week 6\nAlgorithms Week 6\nLab\nDocumentation\n\nSprint#7 2025-02-17\n\nPython Week 7\nAlgorithms Week 7\nLab\nDocumentation\n\nSprint#8 2025-02-24\n\nPython Week 8\nAlgorithms Week 8\nLab\nDocumentation\n\n\n\n\nMarch\n\nSprint#9 2025-03-03\n\nPython Week 9\nAlgorithms Week 9\nLab\nDocumentation\n\nSprint#10 2025-03-10\n\nPython Week 10\nAlgorithms Week 10\nLab\nDocumentation\n\nSprint#11 2025-03-17\n\nPython Week 11\nAlgorithms Week 11\nLab\nDocumentation\n\nSprint#12 2025-03-24\n\nPython Week 12\nAlgorithms Week 12\nLab\nDocumentation\n\nSprint#13 2025-03-31\n\nPython Week 13\nAlgorithms Week 13\nLab\nDocumentation\n\n\n\n\nApril\n\nSprint#14 2025-04-07\n\nPython Week 14\nAlgorithms Week 14\nLab\nDocumentation",
     "crumbs": [
       "About",
       "Roadmap"
@@ -1310,6 +1310,17 @@
     "crumbs": [
       "Python Programming",
       "Python Helsinki: 3"
+    ]
+  },
+  {
+    "objectID": "python/python-part4.html#formal-vs-actual-parameter-vs-argument",
+    "href": "python/python-part4.html#formal-vs-actual-parameter-vs-argument",
+    "title": "Python Helsinki: 4",
+    "section": "Formal vs actual, parameter vs argument",
+    "text": "Formal vs actual, parameter vs argument\n\nThe terminology around data passed to functions can feel confusing. To make matters worse, some sources refer to what we have called parameters and arguments as formal and actual parameters. Other sources call them formal and actual arguments. The Python documentation specifies only the terms argument and parameter, so that is what we will use as well.\n\nWhat actually happens when the function call greet(\"Emily\") is executed?\nIn the function definition greet(name) the parameter name behaves for all intents and purposes just like a normal variable. We can use it within the function just like we have used variables in the many main functions in our programs thus far.\nIn the function call greet(\"Emily\") the argument “Emily” is just like any other string we have come across before. For example, we can assign it to a variable.\nSo, when the function call is executed, the value of the argument, “Emily”, is assigned to the parameter variable name. For the duration of this execution of the function, name = “Emily”. When the function is called with a different argument, the value of name will be different. \nThis terminology may all seem a bit superfluous, but computer science as a discipline does aim to be as exact a science as possible. Using well defined terminology helps.",
+    "crumbs": [
+      "Python Programming",
+      "Python Helsinki: 4"
     ]
   }
 ]
