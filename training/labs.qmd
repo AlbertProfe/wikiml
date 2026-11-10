@@ -1,0 +1,11 @@
+---
+title: "Training: Labs"
+---
+
+# Labs for this section
+
+Training labs belong to a live course edition — numbered classroom work tied to a sprint — the same idea as on [albertprofe.dev](https://albertprofe.dev){.external target="_blank"}.
+
+There is no live AI course on this wiki yet, so there are no Training labs to list. The exact lab numbering for the ML wiki is still open.
+
+When a course exists, this page will point at those labs rather than hiding them only inside a course folder.

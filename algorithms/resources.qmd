@@ -1,0 +1,7 @@
+---
+title: "Classic ML: Resources"
+---
+
+# Resources for this section
+
+A dedicated reading list for classic algorithms is not written yet. Start from the [algorithms overview](algo-index.qmd) and the site-wide [Resources](/resources/resources-index.qmd) list.

@@ -1,7 +1,19 @@
 ---
-title: "Generative AI GPT"
+title: "GPT"
 ---
 
-This is a Quarto website.
+::: {.callout-note}
+This page is in progress. It replaces the old Quarto starter placeholder (“This is a Quarto website”).
+:::
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+# What this page will be
+
+A short page on GPT as a specific kind of large language model: generative, pre-trained, transformer. It should sit next to the [LLM](generative-llm.qmd) page and the [Transformer](generative-transformer.qmd) page, not repeat them.
+
+The name already appears in the comparison table on the [Generative AI overview](generative-index.qmd).
+
+# Not written yet
+
+- What “pre-trained” and “generative” each contribute to the name
+- Decoder-only models, in one picture
+- How this family relates to the broader LLM page

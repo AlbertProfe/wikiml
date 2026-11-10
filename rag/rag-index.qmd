@@ -1,0 +1,29 @@
+---
+title: "RAG and agents"
+---
+
+::: {.callout-note}
+This section is in progress. RAG is named in the [Generative AI overview](/generative/generative-index.qmd) and has a child page that is still an outline. There is no agents article yet.
+:::
+
+# Why this section exists
+
+A frozen language model only knows what it was trained on. Retrieval-Augmented Generation (RAG) is one way to give it fresh, inspectable context: retrieve, then generate. Agents add a loop — tools, memory, and a next step — on top of that.
+
+I am not starting with a hedge-fund fantasy. The first honest pages here should be a small pipeline a student can follow.
+
+# Already here
+
+- [Generative AI RAG](/generative/generative-rag.qmd) — a short outline of what that page will become (it used to be the Quarto starter text).
+- A January 2025 bookmark, [Lab#RAG001](/labs/labs-index.qmd), points at an external agents write-up. That is a link list, not a classroom lab.
+
+# Coming next
+
+- Why a frozen model is not enough.
+- Embeddings and retrieval, in plain language.
+- One honest retrieve → augment → generate diagram.
+- A first agents page: tools, memory, the loop.
+
+# Labs and resources
+
+See [Labs](labs.qmd) and [Resources](resources.qmd) for this section.

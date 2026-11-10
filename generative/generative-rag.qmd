@@ -1,7 +1,19 @@
 ---
-title: "Generative AI RAG"
+title: "RAG"
 ---
 
-This is a Quarto website.
+::: {.callout-note}
+This page is in progress. It replaces the old Quarto starter placeholder (“This is a Quarto website”).
+:::
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+# What this page will be
+
+A teaching page on Retrieval-Augmented Generation: why a frozen model is not enough, what embeddings are for, and the loop retrieve → augment → generate. One honest pipeline, not a product demo.
+
+RAG is already named in the comparison table on the [Generative AI overview](generative-index.qmd). This page now lives under the [RAG and agents](/rag/rag-index.qmd) section; its URL stays here so old links do not break.
+
+# Not written yet
+
+- A single running example
+- A diagram of retrieve, augment, generate
+- Where agents begin (tools, memory, the next step) — that will be a sibling page, not this one

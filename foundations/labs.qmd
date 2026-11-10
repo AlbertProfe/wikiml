@@ -1,0 +1,11 @@
+---
+title: "Foundations: Labs"
+---
+
+# Labs for this section
+
+Classroom labs for Foundations are not written yet. When they appear they will be step-by-step wiki pages, in the same spirit as the labs on [albertprofe.dev](https://albertprofe.dev){.external target="_blank"}. The exact numbering is still open.
+
+The Helsinki MOOC itself has exercises on [programming-24.mooc.fi](https://programming-24.mooc.fi){.external target="_blank"}; my [Python notes](/python/python-index.qmd) are companions to that course, not a replacement for its labs.
+
+A site-wide list of annotated external exercises from January 2025 still lives at the [labs index](/labs/labs-index.qmd).

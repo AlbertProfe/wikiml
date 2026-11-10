@@ -1,0 +1,26 @@
+---
+title: "AI for developers"
+---
+
+::: {.callout-note}
+This section is in progress. There are no articles here yet — only this outline, plus Labs and Resources placeholders.
+:::
+
+# Why this section exists
+
+Using a model inside a real program is a different skill from explaining how the model works. This section is for that developer view: calling a model, giving it context, checking what came back, and keeping the rest of the application honest.
+
+# What will live here
+
+Pages I intend to write, not pages that exist today:
+
+- Calling a model from code (APIs, not magic).
+- Prompting as a specification, and where it stops being enough.
+- Structured output, tools, and failure modes.
+- How this section will point at [RAG and agents](/rag/rag-index.qmd) and at [MLOps](/mlops/mlops-index.qmd) without duplicating them.
+
+Nothing above is written yet.
+
+# Labs and resources
+
+See [Labs](labs.qmd) and [Resources](resources.qmd) for this section.

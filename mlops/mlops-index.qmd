@@ -1,0 +1,26 @@
+---
+title: "MLOps"
+---
+
+::: {.callout-note}
+This section is in progress. There are no MLOps articles here yet — only this outline, plus Labs and Resources placeholders.
+:::
+
+# Why this section exists
+
+A notebook that trains once on a laptop is not a system. MLOps is the unglamorous half: how the code is structured, how a run is repeated, how a model is evaluated after training, and how serving differs from training.
+
+# What will live here
+
+Pages I intend to write, not pages that exist today:
+
+- How to structure ML code (the [labs index](/labs/labs-index.qmd) already bookmarks an external note on this; it should become a real page).
+- Train versus serve.
+- Evaluation in the loop, pointing at [Model evaluation](/evaluation/evaluation-index.qmd).
+- Versioning of data, code and models, in plain language.
+
+Nothing above is written yet.
+
+# Labs and resources
+
+See [Labs](labs.qmd) and [Resources](resources.qmd) for this section.

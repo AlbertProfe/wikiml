@@ -6,21 +6,18 @@ website:
   favicon: /images/home/favicon.ico
   page-navigation: true
   back-to-top-navigation: true
-  repo-url: https://github.com/Albertprofe/wikiml
-  #repo-actions: [edit, issue]
+  repo-url: https://github.com/AlbertProfe/wikiml
   repo-branch: master
   repo-link-target: '_blank'
 
   page-footer:
     background: secondary
-    left: "[Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/)" 
+    left: "[Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/)"
     center: "Attention is all you need"
     right:
       - icon: github
         href: https://github.com/AlbertProfe/
-      - icon: twitter
-        href: https://twitter.com/
-  
+
   navbar:
     background: secondary
     style: "floating"
@@ -28,97 +25,37 @@ website:
     right:
       - href: index.qmd
         text: Home
-      - sidebar:algorithms
-      - sidebar:ann
-      - sidebar:bigdata
-      - sidebar:machinelearning
+      - sidebar:foundations
+      - sidebar:data
+      - sidebar:classicml
+      - sidebar:evaluation
       - sidebar:deeplearning
-      - sidebar:generative
-      - sidebar:python
-      - sidebar:labs
-      - sidebar:resources
-      - sidebar:about
+      - sidebar:llms
+      - sidebar:rag
+      - sidebar:aidev
+      - sidebar:mlops
+      - sidebar:training
 
   sidebar:
-    - id: "algorithms"
-      title: "Algorithms"
+    - id: "foundations"
+      title: "Foundations"
       border: true
       collapse-level: 1
       background: light
       search: true
       style: "floating"
       contents:
-        - text: "Algorithms"
+        - text: "Foundations"
         - text: "---"
-        - section: "What is Algorithms?"
+        - section: "What is this section?"
           contents:
-            - algorithms/algo-index.qmd
+            - foundations/foundations-index.qmd
         - text: "---"
-        - section: "Algorithm Types"
-          contents:
-            - algorithms/algo-linear-regression.qmd
-            - algorithms/algo-logistic-regression.qmd
-            - algorithms/algo-naive-bayes.qmd
-            - algorithms/algo-support-vector-machines.qmd
-            - algorithms/algo-decision-tree.qmd
-            - algorithms/algo-k-nearest-neighbor.qmd
-            - algorithms/algo-random-forest.qmd
-            - algorithms/algo-gradient-boosting.qmd
-            - algorithms/algo-k-means.qmd
-
-    - id: "ann"
-      title: "ANN"
-      contents:
-        - text: "ANN"
-        - text: "---"
-        - section: "What is ANN?"
-          contents:
-            - ann/ann-index.qmd
-            - ann/ann-introduction.qmd
-            - ann/ann-mathematical.qmd
-
-    - id: "bigdata"
-      title: "Big Data"
-      contents:
-        - text: "Big Data"
-        - text: "---"
-        - section: "What is Big Data?"
-          contents:
-            - bigdata/bigdata-index.qmd
-
-    - id: "deeplearning"
-      title: "Deep Learning"
-      contents:
-        - text: "Deep Learning"
-        - text: "---"
-        - section: "Introduction to Deep Learning"
-          contents:
-            - deep/deep-index.qmd
-
-    - id: "labs"
-      title: "Labs"
-      contents:
-        - text: "Labs"
-        - text: "---"
-        - section: "Lab Exercises"
-          contents:
-            - labs/labs-index.qmd
-
-    - id: "machinelearning"
-      title: "Machine Learning"
-      contents:
-        - text: "Machine Learning"
-        - text: "---"
-        - section: "Machine Learning Basics"
+        - section: "Machine Learning"
           contents:
             - machine/machine-index.qmd
-
-    - id: "python"
-      title: "Python"
-      contents:
-        - text: "Python"
         - text: "---"
-        - section: "Python Programming"
+        - section: "Python (Helsinki MOOC 2024)"
           contents:
             - python/python-index.qmd
             - python/python-part1.qmd
@@ -135,55 +72,206 @@ website:
             - python/python-part12.qmd
             - python/python-part13.qmd
             - python/python-part14.qmd
+        - text: "---"
+        - section: "Labs"
+          contents:
+            - foundations/labs.qmd
+        - text: "---"
+        - section: "Resources"
+          contents:
+            - foundations/resources.qmd
 
-    - id: "generative"
-      title: "Generative AI"
+    - id: "data"
+      title: "Data"
       contents:
+        - text: "Data"
+        - text: "---"
+        - section: "What is this section?"
+          contents:
+            - bigdata/bigdata-index.qmd
+        - text: "---"
+        - section: "Labs"
+          contents:
+            - bigdata/labs.qmd
+        - text: "---"
+        - section: "Resources"
+          contents:
+            - bigdata/resources.qmd
+
+    - id: "classicml"
+      title: "Classic ML"
+      contents:
+        - text: "Classic ML"
+        - text: "---"
+        - section: "What is Classic ML?"
+          contents:
+            - algorithms/algo-index.qmd
+        - text: "---"
+        - section: "Algorithm Types"
+          contents:
+            - algorithms/algo-linear-regression.qmd
+            - algorithms/algo-logistic-regression.qmd
+            - algorithms/algo-naive-bayes.qmd
+            - algorithms/algo-support-vector-machines.qmd
+            - algorithms/algo-decision-tree.qmd
+            - algorithms/algo-k-nearest-neighbor.qmd
+            - algorithms/algo-random-forest.qmd
+            - algorithms/algo-gradient-boosting.qmd
+            - algorithms/algo-k-means.qmd
+        - text: "---"
+        - section: "Labs"
+          contents:
+            - algorithms/labs.qmd
+        - text: "---"
+        - section: "Resources"
+          contents:
+            - algorithms/resources.qmd
+
+    - id: "evaluation"
+      title: "Model evaluation"
+      contents:
+        - text: "Model evaluation"
+        - text: "---"
+        - section: "What is this section?"
+          contents:
+            - evaluation/evaluation-index.qmd
+        - text: "---"
+        - section: "Labs"
+          contents:
+            - evaluation/labs.qmd
+        - text: "---"
+        - section: "Resources"
+          contents:
+            - evaluation/resources.qmd
+
+    - id: "deeplearning"
+      title: "Deep Learning"
+      contents:
+        - text: "Deep Learning"
+        - text: "---"
+        - section: "ANN"
+          contents:
+            - ann/ann-index.qmd
+            - ann/ann-introduction.qmd
+            - ann/ann-mathematical.qmd
+            - ann/ann-model-and-demos.qmd
+        - text: "---"
+        - section: "Introduction to Deep Learning"
+          contents:
+            - deep/deep-index.qmd
+        - text: "---"
+        - section: "Labs"
+          contents:
+            - deep/labs.qmd
+        - text: "---"
+        - section: "Resources"
+          contents:
+            - deep/resources.qmd
+
+    - id: "llms"
+      title: "LLMs and Transformers"
+      contents:
+        - text: "LLMs and Transformers"
         - text: "---"
         - section: "Generative AI"
           contents:
             - generative/generative-index.qmd
         - text: "---"
-        - section: "Generative LLM"
+        - section: "LLMs"
           contents:
             - generative/generative-llm.qmd
             - generative/generative-gpt.qmd
         - text: "---"
-        - section: "Generative AI Transformer"
+        - section: "Transformers"
           contents:
             - generative/generative-transformer.qmd
         - text: "---"
-        - section: "Generative RAG"
+        - section: "Labs"
+          contents:
+            - generative/labs.qmd
+        - text: "---"
+        - section: "Resources"
+          contents:
+            - generative/resources.qmd
+
+    - id: "rag"
+      title: "RAG and agents"
+      contents:
+        - text: "RAG and agents"
+        - text: "---"
+        - section: "What is this section?"
+          contents:
+            - rag/rag-index.qmd
+        - text: "---"
+        - section: "RAG"
           contents:
             - generative/generative-rag.qmd
+        - text: "---"
+        - section: "Labs"
+          contents:
+            - rag/labs.qmd
+        - text: "---"
+        - section: "Resources"
+          contents:
+            - rag/resources.qmd
 
-    - id: "resources"
-      title: "Resources"
+    - id: "aidev"
+      title: "AI for developers"
       contents:
-        - text: "Resources"
+        - text: "AI for developers"
         - text: "---"
-        - section: "Additional Resources"
+        - section: "What is this section?"
           contents:
-            - resources/resources-index.qmd
+            - aidev/aidev-index.qmd
         - text: "---"
-        - section: "Books"
+        - section: "Labs"
           contents:
-            - resources/resources-books.qmd
-    
-    - id: "about"
-      title: "About"
+            - aidev/labs.qmd
+        - text: "---"
+        - section: "Resources"
+          contents:
+            - aidev/resources.qmd
+
+    - id: "mlops"
+      title: "MLOps"
       contents:
-        - text: "About"
+        - text: "MLOps"
         - text: "---"
-        - section: "About"
+        - section: "What is this section?"
           contents:
-            - about/about-index.qmd
-            - about/about-roadmap.qmd
+            - mlops/mlops-index.qmd
+        - text: "---"
+        - section: "Labs"
+          contents:
+            - mlops/labs.qmd
+        - text: "---"
+        - section: "Resources"
+          contents:
+            - mlops/resources.qmd
+
+    - id: "training"
+      title: "Training"
+      contents:
+        - text: "Training"
+        - text: "---"
+        - section: "About Training"
+          contents:
+            - training/training-index.qmd
+        - text: "---"
+        - section: "Labs"
+          contents:
+            - training/labs.qmd
+        - text: "---"
+        - section: "Resources"
+          contents:
+            - training/resources.qmd
 
 format:
   html:
     fontsize: "1.0em"
-    theme: cosmo
+    theme:
+      light: cosmo
+      dark: darkly
     css: styles.css
     toc: true
     toc-depth: 5
@@ -194,7 +282,3 @@ execute:
 
 editor:
     render-on-save: true
-
-
-
-

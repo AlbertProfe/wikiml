@@ -1,0 +1,7 @@
+---
+title: "RAG and agents: Resources"
+---
+
+# Resources for this section
+
+A dedicated reading list for RAG and agents is not written yet. RAG is already named in the comparison table on the [Generative AI overview](/generative/generative-index.qmd). The site-wide [Resources](/resources/resources-index.qmd) list is the place to start until this page has its own short set of links.

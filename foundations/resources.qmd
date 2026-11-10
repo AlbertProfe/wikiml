@@ -1,0 +1,13 @@
+---
+title: "Foundations: Resources"
+---
+
+# Resources for this section
+
+A dedicated reading list for Foundations is not written yet.
+
+Until it is, use:
+
+- The [Python Programming MOOC 2024](https://programming-24.mooc.fi){.external target="_blank"} (University of Helsinki), which the [Python notes](/python/python-index.qmd) follow.
+- The site-wide [Resources](/resources/resources-index.qmd) list (3Blue1Brown, fast.ai, MIT 6.S191 and others).
+- The imported [book notes](/resources/resources-books.qmd).

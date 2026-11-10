@@ -1,0 +1,12 @@
+---
+title: "Deep Learning: Resources"
+---
+
+# Resources for this section
+
+A dedicated short list for this section is not written yet. Useful pages already on this wiki:
+
+- [ANN introduction](/ann/ann-introduction.qmd)
+- [ANN: model and demos](/ann/ann-model-and-demos.qmd) (includes the 3Blue1Brown transformer video and a Manim Fourier clip)
+- The imported [book notes](/resources/resources-books.qmd)
+- The site-wide [Resources](/resources/resources-index.qmd) list (3Blue1Brown, fast.ai, MIT 6.S191, the physics-based deep learning book, and others)

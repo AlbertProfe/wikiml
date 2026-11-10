@@ -1,0 +1,34 @@
+---
+title: "Training"
+---
+
+::: {.callout-note}
+This section mirrors Training on [albertprofe.dev](https://albertprofe.dev){.external target="_blank"}: course editions with official docs, a sprint backlog, a product backlog, and calendar & deliveries. There is no live AI course documented here yet.
+:::
+
+# Why this section exists
+
+The teaching wiki keeps the day-by-day path visible — *what we do this week* next to *the whole journey*. When an AI course is confirmed, this section will hold that same pattern for the ML wiki.
+
+Albert owns the official course docs. This page does not invent a course folder, a calendar, or a sprint that does not exist yet.
+
+# What you will find later
+
+For each confirmed course edition, the same four kinds of page as on albertprofe.dev:
+
+- Official docs
+- Sprint Backlog (the live week)
+- Product Backlog (the history)
+- Calendar & Deliveries
+
+# What you will not find today
+
+- No course edition folder.
+- No sprint table.
+- No invented dates or student counts.
+
+The library itself — articles and labs — lives in the other sections. Training will point at them, the same way a sprint on albertprofe.dev points at Java, Spring or React pages without swallowing them.
+
+# Labs and resources
+
+See [Labs](labs.qmd) and [Resources](resources.qmd) for this section. About this wiki: there is no About page in the ML navbar; see [About on albertprofe.dev](https://albertprofe.dev/about/about-this-me.html){.external target="_blank"}.

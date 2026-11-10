@@ -1,0 +1,27 @@
+---
+title: "Foundations"
+---
+
+::: {.callout-note}
+This section is in progress. The Machine Learning overview and the Helsinki Python track are already here; new primer pages will appear as they are written.
+:::
+
+# Why Foundations
+
+This is where the path starts: what machine learning *is*, how a model learns, and the Python I use to think on the page.
+
+Python lives here on purpose. It is not a side menu. The Helsinki *Python Programming MOOC 2024* notes are part of the foundation of this wiki, and they stay.
+
+# Already here
+
+- [What is Machine Learning](/machine/machine-index.qmd) — the decision / error / optimisation loop, and the four learning paradigms (supervised, unsupervised, semi-supervised, reinforcement).
+- [Python Programming](/python/python-index.qmd) — my notes from the University of Helsinki MOOC (`programming-24.mooc.fi`). Parts 1–3 are real notes; part 4 is started (parameter vs argument); parts 5–14 are still stubs I will fill.
+
+# Coming next
+
+- Short primers on linear algebra and statistics, when they earn their place next to a real page.
+- A later “Python for ML” track (NumPy, pandas, matplotlib, notebooks) *beside* the Helsinki notes, not instead of them.
+
+# Labs and resources
+
+Every section of this wiki has its own [Labs](labs.qmd) and [Resources](resources.qmd).

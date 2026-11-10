@@ -1,0 +1,9 @@
+---
+title: "RAG and agents: Labs"
+---
+
+# Labs for this section
+
+No classroom RAG or agents labs are written yet. When they appear they will be step-by-step wiki pages, in the same spirit as the labs on [albertprofe.dev](https://albertprofe.dev){.external target="_blank"}. The exact numbering is still open.
+
+The [labs index](/labs/labs-index.qmd) still lists **Lab#RAG001** (an annotated external write-up of a multi-agent trading setup). That bookmark stays; it is not the first classroom lab I intend to write here.

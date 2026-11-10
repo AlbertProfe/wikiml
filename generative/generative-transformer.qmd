@@ -1,7 +1,19 @@
 ---
-title: "Generative AI Transformer"
+title: "The Transformer"
 ---
 
-This is a Quarto website.
+::: {.callout-note}
+This page is in progress. It replaces the old Quarto starter placeholder (“This is a Quarto website”).
+:::
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+# What this page will be
+
+The teaching page for the Transformer itself: encoder-decoder versus decoder-only, positional encoding, and the sentence *read in parallel, write one token at a time*.
+
+The original transformer figure already lives on the [Generative AI overview](generative-index.qmd). A 3Blue1Brown video on the same idea is embedded on [ANN: model and demos](/ann/ann-model-and-demos.qmd). This page will be the written explanation, not another embed.
+
+# Not written yet
+
+- Self-attention as the reason the recurrent bottleneck went away
+- Multi-head attention as a team of readers
+- A small FAQ of common mix-ups (including “the Transformer does not write in parallel”)

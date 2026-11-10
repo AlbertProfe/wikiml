@@ -1,0 +1,27 @@
+---
+title: "Model evaluation"
+---
+
+::: {.callout-note}
+This section is in progress. There are no evaluation articles here yet — only this outline, plus empty Labs and Resources pages so the section has a home.
+:::
+
+# Why this section exists
+
+Training a model is only half the work. The other half is asking, honestly: how well does it do, on data it has not seen, and by which measure?
+
+# What will live here
+
+Pages I intend to write, not pages that exist today:
+
+- Train, validation and test splits — why we hold data back.
+- Metrics that match the problem (accuracy is not always the right number).
+- Overfitting and underfitting, in pictures before formulas.
+- Cross-validation, when the dataset is small.
+- How evaluation changes when we move from classic models to deep networks and then to language models.
+
+Nothing above is written yet. When a page appears, this outline will shrink and the sidebar will grow.
+
+# Labs and resources
+
+See [Labs](labs.qmd) and [Resources](resources.qmd) for this section.

@@ -1,0 +1,12 @@
+---
+title: "Deep Learning: Labs"
+---
+
+# Labs for this section
+
+Classroom labs written as wiki pages are not here yet. The exact numbering is still open.
+
+What already exists:
+
+- The executable demos on [ANN: model and demos](/ann/ann-model-and-demos.qmd) (spiking neuron, XOR perceptron, a polar matplotlib plot). Those cells run inside the article; they are not a numbered lab.
+- The [labs index](/labs/labs-index.qmd) still lists **Lab#ANN001** (MNIST from scratch, numpy, no framework) and **Lab#ANN002** (a small autograd engine). Both are annotated external links from January 2025, not step-by-step classroom files.
