@@ -7,64 +7,11 @@ title: "Algorithms: e-means"
 The paper is fresh and not yet peer reviewed; speedups are as reported by the authors.
 :::
 
-# Classic k-means
+# Classic k-means, in brief
 
-`Clustering` is the job of grouping similar points together when nobody has given you the labels in advance.
+`k-means` groups unlabelled points into $k$ clusters. Lloyd's algorithm places $k$ centres, assigns each point to the nearest one, moves each centre to the mean of its points, and repeats. That is the same goal e-means keeps. For the full walk-through — the loop, inertia, k-means++, how to choose $k$, and a scikit-learn lab — see [k-means](algo-k-means.qmd).
 
-Think of a market and a mixed pile of fruit. You want $k$ stalls. You place the stalls, each fruit goes to the **nearest** stall, then you slide each stall to the **middle** of its fruit, and you repeat until the stalls barely move. Apples end up with apples and oranges with oranges — even though you never wrote "apple" on a sign.
-
-That procedure is **Lloyd's algorithm**, the classic solver for `k-means`. See also the short [k-means](algo-k-means.qmd) page in this section.
-
-## Lloyd's loop
-
-1. **Choose $k$** — how many groups you want. The algorithm does not pick this for you.
-2. **Initialise the centres** — pick $k$ starting points in the data. A common choice is `k-means++`, which spreads the first centres out instead of dropping them all in one corner.
-3. **Assign** — send every point to its nearest centre.
-4. **Update** — move each centre to the **mean** (the average position) of the points assigned to it.
-5. **Repeat** until the assignment stops changing, or you hit a maximum number of passes.
-
-```{mermaid}
-flowchart TD
-  A[Choose k] --> B[Initialise centres<br/>random or k-means++]
-  B --> C[Assign each point<br/>to the nearest centre]
-  C --> D[Move each centre<br/>to the mean of its points]
-  D --> E{Centres still moving?}
-  E -->|yes| C
-  E -->|no| F[Done: k groups]
-```
-
-Formally, for $n$ points in $\mathbb{R}^d$, k-means looks for $k$ centroids that minimise the **mean squared error (MSE)** between each point and its nearest centroid[1]:
-
-$$
-\mathrm{MSE}(X,\mathcal{C})=\frac{1}{n}\sum_{i=1}^{n}\|x_i-c_{a(i)}\|^2,
-\quad a(i)=\arg\min_j\|x_i-c_j\|^2.
-$$
-
-## Epochs, and why they get expensive
-
-One **iteration**, or **epoch**, is one full pass over the dataset: assign every point, then move every centre. Each pass compares each of the $n$ points to all $k$ centres, in $d$ dimensions, so the work per pass grows with $n \times k \times d$. On a huge dataset you may need many such passes, and the cost adds up. In practice the loop is often capped; in Faiss the usual default is 25 iterations[1].
-
-## Limits you should know
-
-- You must **choose $k$**.
-- Results are **sensitive to initialisation**: a bad starting set can trap the algorithm in a weak **local minimum**. `k-means++` helps, but it does not remove the problem, and the seeding itself can be costly[1].
-- **Many iterations** may be needed, and each one rereads the whole dataset.
-
-## A classic implementation
-
-scikit-learn's `KMeans` is the usual starting point:
-
-```python
-from sklearn.cluster import KMeans
-
-# X is an array of shape (n_samples, n_features)
-model = KMeans(n_clusters=8, init="k-means++")
-model.fit(X)
-labels = model.labels_
-centroids = model.cluster_centers_
-```
-
-e-means keeps the same goal — the same $k$ centroids, the same MSE — but needs far fewer passes over the data. The rest of this page explains what changes, and what the authors report.
+e-means keeps the same $k$ centroids and the same MSE, but needs far fewer passes over the data. The rest of this page explains what changes, and what the authors report.
 
 # Overview
 
@@ -74,7 +21,7 @@ It was introduced in November 2026 by Swann Bessa and colleagues at FAIR at Meta
 
 ::: {.callout-note}
 # Same problem, different optimiser
-e-means is not a new kind of clustering. The inputs are still the dataset and the number of clusters `k`. The outputs are still `k` centroids and an assignment. What changes is how the centroids move: mini-batches, an exponential moving average, and scaling laws that set the batch size and step size for you[1][3].
+e-means is not a new kind of clustering. The inputs are still the dataset and the number of clusters `k`. The outputs are still $k$ centroids and an assignment. What changes is how the centroids move: mini-batches, an exponential moving average, and scaling laws that set the batch size and step size for you[1][3].
 :::
 
 The [announcement thread](https://x.com/swann_bessa/status/2120200714630594911){.external target="_blank"}, the [paper](https://arxiv.org/abs/2611.09501){.external target="_blank"}, and the [project site](https://e-means.github.io/){.external target="_blank"} (with a [browser playground](https://e-means.github.io/playground.html){.external target="_blank"}) are the primary sources for this page.
@@ -87,29 +34,36 @@ e-means walks the room in **small groups**. After each group, every desk slides 
 
 Earlier **mini-batch k-means** methods (MacQueen, Sculley) already update from small batches instead of the full dataset. They can be faster, but when they have been compared with Lloyd they typically finish at a higher error, and the practitioner has to guess a batch size and a step size[1].
 
+![Still from a 2D comparison of Lloyd (full batch) and e-means on the same point clouds.](/images/e-means/lloyd-vs-emeans-2d.jpg){.lightbox width=100% fig-align="center"}
+
+Figure: Swann Bessa et al., via the [X thread](https://x.com/swann_bessa/status/2120201788179808706){.external target="_blank"}. A still from the animation in post 3/10: side-by-side Lloyd and e-means, with training MSE against the number of passes.
+
 The authors specialise the EMA rule for a *fixed* dataset (the usual k-means setting), rather than for a shifting codebook as in VQ-VAEs[1]:
 
 - **Automatic batch size and step size.** Scaling laws, fitted on the DEEP dataset and checked on held-out sets, choose the batch size $B$ and the initial step $\alpha_0$ from $n$, $k$, and the epoch budget $T$. You do not run a hyperparameter sweep[1][2].
+
+![Diagram of the scaling laws that set batch size and step from n, k and the epoch budget.](/images/e-means/scaling-laws-diagram.jpg){.lightbox width=100% fig-align="center"}
+
+Figure: Swann Bessa et al., via the [X thread](https://x.com/swann_bessa/status/2120202509335793863){.external target="_blank"}. Post 5/10: $n$, $k$ and $T$ go in; batch size $B$ and step $\alpha_0$ come out.
+
 - **A decaying step.** The step $\alpha=1-\gamma$ follows a cosine schedule, from $\alpha_0$ down to $0.1\,\alpha_0$, so the centroids settle as training goes on[1].
 - **Dead-cluster revival.** If a cluster stops receiving points, e-means periodically splits a busy "donor" cluster into two, following the same idea Faiss uses for Lloyd. The authors report this as the most important ingredient in their ablation[1][2].
+
+![Side-by-side 2D clustering with revival off and revival on.](/images/e-means/dead-cluster-revival.jpg){.lightbox width=100% fig-align="center"}
+
+Figure: Swann Bessa et al., via the [X thread](https://x.com/swann_bessa/status/2120203432275427379){.external target="_blank"}. A still from the bonus animation in post 10/10, comparing dead-cluster revival off and on.
+
 - **A cheap finalisation.** After the last epoch, each centroid is replaced by the exact mean of the points assigned to it in that last pass (the default, which helps training MSE). A slower EMA of the centroids is offered when the goal is out-of-sample (test) MSE[1].
 
 By default e-means starts from a **random sample** of the data, not from k-means++. The paper finds that k-means++ can shave a little more loss, but its cost is high; for a small epoch budget it is usually better to train a bit longer instead[1].
 
 ```{mermaid}
-flowchart LR
-  subgraph Lloyd["Lloyd k-means — one epoch"]
-    L1[Assign every point<br/>to the nearest centroid] --> L2[Set each centroid<br/>to the mean of its points]
-    L2 --> L3[Repeat until stable<br/>or the cap is reached]
-  end
-
-  subgraph Emeans["e-means — one epoch"]
-    E1[Take a mini-batch] --> E2[Assign the batch]
-    E2 --> E3[EMA-update counts and sums]
-    E3 --> E4[Occasionally revive<br/>dead clusters]
-    E4 --> E1
-    E1 -.-> E5[After the last epoch:<br/>exact last-pass mean]
-  end
+flowchart TD
+  A[Take a mini-batch] --> B[Assign nearest centre]
+  B --> C[EMA-update counts and sums]
+  C --> D[Revive dead clusters]
+  D --> A
+  C --> E[Last epoch: exact mean]
 ```
 
 # Results, as reported by the authors
@@ -125,6 +79,18 @@ These figures come from the paper and the announcement thread. They are the auth
 | Coverage | The thread describes evaluation on **26 datasets**, from 100k to 10 billion points, with a [results map](https://e-means.github.io/results-map.html){.external target="_blank"} | Thread, post 6/10[2] |
 
 The 10× headline is a comparison with **state-of-the-art implementations** (Faiss on CPU, Flash-KMeans on GPU), not with a naïve Python loop. Swann Bessa made that distinction in the thread[2].
+
+![Histograms of train and test MSE: e-means from a random start versus Lloyd with random and k-means++ initialisation.](/images/e-means/loss-vs-kmeanspp.png){.lightbox width=100% fig-align="center"}
+
+Figure: Swann Bessa et al., via the [X thread](https://x.com/swann_bessa/status/2120202084112896470){.external target="_blank"}. Post 4/10: on these embedding datasets, e-means from a random initialisation (blue) often finishes at a lower loss than Lloyd, including Lloyd with greedy k-means++ (green).
+
+![Test loss against epochs, and wall-clock time on CPU and GPU.](/images/e-means/wallclock-cpu-gpu.jpg){.lightbox width=100% fig-align="center"}
+
+Figure: Swann Bessa et al., via the [X thread](https://x.com/swann_bessa/status/2120202706077761660){.external target="_blank"}. Post 7/10, on DEEP with 1 million vectors and 16,384 clusters. The annotated speedups (12.5× fewer epochs, 11.8× CPU, 13.6× GPU) are the authors' labels on this figure.
+
+![Aggregated GPU time against dataset size, with and without IVF assignment.](/images/e-means/scale-ivf.png){.lightbox width=100% fig-align="center"}
+
+Figure: Swann Bessa et al., via the [X thread](https://x.com/swann_bessa/status/2120202825649082652){.external target="_blank"}. Post 8/10: at billion scale the authors pair e-means with an IVF index for a further wall-clock cut.
 
 ::: {.callout-caution}
 # A limitation, also from the paper
@@ -167,7 +133,7 @@ centroids, labels = em.train(xg)
 
 **A good default** when you already cluster with Faiss or another high-performance k-means, especially on large embedding sets, IVF codebook training, or any job where 25 Lloyd iterations are the bottleneck[1][2].
 
-**Stay with ordinary k-means** for tiny or very low-dimensional problems (the laws are not tuned for them), or when you only have scikit-learn and a small dataset where Lloyd is already cheap. e-means is in Faiss, not in scikit-learn.
+**Stay with ordinary k-means** for tiny or very low-dimensional problems (the laws are not tuned for them), or when you only have scikit-learn and a small dataset where Lloyd is already cheap. e-means is in Faiss, not in scikit-learn. See the [k-means](algo-k-means.qmd) lab for that path.
 
 e-means speeds up **training** of an IVF index. It is not a claim about later search latency once that index is built; the paper discusses the effect on recall in Appendix L[1][2].
 

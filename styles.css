@@ -40,3 +40,64 @@ https://www.w3schools.com/howto/howto_css_contact_chips.asp
   border-radius: 50%;
 }
   */
+
+/* High-contrast mermaid in light and dark themes.
+   Quarto's darkly defaults set --mermaid-label-fg-color to #375a7f (muted
+   blue) and node fills to a 10% tint — grey boxes, unreadable blue text,
+   and cluster titles that vanish on the dark page. We keep Quarto's
+   variable-based mermaid CSS (do not set mermaid.theme in _quarto.yml,
+   which would disable it) and override the variables instead. */
+:root {
+  --mermaid-bg-color: #ffffff;
+  --mermaid-edge-color: #1f2a37;
+  --mermaid-fg-color: #1f2a37;
+  --mermaid-fg-color--lighter: #3d4f61;
+  --mermaid-fg-color--lightest: #e8eef5;
+  --mermaid-label-bg-color: #ffffff;
+  --mermaid-label-fg-color: #102a43;
+  --mermaid-node-bg-color: #cfe1f5;
+  --mermaid-node-fg-color: #102a43;
+}
+
+body.quarto-dark {
+  --mermaid-bg-color: #1a1d21;
+  --mermaid-edge-color: #d5e3f5;
+  --mermaid-fg-color: #f4f7fb;
+  --mermaid-fg-color--lighter: #b9cbe0;
+  --mermaid-fg-color--lightest: #243044;
+  --mermaid-label-bg-color: #1a1d21;
+  --mermaid-label-fg-color: #f4f7fb;
+  --mermaid-node-bg-color: #2c5278;
+  --mermaid-node-fg-color: #f4f7fb;
+}
+
+pre.mermaid,
+pre.mermaid-js,
+svg.mermaid-js {
+  background-color: var(--mermaid-bg-color);
+  border-radius: 8px;
+  padding: 0.75rem;
+}
+
+body.quarto-dark svg.mermaid-js .nodeLabel,
+body.quarto-dark svg.mermaid-js .label,
+body.quarto-dark svg.mermaid-js .label text,
+body.quarto-dark svg.mermaid-js .cluster span,
+body.quarto-dark svg.mermaid-js .cluster-label,
+body.quarto-dark svg.mermaid-js .legend text,
+body.quarto-dark svg.mermaid-js .nodeLabel p,
+body.quarto-dark svg.mermaid-js foreignObject span,
+body.quarto-dark svg.mermaid-js foreignObject div {
+  color: #f4f7fb !important;
+  fill: #f4f7fb !important;
+}
+
+body.quarto-light svg.mermaid-js .nodeLabel,
+body.quarto-light svg.mermaid-js .label,
+body.quarto-light svg.mermaid-js .cluster span,
+body.quarto-light svg.mermaid-js .cluster-label,
+body.quarto-light svg.mermaid-js foreignObject span,
+body.quarto-light svg.mermaid-js foreignObject div {
+  color: #102a43 !important;
+  fill: #102a43 !important;
+}
