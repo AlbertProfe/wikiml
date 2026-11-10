@@ -30,7 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../algorithms/algo-support-vector-machines.html" rel="next">
+<link href="../algorithms/algo-naive-bayes.html" rel="next">
 <link href="../algorithms/algo-linear-regression.html" rel="prev">
 <link href="..//images/home/favicon.ico" rel="icon">
 <script src="../site_libs/quarto-html/quarto.js"></script>
@@ -38,10 +38,12 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-2486e1f0a3ee9ee1fc393803a1361cdb.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-2486e1f0a3ee9ee1fc393803a1361cdb.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-6561bbde787c299e21493071c8edc6ff.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-b3c97a93b5fc5b3d26d95016fc46a210.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-510c3b48ea8728ab307d593fb594786b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
@@ -99,147 +101,23 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-algorithms" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Algorithms</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-foundations" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Foundations</span>
     </a>
-    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-algorithms">    
-        <li class="dropdown-header">What is Algorithms?</li>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-foundations">    
+        <li class="dropdown-header">What is this section?</li>
         <li>
-    <a class="dropdown-item" href="../algorithms/algo-index.html">
- <span class="dropdown-text">Algorithms: Introduction</span></a>
+    <a class="dropdown-item" href="../foundations/foundations-index.html">
+ <span class="dropdown-text">Foundations</span></a>
   </li>  
         <li><hr class="dropdown-divider"></li>
-        <li class="dropdown-header">Algorithm Types</li>
-        <li>
-    <a class="dropdown-item" href="../algorithms/algo-linear-regression.html">
- <span class="dropdown-text">Algorithms: Linear regression</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../algorithms/algo-logistic-regression.html">
- <span class="dropdown-text">Algorithms: Logistic regression</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../algorithms/algo-support-vector-machines.html">
- <span class="dropdown-text">Algorithms: Support Vector Machines</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../algorithms/algo-decision-tree.html">
- <span class="dropdown-text">Algorithms: Decision tree</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../algorithms/algo-k-nearest-neighbor.html">
- <span class="dropdown-text">Algorithms: K-Nearest neighbor</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../algorithms/algo-random-forest.html">
- <span class="dropdown-text">Algorithms: Random forest</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../algorithms/algo-gradient-boosting.html">
- <span class="dropdown-text">Algorithms: Gradient boosting</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../algorithms/algo-k-means.html">
- <span class="dropdown-text">Algorithms: K-Means</span></a>
-  </li>  
-    </ul>
-  </li>
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-ann" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">ANN</span>
-    </a>
-    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-ann">    
-        <li class="dropdown-header">What is ANN?</li>
-        <li>
-    <a class="dropdown-item" href="../ann/ann-index.html">
- <span class="dropdown-text">ANN: Table of Contents</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../ann/ann-introduction.html">
- <span class="dropdown-text">ANN: Introduction</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../ann/ann-mathematical.html">
- <span class="dropdown-text">ANN: Mathematical Model</span></a>
-  </li>  
-    </ul>
-  </li>
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-big-data" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Big Data</span>
-    </a>
-    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-big-data">    
-        <li class="dropdown-header">What is Big Data?</li>
-        <li>
-    <a class="dropdown-item" href="../bigdata/bigdata-index.html">
- <span class="dropdown-text">Big Data</span></a>
-  </li>  
-    </ul>
-  </li>
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-machine-learning" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Machine Learning</span>
-    </a>
-    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-machine-learning">    
-        <li class="dropdown-header">Machine Learning Basics</li>
+        <li class="dropdown-header">Machine Learning</li>
         <li>
     <a class="dropdown-item" href="../machine/machine-index.html">
  <span class="dropdown-text">Machine Learning</span></a>
   </li>  
-    </ul>
-  </li>
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-deep-learning" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Deep Learning</span>
-    </a>
-    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-deep-learning">    
-        <li class="dropdown-header">Introduction to Deep Learning</li>
-        <li>
-    <a class="dropdown-item" href="../deep/deep-index.html">
- <span class="dropdown-text">Deep Learning</span></a>
-  </li>  
-    </ul>
-  </li>
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-generative-ai" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Generative AI</span>
-    </a>
-    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-generative-ai">    
-        <li class="dropdown-header">Generative AI</li>
-        <li>
-    <a class="dropdown-item" href="../generative/generative-index.html">
- <span class="dropdown-text">Generative AI</span></a>
-  </li>  
         <li><hr class="dropdown-divider"></li>
-        <li class="dropdown-header">Generative LLM</li>
-        <li>
-    <a class="dropdown-item" href="../generative/generative-llm.html">
- <span class="dropdown-text">Generative LLM</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../generative/generative-gpt.html">
- <span class="dropdown-text">Generative AI GPT</span></a>
-  </li>  
-        <li><hr class="dropdown-divider"></li>
-        <li class="dropdown-header">Generative AI Transformer</li>
-        <li>
-    <a class="dropdown-item" href="../generative/generative-transformer.html">
- <span class="dropdown-text">Generative AI Transformer</span></a>
-  </li>  
-        <li><hr class="dropdown-divider"></li>
-        <li class="dropdown-header">Generative RAG</li>
-        <li>
-    <a class="dropdown-item" href="../generative/generative-rag.html">
- <span class="dropdown-text">Generative AI RAG</span></a>
-  </li>  
-    </ul>
-  </li>
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-python" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Python</span>
-    </a>
-    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-python">    
-        <li class="dropdown-header">Python Programming</li>
+        <li class="dropdown-header">Python (Helsinki MOOC 2024)</li>
         <li>
     <a class="dropdown-item" href="../python/python-index.html">
  <span class="dropdown-text">Python</span></a>
@@ -300,57 +178,318 @@ ul.task-list li input[type="checkbox"] {
     <a class="dropdown-item" href="../python/python-part14.html">
  <span class="dropdown-text">Python Helsinki: 14</span></a>
   </li>  
-    </ul>
-  </li>
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-labs" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Labs</span>
-    </a>
-    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-labs">    
-        <li class="dropdown-header">Lab Exercises</li>
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Labs</li>
         <li>
-    <a class="dropdown-item" href="../labs/labs-index.html">
- <span class="dropdown-text">Labs</span></a>
-  </li>  
-    </ul>
-  </li>
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-resources" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Resources</span>
-    </a>
-    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-resources">    
-        <li class="dropdown-header">Additional Resources</li>
-        <li>
-    <a class="dropdown-item" href="../resources/resources-index.html">
- <span class="dropdown-text">Resources</span></a>
+    <a class="dropdown-item" href="../foundations/labs.html">
+ <span class="dropdown-text">Foundations: Labs</span></a>
   </li>  
         <li><hr class="dropdown-divider"></li>
-        <li class="dropdown-header">Books</li>
+        <li class="dropdown-header">Resources</li>
         <li>
-    <a class="dropdown-item" href="../resources/resources-books.html">
- <span class="dropdown-text">Books cards</span></a>
+    <a class="dropdown-item" href="../foundations/resources.html">
+ <span class="dropdown-text">Foundations: Resources</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-about" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">About</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-data" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Data</span>
     </a>
-    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-about">    
-        <li class="dropdown-header">About</li>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-data">    
+        <li class="dropdown-header">What is this section?</li>
         <li>
-    <a class="dropdown-item" href="../about/about-index.html">
- <span class="dropdown-text">About</span></a>
+    <a class="dropdown-item" href="../bigdata/bigdata-index.html">
+ <span class="dropdown-text">Big Data</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Labs</li>
+        <li>
+    <a class="dropdown-item" href="../bigdata/labs.html">
+ <span class="dropdown-text">Data: Labs</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Resources</li>
+        <li>
+    <a class="dropdown-item" href="../bigdata/resources.html">
+ <span class="dropdown-text">Data: Resources</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-classic-ml" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Classic ML</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-classic-ml">    
+        <li class="dropdown-header">What is Classic ML?</li>
+        <li>
+    <a class="dropdown-item" href="../algorithms/algo-index.html">
+ <span class="dropdown-text">Algorithms: Introduction</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Algorithm Types</li>
+        <li>
+    <a class="dropdown-item" href="../algorithms/algo-linear-regression.html">
+ <span class="dropdown-text">Algorithms: Linear regression</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../about/about-roadmap.html">
- <span class="dropdown-text">Roadmap</span></a>
+    <a class="dropdown-item" href="../algorithms/algo-logistic-regression.html">
+ <span class="dropdown-text">Algorithms: Logistic regression</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../algorithms/algo-naive-bayes.html">
+ <span class="dropdown-text">Algorithms: Naïve Bayes</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../algorithms/algo-support-vector-machines.html">
+ <span class="dropdown-text">Algorithms: Support Vector Machines</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../algorithms/algo-decision-tree.html">
+ <span class="dropdown-text">Algorithms: Decision tree</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../algorithms/algo-k-nearest-neighbor.html">
+ <span class="dropdown-text">Algorithms: K-Nearest neighbor</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../algorithms/algo-random-forest.html">
+ <span class="dropdown-text">Algorithms: Random forest</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../algorithms/algo-gradient-boosting.html">
+ <span class="dropdown-text">Algorithms: Gradient boosting</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../algorithms/algo-k-means.html">
+ <span class="dropdown-text">Algorithms: K-Means</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Labs</li>
+        <li>
+    <a class="dropdown-item" href="../algorithms/labs.html">
+ <span class="dropdown-text">Classic ML: Labs</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Resources</li>
+        <li>
+    <a class="dropdown-item" href="../algorithms/resources.html">
+ <span class="dropdown-text">Classic ML: Resources</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-evaluation" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Evaluation</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-evaluation">    
+        <li class="dropdown-header">What is this section?</li>
+        <li>
+    <a class="dropdown-item" href="../evaluation/evaluation-index.html">
+ <span class="dropdown-text">Model evaluation</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Labs</li>
+        <li>
+    <a class="dropdown-item" href="../evaluation/labs.html">
+ <span class="dropdown-text">Model evaluation: Labs</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Resources</li>
+        <li>
+    <a class="dropdown-item" href="../evaluation/resources.html">
+ <span class="dropdown-text">Model evaluation: Resources</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-deep-learning" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Deep Learning</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-deep-learning">    
+        <li class="dropdown-header">ANN</li>
+        <li>
+    <a class="dropdown-item" href="../ann/ann-index.html">
+ <span class="dropdown-text">ANN: Table of Contents</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../ann/ann-introduction.html">
+ <span class="dropdown-text">ANN: Introduction</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../ann/ann-mathematical.html">
+ <span class="dropdown-text">ANN: Mathematical Model</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../ann/ann-model-and-demos.html">
+ <span class="dropdown-text">ANN: model and demos</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Introduction to Deep Learning</li>
+        <li>
+    <a class="dropdown-item" href="../deep/deep-index.html">
+ <span class="dropdown-text">Deep Learning</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Labs</li>
+        <li>
+    <a class="dropdown-item" href="../deep/labs.html">
+ <span class="dropdown-text">Deep Learning: Labs</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Resources</li>
+        <li>
+    <a class="dropdown-item" href="../deep/resources.html">
+ <span class="dropdown-text">Deep Learning: Resources</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-llms" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">LLMs</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-llms">    
+        <li class="dropdown-header">Generative AI</li>
+        <li>
+    <a class="dropdown-item" href="../generative/generative-index.html">
+ <span class="dropdown-text">Generative AI</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">LLMs</li>
+        <li>
+    <a class="dropdown-item" href="../generative/generative-llm.html">
+ <span class="dropdown-text">Large Language Models</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../generative/generative-gpt.html">
+ <span class="dropdown-text">GPT</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Transformers</li>
+        <li>
+    <a class="dropdown-item" href="../generative/generative-transformer.html">
+ <span class="dropdown-text">The Transformer</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Labs</li>
+        <li>
+    <a class="dropdown-item" href="../generative/labs.html">
+ <span class="dropdown-text">LLMs and Transformers: Labs</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Resources</li>
+        <li>
+    <a class="dropdown-item" href="../generative/resources.html">
+ <span class="dropdown-text">LLMs and Transformers: Resources</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-rag--agents" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">RAG &amp; Agents</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-rag--agents">    
+        <li class="dropdown-header">What is this section?</li>
+        <li>
+    <a class="dropdown-item" href="../rag/rag-index.html">
+ <span class="dropdown-text">RAG and agents</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">RAG</li>
+        <li>
+    <a class="dropdown-item" href="../generative/generative-rag.html">
+ <span class="dropdown-text">RAG</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Labs</li>
+        <li>
+    <a class="dropdown-item" href="../rag/labs.html">
+ <span class="dropdown-text">RAG and agents: Labs</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Resources</li>
+        <li>
+    <a class="dropdown-item" href="../rag/resources.html">
+ <span class="dropdown-text">RAG and agents: Resources</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-ai-for-devs" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">AI for Devs</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-ai-for-devs">    
+        <li class="dropdown-header">What is this section?</li>
+        <li>
+    <a class="dropdown-item" href="../aidev/aidev-index.html">
+ <span class="dropdown-text">AI for developers</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Labs</li>
+        <li>
+    <a class="dropdown-item" href="../aidev/labs.html">
+ <span class="dropdown-text">AI for developers: Labs</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Resources</li>
+        <li>
+    <a class="dropdown-item" href="../aidev/resources.html">
+ <span class="dropdown-text">AI for developers: Resources</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-mlops" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">MLOps</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-mlops">    
+        <li class="dropdown-header">What is this section?</li>
+        <li>
+    <a class="dropdown-item" href="../mlops/mlops-index.html">
+ <span class="dropdown-text">MLOps</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Labs</li>
+        <li>
+    <a class="dropdown-item" href="../mlops/labs.html">
+ <span class="dropdown-text">MLOps: Labs</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Resources</li>
+        <li>
+    <a class="dropdown-item" href="../mlops/resources.html">
+ <span class="dropdown-text">MLOps: Resources</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-training" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Training</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-training">    
+        <li class="dropdown-header">About Training</li>
+        <li>
+    <a class="dropdown-item" href="../training/training-index.html">
+ <span class="dropdown-text">Training</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Labs</li>
+        <li>
+    <a class="dropdown-item" href="../training/labs.html">
+ <span class="dropdown-text">Training: Labs</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Resources</li>
+        <li>
+    <a class="dropdown-item" href="../training/resources.html">
+ <span class="dropdown-text">Training: Resources</span></a>
   </li>  
     </ul>
   </li>
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
       </div> <!-- /container-fluid -->
     </nav>
@@ -380,13 +519,13 @@ ul.task-list li input[type="checkbox"] {
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
- <span class="menu-text">Algorithms</span>
+ <span class="menu-text">Classic ML</span>
   </li>
         <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
- <span class="menu-text">What is Algorithms?</span></a>
+ <span class="menu-text">What is Classic ML?</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -423,8 +562,11 @@ ul.task-list li input[type="checkbox"] {
   </div>
 </li>
           <li class="sidebar-item">
- <span class="menu-text">algorithms/algo-naive-bayes.qmd</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="../algorithms/algo-naive-bayes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Algorithms: Naïve Bayes</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../algorithms/algo-support-vector-machines.html" class="sidebar-item-text sidebar-link">
@@ -459,6 +601,42 @@ ul.task-list li input[type="checkbox"] {
   <div class="sidebar-item-container"> 
   <a href="../algorithms/algo-k-means.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Algorithms: K-Means</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
+ <span class="menu-text">Labs</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../algorithms/labs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Classic ML: Labs</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
+ <span class="menu-text">Resources</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../algorithms/resources.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Classic ML: Resources</span></a>
   </div>
 </li>
       </ul>
@@ -534,6 +712,150 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
   const icon = "";
   const anchorJS = new window.AnchorJS();
   anchorJS.options = {
@@ -941,8 +1263,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../algorithms/algo-support-vector-machines.html" class="pagination-link" aria-label="Algorithms: Support Vector Machines">
-        <span class="nav-page-text">Algorithms: Support Vector Machines</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../algorithms/algo-naive-bayes.html" class="pagination-link" aria-label="Algorithms: Naïve Bayes">
+        <span class="nav-page-text">Algorithms: Naïve Bayes</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -960,12 +1282,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <li class="nav-item compact">
     <a class="nav-link" href="https://github.com/AlbertProfe/">
       <i class="bi bi-github" role="img">
-</i> 
-    </a>
-  </li>  
-    <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com/">
-      <i class="bi bi-twitter" role="img">
 </i> 
     </a>
   </li>  

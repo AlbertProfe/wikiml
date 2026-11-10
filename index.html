@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Wiki Machine Learning – Wiki-ML</title>
+<title>Wiki-ML</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,40 +19,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -70,10 +36,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-2486e1f0a3ee9ee1fc393803a1361cdb.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-2486e1f0a3ee9ee1fc393803a1361cdb.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-6561bbde787c299e21493071c8edc6ff.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-b3c97a93b5fc5b3d26d95016fc46a210.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-510c3b48ea8728ab307d593fb594786b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -102,40 +70,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -157,147 +96,23 @@ window.Quarto = {
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-algorithms" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Algorithms</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-foundations" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Foundations</span>
     </a>
-    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-algorithms">    
-        <li class="dropdown-header">What is Algorithms?</li>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-foundations">    
+        <li class="dropdown-header">What is this section?</li>
         <li>
-    <a class="dropdown-item" href="./algorithms/algo-index.html">
- <span class="dropdown-text">Algorithms: Introduction</span></a>
+    <a class="dropdown-item" href="./foundations/foundations-index.html">
+ <span class="dropdown-text">Foundations</span></a>
   </li>  
         <li><hr class="dropdown-divider"></li>
-        <li class="dropdown-header">Algorithm Types</li>
-        <li>
-    <a class="dropdown-item" href="./algorithms/algo-linear-regression.html">
- <span class="dropdown-text">Algorithms: Linear regression</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./algorithms/algo-logistic-regression.html">
- <span class="dropdown-text">Algorithms: Logistic regression</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./algorithms/algo-support-vector-machines.html">
- <span class="dropdown-text">Algorithms: Support Vector Machines</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./algorithms/algo-decision-tree.html">
- <span class="dropdown-text">Algorithms: Decision tree</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./algorithms/algo-k-nearest-neighbor.html">
- <span class="dropdown-text">Algorithms: K-Nearest neighbor</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./algorithms/algo-random-forest.html">
- <span class="dropdown-text">Algorithms: Random forest</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./algorithms/algo-gradient-boosting.html">
- <span class="dropdown-text">Algorithms: Gradient boosting</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./algorithms/algo-k-means.html">
- <span class="dropdown-text">Algorithms: K-Means</span></a>
-  </li>  
-    </ul>
-  </li>
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-ann" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">ANN</span>
-    </a>
-    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-ann">    
-        <li class="dropdown-header">What is ANN?</li>
-        <li>
-    <a class="dropdown-item" href="./ann/ann-index.html">
- <span class="dropdown-text">ANN: Table of Contents</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./ann/ann-introduction.html">
- <span class="dropdown-text">ANN: Introduction</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./ann/ann-mathematical.html">
- <span class="dropdown-text">ANN: Mathematical Model</span></a>
-  </li>  
-    </ul>
-  </li>
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-big-data" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Big Data</span>
-    </a>
-    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-big-data">    
-        <li class="dropdown-header">What is Big Data?</li>
-        <li>
-    <a class="dropdown-item" href="./bigdata/bigdata-index.html">
- <span class="dropdown-text">Big Data</span></a>
-  </li>  
-    </ul>
-  </li>
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-machine-learning" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Machine Learning</span>
-    </a>
-    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-machine-learning">    
-        <li class="dropdown-header">Machine Learning Basics</li>
+        <li class="dropdown-header">Machine Learning</li>
         <li>
     <a class="dropdown-item" href="./machine/machine-index.html">
  <span class="dropdown-text">Machine Learning</span></a>
   </li>  
-    </ul>
-  </li>
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-deep-learning" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Deep Learning</span>
-    </a>
-    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-deep-learning">    
-        <li class="dropdown-header">Introduction to Deep Learning</li>
-        <li>
-    <a class="dropdown-item" href="./deep/deep-index.html">
- <span class="dropdown-text">Deep Learning</span></a>
-  </li>  
-    </ul>
-  </li>
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-generative-ai" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Generative AI</span>
-    </a>
-    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-generative-ai">    
-        <li class="dropdown-header">Generative AI</li>
-        <li>
-    <a class="dropdown-item" href="./generative/generative-index.html">
- <span class="dropdown-text">Generative AI</span></a>
-  </li>  
         <li><hr class="dropdown-divider"></li>
-        <li class="dropdown-header">Generative LLM</li>
-        <li>
-    <a class="dropdown-item" href="./generative/generative-llm.html">
- <span class="dropdown-text">Generative LLM</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./generative/generative-gpt.html">
- <span class="dropdown-text">Generative AI GPT</span></a>
-  </li>  
-        <li><hr class="dropdown-divider"></li>
-        <li class="dropdown-header">Generative AI Transformer</li>
-        <li>
-    <a class="dropdown-item" href="./generative/generative-transformer.html">
- <span class="dropdown-text">Generative AI Transformer</span></a>
-  </li>  
-        <li><hr class="dropdown-divider"></li>
-        <li class="dropdown-header">Generative RAG</li>
-        <li>
-    <a class="dropdown-item" href="./generative/generative-rag.html">
- <span class="dropdown-text">Generative AI RAG</span></a>
-  </li>  
-    </ul>
-  </li>
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-python" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Python</span>
-    </a>
-    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-python">    
-        <li class="dropdown-header">Python Programming</li>
+        <li class="dropdown-header">Python (Helsinki MOOC 2024)</li>
         <li>
     <a class="dropdown-item" href="./python/python-index.html">
  <span class="dropdown-text">Python</span></a>
@@ -358,390 +173,783 @@ window.Quarto = {
     <a class="dropdown-item" href="./python/python-part14.html">
  <span class="dropdown-text">Python Helsinki: 14</span></a>
   </li>  
-    </ul>
-  </li>
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-labs" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Labs</span>
-    </a>
-    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-labs">    
-        <li class="dropdown-header">Lab Exercises</li>
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Labs</li>
         <li>
-    <a class="dropdown-item" href="./labs/labs-index.html">
- <span class="dropdown-text">Labs</span></a>
-  </li>  
-    </ul>
-  </li>
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-resources" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Resources</span>
-    </a>
-    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-resources">    
-        <li class="dropdown-header">Additional Resources</li>
-        <li>
-    <a class="dropdown-item" href="./resources/resources-index.html">
- <span class="dropdown-text">Resources</span></a>
+    <a class="dropdown-item" href="./foundations/labs.html">
+ <span class="dropdown-text">Foundations: Labs</span></a>
   </li>  
         <li><hr class="dropdown-divider"></li>
-        <li class="dropdown-header">Books</li>
+        <li class="dropdown-header">Resources</li>
         <li>
-    <a class="dropdown-item" href="./resources/resources-books.html">
- <span class="dropdown-text">Books cards</span></a>
+    <a class="dropdown-item" href="./foundations/resources.html">
+ <span class="dropdown-text">Foundations: Resources</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-about" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">About</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-data" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Data</span>
     </a>
-    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-about">    
-        <li class="dropdown-header">About</li>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-data">    
+        <li class="dropdown-header">What is this section?</li>
         <li>
-    <a class="dropdown-item" href="./about/about-index.html">
- <span class="dropdown-text">About</span></a>
+    <a class="dropdown-item" href="./bigdata/bigdata-index.html">
+ <span class="dropdown-text">Big Data</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Labs</li>
+        <li>
+    <a class="dropdown-item" href="./bigdata/labs.html">
+ <span class="dropdown-text">Data: Labs</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Resources</li>
+        <li>
+    <a class="dropdown-item" href="./bigdata/resources.html">
+ <span class="dropdown-text">Data: Resources</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-classic-ml" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Classic ML</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-classic-ml">    
+        <li class="dropdown-header">What is Classic ML?</li>
+        <li>
+    <a class="dropdown-item" href="./algorithms/algo-index.html">
+ <span class="dropdown-text">Algorithms: Introduction</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Algorithm Types</li>
+        <li>
+    <a class="dropdown-item" href="./algorithms/algo-linear-regression.html">
+ <span class="dropdown-text">Algorithms: Linear regression</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./about/about-roadmap.html">
- <span class="dropdown-text">Roadmap</span></a>
+    <a class="dropdown-item" href="./algorithms/algo-logistic-regression.html">
+ <span class="dropdown-text">Algorithms: Logistic regression</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./algorithms/algo-naive-bayes.html">
+ <span class="dropdown-text">Algorithms: Naïve Bayes</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./algorithms/algo-support-vector-machines.html">
+ <span class="dropdown-text">Algorithms: Support Vector Machines</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./algorithms/algo-decision-tree.html">
+ <span class="dropdown-text">Algorithms: Decision tree</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./algorithms/algo-k-nearest-neighbor.html">
+ <span class="dropdown-text">Algorithms: K-Nearest neighbor</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./algorithms/algo-random-forest.html">
+ <span class="dropdown-text">Algorithms: Random forest</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./algorithms/algo-gradient-boosting.html">
+ <span class="dropdown-text">Algorithms: Gradient boosting</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./algorithms/algo-k-means.html">
+ <span class="dropdown-text">Algorithms: K-Means</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Labs</li>
+        <li>
+    <a class="dropdown-item" href="./algorithms/labs.html">
+ <span class="dropdown-text">Classic ML: Labs</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Resources</li>
+        <li>
+    <a class="dropdown-item" href="./algorithms/resources.html">
+ <span class="dropdown-text">Classic ML: Resources</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-evaluation" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Evaluation</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-evaluation">    
+        <li class="dropdown-header">What is this section?</li>
+        <li>
+    <a class="dropdown-item" href="./evaluation/evaluation-index.html">
+ <span class="dropdown-text">Model evaluation</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Labs</li>
+        <li>
+    <a class="dropdown-item" href="./evaluation/labs.html">
+ <span class="dropdown-text">Model evaluation: Labs</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Resources</li>
+        <li>
+    <a class="dropdown-item" href="./evaluation/resources.html">
+ <span class="dropdown-text">Model evaluation: Resources</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-deep-learning" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Deep Learning</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-deep-learning">    
+        <li class="dropdown-header">ANN</li>
+        <li>
+    <a class="dropdown-item" href="./ann/ann-index.html">
+ <span class="dropdown-text">ANN: Table of Contents</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./ann/ann-introduction.html">
+ <span class="dropdown-text">ANN: Introduction</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./ann/ann-mathematical.html">
+ <span class="dropdown-text">ANN: Mathematical Model</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./ann/ann-model-and-demos.html">
+ <span class="dropdown-text">ANN: model and demos</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Introduction to Deep Learning</li>
+        <li>
+    <a class="dropdown-item" href="./deep/deep-index.html">
+ <span class="dropdown-text">Deep Learning</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Labs</li>
+        <li>
+    <a class="dropdown-item" href="./deep/labs.html">
+ <span class="dropdown-text">Deep Learning: Labs</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Resources</li>
+        <li>
+    <a class="dropdown-item" href="./deep/resources.html">
+ <span class="dropdown-text">Deep Learning: Resources</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-llms" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">LLMs</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-llms">    
+        <li class="dropdown-header">Generative AI</li>
+        <li>
+    <a class="dropdown-item" href="./generative/generative-index.html">
+ <span class="dropdown-text">Generative AI</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">LLMs</li>
+        <li>
+    <a class="dropdown-item" href="./generative/generative-llm.html">
+ <span class="dropdown-text">Large Language Models</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./generative/generative-gpt.html">
+ <span class="dropdown-text">GPT</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Transformers</li>
+        <li>
+    <a class="dropdown-item" href="./generative/generative-transformer.html">
+ <span class="dropdown-text">The Transformer</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Labs</li>
+        <li>
+    <a class="dropdown-item" href="./generative/labs.html">
+ <span class="dropdown-text">LLMs and Transformers: Labs</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Resources</li>
+        <li>
+    <a class="dropdown-item" href="./generative/resources.html">
+ <span class="dropdown-text">LLMs and Transformers: Resources</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-rag--agents" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">RAG &amp; Agents</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-rag--agents">    
+        <li class="dropdown-header">What is this section?</li>
+        <li>
+    <a class="dropdown-item" href="./rag/rag-index.html">
+ <span class="dropdown-text">RAG and agents</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">RAG</li>
+        <li>
+    <a class="dropdown-item" href="./generative/generative-rag.html">
+ <span class="dropdown-text">RAG</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Labs</li>
+        <li>
+    <a class="dropdown-item" href="./rag/labs.html">
+ <span class="dropdown-text">RAG and agents: Labs</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Resources</li>
+        <li>
+    <a class="dropdown-item" href="./rag/resources.html">
+ <span class="dropdown-text">RAG and agents: Resources</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-ai-for-devs" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">AI for Devs</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-ai-for-devs">    
+        <li class="dropdown-header">What is this section?</li>
+        <li>
+    <a class="dropdown-item" href="./aidev/aidev-index.html">
+ <span class="dropdown-text">AI for developers</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Labs</li>
+        <li>
+    <a class="dropdown-item" href="./aidev/labs.html">
+ <span class="dropdown-text">AI for developers: Labs</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Resources</li>
+        <li>
+    <a class="dropdown-item" href="./aidev/resources.html">
+ <span class="dropdown-text">AI for developers: Resources</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-mlops" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">MLOps</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-mlops">    
+        <li class="dropdown-header">What is this section?</li>
+        <li>
+    <a class="dropdown-item" href="./mlops/mlops-index.html">
+ <span class="dropdown-text">MLOps</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Labs</li>
+        <li>
+    <a class="dropdown-item" href="./mlops/labs.html">
+ <span class="dropdown-text">MLOps: Labs</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Resources</li>
+        <li>
+    <a class="dropdown-item" href="./mlops/resources.html">
+ <span class="dropdown-text">MLOps: Resources</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-training" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Training</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-training">    
+        <li class="dropdown-header">About Training</li>
+        <li>
+    <a class="dropdown-item" href="./training/training-index.html">
+ <span class="dropdown-text">Training</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Labs</li>
+        <li>
+    <a class="dropdown-item" href="./training/labs.html">
+ <span class="dropdown-text">Training: Labs</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Resources</li>
+        <li>
+    <a class="dropdown-item" href="./training/resources.html">
+ <span class="dropdown-text">Training: Resources</span></a>
   </li>  
     </ul>
   </li>
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
       </div> <!-- /container-fluid -->
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-layout-custom page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#transformers-are-all-you-need" id="toc-transformers-are-all-you-need" class="nav-link active" data-scroll-target="#transformers-are-all-you-need">Transformers are all you need</a></li>
-  <li><a href="#mathematical-model-of-an-ann" id="toc-mathematical-model-of-an-ann" class="nav-link" data-scroll-target="#mathematical-model-of-an-ann">Mathematical Model of an ANN</a></li>
-  <li><a href="#python-manim-and-machine-learning" id="toc-python-manim-and-machine-learning" class="nav-link" data-scroll-target="#python-manim-and-machine-learning">Python, Manim and Machine Learning</a>
-  <ul>
-  <li><a href="#fourier-series" id="toc-fourier-series" class="nav-link" data-scroll-target="#fourier-series">Fourier Series</a></li>
-  </ul></li>
-  <li><a href="#python-quarto-and-machine-learning" id="toc-python-quarto-and-machine-learning" class="nav-link" data-scroll-target="#python-quarto-and-machine-learning">Python, Quarto and Machine Learning</a>
-  <ul>
-  <li><a href="#matplotlib-demo" id="toc-matplotlib-demo" class="nav-link" data-scroll-target="#matplotlib-demo">matplotlib demo</a></li>
-  </ul></li>
-  </ul>
-</nav>
-    </div>
 <!-- main -->
-<main class="content page-columns page-full" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Wiki Machine Learning</h1>
-</div>
 
 
 
-<div class="quarto-title-meta">
 
-    
-  
-    
-  </div>
-  
+<!--
+  ml.albertprofe.dev long-scroll landing.
+  Modelled on albertprofe.dev index.qmd (structure, theme tokens, cards, start-here path).
+  No cinematic hero image: this repo has no landing artwork.
+  Numbers counted from this repo on 10 November 2026 (Europe/Madrid):
+    - 71 .qmd pages -> find . -name '*.qmd' (includes 404, outlines, and this landing)
+    - 23 commits on master, 28 December 2024 to 5 January 2025
+    - 14 Helsinki Python MOOC parts (plus python-index.qmd)
+    - 4 ANN articles (introduction, mathematical, index, relocated home)
+    - 9 classic algorithm sketches + algo-index.qmd
+    - 6 annotated external labs on labs/labs-index.qmd
+  Many of the 71 pages are short outlines written this session so every
+  agreed section has a home, Labs and Resources. Do not read 71 as 71 finished articles.
+-->
+<style>
+  body {
+    --bg: #f8fafc; --bg-card: #ffffff; --bg-card-hover: #ffffff;
+    --accent: #2563eb; --accent-light: #2563eb; --accent-2: #16a34a; --accent-3: #9333ea;
+    --text: #0f172a; --text-muted: #475569; --strong: #0f172a; --on-accent: #ffffff;
+    --header-bg: rgba(255,255,255,.78); --header-border: rgba(15,23,42,.08);
+    --line-08: rgba(15,23,42,.07); --line-10: rgba(15,23,42,.08); --line-12: rgba(15,23,42,.09); --line-15: rgba(15,23,42,.12);
+    --outline: rgba(15,23,42,.18);
+    --code-bg: rgba(37,99,235,.08); --code-fg: #1e40af;
+    --green-bg: rgba(22,163,74,.10); --green-border: rgba(22,163,74,.35); --green-fg: #15803d; --green-soft: rgba(22,163,74,.06);
+    --live-border: rgba(22,163,74,.45);
+    --spin-bg: rgba(37,99,235,.09); --spin-border: rgba(37,99,235,.30); --spin-fg: #1e3a8a;
+    --hover-border: rgba(37,99,235,.30); --btn-shadow: rgba(37,99,235,.30);
+    --pill-bg: rgba(37,99,235,.08); --pill-border: rgba(37,99,235,.22); --pill-hover-bg: rgba(37,99,235,.16); --link-hover: #1e40af;
+    --shadow: 0 1px 2px rgba(15,23,42,.04), 0 4px 16px -4px rgba(15,23,42,.08);
+    --shadow-hover: 0 2px 4px rgba(15,23,42,.04), 0 16px 32px -10px rgba(37,99,235,.22);
+    --header-shadow: 0 1px 12px rgba(15,23,42,.05); --header-blur: blur(16px) saturate(1.4);
+    --final-tint: rgba(37,99,235,.06);
+    background: var(--bg) !important; overflow-x: hidden;
+  }
+  body.quarto-dark {
+    --bg: #0b0f1a; --bg-card: #111827; --bg-card-hover: #1a2236;
+    --accent: #3b82f6; --accent-light: #60a5fa; --accent-2: #22c55e; --accent-3: #a855f7;
+    --text: #f8fafc; --text-muted: #94a3b8; --strong: #fff; --on-accent: #f8fafc;
+    --header-bg: rgba(11,15,26,.82); --header-border: rgba(59,130,246,.15);
+    --line-08: rgba(148,163,184,.08); --line-10: rgba(148,163,184,.1); --line-12: rgba(148,163,184,.12); --line-15: rgba(148,163,184,.15);
+    --outline: rgba(148,163,184,.3);
+    --code-bg: rgba(96,165,250,.12); --code-fg: #bfdbfe;
+    --green-bg: rgba(34,197,94,.12); --green-border: rgba(34,197,94,.3); --green-fg: #86efac; --green-soft: rgba(34,197,94,.06);
+    --live-border: rgba(34,197,94,.35);
+    --spin-bg: rgba(59,130,246,.15); --spin-border: rgba(59,130,246,.35); --spin-fg: #fff;
+    --hover-border: rgba(59,130,246,.3); --btn-shadow: rgba(59,130,246,.4);
+    --pill-bg: rgba(59,130,246,.12); --pill-border: rgba(59,130,246,.25); --pill-hover-bg: rgba(59,130,246,.25); --link-hover: #fff;
+    --shadow: none; --shadow-hover: none; --header-shadow: none; --header-blur: blur(16px);
+    --final-tint: rgba(59,130,246,.07);
+  }
+  #quarto-header, .nav-footer, #quarto-margin-sidebar, .quarto-title-block { display: none !important; }
+  #quarto-content, main.content, #quarto-document-content { padding: 0 !important; margin: 0 !important; max-width: none !important; }
+  #lp {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background: var(--bg); color: var(--text); line-height: 1.6; font-size: 16px;
+  }
+  #lp * { box-sizing: border-box; }
+  #lp a { text-decoration: none; }
+  #lp p { margin: 0; }
+  #lp h1, #lp h2, #lp h3 { color: var(--text); border: 0; margin-top: 0; }
+  #lp .lp-header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: var(--header-bg);
+    backdrop-filter: var(--header-blur); -webkit-backdrop-filter: var(--header-blur); border-bottom: 1px solid var(--header-border);
+    box-shadow: var(--header-shadow);
+    padding: .75rem 2rem; display: flex; flex-wrap: nowrap; align-items: center; justify-content: space-between; gap: 1rem; }
+  #lp .lp-logo { flex-shrink: 0; display: flex; align-items: center; gap: .6rem; font-weight: 700; font-size: 1.2rem; line-height: 1; letter-spacing: -.02em; color: var(--text); white-space: nowrap; }
+  #lp .lp-logo span { color: var(--accent-light); }
+  #lp .lp-logo span.lp-logo-w { color: inherit; }
+  #lp .lp-logo-icon { flex-shrink: 0; width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center;
+    background: linear-gradient(135deg, var(--accent), var(--accent-3)); font-size: 1.05rem; color: var(--on-accent); }
+  #lp .lp-nav { flex: 1 1 auto; min-width: 0; display: flex; flex-wrap: nowrap; align-items: center; justify-content: flex-end; gap: 1.5rem; }
+  #lp .lp-nav a { color: var(--text-muted); font-size: .9rem; font-weight: 500; line-height: 1; white-space: nowrap; transition: color .2s; }
+  #lp .lp-nav a:hover { color: var(--text); }
+  #lp .lp-actions { flex-shrink: 0; display: flex; flex-wrap: nowrap; align-items: center; gap: .75rem; }
+  #lp .lp-actions .lp-btn { white-space: nowrap; padding: .6rem 1.25rem; font-size: .9rem; line-height: 1; }
+  #lp .lp-theme, #lp .lp-menu-btn { flex-shrink: 0; width: 36px; height: 36px; border-radius: 9999px; display: inline-flex; align-items: center; justify-content: center;
+    background: transparent; border: 1px solid var(--outline); color: var(--text-muted); cursor: pointer; padding: 0; transition: all .2s; }
+  #lp .lp-theme:hover, #lp .lp-menu-btn:hover, #lp .lp-menu-btn[aria-expanded="true"] { color: var(--accent-light); border-color: var(--accent-light); }
+  #lp .lp-theme:focus-visible, #lp .lp-menu-btn:focus-visible, #lp .lp-nav a:focus-visible { outline: 2px solid var(--accent-light); outline-offset: 2px; }
+  #lp .lp-theme svg, #lp .lp-menu-btn svg { width: 18px; height: 18px; }
+  #lp .lp-theme .lp-sun { display: none; }
+  body.quarto-dark #lp .lp-theme .lp-sun { display: block; }
+  body.quarto-dark #lp .lp-theme .lp-moon { display: none; }
+  #lp .lp-menu-btn { display: none; }
+  #lp .lp-menu-btn .lp-x { display: none; }
+  #lp .lp-menu-btn[aria-expanded="true"] .lp-x { display: block; }
+  #lp .lp-menu-btn[aria-expanded="true"] .lp-bars { display: none; }
+  @media (max-width: 1100px) {
+    #lp .lp-header { padding: .7rem 1.25rem; }
+    #lp .lp-logo { font-size: 1.1rem; }
+    #lp .lp-nav { gap: 1rem; }
+    #lp .lp-nav a { font-size: .85rem; }
+    #lp .lp-nav a.lp-pri-low { display: none; }
+    #lp .lp-actions { gap: .6rem; }
+    #lp .lp-actions .lp-btn { padding: .55rem 1.05rem; font-size: .85rem; }
+  }
+  @media (max-width: 760px) {
+    #lp .lp-header { padding: .6rem 1rem; gap: .5rem; }
+    #lp .lp-logo { font-size: 1.05rem; gap: .5rem; }
+    #lp .lp-logo-icon { width: 32px; height: 32px; font-size: .95rem; }
+    #lp .lp-menu-btn { display: inline-flex; }
+    #lp .lp-theme, #lp .lp-menu-btn { width: 34px; height: 34px; }
+    #lp .lp-actions { gap: .5rem; }
+    #lp .lp-actions .lp-btn { padding: .5rem .85rem; font-size: .8rem; }
+    #lp .lp-cta-arrow { display: none; }
+    #lp .lp-nav { display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; align-items: stretch; gap: 0;
+      padding: .4rem 1rem .8rem; background: var(--bg); border-bottom: 1px solid var(--header-border); box-shadow: 0 12px 24px -12px rgba(15,23,42,.25); }
+    #lp .lp-nav.lp-open { display: flex; }
+    #lp .lp-nav a, #lp .lp-nav a.lp-pri-low { display: block; padding: .8rem .25rem; font-size: 1rem; border-bottom: 1px solid var(--line-10); }
+    #lp .lp-nav a:last-child { border-bottom: 0; }
+  }
+  @media (max-width: 440px) { #lp .lp-logo-w { display: none; } }
+  @media (max-width: 340px) { #lp .lp-logo-icon { display: none; } }
+  #lp .lp-btn { display: inline-flex; align-items: center; gap: .4rem; padding: .7rem 1.5rem; border-radius: 9999px;
+    font-weight: 600; font-size: .95rem; transition: all .25s; border: none; }
+  #lp .lp-btn-primary { background: linear-gradient(135deg, var(--accent), var(--accent-3)); color: #fff !important; }
+  #lp .lp-btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 25px -5px var(--btn-shadow); }
+  #lp .lp-btn-outline { background: transparent; color: var(--text) !important; border: 1px solid var(--outline); }
+  #lp .lp-btn-outline:hover { border-color: var(--accent-light); color: var(--accent-light) !important; }
+  #lp section { position: relative; z-index: 1; padding: 6rem 2rem; max-width: 1100px; margin: 0 auto; }
+  #lp .lp-label { display: inline-block; font-size: .8rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase;
+    color: var(--accent-light); margin-bottom: 1rem; }
+  #lp h1 { font-size: clamp(2.8rem, 6vw, 4.4rem); font-weight: 800; line-height: 1.1; letter-spacing: -.03em; margin-bottom: 1.5rem; }
+  #lp h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 700; letter-spacing: -.02em; margin-bottom: 1.25rem; }
+  #lp h3 { font-size: 1.2rem; font-weight: 600; margin-bottom: .6rem; }
+  #lp .lp-lead { font-size: 1.2rem; color: var(--text-muted); max-width: 680px; margin-bottom: 2rem; }
+  #lp .lp-muted { color: var(--text-muted); font-size: .95rem; }
+  #lp code { background: var(--code-bg); color: var(--code-fg); padding: .1rem .35rem; border-radius: 4px; font-size: .88em; }
+  #lp .lp-hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center;
+    text-align: center; padding-top: 6rem; }
+  #lp .lp-badge { display: inline-flex; align-items: center; gap: .5rem; background: var(--green-bg);
+    border: 1px solid var(--green-border); color: var(--green-fg); padding: .4rem 1rem; border-radius: 9999px; font-size: .85rem;
+    font-weight: 500; margin-bottom: 2rem; }
+  #lp a.lp-badge { text-decoration: none; }
+  #lp .lp-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent-2); box-shadow: 0 0 0 0 rgba(34,197,94,.7); animation: lp-pulse 2s infinite; }
+  @keyframes lp-pulse { 70% { box-shadow: 0 0 0 10px rgba(34,197,94,0); } 100% { box-shadow: 0 0 0 0 rgba(34,197,94,0); } }
+  #lp .lp-grad-code { color: var(--accent-light); } #lp .lp-grad-learn { color: var(--accent-2); } #lp .lp-grad-build { color: var(--accent-3); }
+  #lp .lp-spin { display: inline-block; width: 14ch; text-align: center; white-space: nowrap; vertical-align: middle; line-height: 1.5;
+    padding: .05rem .5rem; border-radius: 10px; background: var(--spin-bg); border: 1px solid var(--spin-border); color: var(--spin-fg);
+    font-weight: 700; font-size: .95em; font-family: 'JetBrains Mono', ui-monospace, monospace; transition: opacity .25s ease; }
+  #lp .lp-hero-sub { display: block; margin-top: 1.4rem; }
+  #lp .lp-hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; margin-top: 2.2rem; }
+  #lp .lp-stats { display: flex; gap: 3rem; margin-top: 4rem; flex-wrap: wrap; justify-content: center; }
+  #lp .lp-stat { text-align: center; }
+  #lp .lp-stat-value { font-size: 2rem; font-weight: 800; background: linear-gradient(135deg, var(--accent-light), var(--accent-3));
+    -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+  #lp .lp-stat-label { font-size: .85rem; color: var(--text-muted); margin-top: .25rem; }
+  #lp .lp-numbers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.1rem; margin-top: 2rem; }
+  #lp .lp-num { background: var(--bg-card); border: 1px solid var(--line-12); border-radius: 1rem; padding: 1.4rem 1.5rem;
+    box-shadow: var(--shadow); transition: transform .2s, border-color .2s, box-shadow .2s; }
+  #lp .lp-num:hover { transform: translateY(-3px); border-color: var(--hover-border); box-shadow: var(--shadow-hover); }
+  #lp .lp-num-icon { font-size: 1.3rem; line-height: 1; margin-bottom: .7rem; }
+  #lp .lp-num-value { font-size: 2.4rem; font-weight: 800; line-height: 1.05; letter-spacing: -.02em;
+    background: linear-gradient(135deg, var(--accent-light), var(--accent-3)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  #lp .lp-num-label { font-size: 1rem; font-weight: 600; color: var(--text); margin-top: .35rem; }
+  #lp .lp-num-src { font-size: .82rem; color: var(--text-muted); margin-top: .15rem; }
+  @media (max-width: 860px) { #lp .lp-numbers { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 420px) { #lp .lp-numbers { gap: .75rem; } #lp .lp-num { padding: 1.1rem; } #lp .lp-num-value { font-size: 1.9rem; } }
+  #lp .lp-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; margin-top: 2.5rem; }
+  #lp .lp-card { display: block; background: var(--bg-card); border: 1px solid var(--line-10); border-radius: 1rem;
+    padding: 1.75rem; transition: all .25s; color: var(--text); box-shadow: var(--shadow); }
+  #lp a.lp-card:hover, #lp .lp-card:hover { background: var(--bg-card-hover); border-color: var(--hover-border); transform: translateY(-4px); box-shadow: var(--shadow-hover); }
+  #lp .lp-card.lp-live { border-color: var(--live-border); }
+  #lp .lp-card-icon { font-size: 1.8rem; margin-bottom: 1rem; }
+  #lp .lp-card-meta { font-size: .8rem; color: var(--accent-light); font-weight: 600; letter-spacing: .04em; text-transform: uppercase; margin-top: 1rem; }
+  #lp ul.lp-list { list-style: none; padding: 0; margin: 1rem 0 0; }
+  #lp ul.lp-list li { font-size: .95rem; color: var(--text-muted); padding: .3rem 0; display: flex; gap: .5rem; }
+  #lp ul.lp-list li::before { content: "→"; color: var(--accent-light); font-weight: 600; }
+  #lp .lp-split { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.5rem; margin-top: 2.5rem; }
+  @media (max-width: 900px) { #lp .lp-split { grid-template-columns: 1fr; } }
+  @media (max-width: 760px) { #lp section { padding: 4.5rem 1.25rem; } }
+  #lp .lp-split-card { background: var(--bg-card); border-radius: 1rem; padding: 2rem; border: 1px solid var(--line-10); box-shadow: var(--shadow); }
+  #lp .lp-split-card.teacher { border-top: 3px solid var(--accent); }
+  #lp .lp-split-card.student { border-top: 3px solid var(--accent-2); }
+  #lp .lp-split-card.course { border-top: 3px solid var(--accent-3); }
+  #lp .lp-steps { display: grid; gap: 1.25rem; margin-top: 2.5rem; }
+  #lp .lp-step { display: flex; gap: 1.5rem; align-items: flex-start; background: var(--bg-card); border-radius: 1rem;
+    padding: 1.5rem 1.75rem; border: 1px solid var(--line-08); box-shadow: var(--shadow); color: inherit; }
+  #lp a.lp-step:hover { border-color: var(--hover-border); transform: translateY(-2px); box-shadow: var(--shadow-hover); }
+  #lp .lp-step-num { flex-shrink: 0; width: 42px; height: 42px; border-radius: 12px; display: flex; align-items: center;
+    justify-content: center; font-weight: 700; color: var(--on-accent); background: linear-gradient(135deg, var(--accent), var(--accent-3)); }
+  #lp .lp-moved { margin-top: 2.5rem; padding: 1.25rem 1.5rem; border: 1px solid var(--live-border); border-radius: 14px; background: var(--green-soft); text-align: left; max-width: 680px; }
+  #lp .lp-moved a { color: var(--accent-light); font-weight: 600; }
+  #lp .lp-moved a:hover { color: var(--link-hover); }
+  #lp .lp-dd { position: relative; display: flex; align-items: center; }
+  #lp .lp-dd-btn {
+    appearance: none; background: transparent; border: 0; cursor: pointer; padding: 0;
+    color: var(--text-muted); font: inherit; font-size: .9rem; font-weight: 500; line-height: 1;
+    display: inline-flex; align-items: center; gap: .3rem; white-space: nowrap; transition: color .2s;
+  }
+  #lp .lp-dd-btn:hover, #lp .lp-dd.open .lp-dd-btn { color: var(--text); }
+  #lp .lp-dd-menu {
+    display: none; position: absolute; top: calc(100% + .55rem); right: 0; min-width: 15rem; z-index: 1100;
+    margin: 0; padding: .4rem 0; list-style: none;
+    background: var(--bg-card, #fff); color: var(--text); border: 1px solid var(--line-12);
+    border-radius: .65rem; box-shadow: 0 14px 40px -18px rgba(0,0,0,.45);
+  }
+  body.quarto-dark #lp .lp-dd-menu { background: #1e293b; border-color: rgba(255,255,255,.12); }
+  #lp .lp-dd:hover .lp-dd-menu, #lp .lp-dd.open .lp-dd-menu { display: block; }
+  #lp .lp-dd-menu a {
+    display: flex; align-items: center; gap: .55rem; padding: .55rem .95rem; color: var(--text);
+    font-size: .9rem; font-weight: 500; text-decoration: none; white-space: nowrap;
+  }
+  #lp .lp-dd-menu a:hover { background: color-mix(in srgb, var(--accent-light) 14%, transparent); color: var(--text); }
+  @media (max-width: 760px) {
+    #lp .lp-dd { display: block; width: 100%; border-bottom: 1px solid var(--line-10); }
+    #lp .lp-dd-btn { display: flex; width: 100%; justify-content: space-between; padding: .8rem .25rem; font-size: 1rem; }
+    #lp .lp-dd-menu { position: static; display: none; min-width: 0; box-shadow: none; border: 0; border-radius: 0; background: transparent; padding: 0 0 .4rem 0; }
+    #lp .lp-dd.open .lp-dd-menu { display: block; }
+    #lp .lp-dd:hover .lp-dd-menu { display: none; }
+    #lp .lp-dd.open:hover .lp-dd-menu { display: block; }
+    #lp .lp-dd-menu a { padding: .65rem .25rem .65rem 1rem; border-bottom: 1px solid var(--line-10); }
+  }
+  #lp .lp-final { text-align: center; max-width: none; background: linear-gradient(180deg, transparent, var(--final-tint)); }
+  #lp .lp-final .lp-lead { margin: 0 auto 2rem; }
+  #lp .lp-footer { position: relative; z-index: 1; border-top: 1px solid var(--line-10); padding: 2.5rem 2rem; display: flex;
+    flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1.5rem; max-width: 1100px; margin: 0 auto;
+    color: var(--text-muted); font-size: .9rem; }
+  #lp .lp-footer a { color: var(--text-muted); } #lp .lp-footer a:hover { color: var(--text); }
+  #lp .lp-footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+  #lp .lp-footer-sitemap {
+    flex: 1 1 100%; order: 5; margin-top: .35rem; padding-top: 1rem; border-top: 1px solid var(--line-10);
+    font-size: .88rem; color: var(--text-muted); line-height: 1.7; text-align: center;
+  }
+  #lp .lp-footer-sitemap .lp-sitemap-label { font-weight: 600; letter-spacing: .04em; text-transform: uppercase; font-size: .75rem; margin-right: .45rem; }
+  #lp .lp-footer-sitemap a { color: var(--text-muted); text-decoration: none; }
+  #lp .lp-footer-sitemap a:hover { color: var(--text); }
+  #lp .lp-footer-sitemap .sep { opacity: .45; margin: 0 .28rem; }
+  #lp .lp-reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+  #lp .lp-reveal.lp-in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) { #lp .lp-reveal { opacity: 1; transform: none; } }
+</style>
+<script>
+  (function () {
+    var dark = false;
+    try { dark = window.localStorage.getItem('quarto-color-scheme') === 'alternate'; } catch (e) {}
+    document.body.classList.add(dark ? 'quarto-dark' : 'quarto-light');
+    document.body.classList.remove(dark ? 'quarto-light' : 'quarto-dark');
+  })();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@500;700&amp;display=swap" rel="stylesheet">
+
+<div id="lp">
+
+  <header class="lp-header">
+    <a class="lp-logo" href="./index.html"><div class="lp-logo-icon">∑</div>albert<span>profe</span><span class="lp-logo-w">&nbsp;ml</span></a>
+    <nav class="lp-nav" id="lp-nav" aria-label="Landing sections">
+      <a href="#path">Start here</a>
+      <a href="#now">Numbers</a>
+      <div class="lp-dd" id="lp-topics-dd">
+        <button type="button" class="lp-dd-btn" id="lp-topics-btn" aria-expanded="false" aria-haspopup="true" aria-controls="lp-topics-menu">Sections <span aria-hidden="true">▾</span></button>
+        <ul class="lp-dd-menu" id="lp-topics-menu" role="menu">
+          <li role="none"><a role="menuitem" href="foundations/foundations-index.html">Foundations</a></li>
+          <li role="none"><a role="menuitem" href="bigdata/bigdata-index.html">Data</a></li>
+          <li role="none"><a role="menuitem" href="algorithms/algo-index.html">Classic ML</a></li>
+          <li role="none"><a role="menuitem" href="evaluation/evaluation-index.html">Model evaluation</a></li>
+          <li role="none"><a role="menuitem" href="deep/deep-index.html">Deep Learning</a></li>
+          <li role="none"><a role="menuitem" href="generative/generative-index.html">LLMs and Transformers</a></li>
+          <li role="none"><a role="menuitem" href="rag/rag-index.html">RAG and agents</a></li>
+          <li role="none"><a role="menuitem" href="aidev/aidev-index.html">AI for developers</a></li>
+          <li role="none"><a role="menuitem" href="mlops/mlops-index.html">MLOps</a></li>
+          <li role="none"><a role="menuitem" href="training/training-index.html">Training</a></li>
+        </ul>
+      </div>
+      <a href="#library">Library</a>
+      <a href="https://albertprofe.dev" target="_blank" rel="noopener">Teaching wiki ↗</a>
+      <a href="https://github.com/AlbertProfe/wikiml" target="_blank" rel="noopener" class="lp-pri-low">GitHub</a>
+    </nav>
+    <div class="lp-actions">
+      <button type="button" class="lp-menu-btn" id="lp-menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="lp-nav">
+        <svg class="lp-bars" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"></path></svg>
+        <svg class="lp-x" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"></path></svg>
+      </button>
+      <button type="button" class="lp-theme" id="lp-theme" title="Toggle dark mode" aria-label="Toggle dark mode">
+        <svg class="lp-moon" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path></svg>
+        <svg class="lp-sun" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg>
+      </button>
+      <a href="ann/ann-model-and-demos.html" class="lp-btn lp-btn-primary">ANN demos<span class="lp-cta-arrow">→</span></a>
+    </div>
+  </header>
+
+  <section class="lp-hero">
+    <a class="lp-badge" href="https://albertprofe.dev" target="_blank" rel="noopener"><span class="lp-dot"></span> Sister library of albertprofe.dev</a>
+    <h1><span class="lp-grad-code">Learn.</span> <span class="lp-grad-learn">Model.</span><br><span class="lp-grad-build">Build.</span></h1>
+    <p class="lp-lead">
+      Learn <span class="lp-spin" id="lp-spin">ANN</span> first.
+      <span class="lp-hero-sub">A living ML wiki next to the teaching wiki: algorithms, neural nets, language models, and the Python I study with — written as I learn it, for anyone who wants to follow.</span>
+    </p>
+    <div class="lp-hero-ctas">
+      <a href="ann/ann-model-and-demos.html" class="lp-btn lp-btn-primary">ANN model and demos →</a>
+      <a href="machine/machine-index.html" class="lp-btn lp-btn-outline">What is machine learning</a>
+    </div>
+    <div class="lp-moved">
+      <strong>Looking for the old home?</strong>
+      The ANN formula, the 3Blue1Brown video, the Manim clip and the executable Python demos now live in
+      <a href="ann/ann-model-and-demos.html">Deep Learning → ANN: model and demos</a>.
+      This page is the new front door.
+    </div>
+    <div class="lp-stats">
+      <div class="lp-stat"><div class="lp-stat-value">ANN → LLM</div><div class="lp-stat-label">the path through the library</div></div>
+      <div class="lp-stat"><div class="lp-stat-value">71 pages</div><div class="lp-stat-label">.qmd files, 10 Nov 2026</div></div>
+      <div class="lp-stat"><div class="lp-stat-value">14 parts</div><div class="lp-stat-label">Helsinki Python track</div></div>
+    </div>
+  </section>
+
+  <section id="path" class="lp-reveal">
+    <div class="lp-label">Start here</div>
+    <h2>ANN first, then LLM</h2>
+    <p class="lp-lead">A path you can walk today, using pages that already exist. Evolution articles and most classroom labs are still to be written — I will not pretend they are here.</p>
+    <div class="lp-steps">
+      <a class="lp-step" href="machine/machine-index.html"><div class="lp-step-num">1</div><div><h3>What is machine learning</h3><p class="lp-muted">The decision / error / optimisation loop, and the four learning paradigms.</p></div></a>
+      <a class="lp-step" href="algorithms/algo-linear-regression.html"><div class="lp-step-num">2</div><div><h3>A first algorithm</h3><p class="lp-muted">Linear regression — still a short definition page, and the seed for the other classic algorithms.</p></div></a>
+      <a class="lp-step" href="ann/ann-introduction.html"><div class="lp-step-num">3</div><div><h3>What is an ANN</h3><p class="lp-muted">The strongest ML article already on this wiki: structure, types, and how a network learns.</p></div></a>
+      <a class="lp-step" href="ann/ann-model-and-demos.html"><div class="lp-step-num">4</div><div><h3>ANN model and demos</h3><p class="lp-muted">The former home page: the formula, videos, and executable Python (spiking neuron, XOR perceptron).</p></div></a>
+      <a class="lp-step" href="deep/deep-index.html"><div class="lp-step-num">5</div><div><h3>Deep learning overview</h3><p class="lp-muted">How deep networks, GANs and transformers sit inside machine learning.</p></div></a>
+      <a class="lp-step" href="generative/generative-index.html"><div class="lp-step-num">6</div><div><h3>Toward LLMs and Transformers</h3><p class="lp-muted">A comparison table is written; the child pages (LLM, GPT, Transformer) are honest outlines, not finished articles.</p></div></a>
+      <a class="lp-step" href="rag/rag-index.html"><div class="lp-step-num">7</div><div><h3>RAG and agents</h3><p class="lp-muted">Named, not yet taught. Start with the section outline; the RAG page is in progress at its original URL.</p></div></a>
+    </div>
+  </section>
+
+  <section id="now" class="lp-reveal">
+    <div class="lp-label">Now</div>
+    <h2>The wiki, in numbers</h2>
+    <p class="lp-lead">Counted from this repository on 10 November 2026. The page total includes new section outlines written so every agreed section has a home, plus its own Labs and Resources pages. It is not 71 finished articles.</p>
+    <div class="lp-numbers">
+      <div class="lp-num"><div class="lp-num-icon">📄</div><div class="lp-num-value">71</div><div class="lp-num-label">pages</div><div class="lp-num-src">.qmd files in the repo</div></div>
+      <div class="lp-num"><div class="lp-num-icon">🔁</div><div class="lp-num-value">23</div><div class="lp-num-label">commits on master</div><div class="lp-num-src">28 Dec 2024 – 5 Jan 2025</div></div>
+      <div class="lp-num"><div class="lp-num-icon">🐍</div><div class="lp-num-value">14</div><div class="lp-num-label">Python MOOC parts</div><div class="lp-num-src">1–3 written · 4 started · 5–14 stubs</div></div>
+      <div class="lp-num"><div class="lp-num-icon">🧠</div><div class="lp-num-value">4</div><div class="lp-num-label">ANN articles</div><div class="lp-num-src">including the relocated home</div></div>
+      <div class="lp-num"><div class="lp-num-icon">📐</div><div class="lp-num-value">9</div><div class="lp-num-label">algorithm sketches</div><div class="lp-num-src">plus one overview page</div></div>
+      <div class="lp-num"><div class="lp-num-icon">🧪</div><div class="lp-num-value">6</div><div class="lp-num-label">annotated external labs</div><div class="lp-num-src">on the January 2025 labs index</div></div>
+    </div>
+  </section>
+
+  <section id="library" class="lp-reveal">
+    <div class="lp-label">The library</div>
+    <h2>Ten sections, each with Labs and Resources</h2>
+    <p class="lp-lead">Existing articles stay at their URLs. New sections begin with an honest outline rather than empty boilerplate. About is not a section here — it lives on the teaching wiki.</p>
+    <div class="lp-grid">
+      <a class="lp-card" href="foundations/foundations-index.html"><div class="lp-card-icon">🧱</div><h3>Foundations</h3>
+        <p class="lp-muted">What machine learning is, and the Helsinki Python Programming MOOC 2024 track. Python lives here, not in a side menu.</p>
+        <div class="lp-card-meta">19 pages · ML overview + 14 Python parts</div></a>
+      <a class="lp-card" href="bigdata/bigdata-index.html"><div class="lp-card-icon">🗃️</div><h3>Data</h3>
+        <p class="lp-muted">Today this is the Big Data overview (the five Vs). Cleaning, splits and pipelines are still to be written.</p>
+        <div class="lp-card-meta">3 pages · overview + labs + resources</div></a>
+      <a class="lp-card" href="algorithms/algo-index.html"><div class="lp-card-icon">📉</div><h3>Classic ML</h3>
+        <p class="lp-muted">One overview of algorithm types, then nine short definition pages: linear and logistic regression, naïve Bayes, SVM, trees, k-NN, forests, boosting, k-means.</p>
+        <div class="lp-card-meta">12 pages · 9 sketches still thin</div></a>
+      <a class="lp-card" href="evaluation/evaluation-index.html"><div class="lp-card-icon">🎯</div><h3>Model evaluation</h3>
+        <p class="lp-muted">How well a model does, and by which measure. An outline only: splits, metrics, overfitting, cross-validation.</p>
+        <div class="lp-card-meta">3 pages · in progress</div></a>
+      <a class="lp-card lp-live" href="ann/ann-model-and-demos.html"><div class="lp-card-icon">🕸️</div><h3>Deep Learning</h3>
+        <p class="lp-muted">ANN is the first chapter: introduction, mathematical model, and the relocated home (formula, videos, Python demos). Then a deep-learning overview.</p>
+        <div class="lp-card-meta">7 pages · ANN first</div></a>
+      <a class="lp-card" href="generative/generative-index.html"><div class="lp-card-icon">✨</div><h3>LLMs and Transformers</h3>
+        <p class="lp-muted">A written comparison of generative models. The LLM, GPT and Transformer child pages are outlines, ready to be filled.</p>
+        <div class="lp-card-meta">6 pages · overview written</div></a>
+      <a class="lp-card" href="rag/rag-index.html"><div class="lp-card-icon">🔎</div><h3>RAG and agents</h3>
+        <p class="lp-muted">Retrieve, then generate — and later the agent loop. Named in the generative table; not yet taught.</p>
+        <div class="lp-card-meta">4 pages · in progress</div></a>
+      <a class="lp-card" href="aidev/aidev-index.html"><div class="lp-card-icon">💻</div><h3>AI for developers</h3>
+        <p class="lp-muted">Using a model inside a real program. No articles yet, only an honest outline.</p>
+        <div class="lp-card-meta">3 pages · in progress</div></a>
+      <a class="lp-card" href="mlops/mlops-index.html"><div class="lp-card-icon">⚙️</div><h3>MLOps</h3>
+        <p class="lp-muted">How the code is structured, how a run is repeated, train versus serve. Outline only.</p>
+        <div class="lp-card-meta">3 pages · in progress</div></a>
+      <a class="lp-card" href="training/training-index.html"><div class="lp-card-icon">🎓</div><h3>Training</h3>
+        <p class="lp-muted">Mirrors Training on albertprofe.dev. No live AI course is documented here yet — no invented sprint or calendar.</p>
+        <div class="lp-card-meta">3 pages · waiting for a course</div></a>
+      <a class="lp-card" href="https://albertprofe.dev" target="_blank" rel="noopener"><div class="lp-card-icon">⌘</div><h3>albertprofe.dev ↗</h3>
+        <p class="lp-muted">The teaching wiki this site sits next to: Java SE, Spring Boot, React, DevOps, Linux, Scrum, labs and course editions.</p>
+        <div class="lp-card-meta">sister wiki · About lives there</div></a>
+    </div>
+  </section>
+
+  <section class="lp-final lp-reveal" id="start">
+    <h2>Open the ANN chapter</h2>
+    <p class="lp-lead">If you have thirty minutes, start with the relocated home article: the formula, the videos, and the Python demos that used to greet every visitor.</p>
+    <a href="ann/ann-model-and-demos.html" class="lp-btn lp-btn-primary" style="font-size:1.05rem; padding:.95rem 2.2rem;">Go to ANN: model and demos →</a>
+  </section>
+
+  <footer class="lp-footer">
+    <div class="lp-logo"><div class="lp-logo-icon" style="width:28px;height:28px;font-size:.9rem;">∑</div>albert<span>profe</span>&nbsp;ml</div>
+    <div style="font-style:italic">Attention is all you need</div>
+    <div class="lp-footer-links">
+      <a href="https://albertprofe.dev/about/about-this-me.html" target="_blank" rel="noopener">About</a>
+      <a href="https://albertprofe.dev" target="_blank" rel="noopener">albertprofe.dev</a>
+      <a href="https://github.com/AlbertProfe/wikiml" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a>
+    </div>
+    <div class="lp-footer-sitemap" aria-label="Sections sitemap">
+      <span class="lp-sitemap-label">Sections</span>
+      <a href="foundations/foundations-index.html">Foundations</a><span class="sep">·</span>
+      <a href="bigdata/bigdata-index.html">Data</a><span class="sep">·</span>
+      <a href="algorithms/algo-index.html">Classic ML</a><span class="sep">·</span>
+      <a href="evaluation/evaluation-index.html">Evaluation</a><span class="sep">·</span>
+      <a href="deep/deep-index.html">Deep Learning</a><span class="sep">·</span>
+      <a href="generative/generative-index.html">LLMs</a><span class="sep">·</span>
+      <a href="rag/rag-index.html">RAG</a><span class="sep">·</span>
+      <a href="aidev/aidev-index.html">AI for developers</a><span class="sep">·</span>
+      <a href="mlops/mlops-index.html">MLOps</a><span class="sep">·</span>
+      <a href="training/training-index.html">Training</a>
+    </div>
+  </footer>
+</div>
+
+<script>
+(function () {
+  var tbtn = document.getElementById('lp-theme');
+  if (tbtn) tbtn.addEventListener('click', function () {
+    if (typeof window.quartoToggleColorScheme === 'function') { window.quartoToggleColorScheme(); return; }
+    var dark = !document.body.classList.contains('quarto-dark');
+    try { window.localStorage.setItem('quarto-color-scheme', dark ? 'alternate' : 'default'); } catch (e) {}
+    document.body.classList.toggle('quarto-dark', dark);
+    document.body.classList.toggle('quarto-light', !dark);
+  });
+  var mbtn = document.getElementById('lp-menu-btn'), mnav = document.getElementById('lp-nav');
+  function lpMenu(open) { mnav.classList.toggle('lp-open', open); mbtn.setAttribute('aria-expanded', open ? 'true' : 'false'); mbtn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu'); }
+  if (mbtn && mnav) {
+    mbtn.addEventListener('click', function () { lpMenu(mbtn.getAttribute('aria-expanded') !== 'true'); });
+    mnav.addEventListener('click', function (e) { if (e.target.closest('a') && !e.target.closest('.lp-dd-menu')) lpMenu(false); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && mbtn.getAttribute('aria-expanded') === 'true') { lpMenu(false); mbtn.focus(); } });
+    document.addEventListener('click', function (e) { if (!e.target.closest('.lp-header')) lpMenu(false); });
+    window.addEventListener('resize', function () { if (window.innerWidth > 760) lpMenu(false); });
+  }
+  var tdd = document.getElementById('lp-topics-dd'), topicsBtn = document.getElementById('lp-topics-btn');
+  function lpTopics(open) {
+    if (!tdd || !topicsBtn) return;
+    tdd.classList.toggle('open', open);
+    topicsBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+  if (tdd && topicsBtn) {
+    topicsBtn.addEventListener('click', function (e) { e.preventDefault(); e.stopPropagation(); lpTopics(topicsBtn.getAttribute('aria-expanded') !== 'true'); });
+    tdd.addEventListener('click', function (e) { if (e.target.closest('a')) { lpTopics(false); if (mbtn && window.innerWidth <= 760) lpMenu(false); } });
+    document.addEventListener('click', function (e) { if (!e.target.closest('#lp-topics-dd')) lpTopics(false); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') lpTopics(false); });
+  }
+  var words = ['ANN','PYTHON','TRANSFORMER','LLM','RAG','PERCEPTRON','GRADIENT','ATTENTION'];
+  var spin = document.getElementById('lp-spin'), k = 0;
+  if (spin) setInterval(function () { spin.style.opacity = 0; setTimeout(function () { k = (k + 1) % words.length; spin.textContent = words[k]; spin.style.opacity = 1; }, 250); }, 1600);
+  var els = document.querySelectorAll('#lp .lp-reveal');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('lp-in'); io.unobserve(e.target); } }); }, { threshold: 0.12 });
+    els.forEach(function (el) { io.observe(el); });
+  } else { els.forEach(function (el) { el.classList.add('lp-in'); }); }
+})();
+</script>
 
 
-</header>
 
 
-<p><strong>Machine learning (ML)</strong> is a branch of <em>artificial intelligence (AI)</em> focused on enabling computers and machines to imitate the way that humans learn, to perform tasks autonomously, and to improve their performance and accuracy through experience and exposure to more data.</p>
-<section id="transformers-are-all-you-need" class="level3">
-<h3 class="anchored" data-anchor-id="transformers-are-all-you-need">Transformers are all you need</h3>
-<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/23_bQlXVKcA" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
-<p><a href="https://youtu.be/wjZofJX0v4M?si=NFUsR95VrkedYn7B" class="external" target="_blank">Transformers (how LLMs work) explained visually | DL5 by 3Blue1Brown</a></p>
-<blockquote class="blockquote">
-<p>A <strong>transformer</strong>, functioning as a <strong>perceptron within a multilayer large language model (LLM)</strong>, utilizes <strong>self-attention</strong> to process input sequences.</p>
-<p>Each word in the sentence <mark>“The best <em>Costa Brava</em> spot is …”</mark> can attend to all other words, allowing the model to capture contextual relationships and dependencies effectively.</p>
-<p>This is accomplished through <strong>multi-head attention</strong>, where multiple attention mechanisms operate in parallel, enabling the model to analyze different aspects of the input simultaneously.</p>
-<p>The repetition of these processes across layers enhances the model’s ability to refine its predictions, ultimately generating coherent and contextually relevant completions for the sentence.</p>
-</blockquote>
-</section>
-<section id="mathematical-model-of-an-ann" class="level1">
-<h1>Mathematical Model of an ANN</h1>
-<p>Each neuron computes a <strong>weighted sum</strong> of its inputs, adds a <em>bias term</em>, and applies an activation function. The output of a neuron can be represented as:</p>
-<p><span class="math display">\[
-y = f\left( \sum_{i=1}^{n} w_i x_i + b \right)
-\]</span></p>
-<p>where ( <strong>w_i</strong> ) are the weights, ( <strong>x_i</strong> ) are the inputs, ( <strong>b</strong> ) is the bias, and ( <strong>f</strong> ) is the activation function.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs41377-024-01590-3/MediaObjects/41377_2024_1590_Fig3_HTML.png?as=webp" class="img-fluid figure-img" style="width:80.0%"></p>
-<figcaption><a href="https://www.nature.com/articles/s41377-024-01590-3" class="external" target="_blank">From: Optical neural networks: progress and challenges</a></figcaption>
-</figure>
-</div>
-<p><em>Neuron structure and artificial neural network</em>. <strong>a</strong> Structure of biological neurons. <strong>b</strong> Mathematical inferring process of artificial neurons in multi-layer perceptron, including the input, weights, summation, activation function, and output. <strong>c</strong> Multi-layer perceptron artificial neural network</p>
-</section>
-<section id="python-manim-and-machine-learning" class="level1">
-<h1>Python, Manim and Machine Learning</h1>
-<p><strong>Python</strong> is a versatile programming language widely used for coding <strong>Artificial Neural Networks (ANNs)</strong> and <strong>Machine Learning (ML)</strong> algorithms.</p>
-<section id="fourier-series" class="level3">
-<h3 class="anchored" data-anchor-id="fourier-series">Fourier Series</h3>
-<blockquote class="blockquote">
-<p>The <strong>Fourier</strong> series animation using <strong>Manim</strong> serves as an excellent example of how <strong>Python</strong> can be used to create complex visualizations and animations for mathematical concepts.</p>
-</blockquote>
-<p><video src="./images/home/FourierSeriesAnimation.mp4" class="img-fluid" controls=""><a href="./images/home/FourierSeriesAnimation.mp4">Video</a></video></p>
-<p><mark>The Fourier series animation showcases Python’s ability to visualize complex mathematical concepts, which is crucial in ML for understanding data distributions, model architectures, and algorithm behavior.</mark></p>
-<p>Similarly, when working with ANNs and ML, you would use Python to create visualizations of your model’s architecture, training progress, and prediction results.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> manim <span class="im">import</span> <span class="op">*</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> FourierSeriesAnimation(Scene):</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> construct(<span class="va">self</span>):</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Create axes</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>        axes <span class="op">=</span> Axes(</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>            x_range<span class="op">=</span>[<span class="op">-</span><span class="dv">2</span><span class="op">*</span>PI, <span class="dv">2</span><span class="op">*</span>PI, PI<span class="op">/</span><span class="dv">2</span>],</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>            y_range<span class="op">=</span>[<span class="op">-</span><span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">1</span>],</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>            axis_config<span class="op">=</span>{<span class="st">"color"</span>: BLUE},</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>        )</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Create the original function (square wave)</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>        <span class="kw">def</span> square_wave(x):</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> np.sign(np.sin(x))</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>        original_func <span class="op">=</span> axes.plot(square_wave, color<span class="op">=</span>WHITE)</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Define a list of colors for the approximations</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>        colors <span class="op">=</span> [RED, GREEN, YELLOW, PURPLE, ORANGE]</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Create Fourier series approximations</span></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>        approximations <span class="op">=</span> []</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">6</span>):</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>            <span class="kw">def</span> fourier_series(x):</span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>                <span class="cf">return</span> <span class="bu">sum</span>([(<span class="dv">4</span> <span class="op">/</span> ((<span class="dv">2</span><span class="op">*</span>k <span class="op">-</span> <span class="dv">1</span>) <span class="op">*</span> PI)) <span class="op">*</span> np.sin((<span class="dv">2</span><span class="op">*</span>k <span class="op">-</span> <span class="dv">1</span>) <span class="op">*</span> x) <span class="cf">for</span> k <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, n<span class="op">+</span><span class="dv">1</span>)])</span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>            </span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>            approximations.append(axes.plot(fourier_series, color<span class="op">=</span>colors[n<span class="op">-</span><span class="dv">1</span>]))</span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Add elements to the scene</span></span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.add(axes, original_func)</span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Animate the Fourier series approximations</span></span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> approx <span class="kw">in</span> approximations:</span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>.play(Create(approx), run_time<span class="op">=</span><span class="dv">2</span>)</span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>.wait(<span class="dv">1</span>)</span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.wait(<span class="dv">2</span>)</span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="co"># Render the scene</span></span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">"__main__"</span>:</span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>    scene <span class="op">=</span> FourierSeriesAnimation()</span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>    scene.render()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-</section>
-<section id="python-quarto-and-machine-learning" class="level1 page-columns page-full">
-<h1>Python, Quarto and Machine Learning</h1>
-<p><code>Quarto</code> supports executable <code>Python</code> code blocks within <code>markdown</code>.</p>
-<p>This allows you to create fully reproducible documents and reports—the Python code required to produce your output is part of the document itself, and is automatically re-run whenever the document is rendered.</p>
-<section id="matplotlib-demo" class="level3">
-<h3 class="anchored" data-anchor-id="matplotlib-demo">matplotlib demo</h3>
-<div id="cell-fig-polar" class="cell" data-execution_count="2">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>r <span class="op">=</span> np.arange(<span class="dv">0</span>, <span class="dv">2</span>, <span class="fl">0.01</span>)</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>theta <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> np.pi <span class="op">*</span> r</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  subplot_kw <span class="op">=</span> {<span class="st">'projection'</span>: <span class="st">'polar'</span>} </span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>ax.plot(theta, r)</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>ax.set_rticks([<span class="fl">0.5</span>, <span class="dv">1</span>, <span class="fl">1.5</span>, <span class="dv">2</span>])</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>ax.grid(<span class="va">True</span>)</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-display">
-<div id="fig-polar" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-polar-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="index_files/figure-html/fig-polar-output-1.png" width="450" height="439" class="figure-img">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-polar-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: A line plot on a polar axis
-</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<div class="column-page-right">
-<section id="spiking-neuron-potential" class="level3">
-<h3 class="anchored" data-anchor-id="spiking-neuron-potential">Spiking Neuron Potential</h3>
-<div id="cell-fig-neuron" class="cell" data-execution_count="3">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Simulation parameters</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>T <span class="op">=</span> <span class="dv">100</span>  <span class="co"># Total time in ms</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>dt <span class="op">=</span> <span class="dv">1</span>   <span class="co"># Time step in ms</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>time <span class="op">=</span> np.arange(<span class="dv">0</span>, T, dt)</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Neuron parameters</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>V_th <span class="op">=</span> <span class="op">-</span><span class="dv">50</span>  <span class="co"># Spike threshold in mV</span></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>V_reset <span class="op">=</span> <span class="op">-</span><span class="dv">65</span>  <span class="co"># Reset potential in mV</span></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>R <span class="op">=</span> <span class="dv">1</span>  <span class="co"># Resistance in MΩ</span></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>tau <span class="op">=</span> <span class="dv">10</span>  <span class="co"># Membrane time constant in ms</span></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Input current (constant for simplicity)</span></span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>I <span class="op">=</span> <span class="fl">1.5</span>  <span class="co"># Input current in μA</span></span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialize variables</span></span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>V_m <span class="op">=</span> V_reset <span class="op">*</span> np.ones(<span class="bu">len</span>(time))  <span class="co"># Membrane potential array</span></span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>spikes <span class="op">=</span> []  <span class="co"># List to store spike times</span></span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Simulation loop</span></span>
-<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> t <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="bu">len</span>(time)):</span>
-<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>    dV <span class="op">=</span> (<span class="op">-</span>(V_m[t<span class="op">-</span><span class="dv">1</span>] <span class="op">-</span> V_reset) <span class="op">+</span> R <span class="op">*</span> I) <span class="op">/</span> tau <span class="op">*</span> dt  <span class="co"># Update membrane potential</span></span>
-<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>    V_m[t] <span class="op">=</span> V_m[t<span class="op">-</span><span class="dv">1</span>] <span class="op">+</span> dV</span>
-<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Check for spike</span></span>
-<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> V_m[t] <span class="op">&gt;=</span> V_th:</span>
-<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>        spikes.append(t)  <span class="co"># Record spike time</span></span>
-<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>        V_m[t] <span class="op">=</span> V_reset  <span class="co"># Reset membrane potential after spike</span></span>
-<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotting results</span></span>
-<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">5</span>))</span>
-<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>plt.plot(time, V_m, label<span class="op">=</span><span class="st">"Membrane Potential ($V_m$)"</span>, color<span class="op">=</span><span class="st">'blue'</span>)</span>
-<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>plt.plot(spikes, [V_th]<span class="op">*</span><span class="bu">len</span>(spikes), <span class="st">'ro'</span>, label<span class="op">=</span><span class="st">"Spikes"</span>)  <span class="co"># Plot spikes as red dots</span></span>
-<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>plt.axhline(V_th, color<span class="op">=</span><span class="st">'black'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, label<span class="op">=</span><span class="st">"Spike Threshold"</span>)</span>
-<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Membrane Potential of a Spiking Neuron"</span>)</span>
-<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Time (ms)"</span>)</span>
-<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Membrane Potential (mV)"</span>)</span>
-<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
-<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a>plt.grid()</span>
-<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-display">
-<div id="fig-neuron" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-neuron-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="index_files/figure-html/fig-neuron-output-1.png" width="819" height="449" class="figure-img">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-neuron-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2: Membrane Potential of a Spiking Neuron
-</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="perceptron" class="level3">
-<h3 class="anchored" data-anchor-id="perceptron">Perceptron</h3>
-<div id="cell-fig-perceptron" class="cell" data-execution_count="4">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Activation function: Sigmoid</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> sigmoid(x):</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">1</span> <span class="op">/</span> (<span class="dv">1</span> <span class="op">+</span> np.exp(<span class="op">-</span>x))</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Derivative of the sigmoid function</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> sigmoid_derivative(x):</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x <span class="op">*</span> (<span class="dv">1</span> <span class="op">-</span> x)</span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Input data (4 samples, 2 features)</span></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> np.array([[<span class="dv">0</span>, <span class="dv">0</span>],</span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>              [<span class="dv">0</span>, <span class="dv">1</span>],</span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>              [<span class="dv">1</span>, <span class="dv">0</span>],</span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>              [<span class="dv">1</span>, <span class="dv">1</span>]])</span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Output data (XOR function)</span></span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> np.array([[<span class="dv">0</span>],</span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>              [<span class="dv">1</span>],</span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>              [<span class="dv">1</span>],</span>
-<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>              [<span class="dv">0</span>]])</span>
-<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Seed for reproducibility</span></span>
-<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">42</span>)</span>
-<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialize weights</span></span>
-<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>input_layer_neurons <span class="op">=</span> <span class="dv">2</span>  <span class="co"># Number of input features</span></span>
-<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>hidden_layer_neurons <span class="op">=</span> <span class="dv">2</span>  <span class="co"># Number of hidden neurons</span></span>
-<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>output_neurons <span class="op">=</span> <span class="dv">1</span>        <span class="co"># Number of output neurons</span></span>
-<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a><span class="co"># Weights between input layer and hidden layer</span></span>
-<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>weights_input_hidden <span class="op">=</span> np.random.uniform(size<span class="op">=</span>(input_layer_neurons, hidden_layer_neurons))</span>
-<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a><span class="co"># Weights between hidden layer and output layer</span></span>
-<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>weights_hidden_output <span class="op">=</span> np.random.uniform(size<span class="op">=</span>(hidden_layer_neurons, output_neurons))</span>
-<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a><span class="co"># Learning rate</span></span>
-<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a>learning_rate <span class="op">=</span> <span class="fl">0.5</span></span>
-<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a><span class="co"># Training the network</span></span>
-<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a>epochs <span class="op">=</span> <span class="dv">10000</span></span>
-<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> epoch <span class="kw">in</span> <span class="bu">range</span>(epochs):</span>
-<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Forward pass</span></span>
-<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a>    hidden_layer_activation <span class="op">=</span> np.dot(X, weights_input_hidden)</span>
-<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a>    hidden_layer_output <span class="op">=</span> sigmoid(hidden_layer_activation)</span>
-<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a>    output_layer_activation <span class="op">=</span> np.dot(hidden_layer_output, weights_hidden_output)</span>
-<span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a>    predicted_output <span class="op">=</span> sigmoid(output_layer_activation)</span>
-<span id="cb4-49"><a href="#cb4-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-50"><a href="#cb4-50" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Backpropagation</span></span>
-<span id="cb4-51"><a href="#cb4-51" aria-hidden="true" tabindex="-1"></a>    error <span class="op">=</span> y <span class="op">-</span> predicted_output</span>
-<span id="cb4-52"><a href="#cb4-52" aria-hidden="true" tabindex="-1"></a>    d_predicted_output <span class="op">=</span> error <span class="op">*</span> sigmoid_derivative(predicted_output)</span>
-<span id="cb4-53"><a href="#cb4-53" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb4-54"><a href="#cb4-54" aria-hidden="true" tabindex="-1"></a>    error_hidden_layer <span class="op">=</span> d_predicted_output.dot(weights_hidden_output.T)</span>
-<span id="cb4-55"><a href="#cb4-55" aria-hidden="true" tabindex="-1"></a>    d_hidden_layer <span class="op">=</span> error_hidden_layer <span class="op">*</span> sigmoid_derivative(hidden_layer_output)</span>
-<span id="cb4-56"><a href="#cb4-56" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-57"><a href="#cb4-57" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Updating weights</span></span>
-<span id="cb4-58"><a href="#cb4-58" aria-hidden="true" tabindex="-1"></a>    weights_hidden_output <span class="op">+=</span> hidden_layer_output.T.dot(d_predicted_output) <span class="op">*</span> learning_rate</span>
-<span id="cb4-59"><a href="#cb4-59" aria-hidden="true" tabindex="-1"></a>    weights_input_hidden <span class="op">+=</span> X.T.dot(d_hidden_layer) <span class="op">*</span> learning_rate</span>
-<span id="cb4-60"><a href="#cb4-60" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-61"><a href="#cb4-61" aria-hidden="true" tabindex="-1"></a><span class="co"># Final predictions after training</span></span>
-<span id="cb4-62"><a href="#cb4-62" aria-hidden="true" tabindex="-1"></a>final_hidden_layer_activation <span class="op">=</span> np.dot(X, weights_input_hidden)</span>
-<span id="cb4-63"><a href="#cb4-63" aria-hidden="true" tabindex="-1"></a>final_hidden_layer_output <span class="op">=</span> sigmoid(final_hidden_layer_activation)</span>
-<span id="cb4-64"><a href="#cb4-64" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-65"><a href="#cb4-65" aria-hidden="true" tabindex="-1"></a>final_output_layer_activation <span class="op">=</span> np.dot(final_hidden_layer_output, weights_hidden_output)</span>
-<span id="cb4-66"><a href="#cb4-66" aria-hidden="true" tabindex="-1"></a>final_predicted_output <span class="op">=</span> sigmoid(final_output_layer_activation)</span>
-<span id="cb4-67"><a href="#cb4-67" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-68"><a href="#cb4-68" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotting results</span></span>
-<span id="cb4-69"><a href="#cb4-69" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">5</span>))</span>
-<span id="cb4-70"><a href="#cb4-70" aria-hidden="true" tabindex="-1"></a>plt.scatter(X[:, <span class="dv">0</span>], X[:, <span class="dv">1</span>], c<span class="op">=</span>final_predicted_output.flatten(), cmap<span class="op">=</span><span class="st">'RdYlBu'</span>, s<span class="op">=</span><span class="dv">100</span>)</span>
-<span id="cb4-71"><a href="#cb4-71" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Output of Two-Layer Perceptron (XOR Function)"</span>)</span>
-<span id="cb4-72"><a href="#cb4-72" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Input Feature 1"</span>)</span>
-<span id="cb4-73"><a href="#cb4-73" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Input Feature 2"</span>)</span>
-<span id="cb4-74"><a href="#cb4-74" aria-hidden="true" tabindex="-1"></a>plt.colorbar(label<span class="op">=</span><span class="st">'Predicted Output'</span>)</span>
-<span id="cb4-75"><a href="#cb4-75" aria-hidden="true" tabindex="-1"></a>plt.grid()</span>
-<span id="cb4-76"><a href="#cb4-76" aria-hidden="true" tabindex="-1"></a>plt.xlim(<span class="op">-</span><span class="fl">0.5</span>, <span class="fl">1.5</span>)</span>
-<span id="cb4-77"><a href="#cb4-77" aria-hidden="true" tabindex="-1"></a>plt.ylim(<span class="op">-</span><span class="fl">0.5</span>, <span class="fl">1.5</span>)</span>
-<span id="cb4-78"><a href="#cb4-78" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-display">
-<div id="fig-perceptron" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-perceptron-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="index_files/figure-html/fig-perceptron-output-1.png" width="787" height="449" class="figure-img">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-perceptron-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3: Output of Two-Layer Perceptron (XOR Function
-</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</section>
-</div>
-
-
-</section>
-
-<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -762,6 +970,150 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
   const icon = "";
   const anchorJS = new window.AnchorJS();
   anchorJS.options = {
@@ -1176,12 +1528,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <li class="nav-item compact">
     <a class="nav-link" href="https://github.com/AlbertProfe/">
       <i class="bi bi-github" role="img">
-</i> 
-    </a>
-  </li>  
-    <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com/">
-      <i class="bi bi-twitter" role="img">
 </i> 
     </a>
   </li>  
