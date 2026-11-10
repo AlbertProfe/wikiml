@@ -646,108 +646,58 @@
     ]
   },
   {
-    "objectID": "algorithms/resources.html",
-    "href": "algorithms/resources.html",
-    "title": "Classic ML: Resources",
+    "objectID": "algorithms/algo-e-means.html",
+    "href": "algorithms/algo-e-means.html",
+    "title": "Algorithms: e-means",
     "section": "",
-    "text": "Resources for this section\nA dedicated reading list for classic algorithms is not written yet. Start from the algorithms overview and the site-wide Resources list.\n\n\n\n\n Back to top",
-    "crumbs": [
-      "Resources",
-      "Classic ML: Resources"
-    ]
-  },
-  {
-    "objectID": "algorithms/algo-support-vector-machines.html",
-    "href": "algorithms/algo-support-vector-machines.html",
-    "title": "Algorithms: Support Vector Machines",
-    "section": "",
-    "text": "Overview\nSupport Vector Machines draw a hyperplane between the two closest data points. This marginalizes the classes and maximizes the distances between them to more clearly differentiate them.\n\n\n\n\n\n\n\n\n\n\n\n Back to top",
+    "text": "New (Nov 2026)\n\n\n\nThe paper is fresh and not yet peer reviewed; speedups are as reported by the authors.\n\n\n\nClassic k-means, in brief\nk-means groups unlabelled points into \\(k\\) clusters. Lloyd’s algorithm places \\(k\\) centres, assigns each point to the nearest one, moves each centre to the mean of its points, and repeats. That is the same goal e-means keeps. For the full walk-through — the loop, inertia, k-means++, how to choose \\(k\\), and a scikit-learn lab — see k-means.\ne-means keeps the same \\(k\\) centroids and the same MSE, but needs far fewer passes over the data. The rest of this page explains what changes, and what the authors report.\n\n\nOverview\ne-means is a drop-in replacement for Lloyd’s k-means. It solves the same clustering problem — minimise the mean squared distance of each point to its nearest centroid — but updates those centroids with mini-batch exponential moving averages, so it usually reaches a lower loss in far fewer passes over the data.\nIt was introduced in November 2026 by Swann Bessa and colleagues at FAIR at Meta and École Nationale des Ponts et Chaussées, and shipped in Faiss 1.16.0[1][2][3].\n\n\n\n\n\n\nSame problem, different optimiser\n\n\n\ne-means is not a new kind of clustering. The inputs are still the dataset and the number of clusters k. The outputs are still \\(k\\) centroids and an assignment. What changes is how the centroids move: mini-batches, an exponential moving average, and scaling laws that set the batch size and step size for you[1][3].\n\n\nThe announcement thread, the paper, and the project site (with a browser playground) are the primary sources for this page.\n\n\nWhat e-means changes\nThink of Lloyd as a teacher who only moves the classroom desks after taking attendance of every student. One complete roll-call, then one simultaneous move.\ne-means walks the room in small groups. After each group, every desk slides a little toward the students currently sitting there. The slide is an exponential moving average (EMA): the desk does not jump to the latest group, and it does not forget the groups that came before. It blends the new evidence with what it already knew — like a thermostat that does not slam to the latest reading.\nEarlier mini-batch k-means methods (MacQueen, Sculley) already update from small batches instead of the full dataset. They can be faster, but when they have been compared with Lloyd they typically finish at a higher error, and the practitioner has to guess a batch size and a step size[1].\n\n\n\n\n\n\n\nStill from a 2D comparison of Lloyd (full batch) and e-means on the same point clouds.\n\n\nFigure: Swann Bessa et al., via the X thread. A still from the animation in post 3/10: side-by-side Lloyd and e-means, with training MSE against the number of passes.\nThe authors specialise the EMA rule for a fixed dataset (the usual k-means setting), rather than for a shifting codebook as in VQ-VAEs[1]:\n\nAutomatic batch size and step size. Scaling laws, fitted on the DEEP dataset and checked on held-out sets, choose the batch size \\(B\\) and the initial step \\(\\alpha_0\\) from \\(n\\), \\(k\\), and the epoch budget \\(T\\). You do not run a hyperparameter sweep[1][2].\n\n\n\n\n\n\n\n\nDiagram of the scaling laws that set batch size and step from n, k and the epoch budget.\n\n\nFigure: Swann Bessa et al., via the X thread. Post 5/10: \\(n\\), \\(k\\) and \\(T\\) go in; batch size \\(B\\) and step \\(\\alpha_0\\) come out.\n\nA decaying step. The step \\(\\alpha=1-\\gamma\\) follows a cosine schedule, from \\(\\alpha_0\\) down to \\(0.1\\,\\alpha_0\\), so the centroids settle as training goes on[1].\nDead-cluster revival. If a cluster stops receiving points, e-means periodically splits a busy “donor” cluster into two, following the same idea Faiss uses for Lloyd. The authors report this as the most important ingredient in their ablation[1][2].\n\n\n\n\n\n\n\n\nSide-by-side 2D clustering with revival off and revival on.\n\n\nFigure: Swann Bessa et al., via the X thread. A still from the bonus animation in post 10/10, comparing dead-cluster revival off and on.\n\nA cheap finalisation. After the last epoch, each centroid is replaced by the exact mean of the points assigned to it in that last pass (the default, which helps training MSE). A slower EMA of the centroids is offered when the goal is out-of-sample (test) MSE[1].\n\nBy default e-means starts from a random sample of the data, not from k-means++. The paper finds that k-means++ can shave a little more loss, but its cost is high; for a small epoch budget it is usually better to train a bit longer instead[1].\n\n\n\n\n\nflowchart TD\n  A[Take a mini-batch] --&gt; B[Assign nearest centre]\n  B --&gt; C[EMA-update counts and sums]\n  C --&gt; D[Revive dead clusters]\n  D --&gt; A\n  C --&gt; E[Last epoch: exact mean]\n\n\n\n\n\n\n\n\nResults, as reported by the authors\nThese figures come from the paper and the announcement thread. They are the authors’ own measurements, mostly on embedding datasets, against strong library baselines — not a re-run on this wiki[1][2].\n\n\n\nClaim\nWhat the authors report\nSource\n\n\n\n\nEpochs to beat Lloyd at 25 iterations\nOn a wide array of embedding datasets, e-means reaches a test loss below Lloyd at 25 epochs in 1.4 to 2.6 epochs\nPaper abstract[1]\n\n\nGPU wall-clock\nThat epoch advantage is reported as 10–45× in the abstract, and as 9.5× to 45.5× versus Flash-KMeans in Table 4 (medians over seeds, up to 1 billion points)\nAbstract and Table 4[1]\n\n\nQuality at a short budget\nThree epochs of e-means from random initialisation beat Flash-KMeans at 25 iterations on all eight main setups in Table 5; after five epochs it also stays ahead of Flash-KMeans with greedy k-means++ initialisation\nTable 5[1]\n\n\nVery large scale\nOn DINO10B (10 billion DINO embeddings), e-means partitions the data into 16 million clusters in 2.5 epochs, with a loss below Lloyd at 25 epochs\nAbstract[1]\n\n\nCoverage\nThe thread describes evaluation on 26 datasets, from 100k to 10 billion points, with a results map\nThread, post 6/10[2]\n\n\n\nThe 10× headline is a comparison with state-of-the-art implementations (Faiss on CPU, Flash-KMeans on GPU), not with a naïve Python loop. Swann Bessa made that distinction in the thread[2].\n\n\n\n\n\n\n\nHistograms of train and test MSE: e-means from a random start versus Lloyd with random and k-means++ initialisation.\n\n\nFigure: Swann Bessa et al., via the X thread. Post 4/10: on these embedding datasets, e-means from a random initialisation (blue) often finishes at a lower loss than Lloyd, including Lloyd with greedy k-means++ (green).\n\n\n\n\n\n\n\nTest loss against epochs, and wall-clock time on CPU and GPU.\n\n\nFigure: Swann Bessa et al., via the X thread. Post 7/10, on DEEP with 1 million vectors and 16,384 clusters. The annotated speedups (12.5× fewer epochs, 11.8× CPU, 13.6× GPU) are the authors’ labels on this figure.\n\n\n\n\n\n\n\nAggregated GPU time against dataset size, with and without IVF assignment.\n\n\nFigure: Swann Bessa et al., via the X thread. Post 8/10: at billion scale the authors pair e-means with an IVF index for a further wall-clock cut.\n\n\n\n\n\n\nA limitation, also from the paper\n\n\n\nThe scaling laws were tuned for relatively high-dimensional embedding data. The authors say they are not optimal on very low-dimensional and tiny datasets[1]. In Faiss, the defaults already change in that regime: for \\(d \\le 16\\) the “quality” (smaller) batch law is used, and for \\(d \\le 2\\) dead-cluster revival is turned off[3].\n\n\n\n\nHow to try it in Faiss\ne-means ships in Faiss 1.16.0 as faiss.contrib.e_means. On CPU, faiss-cpu is enough. On GPU, training runs through PyTorch (with optional Triton or CuTe kernels); the data must already be on the GPU[2][3].\nThe snippet below follows the official Faiss user guide. Default nepochs is 5, which the authors describe as typically enough to beat Lloyd’s loss at convergence[3].\nimport numpy as np\nfrom faiss.contrib.e_means import NumpyEmeans\n\nx = np.random.rand(200_000, 64).astype(\"float32\")\n\nem = NumpyEmeans(64, 500)          # d=64, k=500; 5 epochs by default\ncentroids, labels = em.train(x)    # centroids: (500, 64)\n\nx_new = np.random.rand(100_000, 64).astype(\"float32\")\ndistances, new_labels = em.assign(x_new)\nOn a GPU, import Emeans and pass a tensor that is already on the device:\nimport torch\nfrom faiss.contrib.e_means import Emeans\n\nxg = torch.from_numpy(x).cuda().to(torch.bfloat16)\nem = Emeans(64, 1024)\ncentroids, labels = em.train(xg)\nlabels from train are the assignments from the last training epoch. Because the centroids still moved during that epoch, they are not always each vector’s nearest final centroid. For exact nearest-centroid labels, call assign on the training set as well[3].\n\n\nWhen to use it\nA good default when you already cluster with Faiss or another high-performance k-means, especially on large embedding sets, IVF codebook training, or any job where 25 Lloyd iterations are the bottleneck[1][2].\nStay with ordinary k-means for tiny or very low-dimensional problems (the laws are not tuned for them), or when you only have scikit-learn and a small dataset where Lloyd is already cheap. e-means is in Faiss, not in scikit-learn. See the k-means lab for that path.\ne-means speeds up training of an IVF index. It is not a claim about later search latency once that index is built; the paper discusses the effect on recall in Appendix L[1][2].\n\n\nSummary\n\n\n\n\n\n\n\n\n\nLloyd k-means\ne-means\n\n\n\n\nObjective\nMinimise MSE to \\(k\\) centroids\nThe same\n\n\nUpdate\nFull-dataset mean, each epoch\nMini-batch EMA, then a last-epoch mean\n\n\nExtra knobs beyond \\(k\\) and epochs\nNone in the usual Faiss call\nNone required: batch size and step come from scaling laws\n\n\nTypical budget in the paper\n25 epochs as the Faiss-style reference\n1.4–2.6 epochs to pass that reference loss, 5 by default in Faiss\n\n\nInitialisation in the main experiments\nOften k-means++\nRandom sample of the data\n\n\nWhere it lives\nFaiss Kmeans, scikit-learn, and many other libraries\nFaiss 1.16.0, faiss.contrib.e_means\n\n\n\n\n\nFAQ\nIs the “e” a new distance or a new cluster shape? No. The “e” is for the exponential moving average used to update the centroids[1][3].\nDo I still choose \\(k\\)? Yes. \\(k\\) is still the main modelling choice. The batch size and step size are the parts e-means can set for you[1][3].\nWhy is it faster if each epoch still assigns points to centroids? The assignment work per epoch is comparable to Lloyd. The speed-up comes from needing many fewer epochs (and from specialised kernels that turn that into wall-clock savings)[1].\nCan I set the batch size myself? Yes. In Faiss you can pass batch_size or batch_law=\"quality\" / \"throughput\". If you set only the batch size, \\(\\alpha_0\\) is still taken from the step-size law[3].\nAre the last-epoch labels exact? Not necessarily. Use assign when you need each point’s nearest final centroid[3].\n\n\nReferences\n\n[1] Swann Bessa, Pierre-Emmanuel Mazaré, Gergely Szilvasy, Hugo Touvron, David Picard, Matthijs Douze, and Hervé Jégou, e-means: outperforming k-means (in one-tenth the epochs), arXiv:2611.09501, 10 November 2026. https://arxiv.org/abs/2611.09501\n[2] Swann Bessa, announcement thread, 10 November 2026, 18:03 Europe/Madrid. https://x.com/swann_bessa/status/2120200714630594911\n[3] Faiss user guide, contrib/e_means, in the 1.16.0 release. https://github.com/facebookresearch/faiss/tree/main/contrib/e_means\n[4] Project site, browser demo, and results map: https://e-means.github.io/, playground, results map\nReproduction scripts for the paper figures: https://github.com/facebookresearch/faiss/tree/main/benchs/e_means\n\n\n\n\n\n Back to top",
     "crumbs": [
       "Algorithm Types",
-      "Algorithms: Support Vector Machines"
+      "Algorithms: e-means"
     ]
   },
   {
-    "objectID": "algorithms/labs.html",
-    "href": "algorithms/labs.html",
-    "title": "Classic ML: Labs",
+    "objectID": "algorithms/algo-naive-bayes.html",
+    "href": "algorithms/algo-naive-bayes.html",
+    "title": "Algorithms: Naïve Bayes",
     "section": "",
-    "text": "Labs for this section\nNo classroom labs for the classic algorithms are written yet. When they appear they will be step-by-step wiki pages, in the same spirit as the labs on albertprofe.dev. The exact numbering is still open.\nThe nine algorithm pages are still short definitions. A first lab will likely sit next to linear regression, once that page is filled out.\n\n\n\n\n Back to top",
-    "crumbs": [
-      "Labs",
-      "Classic ML: Labs"
-    ]
-  },
-  {
-    "objectID": "algorithms/algo-linear-regression.html",
-    "href": "algorithms/algo-linear-regression.html",
-    "title": "Algorithms: Linear regression",
-    "section": "",
-    "text": "Overview\nLinear regression algorithms show or predict the relationship between two variable or factors by fitting a continuous straight line to the data. The line is often calculated using the Squared Error Cost function. Linear regression is one of the most popular types of regression analysis.\n\n\n\n\n\n\n\n\n\n\n\n Back to top",
+    "text": "Overview\nNaïve Bayes algorithms calculate the probability that an event will occur, based on the occurrence of a related event.\n\n\n\n\n\n\n\n\n\n\n\n Back to top",
     "crumbs": [
       "Algorithm Types",
-      "Algorithms: Linear regression"
+      "Algorithms: Naïve Bayes"
     ]
   },
   {
-    "objectID": "algorithms/algo-k-means.html",
-    "href": "algorithms/algo-k-means.html",
-    "title": "Algorithms: K-Means",
+    "objectID": "algorithms/algo-random-forest.html",
+    "href": "algorithms/algo-random-forest.html",
+    "title": "Algorithms: Random forest",
     "section": "",
-    "text": "Overview\nK-Means algorithms classify data into clusters—where K equals the number of clusters. The data points inside of each cluster are homogeneous, and they’re heterogeneous to data points in other clusters.\n\n\n\n\n\n\n\n\n\n\n\n Back to top",
+    "text": "Overview\nRandom forest algorithms are based on decision trees, but instead of creating one tree, they create a forest of trees and then randomize the trees in that forest. Then, they aggregate votes from different random formations of the decision trees to determine the final class of the test object.\n\n\n\n\n\n\n\n\n\n\n\n Back to top",
     "crumbs": [
       "Algorithm Types",
-      "Algorithms: K-Means"
+      "Algorithms: Random forest"
     ]
   },
   {
-    "objectID": "algorithms/algo-gradient-boosting.html",
-    "href": "algorithms/algo-gradient-boosting.html",
-    "title": "Algorithms: Gradient boosting",
+    "objectID": "algorithms/algo-logistic-regression.html",
+    "href": "algorithms/algo-logistic-regression.html",
+    "title": "Algorithms: Logistic regression",
     "section": "",
-    "text": "Overview\nGradient boosting algorithms produce a prediction model that bundles weak prediction models—typically decision trees—through an ensembling process that improves the overall performance of the model.\n\n\n\n\n\n\n\n\n\n\n\n Back to top",
+    "text": "Overview\nLogistic regression algorithms fit a continuous S-shaped curve to the data. Logistic regression is another popular type of regression analysis.\n\n\n\n\n\n\n\n\n\n\n\n Back to top",
     "crumbs": [
       "Algorithm Types",
-      "Algorithms: Gradient boosting"
+      "Algorithms: Logistic regression"
     ]
   },
   {
-    "objectID": "about/about-roadmap.html",
-    "href": "about/about-roadmap.html",
-    "title": "Roadmap",
+    "objectID": "algorithms/algo-k-nearest-neighbor.html",
+    "href": "algorithms/algo-k-nearest-neighbor.html",
+    "title": "Algorithms: K-Nearest neighbor",
     "section": "",
-    "text": "Step by step guide to becoming an AI and Data Scientist in 2024: AI and Data Scientist\nStep by step guide to becoming an AI Engineer in 2024: AI Engineer"
-  },
-  {
-    "objectID": "about/about-roadmap.html#q1",
-    "href": "about/about-roadmap.html#q1",
-    "title": "Roadmap",
-    "section": "Q1",
-    "text": "Q1\n\n\nJanuary\n\nSprint#0 2024-30-12\n\nDocumentation: Quarto web\nDomain web\nPlanning Python\nPlaning Algorithms\nRoadmap\nTools: Linux, VCode, Accounts, Git, etc..\nPy: TMC VCode, download exercises part 4, send\nPy: VCode, Interpreter, env, Jupyter etc..\nCore concept: AI vs Machine/Deep Learning and ANN: backpropagation\n\nSprint#1 2025-01-06\n\nPython Week 1\nAlgorithms Week 1\nLab\nDocumentation\nCore concept:\n\nSprint#2 2025-01-13\n\nPython Week 2\nAlgorithms Week 2\nLab\nDocumentation\nCore concept:\n\nSprint#3 2025-01-20\n\nPython Week 3\nAlgorithms Week 3\nLab\nDocumentation\nCore concept:\n\nSprint#4 2025-01-27\n\nPython Week 4\nAlgorithms Week 4\nLab\nDocumentation\nCore concept:\n\n\n\n\nFebruary\n\nSprint#5 2025-02-03\n\nPython Week 5\nAlgorithms Week 5\nLab\nDocumentation\n\nSprint#6 2025-02-10\n\nPython Week 6\nAlgorithms Week 6\nLab\nDocumentation\n\nSprint#7 2025-02-17\n\nPython Week 7\nAlgorithms Week 7\nLab\nDocumentation\n\nSprint#8 2025-02-24\n\nPython Week 8\nAlgorithms Week 8\nLab\nDocumentation\n\n\n\n\nMarch\n\nSprint#9 2025-03-03\n\nPython Week 9\nAlgorithms Week 9\nLab\nDocumentation\n\nSprint#10 2025-03-10\n\nPython Week 10\nAlgorithms Week 10\nLab\nDocumentation\n\nSprint#11 2025-03-17\n\nPython Week 11\nAlgorithms Week 11\nLab\nDocumentation\n\nSprint#12 2025-03-24\n\nPython Week 12\nAlgorithms Week 12\nLab\nDocumentation\n\nSprint#13 2025-03-31\n\nPython Week 13\nAlgorithms Week 13\nLab\nDocumentation\n\n\n\n\nApril\n\nSprint#14 2025-04-07\n\nPython Week 14\nAlgorithms Week 14\nLab\nDocumentation"
-  },
-  {
-    "objectID": "about/about-roadmap.html#q2",
-    "href": "about/about-roadmap.html#q2",
-    "title": "Roadmap",
-    "section": "Q2",
-    "text": "Q2\n\n\nApril\n\nSprint#0 2025-04-14\n\nLab\nDocumentation\nCore Concepts"
-  },
-  {
-    "objectID": "about/about-index.html",
-    "href": "about/about-index.html",
-    "title": "About",
-    "section": "",
-    "text": "Complementary to albertprofe.dev\n\n\n\n Back to top"
-  },
-  {
-    "objectID": "algorithms/algo-decision-tree.html",
-    "href": "algorithms/algo-decision-tree.html",
-    "title": "Algorithms: Decision tree",
-    "section": "",
-    "text": "Overview\nDecision tree algorithms split the data into two or more homogeneous sets. They use if–then rules to separate the data based on the most significant differentiator between data points.\n\n\n\n\n\n\n\n\n\n\n\n Back to top",
+    "text": "Overview\nK-Nearest neighbor algorithms store all available data points and classify each new data point based on the data points that are closest to it, as measured by a distance function.\n\n\n\n\n\n\n\n\n\n\n\n Back to top",
     "crumbs": [
       "Algorithm Types",
-      "Algorithms: Decision tree"
+      "Algorithms: K-Nearest neighbor"
     ]
   },
   {
@@ -788,54 +738,126 @@
     "href": "algorithms/algo-index.html#random-forest",
     "title": "Algorithms: Introduction",
     "section": "Random Forest",
-    "text": "Random Forest\nfrom sklearn.ensemble import RandomForestClassifier\nfrom sklearn.model_selection import train_test_split\n\n# Assuming X and y are your feature and target variables\nX_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)\n\nmodel = RandomForestClassifier(n_estimators=100)\nmodel.fit(X_train, y_train)\n\npredictions = model.predict(X_test)\nCitations:\n\n[1] Machine learning algorithms\n[2] Top 10 Python Machine Learning Algorithms\n[3] Machine Learning with Python Tutorial\n[4] Machine Learning Algorithms\n[5] What are Machine Learning Algorithms in Python?\n[6] Machine Learning Algorithms Gist\n[7] 10 Algorithms Machine Learning Engineers Need to Know\n[8] Machine Learning in Python Step-by-Step",
+    "text": "Random Forest\nfrom sklearn.ensemble import RandomForestClassifier\nfrom sklearn.model_selection import train_test_split\n\n# Assuming X and y are your feature and target variables\nX_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)\n\nmodel = RandomForestClassifier(n_estimators=100)\nmodel.fit(X_train, y_train)\n\npredictions = model.predict(X_test)",
     "crumbs": [
       "What is Classic ML?",
       "Algorithms: Introduction"
     ]
   },
   {
-    "objectID": "algorithms/algo-k-nearest-neighbor.html",
-    "href": "algorithms/algo-k-nearest-neighbor.html",
-    "title": "Algorithms: K-Nearest neighbor",
+    "objectID": "algorithms/algo-decision-tree.html",
+    "href": "algorithms/algo-decision-tree.html",
+    "title": "Algorithms: Decision tree",
     "section": "",
-    "text": "Overview\nK-Nearest neighbor algorithms store all available data points and classify each new data point based on the data points that are closest to it, as measured by a distance function.\n\n\n\n\n\n\n\n\n\n\n\n Back to top",
+    "text": "Overview\nDecision tree algorithms split the data into two or more homogeneous sets. They use if–then rules to separate the data based on the most significant differentiator between data points.\n\n\n\n\n\n\n\n\n\n\n\n Back to top",
     "crumbs": [
       "Algorithm Types",
-      "Algorithms: K-Nearest neighbor"
+      "Algorithms: Decision tree"
     ]
   },
   {
-    "objectID": "algorithms/algo-logistic-regression.html",
-    "href": "algorithms/algo-logistic-regression.html",
-    "title": "Algorithms: Logistic regression",
+    "objectID": "about/about-index.html",
+    "href": "about/about-index.html",
+    "title": "About",
     "section": "",
-    "text": "Overview\nLogistic regression algorithms fit a continuous S-shaped curve to the data. Logistic regression is another popular type of regression analysis.\n\n\n\n\n\n\n\n\n\n\n\n Back to top",
+    "text": "Complementary to albertprofe.dev\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "about/about-roadmap.html",
+    "href": "about/about-roadmap.html",
+    "title": "Roadmap",
+    "section": "",
+    "text": "Step by step guide to becoming an AI and Data Scientist in 2024: AI and Data Scientist\nStep by step guide to becoming an AI Engineer in 2024: AI Engineer"
+  },
+  {
+    "objectID": "about/about-roadmap.html#q1",
+    "href": "about/about-roadmap.html#q1",
+    "title": "Roadmap",
+    "section": "Q1",
+    "text": "Q1\n\n\nJanuary\n\nSprint#0 2024-30-12\n\nDocumentation: Quarto web\nDomain web\nPlanning Python\nPlaning Algorithms\nRoadmap\nTools: Linux, VCode, Accounts, Git, etc..\nPy: TMC VCode, download exercises part 4, send\nPy: VCode, Interpreter, env, Jupyter etc..\nCore concept: AI vs Machine/Deep Learning and ANN: backpropagation\n\nSprint#1 2025-01-06\n\nPython Week 1\nAlgorithms Week 1\nLab\nDocumentation\nCore concept:\n\nSprint#2 2025-01-13\n\nPython Week 2\nAlgorithms Week 2\nLab\nDocumentation\nCore concept:\n\nSprint#3 2025-01-20\n\nPython Week 3\nAlgorithms Week 3\nLab\nDocumentation\nCore concept:\n\nSprint#4 2025-01-27\n\nPython Week 4\nAlgorithms Week 4\nLab\nDocumentation\nCore concept:\n\n\n\n\nFebruary\n\nSprint#5 2025-02-03\n\nPython Week 5\nAlgorithms Week 5\nLab\nDocumentation\n\nSprint#6 2025-02-10\n\nPython Week 6\nAlgorithms Week 6\nLab\nDocumentation\n\nSprint#7 2025-02-17\n\nPython Week 7\nAlgorithms Week 7\nLab\nDocumentation\n\nSprint#8 2025-02-24\n\nPython Week 8\nAlgorithms Week 8\nLab\nDocumentation\n\n\n\n\nMarch\n\nSprint#9 2025-03-03\n\nPython Week 9\nAlgorithms Week 9\nLab\nDocumentation\n\nSprint#10 2025-03-10\n\nPython Week 10\nAlgorithms Week 10\nLab\nDocumentation\n\nSprint#11 2025-03-17\n\nPython Week 11\nAlgorithms Week 11\nLab\nDocumentation\n\nSprint#12 2025-03-24\n\nPython Week 12\nAlgorithms Week 12\nLab\nDocumentation\n\nSprint#13 2025-03-31\n\nPython Week 13\nAlgorithms Week 13\nLab\nDocumentation\n\n\n\n\nApril\n\nSprint#14 2025-04-07\n\nPython Week 14\nAlgorithms Week 14\nLab\nDocumentation"
+  },
+  {
+    "objectID": "about/about-roadmap.html#q2",
+    "href": "about/about-roadmap.html#q2",
+    "title": "Roadmap",
+    "section": "Q2",
+    "text": "Q2\n\n\nApril\n\nSprint#0 2025-04-14\n\nLab\nDocumentation\nCore Concepts"
+  },
+  {
+    "objectID": "algorithms/algo-gradient-boosting.html",
+    "href": "algorithms/algo-gradient-boosting.html",
+    "title": "Algorithms: Gradient boosting",
+    "section": "",
+    "text": "Overview\nGradient boosting algorithms produce a prediction model that bundles weak prediction models—typically decision trees—through an ensembling process that improves the overall performance of the model.\n\n\n\n\n\n\n\n\n\n\n\n Back to top",
     "crumbs": [
       "Algorithm Types",
-      "Algorithms: Logistic regression"
+      "Algorithms: Gradient boosting"
     ]
   },
   {
-    "objectID": "algorithms/algo-random-forest.html",
-    "href": "algorithms/algo-random-forest.html",
-    "title": "Algorithms: Random forest",
+    "objectID": "algorithms/algo-k-means.html",
+    "href": "algorithms/algo-k-means.html",
+    "title": "Algorithms: K-Means",
     "section": "",
-    "text": "Overview\nRandom forest algorithms are based on decision trees, but instead of creating one tree, they create a forest of trees and then randomize the trees in that forest. Then, they aggregate votes from different random formations of the decision trees to determine the final class of the test object.\n\n\n\n\n\n\n\n\n\n\n\n Back to top",
+    "text": "Overview\nK-Means algorithms classify data into clusters—where K equals the number of clusters. The data points inside of each cluster are homogeneous, and they’re heterogeneous to data points in other clusters.\n\n\n\n\n\n\n\nClustering is the job of grouping similar points together when nobody has given you the labels in advance.\nThink of a market and a mixed pile of fruit. You want \\(k\\) stalls. You place the stalls, each fruit goes to the nearest stall, then you slide each stall to the middle of its fruit, and you repeat until the stalls barely move. Apples end up with apples and oranges with oranges — even though you never wrote “apple” on a sign.\nThat procedure is Lloyd’s algorithm, the classic solver for k-means[1].\n\n\nLloyd’s loop\n\nChoose \\(k\\) — how many groups you want. The algorithm does not pick this for you.\nInitialise the centres — pick \\(k\\) starting points in the data. A common choice is k-means++, which spreads the first centres out instead of dropping them all in one corner[2].\nAssign — send every point to its nearest centre.\nUpdate — move each centre to the mean (the average position) of the points assigned to it.\nRepeat until the assignment stops changing, or you hit a maximum number of passes.\n\n\n\n\n\n\nflowchart TD\n  A[Choose k] --&gt; B[Place centres]\n  B --&gt; C[Assign nearest centre]\n  C --&gt; D[Move to the mean]\n  D --&gt; E{Still moving?}\n  E --&gt;|yes| C\n  E --&gt;|no| F[Done]\n\n\n\n\n\n\n\n\nThe objective: inertia, or WCSS\nk-means looks for \\(k\\) centroids that make the clusters as tight as possible. The usual score is the within-cluster sum of squares (WCSS), also called inertia: the sum of the squared distances from each point to its nearest centre[3]:\n\\[\nJ = \\sum_{i=1}^{n} \\|x_i - c_{a(i)}\\|^2,\n\\quad a(i)=\\arg\\min_j\\|x_i-c_j\\|^2.\n\\]\nThe mean squared error (MSE) is the same quantity divided by \\(n\\). scikit-learn stores inertia as inertia_ after fit. Lower is tighter, but \\(J\\) always falls as \\(k\\) grows, so a smaller inertia alone does not mean a better \\(k\\).\n\n\nk-means++ initialisation\nA bad starting set of centres can trap Lloyd in a weak local minimum. k-means++ (Arthur and Vassilvitskii, 2007) spreads the first centres out: the first centre is chosen at random, and each next one is sampled with probability proportional to its squared distance to the nearest centre already chosen[2].\nIt does not remove local minima, and the seeding itself can be slow on very large data, but it is the usual default in scikit-learn and a clear improvement on a purely random start.\n\n\nChoosing \\(k\\)\nYou still have to choose \\(k\\). Two simple checks:\n\nElbow. Plot inertia against \\(k\\). The curve falls quickly at first, then flattens. The “elbow” is a pragmatic guess for \\(k\\), not a proof.\nSilhouette. For each point, compare how close it is to its own cluster versus the next-nearest cluster. The score sits between \\(-1\\) and \\(1\\); values near \\(1\\) mean tight, well-separated groups. Compute the mean silhouette for several \\(k\\) and prefer a peak.\n\nNeither method is automatic magic. Use them together with what you know about the data.\n\n\nLimits you should know\n\nYou must choose \\(k\\).\nResults are sensitive to initialisation and can stop in a local minimum.\nk-means favours compact, roughly spherical clusters of similar size, because each centre is a mean and the distance is Euclidean. Elongated, nested, or very uneven groups can be split badly.\nScale the features. A variable with a huge range will dominate the distances.\nOutliers pull the mean, and therefore the centre.\nMany iterations may be needed, and each one rereads the whole dataset. One pass compares each of the \\(n\\) points to all \\(k\\) centres in \\(d\\) dimensions, so the work per pass grows with \\(n \\times k \\times d\\). Libraries usually cap the number of passes.\n\n\n\nVariants\n\nMini-batch k-means updates the centres from small batches instead of the full dataset. It can be faster on large data, but you have to choose a batch size, and the final error is often a little higher than full-batch Lloyd.\nk-medoids uses an actual data point (a medoid) as the centre of each cluster, rather than the mean. That is often more robust to outliers, and it can use other distances than Euclidean.\ne-means (2026) keeps the same MSE objective as k-means, but updates centres with mini-batch exponential moving averages and scaling laws that set the batch size and step for you. See e-means.\n\n\n\nPython lab\nA short scikit-learn walk-through: make a blob dataset, fit k-means, plot the groups, then draw an elbow curve[3].\nimport matplotlib.pyplot as plt\nfrom sklearn.datasets import make_blobs\nfrom sklearn.cluster import KMeans\n\nX, y_true = make_blobs(\n    n_samples=500, centers=4, cluster_std=0.70, random_state=42\n)\n\nmodel = KMeans(n_clusters=4, init=\"k-means++\", n_init=10, random_state=42)\nlabels = model.fit_predict(X)\n\nplt.scatter(X[:, 0], X[:, 1], c=labels, s=20)\nplt.scatter(\n    model.cluster_centers_[:, 0],\n    model.cluster_centers_[:, 1],\n    c=\"black\",\n    s=80,\n    marker=\"x\",\n)\nplt.title(\"k-means on four blobs\")\nplt.show()\n\n# Elbow: inertia versus k\nks = range(1, 9)\ninertias = []\nfor k in ks:\n    km = KMeans(n_clusters=k, init=\"k-means++\", n_init=10, random_state=42)\n    km.fit(X)\n    inertias.append(km.inertia_)\n\nplt.plot(ks, inertias, marker=\"o\")\nplt.xlabel(\"k\")\nplt.ylabel(\"inertia (WCSS)\")\nplt.title(\"Elbow plot\")\nplt.show()\n\n\nSummary\n\n\n\nTopic\nIn brief\n\n\n\n\nGoal\nSplit unlabelled points into \\(k\\) tight groups\n\n\nLoop\nPlace centres, assign, move each centre to the mean, repeat\n\n\nScore\nInertia / WCSS (sum of squared distances); MSE is the same quantity divided by \\(n\\)\n\n\nInitialisation\nk-means++ is the usual default; still a local-minimum method\n\n\nChoosing \\(k\\)\nElbow plot of inertia, plus silhouette, plus domain knowledge\n\n\nWatch out\nScaling, outliers, non-spherical clusters, many full-dataset passes\n\n\nA faster variant\ne-means, when you already use a high-performance k-means\n\n\n\n\n\nFAQ\nIs \\(k\\) learned from the data? No. You choose \\(k\\), then the algorithm places the centres.\nDoes k-means++ always find the global best clustering? No. It is a better start, not a guarantee. Several restarts (n_init in scikit-learn) are still useful.\nWhy did my features need scaling? Distances are Euclidean. A feature measured in thousands will drown one measured in units, unless you scale them.\nWhen should I try e-means instead? When the dataset is large and many Lloyd passes are the bottleneck. For a small scikit-learn problem, classic k-means is usually enough. See e-means.\n\n\nSee also\nFor a faster drop-in replacement of Lloyd’s k-means, with mini-batch exponential moving averages and no extra hyperparameter sweep, see e-means.\n\n\nReferences\n\n[1] Stuart P. Lloyd, Least squares quantization in PCM, IEEE Transactions on Information Theory, 28(2):129–137, 1982. https://doi.org/10.1109/TIT.1982.1056489\n[2] David Arthur and Sergei Vassilvitskii, k-means++: The advantages of careful seeding, Proceedings of SODA, 2007, pp. 1027–1035. ACM DL, author PDF\n[3] scikit-learn documentation, Clustering: K-means. https://scikit-learn.org/stable/modules/clustering.html#k-means, and sklearn.cluster.KMeans\n\n\n\n\n\n Back to top",
     "crumbs": [
       "Algorithm Types",
-      "Algorithms: Random forest"
+      "Algorithms: K-Means"
     ]
   },
   {
-    "objectID": "algorithms/algo-naive-bayes.html",
-    "href": "algorithms/algo-naive-bayes.html",
-    "title": "Algorithms: Naïve Bayes",
+    "objectID": "algorithms/algo-linear-regression.html",
+    "href": "algorithms/algo-linear-regression.html",
+    "title": "Algorithms: Linear regression",
     "section": "",
-    "text": "Overview\nNaïve Bayes algorithms calculate the probability that an event will occur, based on the occurrence of a related event.\n\n\n\n\n\n\n\n\n\n\n\n Back to top",
+    "text": "Overview\nLinear regression algorithms show or predict the relationship between two variable or factors by fitting a continuous straight line to the data. The line is often calculated using the Squared Error Cost function. Linear regression is one of the most popular types of regression analysis.\n\n\n\n\n\n\n\n\n\n\n\n Back to top",
     "crumbs": [
       "Algorithm Types",
-      "Algorithms: Naïve Bayes"
+      "Algorithms: Linear regression"
+    ]
+  },
+  {
+    "objectID": "algorithms/labs.html",
+    "href": "algorithms/labs.html",
+    "title": "Classic ML: Labs",
+    "section": "",
+    "text": "Labs for this section\nNo classroom labs for the classic algorithms are written yet. When they appear they will be step-by-step wiki pages, in the same spirit as the labs on albertprofe.dev. The exact numbering is still open.\nThe nine algorithm pages are still short definitions. A first lab will likely sit next to linear regression, once that page is filled out.\n\n\n\n\n Back to top",
+    "crumbs": [
+      "Labs",
+      "Classic ML: Labs"
+    ]
+  },
+  {
+    "objectID": "algorithms/algo-support-vector-machines.html",
+    "href": "algorithms/algo-support-vector-machines.html",
+    "title": "Algorithms: Support Vector Machines",
+    "section": "",
+    "text": "Overview\nSupport Vector Machines draw a hyperplane between the two closest data points. This marginalizes the classes and maximizes the distances between them to more clearly differentiate them.\n\n\n\n\n\n\n\n\n\n\n\n Back to top",
+    "crumbs": [
+      "Algorithm Types",
+      "Algorithms: Support Vector Machines"
+    ]
+  },
+  {
+    "objectID": "algorithms/resources.html",
+    "href": "algorithms/resources.html",
+    "title": "Classic ML: Resources",
+    "section": "",
+    "text": "A dedicated reading list for classic algorithms is not written yet. Start from the algorithms overview and the site-wide Resources list.\n\n\nA modern mini-batch replacement for Lloyd’s k-means, now in this section as e-means.\n\nPaper: Swann Bessa et al., e-means: outperforming k-means (in one-tenth the epochs), arXiv:2611.09501\nAnnouncement thread (10 November 2026): Swann Bessa on X\nProject site, browser playground, and results map: https://e-means.github.io/\nFaiss 1.16.0 code and user guide: contrib/e_means",
+    "crumbs": [
+      "Resources",
+      "Classic ML: Resources"
+    ]
+  },
+  {
+    "objectID": "algorithms/resources.html#e-means-2026",
+    "href": "algorithms/resources.html#e-means-2026",
+    "title": "Classic ML: Resources",
+    "section": "",
+    "text": "A modern mini-batch replacement for Lloyd’s k-means, now in this section as e-means.\n\nPaper: Swann Bessa et al., e-means: outperforming k-means (in one-tenth the epochs), arXiv:2611.09501\nAnnouncement thread (10 November 2026): Swann Bessa on X\nProject site, browser playground, and results map: https://e-means.github.io/\nFaiss 1.16.0 code and user guide: contrib/e_means",
+    "crumbs": [
+      "Resources",
+      "Classic ML: Resources"
     ]
   },
   {

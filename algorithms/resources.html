@@ -259,6 +259,10 @@ ul.task-list li input[type="checkbox"] {
     <a class="dropdown-item" href="../algorithms/algo-k-means.html">
  <span class="dropdown-text">Algorithms: K-Means</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../algorithms/algo-e-means.html">
+ <span class="dropdown-text">Algorithms: e-means</span></a>
+  </li>  
         <li><hr class="dropdown-divider"></li>
         <li class="dropdown-header">Labs</li>
         <li>
@@ -598,6 +602,12 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Algorithms: K-Means</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../algorithms/algo-e-means.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Algorithms: e-means</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="px-0"><hr class="sidebar-divider hi "></li>
@@ -646,7 +656,10 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#resources-for-this-section" id="toc-resources-for-this-section" class="nav-link active" data-scroll-target="#resources-for-this-section">Resources for this section</a></li>
+  <li><a href="#resources-for-this-section" id="toc-resources-for-this-section" class="nav-link active" data-scroll-target="#resources-for-this-section">Resources for this section</a>
+  <ul>
+  <li><a href="#e-means-2026" id="toc-e-means-2026" class="nav-link" data-scroll-target="#e-means-2026">e-means (2026)</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -675,8 +688,18 @@ ul.task-list li input[type="checkbox"] {
 <section id="resources-for-this-section" class="level1">
 <h1>Resources for this section</h1>
 <p>A dedicated reading list for classic algorithms is not written yet. Start from the <a href="../algorithms/algo-index.html">algorithms overview</a> and the site-wide <a href="../resources/resources-index.html">Resources</a> list.</p>
+<section id="e-means-2026" class="level2">
+<h2 class="anchored" data-anchor-id="e-means-2026">e-means (2026)</h2>
+<p>A modern mini-batch replacement for Lloyd’s k-means, now in this section as <a href="../algorithms/algo-e-means.html">e-means</a>.</p>
+<ul>
+<li>Paper: Swann Bessa et al., <em>e-means: outperforming k-means (in one-tenth the epochs)</em>, <a href="https://arxiv.org/abs/2611.09501" class="external" target="_blank">arXiv:2611.09501</a></li>
+<li>Announcement thread (10 November 2026): <a href="https://x.com/swann_bessa/status/2120200714630594911" class="external" target="_blank">Swann Bessa on X</a></li>
+<li>Project site, <a href="https://e-means.github.io/playground.html" class="external" target="_blank">browser playground</a>, and <a href="https://e-means.github.io/results-map.html" class="external" target="_blank">results map</a>: <a href="https://e-means.github.io/" class="external" target="_blank">https://e-means.github.io/</a></li>
+<li>Faiss 1.16.0 code and user guide: <a href="https://github.com/facebookresearch/faiss/tree/main/contrib/e_means" class="external" target="_blank"><code>contrib/e_means</code></a></li>
+</ul>
 
 
+</section>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->

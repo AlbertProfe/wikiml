@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -30,6 +64,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
+<link href="../algorithms/algo-e-means.html" rel="next">
 <link href="../algorithms/algo-gradient-boosting.html" rel="prev">
 <link href="..//images/home/favicon.ico" rel="icon">
 <script src="../site_libs/quarto-html/quarto.js"></script>
@@ -73,7 +108,39 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script src="../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
 </head>
@@ -262,6 +329,10 @@ ul.task-list li input[type="checkbox"] {
         <li>
     <a class="dropdown-item" href="../algorithms/algo-k-means.html">
  <span class="dropdown-text">Algorithms: K-Means</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../algorithms/algo-e-means.html">
+ <span class="dropdown-text">Algorithms: e-means</span></a>
   </li>  
         <li><hr class="dropdown-divider"></li>
         <li class="dropdown-header">Labs</li>
@@ -602,6 +673,12 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Algorithms: K-Means</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../algorithms/algo-e-means.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Algorithms: e-means</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="px-0"><hr class="sidebar-divider hi "></li>
@@ -651,6 +728,17 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
+  <li><a href="#lloyds-loop" id="toc-lloyds-loop" class="nav-link" data-scroll-target="#lloyds-loop">Lloyd’s loop</a></li>
+  <li><a href="#the-objective-inertia-or-wcss" id="toc-the-objective-inertia-or-wcss" class="nav-link" data-scroll-target="#the-objective-inertia-or-wcss">The objective: inertia, or WCSS</a></li>
+  <li><a href="#k-means-initialisation" id="toc-k-means-initialisation" class="nav-link" data-scroll-target="#k-means-initialisation">k-means++ initialisation</a></li>
+  <li><a href="#choosing-k" id="toc-choosing-k" class="nav-link" data-scroll-target="#choosing-k">Choosing <span class="math inline">\(k\)</span></a></li>
+  <li><a href="#limits-you-should-know" id="toc-limits-you-should-know" class="nav-link" data-scroll-target="#limits-you-should-know">Limits you should know</a></li>
+  <li><a href="#variants" id="toc-variants" class="nav-link" data-scroll-target="#variants">Variants</a></li>
+  <li><a href="#python-lab" id="toc-python-lab" class="nav-link" data-scroll-target="#python-lab">Python lab</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a></li>
+  <li><a href="#faq" id="toc-faq" class="nav-link" data-scroll-target="#faq">FAQ</a></li>
+  <li><a href="#see-also" id="toc-see-also" class="nav-link" data-scroll-target="#see-also">See also</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul>
 </nav>
     </div>
@@ -680,15 +768,187 @@ ul.task-list li input[type="checkbox"] {
 <h1>Overview</h1>
 <p><code>K-Means</code> algorithms classify data into clusters—where K equals the number of clusters. The data points inside of each cluster are homogeneous, and they’re heterogeneous to data points in other clusters.</p>
 
-
-
 <div class="no-row-height column-margin column-container"><div class="">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><a href="../images/algorithms/what-are-machine-learning-algorithms_k-means.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="../images/algorithms/what-are-machine-learning-algorithms_k-means.svg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></a></p>
 </figure>
 </div>
-</div></div></section>
+</div></div><p><code>Clustering</code> is the job of grouping similar points together when nobody has given you the labels in advance.</p>
+<p>Think of a market and a mixed pile of fruit. You want <span class="math inline">\(k\)</span> stalls. You place the stalls, each fruit goes to the <strong>nearest</strong> stall, then you slide each stall to the <strong>middle</strong> of its fruit, and you repeat until the stalls barely move. Apples end up with apples and oranges with oranges — even though you never wrote “apple” on a sign.</p>
+<p>That procedure is <strong>Lloyd’s algorithm</strong>, the classic solver for <code>k-means</code>[1].</p>
+</section>
+<section id="lloyds-loop" class="level1">
+<h1>Lloyd’s loop</h1>
+<ol type="1">
+<li><strong>Choose <span class="math inline">\(k\)</span></strong> — how many groups you want. The algorithm does not pick this for you.</li>
+<li><strong>Initialise the centres</strong> — pick <span class="math inline">\(k\)</span> starting points in the data. A common choice is <code>k-means++</code>, which spreads the first centres out instead of dropping them all in one corner[2].</li>
+<li><strong>Assign</strong> — send every point to its nearest centre.</li>
+<li><strong>Update</strong> — move each centre to the <strong>mean</strong> (the average position) of the points assigned to it.</li>
+<li><strong>Repeat</strong> until the assignment stops changing, or you hit a maximum number of passes.</li>
+</ol>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+  A[Choose k] --&gt; B[Place centres]
+  B --&gt; C[Assign nearest centre]
+  C --&gt; D[Move to the mean]
+  D --&gt; E{Still moving?}
+  E --&gt;|yes| C
+  E --&gt;|no| F[Done]
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="the-objective-inertia-or-wcss" class="level1">
+<h1>The objective: inertia, or WCSS</h1>
+<p>k-means looks for <span class="math inline">\(k\)</span> centroids that make the clusters as tight as possible. The usual score is the <strong>within-cluster sum of squares</strong> (WCSS), also called <strong>inertia</strong>: the sum of the squared distances from each point to its nearest centre[3]:</p>
+<p><span class="math display">\[
+J = \sum_{i=1}^{n} \|x_i - c_{a(i)}\|^2,
+\quad a(i)=\arg\min_j\|x_i-c_j\|^2.
+\]</span></p>
+<p>The <strong>mean squared error (MSE)</strong> is the same quantity divided by <span class="math inline">\(n\)</span>. scikit-learn stores inertia as <code>inertia_</code> after <code>fit</code>. Lower is tighter, but <span class="math inline">\(J\)</span> always falls as <span class="math inline">\(k\)</span> grows, so a smaller inertia alone does not mean a better <span class="math inline">\(k\)</span>.</p>
+</section>
+<section id="k-means-initialisation" class="level1">
+<h1>k-means++ initialisation</h1>
+<p>A bad starting set of centres can trap Lloyd in a weak <strong>local minimum</strong>. <code>k-means++</code> (Arthur and Vassilvitskii, 2007) spreads the first centres out: the first centre is chosen at random, and each next one is sampled with probability proportional to its squared distance to the nearest centre already chosen[2].</p>
+<p>It does not remove local minima, and the seeding itself can be slow on very large data, but it is the usual default in scikit-learn and a clear improvement on a purely random start.</p>
+</section>
+<section id="choosing-k" class="level1">
+<h1>Choosing <span class="math inline">\(k\)</span></h1>
+<p>You still have to choose <span class="math inline">\(k\)</span>. Two simple checks:</p>
+<ul>
+<li><strong>Elbow.</strong> Plot inertia against <span class="math inline">\(k\)</span>. The curve falls quickly at first, then flattens. The “elbow” is a pragmatic guess for <span class="math inline">\(k\)</span>, not a proof.</li>
+<li><strong>Silhouette.</strong> For each point, compare how close it is to its own cluster versus the next-nearest cluster. The score sits between <span class="math inline">\(-1\)</span> and <span class="math inline">\(1\)</span>; values near <span class="math inline">\(1\)</span> mean tight, well-separated groups. Compute the mean silhouette for several <span class="math inline">\(k\)</span> and prefer a peak.</li>
+</ul>
+<p>Neither method is automatic magic. Use them together with what you know about the data.</p>
+</section>
+<section id="limits-you-should-know" class="level1">
+<h1>Limits you should know</h1>
+<ul>
+<li>You must <strong>choose <span class="math inline">\(k\)</span></strong>.</li>
+<li>Results are <strong>sensitive to initialisation</strong> and can stop in a <strong>local minimum</strong>.</li>
+<li>k-means favours <strong>compact, roughly spherical</strong> clusters of similar size, because each centre is a mean and the distance is Euclidean. Elongated, nested, or very uneven groups can be split badly.</li>
+<li><strong>Scale the features.</strong> A variable with a huge range will dominate the distances.</li>
+<li><strong>Outliers</strong> pull the mean, and therefore the centre.</li>
+<li><strong>Many iterations</strong> may be needed, and each one rereads the whole dataset. One pass compares each of the <span class="math inline">\(n\)</span> points to all <span class="math inline">\(k\)</span> centres in <span class="math inline">\(d\)</span> dimensions, so the work per pass grows with <span class="math inline">\(n \times k \times d\)</span>. Libraries usually cap the number of passes.</li>
+</ul>
+</section>
+<section id="variants" class="level1">
+<h1>Variants</h1>
+<ul>
+<li><strong>Mini-batch k-means</strong> updates the centres from small batches instead of the full dataset. It can be faster on large data, but you have to choose a batch size, and the final error is often a little higher than full-batch Lloyd.</li>
+<li><strong>k-medoids</strong> uses an actual data point (a <em>medoid</em>) as the centre of each cluster, rather than the mean. That is often more robust to outliers, and it can use other distances than Euclidean.</li>
+<li><strong>e-means</strong> (2026) keeps the same MSE objective as k-means, but updates centres with mini-batch exponential moving averages and scaling laws that set the batch size and step for you. See <a href="../algorithms/algo-e-means.html">e-means</a>.</li>
+</ul>
+</section>
+<section id="python-lab" class="level1">
+<h1>Python lab</h1>
+<p>A short scikit-learn walk-through: make a blob dataset, fit k-means, plot the groups, then draw an elbow curve[3].</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.datasets <span class="im">import</span> make_blobs</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.cluster <span class="im">import</span> KMeans</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>X, y_true <span class="op">=</span> make_blobs(</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    n_samples<span class="op">=</span><span class="dv">500</span>, centers<span class="op">=</span><span class="dv">4</span>, cluster_std<span class="op">=</span><span class="fl">0.70</span>, random_state<span class="op">=</span><span class="dv">42</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> KMeans(n_clusters<span class="op">=</span><span class="dv">4</span>, init<span class="op">=</span><span class="st">"k-means++"</span>, n_init<span class="op">=</span><span class="dv">10</span>, random_state<span class="op">=</span><span class="dv">42</span>)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>labels <span class="op">=</span> model.fit_predict(X)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>plt.scatter(X[:, <span class="dv">0</span>], X[:, <span class="dv">1</span>], c<span class="op">=</span>labels, s<span class="op">=</span><span class="dv">20</span>)</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>plt.scatter(</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    model.cluster_centers_[:, <span class="dv">0</span>],</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    model.cluster_centers_[:, <span class="dv">1</span>],</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    c<span class="op">=</span><span class="st">"black"</span>,</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    s<span class="op">=</span><span class="dv">80</span>,</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    marker<span class="op">=</span><span class="st">"x"</span>,</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"k-means on four blobs"</span>)</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Elbow: inertia versus k</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>ks <span class="op">=</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">9</span>)</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>inertias <span class="op">=</span> []</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> k <span class="kw">in</span> ks:</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>    km <span class="op">=</span> KMeans(n_clusters<span class="op">=</span>k, init<span class="op">=</span><span class="st">"k-means++"</span>, n_init<span class="op">=</span><span class="dv">10</span>, random_state<span class="op">=</span><span class="dv">42</span>)</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>    km.fit(X)</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>    inertias.append(km.inertia_)</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>plt.plot(ks, inertias, marker<span class="op">=</span><span class="st">"o"</span>)</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"k"</span>)</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"inertia (WCSS)"</span>)</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Elbow plot"</span>)</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="summary" class="level1">
+<h1>Summary</h1>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Topic</th>
+<th>In brief</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Goal</td>
+<td>Split unlabelled points into <span class="math inline">\(k\)</span> tight groups</td>
+</tr>
+<tr class="even">
+<td>Loop</td>
+<td>Place centres, assign, move each centre to the mean, repeat</td>
+</tr>
+<tr class="odd">
+<td>Score</td>
+<td>Inertia / WCSS (sum of squared distances); MSE is the same quantity divided by <span class="math inline">\(n\)</span></td>
+</tr>
+<tr class="even">
+<td>Initialisation</td>
+<td><code>k-means++</code> is the usual default; still a local-minimum method</td>
+</tr>
+<tr class="odd">
+<td>Choosing <span class="math inline">\(k\)</span></td>
+<td>Elbow plot of inertia, plus silhouette, plus domain knowledge</td>
+</tr>
+<tr class="even">
+<td>Watch out</td>
+<td>Scaling, outliers, non-spherical clusters, many full-dataset passes</td>
+</tr>
+<tr class="odd">
+<td>A faster variant</td>
+<td><a href="../algorithms/algo-e-means.html">e-means</a>, when you already use a high-performance k-means</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="faq" class="level1">
+<h1>FAQ</h1>
+<p><strong>Is <span class="math inline">\(k\)</span> learned from the data?</strong> No.&nbsp;You choose <span class="math inline">\(k\)</span>, then the algorithm places the centres.</p>
+<p><strong>Does k-means++ always find the global best clustering?</strong> No.&nbsp;It is a better start, not a guarantee. Several restarts (<code>n_init</code> in scikit-learn) are still useful.</p>
+<p><strong>Why did my features need scaling?</strong> Distances are Euclidean. A feature measured in thousands will drown one measured in units, unless you scale them.</p>
+<p><strong>When should I try e-means instead?</strong> When the dataset is large and many Lloyd passes are the bottleneck. For a small scikit-learn problem, classic k-means is usually enough. See <a href="../algorithms/algo-e-means.html">e-means</a>.</p>
+</section>
+<section id="see-also" class="level1">
+<h1>See also</h1>
+<p>For a faster drop-in replacement of Lloyd’s k-means, with mini-batch exponential moving averages and no extra hyperparameter sweep, see <a href="../algorithms/algo-e-means.html">e-means</a>.</p>
+</section>
+<section id="references" class="level1">
+<h1>References</h1>
+<ul>
+<li>[1] Stuart P. Lloyd, <em>Least squares quantization in PCM</em>, IEEE Transactions on Information Theory, 28(2):129–137, 1982. <a href="https://doi.org/10.1109/TIT.1982.1056489" class="external" target="_blank">https://doi.org/10.1109/TIT.1982.1056489</a></li>
+<li>[2] David Arthur and Sergei Vassilvitskii, <em>k-means++: The advantages of careful seeding</em>, Proceedings of SODA, 2007, pp.&nbsp;1027–1035. <a href="https://dl.acm.org/doi/10.5555/1283383.1283494" class="external" target="_blank">ACM DL</a>, <a href="https://theory.stanford.edu/~sergei/papers/kMeansPP-soda.pdf" class="external" target="_blank">author PDF</a></li>
+<li>[3] scikit-learn documentation, <em>Clustering: K-means</em>. <a href="https://scikit-learn.org/stable/modules/clustering.html#k-means" class="external" target="_blank">https://scikit-learn.org/stable/modules/clustering.html#k-means</a>, and <a href="https://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html" class="external" target="_blank"><code>sklearn.cluster.KMeans</code></a></li>
+</ul>
+
+
+</section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -1262,6 +1522,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="../algorithms/algo-e-means.html" class="pagination-link" aria-label="Algorithms: e-means">
+        <span class="nav-page-text">Algorithms: e-means</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->
