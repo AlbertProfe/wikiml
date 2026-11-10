@@ -501,7 +501,7 @@ ul.task-list li input[type="checkbox"] {
 <!--
   ml.albertprofe.dev long-scroll landing.
   Modelled on albertprofe.dev index.qmd (structure, theme tokens, cards, start-here path).
-  No cinematic hero image: this repo has no landing artwork.
+  Cinematic hero uses images/landing/hero-ml.jpg (dark) and hero-ml-light.jpg (light).
   Numbers counted from this repo on 10 November 2026 (Europe/Madrid):
     - 71 .qmd pages -> find . -name '*.qmd' (includes 404, outlines, and this landing)
     - 23 commits on master, 28 December 2024 to 5 January 2025
@@ -638,6 +638,66 @@ ul.task-list li input[type="checkbox"] {
     padding: .05rem .5rem; border-radius: 10px; background: var(--spin-bg); border: 1px solid var(--spin-border); color: var(--spin-fg);
     font-weight: 700; font-size: .95em; font-family: 'JetBrains Mono', ui-monospace, monospace; transition: opacity .25s ease; }
   #lp .lp-hero-sub { display: block; margin-top: 1.4rem; }
+
+  /* cinematic hero: image, orbiting chips, glass card */
+  #lp .lp-cine { max-width: 1280px; min-height: min(92vh, 780px); padding: 7rem 2.5rem 3.5rem; display: flex; flex-direction: row;
+    align-items: center; justify-content: flex-start; text-align: left; isolation: isolate;
+    --text: #f8fafc; --text-muted: #c4b5fd; --strong: #fff; --outline: rgba(196,181,253,.35); --accent-light: #60a5fa;
+    --spin-bg: rgba(168,85,247,.18); --spin-border: rgba(196,181,253,.35); --spin-fg: #fff;
+    --green-bg: rgba(34,197,94,.14); --green-border: rgba(34,197,94,.35); --green-fg: #86efac;
+    --chip-fg: #fff; --chip-bg: rgba(30,27,75,.55); --cine-img: url("images/landing/hero-ml.jpg"); }
+  #lp .lp-cine-media { position: absolute; inset: 5rem 1rem 1rem; border-radius: 1.5rem; overflow: hidden; z-index: -1;
+    background: #0b0f1a var(--cine-img) right center / cover no-repeat;
+    box-shadow: 0 30px 80px -30px rgba(88,28,135,.55); }
+  #lp .lp-cine-media::after { content: ""; position: absolute; inset: 0; pointer-events: none;
+    background: linear-gradient(90deg, rgba(11,15,26,.78) 0%, rgba(11,15,26,.35) 42%, rgba(11,15,26,0) 70%); }
+  #lp .lp-orbit { position: absolute; inset: 0; z-index: 2; pointer-events: none; }
+  #lp .lp-chip { position: absolute; left: 0; top: 0; display: inline-flex; align-items: center; gap: .45rem; white-space: nowrap;
+    padding: .36rem .8rem .36rem .55rem; border-radius: 9999px; font-size: .84rem; font-weight: 600; letter-spacing: .01em;
+    color: var(--chip-fg); background: var(--chip-bg); border: 1px solid color-mix(in srgb, var(--c) 55%, transparent);
+    will-change: transform, opacity; pointer-events: auto; text-decoration: none; backface-visibility: hidden; }
+  #lp a.lp-chip { cursor: pointer; }
+  #lp a.lp-chip:hover, #lp a.lp-chip.is-frozen { color: var(--chip-fg); background: color-mix(in srgb, var(--c) 22%, var(--chip-bg)); }
+  #lp a.lp-chip:focus-visible { outline: 2px solid var(--c, #60a5fa); outline-offset: 3px; }
+  #lp .lp-orbit .lp-chip { pointer-events: auto; }
+  #lp .lp-chip svg { width: 1.15em; height: 1.15em; fill: none; stroke: var(--c); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+  #lp .lp-glass { position: relative; z-index: 2; max-width: 540px; padding: 2.2rem 2.3rem; border-radius: 1.5rem;
+    background: rgba(17,12,40,.55); border: 1px solid rgba(196,181,253,.28);
+    backdrop-filter: blur(14px) saturate(1.3); -webkit-backdrop-filter: blur(14px) saturate(1.3);
+    box-shadow: 0 20px 60px -20px rgba(0,0,0,.6); }
+  #lp .lp-cine h1 { font-size: clamp(2.4rem, 5vw, 3.8rem); margin-bottom: 1.1rem; }
+  #lp .lp-cine .lp-lead { font-size: 1.08rem; color: #e9e5ff; margin-bottom: 0; }
+  #lp .lp-cine .lp-badge { margin-bottom: 1.4rem; }
+  #lp .lp-cine .lp-hero-ctas { justify-content: flex-start; margin-top: 1.8rem; }
+  #lp .lp-cine .lp-stats {
+    display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+    justify-content: stretch; align-items: start; gap: 1.15rem 1.6rem; margin-top: 1.6rem; width: 100%; max-width: 34rem;
+  }
+  @media (max-width: 520px) {
+    #lp .lp-cine .lp-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem 1.1rem; }
+  }
+  #lp .lp-cine .lp-stat { text-align: left; }
+  #lp .lp-cine .lp-stat-value { font-size: 1.25rem; }
+  #lp .lp-cine .lp-stat-label { color: #c4b5fd; font-size: .75rem; }
+  body:not(.quarto-dark) #lp .lp-cine {
+    --text: #0f172a; --text-muted: #4c1d95; --strong: #0f172a; --outline: rgba(91,33,182,.30); --accent-light: #2563eb;
+    --spin-bg: rgba(147,51,234,.10); --spin-border: rgba(147,51,234,.30); --spin-fg: #4c1d95;
+    --green-bg: rgba(22,163,74,.10); --green-border: rgba(22,163,74,.30); --green-fg: #15803d;
+    --chip-fg: #1e1b4b; --chip-bg: rgba(255,255,255,.72); --cine-img: url("images/landing/hero-ml-light.jpg"); }
+  body:not(.quarto-dark) #lp .lp-cine-media { background-color: #f5f3ff; box-shadow: 0 30px 80px -35px rgba(91,33,182,.35); }
+  body:not(.quarto-dark) #lp .lp-cine-media::after { background: linear-gradient(90deg, rgba(248,250,252,.75) 0%, rgba(248,250,252,.25) 42%, rgba(248,250,252,0) 70%); }
+  body:not(.quarto-dark) #lp .lp-glass { background: rgba(255,255,255,.62); border-color: rgba(147,51,234,.22); box-shadow: 0 20px 60px -25px rgba(76,29,149,.35); }
+  body:not(.quarto-dark) #lp .lp-cine .lp-lead { color: #334155; }
+  body:not(.quarto-dark) #lp .lp-cine .lp-stat-label { color: #6d28d9; }
+  @media (max-width: 900px) {
+    #lp .lp-cine { flex-direction: column; padding: 5.5rem 1rem 2rem; min-height: 0; }
+    #lp .lp-cine-media { position: relative; inset: auto; width: 100%; aspect-ratio: 16 / 9; background-position: 70% center; }
+    #lp .lp-cine-media::after { background: linear-gradient(180deg, rgba(11,15,26,0) 55%, rgba(11,15,26,.55) 100%); }
+    body:not(.quarto-dark) #lp .lp-cine-media::after { background: none; }
+    #lp .lp-glass { max-width: none; width: 100%; margin-top: -2.5rem; padding: 1.6rem 1.4rem; }
+    #lp .lp-chip { font-size: .72rem; padding: .28rem .6rem; }
+  }
+  @media (max-width: 480px) { #lp .lp-chip { font-size: .64rem; } }
   #lp .lp-hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; margin-top: 2.2rem; }
   #lp .lp-stats { display: flex; gap: 3rem; margin-top: 4rem; flex-wrap: wrap; justify-content: center; }
   #lp .lp-stat { text-align: center; }
@@ -678,9 +738,6 @@ ul.task-list li input[type="checkbox"] {
   #lp a.lp-step:hover { border-color: var(--hover-border); transform: translateY(-2px); box-shadow: var(--shadow-hover); }
   #lp .lp-step-num { flex-shrink: 0; width: 42px; height: 42px; border-radius: 12px; display: flex; align-items: center;
     justify-content: center; font-weight: 700; color: var(--on-accent); background: linear-gradient(135deg, var(--accent), var(--accent-3)); }
-  #lp .lp-moved { margin-top: 2.5rem; padding: 1.25rem 1.5rem; border: 1px solid var(--live-border); border-radius: 14px; background: var(--green-soft); text-align: left; max-width: 680px; }
-  #lp .lp-moved a { color: var(--accent-light); font-weight: 600; }
-  #lp .lp-moved a:hover { color: var(--link-hover); }
   #lp .lp-dd { position: relative; display: flex; align-items: center; }
   #lp .lp-dd-btn {
     appearance: none; background: transparent; border: 0; cursor: pointer; padding: 0;
@@ -780,7 +837,22 @@ ul.task-list li input[type="checkbox"] {
     </div>
   </header>
 
-  <section class="lp-hero">
+  <section class="lp-hero lp-cine">
+    <div class="lp-cine-media" aria-label="A teacher and a female student look toward an artificial neural network and a neuron">
+      <div class="lp-orbit" id="lp-orbit">
+        <a class="lp-chip" style="--c:#60a5fa" href="ann/ann-model-and-demos.html" aria-label="Perceptron"><svg viewbox="0 0 24 24" aria-hidden="true"><circle cx="16" cy="12" r="4"></circle><path d="M3 6h6M3 12h6M3 18h6M9 6l3 6-3 6"></path></svg>Perceptron</a>
+        <a class="lp-chip" style="--c:#4ade80" href="ann/ann-mathematical.html" aria-label="Neuron"><svg viewbox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3.2"></circle><path d="M12 15.2V21M8.8 9.4 5 5M12 8.8V3M15.2 9.4 19 5M8.8 12H3M15.2 12H21"></path></svg>Neuron</a>
+        <a class="lp-chip" style="--c:#c084fc" href="ann/ann-introduction.html" aria-label="Backprop"><svg viewbox="0 0 24 24" aria-hidden="true"><path d="M5 8h10a4 4 0 0 1 0 8H9"></path><path d="m8 5-3 3 3 3M12 19l3-3-3-3"></path></svg>Backprop</a>
+        <a class="lp-chip" style="--c:#60a5fa" href="deep/deep-index.html" aria-label="CNN"><svg viewbox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="7" height="7" rx="1"></rect><rect x="13.5" y="3.5" width="7" height="7" rx="1"></rect><rect x="3.5" y="13.5" width="7" height="7" rx="1"></rect><rect x="13.5" y="13.5" width="7" height="7" rx="1"></rect></svg>CNN</a>
+        <a class="lp-chip" style="--c:#4ade80" href="deep/deep-index.html" aria-label="RNN"><svg viewbox="0 0 24 24" aria-hidden="true"><path d="M7 8a6.5 6.5 0 1 1 0 8"></path><path d="m7 5-3 3 3 3"></path></svg>RNN</a>
+        <a class="lp-chip" style="--c:#c084fc" href="generative/generative-transformer.html" aria-label="Attention"><svg viewbox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="2.4"></circle><path d="M3 12s3.6-6.5 9-6.5S21 12 21 12s-3.6 6.5-9 6.5S3 12 3 12z"></path></svg>Attention</a>
+        <a class="lp-chip" style="--c:#60a5fa" href="generative/generative-transformer.html" aria-label="Transformer"><svg viewbox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="4" rx="1"></rect><rect x="4" y="10" width="16" height="4" rx="1"></rect><rect x="4" y="16" width="16" height="4" rx="1"></rect></svg>Transformer</a>
+        <a class="lp-chip" style="--c:#4ade80" href="rag/rag-index.html" aria-label="RAG"><svg viewbox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6"></circle><path d="m16 16 5 5"></path></svg>RAG</a>
+        <a class="lp-chip" style="--c:#c084fc" href="python/python-index.html" aria-label="Python"><svg viewbox="0 0 24 24" aria-hidden="true"><path d="m8 8-4 4 4 4M16 8l4 4-4 4"></path></svg>Python</a>
+        <a class="lp-chip" style="--c:#60a5fa" href="foundations/foundations-index.html" aria-label="NumPy"><svg viewbox="0 0 24 24" aria-hidden="true"><circle cx="7" cy="7" r="1.6"></circle><circle cx="12" cy="7" r="1.6"></circle><circle cx="17" cy="7" r="1.6"></circle><circle cx="7" cy="12" r="1.6"></circle><circle cx="12" cy="12" r="1.6"></circle><circle cx="17" cy="12" r="1.6"></circle><circle cx="7" cy="17" r="1.6"></circle><circle cx="12" cy="17" r="1.6"></circle><circle cx="17" cy="17" r="1.6"></circle></svg>NumPy</a>
+      </div>
+    </div>
+    <div class="lp-glass">
     <a class="lp-badge" href="https://albertprofe.dev" target="_blank" rel="noopener"><span class="lp-dot"></span> Sister library of albertprofe.dev</a>
     <h1><span class="lp-grad-code">Learn.</span> <span class="lp-grad-learn">Model.</span><br><span class="lp-grad-build">Build.</span></h1>
     <p class="lp-lead">
@@ -788,19 +860,14 @@ ul.task-list li input[type="checkbox"] {
       <span class="lp-hero-sub">A living ML wiki next to the teaching wiki: algorithms, neural nets, language models, and the Python I study with — written as I learn it, for anyone who wants to follow.</span>
     </p>
     <div class="lp-hero-ctas">
-      <a href="ann/ann-model-and-demos.html" class="lp-btn lp-btn-primary">ANN model and demos →</a>
-      <a href="machine/machine-index.html" class="lp-btn lp-btn-outline">What is machine learning</a>
-    </div>
-    <div class="lp-moved">
-      <strong>Looking for the old home?</strong>
-      The ANN formula, the 3Blue1Brown video, the Manim clip and the executable Python demos now live in
-      <a href="ann/ann-model-and-demos.html">Deep Learning → ANN: model and demos</a>.
-      This page is the new front door.
+      <a href="ann/ann-model-and-demos.html" class="lp-btn lp-btn-primary">ANN demos →</a>
+      <a href="machine/machine-index.html" class="lp-btn lp-btn-outline">What is ML</a>
     </div>
     <div class="lp-stats">
       <div class="lp-stat"><div class="lp-stat-value">ANN → LLM</div><div class="lp-stat-label">the path through the library</div></div>
       <div class="lp-stat"><div class="lp-stat-value">71 pages</div><div class="lp-stat-label">.qmd files, 10 Nov 2026</div></div>
       <div class="lp-stat"><div class="lp-stat-value">14 parts</div><div class="lp-stat-label">Helsinki Python track</div></div>
+    </div>
     </div>
   </section>
 
@@ -907,6 +974,132 @@ ul.task-list li input[type="checkbox"] {
 
 <script>
 (function () {
+  // hero orbit: one throttled rAF loop, transform/opacity only; pause off-screen
+  (function () {
+    var box = document.getElementById('lp-orbit'); if (!box) return;
+    var chips = box.querySelectorAll('.lp-chip'), n = chips.length;
+    if (!n) return;
+    var t0 = performance.now(), raf = 0, last = 0, onScreen = true;
+    var FRAME_MS = 33, RETURN_MS = 750;
+    var COS_T = Math.cos(-0.18), SIN_T = Math.sin(-0.18);
+    var mq = window.matchMedia ? window.matchMedia('(prefers-reduced-motion: reduce)') : null;
+    var st = [], mw = [], mh = [], boxW = 0, boxH = 0;
+    for (var i = 0; i < n; i++) {
+      st[i] = { frozen: false, x: 0, y: 0, s: 1, o: 1, fromX: 0, fromY: 0, fromS: 1, fromO: 1, returnStart: 0 };
+      mw[i] = 0; mh[i] = 0;
+    }
+    function measure() {
+      boxW = box.clientWidth; boxH = box.clientHeight;
+      for (var i = 0; i < n; i++) { mw[i] = chips[i].offsetWidth; mh[i] = chips[i].offsetHeight; }
+    }
+    function write(i, x, y, s, o, z) {
+      var rec = st[i];
+      rec.x = x; rec.y = y; rec.s = s; rec.o = o;
+      chips[i].style.transform = 'translate3d(' + x.toFixed(1) + 'px,' + y.toFixed(1) + 'px,0) scale(' + s.toFixed(3) + ')';
+      chips[i].style.opacity = o.toFixed(2);
+      chips[i].style.zIndex = z;
+    }
+    function freeze(i) {
+      st[i].frozen = true;
+      st[i].returnStart = 0;
+      chips[i].classList.add('is-frozen');
+    }
+    function unfreeze(i, now) {
+      if (!st[i].frozen && !st[i].returnStart) return;
+      var rec = st[i];
+      rec.frozen = false;
+      rec.fromX = rec.x; rec.fromY = rec.y; rec.fromS = rec.s; rec.fromO = rec.o;
+      rec.returnStart = (mq && mq.matches) ? 0 : now;
+      chips[i].classList.remove('is-frozen');
+    }
+    function resetInteractions() {
+      for (var i = 0; i < n; i++) {
+        st[i].frozen = false;
+        st[i].returnStart = 0;
+        chips[i].classList.remove('is-frozen');
+        chips[i].blur();
+      }
+      var ae = document.activeElement;
+      if (ae && ae.classList && ae.classList.contains('lp-chip')) ae.blur();
+      box.style.pointerEvents = 'none';
+      void box.offsetWidth;
+      box.style.pointerEvents = '';
+    }
+    chips.forEach(function (c, i) {
+      c.addEventListener('mouseenter', function () { freeze(i); });
+      c.addEventListener('mouseleave', function () { unfreeze(i, performance.now()); });
+      c.addEventListener('focus', function () { freeze(i); });
+      c.addEventListener('blur', function () { unfreeze(i, performance.now()); });
+    });
+    function easeOutCubic(u) { return 1 - Math.pow(1 - u, 3); }
+    function place(now) {
+      var W = boxW, H = boxH;
+      if (!W || !H) return;
+      var narrow = W < 900;
+      var cx = W * (narrow ? .62 : .64), cy = H * .52;
+      var rx = W * (narrow ? .33 : .27), ry = H * (narrow ? .30 : .26);
+      var t = (now - t0) / 1000 * 0.16;
+      for (var i = 0; i < n; i++) {
+        var rec = st[i];
+        var a = t + i * 2 * Math.PI / n, x = Math.cos(a) * rx, y = Math.sin(a) * ry;
+        var X = cx + x * COS_T - y * SIN_T, Y = cy + x * SIN_T + y * COS_T;
+        var depth = (Math.sin(a) + 1) / 2;
+        var liveX = X - mw[i] / 2, liveY = Y - mh[i] / 2;
+        var liveS = 0.78 + depth * 0.32, liveO = 0.45 + depth * 0.55;
+        if (rec.frozen) { chips[i].style.zIndex = 5; continue; }
+        if (rec.returnStart) {
+          var u = (now - rec.returnStart) / RETURN_MS;
+          if (u >= 1) { rec.returnStart = 0; u = 1; }
+          else u = easeOutCubic(Math.max(0, u));
+          write(i, rec.fromX + (liveX - rec.fromX) * u, rec.fromY + (liveY - rec.fromY) * u,
+            rec.fromS + (liveS - rec.fromS) * u, rec.fromO + (liveO - rec.fromO) * u, 4);
+          continue;
+        }
+        write(i, liveX, liveY, liveS, liveO, depth > .5 ? 3 : 1);
+      }
+    }
+    function loop(now) {
+      raf = requestAnimationFrame(loop);
+      if (now - last < FRAME_MS) return;
+      last = now;
+      place(now);
+    }
+    function stop() {
+      if (raf) { cancelAnimationFrame(raf); raf = 0; }
+    }
+    function start() {
+      stop();
+      measure();
+      if (mq && mq.matches) { place(t0); return; }
+      if (document.hidden || !onScreen) return;
+      place(performance.now());
+      last = 0;
+      raf = requestAnimationFrame(loop);
+    }
+    function onVisible() {
+      resetInteractions();
+      start();
+    }
+    start();
+    window.addEventListener('resize', function () { measure(); place(performance.now()); });
+    document.addEventListener('visibilitychange', function () {
+      if (document.hidden) stop(); else onVisible();
+    });
+    window.addEventListener('pageshow', function (e) {
+      if (e.persisted) onVisible();
+    });
+    window.addEventListener('pagehide', stop);
+    if (mq && mq.addEventListener) mq.addEventListener('change', start);
+    if ('IntersectionObserver' in window) {
+      var hero = box.closest('.lp-cine') || box;
+      var io = new IntersectionObserver(function (entries) {
+        onScreen = !!(entries[0] && entries[0].isIntersecting);
+        if (onScreen) start(); else stop();
+      }, { threshold: 0.08 });
+      io.observe(hero);
+    }
+  })();
+
   var tbtn = document.getElementById('lp-theme');
   if (tbtn) tbtn.addEventListener('click', function () {
     if (typeof window.quartoToggleColorScheme === 'function') { window.quartoToggleColorScheme(); return; }
