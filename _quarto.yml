@@ -128,7 +128,7 @@ website:
             - algorithms/resources.qmd
 
     - id: "evaluation"
-      title: "Model evaluation"
+      title: "Evaluation"
       contents:
         - text: "Model evaluation"
         - text: "---"
@@ -169,7 +169,7 @@ website:
             - deep/resources.qmd
 
     - id: "llms"
-      title: "LLMs and Transformers"
+      title: "LLMs"
       contents:
         - text: "LLMs and Transformers"
         - text: "---"
@@ -195,7 +195,7 @@ website:
             - generative/resources.qmd
 
     - id: "rag"
-      title: "RAG and agents"
+      title: "RAG & Agents"
       contents:
         - text: "RAG and agents"
         - text: "---"
@@ -216,7 +216,7 @@ website:
             - rag/resources.qmd
 
     - id: "aidev"
-      title: "AI for developers"
+      title: "AI for Devs"
       contents:
         - text: "AI for developers"
         - text: "---"
