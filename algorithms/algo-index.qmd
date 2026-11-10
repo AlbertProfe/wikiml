@@ -149,6 +149,14 @@ predictions = model.predict(X_test)
 
 
 
+
+# Clustering
+
+**K-Means** groups unlabelled points into $k$ clusters by iteratively assigning each point to the nearest centroid and moving that centroid to the mean of its points. See the short [k-means](algo-k-means.qmd) page.
+
+**e-means** (2026) solves the same MSE objective, but updates centroids with mini-batch exponential moving averages and scaling laws that set the batch size and step size. The authors report reaching Lloyd's 25-epoch loss in 1.4 to 2.6 epochs. See the [e-means](algo-e-means.qmd) article.
+
+
 Citations:
 
 - [1] [Machine learning algorithms](https://azure.microsoft.com/en-us/resources/cloud-computing-dictionary/what-are-machine-learning-algorithms){.external target='_blank'}

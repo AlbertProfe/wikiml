@@ -9,3 +9,8 @@ title: "Algorithms: K-Means"
 ::: {.column-margin}
 ![](/images/algorithms/what-are-machine-learning-algorithms_k-means.svg){.lightbox width=100% fig-align="center"}
 :::
+
+# See also
+
+For a faster drop-in replacement of Lloyd's k-means, with mini-batch exponential moving averages and no extra hyperparameter sweep, see [e-means](algo-e-means.qmd).
+

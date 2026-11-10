@@ -5,3 +5,12 @@ title: "Classic ML: Resources"
 # Resources for this section
 
 A dedicated reading list for classic algorithms is not written yet. Start from the [algorithms overview](algo-index.qmd) and the site-wide [Resources](/resources/resources-index.qmd) list.
+
+## e-means (2026)
+
+A modern mini-batch replacement for Lloyd's k-means, now in this section as [e-means](algo-e-means.qmd).
+
+- Paper: Swann Bessa et al., *e-means: outperforming k-means (in one-tenth the epochs)*, [arXiv:2611.09501](https://arxiv.org/abs/2611.09501){.external target="_blank"}
+- Announcement thread (10 November 2026): [Swann Bessa on X](https://x.com/swann_bessa/status/2120200714630594911){.external target="_blank"}
+- Project site, [browser playground](https://e-means.github.io/playground.html){.external target="_blank"}, and [results map](https://e-means.github.io/results-map.html){.external target="_blank"}: [https://e-means.github.io/](https://e-means.github.io/){.external target="_blank"}
+- Faiss 1.16.0 code and user guide: [`contrib/e_means`](https://github.com/facebookresearch/faiss/tree/main/contrib/e_means){.external target="_blank"}

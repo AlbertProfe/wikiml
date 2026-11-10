@@ -118,6 +118,7 @@ website:
             - algorithms/algo-random-forest.qmd
             - algorithms/algo-gradient-boosting.qmd
             - algorithms/algo-k-means.qmd
+            - algorithms/algo-e-means.qmd
         - text: "---"
         - section: "Labs"
           contents:
