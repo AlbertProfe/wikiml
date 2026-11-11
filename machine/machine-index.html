@@ -30,6 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
+<link href="../foundations/ml-learning-loop.html" rel="prev">
 <link href="..//images/home/favicon.ico" rel="icon">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -133,6 +134,10 @@ ul.task-list li input[type="checkbox"] {
   </li>  
         <li><hr class="dropdown-divider"></li>
         <li class="dropdown-header">Machine Learning</li>
+        <li>
+    <a class="dropdown-item" href="../foundations/ml-learning-loop.html">
+ <span class="dropdown-text">The learning loop</span></a>
+  </li>  
         <li>
     <a class="dropdown-item" href="../machine/machine-index.html">
  <span class="dropdown-text">Machine Learning</span></a>
@@ -527,7 +532,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../machine/machine-index.html">Machine Learning</a></li><li class="breadcrumb-item"><a href="../machine/machine-index.html">Machine Learning</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../foundations/ml-learning-loop.html">Machine Learning</a></li><li class="breadcrumb-item"><a href="../machine/machine-index.html">Machine Learning</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -626,6 +631,12 @@ ul.task-list li input[type="checkbox"] {
           </a> 
       </div>
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../foundations/ml-learning-loop.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The learning loop</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../machine/machine-index.html" class="sidebar-item-text sidebar-link active">
@@ -795,7 +806,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content page-columns page-full" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../machine/machine-index.html">Machine Learning</a></li><li class="breadcrumb-item"><a href="../machine/machine-index.html">Machine Learning</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../foundations/ml-learning-loop.html">Machine Learning</a></li><li class="breadcrumb-item"><a href="../machine/machine-index.html">Machine Learning</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Machine Learning</h1>
 </div>
@@ -819,10 +830,13 @@ ul.task-list li input[type="checkbox"] {
 <p><strong>Machine learning (ML)</strong> is a branch of <em>artificial intelligence (AI)</em> focused on enabling computers and machines to imitate the way that humans learn, to perform tasks autonomously, and to improve their performance and accuracy through experience and exposure to more data.</p>
 <p><a href="https://ischoolonline.berkeley.edu/blog/what-is-machine-learning/" class="external" target="_blank">UC Berkeley</a> breaks out the learning system of a machine learning algorithm into three main parts.</p>
 <ul>
-<li><p><strong>A Decision Process</strong>: In general, machine learning algorithms are used to make a prediction or classification. Based on some input data, which can be labeled or unlabeled, your algorithm will produce an estimate about a pattern in the data.</p></li>
-<li><p><strong>An Error Function</strong>: An error function evaluates the prediction of the model. If there are known examples, an error function can make a comparison to assess the accuracy of the model.</p></li>
-<li><p><strong>A Model Optimization Process</strong>: If the model can fit better to the data points in the training set, then weights are adjusted to reduce the discrepancy between the known example and the model estimate. The algorithm will repeat this iterative “evaluate and optimize” process, updating weights autonomously until a threshold of accuracy has been met.</p></li>
-<li><p><a href="https://www.ibm.com/think/topics/machine-learning" class="external" target="_blank">What is machine learning?</a></p></li>
+<li><strong>A Decision Process</strong>: In general, machine learning algorithms are used to make a prediction or classification. Based on some input data, which can be labeled or unlabeled, your algorithm will produce an estimate about a pattern in the data.</li>
+<li><strong>An Error Function</strong>: An error function evaluates the prediction of the model. If there are known examples, an error function can make a comparison to assess the accuracy of the model.</li>
+<li><strong>A Model Optimization Process</strong>: If the model can fit better to the data points in the training set, then weights are adjusted to reduce the discrepancy between the known example and the model estimate. The algorithm will repeat this iterative “evaluate and optimize” process, updating weights autonomously until a threshold of accuracy has been met.</li>
+</ul>
+<p>This same loop, with a single weight and a short program, is on <a href="../foundations/ml-learning-loop.html">The learning loop</a>.</p>
+<ul>
+<li><a href="https://www.ibm.com/think/topics/machine-learning" class="external" target="_blank">What is machine learning?</a></li>
 </ul>
 <blockquote class="blockquote">
 <p>Machine learning is a subfield of artificial intelligence, which is broadly defined as the capability of a machine to imitate intelligent human behavior. Artificial intelligence systems are used to perform complex tasks in a way that is similar to how humans solve problems.</p>
@@ -1517,6 +1531,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../foundations/ml-learning-loop.html" class="pagination-link" aria-label="The learning loop">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">The learning loop</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">

@@ -202,6 +202,10 @@ window.Quarto = {
         <li><hr class="dropdown-divider"></li>
         <li class="dropdown-header">Machine Learning</li>
         <li>
+    <a class="dropdown-item" href="../../foundations/ml-learning-loop.html">
+ <span class="dropdown-text">The learning loop</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="../../machine/machine-index.html">
  <span class="dropdown-text">Machine Learning</span></a>
   </li>  
@@ -696,6 +700,12 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../foundations/ml-learning-loop.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The learning loop</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../machine/machine-index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Machine Learning</span></a>
   </div>
@@ -896,7 +906,7 @@ window.Quarto = {
 
 <section id="the-core-symbols" class="level1">
 <h1>The core symbols</h1>
-<p>A short deck of the symbols you will keep seeing. Each card has one question, a figure, a tiny example, and a NumPy line.</p>
+<p>A short deck of the symbols you will keep seeing. Each card has one question, a figure, an everyday example, a tiny numerical example, and a NumPy line.</p>
 </section>
 <section id="nabla-gradient" class="level1">
 <h1><span class="math inline">\(\nabla\)</span> — gradient</h1>
@@ -925,11 +935,24 @@ window.Quarto = {
 </figure>
 </div>
 </div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Everyday example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You are on the top of a hill, and the next step will make you go down. What is the gradient of this step, the direction of this step? This movement is very important. It’s easy.</p>
+</div>
+</div>
 <p><strong>Analogy.</strong> You are standing on a hill in the fog. The gradient points <em>uphill</em>. To reduce the loss, take a step the other way.</p>
 <p><strong>A tiny example.</strong> Let <span class="math inline">\(L(w)=(w-3)^2\)</span>. At <span class="math inline">\(w=5\)</span>, the slope is <span class="math inline">\(2(w-3)=4\)</span>. A descent step moves left: <span class="math inline">\(w\leftarrow 5-0.1\times 4=4.6\)</span>, closer to <span class="math inline">\(3\)</span>.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>w, lr, grad <span class="op">=</span> <span class="fl">5.0</span>, <span class="fl">0.1</span>, <span class="fl">4.0</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>w <span class="op">=</span> w <span class="op">-</span> lr <span class="op">*</span> grad   <span class="co"># 4.6</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Where it shows up.</strong> Gradient descent, and every backward pass. See <a href="../../foundations/maths/maths-calculus.html">Calculus essentials</a> and the <a href="../../ann/ann-activation-functions.html#a-gradient-primer">gradient primer</a>.</p>
+<p><strong>Where it shows up.</strong> Gradient descent, and every backward pass. The <a href="../../foundations/ml-learning-loop.html">learning loop</a> is that nudge, repeated. See <a href="../../foundations/maths/maths-calculus.html">Calculus essentials</a> and the <a href="../../ann/ann-activation-functions.html#a-gradient-primer">gradient primer</a>.</p>
 </section>
 <section id="mathbbe-expectation" class="level1">
 <h1><span class="math inline">\(\mathbb{E}\)</span> — expectation</h1>
@@ -956,6 +979,19 @@ window.Quarto = {
 </div>
 <figcaption>Expectation = a weighted average.</figcaption>
 </figure>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Everyday example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you take the same bus every morning, some days it is early and some days it is late. The expectation is the average time you would see if you did this for many mornings — not any single day. A loss in a model is the same idea: the average error over many examples.</p>
 </div>
 </div>
 <p><strong>Analogy.</strong> The long-run average if you repeated the same random experiment many times. A fair die has expectation <span class="math inline">\(3.5\)</span>, even though <span class="math inline">\(3.5\)</span> never appears on a face.</p>
@@ -992,6 +1028,19 @@ window.Quarto = {
 </figure>
 </div>
 </div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Everyday example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You have a shopping list and a “how many I already have” list, item by item: apples with apples, milk with milk. You never mix the apple line with the milk line. In a network, a gate does the same: it keeps or kills each number in its own place.</p>
+</div>
+</div>
 <p><strong>Analogy.</strong> Two shopping lists, item by item. You never mix the apple row with the orange row — that mix would be a <em>matrix</em> product.</p>
 <p><strong>A tiny example.</strong> <span class="math inline">\((1,2,3)\odot(4,5,6)=(4,10,18)\)</span>.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -1025,6 +1074,19 @@ window.Quarto = {
 </figure>
 </div>
 </div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Everyday example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>To the shop, you can cut across the park (the straight path) or walk the street corners like a taxi. Both answer “how far is it?” — one as a straight line, one as the blocks you actually walk. In ML, a norm asks how big a vector or an error is.</p>
+</div>
+</div>
 <p><strong>Analogy.</strong> The length of an arrow. The everyday <strong>L2</strong> (Euclidean) norm is the straight-line distance, the same rule as Pythagoras. The <strong>L1</strong> norm is the taxi-city walk, along the axes.</p>
 <p><strong>A tiny example.</strong> For <span class="math inline">\(v=(3,4)\)</span>, <span class="math inline">\(\lVert v\rVert_2=\sqrt{3^2+4^2}=5\)</span> and <span class="math inline">\(\lVert v\rVert_1=3+4=7\)</span>. A loss often uses the <em>squared</em> L2 norm, <span class="math inline">\(25\)</span>, so the square root can be skipped.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -1056,6 +1118,19 @@ window.Quarto = {
 </div>
 <figcaption>A curve with the peak marked; argmax is the x-position, max is the height.</figcaption>
 </figure>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Everyday example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The league table shows the scores, but what you care about is <em>which team</em> finished first, not only how many points they got. That “which one?” is argmax. A classifier does the same: it picks the class with the highest score.</p>
 </div>
 </div>
 <p><strong>Analogy.</strong> Not “how high did the class score?”, but “<strong>which class</strong> won?”.</p>
@@ -1094,6 +1169,19 @@ window.Quarto = {
 </figure>
 </div>
 </div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Everyday example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>At the till, you add every line on the receipt to get the total. Sigma is just that: plus, plus, plus, written small. Almost every loss adds up the errors in the same way.</p>
+</div>
+</div>
 <p><strong>Analogy.</strong> A running total. The sigma sign is a compact “plus, plus, plus”.</p>
 <p><strong>A tiny example.</strong> <span class="math inline">\(\sum_{i=1}^{3} i = 1+2+3=6\)</span>. A mean is just a sum divided by the count: <span class="math inline">\((1+2+3)/3=2\)</span>.</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -1125,6 +1213,19 @@ window.Quarto = {
 </div>
 <figcaption>0.9 times 0.5 times 0.2 equals 0.09.</figcaption>
 </figure>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Everyday example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Three locks on a bike: the bike is free only if lock 1 <em>and</em> lock 2 <em>and</em> lock 3 are open. When the steps are independent, you multiply the chances. That is how a naïve likelihood treats independent clues.</p>
 </div>
 </div>
 <p><strong>Analogy.</strong> A chain of “and”s: the chance that several <em>independent</em> things all happen is the product of their chances.</p>
@@ -1160,6 +1261,19 @@ window.Quarto = {
 </figure>
 </div>
 </div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Everyday example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A few small chances in a row — you catch the bus, the shop is open, they still have milk — make a tiny number when you multiply them, hard to read at a glance. A log turns those “times” into “plus”, so you can add them up calmly. That is why training often uses a log-likelihood or a cross-entropy.</p>
+</div>
+</div>
 <p><strong>Analogy.</strong> A translator: “times” becomes “plus”. That is why we talk about <em>log</em>-likelihood instead of multiplying many tiny numbers (which would underflow).</p>
 <p><strong>A tiny example.</strong> <span class="math inline">\(\log(0.5\times 0.4)=\log 0.5+\log 0.4=\log 0.20\)</span>. NumPy’s <code>np.log</code> is the natural log.</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -1193,6 +1307,19 @@ window.Quarto = {
 </figure>
 </div>
 </div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Everyday example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>On a shower, you can turn only the temperature and leave the flow alone. The partial derivative asks: if I move <em>just this</em> knob, how fast does the water change? In a network, each weight is one knob; the gradient is the list of all those answers.</p>
+</div>
+</div>
 <p><strong>Analogy.</strong> A kitchen with two knobs, heat and time. The partial with respect to heat asks: if I turn only the heat, how fast does the cake change?</p>
 <p><strong>A tiny example.</strong> <span class="math inline">\(f(x,y)=x^2+3y\)</span>. At <span class="math inline">\((2,1)\)</span>, <span class="math inline">\(\partial f/\partial x=2x=4\)</span> and <span class="math inline">\(\partial f/\partial y=3\)</span>. The gradient is the vector of both: <span class="math inline">\(\nabla f=(4,3)\)</span>.</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>h <span class="op">=</span> <span class="fl">1e-6</span></span>
@@ -1224,6 +1351,19 @@ window.Quarto = {
 </div>
 <figcaption>Two panels: a sigmoid curve, and a bell curve with the spread marked.</figcaption>
 </figure>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Everyday example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The same letter has two everyday jobs, so look at the room you are in. As a dimmer, it squashes a signal to something between off and on — that is the sigmoid in a network. As a spread, it is how much your commute time jumps around from day to day — that is the standard deviation.</p>
 </div>
 </div>
 <p><strong>Analogy.</strong> The same nickname for two classmates. In a network diagram, <span class="math inline">\(\sigma\)</span> usually means “squash this number into <span class="math inline">\((0,1)\)</span>”. In a statistics paragraph, <span class="math inline">\(\sigma\)</span> is “how spread out is this data?”.</p>
@@ -1260,6 +1400,19 @@ window.Quarto = {
 </figure>
 </div>
 </div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Everyday example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Turning a table on its side is a transpose: rows become columns, like flipping a seating plan. The dot product is a shopping moment: price times quantity for each item, then add — your total, and also the weighted sum inside a neuron.</p>
+</div>
+</div>
 <p><strong>Analogy.</strong> Transpose is turning a table on its corner. The dot product is “how much do these two arrows point the same way?” — or, in a neuron, a weighted sum of inputs.</p>
 <p><strong>A tiny example.</strong> <span class="math inline">\((1,2)\cdot(3,4)=1\cdot 3+2\cdot 4=11\)</span>. The transpose of <span class="math inline">\(\begin{pmatrix}1&amp;2\\3&amp;4\end{pmatrix}\)</span> is <span class="math inline">\(\begin{pmatrix}1&amp;3\\2&amp;4\end{pmatrix}\)</span>.</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -1294,6 +1447,19 @@ window.Quarto = {
 </figure>
 </div>
 </div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Everyday example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Is this key on your keyring, or not? Belongs-to is a simple membership check. In ML it is the same idea: this label belongs to the set of classes, this vector belongs to the space of inputs.</p>
+</div>
+</div>
 <p><strong>Analogy.</strong> A membership badge. <span class="math inline">\(x\in\mathbb{R}^n\)</span> means “<span class="math inline">\(x\)</span> is a real vector with <span class="math inline">\(n\)</span> entries”.</p>
 <p><strong>A tiny example.</strong> <span class="math inline">\(3\in\{1,2,3\}\)</span>, but <span class="math inline">\(4\notin\{1,2,3\}\)</span>. A paper will write a weight matrix as <span class="math inline">\(W\in\mathbb{R}^{d\times k}\)</span>.</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span> <span class="kw">in</span> {<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>}   <span class="co"># True</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1324,6 +1490,19 @@ window.Quarto = {
 </div>
 <figcaption>A curve hugging an approximation, and two lines that scale together.</figcaption>
 </figure>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Everyday example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The recipe says “about 180 degrees” — that is approximately, close enough. If you double the guests, you double the flour — that is proportional, the same shape at a new scale. Models use both: a handy approximation, or a posterior that follows likelihood times prior.</p>
 </div>
 </div>
 <p><strong>Analogy.</strong> <span class="math inline">\(\approx\)</span> is a close hug, not a perfect match. <span class="math inline">\(\propto\)</span> is “when this doubles, that doubles” — a constant factor may still be hiding.</p>
@@ -1361,6 +1540,19 @@ window.Quarto = {
 </figure>
 </div>
 </div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Everyday example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You already know it is raining. Now, what is the chance you will want a coat? That is “given B, what about A?” — you have narrowed the question to the rainy days. A spam filter does the same: given this word, how likely is spam?</p>
+</div>
+</div>
 <p><strong>Analogy.</strong> Of all the emails that contain “prize”, what fraction are spam? You have already narrowed the pile to <span class="math inline">\(B\)</span>.</p>
 <p><strong>A tiny example.</strong> <span class="math inline">\(100\)</span> emails, <span class="math inline">\(20\)</span> of them spam. The word “prize” appears in <span class="math inline">\(16\)</span> of the spam emails and in <span class="math inline">\(8\)</span> of the rest, so in <span class="math inline">\(24\)</span> emails altogether: <span class="math inline">\(P(\text{spam}\mid\text{prize})=16/24=2/3\)</span>.</p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="dv">16</span> <span class="op">/</span> <span class="dv">24</span>   <span class="co"># 2/3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1391,6 +1583,19 @@ window.Quarto = {
 </div>
 <figcaption>A loss bowl with the bottom marked: min is 0, argmin is w = 3.</figcaption>
 </figure>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Everyday example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You are buying a phone. The lowest price is the min; <em>which</em> phone has that price is the argmin. Training is the same question: which parameters make the error as small as it can be?</p>
 </div>
 </div>
 <p><strong>Analogy.</strong> The lowest point on the hill (<span class="math inline">\(\min\)</span>) versus “where do I stand to be at the bottom?” (<span class="math inline">\(\arg\min\)</span>). The twin of <span class="math inline">\(\arg\max\)</span>.</p>
