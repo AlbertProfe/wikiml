@@ -43,7 +43,7 @@ J = \sum_{i=1}^{n} \|x_i - c_{a(i)}\|^2,
 \quad a(i)=\arg\min_j\|x_i-c_j\|^2.
 $$
 
-The **mean squared error (MSE)** is the same quantity divided by $n$. scikit-learn stores inertia as `inertia_` after `fit`. Lower is tighter, but $J$ always falls as $k$ grows, so a smaller inertia alone does not mean a better $k$.
+The **mean squared error (MSE)** is the same quantity divided by $n$. scikit-learn stores inertia as `inertia_` after `fit`. Lower is tighter, but $J$ always falls as $k$ grows, so a smaller inertia alone does not mean a better $k$. Each term $\lVert x_i-c_{a(i)}\rVert^2$ is a squared L2 **norm**: how far that point sits from its centre. See [ML math symbols](/foundations/maths/maths-symbols.qmd) and [Linear algebra essentials](/foundations/maths/maths-linear-algebra.qmd).
 
 # k-means++ initialisation
 
@@ -146,6 +146,8 @@ When the dataset is large and many Lloyd passes are the bottleneck. For a small 
 # See also
 
 For a faster drop-in replacement of Lloyd's k-means, with mini-batch exponential moving averages and no extra hyperparameter sweep, see [e-means](algo-e-means.qmd).
+
+The inertia terms are squared L2 norms; a short reminder is in [ML math symbols](/foundations/maths/maths-symbols.qmd) and [Linear algebra essentials](/foundations/maths/maths-linear-algebra.qmd).
 
 # References
 

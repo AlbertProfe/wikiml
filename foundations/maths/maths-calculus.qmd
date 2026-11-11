@@ -1,0 +1,81 @@
+---
+title: "Calculus essentials"
+---
+
+# A derivative is a slope
+
+If $y=f(x)$, the **derivative** $f'(x)$ (also written $\frac{dy}{dx}$) is the slope of $f$ at $x$: how fast $y$ rises or falls if $x$ moves a little.
+
+A straight line $y=3x+1$ has slope $3$ everywhere. A curve $y=x^2$ has slope $2x$: at $x=2$ the slope is $4$, at $x=0$ it is flat.
+
+For a picture of a steep slope versus a gentle one, see the [gradient primer](/ann/ann-activation-functions.qmd#a-gradient-primer) on the activation-functions page.
+
+# Partial derivatives and the gradient $\nabla$
+
+When a function has several inputs, a **partial derivative** $\partial f/\partial x$ asks: how fast does $f$ change if I move *only* $x$, and hold the other inputs still?
+
+The **gradient** $\nabla f$ is the vector of all those partials. It points in the direction of steepest *increase*. To reduce a loss, we step the other way.
+
+**A tiny example.** $f(x,y)=x^2+3y$ at $(2,1)$: $\partial f/\partial x=4$, $\partial f/\partial y=3$, so $\nabla f=(4,3)$.
+
+# The chain rule, which backpropagation rests on
+
+If a value is a function of a function, $y=f\bigl(g(x)\bigr)$, the slopes **multiply**:
+
+$$
+\frac{dy}{dx}=f'\bigl(g(x)\bigr)\cdot g'(x).
+$$
+
+**A tiny example.** $y=(2x+1)^2$. Let $u=2x+1$. Then $\frac{dy}{dx}=2u\cdot 2=4(2x+1)$. At $x=1$, the slope is $12$.
+
+A neural network is a long chain: input, then $xW+b$, then an activation, then the next layer, then a loss. **Backpropagation** is the chain rule applied to that chain, from the loss back to each weight. If an activation has a tiny slope, the product shrinks; that is the vanishing-gradient story on the [activation-functions](/ann/ann-activation-functions.qmd) page.
+
+```python
+# y = (2x + 1)**2 at x = 1, numerical check of the slope 12
+h = 1e-6
+x = 1.0
+(((2*(x+h)+1)**2) - ((2*(x-h)+1)**2)) / (2*h)   # about 12
+```
+
+# Gradient descent, one step
+
+To reduce a loss $L(w)$, move against the gradient:
+
+$$
+w \leftarrow w - \eta\,\nabla L(w),
+$$
+
+where $\eta$ (the **learning rate**) is a small positive step size.
+
+**A tiny numeric example.** Let $L(w)=(w-3)^2$, so $\nabla L=2(w-3)$. Start at $w=5$ with $\eta=0.1$:
+
+$$
+w \leftarrow 5 - 0.1\times 4 = 4.6.
+$$
+
+The loss goes from $(5-3)^2=4$ to $(4.6-3)^2=2.56$. One more step: $4.6-0.1\times 3.2=4.28$, and the loss falls again. Repeat until the slope is almost zero (here, at $w=3$).
+
+```python
+w, lr = 5.0, 0.1
+for _ in range(3):
+    grad = 2 * (w - 3)
+    w = w - lr * grad
+    print(w, (w - 3)**2)
+# 4.6  2.56
+# 4.28 1.6384
+# 4.024 1.0486...
+```
+
+```{mermaid}
+flowchart TD
+  A[Compute the loss] --> B[Compute the gradient]
+  B --> C["Step: w = w minus lr times grad"]
+  C --> A
+```
+
+# See also
+
+- [ML math symbols, explained easy](maths-symbols.qmd) — $\nabla$, $\partial$
+- [ANN: Activation functions](/ann/ann-activation-functions.qmd) — why some slopes vanish, and why ReLU’s slope is $0$ or $1$
+- [Linear algebra essentials](maths-linear-algebra.qmd)
+- [Maths for machine learning](maths-index.qmd)

@@ -1,0 +1,70 @@
+---
+title: "Probability and statistics essentials"
+---
+
+# Random variables and distributions
+
+A **random variable** is a number whose value depends on a random outcome: the face of a die, a pixel, a class label.
+
+A **distribution** says how likely each value is. The **normal** (Gaussian) distribution is the familiar bell curve, written $\mathcal{N}(\mu,\sigma^2)$: $\mu$ is the centre, $\sigma$ is the spread. Many residuals and many “noise” models are assumed to be roughly normal. GELU, on the [activation-functions](/ann/ann-activation-functions.qmd) page, even uses the standard normal CDF $\Phi$.
+
+# Expectation, variance, and standard deviation
+
+The **expectation** $\mathbb{E}[x]$ is the probability-weighted average. For a fair die it is $3.5$. For a dataset, the same idea becomes an ordinary mean: add the values, divide by $n$.
+
+**Variance** is the expected squared distance from the mean: “how spread out?”. The **standard deviation** $\sigma$ is the square root of the variance, so it lives in the same units as $x$. Careful: in a network diagram the letter $\sigma$ often means the *sigmoid* instead; see the [symbols page](maths-symbols.qmd).
+
+**A tiny example.** For the two values $[2,4]$, the mean is $3$. Each value sits $1$ away from $3$, so the (population) variance is $1$ and $\sigma=1$.
+
+```python
+import numpy as np
+x = np.array([2.0, 4.0])
+x.mean(), x.var(), x.std()   # 3.0, 1.0, 1.0
+```
+
+# Mean and median
+
+The **mean** is the ordinary average. The **median** is the middle value once the numbers are sorted. The mean is pulled by outliers; the median is calmer.
+
+**A tiny example.** For $[10,12,13,15,100]$, the mean is $30$ and the median is $13$. One large value dragged the mean a long way; the middle of the list did not move.
+
+# Conditional probability and Bayes
+
+**Conditional** probability $P(A\mid B)$ is “the probability of $A$, given that we already know $B$”. **Bayes’ rule** turns the evidence around:
+
+$$
+P(A\mid B)=\frac{P(B\mid A)\,P(A)}{P(B)}.
+$$
+
+**A tiny example.** $100$ emails, $20$ of them spam. The word “prize” appears in $16$ of the spam emails and in $8$ of the rest, so in $24$ emails altogether.
+
+$$
+P(\text{spam}\mid\text{prize})=\frac{(16/20)\cdot(20/100)}{24/100}=\frac{16}{24}=\frac{2}{3}.
+$$
+
+Seeing “prize” does not prove spam, but it raises the chance from $20\%$ to about $67\%$. This is the same arithmetic that [Naïve Bayes](/algorithms/algo-naive-bayes.qmd) uses, with a simplifying assumption that features are independent given the class.
+
+# Likelihood, and why cross-entropy is an expectation
+
+A **likelihood** answers: if the parameter were this value, how probable would the data we actually saw be? Three heads in a row are much more likely if $P(\text{heads})=0.9$ ($0.9^3=0.729$) than if the coin is fair ($0.5^3=0.125$). Training often means *raising* that likelihood, or equivalently *lowering* $-\log$ of it.
+
+**Cross-entropy** loss for classification is the average of $-\log p_{\text{model}}(y_i\mid x_i)$ over the batch:
+
+$$
+L=-\frac{1}{n}\sum_{i=1}^{n}\log p_{\text{model}}(y_i\mid x_i).
+$$
+
+That average *is* an expectation $\mathbb{E}[-\log p_{\text{model}}(y\mid x)]$, taken with respect to the data (and, in the limit, the data distribution). A confident, correct prediction makes $-\log p$ small; a confident wrong one makes it large.
+
+```python
+import numpy as np
+p_correct = np.array([0.8, 0.3, 0.9])   # model probability of the true class
+L = -np.log(p_correct).mean()           # cross-entropy on this tiny batch
+```
+
+# See also
+
+- [ML math symbols, explained easy](maths-symbols.qmd) — $\mathbb{E}$, $\sigma$, $\Sigma$
+- [Naïve Bayes](/algorithms/algo-naive-bayes.qmd)
+- [ANN: Activation functions](/ann/ann-activation-functions.qmd)
+- [Maths for machine learning](maths-index.qmd)

@@ -1,0 +1,174 @@
+---
+title: "ML math symbols, explained easy"
+---
+
+# Five symbols you will keep seeing
+
+Each card is one symbol, one question, a plain analogy, a tiny example with numbers, a NumPy one-liner, and where it turns up in machine learning.
+
+# $\nabla$ — gradient
+
+**In one line.** Which direction should the parameters move to reduce the loss?
+
+**Analogy.** You are standing on a hill in the fog, holding a ball. The gradient points *uphill*, to the steepest rise. To reduce the loss, you take a step the other way.
+
+**A tiny example.** Let the loss be $L(w)=(w-3)^2$. At $w=5$, the slope is $2(w-3)=4$. The gradient is positive, so a descent step moves left: $w\leftarrow 5-0.1\times 4=4.6$, closer to $3$.
+
+```python
+w, lr, grad = 5.0, 0.1, 4.0
+w = w - lr * grad   # 4.6
+```
+
+**Where it shows up.** Gradient descent, and every backward pass in a neural network. See [Calculus essentials](maths-calculus.qmd) and the [gradient primer](/ann/ann-activation-functions.qmd#a-gradient-primer).
+
+# $\mathbb{E}$ — expectation
+
+**In one line.** What is the average value over all possible outcomes, weighted by probability?
+
+**Analogy.** The long-run average if you repeated the same random experiment many times. A fair six-sided die has expectation $3.5$, even though $3.5$ never appears on a face.
+
+**A tiny example.** Outcomes $2$, $4$, $10$ with probabilities $0.5$, $0.25$, $0.25$:
+
+$$
+\mathbb{E}[x]=2\cdot 0.5+4\cdot 0.25+10\cdot 0.25=4.5.
+$$
+
+```python
+import numpy as np
+x, p = np.array([2.0, 4.0, 10.0]), np.array([0.5, 0.25, 0.25])
+np.dot(x, p)   # 4.5
+```
+
+**Where it shows up.** A loss is often an expectation: the average error over data, or over a predicted distribution. Cross-entropy is the usual example; see [Probability and statistics](maths-probability.qmd).
+
+# $\odot$ — element-wise multiplication
+
+**In one line.** Multiply corresponding entries, not entire matrices.
+
+**Analogy.** Two shopping lists, item by item: $2$ apples times a price of $3$ is $6$, $4$ oranges times a price of $1$ is $4$. You never mix the apple row with the orange row. That mix would be a *matrix* product.
+
+**A tiny example.** $(1,2,3)\odot(4,5,6)=(4,10,18)$.
+
+```python
+import numpy as np
+np.array([1, 2, 3]) * np.array([4, 5, 6])   # [4, 10, 18]
+# np.array(...) @ ...  would be a dot product or matrix multiply, not this
+```
+
+**Where it shows up.** LSTM gates (the forget gate $\odot$ the cell state), attention masks, and any “keep or kill this entry” operation. See [Linear algebra essentials](maths-linear-algebra.qmd).
+
+# $\lVert\cdot\rVert$ — norm
+
+**In one line.** How big is a vector or an error?
+
+**Analogy.** The length of an arrow. For the everyday **L2** (Euclidean) norm, it is the straight-line distance from the origin, the same rule as Pythagoras.
+
+**A tiny example.** For $v=(3,4)$, $\lVert v\rVert_2=\sqrt{3^2+4^2}=5$. The **squared** L2 norm is $3^2+4^2=25$, which is what you often see in a loss, because the square root is then unnecessary.
+
+```python
+import numpy as np
+np.linalg.norm([3.0, 4.0])   # 5.0
+```
+
+**Where it shows up.** How far a point sits from a cluster centre (the terms inside k-means inertia), L2 regularisation $\lambda\lVert w\rVert^2$, and “how large is this error?”. See [k-means](/algorithms/algo-k-means.qmd#the-objective-inertia-or-wcss) and [Linear algebra essentials](maths-linear-algebra.qmd).
+
+# $\arg\max$ — argmax
+
+**In one line.** Which input gives the highest value?
+
+**Analogy.** Not “how high did the class score?”, but “**which class** won?”. A judge reads four scores and points at the winner, rather than reading the winning number aloud.
+
+**A tiny example.** Scores $(0.1, 0.7, 0.2)$: the maximum is $0.7$, and $\arg\max$ is index $1$ (the second class, if we count from $0$).
+
+```python
+import numpy as np
+np.argmax([0.1, 0.7, 0.2])   # 1
+```
+
+**Where it shows up.** The predicted class in a classifier: take the output scores (or a softmax) and return $\arg\max$.
+
+# A few extras in the same format
+
+# $\Sigma$ — summation
+
+**In one line.** Add these terms up.
+
+**Analogy.** A running total. The sigma sign is a compact “plus, plus, plus”.
+
+**A tiny example.** $\sum_{i=1}^{3} i = 1+2+3=6$. A mean is just a sum divided by the count: $(1+2+3)/3=2$.
+
+```python
+import numpy as np
+np.sum([1, 2, 3])   # 6
+```
+
+**Where it shows up.** Almost every loss and every mean: inertia in k-means, cross-entropy, “sum of squared errors”.
+
+# $\partial$ — partial derivative
+
+**In one line.** How fast does this function change if I move *only this* input and hold the others still?
+
+**Analogy.** A kitchen with two knobs, heat and time. The partial with respect to heat asks: if I turn only the heat, how fast does the cake change?
+
+**A tiny example.** $f(x,y)=x^2+3y$. At $(2,1)$, $\partial f/\partial x=2x=4$ and $\partial f/\partial y=3$. The gradient is the vector of both: $\nabla f=(4,3)$.
+
+```python
+# numeric check of ∂f/∂x at (2, 1), with f = x**2 + 3*y
+h = 1e-6
+((2+h)**2 + 3*1 - (2**2 + 3*1)) / h   # about 4
+```
+
+**Where it shows up.** A network has many parameters. The gradient $\nabla$ is just the list of all these partials. See [Calculus essentials](maths-calculus.qmd).
+
+# $\sigma$ — a letter with two common lives
+
+**In one line.** Look at the context: $\sigma$ may be the **sigmoid** function, or the **standard deviation**.
+
+**Analogy.** The same nickname for two classmates. In a network diagram, $\sigma$ usually means “squash this number into $(0,1)$”. In a statistics paragraph, $\sigma$ is “how spread out is this data?”.
+
+**A tiny example.** The sigmoid at $0$ is $\sigma(0)=1/(1+e^{0})=0.5$. The standard deviation of $[2,4]$ (population) is $1$, because the mean is $3$ and each value sits $1$ away.
+
+```python
+import numpy as np
+1 / (1 + np.exp(0))      # sigmoid(0) = 0.5
+np.std([2.0, 4.0])       # 1.0  (NumPy's default is the population std)
+```
+
+**Where it shows up.** Sigmoid activations and LSTM gates (see [Activation functions](/ann/ann-activation-functions.qmd)); standard deviation in data summaries and in the normal distribution (see [Probability and statistics](maths-probability.qmd)).
+
+# $^\top$ and the dot product
+
+**In one line.** $^\top$ flips rows and columns; the dot product $\,u^\top v\,$ (or $u\cdot v$) multiplies matching entries and adds them up.
+
+**Analogy.** Transpose is turning a tall list on its side, or a table on its corner. The dot product is “how much do these two arrows point the same way?” — or, in a neuron, a weighted sum of inputs.
+
+**A tiny example.** $(1,2)\cdot(3,4)=1\cdot 3+2\cdot 4=11$. The transpose of $\begin{pmatrix}1&2\\3&4\end{pmatrix}$ is $\begin{pmatrix}1&3\\2&4\end{pmatrix}$.
+
+```python
+import numpy as np
+np.dot([1, 2], [3, 4])          # 11
+np.array([[1, 2], [3, 4]]).T    # [[1, 3], [2, 4]]
+```
+
+**Where it shows up.** Almost every layer: $x^\top w$, or a batch written as $Xw$. See [Linear algebra essentials](maths-linear-algebra.qmd).
+
+# Summary
+
+| Symbol | Pronunciation | The question it asks | A typical ML home |
+| --- | --- | --- | --- |
+| $\nabla$ | nabla, gradient | Which way should the parameters move to reduce the loss? | Gradient descent, backprop |
+| $\mathbb{E}$ | expectation | What is the probability-weighted average? | Losses as averages over data |
+| $\odot$ | Hadamard, element-wise times | Multiply matching entries? | Gates, attention masks |
+| $\lVert\cdot\rVert$ | norm | How big is this vector or error? | L2 regularisation, k-means inertia |
+| $\arg\max$ | argmax | Which input gives the highest value? | Predicted class |
+| $\Sigma$ | sigma, sum | Add these terms up? | Every mean and every loss |
+| $\partial$ | partial | How does $f$ change if only this input moves? | The pieces of $\nabla$ |
+| $\sigma$ | sigma | Sigmoid, or standard deviation? | Activations, or spread |
+| $^\top$ / $\cdot$ | transpose / dot | Flip the table; or weighted sum? | Layers, $x^\top w$ |
+
+# See also
+
+- [Maths for machine learning](maths-index.qmd)
+- [Linear algebra essentials](maths-linear-algebra.qmd)
+- [Calculus essentials](maths-calculus.qmd)
+- [Probability and statistics essentials](maths-probability.qmd)

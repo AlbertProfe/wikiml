@@ -36,7 +36,7 @@ Four functions cover most of what you will meet in class and in modern models. A
 
 # A gradient primer
 
-Training moves the weights by following a **gradient**: the slope of the loss with respect to each weight. A handy picture is a ball on a hill. Where the hillside is steep, the slope is large and the ball rolls fast. Where the hillside is almost flat, the slope is small and the ball barely moves.
+Training moves the weights by following a **gradient**: the slope of the loss with respect to each weight. A handy picture is a ball on a hill. Where the hillside is steep, the slope is large and the ball rolls fast. Where the hillside is almost flat, the slope is small and the ball barely moves. For the symbol $\nabla$ itself, and a one-step numeric descent, see [ML math symbols](/foundations/maths/maths-symbols.qmd) and [Calculus essentials](/foundations/maths/maths-calculus.qmd).
 
 ![A hill with a steep tangent on one side and a gentle tangent on the other. The gradient is that slope.](/images/activation-functions/gradient-slope.png){.lightbox width=80% fig-align="center"}
 
@@ -238,6 +238,8 @@ It is the constant Hendrycks and Gimpel fitted so that $x\cdot\sigma(1.702x)$ tr
 - [ANN: Introduction](ann-introduction.qmd)
 - [ANN: Mathematical model](ann-mathematical.qmd)
 - [ANN: model and demos](ann-model-and-demos.qmd)
+- [ML math symbols, explained easy](/foundations/maths/maths-symbols.qmd) — $\nabla$, $\sigma$, and a short gradient card
+- [Calculus essentials](/foundations/maths/maths-calculus.qmd) — the chain rule and one step of gradient descent
 
 # References
 

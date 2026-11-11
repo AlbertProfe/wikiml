@@ -1,0 +1,33 @@
+---
+title: "Maths for machine learning"
+---
+
+# The maths ML really needs
+
+You do not need a full maths degree to start. You need a small working kit: enough linear algebra to read a layer, enough calculus to see how training moves, and enough probability to understand a loss.
+
+<mark>Most of machine learning is this loop: make a prediction, measure the error, then move the parameters a little to make the error smaller.</mark> The symbols on the next pages are the shorthand for that loop.
+
+Proofs can wait. First you want to know **what a formula is asking**.
+
+# Reading order
+
+1. **[ML math symbols, explained easy](maths-symbols.qmd)** — start here. One card for each common symbol ($\nabla$, $\mathbb{E}$, $\odot$, a norm, $\arg\max$, and a few extras), with a tiny numerical example and a NumPy line.
+2. **[Linear algebra essentials](maths-linear-algebra.qmd)** — vectors, matrices, the dot product, and why a neural network layer is a matrix multiply.
+3. **[Calculus essentials](maths-calculus.qmd)** — slope, partial derivatives, the gradient, the chain rule, and one step of gradient descent. Ties in with the [gradient primer](/ann/ann-activation-functions.qmd#a-gradient-primer) on the activation-functions page.
+4. **[Probability and statistics essentials](maths-probability.qmd)** — expectation, variance, Bayes, likelihood, and why a cross-entropy loss is an average over the data. Ties in with [Naïve Bayes](/algorithms/algo-naive-bayes.qmd).
+
+```{mermaid}
+flowchart TD
+  A[Symbols] --> B[Linear algebra]
+  A --> C[Calculus]
+  A --> D[Probability and statistics]
+```
+
+Read them in any order if you only need one idea. If you are new, the list above is the shortest path.
+
+# See also
+
+- [Foundations](/foundations/foundations-index.qmd)
+- [What is Machine Learning](/machine/machine-index.qmd)
+- [ANN: Activation functions](/ann/ann-activation-functions.qmd)

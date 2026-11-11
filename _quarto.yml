@@ -51,6 +51,14 @@ website:
           contents:
             - foundations/foundations-index.qmd
         - text: "---"
+        - section: "Maths"
+          contents:
+            - foundations/maths/maths-index.qmd
+            - foundations/maths/maths-symbols.qmd
+            - foundations/maths/maths-linear-algebra.qmd
+            - foundations/maths/maths-calculus.qmd
+            - foundations/maths/maths-probability.qmd
+        - text: "---"
         - section: "Machine Learning"
           contents:
             - machine/machine-index.qmd
