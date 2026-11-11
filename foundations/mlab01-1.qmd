@@ -35,7 +35,7 @@ The story starts in [The learning loop](ml-learning-loop.qmd). Here you run it y
 
 Price = w · kilometres. The true rate on these receipts is €1.50 per kilometre. You do not tell the program that number. It has to find it.
 
-## Creating the algorithm
+# Creating the algorithm
 
 **The question.** A taxi charges by distance. We have three receipts: 2 km cost €3, 5 km cost €7.50 and 10 km cost €15. What does 7 km cost? We don't know the rate per kilometre, so we let the receipts teach it to us.
 
