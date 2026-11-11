@@ -35,6 +35,74 @@ The story starts in [The learning loop](ml-learning-loop.qmd). Here you run it y
 
 Price = w · kilometres. The true rate on these receipts is €1.50 per kilometre. You do not tell the program that number. It has to find it.
 
+## Creating the algorithm
+
+**The question.** A taxi charges by distance. We have three receipts: 2 km cost €3, 5 km cost €7.50 and 10 km cost €15. What does 7 km cost? We don't know the rate per kilometre, so we let the receipts teach it to us.
+
+```python
+# TODO: find the price of a 7 km trip from three receipts
+```
+
+**What we know and what we don't.** We know the kilometres (the input) and the prices (the answers). We don't know the rate, which we call `w`. Our whole model is one line, price = w · km, and the machine's only job is to find a good `w`.
+
+```python
+km    = [2, 5, 10]       # what we know: inputs
+price = [3, 7.5, 15]     # what we know: answers
+# TODO: w is unknown, the thing to learn
+```
+
+**A first guess.** We have no idea, so we start badly on purpose and watch it improve.
+
+```python
+w = 0.0                  # a bad guess on purpose
+```
+
+**Predict.** With our guess, what would each trip cost? With `w = 0`, every trip comes out free.
+
+```python
+pred = [w * x for x in km]          # [0, 0, 0]
+```
+
+**How wrong are we?** We compare each prediction with the real receipt. We square the gaps, so a miss above or below counts the same and big misses count more, then average them. That number is the loss, and we want it small.
+
+```python
+loss = sum((p - y)**2 for p, y in zip(pred, price)) / len(km)
+```
+
+**Which way to move?** Every prediction was too low, so `w` must go up. The gradient tells us which way and how strongly, like feeling the slope of the hill under your feet.
+
+```python
+grad = sum(2 * (p - y) * x for p, y, x in zip(pred, price, km)) / len(km)
+```
+
+**A small step.** We nudge `w` a little that way. The learning rate is the step size: too small and we crawl, too big and we bounce past the bottom.
+
+```python
+lr = 0.01
+w = w - lr * grad
+```
+
+**Again and again.** We predict, measure and nudge, over and over. The loss drops and `w` creeps towards 1.50.
+
+```python
+for step in range(20):
+    # predict, measure, find the direction, step
+    ...
+```
+
+**When to stop.** We stop when the loss barely changes, or after a fixed number of steps.
+
+```python
+# TODO: stop when loss < 0.0001, or after N steps
+```
+
+**Check the answer.** `w ≈ 1.50`, so 7 km costs about €10.50. Nobody told the program the rate; it found the rate from examples. That's learning.
+
+```python
+print(w * 7)             # ≈ 10.5
+```
+
+
 # Guess, predict, error, nudge
 
 Three rides: 2 km for €3, 5 km for €7.50, 10 km for €15. Start at $w = 0$ — every ride is free — and take steps of size $0.01$.
