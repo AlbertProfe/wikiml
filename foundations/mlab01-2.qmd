@@ -28,9 +28,9 @@ In this lab you will:
 3. Plot the loss, and how $w$ and $b$ settle.
 4. Compare your result with `LinearRegression` from scikit-learn.
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/AlbertProfe/wikiml-labs/blob/taxi-lab/taxi/taxi_lab_2_numpy_sklearn.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/AlbertProfe/wikiml-labs/blob/Lab%23ML01-2-taxi/taxi/taxi_lab_2_numpy_sklearn.ipynb)
 &nbsp;
-[Code on GitHub](https://github.com/AlbertProfe/wikiml-labs/blob/taxi-lab/taxi/taxi_lab_2_numpy_sklearn.ipynb){.external target="_blank"}
+[Code on GitHub](https://github.com/AlbertProfe/wikiml-labs/blob/Lab%23ML01-2-taxi/taxi/taxi_lab_2_numpy_sklearn.ipynb){.external target="_blank"}
 :::
 
 [Lab#ML01-1](mlab01-1.qmd) learned one number: the fare per kilometre. A real taxi also has a flag fall — the bit you pay before the metres start to run. The model is now
@@ -236,4 +236,4 @@ Two parameters are coupled, so the walk toward the true $w$ and $b$ is slower th
 - [Lab#ML01-1: Taxi fare, pure Python](mlab01-1.qmd)
 - [The learning loop](ml-learning-loop.qmd)
 - [Optimization essentials](maths/maths-optimization.qmd)
-- [Code on GitHub](https://github.com/AlbertProfe/wikiml-labs/blob/taxi-lab/taxi/taxi_lab_2_numpy_sklearn.py){.external target="_blank"} — the same script, in [AlbertProfe/wikiml-labs](https://github.com/AlbertProfe/wikiml-labs){.external target="_blank"}
+- [Code on GitHub](https://github.com/AlbertProfe/wikiml-labs/blob/Lab%23ML01-2-taxi/taxi/taxi_lab_2_numpy_sklearn.py){.external target="_blank"} — the same script, in [AlbertProfe/wikiml-labs](https://github.com/AlbertProfe/wikiml-labs){.external target="_blank"}

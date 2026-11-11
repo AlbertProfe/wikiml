@@ -26,9 +26,9 @@ In this lab you will:
 3. Repeat the loop until the guess settles on €1.50 / km.
 4. Plot how the loss falls.
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/AlbertProfe/wikiml-labs/blob/taxi-lab/taxi/taxi_lab_1_pure_python.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/AlbertProfe/wikiml-labs/blob/Lab%23ML01-2-taxi/taxi/taxi_lab_1_pure_python.ipynb)
 &nbsp;
-[Code on GitHub](https://github.com/AlbertProfe/wikiml-labs/blob/taxi-lab/taxi/taxi_lab_1_pure_python.ipynb){.external target="_blank"}
+[Code on GitHub](https://github.com/AlbertProfe/wikiml-labs/blob/Lab%23ML01-2-taxi/taxi/taxi_lab_1_pure_python.ipynb){.external target="_blank"}
 :::
 
 The story starts in [The learning loop](ml-learning-loop.qmd). Here you run it yourself, in the page. The editor below is live Python in the browser — no install, no libraries for the loop, matplotlib only draws the loss curve. The first load takes a few seconds.
@@ -192,4 +192,4 @@ Next: a pickup fee, two parameters, and a check against scikit-learn, in [Lab#ML
 
 - [Lab#ML01-2: Taxi fare, NumPy and scikit-learn](mlab01-2.qmd)
 - [The learning loop](ml-learning-loop.qmd)
-- [Code on GitHub](https://github.com/AlbertProfe/wikiml-labs/blob/taxi-lab/taxi/taxi_lab_1_pure_python.py){.external target="_blank"} — the same script, in [AlbertProfe/wikiml-labs](https://github.com/AlbertProfe/wikiml-labs){.external target="_blank"}
+- [Code on GitHub](https://github.com/AlbertProfe/wikiml-labs/blob/Lab%23ML01-2-taxi/taxi/taxi_lab_1_pure_python.py){.external target="_blank"} — the same script, in [AlbertProfe/wikiml-labs](https://github.com/AlbertProfe/wikiml-labs){.external target="_blank"}
