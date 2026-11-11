@@ -4,4 +4,6 @@ title: "MLOps: Resources"
 
 # Resources for this section
 
-A dedicated reading list for MLOps is not written yet.
+## Git
+
+- [Beej's Guide to Git](https://beej.us/guide/bggit/){.external target='_blank'} — a free guide from Git novice to intermediate: the commands, and a mental model of how Git stores its information.

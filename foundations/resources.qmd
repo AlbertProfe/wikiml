@@ -37,4 +37,8 @@ MIT's Introduction to Algorithms:
 - [The Missing Semester of Your CS Education](https://missing.csail.mit.edu/){.external target='_blank'} — MIT's course on the tools classes skip: the shell, Git, editors, debugging, and shipping code.
 - <span class="chip chip-success">web</span> [IT-Tools](https://it-tools.tech/){.external target='_blank'}
 
+## Papers
+
+- [Kurate.org — AI Paper Rankings](https://kurate.org/?cat=cs.AI&period=week){.external target='_blank'} — a weekly leaderboard of new arXiv cs.AI preprints, meant as a discovery signal rather than peer review.
+
 The imported [book notes](/resources/resources-books.qmd) collect longer notes.
