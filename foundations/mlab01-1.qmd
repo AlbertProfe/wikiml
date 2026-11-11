@@ -182,6 +182,33 @@ After the first nudge, $w$ jumps from $0$ to $1.29$. After four steps it is alre
 
 Loss starts at $96.75$ — every ride predicted as free — and drops to about zero once $w$ reaches $1.50$.
 
+::: {.callout-note collapse="false"}
+## Reading the code: `mean_squared_error`
+
+This little function answers one question: how wrong is this `weight`? Let's run it by hand with `weight = 1`.
+
+| Ride | Real price | Prediction (1 · km) | Error | Error² |
+|------|-----------:|--------------------:|------:|-------:|
+| 2 km  | €3.00  | €2.00  | −1.00 | 1.00  |
+| 5 km  | €7.50  | €5.00  | −2.50 | 6.25  |
+| 10 km | €15.00 | €10.00 | −5.00 | 25.00 |
+
+- `predictions`: what we would charge with this weight: 2, 5, 10.
+- `errors`: prediction minus real price: −1, −2.5, −5. Negative means we charged too little.
+- `e * e`: square each error: 1, 6.25, 25.
+- `sum(...) / len(km)`: add them (32.25) and divide by the number of rides (3). The loss is **10.75**.
+
+Why square? A miss of −5 and a miss of +5 are equally bad, so the sign must go. And squaring makes big misses hurt much more than small ones: missing by 5 costs 25, missing by 1 costs only 1.
+
+In maths it is written:
+
+$$
+	ext{MSE} = rac{1}{n}\sum_{i=1}^{n} (w \cdot x_i - y_i)^2
+$$
+
+Same thing as the code: for every ride, predict, subtract the real price, square, then take the average. With `weight = 0` you get the 96.75 above; with `weight = 1.5` you get 0. See [$\Sigma$ summation](maths/maths-symbols.qmd) and [The loss is a landscape](maths/maths-optimization.qmd).
+:::
+
 # What you should notice
 
 The learning rate $0.01$ is a gentle pinch. The same loop, with a bad learning rate, can be slow or can blow up — that is in [The learning loop](ml-learning-loop.qmd) and in [Optimization essentials](maths/maths-optimization.qmd).
