@@ -1,0 +1,2161 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.32">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>ML math symbols, explained easy – Wiki-ML</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../foundations/maths/maths-linear-algebra.html" rel="next">
+<link href="../../foundations/maths/maths-index.html" rel="prev">
+<link href="../..//images/home/favicon.ico" rel="icon">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-2486e1f0a3ee9ee1fc393803a1361cdb.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-6561bbde787c299e21493071c8edc6ff.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-510c3b48ea8728ab307d593fb594786b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-sidebar floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Wiki-ML</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-foundations" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Foundations</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-foundations">    
+        <li class="dropdown-header">What is this section?</li>
+        <li>
+    <a class="dropdown-item" href="../../foundations/foundations-index.html">
+ <span class="dropdown-text">Foundations</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Maths</li>
+        <li>
+    <a class="dropdown-item" href="../../foundations/maths/maths-index.html">
+ <span class="dropdown-text">Maths for machine learning</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../foundations/maths/maths-symbols.html">
+ <span class="dropdown-text">ML math symbols, explained easy</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../foundations/maths/maths-linear-algebra.html">
+ <span class="dropdown-text">Linear algebra essentials</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../foundations/maths/maths-calculus.html">
+ <span class="dropdown-text">Calculus essentials</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../foundations/maths/maths-probability.html">
+ <span class="dropdown-text">Probability and statistics essentials</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../foundations/maths/maths-optimization.html">
+ <span class="dropdown-text">Optimization essentials</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Machine Learning</li>
+        <li>
+    <a class="dropdown-item" href="../../machine/machine-index.html">
+ <span class="dropdown-text">Machine Learning</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Python (Helsinki MOOC 2024)</li>
+        <li>
+    <a class="dropdown-item" href="../../python/python-index.html">
+ <span class="dropdown-text">Python</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../python/python-part1.html">
+ <span class="dropdown-text">Python Helsinki: 1</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../python/python-part2.html">
+ <span class="dropdown-text">Python Helsinki: 2</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../python/python-part3.html">
+ <span class="dropdown-text">Python Helsinki: 3</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../python/python-part4.html">
+ <span class="dropdown-text">Python Helsinki: 4</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../python/python-part5.html">
+ <span class="dropdown-text">Python Helsinki: 5</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../python/python-part6.html">
+ <span class="dropdown-text">Python Helsinki: 6</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../python/python-part7.html">
+ <span class="dropdown-text">Python Helsinki: 7</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../python/python-part8.html">
+ <span class="dropdown-text">Python Helsinki: 8</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../python/python-part9.html">
+ <span class="dropdown-text">Python Helsinki: 9</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../python/python-part10.html">
+ <span class="dropdown-text">Python Helsinki: 10</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../python/python-part11.html">
+ <span class="dropdown-text">Python Helsinki: 11</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../python/python-part12.html">
+ <span class="dropdown-text">Python Helsinki: 12</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../python/python-part13.html">
+ <span class="dropdown-text">Python Helsinki: 13</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../python/python-part14.html">
+ <span class="dropdown-text">Python Helsinki: 14</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Labs</li>
+        <li>
+    <a class="dropdown-item" href="../../foundations/labs.html">
+ <span class="dropdown-text">Foundations: Labs</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Resources</li>
+        <li>
+    <a class="dropdown-item" href="../../foundations/resources.html">
+ <span class="dropdown-text">Foundations: Resources</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-data" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Data</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-data">    
+        <li class="dropdown-header">What is this section?</li>
+        <li>
+    <a class="dropdown-item" href="../../bigdata/bigdata-index.html">
+ <span class="dropdown-text">Big Data</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Labs</li>
+        <li>
+    <a class="dropdown-item" href="../../bigdata/labs.html">
+ <span class="dropdown-text">Data: Labs</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Resources</li>
+        <li>
+    <a class="dropdown-item" href="../../bigdata/resources.html">
+ <span class="dropdown-text">Data: Resources</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-classic-ml" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Classic ML</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-classic-ml">    
+        <li class="dropdown-header">What is Classic ML?</li>
+        <li>
+    <a class="dropdown-item" href="../../algorithms/algo-index.html">
+ <span class="dropdown-text">Algorithms: Introduction</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Algorithm Types</li>
+        <li>
+    <a class="dropdown-item" href="../../algorithms/algo-linear-regression.html">
+ <span class="dropdown-text">Algorithms: Linear regression</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../algorithms/algo-logistic-regression.html">
+ <span class="dropdown-text">Algorithms: Logistic regression</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../algorithms/algo-naive-bayes.html">
+ <span class="dropdown-text">Algorithms: Naïve Bayes</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../algorithms/algo-support-vector-machines.html">
+ <span class="dropdown-text">Algorithms: Support Vector Machines</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../algorithms/algo-decision-tree.html">
+ <span class="dropdown-text">Algorithms: Decision tree</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../algorithms/algo-k-nearest-neighbor.html">
+ <span class="dropdown-text">Algorithms: K-Nearest neighbor</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../algorithms/algo-random-forest.html">
+ <span class="dropdown-text">Algorithms: Random forest</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../algorithms/algo-gradient-boosting.html">
+ <span class="dropdown-text">Algorithms: Gradient boosting</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../algorithms/algo-k-means.html">
+ <span class="dropdown-text">Algorithms: K-Means</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../algorithms/algo-e-means.html">
+ <span class="dropdown-text">Algorithms: e-means</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Labs</li>
+        <li>
+    <a class="dropdown-item" href="../../algorithms/labs.html">
+ <span class="dropdown-text">Classic ML: Labs</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Resources</li>
+        <li>
+    <a class="dropdown-item" href="../../algorithms/resources.html">
+ <span class="dropdown-text">Classic ML: Resources</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-evaluation" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Evaluation</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-evaluation">    
+        <li class="dropdown-header">What is this section?</li>
+        <li>
+    <a class="dropdown-item" href="../../evaluation/evaluation-index.html">
+ <span class="dropdown-text">Model evaluation</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Labs</li>
+        <li>
+    <a class="dropdown-item" href="../../evaluation/labs.html">
+ <span class="dropdown-text">Model evaluation: Labs</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Resources</li>
+        <li>
+    <a class="dropdown-item" href="../../evaluation/resources.html">
+ <span class="dropdown-text">Model evaluation: Resources</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-deep-learning" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Deep Learning</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-deep-learning">    
+        <li class="dropdown-header">ANN</li>
+        <li>
+    <a class="dropdown-item" href="../../ann/ann-index.html">
+ <span class="dropdown-text">ANN: Table of Contents</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../ann/ann-introduction.html">
+ <span class="dropdown-text">ANN: Introduction</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../ann/ann-mathematical.html">
+ <span class="dropdown-text">ANN: Mathematical Model</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../ann/ann-model-and-demos.html">
+ <span class="dropdown-text">ANN: model and demos</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../ann/ann-activation-functions.html">
+ <span class="dropdown-text">ANN: Activation functions</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Introduction to Deep Learning</li>
+        <li>
+    <a class="dropdown-item" href="../../deep/deep-index.html">
+ <span class="dropdown-text">Deep Learning</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Labs</li>
+        <li>
+    <a class="dropdown-item" href="../../deep/labs.html">
+ <span class="dropdown-text">Deep Learning: Labs</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Resources</li>
+        <li>
+    <a class="dropdown-item" href="../../deep/resources.html">
+ <span class="dropdown-text">Deep Learning: Resources</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-llms" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">LLMs</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-llms">    
+        <li class="dropdown-header">Generative AI</li>
+        <li>
+    <a class="dropdown-item" href="../../generative/generative-index.html">
+ <span class="dropdown-text">Generative AI</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">LLMs</li>
+        <li>
+    <a class="dropdown-item" href="../../generative/generative-llm.html">
+ <span class="dropdown-text">Large Language Models</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../generative/generative-gpt.html">
+ <span class="dropdown-text">GPT</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Transformers</li>
+        <li>
+    <a class="dropdown-item" href="../../generative/generative-transformer.html">
+ <span class="dropdown-text">The Transformer</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Labs</li>
+        <li>
+    <a class="dropdown-item" href="../../generative/labs.html">
+ <span class="dropdown-text">LLMs and Transformers: Labs</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Resources</li>
+        <li>
+    <a class="dropdown-item" href="../../generative/resources.html">
+ <span class="dropdown-text">LLMs and Transformers: Resources</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-rag--agents" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">RAG &amp; Agents</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-rag--agents">    
+        <li class="dropdown-header">What is this section?</li>
+        <li>
+    <a class="dropdown-item" href="../../rag/rag-index.html">
+ <span class="dropdown-text">RAG and agents</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">RAG</li>
+        <li>
+    <a class="dropdown-item" href="../../generative/generative-rag.html">
+ <span class="dropdown-text">RAG</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Labs</li>
+        <li>
+    <a class="dropdown-item" href="../../rag/labs.html">
+ <span class="dropdown-text">RAG and agents: Labs</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Resources</li>
+        <li>
+    <a class="dropdown-item" href="../../rag/resources.html">
+ <span class="dropdown-text">RAG and agents: Resources</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-ai-for-devs" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">AI for Devs</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-ai-for-devs">    
+        <li class="dropdown-header">What is this section?</li>
+        <li>
+    <a class="dropdown-item" href="../../aidev/aidev-index.html">
+ <span class="dropdown-text">AI for developers</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Labs</li>
+        <li>
+    <a class="dropdown-item" href="../../aidev/labs.html">
+ <span class="dropdown-text">AI for developers: Labs</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Resources</li>
+        <li>
+    <a class="dropdown-item" href="../../aidev/resources.html">
+ <span class="dropdown-text">AI for developers: Resources</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-mlops" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">MLOps</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-mlops">    
+        <li class="dropdown-header">What is this section?</li>
+        <li>
+    <a class="dropdown-item" href="../../mlops/mlops-index.html">
+ <span class="dropdown-text">MLOps</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Labs</li>
+        <li>
+    <a class="dropdown-item" href="../../mlops/labs.html">
+ <span class="dropdown-text">MLOps: Labs</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Resources</li>
+        <li>
+    <a class="dropdown-item" href="../../mlops/resources.html">
+ <span class="dropdown-text">MLOps: Resources</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-training" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Training</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-training">    
+        <li class="dropdown-header">About Training</li>
+        <li>
+    <a class="dropdown-item" href="../../training/training-index.html">
+ <span class="dropdown-text">Training</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Labs</li>
+        <li>
+    <a class="dropdown-item" href="../../training/labs.html">
+ <span class="dropdown-text">Training: Labs</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Resources</li>
+        <li>
+    <a class="dropdown-item" href="../../training/resources.html">
+ <span class="dropdown-text">Training: Resources</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../foundations/maths/maths-index.html">Maths</a></li><li class="breadcrumb-item"><a href="../../foundations/maths/maths-symbols.html">ML math symbols, explained easy</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+ <span class="menu-text">Foundations</span>
+  </li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
+ <span class="menu-text">What is this section?</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../foundations/foundations-index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Foundations</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Maths</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../foundations/maths/maths-index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Maths for machine learning</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../foundations/maths/maths-symbols.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">ML math symbols, explained easy</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../foundations/maths/maths-linear-algebra.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Linear algebra essentials</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../foundations/maths/maths-calculus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Calculus essentials</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../foundations/maths/maths-probability.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Probability and statistics essentials</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../foundations/maths/maths-optimization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Optimization essentials</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
+ <span class="menu-text">Machine Learning</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../machine/machine-index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Machine Learning</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
+ <span class="menu-text">Python (Helsinki MOOC 2024)</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../python/python-index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Python</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../python/python-part1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Python Helsinki: 1</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../python/python-part2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Python Helsinki: 2</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../python/python-part3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Python Helsinki: 3</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../python/python-part4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Python Helsinki: 4</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../python/python-part5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Python Helsinki: 5</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../python/python-part6.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Python Helsinki: 6</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../python/python-part7.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Python Helsinki: 7</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../python/python-part8.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Python Helsinki: 8</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../python/python-part9.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Python Helsinki: 9</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../python/python-part10.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Python Helsinki: 10</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../python/python-part11.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Python Helsinki: 11</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../python/python-part12.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Python Helsinki: 12</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../python/python-part13.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Python Helsinki: 13</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../python/python-part14.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Python Helsinki: 14</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false">
+ <span class="menu-text">Labs</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../foundations/labs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Foundations: Labs</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false">
+ <span class="menu-text">Resources</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../foundations/resources.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Foundations: Resources</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#the-core-symbols" id="toc-the-core-symbols" class="nav-link active" data-scroll-target="#the-core-symbols">The core symbols</a></li>
+  <li><a href="#nabla-gradient" id="toc-nabla-gradient" class="nav-link" data-scroll-target="#nabla-gradient"><span class="math inline">\(\nabla\)</span> — gradient</a></li>
+  <li><a href="#mathbbe-expectation" id="toc-mathbbe-expectation" class="nav-link" data-scroll-target="#mathbbe-expectation"><span class="math inline">\(\mathbb{E}\)</span> — expectation</a></li>
+  <li><a href="#odot-element-wise-multiplication" id="toc-odot-element-wise-multiplication" class="nav-link" data-scroll-target="#odot-element-wise-multiplication"><span class="math inline">\(\odot\)</span> — element-wise multiplication</a></li>
+  <li><a href="#lvertcdotrvert-norm" id="toc-lvertcdotrvert-norm" class="nav-link" data-scroll-target="#lvertcdotrvert-norm"><span class="math inline">\(\lVert\cdot\rVert\)</span> — norm</a></li>
+  <li><a href="#argmax-argmax" id="toc-argmax-argmax" class="nav-link" data-scroll-target="#argmax-argmax"><span class="math inline">\(\arg\max\)</span> — argmax</a></li>
+  <li><a href="#a-few-more-that-complete-the-set" id="toc-a-few-more-that-complete-the-set" class="nav-link" data-scroll-target="#a-few-more-that-complete-the-set">A few more that complete the set</a></li>
+  <li><a href="#sigma-summation" id="toc-sigma-summation" class="nav-link" data-scroll-target="#sigma-summation"><span class="math inline">\(\Sigma\)</span> — summation</a></li>
+  <li><a href="#prod-product" id="toc-prod-product" class="nav-link" data-scroll-target="#prod-product"><span class="math inline">\(\prod\)</span> — product</a></li>
+  <li><a href="#log-logarithm" id="toc-log-logarithm" class="nav-link" data-scroll-target="#log-logarithm"><span class="math inline">\(\log\)</span> — logarithm</a></li>
+  <li><a href="#partial-partial-derivative" id="toc-partial-partial-derivative" class="nav-link" data-scroll-target="#partial-partial-derivative"><span class="math inline">\(\partial\)</span> — partial derivative</a></li>
+  <li><a href="#sigma-a-letter-with-two-common-lives" id="toc-sigma-a-letter-with-two-common-lives" class="nav-link" data-scroll-target="#sigma-a-letter-with-two-common-lives"><span class="math inline">\(\sigma\)</span> — a letter with two common lives</a></li>
+  <li><a href="#top-and-the-dot-product" id="toc-top-and-the-dot-product" class="nav-link" data-scroll-target="#top-and-the-dot-product"><span class="math inline">\(^\top\)</span> and the dot product</a></li>
+  <li><a href="#in-belongs-to" id="toc-in-belongs-to" class="nav-link" data-scroll-target="#in-belongs-to"><span class="math inline">\(\in\)</span> — belongs to</a></li>
+  <li><a href="#approx-and-propto-approximately-proportional-to" id="toc-approx-and-propto-approximately-proportional-to" class="nav-link" data-scroll-target="#approx-and-propto-approximately-proportional-to"><span class="math inline">\(\approx\)</span> and <span class="math inline">\(\propto\)</span> — approximately, proportional to</a></li>
+  <li><a href="#pamid-b-conditional-probability" id="toc-pamid-b-conditional-probability" class="nav-link" data-scroll-target="#pamid-b-conditional-probability"><span class="math inline">\(P(A\mid B)\)</span> — conditional probability</a></li>
+  <li><a href="#argmin-and-min-the-training-question" id="toc-argmin-and-min-the-training-question" class="nav-link" data-scroll-target="#argmin-and-min-the-training-question"><span class="math inline">\(\arg\min\)</span> and <span class="math inline">\(\min\)</span> — the training question</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a></li>
+  <li><a href="#see-also" id="toc-see-also" class="nav-link" data-scroll-target="#see-also">See also</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../foundations/maths/maths-index.html">Maths</a></li><li class="breadcrumb-item"><a href="../../foundations/maths/maths-symbols.html">ML math symbols, explained easy</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">ML math symbols, explained easy</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="the-core-symbols" class="level1">
+<h1>The core symbols</h1>
+<p>A short deck of the symbols you will keep seeing. Each card has one question, a figure, a tiny example, and a NumPy line.</p>
+</section>
+<section id="nabla-gradient" class="level1">
+<h1><span class="math inline">\(\nabla\)</span> — gradient</h1>
+<p><strong>In one line.</strong> Which direction should the parameters move to reduce the loss?</p>
+<div class="light-only">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../../images/maths-symbols/nabla-gradient-light.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Gradient = which way is downhill."><img src="../../images/maths-symbols/nabla-gradient-light.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:90.0%" alt="Gradient = which way is downhill."></a></p>
+</figure>
+</div>
+<figcaption>Gradient = which way is downhill.</figcaption>
+</figure>
+</div>
+</div>
+<div class="dark-only">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../../images/maths-symbols/nabla-gradient.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Gradient = which way is downhill."><img src="../../images/maths-symbols/nabla-gradient.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:90.0%" alt="Gradient = which way is downhill."></a></p>
+</figure>
+</div>
+<figcaption>Gradient = which way is downhill.</figcaption>
+</figure>
+</div>
+</div>
+<p><strong>Analogy.</strong> You are standing on a hill in the fog. The gradient points <em>uphill</em>. To reduce the loss, take a step the other way.</p>
+<p><strong>A tiny example.</strong> Let <span class="math inline">\(L(w)=(w-3)^2\)</span>. At <span class="math inline">\(w=5\)</span>, the slope is <span class="math inline">\(2(w-3)=4\)</span>. A descent step moves left: <span class="math inline">\(w\leftarrow 5-0.1\times 4=4.6\)</span>, closer to <span class="math inline">\(3\)</span>.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>w, lr, grad <span class="op">=</span> <span class="fl">5.0</span>, <span class="fl">0.1</span>, <span class="fl">4.0</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>w <span class="op">=</span> w <span class="op">-</span> lr <span class="op">*</span> grad   <span class="co"># 4.6</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Where it shows up.</strong> Gradient descent, and every backward pass. See <a href="../../foundations/maths/maths-calculus.html">Calculus essentials</a> and the <a href="../../ann/ann-activation-functions.html#a-gradient-primer">gradient primer</a>.</p>
+</section>
+<section id="mathbbe-expectation" class="level1">
+<h1><span class="math inline">\(\mathbb{E}\)</span> — expectation</h1>
+<p><strong>In one line.</strong> What is the average value over all possible outcomes, weighted by probability?</p>
+<div class="light-only">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../../images/maths-symbols/expectation-light.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Expectation = a weighted average."><img src="../../images/maths-symbols/expectation-light.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:90.0%" alt="Expectation = a weighted average."></a></p>
+</figure>
+</div>
+<figcaption>Expectation = a weighted average.</figcaption>
+</figure>
+</div>
+</div>
+<div class="dark-only">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../../images/maths-symbols/expectation.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Expectation = a weighted average."><img src="../../images/maths-symbols/expectation.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:90.0%" alt="Expectation = a weighted average."></a></p>
+</figure>
+</div>
+<figcaption>Expectation = a weighted average.</figcaption>
+</figure>
+</div>
+</div>
+<p><strong>Analogy.</strong> The long-run average if you repeated the same random experiment many times. A fair die has expectation <span class="math inline">\(3.5\)</span>, even though <span class="math inline">\(3.5\)</span> never appears on a face.</p>
+<p><strong>A tiny example.</strong> Outcomes <span class="math inline">\(2\)</span>, <span class="math inline">\(4\)</span>, <span class="math inline">\(10\)</span> with probabilities <span class="math inline">\(0.5\)</span>, <span class="math inline">\(0.25\)</span>, <span class="math inline">\(0.25\)</span>: <span class="math inline">\(\mathbb{E}[x]=2\cdot 0.5+4\cdot 0.25+10\cdot 0.25=4.5\)</span>.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>x, p <span class="op">=</span> np.array([<span class="fl">2.0</span>, <span class="fl">4.0</span>, <span class="fl">10.0</span>]), np.array([<span class="fl">0.5</span>, <span class="fl">0.25</span>, <span class="fl">0.25</span>])</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>np.dot(x, p)   <span class="co"># 4.5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Where it shows up.</strong> A loss is often an expectation — the average error over data. See <a href="../../foundations/maths/maths-probability.html">Probability and statistics</a>.</p>
+</section>
+<section id="odot-element-wise-multiplication" class="level1">
+<h1><span class="math inline">\(\odot\)</span> — element-wise multiplication</h1>
+<p><strong>In one line.</strong> Multiply corresponding entries, not entire matrices.</p>
+<div class="light-only">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../../images/maths-symbols/hadamard-vs-matmul-light.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="⊙ multiplies matching cells; a matrix product mixes rows and columns."><img src="../../images/maths-symbols/hadamard-vs-matmul-light.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%" alt="⊙ multiplies matching cells; a matrix product mixes rows and columns."></a></p>
+</figure>
+</div>
+<figcaption>⊙ multiplies matching cells; a matrix product mixes rows and columns.</figcaption>
+</figure>
+</div>
+</div>
+<div class="dark-only">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../../images/maths-symbols/hadamard-vs-matmul.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="⊙ multiplies matching cells; a matrix product mixes rows and columns."><img src="../../images/maths-symbols/hadamard-vs-matmul.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%" alt="⊙ multiplies matching cells; a matrix product mixes rows and columns."></a></p>
+</figure>
+</div>
+<figcaption>⊙ multiplies matching cells; a matrix product mixes rows and columns.</figcaption>
+</figure>
+</div>
+</div>
+<p><strong>Analogy.</strong> Two shopping lists, item by item. You never mix the apple row with the orange row — that mix would be a <em>matrix</em> product.</p>
+<p><strong>A tiny example.</strong> <span class="math inline">\((1,2,3)\odot(4,5,6)=(4,10,18)\)</span>.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>np.array([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]) <span class="op">*</span> np.array([<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>])   <span class="co"># [4, 10, 18]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Where it shows up.</strong> LSTM gates (forget gate <span class="math inline">\(\odot\)</span> cell state), attention masks, and any “keep or kill this entry” operation. See <a href="../../foundations/maths/maths-linear-algebra.html">Linear algebra essentials</a>.</p>
+</section>
+<section id="lvertcdotrvert-norm" class="level1">
+<h1><span class="math inline">\(\lVert\cdot\rVert\)</span> — norm</h1>
+<p><strong>In one line.</strong> How big is a vector or an error?</p>
+<div class="light-only">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../../images/maths-symbols/norm-l2-l1-light.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="A vector with its L2 length and the L1 taxi path."><img src="../../images/maths-symbols/norm-l2-l1-light.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:90.0%" alt="A vector with its L2 length and the L1 taxi path."></a></p>
+</figure>
+</div>
+<figcaption>A vector with its L2 length and the L1 taxi path.</figcaption>
+</figure>
+</div>
+</div>
+<div class="dark-only">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../../images/maths-symbols/norm-l2-l1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8" title="A vector with its L2 length and the L1 taxi path."><img src="../../images/maths-symbols/norm-l2-l1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:90.0%" alt="A vector with its L2 length and the L1 taxi path."></a></p>
+</figure>
+</div>
+<figcaption>A vector with its L2 length and the L1 taxi path.</figcaption>
+</figure>
+</div>
+</div>
+<p><strong>Analogy.</strong> The length of an arrow. The everyday <strong>L2</strong> (Euclidean) norm is the straight-line distance, the same rule as Pythagoras. The <strong>L1</strong> norm is the taxi-city walk, along the axes.</p>
+<p><strong>A tiny example.</strong> For <span class="math inline">\(v=(3,4)\)</span>, <span class="math inline">\(\lVert v\rVert_2=\sqrt{3^2+4^2}=5\)</span> and <span class="math inline">\(\lVert v\rVert_1=3+4=7\)</span>. A loss often uses the <em>squared</em> L2 norm, <span class="math inline">\(25\)</span>, so the square root can be skipped.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>np.linalg.norm([<span class="fl">3.0</span>, <span class="fl">4.0</span>])   <span class="co"># 5.0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Where it shows up.</strong> Distance to a cluster centre (k-means inertia), L2 regularisation <span class="math inline">\(\lambda\lVert w\rVert^2\)</span>, and “how large is this error?”. See <a href="../../algorithms/algo-k-means.html#the-objective-inertia-or-wcss">k-means</a> and <a href="../../foundations/maths/maths-linear-algebra.html">Linear algebra essentials</a>.</p>
+</section>
+<section id="argmax-argmax" class="level1">
+<h1><span class="math inline">\(\arg\max\)</span> — argmax</h1>
+<p><strong>In one line.</strong> Which input gives the highest value?</p>
+<div class="light-only">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../../images/maths-symbols/argmax-light.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9" title="A curve with the peak marked; argmax is the x-position, max is the height."><img src="../../images/maths-symbols/argmax-light.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:90.0%" alt="A curve with the peak marked; argmax is the x-position, max is the height."></a></p>
+</figure>
+</div>
+<figcaption>A curve with the peak marked; argmax is the x-position, max is the height.</figcaption>
+</figure>
+</div>
+</div>
+<div class="dark-only">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../../images/maths-symbols/argmax.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10" title="A curve with the peak marked; argmax is the x-position, max is the height."><img src="../../images/maths-symbols/argmax.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:90.0%" alt="A curve with the peak marked; argmax is the x-position, max is the height."></a></p>
+</figure>
+</div>
+<figcaption>A curve with the peak marked; argmax is the x-position, max is the height.</figcaption>
+</figure>
+</div>
+</div>
+<p><strong>Analogy.</strong> Not “how high did the class score?”, but “<strong>which class</strong> won?”.</p>
+<p><strong>A tiny example.</strong> Scores <span class="math inline">\((0.1, 0.7, 0.2)\)</span>: the maximum is <span class="math inline">\(0.7\)</span>, and <span class="math inline">\(\arg\max\)</span> is index <span class="math inline">\(1\)</span> (the second class, counting from <span class="math inline">\(0\)</span>).</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>np.argmax([<span class="fl">0.1</span>, <span class="fl">0.7</span>, <span class="fl">0.2</span>])   <span class="co"># 1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Where it shows up.</strong> The predicted class in a classifier: take the output scores (or a softmax) and return <span class="math inline">\(\arg\max\)</span>.</p>
+</section>
+<section id="a-few-more-that-complete-the-set" class="level1">
+<h1>A few more that complete the set</h1>
+</section>
+<section id="sigma-summation" class="level1">
+<h1><span class="math inline">\(\Sigma\)</span> — summation</h1>
+<p><strong>In one line.</strong> Add these terms up.</p>
+<div class="light-only">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../../images/maths-symbols/summation-light.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11" title="Bars of 1, 2 and 3 stacking into a total of 6."><img src="../../images/maths-symbols/summation-light.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:90.0%" alt="Bars of 1, 2 and 3 stacking into a total of 6."></a></p>
+</figure>
+</div>
+<figcaption>Bars of 1, 2 and 3 stacking into a total of 6.</figcaption>
+</figure>
+</div>
+</div>
+<div class="dark-only">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../../images/maths-symbols/summation.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12" title="Bars of 1, 2 and 3 stacking into a total of 6."><img src="../../images/maths-symbols/summation.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:90.0%" alt="Bars of 1, 2 and 3 stacking into a total of 6."></a></p>
+</figure>
+</div>
+<figcaption>Bars of 1, 2 and 3 stacking into a total of 6.</figcaption>
+</figure>
+</div>
+</div>
+<p><strong>Analogy.</strong> A running total. The sigma sign is a compact “plus, plus, plus”.</p>
+<p><strong>A tiny example.</strong> <span class="math inline">\(\sum_{i=1}^{3} i = 1+2+3=6\)</span>. A mean is just a sum divided by the count: <span class="math inline">\((1+2+3)/3=2\)</span>.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>np.<span class="bu">sum</span>([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>])   <span class="co"># 6</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Where it shows up.</strong> Almost every loss and every mean: inertia, cross-entropy, sum of squared errors.</p>
+</section>
+<section id="prod-product" class="level1">
+<h1><span class="math inline">\(\prod\)</span> — product</h1>
+<p><strong>In one line.</strong> Multiply these terms together.</p>
+<div class="light-only">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../../images/maths-symbols/product-light.png" class="lightbox" data-gallery="quarto-lightbox-gallery-13" title="0.9 times 0.5 times 0.2 equals 0.09."><img src="../../images/maths-symbols/product-light.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:90.0%" alt="0.9 times 0.5 times 0.2 equals 0.09."></a></p>
+</figure>
+</div>
+<figcaption>0.9 times 0.5 times 0.2 equals 0.09.</figcaption>
+</figure>
+</div>
+</div>
+<div class="dark-only">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../../images/maths-symbols/product.png" class="lightbox" data-gallery="quarto-lightbox-gallery-14" title="0.9 times 0.5 times 0.2 equals 0.09."><img src="../../images/maths-symbols/product.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:90.0%" alt="0.9 times 0.5 times 0.2 equals 0.09."></a></p>
+</figure>
+</div>
+<figcaption>0.9 times 0.5 times 0.2 equals 0.09.</figcaption>
+</figure>
+</div>
+</div>
+<p><strong>Analogy.</strong> A chain of “and”s: the chance that several <em>independent</em> things all happen is the product of their chances.</p>
+<p><strong>A tiny example.</strong> <span class="math inline">\(0.9\times 0.5\times 0.2=0.09\)</span>.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>np.prod([<span class="fl">0.9</span>, <span class="fl">0.5</span>, <span class="fl">0.2</span>])   <span class="co"># 0.09</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Where it shows up.</strong> The likelihood of independent events, and the “naïve” product inside <a href="../../algorithms/algo-naive-bayes.html">Naïve Bayes</a>. Long products of probabilities get tiny, which is why we usually take a <span class="math inline">\(\log\)</span> next.</p>
+</section>
+<section id="log-logarithm" class="level1">
+<h1><span class="math inline">\(\log\)</span> — logarithm</h1>
+<p><strong>In one line.</strong> Turn a product into a sum, and stretch small probabilities so they are easier to add and to compare.</p>
+<div class="light-only">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../../images/maths-symbols/log-light.png" class="lightbox" data-gallery="quarto-lightbox-gallery-15" title="A product 0.5 × 0.4 becoming log 0.5 + log 0.4, next to the log curve."><img src="../../images/maths-symbols/log-light.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%" alt="A product 0.5 × 0.4 becoming log 0.5 + log 0.4, next to the log curve."></a></p>
+</figure>
+</div>
+<figcaption>A product 0.5 × 0.4 becoming log 0.5 + log 0.4, next to the log curve.</figcaption>
+</figure>
+</div>
+</div>
+<div class="dark-only">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../../images/maths-symbols/log.png" class="lightbox" data-gallery="quarto-lightbox-gallery-16" title="A product 0.5 × 0.4 becoming log 0.5 + log 0.4, next to the log curve."><img src="../../images/maths-symbols/log.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%" alt="A product 0.5 × 0.4 becoming log 0.5 + log 0.4, next to the log curve."></a></p>
+</figure>
+</div>
+<figcaption>A product 0.5 × 0.4 becoming log 0.5 + log 0.4, next to the log curve.</figcaption>
+</figure>
+</div>
+</div>
+<p><strong>Analogy.</strong> A translator: “times” becomes “plus”. That is why we talk about <em>log</em>-likelihood instead of multiplying many tiny numbers (which would underflow).</p>
+<p><strong>A tiny example.</strong> <span class="math inline">\(\log(0.5\times 0.4)=\log 0.5+\log 0.4=\log 0.20\)</span>. NumPy’s <code>np.log</code> is the natural log.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>np.log(<span class="fl">0.5</span>) <span class="op">+</span> np.log(<span class="fl">0.4</span>)   <span class="co"># same as np.log(0.5 * 0.4)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Where it shows up.</strong> Log-likelihood, cross-entropy <span class="math inline">\(-\log p\)</span>, and log-softmax. See <a href="../../foundations/maths/maths-probability.html">Probability and statistics</a>.</p>
+</section>
+<section id="partial-partial-derivative" class="level1">
+<h1><span class="math inline">\(\partial\)</span> — partial derivative</h1>
+<p><strong>In one line.</strong> How fast does this function change if I move <em>only this</em> input and hold the others still?</p>
+<div class="light-only">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../../images/maths-symbols/partial-derivative-light.png" class="lightbox" data-gallery="quarto-lightbox-gallery-17" title="A contour with one axis held fixed, and the slope of that slice."><img src="../../images/maths-symbols/partial-derivative-light.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%" alt="A contour with one axis held fixed, and the slope of that slice."></a></p>
+</figure>
+</div>
+<figcaption>A contour with one axis held fixed, and the slope of that slice.</figcaption>
+</figure>
+</div>
+</div>
+<div class="dark-only">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../../images/maths-symbols/partial-derivative.png" class="lightbox" data-gallery="quarto-lightbox-gallery-18" title="A contour with one axis held fixed, and the slope of that slice."><img src="../../images/maths-symbols/partial-derivative.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%" alt="A contour with one axis held fixed, and the slope of that slice."></a></p>
+</figure>
+</div>
+<figcaption>A contour with one axis held fixed, and the slope of that slice.</figcaption>
+</figure>
+</div>
+</div>
+<p><strong>Analogy.</strong> A kitchen with two knobs, heat and time. The partial with respect to heat asks: if I turn only the heat, how fast does the cake change?</p>
+<p><strong>A tiny example.</strong> <span class="math inline">\(f(x,y)=x^2+3y\)</span>. At <span class="math inline">\((2,1)\)</span>, <span class="math inline">\(\partial f/\partial x=2x=4\)</span> and <span class="math inline">\(\partial f/\partial y=3\)</span>. The gradient is the vector of both: <span class="math inline">\(\nabla f=(4,3)\)</span>.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>h <span class="op">=</span> <span class="fl">1e-6</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>((<span class="dv">2</span><span class="op">+</span>h)<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> <span class="dv">3</span><span class="op">*</span><span class="dv">1</span> <span class="op">-</span> (<span class="dv">2</span><span class="op">**</span><span class="dv">2</span> <span class="op">+</span> <span class="dv">3</span><span class="op">*</span><span class="dv">1</span>)) <span class="op">/</span> h   <span class="co"># about 4</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Where it shows up.</strong> A network has many parameters. The gradient <span class="math inline">\(\nabla\)</span> is just the list of all these partials. See <a href="../../foundations/maths/maths-calculus.html">Calculus essentials</a>.</p>
+</section>
+<section id="sigma-a-letter-with-two-common-lives" class="level1">
+<h1><span class="math inline">\(\sigma\)</span> — a letter with two common lives</h1>
+<p><strong>In one line.</strong> Look at the context: <span class="math inline">\(\sigma\)</span> may be the <strong>sigmoid</strong> function, or the <strong>standard deviation</strong>.</p>
+<div class="light-only">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../../images/maths-symbols/sigma-two-meanings-light.png" class="lightbox" data-gallery="quarto-lightbox-gallery-19" title="Two panels: a sigmoid curve, and a bell curve with the spread marked."><img src="../../images/maths-symbols/sigma-two-meanings-light.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%" alt="Two panels: a sigmoid curve, and a bell curve with the spread marked."></a></p>
+</figure>
+</div>
+<figcaption>Two panels: a sigmoid curve, and a bell curve with the spread marked.</figcaption>
+</figure>
+</div>
+</div>
+<div class="dark-only">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../../images/maths-symbols/sigma-two-meanings.png" class="lightbox" data-gallery="quarto-lightbox-gallery-20" title="Two panels: a sigmoid curve, and a bell curve with the spread marked."><img src="../../images/maths-symbols/sigma-two-meanings.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%" alt="Two panels: a sigmoid curve, and a bell curve with the spread marked."></a></p>
+</figure>
+</div>
+<figcaption>Two panels: a sigmoid curve, and a bell curve with the spread marked.</figcaption>
+</figure>
+</div>
+</div>
+<p><strong>Analogy.</strong> The same nickname for two classmates. In a network diagram, <span class="math inline">\(\sigma\)</span> usually means “squash this number into <span class="math inline">\((0,1)\)</span>”. In a statistics paragraph, <span class="math inline">\(\sigma\)</span> is “how spread out is this data?”.</p>
+<p><strong>A tiny example.</strong> The sigmoid at <span class="math inline">\(0\)</span> is <span class="math inline">\(\sigma(0)=1/(1+e^{0})=0.5\)</span>. The standard deviation of <span class="math inline">\([2,4]\)</span> (population) is <span class="math inline">\(1\)</span>, because the mean is <span class="math inline">\(3\)</span> and each value sits <span class="math inline">\(1\)</span> away.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="op">/</span> (<span class="dv">1</span> <span class="op">+</span> np.exp(<span class="dv">0</span>))      <span class="co"># sigmoid(0) = 0.5</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>np.std([<span class="fl">2.0</span>, <span class="fl">4.0</span>])       <span class="co"># 1.0  (NumPy's default is the population std)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Where it shows up.</strong> Sigmoid activations and LSTM gates (see <a href="../../ann/ann-activation-functions.html">Activation functions</a>); standard deviation in data summaries and in the normal distribution (see <a href="../../foundations/maths/maths-probability.html">Probability and statistics</a>).</p>
+</section>
+<section id="top-and-the-dot-product" class="level1">
+<h1><span class="math inline">\(^\top\)</span> and the dot product</h1>
+<p><strong>In one line.</strong> <span class="math inline">\(^\top\)</span> flips rows and columns; the dot product <span class="math inline">\(u^\top v\)</span> (or <span class="math inline">\(u\cdot v\)</span>) multiplies matching entries and adds them up.</p>
+<div class="light-only">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../../images/maths-symbols/transpose-dot-light.png" class="lightbox" data-gallery="quarto-lightbox-gallery-21" title="A 2×2 matrix flipped to its transpose, and two arrows with a projection."><img src="../../images/maths-symbols/transpose-dot-light.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%" alt="A 2×2 matrix flipped to its transpose, and two arrows with a projection."></a></p>
+</figure>
+</div>
+<figcaption>A 2×2 matrix flipped to its transpose, and two arrows with a projection.</figcaption>
+</figure>
+</div>
+</div>
+<div class="dark-only">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../../images/maths-symbols/transpose-dot.png" class="lightbox" data-gallery="quarto-lightbox-gallery-22" title="A 2×2 matrix flipped to its transpose, and two arrows with a projection."><img src="../../images/maths-symbols/transpose-dot.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%" alt="A 2×2 matrix flipped to its transpose, and two arrows with a projection."></a></p>
+</figure>
+</div>
+<figcaption>A 2×2 matrix flipped to its transpose, and two arrows with a projection.</figcaption>
+</figure>
+</div>
+</div>
+<p><strong>Analogy.</strong> Transpose is turning a table on its corner. The dot product is “how much do these two arrows point the same way?” — or, in a neuron, a weighted sum of inputs.</p>
+<p><strong>A tiny example.</strong> <span class="math inline">\((1,2)\cdot(3,4)=1\cdot 3+2\cdot 4=11\)</span>. The transpose of <span class="math inline">\(\begin{pmatrix}1&amp;2\\3&amp;4\end{pmatrix}\)</span> is <span class="math inline">\(\begin{pmatrix}1&amp;3\\2&amp;4\end{pmatrix}\)</span>.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>np.dot([<span class="dv">1</span>, <span class="dv">2</span>], [<span class="dv">3</span>, <span class="dv">4</span>])          <span class="co"># 11</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>np.array([[<span class="dv">1</span>, <span class="dv">2</span>], [<span class="dv">3</span>, <span class="dv">4</span>]]).T    <span class="co"># [[1, 3], [2, 4]]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Where it shows up.</strong> Almost every layer: <span class="math inline">\(x^\top w\)</span>, or a batch written as <span class="math inline">\(Xw\)</span>. See <a href="../../foundations/maths/maths-linear-algebra.html">Linear algebra essentials</a>.</p>
+</section>
+<section id="in-belongs-to" class="level1">
+<h1><span class="math inline">\(\in\)</span> — belongs to</h1>
+<p><strong>In one line.</strong> Does this object belong to that set?</p>
+<div class="light-only">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../../images/maths-symbols/belongs-to-light.png" class="lightbox" data-gallery="quarto-lightbox-gallery-23" title="A point inside a set S, and a point outside."><img src="../../images/maths-symbols/belongs-to-light.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:90.0%" alt="A point inside a set S, and a point outside."></a></p>
+</figure>
+</div>
+<figcaption>A point inside a set S, and a point outside.</figcaption>
+</figure>
+</div>
+</div>
+<div class="dark-only">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../../images/maths-symbols/belongs-to.png" class="lightbox" data-gallery="quarto-lightbox-gallery-24" title="A point inside a set S, and a point outside."><img src="../../images/maths-symbols/belongs-to.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:90.0%" alt="A point inside a set S, and a point outside."></a></p>
+</figure>
+</div>
+<figcaption>A point inside a set S, and a point outside.</figcaption>
+</figure>
+</div>
+</div>
+<p><strong>Analogy.</strong> A membership badge. <span class="math inline">\(x\in\mathbb{R}^n\)</span> means “<span class="math inline">\(x\)</span> is a real vector with <span class="math inline">\(n\)</span> entries”.</p>
+<p><strong>A tiny example.</strong> <span class="math inline">\(3\in\{1,2,3\}\)</span>, but <span class="math inline">\(4\notin\{1,2,3\}\)</span>. A paper will write a weight matrix as <span class="math inline">\(W\in\mathbb{R}^{d\times k}\)</span>.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span> <span class="kw">in</span> {<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>}   <span class="co"># True</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Where it shows up.</strong> Shapes and spaces: <span class="math inline">\(x\in\mathbb{R}^n\)</span>, a label <span class="math inline">\(y\in\{1,\ldots,K\}\)</span>.</p>
+</section>
+<section id="approx-and-propto-approximately-proportional-to" class="level1">
+<h1><span class="math inline">\(\approx\)</span> and <span class="math inline">\(\propto\)</span> — approximately, proportional to</h1>
+<p><strong>In one line.</strong> <span class="math inline">\(\approx\)</span> means “almost equal”; <span class="math inline">\(\propto\)</span> means “moves in proportion to” (the same shape, maybe a different scale).</p>
+<div class="light-only">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../../images/maths-symbols/approx-and-proportional-light.png" class="lightbox" data-gallery="quarto-lightbox-gallery-25" title="A curve hugging an approximation, and two lines that scale together."><img src="../../images/maths-symbols/approx-and-proportional-light.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%" alt="A curve hugging an approximation, and two lines that scale together."></a></p>
+</figure>
+</div>
+<figcaption>A curve hugging an approximation, and two lines that scale together.</figcaption>
+</figure>
+</div>
+</div>
+<div class="dark-only">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../../images/maths-symbols/approx-and-proportional.png" class="lightbox" data-gallery="quarto-lightbox-gallery-26" title="A curve hugging an approximation, and two lines that scale together."><img src="../../images/maths-symbols/approx-and-proportional.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%" alt="A curve hugging an approximation, and two lines that scale together."></a></p>
+</figure>
+</div>
+<figcaption>A curve hugging an approximation, and two lines that scale together.</figcaption>
+</figure>
+</div>
+</div>
+<p><strong>Analogy.</strong> <span class="math inline">\(\approx\)</span> is a close hug, not a perfect match. <span class="math inline">\(\propto\)</span> is “when this doubles, that doubles” — a constant factor may still be hiding.</p>
+<p><strong>A tiny example.</strong> <span class="math inline">\(\pi\approx 3.14\)</span>. In Bayes, the posterior is <span class="math inline">\(\propto\)</span> likelihood <span class="math inline">\(\times\)</span> prior (the missing piece is the normaliser <span class="math inline">\(P(\text{data})\)</span>).</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>np.isclose(<span class="dv">22</span> <span class="op">/</span> <span class="dv">7</span>, <span class="fl">3.14</span>, atol<span class="op">=</span><span class="fl">0.02</span>)   <span class="co"># True, roughly</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co"># unnormalised posterior:</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co"># posterior_unnorm = likelihood * prior</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Where it shows up.</strong> Approximations such as <span class="math inline">\(\operatorname{GELU}(x)\approx x\cdot\sigma(1.702x)\)</span>, and Bayes in <a href="../../foundations/maths/maths-probability.html">Probability and statistics</a>.</p>
+</section>
+<section id="pamid-b-conditional-probability" class="level1">
+<h1><span class="math inline">\(P(A\mid B)\)</span> — conditional probability</h1>
+<p><strong>In one line.</strong> What is the chance of <span class="math inline">\(A\)</span>, given that we already know <span class="math inline">\(B\)</span>?</p>
+<div class="light-only">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../../images/maths-symbols/conditional-probability-light.png" class="lightbox" data-gallery="quarto-lightbox-gallery-27" title="Of the emails that contain “prize”, a slice are spam: 16/24."><img src="../../images/maths-symbols/conditional-probability-light.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:90.0%" alt="Of the emails that contain “prize”, a slice are spam: 16/24."></a></p>
+</figure>
+</div>
+<figcaption>Of the emails that contain “prize”, a slice are spam: 16/24.</figcaption>
+</figure>
+</div>
+</div>
+<div class="dark-only">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../../images/maths-symbols/conditional-probability.png" class="lightbox" data-gallery="quarto-lightbox-gallery-28" title="Of the emails that contain “prize”, a slice are spam: 16/24."><img src="../../images/maths-symbols/conditional-probability.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:90.0%" alt="Of the emails that contain “prize”, a slice are spam: 16/24."></a></p>
+</figure>
+</div>
+<figcaption>Of the emails that contain “prize”, a slice are spam: 16/24.</figcaption>
+</figure>
+</div>
+</div>
+<p><strong>Analogy.</strong> Of all the emails that contain “prize”, what fraction are spam? You have already narrowed the pile to <span class="math inline">\(B\)</span>.</p>
+<p><strong>A tiny example.</strong> <span class="math inline">\(100\)</span> emails, <span class="math inline">\(20\)</span> of them spam. The word “prize” appears in <span class="math inline">\(16\)</span> of the spam emails and in <span class="math inline">\(8\)</span> of the rest, so in <span class="math inline">\(24\)</span> emails altogether: <span class="math inline">\(P(\text{spam}\mid\text{prize})=16/24=2/3\)</span>.</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="dv">16</span> <span class="op">/</span> <span class="dv">24</span>   <span class="co"># 2/3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Where it shows up.</strong> Conditioning, Bayes, and <a href="../../algorithms/algo-naive-bayes.html">Naïve Bayes</a>. The same example is worked on the <a href="../../foundations/maths/maths-probability.html">probability</a> page.</p>
+</section>
+<section id="argmin-and-min-the-training-question" class="level1">
+<h1><span class="math inline">\(\arg\min\)</span> and <span class="math inline">\(\min\)</span> — the training question</h1>
+<p><strong>In one line.</strong> <span class="math inline">\(\min\)</span> is the smallest value; <span class="math inline">\(\arg\min\)</span> is <em>which input</em> gives that smallest value. Training is <span class="math inline">\(\arg\min\)</span> of the loss.</p>
+<div class="light-only">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../../images/maths-symbols/argmin-light.png" class="lightbox" data-gallery="quarto-lightbox-gallery-29" title="A loss bowl with the bottom marked: min is 0, argmin is w = 3."><img src="../../images/maths-symbols/argmin-light.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:90.0%" alt="A loss bowl with the bottom marked: min is 0, argmin is w = 3."></a></p>
+</figure>
+</div>
+<figcaption>A loss bowl with the bottom marked: min is 0, argmin is w = 3.</figcaption>
+</figure>
+</div>
+</div>
+<div class="dark-only">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../../images/maths-symbols/argmin.png" class="lightbox" data-gallery="quarto-lightbox-gallery-30" title="A loss bowl with the bottom marked: min is 0, argmin is w = 3."><img src="../../images/maths-symbols/argmin.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:90.0%" alt="A loss bowl with the bottom marked: min is 0, argmin is w = 3."></a></p>
+</figure>
+</div>
+<figcaption>A loss bowl with the bottom marked: min is 0, argmin is w = 3.</figcaption>
+</figure>
+</div>
+</div>
+<p><strong>Analogy.</strong> The lowest point on the hill (<span class="math inline">\(\min\)</span>) versus “where do I stand to be at the bottom?” (<span class="math inline">\(\arg\min\)</span>). The twin of <span class="math inline">\(\arg\max\)</span>.</p>
+<p><strong>A tiny example.</strong> For <span class="math inline">\(L(w)=(w-3)^2\)</span>, the minimum value is <span class="math inline">\(0\)</span> and <span class="math inline">\(\arg\min_w L(w)=3\)</span>. Training writes <span class="math inline">\(\theta^\star=\arg\min_\theta L(\theta)\)</span>.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>ws <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">6</span>, <span class="dv">7</span>)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>ws[np.argmin((ws <span class="op">-</span> <span class="dv">3</span>)<span class="op">**</span><span class="dv">2</span>)]   <span class="co"># 3.0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Where it shows up.</strong> Every training loop: find the parameters that minimise the loss. Prediction often uses <span class="math inline">\(\arg\max\)</span>; learning uses <span class="math inline">\(\arg\min\)</span>.</p>
+</section>
+<section id="summary" class="level1">
+<h1>Summary</h1>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Symbol</th>
+<th>Pronunciation</th>
+<th>The question it asks</th>
+<th>A typical ML home</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(\nabla\)</span></td>
+<td>nabla, gradient</td>
+<td>Which way should the parameters move to reduce the loss?</td>
+<td>Gradient descent, backprop</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\mathbb{E}\)</span></td>
+<td>expectation</td>
+<td>What is the probability-weighted average?</td>
+<td>Losses as averages over data</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\odot\)</span></td>
+<td>Hadamard, element-wise times</td>
+<td>Multiply matching entries?</td>
+<td>Gates, attention masks</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\lVert\cdot\rVert\)</span></td>
+<td>norm</td>
+<td>How big is this vector or error?</td>
+<td>L2 regularisation, k-means inertia</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\arg\max\)</span></td>
+<td>argmax</td>
+<td>Which input gives the highest value?</td>
+<td>Predicted class</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\Sigma\)</span></td>
+<td>sigma, sum</td>
+<td>Add these terms up?</td>
+<td>Every mean and every loss</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\prod\)</span></td>
+<td>pi, product</td>
+<td>Multiply these terms together?</td>
+<td>Independent likelihoods</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\log\)</span></td>
+<td>log</td>
+<td>Turn a product into a sum?</td>
+<td>Log-likelihood, cross-entropy</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\partial\)</span></td>
+<td>partial</td>
+<td>How does <span class="math inline">\(f\)</span> change if only this input moves?</td>
+<td>The pieces of <span class="math inline">\(\nabla\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\sigma\)</span></td>
+<td>sigma</td>
+<td>Sigmoid, or standard deviation?</td>
+<td>Activations, or spread</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(^\top\)</span> / <span class="math inline">\(\cdot\)</span></td>
+<td>transpose / dot</td>
+<td>Flip the table; or weighted sum?</td>
+<td>Layers, <span class="math inline">\(x^\top w\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\in\)</span></td>
+<td>in, belongs to</td>
+<td>Does this object belong to that set?</td>
+<td><span class="math inline">\(x\in\mathbb{R}^n\)</span>, label sets</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\approx\)</span> / <span class="math inline">\(\propto\)</span></td>
+<td>approx. / proportional</td>
+<td>Almost equal? Or the same shape, scaled?</td>
+<td>Approximations; Bayes</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(P(A\mid B)\)</span></td>
+<td>probability of A given B</td>
+<td>Of those in <span class="math inline">\(B\)</span>, how many are <span class="math inline">\(A\)</span>?</td>
+<td>Conditioning, naïve Bayes</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\arg\min\)</span> / <span class="math inline">\(\min\)</span></td>
+<td>argmin / min</td>
+<td>Which input gives the smallest value?</td>
+<td>Training: minimise the loss</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="see-also" class="level1">
+<h1>See also</h1>
+<ul>
+<li><a href="../../foundations/maths/maths-index.html">Maths for machine learning</a></li>
+<li><a href="../../foundations/maths/maths-linear-algebra.html">Linear algebra essentials</a></li>
+<li><a href="../../foundations/maths/maths-calculus.html">Calculus essentials</a></li>
+<li><a href="../../foundations/maths/maths-probability.html">Probability and statistics essentials</a></li>
+<li><a href="../../foundations/maths/maths-optimization.html">Optimization essentials</a></li>
+</ul>
+
+
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../foundations/maths/maths-index.html" class="pagination-link" aria-label="Maths for machine learning">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Maths for machine learning</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../foundations/maths/maths-linear-algebra.html" class="pagination-link" aria-label="Linear algebra essentials">
+        <span class="nav-page-text">Linear algebra essentials</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p><a href="https://creativecommons.org/licenses/by/4.0/">Attribution 4.0 International (CC BY 4.0)</a></p>
+</div>   
+    <div class="nav-footer-center">
+<p>Attention is all you need</p>
+</div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/AlbertProfe/">
+      <i class="bi bi-github" role="img">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
+
+
+
+
+</body></html>

@@ -101,3 +101,15 @@ body.quarto-light svg.mermaid-js foreignObject div {
   color: #102a43 !important;
   fill: #102a43 !important;
 }
+
+
+/* Theme-swapped figures: wrap each image+caption in ::: {.light-only} / ::: {.dark-only}.
+   Hide the unused wrapper (figure, caption and all). Default (no quarto-dark) is light.
+   Quarto's toggle adds body.quarto-dark or body.quarto-light (see quartoToggleColorScheme). */
+body:not(.quarto-dark) .dark-only,
+body.quarto-light .dark-only {
+  display: none !important;
+}
+body.quarto-dark .light-only {
+  display: none !important;
+}

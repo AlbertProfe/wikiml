@@ -176,6 +176,32 @@ window.Quarto = {
  <span class="dropdown-text">Foundations</span></a>
   </li>  
         <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Maths</li>
+        <li>
+    <a class="dropdown-item" href="../foundations/maths/maths-index.html">
+ <span class="dropdown-text">Maths for machine learning</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../foundations/maths/maths-symbols.html">
+ <span class="dropdown-text">ML math symbols, explained easy</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../foundations/maths/maths-linear-algebra.html">
+ <span class="dropdown-text">Linear algebra essentials</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../foundations/maths/maths-calculus.html">
+ <span class="dropdown-text">Calculus essentials</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../foundations/maths/maths-probability.html">
+ <span class="dropdown-text">Probability and statistics essentials</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../foundations/maths/maths-optimization.html">
+ <span class="dropdown-text">Optimization essentials</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
         <li class="dropdown-header">Machine Learning</li>
         <li>
     <a class="dropdown-item" href="../machine/machine-index.html">
@@ -805,6 +831,7 @@ window.Quarto = {
 </tr>
 </tbody>
 </table>
+<div class="light-only">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <div class="quarto-figure quarto-figure-center">
@@ -815,19 +842,46 @@ window.Quarto = {
 <figcaption>The four activations on the left, and their derivatives on the right.</figcaption>
 </figure>
 </div>
+</div>
+<div class="dark-only">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/activation-functions/four-functions-and-derivatives-dark.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="The four activations on the left, and their derivatives on the right."><img src="../images/activation-functions/four-functions-and-derivatives-dark.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%" alt="The four activations on the left, and their derivatives on the right."></a></p>
+</figure>
+</div>
+<figcaption>The four activations on the left, and their derivatives on the right.</figcaption>
+</figure>
+</div>
+</div>
 </section>
 <section id="a-gradient-primer" class="level1">
 <h1>A gradient primer</h1>
-<p>Training moves the weights by following a <strong>gradient</strong>: the slope of the loss with respect to each weight. A handy picture is a ball on a hill. Where the hillside is steep, the slope is large and the ball rolls fast. Where the hillside is almost flat, the slope is small and the ball barely moves.</p>
+<p>Training moves the weights by following a <strong>gradient</strong>: the slope of the loss with respect to each weight. A handy picture is a ball on a hill. Where the hillside is steep, the slope is large and the ball rolls fast. Where the hillside is almost flat, the slope is small and the ball barely moves. For the symbol <span class="math inline">\(\nabla\)</span> itself, and a one-step numeric descent, see <a href="../foundations/maths/maths-symbols.html">ML math symbols</a> and <a href="../foundations/maths/maths-calculus.html">Calculus essentials</a>.</p>
+<div class="light-only">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../images/activation-functions/gradient-slope.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="A hill with a steep tangent on one side and a gentle tangent on the other. The gradient is that slope."><img src="../images/activation-functions/gradient-slope.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%" alt="A hill with a steep tangent on one side and a gentle tangent on the other. The gradient is that slope."></a></p>
+<p><a href="../images/activation-functions/gradient-slope.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="A hill with a steep tangent on one side and a gentle tangent on the other. The gradient is that slope."><img src="../images/activation-functions/gradient-slope.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%" alt="A hill with a steep tangent on one side and a gentle tangent on the other. The gradient is that slope."></a></p>
 </figure>
 </div>
 <figcaption>A hill with a steep tangent on one side and a gentle tangent on the other. The gradient is that slope.</figcaption>
 </figure>
+</div>
+</div>
+<div class="dark-only">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/activation-functions/gradient-slope-dark.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="A hill with a steep tangent on one side and a gentle tangent on the other. The gradient is that slope."><img src="../images/activation-functions/gradient-slope-dark.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%" alt="A hill with a steep tangent on one side and a gentle tangent on the other. The gradient is that slope."></a></p>
+</figure>
+</div>
+<figcaption>A hill with a steep tangent on one side and a gentle tangent on the other. The gradient is that slope.</figcaption>
+</figure>
+</div>
 </div>
 <p>Two practical words will keep coming back:</p>
 <ul>
@@ -843,15 +897,29 @@ window.Quarto = {
 <p>A negative input becomes <span class="math inline">\(0\)</span>. A positive input passes through unchanged. The gradient is <span class="math inline">\(0\)</span> for <span class="math inline">\(x&lt;0\)</span> and <span class="math inline">\(1\)</span> for <span class="math inline">\(x&gt;0\)</span> (the kink at <span class="math inline">\(0\)</span> is usually given gradient <span class="math inline">\(0\)</span>).</p>
 <p>That is why ReLU is <strong>cheap</strong> and, for positive inputs, <strong>does not shrink</strong> the gradient. It is the default hidden activation in convolutional networks and ordinary MLPs, and a solid first choice for an MNIST classifier.</p>
 <p>The weakness is <strong>dead neurons</strong>. If a unit is pushed into the negative side and stays there, it outputs <span class="math inline">\(0\)</span> and its gradient is <span class="math inline">\(0\)</span>, so the weights that feed it stop receiving updates. A high learning rate, or a bad initialisation, can kill many units this way.</p>
+<div class="light-only">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../images/activation-functions/relu-gradient.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="ReLU on top, and its 0-or-1 gradient underneath."><img src="../images/activation-functions/relu-gradient.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%" alt="ReLU on top, and its 0-or-1 gradient underneath."></a></p>
+<p><a href="../images/activation-functions/relu-gradient.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="ReLU on top, and its 0-or-1 gradient underneath."><img src="../images/activation-functions/relu-gradient.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%" alt="ReLU on top, and its 0-or-1 gradient underneath."></a></p>
 </figure>
 </div>
 <figcaption>ReLU on top, and its 0-or-1 gradient underneath.</figcaption>
 </figure>
+</div>
+</div>
+<div class="dark-only">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/activation-functions/relu-gradient-dark.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="ReLU on top, and its 0-or-1 gradient underneath."><img src="../images/activation-functions/relu-gradient-dark.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%" alt="ReLU on top, and its 0-or-1 gradient underneath."></a></p>
+</figure>
+</div>
+<figcaption>ReLU on top, and its 0-or-1 gradient underneath.</figcaption>
+</figure>
+</div>
 </div>
 </section>
 <section id="b.-gelu" class="level1">
@@ -900,15 +968,29 @@ window.Quarto = {
 <section id="quiz-guess-the-activation-function" class="level1">
 <h1>Quiz: Guess the activation function</h1>
 <p>Four unlabelled curves. Name each one before you open the answers.</p>
+<div class="light-only">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../images/activation-functions/guess-activation-quiz.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Four unlabelled plots, A to D. Guess which activation is which."><img src="../images/activation-functions/guess-activation-quiz.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%" alt="Four unlabelled plots, A to D. Guess which activation is which."></a></p>
+<p><a href="../images/activation-functions/guess-activation-quiz.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="Four unlabelled plots, A to D. Guess which activation is which."><img src="../images/activation-functions/guess-activation-quiz.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%" alt="Four unlabelled plots, A to D. Guess which activation is which."></a></p>
 </figure>
 </div>
 <figcaption>Four unlabelled plots, A to D. Guess which activation is which.</figcaption>
 </figure>
+</div>
+</div>
+<div class="dark-only">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/activation-functions/guess-activation-quiz-dark.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8" title="Four unlabelled plots, A to D. Guess which activation is which."><img src="../images/activation-functions/guess-activation-quiz-dark.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%" alt="Four unlabelled plots, A to D. Guess which activation is which."></a></p>
+</figure>
+</div>
+<figcaption>Four unlabelled plots, A to D. Guess which activation is which.</figcaption>
+</figure>
+</div>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
@@ -1068,6 +1150,9 @@ Answers
 <li><a href="../ann/ann-introduction.html">ANN: Introduction</a></li>
 <li><a href="../ann/ann-mathematical.html">ANN: Mathematical model</a></li>
 <li><a href="../ann/ann-model-and-demos.html">ANN: model and demos</a></li>
+<li><a href="../foundations/maths/maths-symbols.html">ML math symbols, explained easy</a> — <span class="math inline">\(\nabla\)</span>, <span class="math inline">\(\sigma\)</span>, and a short gradient card</li>
+<li><a href="../foundations/maths/maths-calculus.html">Calculus essentials</a> — the chain rule and one step of gradient descent</li>
+<li><a href="../foundations/maths/maths-optimization.html">Optimization essentials</a> — gradient descent, the learning rate, and Adam</li>
 </ul>
 </section>
 <section id="references" class="level1">

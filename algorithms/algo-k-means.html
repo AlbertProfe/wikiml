@@ -177,6 +177,32 @@ window.Quarto = {
  <span class="dropdown-text">Foundations</span></a>
   </li>  
         <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Maths</li>
+        <li>
+    <a class="dropdown-item" href="../foundations/maths/maths-index.html">
+ <span class="dropdown-text">Maths for machine learning</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../foundations/maths/maths-symbols.html">
+ <span class="dropdown-text">ML math symbols, explained easy</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../foundations/maths/maths-linear-algebra.html">
+ <span class="dropdown-text">Linear algebra essentials</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../foundations/maths/maths-calculus.html">
+ <span class="dropdown-text">Calculus essentials</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../foundations/maths/maths-probability.html">
+ <span class="dropdown-text">Probability and statistics essentials</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../foundations/maths/maths-optimization.html">
+ <span class="dropdown-text">Optimization essentials</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
         <li class="dropdown-header">Machine Learning</li>
         <li>
     <a class="dropdown-item" href="../machine/machine-index.html">
@@ -817,7 +843,7 @@ window.Quarto = {
 J = \sum_{i=1}^{n} \|x_i - c_{a(i)}\|^2,
 \quad a(i)=\arg\min_j\|x_i-c_j\|^2.
 \]</span></p>
-<p>The <strong>mean squared error (MSE)</strong> is the same quantity divided by <span class="math inline">\(n\)</span>. scikit-learn stores inertia as <code>inertia_</code> after <code>fit</code>. Lower is tighter, but <span class="math inline">\(J\)</span> always falls as <span class="math inline">\(k\)</span> grows, so a smaller inertia alone does not mean a better <span class="math inline">\(k\)</span>.</p>
+<p>The <strong>mean squared error (MSE)</strong> is the same quantity divided by <span class="math inline">\(n\)</span>. scikit-learn stores inertia as <code>inertia_</code> after <code>fit</code>. Lower is tighter, but <span class="math inline">\(J\)</span> always falls as <span class="math inline">\(k\)</span> grows, so a smaller inertia alone does not mean a better <span class="math inline">\(k\)</span>. Each term <span class="math inline">\(\lVert x_i-c_{a(i)}\rVert^2\)</span> is a squared L2 <strong>norm</strong>: how far that point sits from its centre. See <a href="../foundations/maths/maths-symbols.html">ML math symbols</a> and <a href="../foundations/maths/maths-linear-algebra.html">Linear algebra essentials</a>.</p>
 </section>
 <section id="k-means-initialisation" class="level1">
 <h1>k-means++ initialisation</h1>
@@ -942,6 +968,7 @@ J = \sum_{i=1}^{n} \|x_i - c_{a(i)}\|^2,
 <section id="see-also" class="level1">
 <h1>See also</h1>
 <p>For a faster drop-in replacement of Lloyd’s k-means, with mini-batch exponential moving averages and no extra hyperparameter sweep, see <a href="../algorithms/algo-e-means.html">e-means</a>.</p>
+<p>The inertia terms are squared L2 norms; a short reminder is in <a href="../foundations/maths/maths-symbols.html">ML math symbols</a> and <a href="../foundations/maths/maths-linear-algebra.html">Linear algebra essentials</a>.</p>
 </section>
 <section id="references" class="level1">
 <h1>References</h1>
