@@ -277,6 +277,14 @@ window.Quarto = {
     <a class="dropdown-item" href="../../foundations/labs.html">
  <span class="dropdown-text">Foundations: Labs</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../../foundations/mlab01-1.html">
+ <span class="dropdown-text">Lab#FU01-1: Taxi fare, pure Python</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../foundations/mlab01-2.html">
+ <span class="dropdown-text">Lab#FU01-2: Taxi fare, NumPy and scikit-learn</span></a>
+  </li>  
         <li><hr class="dropdown-divider"></li>
         <li class="dropdown-header">Resources</li>
         <li>
@@ -830,6 +838,18 @@ window.Quarto = {
  <span class="menu-text">Foundations: Labs</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../foundations/mlab01-1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab#FU01-1: Taxi fare, pure Python</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../foundations/mlab01-2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab#FU01-2: Taxi fare, NumPy and scikit-learn</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="px-0"><hr class="sidebar-divider hi "></li>
@@ -877,6 +897,7 @@ window.Quarto = {
   <li><a href="#approx-and-propto-approximately-proportional-to" id="toc-approx-and-propto-approximately-proportional-to" class="nav-link" data-scroll-target="#approx-and-propto-approximately-proportional-to"><span class="math inline">\(\approx\)</span> and <span class="math inline">\(\propto\)</span> — approximately, proportional to</a></li>
   <li><a href="#pamid-b-conditional-probability" id="toc-pamid-b-conditional-probability" class="nav-link" data-scroll-target="#pamid-b-conditional-probability"><span class="math inline">\(P(A\mid B)\)</span> — conditional probability</a></li>
   <li><a href="#argmin-and-min-the-training-question" id="toc-argmin-and-min-the-training-question" class="nav-link" data-scroll-target="#argmin-and-min-the-training-question"><span class="math inline">\(\arg\min\)</span> and <span class="math inline">\(\min\)</span> — the training question</a></li>
+  <li><a href="#mse-mean-squared-error" id="toc-mse-mean-squared-error" class="nav-link" data-scroll-target="#mse-mean-squared-error">MSE — mean squared error</a></li>
   <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a></li>
   <li><a href="#see-also" id="toc-see-also" class="nav-link" data-scroll-target="#see-also">See also</a></li>
   </ul>
@@ -1605,6 +1626,59 @@ Everyday example
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>ws[np.argmin((ws <span class="op">-</span> <span class="dv">3</span>)<span class="op">**</span><span class="dv">2</span>)]   <span class="co"># 3.0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Where it shows up.</strong> Every training loop: find the parameters that minimise the loss. Prediction often uses <span class="math inline">\(\arg\max\)</span>; learning uses <span class="math inline">\(\arg\min\)</span>.</p>
 </section>
+<section id="mse-mean-squared-error" class="level1">
+<h1>MSE — mean squared error</h1>
+<p><strong>In one line.</strong> How wrong are we, on average? Square every error, then take the mean.</p>
+<p><span class="math display">\[
+\text{MSE} = \frac{1}{n}\sum_{i=1}^{n} (\hat{y}_i - y_i)^2
+\]</span></p>
+<p>Read it right to left: for each example <span class="math inline">\(i\)</span>, take the prediction <span class="math inline">\(\hat{y}_i\)</span> minus the real answer <span class="math inline">\(y_i\)</span>, square it, add them all up (<span class="math inline">\(\Sigma\)</span>) and divide by how many there are (<span class="math inline">\(\frac{1}{n}\)</span>).</p>
+<div class="light-only">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../../images/maths-symbols/mse-light.png" class="lightbox" data-gallery="quarto-lightbox-gallery-31" title="Taxi receipts with w = 1: squared errors 1, 6.25 and 25 average to 10.75."><img src="../../images/maths-symbols/mse-light.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:90.0%" alt="Taxi receipts with w = 1: squared errors 1, 6.25 and 25 average to 10.75."></a></p>
+</figure>
+</div>
+<figcaption>Taxi receipts with w = 1: squared errors 1, 6.25 and 25 average to 10.75.</figcaption>
+</figure>
+</div>
+</div>
+<div class="dark-only">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../../images/maths-symbols/mse.png" class="lightbox" data-gallery="quarto-lightbox-gallery-32" title="Taxi receipts with w = 1: squared errors 1, 6.25 and 25 average to 10.75."><img src="../../images/maths-symbols/mse.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:90.0%" alt="Taxi receipts with w = 1: squared errors 1, 6.25 and 25 average to 10.75."></a></p>
+</figure>
+</div>
+<figcaption>Taxi receipts with w = 1: squared errors 1, 6.25 and 25 average to 10.75.</figcaption>
+</figure>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Everyday example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You play darts and throw three. Measure how far each dart lands from the bullseye, square each distance, and average. One wild throw far from the centre ruins your score much more than three throws that are a bit off. That number is your MSE: lower is better, and 0 means every dart hit the bullseye.</p>
+</div>
+</div>
+<p><strong>Analogy.</strong> A penalty score. Small misses cost a little, big misses cost a lot, and above or below costs the same.</p>
+<p><strong>A tiny example.</strong> Taxi receipts 2 km for €3, 5 km for €7.50 and 10 km for €15, with a guess <span class="math inline">\(w=1\)</span>: predictions 2, 5, 10; errors −1, −2.5, −5; squared 1, 6.25, 25; mean <span class="math inline">\(32.25/3 = 10.75\)</span>. With <span class="math inline">\(w=1.5\)</span> every error is 0, so MSE <span class="math inline">\(=0\)</span>.</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>km    <span class="op">=</span> [<span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">10</span>]</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>price <span class="op">=</span> [<span class="dv">3</span>, <span class="fl">7.5</span>, <span class="dv">15</span>]</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>w <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>errors <span class="op">=</span> [w <span class="op">*</span> x <span class="op">-</span> y <span class="cf">for</span> x, y <span class="kw">in</span> <span class="bu">zip</span>(km, price)]</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="bu">sum</span>(e <span class="op">*</span> e <span class="cf">for</span> e <span class="kw">in</span> errors) <span class="op">/</span> <span class="bu">len</span>(km)   <span class="co"># 10.75</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Where it shows up.</strong> The loss of linear regression and most regression models; the number gradient descent pushes down in <a href="../../foundations/mlab01-1.html">Taxi Lab 1</a>.</p>
+</section>
 <section id="summary" class="level1">
 <h1>Summary</h1>
 <table class="caption-top table">
@@ -1712,6 +1786,12 @@ Everyday example
 <td>argmin / min</td>
 <td>Which input gives the smallest value?</td>
 <td>Training: minimise the loss</td>
+</tr>
+<tr class="even">
+<td>MSE</td>
+<td>mean squared error</td>
+<td>How wrong are we, on average?</td>
+<td>Regression loss, Taxi Lab</td>
 </tr>
 </tbody>
 </table>

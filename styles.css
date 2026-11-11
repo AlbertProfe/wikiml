@@ -113,3 +113,23 @@ body.quarto-light .dark-only {
 body.quarto-dark .light-only {
   display: none !important;
 }
+
+
+/* Lab opener, same role as .labs on albertprofe.dev. Readable in both themes. */
+.labs {
+  padding: 16px 18px;
+  background: #3d3c96;
+  color: #f7f4ef;
+  border-radius: 10px;
+  margin: 1rem 0 1.5rem 0;
+}
+body.quarto-dark .labs {
+  background: #4a49a8;
+  color: #f7f4ef;
+}
+.labs a {
+  color: #ffe08a;
+}
+.labs a:hover {
+  color: #ffffff;
+}
