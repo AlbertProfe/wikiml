@@ -4,7 +4,7 @@ title: "The learning loop"
 
 # A real example with one weight: taxi fare
 
-Price $= w \cdot$ kilometres, and $w$ is unknown. You have three receipts: 2 km for €3, 5 km for €7.50, 10 km for €15. The true rate is €1.50 per kilometre, but nobody tells the model that.
+Price = w · kilometres, and w is unknown. You have three receipts: 2 km for €3, 5 km for €7.50, 10 km for €15. The true rate is €1.50 per kilometre, but nobody tells the model that.
 
 The loop is the same one you will see in the code below.
 
@@ -15,6 +15,14 @@ The loop is the same one you will see in the code below.
 5. **Repeat:** $1.47$, then $1.496$, then about $1.50$.
 
 In three or four steps it has learned €1.50/km from three receipts. Nobody programmed the rate.
+
+::: {.light-only}
+![The taxi loop: guess, predict, measure the error, nudge w, and repeat, until w reaches €1.50 / km.](/images/ml-learning-loop/taxi-fare-loop-cycle-light.png){.lightbox width=100% fig-align="center"}
+:::
+
+::: {.dark-only}
+![The taxi loop: guess, predict, measure the error, nudge w, and repeat, until w reaches €1.50 / km.](/images/ml-learning-loop/taxi-fare-loop-cycle.png){.lightbox width=100% fig-align="center"}
+:::
 
 A bias ($y = w\cdot x + b$) would learn a pickup fee as well, the bit you pay before the metres start to run.
 
