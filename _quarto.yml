@@ -86,6 +86,8 @@ website:
         - section: "Labs"
           contents:
             - foundations/labs.qmd
+            - foundations/mlab01-1.qmd
+            - foundations/mlab01-2.qmd
         - text: "---"
         - section: "Resources"
           contents:

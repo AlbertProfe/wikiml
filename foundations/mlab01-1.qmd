@@ -1,0 +1,119 @@
+---
+title: "Lab#ML01-1: Taxi fare, pure Python"
+subtitle: Lab
+jupyter: python3
+toc: true
+number-sections: true
+---
+
+::: {.labs}
+📘 **Lab#ML01-1: Taxi fare, pure Python**
+
+In this lab you will:
+
+1. Load three taxi receipts.
+2. Guess a price per kilometre, predict, measure the error, and nudge the guess.
+3. Repeat the loop until the guess settles on €1.50 / km.
+4. Plot how the loss falls.
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/AlbertProfe/wikiml-labs/blob/taxi-lab/taxi/taxi_lab_1_pure_python.ipynb)
+&nbsp;
+[Code on GitHub](https://github.com/AlbertProfe/wikiml-labs/blob/taxi-lab/taxi/taxi_lab_1_pure_python.ipynb){.external target="_blank"}
+:::
+
+The story starts in [The learning loop](ml-learning-loop.qmd). Here you run it yourself, in plain Python. No libraries for the loop — matplotlib only draws the loss curve.
+
+Price = w · kilometres. The true rate on these receipts is €1.50 per kilometre. You do not tell the program that number. It has to find it.
+
+# The receipts
+
+```{python}
+km = [2, 5, 10]
+price = [3.0, 7.50, 15.0]
+
+w = 0.0
+learning_rate = 0.01
+steps = 20
+```
+
+Three rides: 2 km for €3, 5 km for €7.50, 10 km for €15. Start at $w = 0$ — every ride is free — and take steps of size $0.01$.
+
+# Guess, predict, error, nudge
+
+The gradient of the mean squared error is the average of $2 \cdot \text{error} \cdot \text{km}$. A nudge is a small step against that gradient:
+
+$$
+w \leftarrow w - 0.01 \cdot \nabla L
+$$
+
+```{python}
+history_w = [w]
+history_loss = []
+
+
+def mean_squared_error(weight):
+    predictions = [weight * x for x in km]
+    errors = [p - y for p, y in zip(predictions, price)]
+    return sum(e * e for e in errors) / len(km), predictions
+
+
+loss, predictions = mean_squared_error(w)
+history_loss.append(loss)
+
+print("After step |        w | predictions              |     loss")
+print("-----------+----------+--------------------------+---------")
+print(
+    f"     start | {w:8.4f} | "
+    + ", ".join(f"€{p:.2f}" for p in predictions)
+    + f" | {loss:7.4f}"
+)
+
+for step in range(1, steps + 1):
+    predictions = [w * x for x in km]
+    errors = [p - y for p, y in zip(predictions, price)]
+    gradient = sum(2 * e * x for e, x in zip(errors, km)) / len(km)
+    w = w - learning_rate * gradient
+    loss, predictions = mean_squared_error(w)
+    history_w.append(w)
+    history_loss.append(loss)
+    if step <= 6 or step == steps:
+        pred_str = ", ".join(f"€{p:.2f}" for p in predictions)
+        print(f"{step:10d} | {w:8.4f} | {pred_str} | {loss:7.4f}")
+
+print(f"\nFinal w = {w:.4f}  (true rate is 1.50)")
+```
+
+After the first nudge, $w$ jumps from $0$ to $1.29$. After four steps it is already $1.4994$. By step 6 it has settled on $1.50$. Nobody programmed the rate.
+
+# The loss curve
+
+Loss is the mean squared error at the current $w$. It starts at $96.75$ — every ride predicted as free — and drops to about zero once $w$ reaches $1.50$.
+
+```{python}
+#| fig-cap: "Loss falls as w approaches €1.50 per kilometre."
+#| fig-width: 7
+#| fig-height: 4
+import matplotlib.pyplot as plt
+
+fig, ax = plt.subplots(figsize=(7, 4))
+ax.plot(range(len(history_loss)), history_loss, color="#d35400", marker="o", markersize=4)
+ax.set_xlabel("step")
+ax.set_ylabel("mean squared error")
+ax.set_title("Taxi Lab 1 — loss falls as w approaches €1.50 / km")
+ax.set_xlim(0, steps)
+ax.grid(True, color="#dddddd")
+fig.tight_layout()
+plt.show()
+```
+
+# What you should notice
+
+The learning rate $0.01$ is a gentle pinch. The same loop, with a bad learning rate, can be slow or can blow up — that is in [The learning loop](ml-learning-loop.qmd) and in [Optimization essentials](maths/maths-optimization.qmd).
+
+Next: a pickup fee, two parameters, and a check against scikit-learn, in [Lab#ML01-2: Taxi fare, NumPy and scikit-learn](mlab01-2.qmd).
+
+# See also
+
+- [Lab#ML01-2: Taxi fare, NumPy and scikit-learn](mlab01-2.qmd)
+- [The learning loop](ml-learning-loop.qmd)
+- [Code on GitHub](https://github.com/AlbertProfe/wikiml-labs/blob/taxi-lab/taxi/taxi_lab_1_pure_python.py){.external target="_blank"} — the same script, in [AlbertProfe/wikiml-labs](https://github.com/AlbertProfe/wikiml-labs){.external target="_blank"}

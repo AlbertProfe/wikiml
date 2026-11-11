@@ -25,4 +25,4 @@ Python lives here on purpose. It is not a side menu. The Helsinki *Python Progra
 
 # Labs and resources
 
-Every section of this wiki has its own [Labs](labs.qmd) and [Resources](resources.qmd).
+Every section of this wiki has its own [Labs](labs.qmd) and [Resources](resources.qmd). The first classroom lab is the Taxi Lab: [Lab#ML01-1: Taxi fare, pure Python](mlab01-1.qmd) and [Lab#ML01-2: Taxi fare, NumPy and scikit-learn](mlab01-2.qmd).

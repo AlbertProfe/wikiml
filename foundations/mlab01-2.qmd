@@ -1,0 +1,157 @@
+---
+title: "Lab#ML01-2: Taxi fare, NumPy and scikit-learn"
+subtitle: Lab
+jupyter: python3
+toc: true
+number-sections: true
+---
+
+::: {.labs}
+📘 **Lab#ML01-2: Taxi fare, NumPy and scikit-learn**
+
+In this lab you will:
+
+1. Load more receipts, with a pickup fee as well as a rate per kilometre.
+2. Run gradient descent in NumPy for both $w$ and $b$.
+3. Plot the loss, and how $w$ and $b$ settle.
+4. Compare your result with `LinearRegression` from scikit-learn.
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/AlbertProfe/wikiml-labs/blob/taxi-lab/taxi/taxi_lab_2_numpy_sklearn.ipynb)
+&nbsp;
+[Code on GitHub](https://github.com/AlbertProfe/wikiml-labs/blob/taxi-lab/taxi/taxi_lab_2_numpy_sklearn.ipynb){.external target="_blank"}
+:::
+
+[Lab#ML01-1](mlab01-1.qmd) learned one number: the fare per kilometre. A real taxi also has a flag fall — the bit you pay before the metres start to run. The model is now
+
+$$
+\text{price} = w \cdot \text{km} + b
+$$
+
+True values on these receipts: $w = 1.50$, $b = 2.00$. The program is not told those two numbers. The loop does not change: predict, measure the error, nudge each parameter, repeat.
+
+# More receipts
+
+Eight rides, all generated from $1.5 \cdot \text{km} + 2$.
+
+```{python}
+import matplotlib.pyplot as plt
+import numpy as np
+from sklearn.linear_model import LinearRegression
+
+km = np.array([1.0, 2.0, 3.0, 5.0, 6.0, 8.0, 10.0, 12.0])
+price = np.array([3.50, 5.00, 6.50, 9.50, 11.00, 14.00, 17.00, 20.00])
+
+print("Receipts:")
+for x, y in zip(km, price):
+    print(f"  {x:4.0f} km   €{y:.2f}")
+```
+
+# Gradient descent for w and b
+
+The derivative of the mean squared error with respect to $w$ is the average of $2 \cdot \text{error} \cdot \text{km}$. With respect to $b$, it is the average of $2 \cdot \text{error}$. Start at $w = 0$, $b = 0$, and take $2000$ steps of size $0.01$. Two parameters take more steps than one.
+
+```{python}
+w = 0.0
+b = 0.0
+learning_rate = 0.01
+steps = 2000
+show_at = {0, 1, 5, 10, 50, 100, 200, 500, 1000, 2000}
+
+history_w = [w]
+history_b = [b]
+history_loss = []
+
+pred = w * km + b
+loss = float(np.mean((pred - price) ** 2))
+history_loss.append(loss)
+
+print("After step |        w |        b |     loss")
+print("-----------+----------+----------+---------")
+print(f"     start | {w:8.4f} | {b:8.4f} | {loss:7.4f}")
+
+for step in range(1, steps + 1):
+    pred = w * km + b
+    err = pred - price
+    grad_w = float(np.mean(2 * err * km))
+    grad_b = float(np.mean(2 * err))
+    w = w - learning_rate * grad_w
+    b = b - learning_rate * grad_b
+    pred = w * km + b
+    loss = float(np.mean((pred - price) ** 2))
+    history_w.append(w)
+    history_b.append(b)
+    history_loss.append(loss)
+    if step in show_at:
+        print(f"{step:10d} | {w:8.4f} | {b:8.4f} | {loss:7.4f}")
+
+print(f"\nGradient descent:  w = {w:.6f}   b = {b:.6f}")
+```
+
+After 500 steps the fit is already close ($w \approx 1.514$, $b \approx 1.887$). After 2000 steps, $w = 1.500004$ and $b = 1.999971$.
+
+```{python}
+#| fig-cap: "Loss falls, and w and b approach 1.50 and 2.00."
+#| fig-width: 10
+#| fig-height: 4
+fig, axes = plt.subplots(1, 2, figsize=(10, 4))
+axes[0].plot(history_loss, color="#d35400")
+axes[0].set_xlabel("step")
+axes[0].set_ylabel("mean squared error")
+axes[0].set_title("Loss")
+axes[0].grid(True, color="#dddddd")
+
+axes[1].plot(history_w, color="#3d3c96", label="w (rate)")
+axes[1].plot(history_b, color="#1e8449", label="b (base fare)")
+axes[1].axhline(1.5, color="#3d3c96", linestyle="--", linewidth=1)
+axes[1].axhline(2.0, color="#1e8449", linestyle="--", linewidth=1)
+axes[1].set_xlabel("step")
+axes[1].set_title("w and b")
+axes[1].legend()
+axes[1].grid(True, color="#dddddd")
+fig.suptitle("Taxi Lab 2 — gradient descent for price = w · km + b")
+fig.tight_layout()
+plt.show()
+```
+
+# Compare with scikit-learn
+
+`LinearRegression` solves the same least-squares problem in closed form. On clean receipts it lands on the true $w$ and $b$.
+
+```{python}
+#| fig-cap: "Gradient descent and LinearRegression fit the same line through the receipts."
+#| fig-width: 7
+#| fig-height: 4
+model = LinearRegression()
+model.fit(km.reshape(-1, 1), price)
+sk_w = float(model.coef_[0])
+sk_b = float(model.intercept_)
+print(f"LinearRegression:  w = {sk_w:.6f}   b = {sk_b:.6f}")
+print(f"True values:       w = 1.500000   b = 2.000000")
+print(f"Gradient descent:  w = {w:.6f}   b = {b:.6f}")
+
+fig, ax = plt.subplots(figsize=(7, 4))
+xs = np.linspace(0, 13, 50)
+ax.scatter(km, price, color="#d35400", zorder=3, label="receipts")
+ax.plot(xs, w * xs + b, color="#3d3c96", label="gradient descent")
+ax.plot(xs, sk_w * xs + sk_b, color="#1e8449", linestyle="--", label="LinearRegression")
+ax.set_xlabel("kilometres")
+ax.set_ylabel("price (€)")
+ax.set_title("The fitted line, against the receipts")
+ax.legend()
+ax.grid(True, color="#dddddd")
+fig.tight_layout()
+plt.show()
+```
+
+The two lines sit on top of each other. That is the point: your loop and the library are doing the same job. The library is faster and more stable; the loop is the one you can see.
+
+# What you should notice
+
+Two parameters are coupled, so the walk toward the true $w$ and $b$ is slower than Lab 1. A learning rate of $0.01$ is still safe here, but you need many more steps. In later labs you will scale the inputs and use better updates.
+
+# See also
+
+- [Lab#ML01-1: Taxi fare, pure Python](mlab01-1.qmd)
+- [The learning loop](ml-learning-loop.qmd)
+- [Optimization essentials](maths/maths-optimization.qmd)
+- [Code on GitHub](https://github.com/AlbertProfe/wikiml-labs/blob/taxi-lab/taxi/taxi_lab_2_numpy_sklearn.py){.external target="_blank"} — the same script, in [AlbertProfe/wikiml-labs](https://github.com/AlbertProfe/wikiml-labs){.external target="_blank"}
