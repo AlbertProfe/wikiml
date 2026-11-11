@@ -401,6 +401,7 @@ It would start from $Y$, with a new $A$, a new $W_1$ and a new $W_2$. The shape 
 # See also
 
 - [The evolution of attention](evolution-of-attention.qmd) — the story of the idea, and the core formula.
+- [Attention Is All You Need](attention-is-all-you-need.qmd) — a reader's guide to the 2017 paper.
 - [$\Sigma$ — summation](/foundations/maths/maths-symbols.qmd#sigma-summation) — each row of $A$ is a sum that equals $1$.
 - [ANN: Activation functions](/ann/ann-activation-functions.qmd) — ReLU, and why a network needs a non-linearity.
 - [AI by hand](/foundations/resources.qmd) — Prof. Tom Yeh's exercises, including [Transformer by hand](https://www.byhand.ai/p/transformer-by-hand){.external target="_blank"}.

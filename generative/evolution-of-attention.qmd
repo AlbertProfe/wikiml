@@ -164,7 +164,7 @@ print("Output for 'she':", np.round(output[0], 3))
 
 # 2017: Transformers made self-attention the foundation
 
-[Attention Is All You Need](https://arxiv.org/abs/1706.03762){.external target="_blank"} (Vaswani, Shazeer, Parmar, Uszkoreit, Jones, Gomez, Kaiser and Polosukhin, 2017) asked a bold question: if attention is doing the real work, why keep the recurrent network at all?
+[Attention Is All You Need](https://arxiv.org/abs/1706.03762){.external target="_blank"} (Vaswani, Shazeer, Parmar, Uszkoreit, Jones, Gomez, Kaiser and Polosukhin, 2017) asked a bold question: if attention is doing the real work, why keep the recurrent network at all? There is a [reader's guide to the paper](attention-is-all-you-need.qmd) on this wiki.
 
 They removed recurrence — and convolutions — and built a new architecture only from attention and a few feed-forward layers. That model is the **Transformer**.
 
@@ -242,7 +242,7 @@ You do not change the recipe. You change how often you walk to the pantry. Chop 
 
 Every row keeps what worked and repairs the biggest thing that did not. Soft attention kept the encoder-decoder and opened the letter. Luong kept the look-up and made the scoring and the window practical. The Transformer kept attention and dropped the slow queue. Linear attention and FlashAttention then attacked the cost, in two different ways: one changes the computation to grow with $n$ rather than $n^2$; the other keeps the original computation and runs it with fewer trips to memory.
 
-The story is still going on. Next, [Transformer by hand](transformer-by-hand.qmd) works through one block with small integer matrices. For the architecture of the Transformer itself — encoder and decoder, and the later decoder-only design — see [The Transformer](generative-transformer.qmd).
+The story is still going on. A [reader's guide to Attention Is All You Need](attention-is-all-you-need.qmd) walks through the 2017 paper. Then [Transformer by hand](transformer-by-hand.qmd) works through one block with small integer matrices. For the architecture of the Transformer itself — encoder and decoder, and the later decoder-only design — see [The Transformer](generative-transformer.qmd).
 
 # FAQ
 
@@ -270,4 +270,4 @@ No. Linear attention, as in Katharopoulos et al. (2020), reformulates the comput
 
 Because "looking at everyone" does not tell you who spoke first. Without a positional signal, a model that reads all the words at once cannot tell *dog bites man* from *man bites dog*.
 
-Next: [Transformer by hand](transformer-by-hand.qmd).
+Next: [Attention Is All You Need](attention-is-all-you-need.qmd), a reader's guide to the paper.

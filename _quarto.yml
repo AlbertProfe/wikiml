@@ -199,6 +199,7 @@ website:
         - section: "Transformers"
           contents:
             - generative/evolution-of-attention.qmd
+            - generative/attention-is-all-you-need.qmd
             - generative/transformer-by-hand.qmd
             - generative/generative-transformer.qmd
         - text: "---"

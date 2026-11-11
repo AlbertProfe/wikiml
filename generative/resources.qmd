@@ -15,7 +15,7 @@ The 3Blue1Brown video *Transformers (how LLMs work) explained visually* is embed
 
 ## Papers and books
 
-- <span class="chip chip-warning">paper</span> [Attention Is All You Need](https://proceedings.neurips.cc/paper_files/paper/2017/file/3f5ee243547dee91fbd053c1c4a845aa-Paper.pdf){.external target='_blank'} — the 2017 Transformer paper. The story that leads to it is in [The evolution of attention](evolution-of-attention.qmd).
+- <span class="chip chip-warning">paper</span> [Attention Is All You Need](https://proceedings.neurips.cc/paper_files/paper/2017/file/3f5ee243547dee91fbd053c1c4a845aa-Paper.pdf){.external target='_blank'} — the 2017 Transformer paper. A [reader's guide](attention-is-all-you-need.qmd) walks through it; the story that leads to it is in [The evolution of attention](evolution-of-attention.qmd).
 - [LLM Engineer's Handbook: Master the art of engineering large language models from concept to production ](https://www.packtpub.com/en-us/product/llm-engineers-handbook-9781836200062?srsltid=AfmBOorsghxj1A2sZIK6UQc4ZwnKaaQ2vD5_mKI-ke1-LL-N984ALpOt){.external target='_blank'}
 - [Repo](https://github.com/SylphAI-Inc/LLM-engineer-handbook){.external target='_blank'}
 
