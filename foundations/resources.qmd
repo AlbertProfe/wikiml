@@ -22,4 +22,8 @@ The [Python Programming MOOC 2024](https://programming-24.mooc.fi){.external tar
 - [6.867 | Fall 2006 | GraduateMachine Learning](https://ocw.mit.edu/courses/6-867-machine-learning-fall-2006/){.external target='_blank'}
 - [Machine Learning Resources](https://ml-resources.vercel.app/){.external target='_blank'}
 
+## Development tools
+
+- [The Missing Semester of Your CS Education](https://missing.csail.mit.edu/){.external target='_blank'} — MIT's course on the tools classes skip: the shell, Git, editors, debugging, and shipping code.
+
 The imported [book notes](/resources/resources-books.qmd) collect longer notes. Every section has its own list, from the [Resources](/resources/resources-index.qmd) hub.

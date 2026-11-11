@@ -10,4 +10,8 @@ title: "AI for developers: Resources"
 - [Build LLM Apps Easily](https://flowiseai.com/){.external target='_blank'}
 - [Abacus](https://abacus.ai/chatllm){.external target='_blank'}
 
+## Courses
+
+- [AI Engineering from Scratch](https://aiengineeringfromscratch.com/){.external target='_blank'} — a free open-source course: build the maths and the code first, then the frameworks, from linear algebra to agents.
+
 Every section has its own list, from the [Resources](/resources/resources-index.qmd) hub.
