@@ -1,0 +1,1758 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.32">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>The evolution of attention – Wiki-ML</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../generative/attention-is-all-you-need.html" rel="next">
+<link href="..//images/home/favicon.ico" rel="icon">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-2486e1f0a3ee9ee1fc393803a1361cdb.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-6561bbde787c299e21493071c8edc6ff.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-510c3b48ea8728ab307d593fb594786b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../site_libs/quarto-contrib/live-runtime/live-runtime.js" type="module"></script>
+<link href="../site_libs/quarto-contrib/live-runtime/live-runtime.css" rel="stylesheet">
+<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script type="module" src="../site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
+<link href="../site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
+<script src="../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Wiki-ML</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-foundations" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Foundations</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-foundations">    
+        <li class="dropdown-header">What is this section?</li>
+        <li>
+    <a class="dropdown-item" href="../foundations/foundations-index.html">
+ <span class="dropdown-text">Foundations</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Maths</li>
+        <li>
+    <a class="dropdown-item" href="../foundations/maths/maths-index.html">
+ <span class="dropdown-text">Maths for machine learning</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../foundations/maths/maths-symbols.html">
+ <span class="dropdown-text">ML math symbols, explained easy</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../foundations/maths/maths-linear-algebra.html">
+ <span class="dropdown-text">Linear algebra essentials</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../foundations/maths/maths-calculus.html">
+ <span class="dropdown-text">Calculus essentials</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../foundations/maths/maths-probability.html">
+ <span class="dropdown-text">Probability and statistics essentials</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../foundations/maths/maths-optimization.html">
+ <span class="dropdown-text">Optimization essentials</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Machine Learning</li>
+        <li>
+    <a class="dropdown-item" href="../foundations/ml-learning-loop.html">
+ <span class="dropdown-text">The learning loop</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../machine/machine-index.html">
+ <span class="dropdown-text">Machine Learning</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Python (Helsinki MOOC 2024)</li>
+        <li>
+    <a class="dropdown-item" href="../python/python-index.html">
+ <span class="dropdown-text">Python</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../python/python-part1.html">
+ <span class="dropdown-text">Python Helsinki: 1</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../python/python-part2.html">
+ <span class="dropdown-text">Python Helsinki: 2</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../python/python-part3.html">
+ <span class="dropdown-text">Python Helsinki: 3</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../python/python-part4.html">
+ <span class="dropdown-text">Python Helsinki: 4</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../python/python-part5.html">
+ <span class="dropdown-text">Python Helsinki: 5</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../python/python-part6.html">
+ <span class="dropdown-text">Python Helsinki: 6</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../python/python-part7.html">
+ <span class="dropdown-text">Python Helsinki: 7</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../python/python-part8.html">
+ <span class="dropdown-text">Python Helsinki: 8</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../python/python-part9.html">
+ <span class="dropdown-text">Python Helsinki: 9</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../python/python-part10.html">
+ <span class="dropdown-text">Python Helsinki: 10</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../python/python-part11.html">
+ <span class="dropdown-text">Python Helsinki: 11</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../python/python-part12.html">
+ <span class="dropdown-text">Python Helsinki: 12</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../python/python-part13.html">
+ <span class="dropdown-text">Python Helsinki: 13</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../python/python-part14.html">
+ <span class="dropdown-text">Python Helsinki: 14</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Labs</li>
+        <li>
+    <a class="dropdown-item" href="../foundations/labs.html">
+ <span class="dropdown-text">Foundations: Labs</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../foundations/mlab01-1.html">
+ <span class="dropdown-text">Lab#FU01-1: Taxi fare, pure Python</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../foundations/mlab01-2.html">
+ <span class="dropdown-text">Lab#FU01-2: Taxi fare, NumPy and scikit-learn</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Resources</li>
+        <li>
+    <a class="dropdown-item" href="../foundations/resources.html">
+ <span class="dropdown-text">Foundations: Resources</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-data" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Data</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-data">    
+        <li class="dropdown-header">What is this section?</li>
+        <li>
+    <a class="dropdown-item" href="../bigdata/bigdata-index.html">
+ <span class="dropdown-text">Big Data</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Labs</li>
+        <li>
+    <a class="dropdown-item" href="../bigdata/labs.html">
+ <span class="dropdown-text">Data: Labs</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Resources</li>
+        <li>
+    <a class="dropdown-item" href="../bigdata/resources.html">
+ <span class="dropdown-text">Data: Resources</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-classic-ml" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Classic ML</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-classic-ml">    
+        <li class="dropdown-header">What is Classic ML?</li>
+        <li>
+    <a class="dropdown-item" href="../algorithms/algo-index.html">
+ <span class="dropdown-text">Algorithms: Introduction</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Algorithm Types</li>
+        <li>
+    <a class="dropdown-item" href="../algorithms/algo-linear-regression.html">
+ <span class="dropdown-text">Algorithms: Linear regression</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../algorithms/algo-logistic-regression.html">
+ <span class="dropdown-text">Algorithms: Logistic regression</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../algorithms/algo-naive-bayes.html">
+ <span class="dropdown-text">Algorithms: Naïve Bayes</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../algorithms/algo-support-vector-machines.html">
+ <span class="dropdown-text">Algorithms: Support Vector Machines</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../algorithms/algo-decision-tree.html">
+ <span class="dropdown-text">Algorithms: Decision tree</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../algorithms/algo-k-nearest-neighbor.html">
+ <span class="dropdown-text">Algorithms: K-Nearest neighbor</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../algorithms/algo-random-forest.html">
+ <span class="dropdown-text">Algorithms: Random forest</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../algorithms/algo-gradient-boosting.html">
+ <span class="dropdown-text">Algorithms: Gradient boosting</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../algorithms/algo-k-means.html">
+ <span class="dropdown-text">Algorithms: K-Means</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../algorithms/algo-e-means.html">
+ <span class="dropdown-text">Algorithms: e-means</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Labs</li>
+        <li>
+    <a class="dropdown-item" href="../algorithms/labs.html">
+ <span class="dropdown-text">Classic ML: Labs</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Resources</li>
+        <li>
+    <a class="dropdown-item" href="../algorithms/resources.html">
+ <span class="dropdown-text">Classic ML: Resources</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-evaluation" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Evaluation</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-evaluation">    
+        <li class="dropdown-header">What is this section?</li>
+        <li>
+    <a class="dropdown-item" href="../evaluation/evaluation-index.html">
+ <span class="dropdown-text">Model evaluation</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Labs</li>
+        <li>
+    <a class="dropdown-item" href="../evaluation/labs.html">
+ <span class="dropdown-text">Model evaluation: Labs</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Resources</li>
+        <li>
+    <a class="dropdown-item" href="../evaluation/resources.html">
+ <span class="dropdown-text">Model evaluation: Resources</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-deep-learning" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Deep Learning</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-deep-learning">    
+        <li class="dropdown-header">ANN</li>
+        <li>
+    <a class="dropdown-item" href="../ann/ann-index.html">
+ <span class="dropdown-text">ANN: Table of Contents</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../ann/ann-introduction.html">
+ <span class="dropdown-text">ANN: Introduction</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../ann/ann-mathematical.html">
+ <span class="dropdown-text">ANN: Mathematical Model</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../ann/ann-model-and-demos.html">
+ <span class="dropdown-text">ANN: model and demos</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../ann/ann-activation-functions.html">
+ <span class="dropdown-text">ANN: Activation functions</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Introduction to Deep Learning</li>
+        <li>
+    <a class="dropdown-item" href="../deep/deep-index.html">
+ <span class="dropdown-text">Deep Learning</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Labs</li>
+        <li>
+    <a class="dropdown-item" href="../deep/labs.html">
+ <span class="dropdown-text">Deep Learning: Labs</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Resources</li>
+        <li>
+    <a class="dropdown-item" href="../deep/resources.html">
+ <span class="dropdown-text">Deep Learning: Resources</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-llms" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">LLMs</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-llms">    
+        <li class="dropdown-header">Generative AI</li>
+        <li>
+    <a class="dropdown-item" href="../generative/generative-index.html">
+ <span class="dropdown-text">Generative AI</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">LLMs</li>
+        <li>
+    <a class="dropdown-item" href="../generative/generative-llm.html">
+ <span class="dropdown-text">Large Language Models</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../generative/generative-gpt.html">
+ <span class="dropdown-text">GPT</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Transformers</li>
+        <li>
+    <a class="dropdown-item" href="../generative/evolution-of-attention.html">
+ <span class="dropdown-text">The evolution of attention</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../generative/attention-is-all-you-need.html">
+ <span class="dropdown-text">Attention Is All You Need</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../generative/transformer-by-hand.html">
+ <span class="dropdown-text">Transformer by hand</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../generative/generative-transformer.html">
+ <span class="dropdown-text">The Transformer</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Labs</li>
+        <li>
+    <a class="dropdown-item" href="../generative/labs.html">
+ <span class="dropdown-text">LLMs and Transformers: Labs</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Resources</li>
+        <li>
+    <a class="dropdown-item" href="../generative/resources.html">
+ <span class="dropdown-text">LLMs and Transformers: Resources</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-rag--agents" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">RAG &amp; Agents</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-rag--agents">    
+        <li class="dropdown-header">What is this section?</li>
+        <li>
+    <a class="dropdown-item" href="../rag/rag-index.html">
+ <span class="dropdown-text">RAG and agents</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">RAG</li>
+        <li>
+    <a class="dropdown-item" href="../generative/generative-rag.html">
+ <span class="dropdown-text">RAG</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Labs</li>
+        <li>
+    <a class="dropdown-item" href="../rag/labs.html">
+ <span class="dropdown-text">RAG and agents: Labs</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Resources</li>
+        <li>
+    <a class="dropdown-item" href="../rag/resources.html">
+ <span class="dropdown-text">RAG and agents: Resources</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-ai-for-devs" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">AI for Devs</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-ai-for-devs">    
+        <li class="dropdown-header">What is this section?</li>
+        <li>
+    <a class="dropdown-item" href="../aidev/aidev-index.html">
+ <span class="dropdown-text">AI for developers</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Labs</li>
+        <li>
+    <a class="dropdown-item" href="../aidev/labs.html">
+ <span class="dropdown-text">AI for developers: Labs</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Resources</li>
+        <li>
+    <a class="dropdown-item" href="../aidev/resources.html">
+ <span class="dropdown-text">AI for developers: Resources</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-mlops" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">MLOps</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-mlops">    
+        <li class="dropdown-header">What is this section?</li>
+        <li>
+    <a class="dropdown-item" href="../mlops/mlops-index.html">
+ <span class="dropdown-text">MLOps</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Labs</li>
+        <li>
+    <a class="dropdown-item" href="../mlops/labs.html">
+ <span class="dropdown-text">MLOps: Labs</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Resources</li>
+        <li>
+    <a class="dropdown-item" href="../mlops/resources.html">
+ <span class="dropdown-text">MLOps: Resources</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-training" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Training</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-training">    
+        <li class="dropdown-header">About Training</li>
+        <li>
+    <a class="dropdown-item" href="../training/training-index.html">
+ <span class="dropdown-text">Training</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Labs</li>
+        <li>
+    <a class="dropdown-item" href="../training/labs.html">
+ <span class="dropdown-text">Training: Labs</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Resources</li>
+        <li>
+    <a class="dropdown-item" href="../training/resources.html">
+ <span class="dropdown-text">Training: Resources</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../generative/evolution-of-attention.html">Transformers</a></li><li class="breadcrumb-item"><a href="../generative/evolution-of-attention.html">The evolution of attention</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+ <span class="menu-text">LLMs and Transformers</span>
+  </li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
+ <span class="menu-text">Generative AI</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../generative/generative-index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Generative AI</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
+ <span class="menu-text">LLMs</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../generative/generative-llm.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Large Language Models</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../generative/generative-gpt.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">GPT</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Transformers</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../generative/evolution-of-attention.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">The evolution of attention</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../generative/attention-is-all-you-need.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Attention Is All You Need</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../generative/transformer-by-hand.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Transformer by hand</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../generative/generative-transformer.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The Transformer</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
+ <span class="menu-text">Labs</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../generative/labs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">LLMs and Transformers: Labs</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false">
+ <span class="menu-text">Resources</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../generative/resources.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">LLMs and Transformers: Resources</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#one-idea-that-changed-deep-learning-forever" id="toc-one-idea-that-changed-deep-learning-forever" class="nav-link active" data-scroll-target="#one-idea-that-changed-deep-learning-forever">One idea that changed deep learning forever</a></li>
+  <li><a href="#the-bottleneck-one-sticky-note-for-a-whole-letter" id="toc-the-bottleneck-one-sticky-note-for-a-whole-letter" class="nav-link" data-scroll-target="#the-bottleneck-one-sticky-note-for-a-whole-letter">The bottleneck: one sticky note for a whole letter</a></li>
+  <li><a href="#bahdanau-and-soft-attention" id="toc-bahdanau-and-soft-attention" class="nav-link" data-scroll-target="#bahdanau-and-soft-attention">2014: Bahdanau and soft attention</a></li>
+  <li><a href="#luong-refines-the-mechanism" id="toc-luong-refines-the-mechanism" class="nav-link" data-scroll-target="#luong-refines-the-mechanism">2015: Luong refines the mechanism</a></li>
+  <li><a href="#how-attention-decides-the-core-formula" id="toc-how-attention-decides-the-core-formula" class="nav-link" data-scroll-target="#how-attention-decides-the-core-formula">How attention decides: the core formula</a></li>
+  <li><a href="#transformers-made-self-attention-the-foundation" id="toc-transformers-made-self-attention-the-foundation" class="nav-link" data-scroll-target="#transformers-made-self-attention-the-foundation">2017: Transformers made self-attention the foundation</a>
+  <ul>
+  <li><a href="#self-attention" id="toc-self-attention" class="nav-link" data-scroll-target="#self-attention">Self-attention</a></li>
+  <li><a href="#multi-head-attention" id="toc-multi-head-attention" class="nav-link" data-scroll-target="#multi-head-attention">Multi-head attention</a></li>
+  <li><a href="#positional-encoding" id="toc-positional-encoding" class="nav-link" data-scroll-target="#positional-encoding">Positional encoding</a></li>
+  <li><a href="#recurrence-drops-out" id="toc-recurrence-drops-out" class="nav-link" data-scroll-target="#recurrence-drops-out">Recurrence drops out</a></li>
+  </ul></li>
+  <li><a href="#the-bill-comes-due-quadratic-cost" id="toc-the-bill-comes-due-quadratic-cost" class="nav-link" data-scroll-target="#the-bill-comes-due-quadratic-cost">The bill comes due: quadratic cost</a></li>
+  <li><a href="#linear-attention-tackled-quadratic-complexity" id="toc-linear-attention-tackled-quadratic-complexity" class="nav-link" data-scroll-target="#linear-attention-tackled-quadratic-complexity">2020: Linear attention tackled quadratic complexity</a></li>
+  <li><a href="#flashattention-made-exact-attention-faster" id="toc-flashattention-made-exact-attention-faster" class="nav-link" data-scroll-target="#flashattention-made-exact-attention-faster">2022: FlashAttention made exact attention faster</a></li>
+  <li><a href="#a-short-history-in-a-table" id="toc-a-short-history-in-a-table" class="nav-link" data-scroll-target="#a-short-history-in-a-table">A short history in a table</a></li>
+  <li><a href="#faq" id="toc-faq" class="nav-link" data-scroll-target="#faq">FAQ</a>
+  <ul>
+  <li><a href="#is-attention-the-same-thing-as-the-transformer" id="toc-is-attention-the-same-thing-as-the-transformer" class="nav-link" data-scroll-target="#is-attention-the-same-thing-as-the-transformer">Is attention the same thing as the Transformer?</a></li>
+  <li><a href="#does-a-transformer-write-the-whole-answer-in-parallel" id="toc-does-a-transformer-write-the-whole-answer-in-parallel" class="nav-link" data-scroll-target="#does-a-transformer-write-the-whole-answer-in-parallel">Does a Transformer write the whole answer in parallel?</a></li>
+  <li><a href="#why-divide-by-sqrtd_k" id="toc-why-divide-by-sqrtd_k" class="nav-link" data-scroll-target="#why-divide-by-sqrtd_k">Why divide by <span class="math inline">\(\sqrt{d_k}\)</span>?</a></li>
+  <li><a href="#is-flashattention-a-new-kind-of-attention" id="toc-is-flashattention-a-new-kind-of-attention" class="nav-link" data-scroll-target="#is-flashattention-a-new-kind-of-attention">Is FlashAttention a new kind of attention?</a></li>
+  <li><a href="#is-linear-attention-the-same-as-flashattention" id="toc-is-linear-attention-the-same-as-flashattention" class="nav-link" data-scroll-target="#is-linear-attention-the-same-as-flashattention">Is linear attention the same as FlashAttention?</a></li>
+  <li><a href="#if-every-word-can-look-at-every-other-word-why-do-we-still-need-position" id="toc-if-every-word-can-look-at-every-other-word-why-do-we-still-need-position" class="nav-link" data-scroll-target="#if-every-word-can-look-at-every-other-word-why-do-we-still-need-position">If every word can look at every other word, why do we still need position?</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content page-columns page-full" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../generative/evolution-of-attention.html">Transformers</a></li><li class="breadcrumb-item"><a href="../generative/evolution-of-attention.html">The evolution of attention</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">The evolution of attention</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="one-idea-that-changed-deep-learning-forever" class="level1">
+<h1>One idea that changed deep learning forever</h1>
+<p>One idea that changed deep learning forever: attention.</p>
+<p>Before that idea, a typical neural translator read a source sentence and squeezed it into one fixed-length vector. A decoder then tried to write the whole translation from that single summary. It is like packing a long letter into one sticky note, and answering with only the note in front of you. The longer the letter, the more the early sentences fade. That squeeze is the seq2seq bottleneck.</p>
+<p>This page walks the family tree of the idea that opened the letter back up.</p>
+<ul>
+<li><strong>2014:</strong> <a href="https://arxiv.org/abs/1409.0473" class="external" target="_blank">Bahdanau</a> introduced soft attention.</li>
+<li><strong>2015:</strong> <a href="https://arxiv.org/abs/1508.04025" class="external" target="_blank">Luong</a> refined attention mechanisms.</li>
+<li><strong>2017:</strong> <a href="https://arxiv.org/abs/1706.03762" class="external" target="_blank">Transformers</a> made self-attention the foundation.</li>
+<li><strong>2020:</strong> <a href="https://arxiv.org/abs/2006.16236" class="external" target="_blank">Linear attention</a> tackled quadratic complexity.</li>
+<li><strong>2022:</strong> <a href="https://arxiv.org/abs/2205.14135" class="external" target="_blank">FlashAttention</a> made exact attention faster and more memory-efficient.</li>
+</ul>
+<p>The original Transformer figure already lives on the <a href="../generative/generative-index.html">Generative AI overview</a>. A 3Blue1Brown walk-through of the same architecture is on <a href="../ann/ann-model-and-demos.html">ANN: model and demos</a>. The teaching page for the Transformer itself is still <a href="../generative/generative-transformer.html">in progress</a>. Here we tell the story that leads to it, and the work that made attention practical at length.</p>
+<div class="light-only">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/attention/one-ideas-family-tree-light.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="One Idea’s Family Tree — The evolution of attention"><img src="../images/attention/one-ideas-family-tree-light.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%" alt="One Idea’s Family Tree — The evolution of attention"></a></p>
+</figure>
+</div>
+<figcaption>One Idea’s Family Tree — The evolution of attention</figcaption>
+</figure>
+</div>
+</div>
+<div class="dark-only">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/attention/one-ideas-family-tree.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="One Idea’s Family Tree — The evolution of attention"><img src="../images/attention/one-ideas-family-tree.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%" alt="One Idea’s Family Tree — The evolution of attention"></a></p>
+</figure>
+</div>
+<figcaption>One Idea’s Family Tree — The evolution of attention</figcaption>
+</figure>
+</div>
+</div>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+  P["Seq2seq bottleneck: one fixed-length vector"] --&gt; B["2014 Bahdanau: soft attention"]
+  B --&gt; L["2015 Luong: global, local, dot-product"]
+  L --&gt; T["2017 Transformer: self-attention as the foundation"]
+  T --&gt; C["The cost: O(n^2)"]
+  C --&gt; A["2020 Linear attention: about O(n)"]
+  C --&gt; F["2022 FlashAttention: exact, IO-aware, faster"]
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="the-bottleneck-one-sticky-note-for-a-whole-letter" class="level1">
+<h1>The bottleneck: one sticky note for a whole letter</h1>
+<p>Early neural translation models belonged to a family of encoder-decoders. An encoder read the source sentence and wrote a single fixed-length vector; a decoder generated the translation from that vector.</p>
+<p>The trouble is the squeeze. A short greeting fits on a sticky note. A paragraph does not. By the time the decoder starts writing, the beginning of the source may already have faded. Bahdanau, Cho and Bengio conjectured that this fixed-length vector was a bottleneck, and they proposed to do something more natural: keep the source in view, and learn where to look.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Everyday example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You are answering a long email. If you first shrink it to one sticky note, then hide the email, you will lose the names, the dates, and the question in the first paragraph. Better to leave the email open on the desk and glance back at the line that matters for the sentence you are writing now.</p>
+</div>
+</div>
+</section>
+<section id="bahdanau-and-soft-attention" class="level1">
+<h1>2014: Bahdanau and soft attention</h1>
+<p><a href="https://arxiv.org/abs/1409.0473" class="external" target="_blank">Neural Machine Translation by Jointly Learning to Align and Translate</a> (Bahdanau, Cho and Bengio, posted in 2014) extends the encoder-decoder with a learned alignment.</p>
+<p>At each word the decoder writes, the model looks at every encoder state — that is, at every position in the source — and gives each one a weight. The context for the new word is a weighted mix of those states, not a single pre-cooked summary.</p>
+<p>The attention is <strong>soft</strong>: the model does not pick one source word with a hard yes or no. Every position gets a share, the shares add up to one, and the whole step is differentiable, so the network can learn the alignment by the ordinary <a href="../foundations/ml-learning-loop.html">learning loop</a>.</p>
+<p>When the decoder writes <em>she</em>, the weights can rise on <em>Riya</em> and fall on <em>the</em> and <em>to</em>. The original letter stays on the desk.</p>
+</section>
+<section id="luong-refines-the-mechanism" class="level1">
+<h1>2015: Luong refines the mechanism</h1>
+<p><a href="https://arxiv.org/abs/1508.04025" class="external" target="_blank">Effective Approaches to Attention-based Neural Machine Translation</a> (Luong, Pham and Manning, 2015) asked a practical question: once you have attention, how should you score the look-up, and how widely should you look?</p>
+<p>They describe two classes:</p>
+<ul>
+<li><strong>Global</strong> attention still looks at all source words, as Bahdanau’s model does.</li>
+<li><strong>Local</strong> attention first chooses a place in the source, then looks in a window around it.</li>
+</ul>
+<p>They also simplified the scoring. One of the options is a plain <strong>dot product</strong> between the decoder state and each source state — a cheaper relative of Bahdanau’s additive score, and a step toward the scaled dot-product used in the Transformer.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Everyday example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Sometimes you reread the whole page. Sometimes you already know the answer is in the middle paragraph, so you only scan that window. Global attention is the first habit; local attention is the second.</p>
+</div>
+</div>
+</section>
+<section id="how-attention-decides-the-core-formula" class="level1">
+<h1>How attention decides: the core formula</h1>
+<p>By 2017 the usual computation, written with matrices, is this:</p>
+<p><span class="math display">\[
+\operatorname{Attention}(Q, K, V) = \operatorname{softmax}\!\left(\frac{QK^{\top}}{\sqrt{d_k}}\right)V
+\]</span></p>
+<p>It looks dense. It is one everyday move, done with three views of each word.</p>
+<ul>
+<li>The <strong>query</strong> (<span class="math inline">\(Q\)</span>) is the question you are asking. At <em>she</em>, the question is roughly “who is this person?”</li>
+<li>The <strong>key</strong> (<span class="math inline">\(K\)</span>) is the label on every word, the thing you match against the question. <em>Riya</em> carries a label like “a person’s name”; <em>went</em> carries a label like “an action”.</li>
+<li>The <strong>value</strong> (<span class="math inline">\(V\)</span>) is the content you actually take if the match is good.</li>
+</ul>
+<p>The keys decide <em>where</em> to look. The values are <em>what</em> you bring back.</p>
+<p>The formula does four small jobs, in order:</p>
+<ol type="1">
+<li><strong>Compare.</strong> <span class="math inline">\(QK^{\top}\)</span> scores every query against every key. A large score means “this label answers that question well”.</li>
+<li><strong>Scale.</strong> Divide by <span class="math inline">\(\sqrt{d_k}\)</span>, the square root of the key size. Without that, as the vectors get longer the scores get larger, and softmax turns into a sharp spike that almost ignores everyone but the winner. The scaling keeps the mix soft enough to learn. That is the <em>scaled</em> in scaled dot-product attention.</li>
+<li><strong>Turn scores into shares.</strong> Softmax makes each row a set of weights that add up to 1. They are the attention weights: how much this word looks at each other word.</li>
+<li><strong>Mix.</strong> Multiply by <span class="math inline">\(V\)</span>. The result for <em>she</em> is mostly the value of <em>Riya</em>, plus a little of the others.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Everyday example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You walk into a small library and ask, “who is she?” That question is the query. Each book has a label on the spine — the key. You compare your question with every label, spend most of your time on the biography of Riya, and almost none on a book about walking. What you carry out of the library is the content of the books, not the labels, mixed in those same proportions. That mix is the output.</p>
+</div>
+</div>
+<p>Here is a tiny numerical sketch, with three words — <em>she</em>, <em>Riya</em>, <em>went</em> — and two-dimensional toy vectors. These numbers are a classroom example, not a trained model. The query for <em>she</em> is lined up with the key for <em>Riya</em>, so the weights should favour <em>Riya</em>.</p>
+<p>After the scores are scaled and passed through softmax, the weights on the <em>she</em> row are about <strong>11.6%</strong> on <em>she</em>, <strong>78.2%</strong> on <em>Riya</em>, and <strong>10.2%</strong> on <em>went</em>. <em>She</em> is mostly looking at <em>Riya</em>. The mixed value comes out close to Riya’s own value, which is what we wanted.</p>
+<p>The cell below is live Python in the browser. It uses only NumPy. Press Run if you want to change a number and watch the weights move.</p>
+<div>
+<div id="pyodide-1" class="exercise-cell">
+
+</div>
+<script type="pyodide-1-contents">
+eyJhdHRyIjp7ImF1dG9ydW4iOnRydWUsImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiaW1wb3J0IG51bXB5IGFzIG5wXG5cbiMgQSB0b3kgZXhhbXBsZSwgbm90IGEgdHJhaW5lZCBtb2RlbC5cbiMgVGhyZWUgd29yZHM6IHNoZSwgUml5YSwgd2VudC4gRWFjaCBoYXMgYSBxdWVyeSwgYSBrZXkgYW5kIGEgdmFsdWUgaW4gMi1ELlxuXG5RID0gbnAuYXJyYXkoW1xuICAgIFsxLjgsIDAuMF0sICAjIHNoZTogXCJ3aG8gaXMgdGhpcyBwZXJzb24/XCJcbiAgICBbMC4yLCAwLjJdLCAgIyBSaXlhXG4gICAgWzAuMCwgMS44XSwgICMgd2VudFxuXSlcbksgPSBucC5hcnJheShbXG4gICAgWzAuMywgMC4yXSwgICMgc2hlXG4gICAgWzEuOCwgMC4yXSwgICMgUml5YTogbG9va3MgbGlrZSBhIHBlcnNvblxuICAgIFswLjIsIDEuOF0sICAjIHdlbnQ6IGxvb2tzIGxpa2UgYW4gYWN0aW9uXG5dKVxuViA9IG5wLmFycmF5KFtcbiAgICBbMC4yLCAwLjFdLCAgIyBzaGVcbiAgICBbMS4wLCAwLjBdLCAgIyBSaXlhXG4gICAgWzAuMCwgMS4wXSwgICMgd2VudFxuXSlcblxuZF9rID0gUS5zaGFwZVsxXVxuc2NvcmVzID0gUSBAIEsuVCAvIG5wLnNxcnQoZF9rKVxud2VpZ2h0cyA9IG5wLmV4cChzY29yZXMgLSBzY29yZXMubWF4KGF4aXM9MSwga2VlcGRpbXM9VHJ1ZSkpXG53ZWlnaHRzID0gd2VpZ2h0cyAvIHdlaWdodHMuc3VtKGF4aXM9MSwga2VlcGRpbXM9VHJ1ZSlcbm91dHB1dCA9IHdlaWdodHMgQCBWXG5cbndvcmRzID0gW1wic2hlXCIsIFwiUml5YVwiLCBcIndlbnRcIl1cbnByaW50KFwiQXR0ZW50aW9uIHdlaWdodHMgKGVhY2ggcm93IGFkZHMgdXAgdG8gMSk6XCIpXG5wcmludChcIiAgICAgICAgIFwiICsgXCIgIFwiLmpvaW4oZlwie3c6Pjh9XCIgZm9yIHcgaW4gd29yZHMpKVxuZm9yIGksIHJvdyBpbiBlbnVtZXJhdGUod2VpZ2h0cyk6XG4gICAgcHJpbnQoZlwie3dvcmRzW2ldOjw4fVwiICsgXCIgIFwiLmpvaW4oZlwie3g6OC4zZn1cIiBmb3IgeCBpbiByb3cpKVxuXG5wcmludCgpXG5wcmludChmXCInc2hlJyBsb29rcyBhdCAnUml5YScgd2l0aCB7d2VpZ2h0c1swLCAxXSAqIDEwMDouMWZ9JSBvZiBpdHMgYXR0ZW50aW9uLlwiKVxucHJpbnQoXCJPdXRwdXQgZm9yICdzaGUnOlwiLCBucC5yb3VuZChvdXRwdXRbMF0sIDMpKSJ9
+</script>
+</div>
+</section>
+<section id="transformers-made-self-attention-the-foundation" class="level1">
+<h1>2017: Transformers made self-attention the foundation</h1>
+<p><a href="https://arxiv.org/abs/1706.03762" class="external" target="_blank">Attention Is All You Need</a> (Vaswani, Shazeer, Parmar, Uszkoreit, Jones, Gomez, Kaiser and Polosukhin, 2017) asked a bold question: if attention is doing the real work, why keep the recurrent network at all? There is a <a href="../generative/attention-is-all-you-need.html">reader’s guide to the paper</a> on this wiki.</p>
+<p>They removed recurrence — and convolutions — and built a new architecture only from attention and a few feed-forward layers. That model is the <strong>Transformer</strong>.</p>
+<section id="self-attention" class="level2">
+<h2 class="anchored" data-anchor-id="self-attention">Self-attention</h2>
+<p>In Bahdanau’s model, attention is mainly the decoder looking at the encoder: one sequence looking at another. <strong>Self-attention</strong> is a sequence looking at itself. Each word in a sentence can look directly at the other words in the same sentence. Nothing has to travel along a chain of sticky notes to get there.</p>
+</section>
+<section id="multi-head-attention" class="level2">
+<h2 class="anchored" data-anchor-id="multi-head-attention">Multi-head attention</h2>
+<p>One attention can focus on one kind of relationship at a time. A sentence has several at once: who did what, which words sit next to each other, what <em>it</em> refers to.</p>
+<p>So the Transformer runs several attentions side by side. Each one is a <strong>head</strong>. Think of a small team of readers looking at the same page, each asked to notice a different thing. Then the model combines what they found.</p>
+</section>
+<section id="positional-encoding" class="level2">
+<h2 class="anchored" data-anchor-id="positional-encoding">Positional encoding</h2>
+<p>Because the Transformer reads all the words at once, it does not naturally know the order. <em>Dog bites man</em> and <em>man bites dog</em> would otherwise look the same.</p>
+<p>Before the words enter the model, a <strong>positional encoding</strong> is added: a small signal that says “this is word 1, this is word 2”. The original paper uses a fixed pattern of sines and cosines. Later models often use other recipes for the same job. The idea does not change: tell the model where each word sits.</p>
+</section>
+<section id="recurrence-drops-out" class="level2">
+<h2 class="anchored" data-anchor-id="recurrence-drops-out">Recurrence drops out</h2>
+<p>The older recurrent networks had to read word 1 before word 2. Training was a queue. The Transformer can process the whole input in parallel, which is a much better fit for GPUs. That is a large part of why the architecture won.</p>
+<p>One careful distinction: <em>reading</em> the input can happen in parallel; <em>writing</em> the answer is still one token at a time. The model predicts the next word, adds it to the context, and predicts again. The <a href="../generative/generative-transformer.html">Transformer page</a> will take that point further, including encoder-decoder versus the decoder-only design used by most chat models.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Everyday example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A recurrent model is a queue: each person whispers a shortened message to the next. Self-attention is a room in which everyone can look at everyone else at the same time. To know who spoke first, you still need a seat number — that is the positional encoding.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="the-bill-comes-due-quadratic-cost" class="level1">
+<h1>The bill comes due: quadratic cost</h1>
+<p>There is a price for letting every word look at every other word. If the sequence has length <span class="math inline">\(n\)</span>, you make <span class="math inline">\(n^2\)</span> comparisons. Double the length and you roughly quadruple the work. That is the <strong>quadratic</strong> cost of ordinary self-attention, in both time and memory if you materialise the full grid of scores.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Everyday example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>At a table of four, if everyone glances at everyone, that is 16 glances. At a table of eight, it is 64. Invite a few more guests and the looks around the table grow much faster than the guest list.</p>
+</div>
+</div>
+<p>This is not a problem for a sentence. It becomes a problem for a chapter, a long conversation, or a whole codebase.</p>
+</section>
+<section id="linear-attention-tackled-quadratic-complexity" class="level1">
+<h1>2020: Linear attention tackled quadratic complexity</h1>
+<p><a href="https://arxiv.org/abs/2006.16236" class="external" target="_blank">Transformers are RNNs: Fast Autoregressive Transformers with Linear Attention</a> (Katharopoulos, Vyas, Pappas and Fleuret, 2020) attacks that bill.</p>
+<p>They write self-attention as a linear dot-product of kernel feature maps and then use the associativity of matrix products to reduce the complexity from <span class="math inline">\(O(N^2)\)</span> to <span class="math inline">\(O(N)\)</span> in the sequence length <span class="math inline">\(N\)</span>. The same formulation has an iterative implementation, which is why the title says that these transformers are RNNs.</p>
+<p>This is a different computational path, taken to make long sequences affordable. It is not the same algorithm as the original softmax attention.</p>
+</section>
+<section id="flashattention-made-exact-attention-faster" class="level1">
+<h1>2022: FlashAttention made exact attention faster</h1>
+<p>Approximate methods tried to buy speed by changing the computation, and often failed to win on the clock. <a href="https://arxiv.org/abs/2205.14135" class="external" target="_blank">FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness</a> (Dao, Fu, Ermon, Rudra and Ré, 2022) keeps the same exact attention and changes how it is run on a GPU.</p>
+<p>The missing idea, they argue, is to be <strong>IO-aware</strong>: to count reads and writes between the GPU’s large, slower high-bandwidth memory (HBM) and its small, fast on-chip SRAM. FlashAttention tiles the work so that more of it stays in SRAM, and it avoids materialising the full attention matrix in HBM. The maths of <span class="math inline">\(\operatorname{softmax}(QK^{\top}/\sqrt{d_k})V\)</span> stays the same; the walking between pantry and worktop gets shorter. The result is exact attention that is faster and more memory-efficient.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Everyday example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You do not change the recipe. You change how often you walk to the pantry. Chop what you need on the worktop, in small boards that fit, instead of fetching the whole cupboard for every cut.</p>
+</div>
+</div>
+</section>
+<section id="a-short-history-in-a-table" class="level1 page-columns page-full">
+<h1>A short history in a table</h1>
+<div class="column-page-right">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: right;">Year</th>
+<th>Idea</th>
+<th>Problem solved</th>
+<th>Key paper</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">2014</td>
+<td>Soft attention: a learned, weighted alignment</td>
+<td>The seq2seq bottleneck — one fixed-length vector for the whole source</td>
+<td><a href="https://arxiv.org/abs/1409.0473" class="external" target="_blank">Neural Machine Translation by Jointly Learning to Align and Translate</a> (Bahdanau, Cho and Bengio)</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2015</td>
+<td>Global and local attention; dot-product scores</td>
+<td>How to score the look-up, and how widely to look</td>
+<td><a href="https://arxiv.org/abs/1508.04025" class="external" target="_blank">Effective Approaches to Attention-based Neural Machine Translation</a> (Luong, Pham and Manning)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2017</td>
+<td>Self-attention and the Transformer</td>
+<td>Recurrence: having to read one token at a time</td>
+<td><a href="https://arxiv.org/abs/1706.03762" class="external" target="_blank">Attention Is All You Need</a> (Vaswani et al.)</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2020</td>
+<td>Linear attention</td>
+<td>Quadratic cost in the length of the sequence</td>
+<td><a href="https://arxiv.org/abs/2006.16236" class="external" target="_blank">Transformers are RNNs: Fast Autoregressive Transformers with Linear Attention</a> (Katharopoulos, Vyas, Pappas and Fleuret)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2022</td>
+<td>FlashAttention: exact, IO-aware attention</td>
+<td>The same formula, too slow and too hungry for memory on a GPU</td>
+<td><a href="https://arxiv.org/abs/2205.14135" class="external" target="_blank">FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness</a> (Dao, Fu, Ermon, Rudra and Ré)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Every row keeps what worked and repairs the biggest thing that did not. Soft attention kept the encoder-decoder and opened the letter. Luong kept the look-up and made the scoring and the window practical. The Transformer kept attention and dropped the slow queue. Linear attention and FlashAttention then attacked the cost, in two different ways: one changes the computation to grow with <span class="math inline">\(n\)</span> rather than <span class="math inline">\(n^2\)</span>; the other keeps the original computation and runs it with fewer trips to memory.</p>
+<p>The story is still going on. A <a href="../generative/attention-is-all-you-need.html">reader’s guide to Attention Is All You Need</a> walks through the 2017 paper. Then <a href="../generative/transformer-by-hand.html">Transformer by hand</a> works through one block with small integer matrices. For the architecture of the Transformer itself — encoder and decoder, and the later decoder-only design — see <a href="../generative/generative-transformer.html">The Transformer</a>.</p>
+</section>
+<section id="faq" class="level1">
+<h1>FAQ</h1>
+<section id="is-attention-the-same-thing-as-the-transformer" class="level2">
+<h2 class="anchored" data-anchor-id="is-attention-the-same-thing-as-the-transformer">Is attention the same thing as the Transformer?</h2>
+<p>No.&nbsp;Attention arrived first, in 2014, as a way to help a recurrent encoder-decoder look back at the source. The Transformer, in 2017, made self-attention the foundation and dropped recurrence. Today’s language models sit on that second step, but the idea is older than the architecture.</p>
+</section>
+<section id="does-a-transformer-write-the-whole-answer-in-parallel" class="level2">
+<h2 class="anchored" data-anchor-id="does-a-transformer-write-the-whole-answer-in-parallel">Does a Transformer write the whole answer in parallel?</h2>
+<p>No.&nbsp;It can <em>read</em> the input in parallel, and training can exploit that. While writing, it still predicts one token at a time, adds that token to the context, and predicts again.</p>
+</section>
+<section id="why-divide-by-sqrtd_k" class="level2">
+<h2 class="anchored" data-anchor-id="why-divide-by-sqrtd_k">Why divide by <span class="math inline">\(\sqrt{d_k}\)</span>?</h2>
+<p>If you skip the scaling, the dot products tend to grow with the size of the key. Softmax then becomes a sharp spike: almost all the weight lands on a single word, and the mix stops being useful for learning. Dividing by <span class="math inline">\(\sqrt{d_k}\)</span> keeps the scores in a kinder range.</p>
+</section>
+<section id="is-flashattention-a-new-kind-of-attention" class="level2">
+<h2 class="anchored" data-anchor-id="is-flashattention-a-new-kind-of-attention">Is FlashAttention a new kind of attention?</h2>
+<p>No.&nbsp;It computes the same attention as the Transformer formula. The contribution is the algorithm: tile the work, respect the GPU memory hierarchy, and do not store the full grid of scores. Faster, and lighter on memory, without an approximation.</p>
+</section>
+<section id="is-linear-attention-the-same-as-flashattention" class="level2">
+<h2 class="anchored" data-anchor-id="is-linear-attention-the-same-as-flashattention">Is linear attention the same as FlashAttention?</h2>
+<p>No.&nbsp;Linear attention, as in Katharopoulos et al.&nbsp;(2020), reformulates the computation so that the cost grows as <span class="math inline">\(O(N)\)</span> rather than <span class="math inline">\(O(N^2)\)</span>. FlashAttention keeps the original exact computation and makes that exact step cheaper to run. One changes the maths; the other changes the implementation.</p>
+</section>
+<section id="if-every-word-can-look-at-every-other-word-why-do-we-still-need-position" class="level2">
+<h2 class="anchored" data-anchor-id="if-every-word-can-look-at-every-other-word-why-do-we-still-need-position">If every word can look at every other word, why do we still need position?</h2>
+<p>Because “looking at everyone” does not tell you who spoke first. Without a positional signal, a model that reads all the words at once cannot tell <em>dog bites man</em> from <em>man bites dog</em>.</p>
+<p>Next: <a href="../generative/attention-is-all-you-need.html">Attention Is All You Need</a>, a reader’s guide to the paper.</p>
+
+
+<script type="pyodide-data">
+eyJvcHRpb25zIjp7ImVudiI6eyJQTE9UTFlfUkVOREVSRVIiOiJwbG90bHlfbWltZXR5cGUifSwiaW5kZXhVUkwiOiJodHRwczovL2Nkbi5qc2RlbGl2ci5uZXQvcHlvZGlkZS92MC4yOC4xL2Z1bGwvIn0sInBhY2thZ2VzIjp7InBrZ3MiOlsicHlvZGlkZV9odHRwIiwibWljcm9waXAiLCJpcHl0aG9uIiwibnVtcHkiXX19
+</script>
+<script type="ojs-module-contents">
+eyJjb250ZW50cyI6W3siY2VsbE5hbWUiOiJweW9kaWRlLTEiLCJpbmxpbmUiOmZhbHNlLCJtZXRob2ROYW1lIjoiaW50ZXJwcmV0Iiwic291cmNlIjoidmlld29mIF9weW9kaWRlX2VkaXRvcl8xID0ge1xuICBjb25zdCB7IFB5b2RpZGVFeGVyY2lzZUVkaXRvciwgYjY0RGVjb2RlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuXG4gIGNvbnN0IHNjcmlwdENvbnRlbnQgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKGBzY3JpcHRbdHlwZT1cXFwicHlvZGlkZS0xLWNvbnRlbnRzXFxcIl1gKS50ZXh0Q29udGVudDtcbiAgY29uc3QgYmxvY2sgPSBKU09OLnBhcnNlKGI2NERlY29kZShzY3JpcHRDb250ZW50KSk7XG5cbiAgY29uc3Qgb3B0aW9ucyA9IE9iamVjdC5hc3NpZ24oeyBpZDogYHB5b2RpZGUtMS1jb250ZW50c2AgfSwgYmxvY2suYXR0cik7XG4gIGNvbnN0IGVkaXRvciA9IG5ldyBQeW9kaWRlRXhlcmNpc2VFZGl0b3IoXG4gICAgcHlvZGlkZU9qcy5weW9kaWRlUHJvbWlzZSxcbiAgICBibG9jay5jb2RlLFxuICAgIG9wdGlvbnNcbiAgKTtcblxuICByZXR1cm4gZWRpdG9yLmNvbnRhaW5lcjtcbn1cbl9weW9kaWRlX3ZhbHVlXzEgPSBweW9kaWRlT2pzLnByb2Nlc3MoX3B5b2RpZGVfZWRpdG9yXzEsIHt9KTtcbiJ9LHsiY2VsbE5hbWUiOiJweW9kaWRlLXByZWx1ZGUiLCJpbmxpbmUiOmZhbHNlLCJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJweW9kaWRlT2pzID0ge1xuICBjb25zdCB7XG4gICAgUHlvZGlkZUV2YWx1YXRvcixcbiAgICBQeW9kaWRlRW52aXJvbm1lbnRNYW5hZ2VyLFxuICAgIHNldHVwUHl0aG9uLFxuICAgIHN0YXJ0UHlvZGlkZVdvcmtlcixcbiAgICBiNjREZWNvZGUsXG4gICAgY29sbGFwc2VQYXRoLFxuICB9ID0gd2luZG93Ll9leGVyY2lzZV9vanNfcnVudGltZTtcblxuICBjb25zdCBzdGF0dXNDb250YWluZXIgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZChcImV4ZXJjaXNlLWxvYWRpbmctc3RhdHVzXCIpO1xuICBjb25zdCBpbmRpY2F0b3JDb250YWluZXIgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZChcImV4ZXJjaXNlLWxvYWRpbmctaW5kaWNhdG9yXCIpO1xuICBpbmRpY2F0b3JDb250YWluZXIuY2xhc3NMaXN0LnJlbW92ZShcImQtbm9uZVwiKTtcblxuICBsZXQgc3RhdHVzVGV4dCA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoXCJkaXZcIilcbiAgc3RhdHVzVGV4dC5jbGFzc0xpc3QgPSBcImV4ZXJjaXNlLWxvYWRpbmctZGV0YWlsc1wiO1xuICBzdGF0dXNUZXh0ID0gc3RhdHVzQ29udGFpbmVyLmFwcGVuZENoaWxkKHN0YXR1c1RleHQpO1xuICBzdGF0dXNUZXh0LnRleHRDb250ZW50ID0gYEluaXRpYWxpc2VgO1xuXG4gIC8vIEhvaXN0IGluZGljYXRvciBvdXQgZnJvbSBmaW5hbCBzbGlkZSB3aGVuIHJ1bm5pbmcgdW5kZXIgcmV2ZWFsXG4gIGNvbnN0IHJldmVhbFN0YXR1cyA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoXCIucmV2ZWFsIC5leGVyY2lzZS1sb2FkaW5nLWluZGljYXRvclwiKTtcbiAgaWYgKHJldmVhbFN0YXR1cykge1xuICAgIHJldmVhbFN0YXR1cy5yZW1vdmUoKTtcbiAgICBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKFwiLnJldmVhbCA+IC5zbGlkZXNcIikuYXBwZW5kQ2hpbGQocmV2ZWFsU3RhdHVzKTtcbiAgfVxuXG4gIC8vIE1ha2UgYW55IHJldmVhbCBzbGlkZXMgd2l0aCBsaXZlIGNlbGxzIHNjcm9sbGFibGVcbiAgZG9jdW1lbnQucXVlcnlTZWxlY3RvckFsbChcIi5yZXZlYWwgLmV4ZXJjaXNlLWNlbGxcIikuZm9yRWFjaCgoZWwpID0+IHtcbiAgICBlbC5jbG9zZXN0KCdzZWN0aW9uLnNsaWRlJykuY2xhc3NMaXN0LmFkZChcInNjcm9sbGFibGVcIik7XG4gIH0pXG5cbiAgLy8gUHlvZGlkZSBzdXBwbGVtZW50YWwgZGF0YSBhbmQgb3B0aW9uc1xuICBjb25zdCBkYXRhQ29udGVudCA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoYHNjcmlwdFt0eXBlPVxcXCJweW9kaWRlLWRhdGFcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBkYXRhID0gSlNPTi5wYXJzZShiNjREZWNvZGUoZGF0YUNvbnRlbnQpKTtcblxuICAvLyBHcmFiIGxpc3Qgb2YgcmVzb3VyY2VzIHRvIGJlIGRvd25sb2FkZWRcbiAgY29uc3QgZmlsZXNDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcInZmcy1maWxlXFxcIl1gKS50ZXh0Q29udGVudDtcbiAgY29uc3QgZmlsZXMgPSBKU09OLnBhcnNlKGI2NERlY29kZShmaWxlc0NvbnRlbnQpKTtcblxuICBsZXQgcHlvZGlkZVByb21pc2UgPSAoYXN5bmMgKCkgPT4ge1xuICAgIHN0YXR1c1RleHQudGV4dENvbnRlbnQgPSBgRG93bmxvYWRpbmcgUHlvZGlkZWA7XG4gICAgY29uc3QgcHlvZGlkZSA9IGF3YWl0IHN0YXJ0UHlvZGlkZVdvcmtlcihkYXRhLm9wdGlvbnMpO1xuXG4gICAgc3RhdHVzVGV4dC50ZXh0Q29udGVudCA9IGBEb3dubG9hZGluZyBwYWNrYWdlOiBtaWNyb3BpcGA7XG4gICAgYXdhaXQgcHlvZGlkZS5sb2FkUGFja2FnZShcIm1pY3JvcGlwXCIpO1xuICAgIGNvbnN0IG1pY3JvcGlwID0gYXdhaXQgcHlvZGlkZS5weWltcG9ydChcIm1pY3JvcGlwXCIpO1xuICAgIGF3YWl0IGRhdGEucGFja2FnZXMucGtncy5tYXAoKHBrZykgPT4gKCkgPT4ge1xuICAgICAgc3RhdHVzVGV4dC50ZXh0Q29udGVudCA9IGBEb3dubG9hZGluZyBwYWNrYWdlOiAke3BrZ31gO1xuICAgICAgcmV0dXJuIG1pY3JvcGlwLmluc3RhbGwocGtnKTtcbiAgICB9KS5yZWR1Y2UoKGN1ciwgbmV4dCkgPT4gY3VyLnRoZW4obmV4dCksIFByb21pc2UucmVzb2x2ZSgpKTtcbiAgICBhd2FpdCBtaWNyb3BpcC5kZXN0cm95KCk7XG5cbiAgICAvLyBEb3dubG9hZCBhbmQgaW5zdGFsbCByZXNvdXJjZXNcbiAgICBhd2FpdCBmaWxlcy5tYXAoKGZpbGUpID0+IGFzeW5jICgpID0+IHtcbiAgICAgIGNvbnN0IG5hbWUgPSBmaWxlLnN1YnN0cmluZyhmaWxlLmxhc3RJbmRleE9mKCcvJykgKyAxKTtcbiAgICAgIHN0YXR1c1RleHQudGV4dENvbnRlbnQgPSBgRG93bmxvYWRpbmcgcmVzb3VyY2U6ICR7bmFtZX1gO1xuICAgICAgY29uc3QgcmVzcG9uc2UgPSBhd2FpdCBmZXRjaChmaWxlKTtcbiAgICAgIGlmICghcmVzcG9uc2Uub2spIHtcbiAgICAgICAgdGhyb3cgbmV3IEVycm9yKGBDYW4ndCBkb3dubG9hZCBcXGAke2ZpbGV9XFxgLiBFcnJvciAke3Jlc3BvbnNlLnN0YXR1c306IFwiJHtyZXNwb25zZS5zdGF0dXNUZXh0fVwiLmApO1xuICAgICAgfVxuICAgICAgY29uc3QgZGF0YSA9IGF3YWl0IHJlc3BvbnNlLmFycmF5QnVmZmVyKCk7XG5cbiAgICAgIC8vIFN0b3JlIFVSTHMgaW4gdGhlIGN3ZCB3aXRob3V0IGFueSBzdWJkaXJlY3Rvcnkgc3RydWN0dXJlXG4gICAgICBpZiAoZmlsZS5pbmNsdWRlcyhcIjovL1wiKSkge1xuICAgICAgICBmaWxlID0gbmFtZTtcbiAgICAgIH1cblxuICAgICAgLy8gQ29sbGFwc2UgaGlnaGVyIGRpcmVjdG9yeSBzdHJ1Y3R1cmVcbiAgICAgIGZpbGUgPSBjb2xsYXBzZVBhdGgoZmlsZSk7XG5cbiAgICAgIC8vIENyZWF0ZSBkaXJlY3RvcnkgdHJlZSwgaWdub3JpbmcgXCJkaXJlY3RvcnkgZXhpc3RzXCIgVkZTIGVycm9yc1xuICAgICAgY29uc3QgcGFydHMgPSBmaWxlLnNwbGl0KCcvJykuc2xpY2UoMCwgLTEpO1xuICAgICAgbGV0IHBhdGggPSAnJztcbiAgICAgIHdoaWxlIChwYXJ0cy5sZW5ndGggPiAwKSB7XG4gICAgICAgIHBhdGggKz0gcGFydHMuc2hpZnQoKSArICcvJztcbiAgICAgICAgdHJ5IHtcbiAgICAgICAgICBhd2FpdCBweW9kaWRlLkZTLm1rZGlyKHBhdGgpO1xuICAgICAgICB9IGNhdGNoIChlKSB7XG4gICAgICAgICAgaWYgKGUubmFtZSAhPT0gXCJFcnJub0Vycm9yXCIpIHRocm93IGU7XG4gICAgICAgICAgaWYgKGUuZXJybm8gIT09IDIwKSB7XG4gICAgICAgICAgICBjb25zdCBlcnJvclRleHRQdHIgPSBhd2FpdCBweW9kaWRlLl9tb2R1bGUuX3N0cmVycm9yKGUuZXJybm8pO1xuICAgICAgICAgICAgY29uc3QgZXJyb3JUZXh0ID0gYXdhaXQgcHlvZGlkZS5fbW9kdWxlLlVURjhUb1N0cmluZyhlcnJvclRleHRQdHIpO1xuICAgICAgICAgICAgdGhyb3cgbmV3IEVycm9yKGBGaWxlc3lzdGVtIEVycm9yICR7ZS5lcnJub30gXCIke2Vycm9yVGV4dH1cIi5gKTtcbiAgICAgICAgICB9XG4gICAgICAgIH1cbiAgICAgIH1cblxuICAgICAgLy8gV3JpdGUgdGhpcyBmaWxlIHRvIHRoZSBWRlNcbiAgICAgIHRyeSB7XG4gICAgICAgIHJldHVybiBhd2FpdCBweW9kaWRlLkZTLndyaXRlRmlsZShmaWxlLCBuZXcgVWludDhBcnJheShkYXRhKSk7XG4gICAgICB9IGNhdGNoIChlKSB7XG4gICAgICAgIGlmIChlLm5hbWUgIT09IFwiRXJybm9FcnJvclwiKSB0aHJvdyBlO1xuICAgICAgICBjb25zdCBlcnJvclRleHRQdHIgPSBhd2FpdCBweW9kaWRlLl9tb2R1bGUuX3N0cmVycm9yKGUuZXJybm8pO1xuICAgICAgICBjb25zdCBlcnJvclRleHQgPSBhd2FpdCBweW9kaWRlLl9tb2R1bGUuVVRGOFRvU3RyaW5nKGVycm9yVGV4dFB0cik7XG4gICAgICAgIHRocm93IG5ldyBFcnJvcihgRmlsZXN5c3RlbSBFcnJvciAke2UuZXJybm99IFwiJHtlcnJvclRleHR9XCIuYCk7XG4gICAgICB9XG4gICAgfSkucmVkdWNlKChjdXIsIG5leHQpID0+IGN1ci50aGVuKG5leHQpLCBQcm9taXNlLnJlc29sdmUoKSk7XG5cbiAgICBzdGF0dXNUZXh0LnRleHRDb250ZW50ID0gYFB5b2RpZGUgZW52aXJvbm1lbnQgc2V0dXBgO1xuICAgIGF3YWl0IHNldHVwUHl0aG9uKHB5b2RpZGUpO1xuXG4gICAgc3RhdHVzVGV4dC5yZW1vdmUoKTtcbiAgICBpZiAoc3RhdHVzQ29udGFpbmVyLmNoaWxkcmVuLmxlbmd0aCA9PSAwKSB7XG4gICAgICBzdGF0dXNDb250YWluZXIucGFyZW50Tm9kZS5yZW1vdmUoKTtcbiAgICB9XG4gICAgcmV0dXJuIHB5b2RpZGU7XG4gIH0pKCkuY2F0Y2goKGVycikgPT4ge1xuICAgIHN0YXR1c1RleHQuc3R5bGUuY29sb3IgPSBcInZhcigtLWV4ZXJjaXNlLWVkaXRvci1obC1lciwgI0FEMDAwMClcIjtcbiAgICBzdGF0dXNUZXh0LnRleHRDb250ZW50ID0gZXJyLm1lc3NhZ2U7XG4gICAgLy9pbmRpY2F0b3JDb250YWluZXIucXVlcnlTZWxlY3RvcihcIi5zcGlubmVyLWdyb3dcIikuY2xhc3NMaXN0LmFkZChcImQtbm9uZVwiKTtcbiAgICB0aHJvdyBlcnI7XG4gIH0pO1xuXG4gIC8vIEtlZXAgdHJhY2sgb2YgaW5pdGlhbCBPSlMgYmxvY2sgcmVuZGVyXG4gIGNvbnN0IHJlbmRlcmVkT2pzID0ge307XG5cbiAgY29uc3QgcHJvY2VzcyA9IGFzeW5jIChjb250ZXh0LCBpbnB1dHMpID0+IHtcbiAgICBjb25zdCBweW9kaWRlID0gYXdhaXQgcHlvZGlkZVByb21pc2U7XG4gICAgY29uc3QgZXZhbHVhdG9yID0gbmV3IFB5b2RpZGVFdmFsdWF0b3IocHlvZGlkZSwgY29udGV4dCk7XG4gICAgYXdhaXQgZXZhbHVhdG9yLnByb2Nlc3MoaW5wdXRzKTtcbiAgICByZXR1cm4gZXZhbHVhdG9yLmNvbnRhaW5lcjtcbiAgfVxuXG4gIHJldHVybiB7XG4gICAgcHlvZGlkZVByb21pc2UsXG4gICAgcmVuZGVyZWRPanMsXG4gICAgcHJvY2VzcyxcbiAgfTtcbn1cbiJ9XX0=
+</script>
+<div id="exercise-loading-indicator" class="exercise-loading-indicator d-none d-flex align-items-center gap-2">
+<div id="exercise-loading-status" class="d-flex gap-2">
+
+</div>
+<div class="spinner-grow spinner-grow-sm">
+
+</div>
+</div>
+<script type="vfs-file">
+W10=
+</script>
+</section>
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<script type="ojs-module-contents">
+eyJjb250ZW50cyI6W119
+</script>
+<script type="module">
+if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
+window._ojs.paths.runtimeToDoc = "../../generative";
+window._ojs.paths.runtimeToRoot = "../..";
+window._ojs.paths.docToRoot = "..";
+window._ojs.selfContained = false;
+window._ojs.runtime.interpretFromScriptTags();
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../generative/attention-is-all-you-need.html" class="pagination-link" aria-label="Attention Is All You Need">
+        <span class="nav-page-text">Attention Is All You Need</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p><a href="https://creativecommons.org/licenses/by/4.0/">Attribution 4.0 International (CC BY 4.0)</a></p>
+</div>   
+    <div class="nav-footer-center">
+<p>Attention is all you need</p>
+</div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/AlbertProfe/">
+      <i class="bi bi-github" role="img">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
+
+
+
+
+</body></html>

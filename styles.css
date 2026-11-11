@@ -133,3 +133,19 @@ body.quarto-dark .labs {
 .labs a:hover {
   color: #ffffff;
 }
+
+
+/* White rounded pad for paper/diagram figures that must stay readable in dark mode
+   (transparent or white drawings). Wrap the figure in ::: {.fig-on-white}. */
+.fig-on-white img,
+.fig-on-white .figure-img {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 0.85rem;
+}
+.fig-on-white figure,
+.fig-on-white .quarto-float,
+.fig-on-white .quarto-figure {
+  background-color: #ffffff;
+  border-radius: 12px;
+}
