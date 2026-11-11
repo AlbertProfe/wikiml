@@ -206,7 +206,7 @@ $$
 \text{MSE} = \frac{1}{n}\sum_{i=1}^{n} (w \cdot x_i - y_i)^2
 $$
 
-Same thing as the code: for every ride, predict, subtract the real price, square, then take the average. With `weight = 0` you get the 96.75 above; with `weight = 1.5` you get 0. See [$\Sigma$ summation](maths/maths-symbols.qmd) and [The loss is a landscape](maths/maths-optimization.qmd).
+Same thing as the code: for every ride, predict, subtract the real price, square, then take the average. With `weight = 0` you get the 96.75 above; with `weight = 1.5` you get 0. See the [MSE card](maths/maths-symbols.qmd#mse-mean-squared-error), [$\Sigma$ summation](maths/maths-symbols.qmd) and [The loss is a landscape](maths/maths-optimization.qmd).
 :::
 
 # What you should notice

@@ -447,6 +447,44 @@ ws[np.argmin((ws - 3)**2)]   # 3.0
 
 **Where it shows up.** Every training loop: find the parameters that minimise the loss. Prediction often uses $\arg\max$; learning uses $\arg\min$.
 
+# MSE — mean squared error
+
+**In one line.** How wrong are we, on average? Square every error, then take the mean.
+
+$$
+\text{MSE} = \frac{1}{n}\sum_{i=1}^{n} (\hat{y}_i - y_i)^2
+$$
+
+Read it right to left: for each example $i$, take the prediction $\hat{y}_i$ minus the real answer $y_i$, square it, add them all up ($\Sigma$) and divide by how many there are ($\frac{1}{n}$).
+
+::: {.light-only}
+![Taxi receipts with w = 1: squared errors 1, 6.25 and 25 average to 10.75.](/images/maths-symbols/mse-light.png){.lightbox width=90% fig-align="center"}
+:::
+
+::: {.dark-only}
+![Taxi receipts with w = 1: squared errors 1, 6.25 and 25 average to 10.75.](/images/maths-symbols/mse.png){.lightbox width=90% fig-align="center"}
+:::
+
+::: {.callout-tip}
+# Everyday example
+
+You play darts and throw three. Measure how far each dart lands from the bullseye, square each distance, and average. One wild throw far from the centre ruins your score much more than three throws that are a bit off. That number is your MSE: lower is better, and 0 means every dart hit the bullseye.
+:::
+
+**Analogy.** A penalty score. Small misses cost a little, big misses cost a lot, and above or below costs the same.
+
+**A tiny example.** Taxi receipts 2 km for €3, 5 km for €7.50 and 10 km for €15, with a guess $w=1$: predictions 2, 5, 10; errors −1, −2.5, −5; squared 1, 6.25, 25; mean $32.25/3 = 10.75$. With $w=1.5$ every error is 0, so MSE $=0$.
+
+```python
+km    = [2, 5, 10]
+price = [3, 7.5, 15]
+w = 1
+errors = [w * x - y for x, y in zip(km, price)]
+sum(e * e for e in errors) / len(km)   # 10.75
+```
+
+**Where it shows up.** The loss of linear regression and most regression models; the number gradient descent pushes down in [Taxi Lab 1](../mlab01-1.qmd).
+
 # Summary
 
 | Symbol | Pronunciation | The question it asks | A typical ML home |
@@ -466,6 +504,7 @@ ws[np.argmin((ws - 3)**2)]   # 3.0
 | $\approx$ / $\propto$ | approx. / proportional | Almost equal? Or the same shape, scaled? | Approximations; Bayes |
 | $P(A\mid B)$ | probability of A given B | Of those in $B$, how many are $A$? | Conditioning, naïve Bayes |
 | $\arg\min$ / $\min$ | argmin / min | Which input gives the smallest value? | Training: minimise the loss |
+| MSE | mean squared error | How wrong are we, on average? | Regression loss, Taxi Lab |
 
 # See also
 
