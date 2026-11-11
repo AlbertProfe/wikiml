@@ -4,9 +4,36 @@ title: "Deep Learning: Resources"
 
 # Resources for this section
 
-A dedicated short list for this section is not written yet. Useful pages already on this wiki:
+Useful pages already on this wiki:
 
 - [ANN introduction](/ann/ann-introduction.qmd)
 - [ANN: model and demos](/ann/ann-model-and-demos.qmd) (includes the 3Blue1Brown transformer video and a Manim Fourier clip)
 - The imported [book notes](/resources/resources-books.qmd)
-- The site-wide [Resources](/resources/resources-index.qmd) list (3Blue1Brown, fast.ai, MIT 6.S191, the physics-based deep learning book, and others)
+
+## Neural Network
+
+- [A Brief Introduction to Neural Networks](https://dkriesel.com/en/science/neural_networks#dokuwiki__top){.external target='_blank'}
+- [Making neural nets uncool again](https://www.fast.ai/){.external target='_blank'}
+- [But what is a neural network? | Deep learning chapter 1](https://youtu.be/aircAruvnKk?feature=shared){.external target='_blank'}
+
+## Deep Learning
+
+- [MIT Introduction to Deep Learning | 6.S191](https://youtu.be/ErnWZxJovaM?feature=shared){.external target='_blank'}
+- [Practical Deep Learning](https://course.fast.ai/){.external target='_blank'}
+- [MIT 6.S191 Introduction to Deep Learning 2025](https://introtodeeplearning.com/){.external target='_blank'}
+- [MIT 6.S191 Introduction to Deep Learning 2024](https://introtodeeplearning.com/2024/index.html){.external target='_blank'}
+
+## Books
+
+- <span class="chip chip-primary">book</span> [Welcome to the Physics-based Deep Learning Book (v0.2)](http://physicsbaseddeeplearning.org/intro.html){.external target='_blank'}
+- [The Little Book of Deep Learning](https://fleuret.org/francois/lbdl.html){.external target='_blank'}
+- [Understand Deep Learning: Python notebooks covering the whole text](https://udlbook.github.io/udlbook/){.external target='_blank'}
+- [Deep Learning An MIT Press book Ian Goodfellow and Yoshua Bengio and Aaron Courville](https://www.deeplearningbook.org/){.external target='_blank'}
+
+## Papers and labs
+
+- <span class="chip chip-warning">paper</span> [Deep learning Yann LeCun1,2, Yoshua Bengio3 & Geoffrey Hinton4,](https://www.cs.toronto.edu/~hinton/absps/NatureDeepReview.pdf?utm_source=perplexity){.external target='_blank'}
+- <span class="chip chip-danger">youtube</span> [Building a neural network FROM SCRATCH (no Tensorflow/Pytorch, just numpy & math)](https://youtu.be/w8yWXqWQYmU?feature=shared){.external target='_blank'}
+- [AI by hand](https://aibyhand.substack.com/){.external target='_blank'}
+
+Every section has its own list, from the [Resources](/resources/resources-index.qmd) hub.
