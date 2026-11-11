@@ -134,9 +134,33 @@ step 2  w=18.000  loss=480.0000
 
 The nudge itself is the same idea as on the [optimization](maths/maths-optimization.qmd) page: $w \leftarrow w - \eta\nabla L$. The [gradient](maths/maths-symbols.qmd#nabla-gradient) says which way.
 
-# The same loop, more weights
+# Why this is so relevant, and why we say a machine is learning
 
-Every neural network, including an MNIST classifier, is this same loop with many more weights.
+This little loop is so relevant because it is the same loop behind every neural network: an MNIST classifier, a large language model, all of them. Only the scale changes — more weights, more data, a longer chain. The idea does not.
+
+Why do we say the machine is *learning*? Nobody programmed $w = 2$. We did not write the rule `y = 2 * x`. The program started from a wrong guess and improved its own performance from data and experience, by reducing its error, step after step.
+
+Tom Mitchell put it this way in 1997:
+
+> A computer program is said to learn from experience E with respect to some class of tasks T and performance measure P, if its performance at tasks in T, as measured by P, improves with experience E.
+
+Here the task $T$ is to predict $y$ from $x$, the performance $P$ is the squared error (smaller is better), and the experience $E$ is the four examples. After twenty steps, $P$ has improved. So we call it learning.
+
+::: {.callout-tip}
+# Everyday example
+
+You learn to throw a dart, or to ride a bike, in the same way: you miss, you correct, you try again. Nobody hands you a finished list of rules. The machine is doing that, with a number $w$.
+:::
+
+An ordinary program works like this: you write the rules, you give it data, and it produces answers. Machine learning flips the arrow: you give it data and the answers, and it finds the rules.
+
+::: {.light-only}
+![An ordinary program is rules plus data, giving answers. Machine learning is data plus answers, giving rules.](/images/ml-learning-loop/rules-plus-data-versus-data-plus-answers-light.png){.lightbox width=90% fig-align="center"}
+:::
+
+::: {.dark-only}
+![An ordinary program is rules plus data, giving answers. Machine learning is data plus answers, giving rules.](/images/ml-learning-loop/rules-plus-data-versus-data-plus-answers.png){.lightbox width=90% fig-align="center"}
+:::
 
 # Next step: a bias
 
@@ -149,3 +173,7 @@ Next step would be adding a bias: $y = w\cdot x + b$. Now two numbers have to be
 - [Calculus essentials](maths/maths-calculus.qmd) — the slope and one step of gradient descent
 - [What is Machine Learning](/machine/machine-index.qmd) — the decision / error / optimisation loop, and the four learning paradigms
 - [Maths for machine learning](maths/maths-index.qmd)
+
+# References
+
+- Tom M. Mitchell, *Machine Learning*, McGraw-Hill, 1997. The definition above is from Chapter 1, “Well-posed learning problems”.
