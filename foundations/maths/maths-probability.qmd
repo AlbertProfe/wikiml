@@ -67,4 +67,5 @@ L = -np.log(p_correct).mean()           # cross-entropy on this tiny batch
 - [ML math symbols, explained easy](maths-symbols.qmd) — $\mathbb{E}$, $\sigma$, $\Sigma$
 - [Naïve Bayes](/algorithms/algo-naive-bayes.qmd)
 - [ANN: Activation functions](/ann/ann-activation-functions.qmd)
+- [Optimization essentials](maths-optimization.qmd)
 - [Maths for machine learning](maths-index.qmd)

@@ -78,4 +78,5 @@ flowchart TD
 - [ML math symbols, explained easy](maths-symbols.qmd) — $\nabla$, $\partial$
 - [ANN: Activation functions](/ann/ann-activation-functions.qmd) — why some slopes vanish, and why ReLU’s slope is $0$ or $1$
 - [Linear algebra essentials](maths-linear-algebra.qmd)
+- [Optimization essentials](maths-optimization.qmd) — the update, the learning rate, momentum, and Adam
 - [Maths for machine learning](maths-index.qmd)

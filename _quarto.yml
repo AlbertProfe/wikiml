@@ -58,6 +58,7 @@ website:
             - foundations/maths/maths-linear-algebra.qmd
             - foundations/maths/maths-calculus.qmd
             - foundations/maths/maths-probability.qmd
+            - foundations/maths/maths-optimization.qmd
         - text: "---"
         - section: "Machine Learning"
           contents:

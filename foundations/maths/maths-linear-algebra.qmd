@@ -93,4 +93,5 @@ The non-linearity $f$ is an [activation function](/ann/ann-activation-functions.
 
 - [ML math symbols, explained easy](maths-symbols.qmd) — $\odot$, $\lVert\cdot\rVert$, $^\top$, the dot product
 - [Calculus essentials](maths-calculus.qmd)
+- [Optimization essentials](maths-optimization.qmd)
 - [Maths for machine learning](maths-index.qmd)

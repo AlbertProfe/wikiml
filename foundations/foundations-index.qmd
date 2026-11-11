@@ -3,7 +3,7 @@ title: "Foundations"
 ---
 
 ::: {.callout-note}
-This section is in progress. The Machine Learning overview, the Helsinki Python track, and a short Maths core (symbols, linear algebra, calculus, probability) are already here.
+This section is in progress. The Machine Learning overview, the Helsinki Python track, and a short Maths core (symbols, linear algebra, calculus, probability, and optimization) are already here.
 :::
 
 # Why Foundations
@@ -16,7 +16,7 @@ Python lives here on purpose. It is not a side menu. The Helsinki *Python Progra
 
 - [What is Machine Learning](/machine/machine-index.qmd) — the decision / error / optimisation loop, and the four learning paradigms (supervised, unsupervised, semi-supervised, reinforcement).
 - [Python Programming](/python/python-index.qmd) — my notes from the University of Helsinki MOOC (`programming-24.mooc.fi`). Parts 1–3 are real notes; part 4 is started (parameter vs argument); parts 5–14 are still stubs I will fill.
-- [Maths for machine learning](maths/maths-index.qmd) — short primers on the core symbols, linear algebra, calculus, and probability and statistics.
+- [Maths for machine learning](maths/maths-index.qmd) — short primers on the core symbols, linear algebra, calculus, probability and statistics, and optimization.
 
 # Coming next
 

@@ -103,23 +103,13 @@ body.quarto-light svg.mermaid-js foreignObject div {
 }
 
 
-/* Theme-swapped figures: .light-only in light mode, .dark-only under body.quarto-dark.
-   Quarto 1.6.32 has no built-in light/dark image attribute, so we render both
-   and hide the unused figure (including its caption) with :has(). */
-img.dark-only,
-.quarto-figure:has(img.dark-only),
-figure:has(img.dark-only) {
-  display: none;
-}
-body.quarto-dark img.light-only,
-body.quarto-dark .quarto-figure:has(img.light-only),
-body.quarto-dark figure:has(img.light-only) {
+/* Theme-swapped figures: wrap each image+caption in ::: {.light-only} / ::: {.dark-only}.
+   Hide the unused wrapper (figure, caption and all). Default (no quarto-dark) is light.
+   Quarto's toggle adds body.quarto-dark or body.quarto-light (see quartoToggleColorScheme). */
+body:not(.quarto-dark) .dark-only,
+body.quarto-light .dark-only {
   display: none !important;
 }
-body.quarto-dark img.dark-only {
-  display: inline-block !important;
-}
-body.quarto-dark .quarto-figure:has(img.dark-only),
-body.quarto-dark figure:has(img.dark-only) {
-  display: block !important;
+body.quarto-dark .light-only {
+  display: none !important;
 }

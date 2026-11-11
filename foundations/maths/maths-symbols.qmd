@@ -10,9 +10,13 @@ A short deck of the symbols you will keep seeing. Each card has one question, a 
 
 **In one line.** Which direction should the parameters move to reduce the loss?
 
-![Gradient = which way is downhill.](/images/maths-symbols/nabla-gradient-light.png){.light-only .lightbox width=90% fig-align="center"}
+::: {.light-only}
+![Gradient = which way is downhill.](/images/maths-symbols/nabla-gradient-light.png){.lightbox width=90% fig-align="center"}
+:::
 
-![Gradient = which way is downhill.](/images/maths-symbols/nabla-gradient.png){.dark-only .lightbox width=90% fig-align="center"}
+::: {.dark-only}
+![Gradient = which way is downhill.](/images/maths-symbols/nabla-gradient.png){.lightbox width=90% fig-align="center"}
+:::
 
 **Analogy.** You are standing on a hill in the fog. The gradient points *uphill*. To reduce the loss, take a step the other way.
 
@@ -29,9 +33,13 @@ w = w - lr * grad   # 4.6
 
 **In one line.** What is the average value over all possible outcomes, weighted by probability?
 
-![Expectation = a weighted average.](/images/maths-symbols/expectation-light.png){.light-only .lightbox width=90% fig-align="center"}
+::: {.light-only}
+![Expectation = a weighted average.](/images/maths-symbols/expectation-light.png){.lightbox width=90% fig-align="center"}
+:::
 
-![Expectation = a weighted average.](/images/maths-symbols/expectation.png){.dark-only .lightbox width=90% fig-align="center"}
+::: {.dark-only}
+![Expectation = a weighted average.](/images/maths-symbols/expectation.png){.lightbox width=90% fig-align="center"}
+:::
 
 **Analogy.** The long-run average if you repeated the same random experiment many times. A fair die has expectation $3.5$, even though $3.5$ never appears on a face.
 
@@ -49,9 +57,13 @@ np.dot(x, p)   # 4.5
 
 **In one line.** Multiply corresponding entries, not entire matrices.
 
-![⊙ multiplies matching cells; a matrix product mixes rows and columns.](/images/maths-symbols/hadamard-vs-matmul-light.png){.light-only .lightbox width=100% fig-align="center"}
+::: {.light-only}
+![⊙ multiplies matching cells; a matrix product mixes rows and columns.](/images/maths-symbols/hadamard-vs-matmul-light.png){.lightbox width=100% fig-align="center"}
+:::
 
-![⊙ multiplies matching cells; a matrix product mixes rows and columns.](/images/maths-symbols/hadamard-vs-matmul.png){.dark-only .lightbox width=100% fig-align="center"}
+::: {.dark-only}
+![⊙ multiplies matching cells; a matrix product mixes rows and columns.](/images/maths-symbols/hadamard-vs-matmul.png){.lightbox width=100% fig-align="center"}
+:::
 
 **Analogy.** Two shopping lists, item by item. You never mix the apple row with the orange row — that mix would be a *matrix* product.
 
@@ -68,9 +80,13 @@ np.array([1, 2, 3]) * np.array([4, 5, 6])   # [4, 10, 18]
 
 **In one line.** How big is a vector or an error?
 
-![A vector with its L2 length and the L1 taxi path.](/images/maths-symbols/norm-l2-l1-light.png){.light-only .lightbox width=90% fig-align="center"}
+::: {.light-only}
+![A vector with its L2 length and the L1 taxi path.](/images/maths-symbols/norm-l2-l1-light.png){.lightbox width=90% fig-align="center"}
+:::
 
-![A vector with its L2 length and the L1 taxi path.](/images/maths-symbols/norm-l2-l1.png){.dark-only .lightbox width=90% fig-align="center"}
+::: {.dark-only}
+![A vector with its L2 length and the L1 taxi path.](/images/maths-symbols/norm-l2-l1.png){.lightbox width=90% fig-align="center"}
+:::
 
 **Analogy.** The length of an arrow. The everyday **L2** (Euclidean) norm is the straight-line distance, the same rule as Pythagoras. The **L1** norm is the taxi-city walk, along the axes.
 
@@ -87,9 +103,13 @@ np.linalg.norm([3.0, 4.0])   # 5.0
 
 **In one line.** Which input gives the highest value?
 
-![A curve with the peak marked; argmax is the x-position, max is the height.](/images/maths-symbols/argmax-light.png){.light-only .lightbox width=90% fig-align="center"}
+::: {.light-only}
+![A curve with the peak marked; argmax is the x-position, max is the height.](/images/maths-symbols/argmax-light.png){.lightbox width=90% fig-align="center"}
+:::
 
-![A curve with the peak marked; argmax is the x-position, max is the height.](/images/maths-symbols/argmax.png){.dark-only .lightbox width=90% fig-align="center"}
+::: {.dark-only}
+![A curve with the peak marked; argmax is the x-position, max is the height.](/images/maths-symbols/argmax.png){.lightbox width=90% fig-align="center"}
+:::
 
 **Analogy.** Not “how high did the class score?”, but “**which class** won?”.
 
@@ -108,9 +128,13 @@ np.argmax([0.1, 0.7, 0.2])   # 1
 
 **In one line.** Add these terms up.
 
-![Bars of 1, 2 and 3 stacking into a total of 6.](/images/maths-symbols/summation-light.png){.light-only .lightbox width=90% fig-align="center"}
+::: {.light-only}
+![Bars of 1, 2 and 3 stacking into a total of 6.](/images/maths-symbols/summation-light.png){.lightbox width=90% fig-align="center"}
+:::
 
-![Bars of 1, 2 and 3 stacking into a total of 6.](/images/maths-symbols/summation.png){.dark-only .lightbox width=90% fig-align="center"}
+::: {.dark-only}
+![Bars of 1, 2 and 3 stacking into a total of 6.](/images/maths-symbols/summation.png){.lightbox width=90% fig-align="center"}
+:::
 
 **Analogy.** A running total. The sigma sign is a compact “plus, plus, plus”.
 
@@ -127,9 +151,13 @@ np.sum([1, 2, 3])   # 6
 
 **In one line.** Multiply these terms together.
 
-![0.9 times 0.5 times 0.2 equals 0.09.](/images/maths-symbols/product-light.png){.light-only .lightbox width=90% fig-align="center"}
+::: {.light-only}
+![0.9 times 0.5 times 0.2 equals 0.09.](/images/maths-symbols/product-light.png){.lightbox width=90% fig-align="center"}
+:::
 
-![0.9 times 0.5 times 0.2 equals 0.09.](/images/maths-symbols/product.png){.dark-only .lightbox width=90% fig-align="center"}
+::: {.dark-only}
+![0.9 times 0.5 times 0.2 equals 0.09.](/images/maths-symbols/product.png){.lightbox width=90% fig-align="center"}
+:::
 
 **Analogy.** A chain of “and”s: the chance that several *independent* things all happen is the product of their chances.
 
@@ -146,9 +174,13 @@ np.prod([0.9, 0.5, 0.2])   # 0.09
 
 **In one line.** Turn a product into a sum, and stretch small probabilities so they are easier to add and to compare.
 
-![A product 0.5 × 0.4 becoming log 0.5 + log 0.4, next to the log curve.](/images/maths-symbols/log-light.png){.light-only .lightbox width=100% fig-align="center"}
+::: {.light-only}
+![A product 0.5 × 0.4 becoming log 0.5 + log 0.4, next to the log curve.](/images/maths-symbols/log-light.png){.lightbox width=100% fig-align="center"}
+:::
 
-![A product 0.5 × 0.4 becoming log 0.5 + log 0.4, next to the log curve.](/images/maths-symbols/log.png){.dark-only .lightbox width=100% fig-align="center"}
+::: {.dark-only}
+![A product 0.5 × 0.4 becoming log 0.5 + log 0.4, next to the log curve.](/images/maths-symbols/log.png){.lightbox width=100% fig-align="center"}
+:::
 
 **Analogy.** A translator: “times” becomes “plus”. That is why we talk about *log*-likelihood instead of multiplying many tiny numbers (which would underflow).
 
@@ -165,9 +197,13 @@ np.log(0.5) + np.log(0.4)   # same as np.log(0.5 * 0.4)
 
 **In one line.** How fast does this function change if I move *only this* input and hold the others still?
 
-![A contour with one axis held fixed, and the slope of that slice.](/images/maths-symbols/partial-derivative-light.png){.light-only .lightbox width=100% fig-align="center"}
+::: {.light-only}
+![A contour with one axis held fixed, and the slope of that slice.](/images/maths-symbols/partial-derivative-light.png){.lightbox width=100% fig-align="center"}
+:::
 
-![A contour with one axis held fixed, and the slope of that slice.](/images/maths-symbols/partial-derivative.png){.dark-only .lightbox width=100% fig-align="center"}
+::: {.dark-only}
+![A contour with one axis held fixed, and the slope of that slice.](/images/maths-symbols/partial-derivative.png){.lightbox width=100% fig-align="center"}
+:::
 
 **Analogy.** A kitchen with two knobs, heat and time. The partial with respect to heat asks: if I turn only the heat, how fast does the cake change?
 
@@ -184,9 +220,13 @@ h = 1e-6
 
 **In one line.** Look at the context: $\sigma$ may be the **sigmoid** function, or the **standard deviation**.
 
-![Two panels: a sigmoid curve, and a bell curve with the spread marked.](/images/maths-symbols/sigma-two-meanings-light.png){.light-only .lightbox width=100% fig-align="center"}
+::: {.light-only}
+![Two panels: a sigmoid curve, and a bell curve with the spread marked.](/images/maths-symbols/sigma-two-meanings-light.png){.lightbox width=100% fig-align="center"}
+:::
 
-![Two panels: a sigmoid curve, and a bell curve with the spread marked.](/images/maths-symbols/sigma-two-meanings.png){.dark-only .lightbox width=100% fig-align="center"}
+::: {.dark-only}
+![Two panels: a sigmoid curve, and a bell curve with the spread marked.](/images/maths-symbols/sigma-two-meanings.png){.lightbox width=100% fig-align="center"}
+:::
 
 **Analogy.** The same nickname for two classmates. In a network diagram, $\sigma$ usually means “squash this number into $(0,1)$”. In a statistics paragraph, $\sigma$ is “how spread out is this data?”.
 
@@ -204,9 +244,13 @@ np.std([2.0, 4.0])       # 1.0  (NumPy's default is the population std)
 
 **In one line.** $^\top$ flips rows and columns; the dot product $u^\top v$ (or $u\cdot v$) multiplies matching entries and adds them up.
 
-![A 2×2 matrix flipped to its transpose, and two arrows with a projection.](/images/maths-symbols/transpose-dot-light.png){.light-only .lightbox width=100% fig-align="center"}
+::: {.light-only}
+![A 2×2 matrix flipped to its transpose, and two arrows with a projection.](/images/maths-symbols/transpose-dot-light.png){.lightbox width=100% fig-align="center"}
+:::
 
-![A 2×2 matrix flipped to its transpose, and two arrows with a projection.](/images/maths-symbols/transpose-dot.png){.dark-only .lightbox width=100% fig-align="center"}
+::: {.dark-only}
+![A 2×2 matrix flipped to its transpose, and two arrows with a projection.](/images/maths-symbols/transpose-dot.png){.lightbox width=100% fig-align="center"}
+:::
 
 **Analogy.** Transpose is turning a table on its corner. The dot product is “how much do these two arrows point the same way?” — or, in a neuron, a weighted sum of inputs.
 
@@ -224,9 +268,13 @@ np.array([[1, 2], [3, 4]]).T    # [[1, 3], [2, 4]]
 
 **In one line.** Does this object belong to that set?
 
-![A point inside a set S, and a point outside.](/images/maths-symbols/belongs-to-light.png){.light-only .lightbox width=90% fig-align="center"}
+::: {.light-only}
+![A point inside a set S, and a point outside.](/images/maths-symbols/belongs-to-light.png){.lightbox width=90% fig-align="center"}
+:::
 
-![A point inside a set S, and a point outside.](/images/maths-symbols/belongs-to.png){.dark-only .lightbox width=90% fig-align="center"}
+::: {.dark-only}
+![A point inside a set S, and a point outside.](/images/maths-symbols/belongs-to.png){.lightbox width=90% fig-align="center"}
+:::
 
 **Analogy.** A membership badge. $x\in\mathbb{R}^n$ means “$x$ is a real vector with $n$ entries”.
 
@@ -242,9 +290,13 @@ np.array([[1, 2], [3, 4]]).T    # [[1, 3], [2, 4]]
 
 **In one line.** $\approx$ means “almost equal”; $\propto$ means “moves in proportion to” (the same shape, maybe a different scale).
 
-![A curve hugging an approximation, and two lines that scale together.](/images/maths-symbols/approx-and-proportional-light.png){.light-only .lightbox width=100% fig-align="center"}
+::: {.light-only}
+![A curve hugging an approximation, and two lines that scale together.](/images/maths-symbols/approx-and-proportional-light.png){.lightbox width=100% fig-align="center"}
+:::
 
-![A curve hugging an approximation, and two lines that scale together.](/images/maths-symbols/approx-and-proportional.png){.dark-only .lightbox width=100% fig-align="center"}
+::: {.dark-only}
+![A curve hugging an approximation, and two lines that scale together.](/images/maths-symbols/approx-and-proportional.png){.lightbox width=100% fig-align="center"}
+:::
 
 **Analogy.** $\approx$ is a close hug, not a perfect match. $\propto$ is “when this doubles, that doubles” — a constant factor may still be hiding.
 
@@ -263,9 +315,13 @@ np.isclose(22 / 7, 3.14, atol=0.02)   # True, roughly
 
 **In one line.** What is the chance of $A$, given that we already know $B$?
 
-![Of the emails that contain “prize”, a slice are spam: 16/24.](/images/maths-symbols/conditional-probability-light.png){.light-only .lightbox width=90% fig-align="center"}
+::: {.light-only}
+![Of the emails that contain “prize”, a slice are spam: 16/24.](/images/maths-symbols/conditional-probability-light.png){.lightbox width=90% fig-align="center"}
+:::
 
-![Of the emails that contain “prize”, a slice are spam: 16/24.](/images/maths-symbols/conditional-probability.png){.dark-only .lightbox width=90% fig-align="center"}
+::: {.dark-only}
+![Of the emails that contain “prize”, a slice are spam: 16/24.](/images/maths-symbols/conditional-probability.png){.lightbox width=90% fig-align="center"}
+:::
 
 **Analogy.** Of all the emails that contain “prize”, what fraction are spam? You have already narrowed the pile to $B$.
 
@@ -281,9 +337,13 @@ np.isclose(22 / 7, 3.14, atol=0.02)   # True, roughly
 
 **In one line.** $\min$ is the smallest value; $\arg\min$ is *which input* gives that smallest value. Training is $\arg\min$ of the loss.
 
-![A loss bowl with the bottom marked: min is 0, argmin is w = 3.](/images/maths-symbols/argmin-light.png){.light-only .lightbox width=90% fig-align="center"}
+::: {.light-only}
+![A loss bowl with the bottom marked: min is 0, argmin is w = 3.](/images/maths-symbols/argmin-light.png){.lightbox width=90% fig-align="center"}
+:::
 
-![A loss bowl with the bottom marked: min is 0, argmin is w = 3.](/images/maths-symbols/argmin.png){.dark-only .lightbox width=90% fig-align="center"}
+::: {.dark-only}
+![A loss bowl with the bottom marked: min is 0, argmin is w = 3.](/images/maths-symbols/argmin.png){.lightbox width=90% fig-align="center"}
+:::
 
 **Analogy.** The lowest point on the hill ($\min$) versus “where do I stand to be at the bottom?” ($\arg\min$). The twin of $\arg\max$.
 
@@ -323,3 +383,4 @@ ws[np.argmin((ws - 3)**2)]   # 3.0
 - [Linear algebra essentials](maths-linear-algebra.qmd)
 - [Calculus essentials](maths-calculus.qmd)
 - [Probability and statistics essentials](maths-probability.qmd)
+- [Optimization essentials](maths-optimization.qmd)
