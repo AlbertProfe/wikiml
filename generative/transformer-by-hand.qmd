@@ -1,0 +1,407 @@
+---
+title: "Transformer by hand"
+format:
+  live-html:
+    fontsize: "1.0em"
+    theme:
+      light: cosmo
+      dark: darkly
+    css: ../styles.css
+    toc: true
+    toc-depth: 5
+pyodide:
+  packages:
+    - numpy
+---
+
+# Why compute a Transformer by hand?
+
+In [The evolution of attention](evolution-of-attention.qmd) we told the story: a Transformer block reads all the words at once, mixes them with self-attention, and then each position thinks on its own. This page does the arithmetic.
+
+The numbers are tiny on purpose. Three positions, three features, and a handful of $1$s, $0$s and $-1$s. You can fill in every cell with a pencil, then press Run in the page and watch the same cells appear.
+
+The exercise is inspired by Prof. Tom Yeh's [Transformer by hand](https://www.byhand.ai/p/transformer-by-hand){.external target="_blank"} on [AI by hand](https://www.byhand.ai/){.external target="_blank"} — the worksheets that work through architectures on paper. The matrices below are our own classroom example, not a copy of his. If you like this way of seeing, his site is the place to go next with a longer sheet.
+
+A full Transformer has many extra parts: positional encoding, several heads, layer norm, skip connections, and a stack of blocks. We leave those aside. What we compute is the heart of one block: **attention mixes across positions; a feed-forward network mixes across features**. The same two jobs, over and over, are what the stack is doing.
+
+::: {.callout-tip}
+# Everyday example
+
+You do not really know a recipe until you have cooked it once with a wooden spoon. Watching a factory video is not the same as weighing the flour yourself. A Transformer block is the same: the formulae in the [evolution of attention](evolution-of-attention.qmd) only settle once you have added the cells by hand.
+:::
+
+```{mermaid}
+flowchart LR
+  X[Input features X] --> A[Attention weights A]
+  A --> Z[Weighted features Z]
+  Z --> F[First layer plus bias]
+  F --> R[ReLU]
+  R --> Y[Second layer: output Y]
+```
+
+# The setup
+
+We have a three-word sentence, *Riya bought tea*, already turned into numbers. Each word is one **position** (one row). Each position carries three **features** (the columns). Think of three sticky notes on a desk, each with three scores written on it.
+
+We will write matrices with **rows as positions** and **columns as features**, and keep that convention all the way through.
+
+# 1. Input features
+
+$$
+X =
+\begin{bmatrix}
+2 & 0 & 4 \\
+0 & 6 & 2 \\
+4 & 2 & 0
+\end{bmatrix}
+$$
+
+|  | Feature 1 | Feature 2 | Feature 3 |
+| --- | ---: | ---: | ---: |
+| Riya | 2 | 0 | 4 |
+| bought | 0 | 6 | 2 |
+| tea | 4 | 2 | 0 |
+
+These numbers are a toy. In a real model they would be learned embeddings, plus a signal for word order. Here they are just three short notes we can add up by hand.
+
+# 2. The attention weight matrix
+
+In a real block, the attention weights come from queries, keys and $\operatorname{softmax}(QK^{\top}/\sqrt{d_k})$, as in [The evolution of attention](evolution-of-attention.qmd). On this page we start one step later: the weights are already in our hands, in a matrix $A$. Each row says *where this position looks*, and the shares in a row add up to $1$ — a sum, the [$\Sigma$](/foundations/maths/maths-symbols.qmd#sigma-summation) you already know.
+
+$$
+A =
+\begin{bmatrix}
+1 & 0 & 0 \\
+1/2 & 1/2 & 0 \\
+0 & 1/2 & 1/2
+\end{bmatrix}
+$$
+
+|  | looks at Riya | looks at bought | looks at tea |
+| --- | ---: | ---: | ---: |
+| Riya | $1$ | $0$ | $0$ |
+| bought | $1/2$ | $1/2$ | $0$ |
+| tea | $0$ | $1/2$ | $1/2$ |
+
+Riya looks only at herself. *Bought* looks half at Riya and half at itself — the action still needs the person. *Tea* looks half at the action and half at itself.
+
+::: {.callout-tip}
+# Everyday example
+
+You are at a small table. When your name is said, you look at yourself. When the waiter says "bought", you glance half at Riya and half at the verb. When "tea" is said, you glance at the verb and at the object. $A$ is that seating plan, written as numbers.
+:::
+
+# 3. Attention-weighted features
+
+Now we mix the notes. Each new row is a weighted sum of the old rows:
+
+$$
+Z = A X
+$$
+
+For *bought*, that is $\tfrac{1}{2}$ of Riya plus $\tfrac{1}{2}$ of bought:
+
+$$
+\tfrac{1}{2}
+\begin{bmatrix} 2 & 0 & 4 \end{bmatrix}
++
+\tfrac{1}{2}
+\begin{bmatrix} 0 & 6 & 2 \end{bmatrix}
+=
+\begin{bmatrix} 1 & 3 & 3 \end{bmatrix}
+$$
+
+Doing the same for every row:
+
+$$
+Z =
+\begin{bmatrix}
+2 & 0 & 4 \\
+1 & 3 & 3 \\
+2 & 4 & 1
+\end{bmatrix}
+$$
+
+|  | Feature 1 | Feature 2 | Feature 3 |
+| --- | ---: | ---: | ---: |
+| Riya | 2 | 0 | 4 |
+| bought | 1 | 3 | 3 |
+| tea | 2 | 4 | 1 |
+
+There are still three positions. Attention has not invented new words. It has rewritten each note by glancing at its neighbours. That is mixing **across positions**.
+
+# 4. Feed-forward, first layer
+
+The feed-forward network is a small multilayer perceptron, applied to **each position with the same weights**. That is what *position-wise* means: the same biscuit cutter, on every piece of dough.
+
+First we grow the features from 3 to 4. For a row $z$,
+
+$$
+z W_1 + b_1
+$$
+
+with
+
+$$
+W_1 =
+\begin{bmatrix}
+1 & 0 & 0 & 1 \\
+1 & 0 & 1 & -1 \\
+1 & 1 & 0 & 0
+\end{bmatrix},
+\qquad
+b_1 =
+\begin{bmatrix} 1 & 0 & 2 & 1 \end{bmatrix}
+$$
+
+The bias is a constant added to every position — a pinch of salt on every plate.
+
+Take Riya's row $z = [2,\ 0,\ 4]$ and the first new feature: $2\cdot 1 + 0\cdot 1 + 4\cdot 1 + 1 = 7$. The other three features on that row are $4$, $2$ and $3$. Doing every position:
+
+$$
+Z W_1 + b_1
+=
+\begin{bmatrix}
+7 & 4 & 2 & 3 \\
+8 & 3 & 5 & -1 \\
+8 & 1 & 6 & -1
+\end{bmatrix}
+$$
+
+|  | h1 | h2 | h3 | h4 |
+| --- | ---: | ---: | ---: | ---: |
+| Riya | 7 | 4 | 2 | 3 |
+| bought | 8 | 3 | 5 | $-1$ |
+| tea | 8 | 1 | 6 | $-1$ |
+
+This time the mixing is **across features**, on one note at a time. *Bought* does not look at *tea* here. It only rewrites its own four numbers, with the shared recipe $W_1, b_1$.
+
+# 5. ReLU
+
+[ReLU](/ann/ann-activation-functions.qmd) keeps the positive part and silences the rest: $\max(0, x)$. Two of the cells are negative. They become zero.
+
+$$
+H =
+\begin{bmatrix}
+7 & 4 & 2 & 3 \\
+8 & 3 & 5 & 0 \\
+8 & 1 & 6 & 0
+\end{bmatrix}
+$$
+
+|  | h1 | h2 | h3 | h4 |
+| --- | ---: | ---: | ---: | ---: |
+| Riya | 7 | 4 | 2 | 3 |
+| bought | 8 | 3 | 5 | 0 |
+| tea | 8 | 1 | 6 | 0 |
+
+::: {.callout-tip}
+# Everyday example
+
+ReLU is a door that only opens one way. A positive number is allowed through; a negative number is stopped and written as zero. Nothing else in this block is changed.
+:::
+
+# 6. Second layer, and the output
+
+The second layer shrinks the features from 4 back to 3, so the next block can pick them up in the same shape they arrived:
+
+$$
+Y = H W_2 + b_2
+$$
+
+$$
+W_2 =
+\begin{bmatrix}
+0 & 0 & 1 \\
+1 & -1 & -1 \\
+0 & -1 & 0 \\
+0 & 0 & 1
+\end{bmatrix},
+\qquad
+b_2 =
+\begin{bmatrix} 0 & 1 & 1 \end{bmatrix}
+$$
+
+For Riya's row $[7,\ 4,\ 2,\ 3]$, the three output features are $4$, $-5$ and $7$. The full output is
+
+$$
+Y =
+\begin{bmatrix}
+4 & -5 & 7 \\
+3 & -7 & 6 \\
+1 & -6 & 8
+\end{bmatrix}
+$$
+
+|  | Feature 1 | Feature 2 | Feature 3 |
+| --- | ---: | ---: | ---: |
+| Riya | 4 | $-5$ | 7 |
+| bought | 3 | $-7$ | 6 |
+| tea | 1 | $-6$ | 8 |
+
+That is one block. In a real model the next block would start again from $Y$, with a completely separate set of weights.
+
+# Creating the algorithm
+
+**The question.** We have three short notes, *Riya bought tea*. We want to push them through one Transformer block and write down every cell.
+
+```python
+# TODO: take X through attention and a two-layer feed-forward, with ReLU in between
+```
+
+**What we have.** The input $X$, the attention weights $A$, and the feed-forward weights and biases. We are not learning them on this page. We are applying them, by hand and then in code.
+
+```python
+import numpy as np
+
+X = np.array([
+    [2, 0, 4],  # Riya
+    [0, 6, 2],  # bought
+    [4, 2, 0],  # tea
+], dtype=float)
+```
+
+**Where each note looks.** Each row of $A$ is already a set of shares that add up to $1$.
+
+```python
+A = np.array([
+    [1.0, 0.0, 0.0],
+    [0.5, 0.5, 0.0],
+    [0.0, 0.5, 0.5],
+])
+```
+
+**Mix across positions.** Each new note is a weighted sum of the old notes.
+
+```python
+Z = A @ X
+# [[2, 0, 4],
+#  [1, 3, 3],
+#  [2, 4, 1]]
+```
+
+**The same recipe on every note.** Grow 3 features to 4, add a bias, then pass through ReLU.
+
+```python
+W1 = np.array([
+    [1, 0, 0,  1],
+    [1, 0, 1, -1],
+    [1, 1, 0,  0],
+], dtype=float)
+b1 = np.array([1, 0, 2, 1], dtype=float)
+
+H = np.maximum(Z @ W1 + b1, 0)
+# [[7, 4, 2, 3],
+#  [8, 3, 5, 0],
+#  [8, 1, 6, 0]]
+```
+
+**Shrink back to 3.** The next block expects the same width the first one received.
+
+```python
+W2 = np.array([
+    [0,  0,  1],
+    [1, -1, -1],
+    [0, -1,  0],
+    [0,  0,  1],
+], dtype=float)
+b2 = np.array([0, 1, 1], dtype=float)
+
+Y = H @ W2 + b2
+# [[4, -5, 7],
+#  [3, -7, 6],
+#  [1, -6, 8]]
+```
+
+**Check the answer.** The cells in the tables above should match the live cell below. The editor is Python in the browser — no install. Change a weight if you like, and press Run.
+
+```{pyodide}
+#| autorun: true
+import numpy as np
+
+X = np.array([
+    [2, 0, 4],  # Riya
+    [0, 6, 2],  # bought
+    [4, 2, 0],  # tea
+], dtype=float)
+
+A = np.array([
+    [1.0, 0.0, 0.0],
+    [0.5, 0.5, 0.0],
+    [0.0, 0.5, 0.5],
+])
+
+W1 = np.array([
+    [1, 0, 0,  1],
+    [1, 0, 1, -1],
+    [1, 1, 0,  0],
+], dtype=float)
+b1 = np.array([1, 0, 2, 1], dtype=float)
+
+W2 = np.array([
+    [0,  0,  1],
+    [1, -1, -1],
+    [0, -1,  0],
+    [0,  0,  1],
+], dtype=float)
+b2 = np.array([0, 1, 1], dtype=float)
+
+Z = A @ X
+H = np.maximum(Z @ W1 + b1, 0)
+Y = H @ W2 + b2
+
+def show(title, M):
+    print(title)
+    print(M.astype(int) if np.allclose(M, np.round(M)) else M)
+    print()
+
+show("Input X:", X)
+show("Attention weights A:", A)
+show("Z (attention-weighted features):", Z)
+show("After ReLU, H:", H)
+show("Output Y:", Y)
+print("Output Y for tea:", Y[2].astype(int))
+```
+
+# In one table
+
+| Step | What we compute | Job |
+| --- | --- | --- |
+| 1. Input $X$ | A $3\times 3$ matrix (three positions, three features) | The notes on the desk |
+| 2. Weights $A$ | A $3\times 3$ matrix; each row sums to $1$ | Who looks at whom |
+| 3. $Z = A X$ | Still $3\times 3$ | Mix **across positions** |
+| 4. $Z W_1 + b_1$ | Grows to $3\times 4$ | Mix **across features**, same recipe on every note |
+| 5. ReLU | Negatives become $0$ | A one-way door |
+| 6. $Y = H W_2 + b_2$ | Back to $3\times 3$ | Ready for the next block |
+
+The takeaway is the pair of jobs. Attention lets a position see its neighbours. The feed-forward network lets each position rewrite its own features. One without the other is only half of a block.
+
+# FAQ
+
+## Did we skip queries, keys and values?
+
+Yes. On this page $A$ is already the attention weight matrix, as if the softmax step had already happened. The path from $Q$, $K$ and $V$ to those weights is in [The evolution of attention](evolution-of-attention.qmd), including a tiny live example of $\operatorname{softmax}(QK^{\top}/\sqrt{d_k})$.
+
+## Why does every position use the same $W_1$ and $W_2$?
+
+That is the meaning of a *position-wise* feed-forward network. The block does not learn a separate recipe for *Riya* and another for *tea*. It learns one recipe and applies it to every row.
+
+## Is this a full Transformer?
+
+No. It is one simplified block: a single attention mix, then a two-layer feed-forward network with ReLU. There is no positional encoding, no multi-head attention, no layer norm and no residual (skip) connection. Those pieces matter, and they will live on [The Transformer](generative-transformer.qmd) page. They are not needed to see the two jobs of the block.
+
+## Why integers, and why are some attention weights already $1/2$?
+
+So you can do the sums on paper. A real network learns real numbers, and its attention weights come from softmax rather than being written down in advance. The arithmetic is the same.
+
+## What would the next block do?
+
+It would start from $Y$, with a new $A$, a new $W_1$ and a new $W_2$. The shape would stay $3\times 3$ in, $3\times 3$ out. A stack of blocks is that loop, repeated, each time with its own weights.
+
+# See also
+
+- [The evolution of attention](evolution-of-attention.qmd) — the story of the idea, and the core formula.
+- [$\Sigma$ — summation](/foundations/maths/maths-symbols.qmd#sigma-summation) — each row of $A$ is a sum that equals $1$.
+- [ANN: Activation functions](/ann/ann-activation-functions.qmd) — ReLU, and why a network needs a non-linearity.
+- [AI by hand](/foundations/resources.qmd) — Prof. Tom Yeh's exercises, including [Transformer by hand](https://www.byhand.ai/p/transformer-by-hand){.external target="_blank"}.
+- [The Transformer](generative-transformer.qmd) — the teaching page for the architecture itself, still in progress.

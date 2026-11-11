@@ -199,6 +199,7 @@ website:
         - section: "Transformers"
           contents:
             - generative/evolution-of-attention.qmd
+            - generative/transformer-by-hand.qmd
             - generative/generative-transformer.qmd
         - text: "---"
         - section: "Labs"
