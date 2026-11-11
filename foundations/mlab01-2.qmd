@@ -1,9 +1,21 @@
 ---
 title: "Lab#ML01-2: Taxi fare, NumPy and scikit-learn"
 subtitle: Lab
-jupyter: python3
-toc: true
+format:
+  live-html:
+    fontsize: "1.0em"
+    theme:
+      light: cosmo
+      dark: darkly
+    css: ../styles.css
+    toc: true
+    toc-depth: 5
 number-sections: true
+pyodide:
+  packages:
+    - numpy
+    - matplotlib
+    - scikit-learn
 ---
 
 ::: {.labs}
@@ -29,11 +41,22 @@ $$
 
 True values on these receipts: $w = 1.50$, $b = 2.00$. The program is not told those two numbers. The loop does not change: predict, measure the error, nudge each parameter, repeat.
 
-# More receipts
+The editor below is live Python in the browser. The first load takes a few seconds, because it also fetches NumPy and scikit-learn.
 
-Eight rides, all generated from $1.5 \cdot \text{km} + 2$.
+# More receipts, then two parameters
 
-```{python}
+Eight rides, all generated from $1.5 \cdot \text{km} + 2$. The derivative of the mean squared error with respect to $w$ is the average of $2 \cdot \text{error} \cdot \text{km}$. With respect to $b$, it is the average of $2 \cdot \text{error}$. Start at $w = 0$, $b = 0$, and take $2000$ steps of size $0.01$. Two parameters take more steps than one.
+
+::: {.callout-tip}
+# Try it
+
+Change `learning_rate` and press Run. Try a smaller rate, or a larger one. You can also try fewer `steps` and watch $w$ and $b$ stop short of 1.50 and 2.00.
+:::
+
+```{pyodide}
+#| autorun: true
+#| fig-width: 10
+#| fig-height: 8
 import matplotlib.pyplot as plt
 import numpy as np
 from sklearn.linear_model import LinearRegression
@@ -44,13 +67,7 @@ price = np.array([3.50, 5.00, 6.50, 9.50, 11.00, 14.00, 17.00, 20.00])
 print("Receipts:")
 for x, y in zip(km, price):
     print(f"  {x:4.0f} km   €{y:.2f}")
-```
 
-# Gradient descent for w and b
-
-The derivative of the mean squared error with respect to $w$ is the average of $2 \cdot \text{error} \cdot \text{km}$. With respect to $b$, it is the average of $2 \cdot \text{error}$. Start at $w = 0$, $b = 0$, and take $2000$ steps of size $0.01$. Two parameters take more steps than one.
-
-```{python}
 w = 0.0
 b = 0.0
 learning_rate = 0.01
@@ -65,7 +82,7 @@ pred = w * km + b
 loss = float(np.mean((pred - price) ** 2))
 history_loss.append(loss)
 
-print("After step |        w |        b |     loss")
+print("\nAfter step |        w |        b |     loss")
 print("-----------+----------+----------+---------")
 print(f"     start | {w:8.4f} | {b:8.4f} | {loss:7.4f}")
 
@@ -85,14 +102,14 @@ for step in range(1, steps + 1):
         print(f"{step:10d} | {w:8.4f} | {b:8.4f} | {loss:7.4f}")
 
 print(f"\nGradient descent:  w = {w:.6f}   b = {b:.6f}")
-```
 
-After 500 steps the fit is already close ($w \approx 1.514$, $b \approx 1.887$). After 2000 steps, $w = 1.500004$ and $b = 1.999971$.
+model = LinearRegression()
+model.fit(km.reshape(-1, 1), price)
+sk_w = float(model.coef_[0])
+sk_b = float(model.intercept_)
+print(f"LinearRegression:  w = {sk_w:.6f}   b = {sk_b:.6f}")
+print(f"True values:       w = 1.500000   b = 2.000000")
 
-```{python}
-#| fig-cap: "Loss falls, and w and b approach 1.50 and 2.00."
-#| fig-width: 10
-#| fig-height: 4
 fig, axes = plt.subplots(1, 2, figsize=(10, 4))
 axes[0].plot(history_loss, color="#d35400")
 axes[0].set_xlabel("step")
@@ -111,23 +128,6 @@ axes[1].grid(True, color="#dddddd")
 fig.suptitle("Taxi Lab 2 — gradient descent for price = w · km + b")
 fig.tight_layout()
 plt.show()
-```
-
-# Compare with scikit-learn
-
-`LinearRegression` solves the same least-squares problem in closed form. On clean receipts it lands on the true $w$ and $b$.
-
-```{python}
-#| fig-cap: "Gradient descent and LinearRegression fit the same line through the receipts."
-#| fig-width: 7
-#| fig-height: 4
-model = LinearRegression()
-model.fit(km.reshape(-1, 1), price)
-sk_w = float(model.coef_[0])
-sk_b = float(model.intercept_)
-print(f"LinearRegression:  w = {sk_w:.6f}   b = {sk_b:.6f}")
-print(f"True values:       w = 1.500000   b = 2.000000")
-print(f"Gradient descent:  w = {w:.6f}   b = {b:.6f}")
 
 fig, ax = plt.subplots(figsize=(7, 4))
 xs = np.linspace(0, 13, 50)
@@ -143,7 +143,7 @@ fig.tight_layout()
 plt.show()
 ```
 
-The two lines sit on top of each other. That is the point: your loop and the library are doing the same job. The library is faster and more stable; the loop is the one you can see.
+After 500 steps the fit is already close ($w \approx 1.514$, $b \approx 1.887$). After 2000 steps, $w = 1.500004$ and $b = 1.999971$. `LinearRegression` lands on the true $w$ and $b$. The two lines sit on top of each other. That is the point: your loop and the library are doing the same job. The library is faster and more stable; the loop is the one you can see.
 
 # What you should notice
 

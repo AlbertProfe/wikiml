@@ -2,6 +2,9 @@
 /_site/
 /.vscode/
 /_extensions/
+!/_extensions/r-wasm/
+!/_extensions/r-wasm/live/
+!/_extensions/r-wasm/live/**
 /.luarc.json
 /qpubli.sh
 /_freeze

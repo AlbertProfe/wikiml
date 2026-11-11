@@ -1,9 +1,19 @@
 ---
 title: "Lab#ML01-1: Taxi fare, pure Python"
 subtitle: Lab
-jupyter: python3
-toc: true
+format:
+  live-html:
+    fontsize: "1.0em"
+    theme:
+      light: cosmo
+      dark: darkly
+    css: ../styles.css
+    toc: true
+    toc-depth: 5
 number-sections: true
+pyodide:
+  packages:
+    - matplotlib
 ---
 
 ::: {.labs}
@@ -21,24 +31,13 @@ In this lab you will:
 [Code on GitHub](https://github.com/AlbertProfe/wikiml-labs/blob/taxi-lab/taxi/taxi_lab_1_pure_python.ipynb){.external target="_blank"}
 :::
 
-The story starts in [The learning loop](ml-learning-loop.qmd). Here you run it yourself, in plain Python. No libraries for the loop — matplotlib only draws the loss curve.
+The story starts in [The learning loop](ml-learning-loop.qmd). Here you run it yourself, in the page. The editor below is live Python in the browser — no install, no libraries for the loop, matplotlib only draws the loss curve. The first load takes a few seconds.
 
 Price = w · kilometres. The true rate on these receipts is €1.50 per kilometre. You do not tell the program that number. It has to find it.
 
-# The receipts
-
-```{python}
-km = [2, 5, 10]
-price = [3.0, 7.50, 15.0]
-
-w = 0.0
-learning_rate = 0.01
-steps = 20
-```
+# Guess, predict, error, nudge
 
 Three rides: 2 km for €3, 5 km for €7.50, 10 km for €15. Start at $w = 0$ — every ride is free — and take steps of size $0.01$.
-
-# Guess, predict, error, nudge
 
 The gradient of the mean squared error is the average of $2 \cdot \text{error} \cdot \text{km}$. A nudge is a small step against that gradient:
 
@@ -46,7 +45,25 @@ $$
 w \leftarrow w - 0.01 \cdot \nabla L
 $$
 
-```{python}
+::: {.callout-tip}
+# Try it
+
+Change `learning_rate` and press Run. Try a smaller rate, or a larger one.
+:::
+
+```{pyodide}
+#| autorun: true
+#| fig-width: 7
+#| fig-height: 4
+import matplotlib.pyplot as plt
+
+km = [2, 5, 10]
+price = [3.0, 7.50, 15.0]
+
+w = 0.0
+learning_rate = 0.01
+steps = 20
+
 history_w = [w]
 history_loss = []
 
@@ -81,19 +98,6 @@ for step in range(1, steps + 1):
         print(f"{step:10d} | {w:8.4f} | {pred_str} | {loss:7.4f}")
 
 print(f"\nFinal w = {w:.4f}  (true rate is 1.50)")
-```
-
-After the first nudge, $w$ jumps from $0$ to $1.29$. After four steps it is already $1.4994$. By step 6 it has settled on $1.50$. Nobody programmed the rate.
-
-# The loss curve
-
-Loss is the mean squared error at the current $w$. It starts at $96.75$ — every ride predicted as free — and drops to about zero once $w$ reaches $1.50$.
-
-```{python}
-#| fig-cap: "Loss falls as w approaches €1.50 per kilometre."
-#| fig-width: 7
-#| fig-height: 4
-import matplotlib.pyplot as plt
 
 fig, ax = plt.subplots(figsize=(7, 4))
 ax.plot(range(len(history_loss)), history_loss, color="#d35400", marker="o", markersize=4)
@@ -105,6 +109,10 @@ ax.grid(True, color="#dddddd")
 fig.tight_layout()
 plt.show()
 ```
+
+After the first nudge, $w$ jumps from $0$ to $1.29$. After four steps it is already $1.4994$. By step 6 it has settled on $1.50$. Nobody programmed the rate.
+
+Loss starts at $96.75$ — every ride predicted as free — and drops to about zero once $w$ reaches $1.50$.
 
 # What you should notice
 
