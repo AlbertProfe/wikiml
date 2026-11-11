@@ -15,7 +15,18 @@
     "href": "mlops/resources.html",
     "title": "MLOps: Resources",
     "section": "",
-    "text": "Resources for this section\nA dedicated reading list for MLOps is not written yet.\n\n\n\n\n Back to top",
+    "text": "Beej’s Guide to Git — a free guide from Git novice to intermediate: the commands, and a mental model of how Git stores its information.",
+    "crumbs": [
+      "Resources",
+      "MLOps: Resources"
+    ]
+  },
+  {
+    "objectID": "mlops/resources.html#git",
+    "href": "mlops/resources.html#git",
+    "title": "MLOps: Resources",
+    "section": "",
+    "text": "Beej’s Guide to Git — a free guide from Git novice to intermediate: the commands, and a mental model of how Git stores its information.",
     "crumbs": [
       "Resources",
       "MLOps: Resources"
@@ -48,7 +59,7 @@
     "href": "rag/resources.html",
     "title": "RAG and agents: Resources",
     "section": "",
-    "text": "RAG is already named in the comparison table on the Generative AI overview.\n\n\n\n5-Day AI Agents Intensive Course with Google — a self-paced Kaggle course: tools, memory, evaluation, and getting an agent into production.\n15 AI Agent Projects to Build in 2026 — a short project list, from a first agent to MCP, multi-agent systems, and agentic RAG.",
+    "text": "RAG is already named in the comparison table on the Generative AI overview.\n\n\n\n5-Day AI Agents Intensive Course with Google — a self-paced Kaggle course: tools, memory, evaluation, and getting an agent into production.\n15 AI Agent Projects to Build in 2026 — a short project list, from a first agent to MCP, multi-agent systems, and agentic RAG.\nAn Engineer’s Guide to Harness Orchestration — Part 1 of a series on the agent harness as a unit of work: agency, embodiment, and persistence, and why orchestration changes around it.",
     "crumbs": [
       "Resources",
       "RAG and agents: Resources"
@@ -59,7 +70,7 @@
     "href": "rag/resources.html#agents",
     "title": "RAG and agents: Resources",
     "section": "",
-    "text": "5-Day AI Agents Intensive Course with Google — a self-paced Kaggle course: tools, memory, evaluation, and getting an agent into production.\n15 AI Agent Projects to Build in 2026 — a short project list, from a first agent to MCP, multi-agent systems, and agentic RAG.",
+    "text": "5-Day AI Agents Intensive Course with Google — a self-paced Kaggle course: tools, memory, evaluation, and getting an agent into production.\n15 AI Agent Projects to Build in 2026 — a short project list, from a first agent to MCP, multi-agent systems, and agentic RAG.\nAn Engineer’s Guide to Harness Orchestration — Part 1 of a series on the agent harness as a unit of work: agency, embodiment, and persistence, and why orchestration changes around it.",
     "crumbs": [
       "Resources",
       "RAG and agents: Resources"
@@ -425,7 +436,7 @@
     "href": "foundations/resources.html",
     "title": "Foundations: Resources",
     "section": "",
-    "text": "The Python Programming MOOC 2024 (University of Helsinki), which the Python notes follow.\n\n\n\n\nRob J Hyndman | Professor of Statistics\n3blue1brown\n3blue1brown github videos\nrepo manim\nAI by hand — Prof. Tom Yeh’s exercises: maths, algorithms and architectures, worked out by hand.\n\n\n\n\nMIT’s Introduction to Algorithms:\n\nLecture Notes\nLecture Videos\n\n\n\n\n\nyoutube Learn Machine Learning Like a GENIUS and Not Waste Time\n6.867 Machine Learning (Fall 2004)\n6.867 | Fall 2006 | GraduateMachine Learning\nMachine Learning Resources\n\n\n\n\n\nThe Missing Semester of Your CS Education — MIT’s course on the tools classes skip: the shell, Git, editors, debugging, and shipping code.\nweb IT-Tools\n\nThe imported book notes collect longer notes.",
+    "text": "The Python Programming MOOC 2024 (University of Helsinki), which the Python notes follow.\n\n\n\n\nRob J Hyndman | Professor of Statistics\n3blue1brown\n3blue1brown github videos\nrepo manim\nAI by hand — Prof. Tom Yeh’s exercises: maths, algorithms and architectures, worked out by hand.\n\n\n\n\nMIT’s Introduction to Algorithms:\n\nLecture Notes\nLecture Videos\n\n\n\n\n\nyoutube Learn Machine Learning Like a GENIUS and Not Waste Time\n6.867 Machine Learning (Fall 2004)\n6.867 | Fall 2006 | GraduateMachine Learning\nMachine Learning Resources\n\n\n\n\n\nThe Missing Semester of Your CS Education — MIT’s course on the tools classes skip: the shell, Git, editors, debugging, and shipping code.\nweb IT-Tools\n\n\n\n\n\nKurate.org — AI Paper Rankings — a weekly leaderboard of new arXiv cs.AI preprints, meant as a discovery signal rather than peer review.\n\nThe imported book notes collect longer notes.",
     "crumbs": [
       "Resources",
       "Foundations: Resources"
@@ -480,7 +491,18 @@
     "href": "foundations/resources.html#development-tools",
     "title": "Foundations: Resources",
     "section": "",
-    "text": "The Missing Semester of Your CS Education — MIT’s course on the tools classes skip: the shell, Git, editors, debugging, and shipping code.\nweb IT-Tools\n\nThe imported book notes collect longer notes.",
+    "text": "The Missing Semester of Your CS Education — MIT’s course on the tools classes skip: the shell, Git, editors, debugging, and shipping code.\nweb IT-Tools",
+    "crumbs": [
+      "Resources",
+      "Foundations: Resources"
+    ]
+  },
+  {
+    "objectID": "foundations/resources.html#papers",
+    "href": "foundations/resources.html#papers",
+    "title": "Foundations: Resources",
+    "section": "",
+    "text": "Kurate.org — AI Paper Rankings — a weekly leaderboard of new arXiv cs.AI preprints, meant as a discovery signal rather than peer review.\n\nThe imported book notes collect longer notes.",
     "crumbs": [
       "Resources",
       "Foundations: Resources"
@@ -535,7 +557,7 @@
     "href": "deep/resources.html",
     "title": "Deep Learning: Resources",
     "section": "",
-    "text": "Useful pages already on this wiki:\n\nANN introduction\nANN: model and demos (includes the 3Blue1Brown transformer video and a Manim Fourier clip)\nThe imported book notes\n\n\n\n\nA Brief Introduction to Neural Networks\nMaking neural nets uncool again\nBut what is a neural network? | Deep learning chapter 1\n\n\n\n\n\nMIT Introduction to Deep Learning | 6.S191\nPractical Deep Learning\nMIT 6.S191 Introduction to Deep Learning 2025\nMIT 6.S191 Introduction to Deep Learning 2024\n\n\n\n\n\nbook Welcome to the Physics-based Deep Learning Book (v0.2)\nThe Little Book of Deep Learning\nUnderstand Deep Learning: Python notebooks covering the whole text\nDeep Learning An MIT Press book Ian Goodfellow and Yoshua Bengio and Aaron Courville\n\n\n\n\n\npaper Deep learning Yann LeCun1,2, Yoshua Bengio3 & Geoffrey Hinton4,\nyoutube Building a neural network FROM SCRATCH (no Tensorflow/Pytorch, just numpy & math)\n\n\n\n\n\nLearn the Basics (PyTorch) — official beginner tutorial: tensors, data, a model, and the training loop, on FashionMNIST.\nTrenTorch — practice problems for learning ML by writing it, including building PyTorch pieces and coding papers.",
+    "text": "Useful pages already on this wiki:\n\nANN introduction\nANN: model and demos (includes the 3Blue1Brown transformer video and a Manim Fourier clip)\nThe imported book notes\n\n\n\n\nA Brief Introduction to Neural Networks\nMaking neural nets uncool again\nBut what is a neural network? | Deep learning chapter 1\n\n\n\n\n\nMIT Introduction to Deep Learning | 6.S191\nPractical Deep Learning\nMIT 6.S191 Introduction to Deep Learning 2025\nMIT 6.S191 Introduction to Deep Learning 2024\n\n\n\n\n\nbook Welcome to the Physics-based Deep Learning Book (v0.2)\nThe Little Book of Deep Learning\nUnderstand Deep Learning: Python notebooks covering the whole text\nDeep Learning An MIT Press book Ian Goodfellow and Yoshua Bengio and Aaron Courville\n\n\n\n\n\npaper Deep learning Yann LeCun1,2, Yoshua Bengio3 & Geoffrey Hinton4,\nyoutube Building a neural network FROM SCRATCH (no Tensorflow/Pytorch, just numpy & math)\n\n\n\n\n\nLearn the Basics (PyTorch) — official beginner tutorial: tensors, data, a model, and the training loop, on FashionMNIST.\nTrenTorch — practice problems for learning ML by writing it, including building PyTorch pieces and coding papers.\nTensorFlow Playground — an in-browser demo: tweak the network, the data, and the learning rate, and watch it learn. This link opens a ready-made classification preset.",
     "crumbs": [
       "Resources",
       "Deep Learning: Resources"
@@ -590,7 +612,7 @@
     "href": "deep/resources.html#tutorials-and-practice",
     "title": "Deep Learning: Resources",
     "section": "",
-    "text": "Learn the Basics (PyTorch) — official beginner tutorial: tensors, data, a model, and the training loop, on FashionMNIST.\nTrenTorch — practice problems for learning ML by writing it, including building PyTorch pieces and coding papers.",
+    "text": "Learn the Basics (PyTorch) — official beginner tutorial: tensors, data, a model, and the training loop, on FashionMNIST.\nTrenTorch — practice problems for learning ML by writing it, including building PyTorch pieces and coding papers.\nTensorFlow Playground — an in-browser demo: tweak the network, the data, and the learning rate, and watch it learn. This link opens a ready-made classification preset.",
     "crumbs": [
       "Resources",
       "Deep Learning: Resources"
