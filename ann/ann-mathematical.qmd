@@ -40,6 +40,8 @@ An artificial neuron in a multi-layer perceptron (MLP) mimics the biological neu
 
    Common activation functions include sigmoid, hyperbolic tangent, and ReLU[1][10].
 
+For the four functions in more detail, including GELU, see [Activation functions](ann-activation-functions.qmd).
+
 5. **Output**: The result $$y$$ is the neuron's output[1].
 
 **Multi-layer Perceptron Neural Network**

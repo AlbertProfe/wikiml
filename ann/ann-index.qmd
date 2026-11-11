@@ -54,6 +54,10 @@ Training Process:
 - Loss Function Calculation
 - Backward Propagation (Backpropagation)
 
+## Activation functions
+
+After the weighted sum, each neuron applies a non-linear **activation function**. This section has a student chapter on the four you will meet first — ReLU, sigmoid, tanh and GELU — plus a short gradient primer, a quiz, and a Python lab: [Activation functions](ann-activation-functions.qmd).
+
 ## ANNs Mathematics
 
 - [Structure of Biological Neurons](/ann/ann-mathematical.qmd#structure-of-biological-neurons)

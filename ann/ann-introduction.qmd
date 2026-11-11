@@ -58,6 +58,8 @@ These layers <mark>perform complex mathematical operations on the input data, id
 >
 > The choice of activation function can significantly impact the performance of the neural network in various tasks[4][5].
 
+For a walk-through of ReLU, sigmoid, tanh and GELU, see [Activation functions](ann-activation-functions.qmd).
+
 **Output Layer**
 
 The `output layer` is the final layer in the ANN structure and provides the ultimate result of the computations performed by the network. Depending on the nature of the task, the `output layer` can contain a single node for binary classification or multiple nodes for multi-class classification problems.

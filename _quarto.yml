@@ -156,6 +156,7 @@ website:
             - ann/ann-introduction.qmd
             - ann/ann-mathematical.qmd
             - ann/ann-model-and-demos.qmd
+            - ann/ann-activation-functions.qmd
         - text: "---"
         - section: "Introduction to Deep Learning"
           contents:

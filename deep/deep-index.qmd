@@ -9,6 +9,13 @@ title: "Deep Learning"
 Characterized by its ability *to process vast amounts of information through multiple interconnected layers*, `deep learning` has driven significant advancements in various fields, including computer vision, natural language processing, and automation.[1][2]
 
 
+::: {.callout-note}
+# In this section
+Start with the [ANN overview](/ann/ann-index.qmd) and the chapter on [activation functions](/ann/ann-activation-functions.qmd) (ReLU, sigmoid, tanh and GELU). Those pages sit just before this introduction in the Deep Learning sidebar.
+:::
+
+
+
 
 ::: {.column-margin}
 The rise of `deep learning` has enabled machines to achieve performance levels that surpass human capabilities in tasks such as image recognition and language translation, marking a pivotal shift in how artificial intelligence (AI) is applied across industries.[1]

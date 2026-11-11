@@ -40,6 +40,8 @@ $$
 
 where ( **w_i** ) are the weights, ( **x_i** ) are the inputs, ( **b** ) is the bias, and ( **f** ) is the activation function.
 
+For a student walk-through of ReLU, sigmoid, tanh and GELU, see [Activation functions](ann-activation-functions.qmd).
+
 ![The j-th neuron: inputs and weights, a bias term, summation, an activation function, and the neuron's output.](/images/ann/ANN_MathematicalModel.jpg){.lightbox fig-align="center" width="80%"}
 
 *A local diagram of the same idea: weighted inputs plus bias, then an activation function.* The three-panel figure that used to be hotlinked from Springer Nature's CDN (from [*Optical neural networks: progress and challenges*](https://www.nature.com/articles/s41377-024-01590-3){.external target='_blank'}) is no longer embedded here, so this page does not depend on that CDN.
