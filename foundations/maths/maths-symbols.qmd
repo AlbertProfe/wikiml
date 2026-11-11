@@ -4,7 +4,7 @@ title: "ML math symbols, explained easy"
 
 # The core symbols
 
-A short deck of the symbols you will keep seeing. Each card has one question, a figure, a tiny example, and a NumPy line.
+A short deck of the symbols you will keep seeing. Each card has one question, a figure, an everyday example, a tiny numerical example, and a NumPy line.
 
 # $\nabla$ — gradient
 
@@ -16,6 +16,12 @@ A short deck of the symbols you will keep seeing. Each card has one question, a 
 
 ::: {.dark-only}
 ![Gradient = which way is downhill.](/images/maths-symbols/nabla-gradient.png){.lightbox width=90% fig-align="center"}
+:::
+
+::: {.callout-tip}
+# Everyday example
+
+You are on the top of a hill, and the next step will make you go down. What is the gradient of this step, the direction of this step? This movement is very important. It's easy.
 :::
 
 **Analogy.** You are standing on a hill in the fog. The gradient points *uphill*. To reduce the loss, take a step the other way.
@@ -39,6 +45,12 @@ w = w - lr * grad   # 4.6
 
 ::: {.dark-only}
 ![Expectation = a weighted average.](/images/maths-symbols/expectation.png){.lightbox width=90% fig-align="center"}
+:::
+
+::: {.callout-tip}
+# Everyday example
+
+If you take the same bus every morning, some days it is early and some days it is late. The expectation is the average time you would see if you did this for many mornings — not any single day. A loss in a model is the same idea: the average error over many examples.
 :::
 
 **Analogy.** The long-run average if you repeated the same random experiment many times. A fair die has expectation $3.5$, even though $3.5$ never appears on a face.
@@ -65,6 +77,12 @@ np.dot(x, p)   # 4.5
 ![⊙ multiplies matching cells; a matrix product mixes rows and columns.](/images/maths-symbols/hadamard-vs-matmul.png){.lightbox width=100% fig-align="center"}
 :::
 
+::: {.callout-tip}
+# Everyday example
+
+You have a shopping list and a "how many I already have" list, item by item: apples with apples, milk with milk. You never mix the apple line with the milk line. In a network, a gate does the same: it keeps or kills each number in its own place.
+:::
+
 **Analogy.** Two shopping lists, item by item. You never mix the apple row with the orange row — that mix would be a *matrix* product.
 
 **A tiny example.** $(1,2,3)\odot(4,5,6)=(4,10,18)$.
@@ -88,6 +106,12 @@ np.array([1, 2, 3]) * np.array([4, 5, 6])   # [4, 10, 18]
 ![A vector with its L2 length and the L1 taxi path.](/images/maths-symbols/norm-l2-l1.png){.lightbox width=90% fig-align="center"}
 :::
 
+::: {.callout-tip}
+# Everyday example
+
+To the shop, you can cut across the park (the straight path) or walk the street corners like a taxi. Both answer "how far is it?" — one as a straight line, one as the blocks you actually walk. In ML, a norm asks how big a vector or an error is.
+:::
+
 **Analogy.** The length of an arrow. The everyday **L2** (Euclidean) norm is the straight-line distance, the same rule as Pythagoras. The **L1** norm is the taxi-city walk, along the axes.
 
 **A tiny example.** For $v=(3,4)$, $\lVert v\rVert_2=\sqrt{3^2+4^2}=5$ and $\lVert v\rVert_1=3+4=7$. A loss often uses the *squared* L2 norm, $25$, so the square root can be skipped.
@@ -109,6 +133,12 @@ np.linalg.norm([3.0, 4.0])   # 5.0
 
 ::: {.dark-only}
 ![A curve with the peak marked; argmax is the x-position, max is the height.](/images/maths-symbols/argmax.png){.lightbox width=90% fig-align="center"}
+:::
+
+::: {.callout-tip}
+# Everyday example
+
+The league table shows the scores, but what you care about is *which team* finished first, not only how many points they got. That "which one?" is argmax. A classifier does the same: it picks the class with the highest score.
 :::
 
 **Analogy.** Not “how high did the class score?”, but “**which class** won?”.
@@ -136,6 +166,12 @@ np.argmax([0.1, 0.7, 0.2])   # 1
 ![Bars of 1, 2 and 3 stacking into a total of 6.](/images/maths-symbols/summation.png){.lightbox width=90% fig-align="center"}
 :::
 
+::: {.callout-tip}
+# Everyday example
+
+At the till, you add every line on the receipt to get the total. Sigma is just that: plus, plus, plus, written small. Almost every loss adds up the errors in the same way.
+:::
+
 **Analogy.** A running total. The sigma sign is a compact “plus, plus, plus”.
 
 **A tiny example.** $\sum_{i=1}^{3} i = 1+2+3=6$. A mean is just a sum divided by the count: $(1+2+3)/3=2$.
@@ -157,6 +193,12 @@ np.sum([1, 2, 3])   # 6
 
 ::: {.dark-only}
 ![0.9 times 0.5 times 0.2 equals 0.09.](/images/maths-symbols/product.png){.lightbox width=90% fig-align="center"}
+:::
+
+::: {.callout-tip}
+# Everyday example
+
+Three locks on a bike: the bike is free only if lock 1 *and* lock 2 *and* lock 3 are open. When the steps are independent, you multiply the chances. That is how a naïve likelihood treats independent clues.
 :::
 
 **Analogy.** A chain of “and”s: the chance that several *independent* things all happen is the product of their chances.
@@ -182,6 +224,12 @@ np.prod([0.9, 0.5, 0.2])   # 0.09
 ![A product 0.5 × 0.4 becoming log 0.5 + log 0.4, next to the log curve.](/images/maths-symbols/log.png){.lightbox width=100% fig-align="center"}
 :::
 
+::: {.callout-tip}
+# Everyday example
+
+A few small chances in a row — you catch the bus, the shop is open, they still have milk — make a tiny number when you multiply them, hard to read at a glance. A log turns those "times" into "plus", so you can add them up calmly. That is why training often uses a log-likelihood or a cross-entropy.
+:::
+
 **Analogy.** A translator: “times” becomes “plus”. That is why we talk about *log*-likelihood instead of multiplying many tiny numbers (which would underflow).
 
 **A tiny example.** $\log(0.5\times 0.4)=\log 0.5+\log 0.4=\log 0.20$. NumPy’s `np.log` is the natural log.
@@ -205,6 +253,12 @@ np.log(0.5) + np.log(0.4)   # same as np.log(0.5 * 0.4)
 ![A contour with one axis held fixed, and the slope of that slice.](/images/maths-symbols/partial-derivative.png){.lightbox width=100% fig-align="center"}
 :::
 
+::: {.callout-tip}
+# Everyday example
+
+On a shower, you can turn only the temperature and leave the flow alone. The partial derivative asks: if I move *just this* knob, how fast does the water change? In a network, each weight is one knob; the gradient is the list of all those answers.
+:::
+
 **Analogy.** A kitchen with two knobs, heat and time. The partial with respect to heat asks: if I turn only the heat, how fast does the cake change?
 
 **A tiny example.** $f(x,y)=x^2+3y$. At $(2,1)$, $\partial f/\partial x=2x=4$ and $\partial f/\partial y=3$. The gradient is the vector of both: $\nabla f=(4,3)$.
@@ -226,6 +280,12 @@ h = 1e-6
 
 ::: {.dark-only}
 ![Two panels: a sigmoid curve, and a bell curve with the spread marked.](/images/maths-symbols/sigma-two-meanings.png){.lightbox width=100% fig-align="center"}
+:::
+
+::: {.callout-tip}
+# Everyday example
+
+The same letter has two everyday jobs, so look at the room you are in. As a dimmer, it squashes a signal to something between off and on — that is the sigmoid in a network. As a spread, it is how much your commute time jumps around from day to day — that is the standard deviation.
 :::
 
 **Analogy.** The same nickname for two classmates. In a network diagram, $\sigma$ usually means “squash this number into $(0,1)$”. In a statistics paragraph, $\sigma$ is “how spread out is this data?”.
@@ -252,6 +312,12 @@ np.std([2.0, 4.0])       # 1.0  (NumPy's default is the population std)
 ![A 2×2 matrix flipped to its transpose, and two arrows with a projection.](/images/maths-symbols/transpose-dot.png){.lightbox width=100% fig-align="center"}
 :::
 
+::: {.callout-tip}
+# Everyday example
+
+Turning a table on its side is a transpose: rows become columns, like flipping a seating plan. The dot product is a shopping moment: price times quantity for each item, then add — your total, and also the weighted sum inside a neuron.
+:::
+
 **Analogy.** Transpose is turning a table on its corner. The dot product is “how much do these two arrows point the same way?” — or, in a neuron, a weighted sum of inputs.
 
 **A tiny example.** $(1,2)\cdot(3,4)=1\cdot 3+2\cdot 4=11$. The transpose of $\begin{pmatrix}1&2\\3&4\end{pmatrix}$ is $\begin{pmatrix}1&3\\2&4\end{pmatrix}$.
@@ -276,6 +342,12 @@ np.array([[1, 2], [3, 4]]).T    # [[1, 3], [2, 4]]
 ![A point inside a set S, and a point outside.](/images/maths-symbols/belongs-to.png){.lightbox width=90% fig-align="center"}
 :::
 
+::: {.callout-tip}
+# Everyday example
+
+Is this key on your keyring, or not? Belongs-to is a simple membership check. In ML it is the same idea: this label belongs to the set of classes, this vector belongs to the space of inputs.
+:::
+
 **Analogy.** A membership badge. $x\in\mathbb{R}^n$ means “$x$ is a real vector with $n$ entries”.
 
 **A tiny example.** $3\in\{1,2,3\}$, but $4\notin\{1,2,3\}$. A paper will write a weight matrix as $W\in\mathbb{R}^{d\times k}$.
@@ -296,6 +368,12 @@ np.array([[1, 2], [3, 4]]).T    # [[1, 3], [2, 4]]
 
 ::: {.dark-only}
 ![A curve hugging an approximation, and two lines that scale together.](/images/maths-symbols/approx-and-proportional.png){.lightbox width=100% fig-align="center"}
+:::
+
+::: {.callout-tip}
+# Everyday example
+
+The recipe says "about 180 degrees" — that is approximately, close enough. If you double the guests, you double the flour — that is proportional, the same shape at a new scale. Models use both: a handy approximation, or a posterior that follows likelihood times prior.
 :::
 
 **Analogy.** $\approx$ is a close hug, not a perfect match. $\propto$ is “when this doubles, that doubles” — a constant factor may still be hiding.
@@ -323,6 +401,12 @@ np.isclose(22 / 7, 3.14, atol=0.02)   # True, roughly
 ![Of the emails that contain “prize”, a slice are spam: 16/24.](/images/maths-symbols/conditional-probability.png){.lightbox width=90% fig-align="center"}
 :::
 
+::: {.callout-tip}
+# Everyday example
+
+You already know it is raining. Now, what is the chance you will want a coat? That is "given B, what about A?" — you have narrowed the question to the rainy days. A spam filter does the same: given this word, how likely is spam?
+:::
+
 **Analogy.** Of all the emails that contain “prize”, what fraction are spam? You have already narrowed the pile to $B$.
 
 **A tiny example.** $100$ emails, $20$ of them spam. The word “prize” appears in $16$ of the spam emails and in $8$ of the rest, so in $24$ emails altogether: $P(\text{spam}\mid\text{prize})=16/24=2/3$.
@@ -343,6 +427,12 @@ np.isclose(22 / 7, 3.14, atol=0.02)   # True, roughly
 
 ::: {.dark-only}
 ![A loss bowl with the bottom marked: min is 0, argmin is w = 3.](/images/maths-symbols/argmin.png){.lightbox width=90% fig-align="center"}
+:::
+
+::: {.callout-tip}
+# Everyday example
+
+You are buying a phone. The lowest price is the min; *which* phone has that price is the argmin. Training is the same question: which parameters make the error as small as it can be?
 :::
 
 **Analogy.** The lowest point on the hill ($\min$) versus “where do I stand to be at the bottom?” ($\arg\min$). The twin of $\arg\max$.
