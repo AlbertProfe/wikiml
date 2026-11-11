@@ -1,5 +1,7 @@
 ---
 title: "Foundations: Resources"
+aliases:
+  - /resources/resources-index.html
 ---
 
 # Resources for this section
@@ -35,4 +37,4 @@ MIT's Introduction to Algorithms:
 - [The Missing Semester of Your CS Education](https://missing.csail.mit.edu/){.external target='_blank'} — MIT's course on the tools classes skip: the shell, Git, editors, debugging, and shipping code.
 - <span class="chip chip-success">web</span> [IT-Tools](https://it-tools.tech/){.external target='_blank'}
 
-The imported [book notes](/resources/resources-books.qmd) collect longer notes. Every section has its own list, from the [Resources](/resources/resources-index.qmd) hub.
+The imported [book notes](/resources/resources-books.qmd) collect longer notes.

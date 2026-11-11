@@ -40,4 +40,3 @@ Useful pages already on this wiki:
 - [Learn the Basics (PyTorch)](https://docs.pytorch.org/tutorials/beginner/basics/intro.html){.external target='_blank'} — official beginner tutorial: tensors, data, a model, and the training loop, on FashionMNIST.
 - [TrenTorch](https://trentorch.com/){.external target='_blank'} — practice problems for learning ML by writing it, including building PyTorch pieces and coding papers.
 
-Every section has its own list, from the [Resources](/resources/resources-index.qmd) hub.

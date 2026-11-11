@@ -11,4 +11,3 @@ RAG is already named in the comparison table on the [Generative AI overview](/ge
 - [5-Day AI Agents Intensive Course with Google](https://www.kaggle.com/learn-guide/5-day-agents){.external target='_blank'} — a self-paced Kaggle course: tools, memory, evaluation, and getting an agent into production.
 - [15 AI Agent Projects to Build in 2026](https://amanxai.com/2026/09/11/15-ai-agent-projects-to-build-in-2026/){.external target='_blank'} — a short project list, from a first agent to MCP, multi-agent systems, and agentic RAG.
 
-Every section has its own list, from the [Resources](/resources/resources-index.qmd) hub.
