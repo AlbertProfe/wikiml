@@ -26,7 +26,7 @@ In three or four steps it has learned €1.50/km from three receipts. Nobody pro
 
 A bias ($y = w\cdot x + b$) would learn a pickup fee as well, the bit you pay before the metres start to run.
 
-You can run this loop yourself in [Lab#ML01-1: Taxi fare, pure Python](mlab01-1.qmd). [Lab#ML01-2](mlab01-2.qmd) adds the pickup fee and compares your descent with scikit-learn.
+You can run this loop yourself in [Lab#FU01-1: Taxi fare, pure Python](mlab01-1.qmd). [Lab#FU01-2](mlab01-2.qmd) adds the pickup fee and compares your descent with scikit-learn.
 
 | After step | $w$ (€/km) | Predictions | Loss |
 | ---: | ---: | --- | ---: |
@@ -214,12 +214,12 @@ An ordinary program works like this: you write the rules, you give it data, and 
 
 # Next step: a bias
 
-Next step would be adding a bias: $y = w\cdot x + b$. Now two numbers have to be learned, not one, but the loop does not change: predict, measure the error, nudge each parameter, repeat. That is [Lab#ML01-2: Taxi fare, NumPy and scikit-learn](mlab01-2.qmd).
+Next step would be adding a bias: $y = w\cdot x + b$. Now two numbers have to be learned, not one, but the loop does not change: predict, measure the error, nudge each parameter, repeat. That is [Lab#FU01-2: Taxi fare, NumPy and scikit-learn](mlab01-2.qmd).
 
 # See also
 
-- [Lab#ML01-1: Taxi fare, pure Python](mlab01-1.qmd)
-- [Lab#ML01-2: Taxi fare, NumPy and scikit-learn](mlab01-2.qmd)
+- [Lab#FU01-1: Taxi fare, pure Python](mlab01-1.qmd)
+- [Lab#FU01-2: Taxi fare, NumPy and scikit-learn](mlab01-2.qmd)
 - [ML math symbols, explained easy](maths/maths-symbols.qmd) — $\nabla$, $\arg\min$
 - [Optimization essentials](maths/maths-optimization.qmd) — the update, the learning rate, momentum, and Adam
 - [Calculus essentials](maths/maths-calculus.qmd) — the slope and one step of gradient descent

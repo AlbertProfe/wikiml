@@ -1,5 +1,5 @@
 ---
-title: "Lab#ML01-2: Taxi fare, NumPy and scikit-learn"
+title: "Lab#FU01-2: Taxi fare, NumPy and scikit-learn"
 subtitle: Lab
 format:
   live-html:
@@ -19,7 +19,7 @@ pyodide:
 ---
 
 ::: {.labs}
-📘 **Lab#ML01-2: Taxi fare, NumPy and scikit-learn**
+📘 **Lab#FU01-2: Taxi fare, NumPy and scikit-learn**
 
 In this lab you will:
 
@@ -33,7 +33,7 @@ In this lab you will:
 [Code on GitHub](https://github.com/AlbertProfe/wikiml-foundations/blob/Lab%23FU01-2-taxi/taxi/taxi_lab_2_numpy_sklearn.ipynb){.external target="_blank"}
 :::
 
-[Lab#ML01-1](mlab01-1.qmd) learned one number: the fare per kilometre. A real taxi also has a flag fall — the bit you pay before the metres start to run. The model is now
+[Lab#FU01-1](mlab01-1.qmd) learned one number: the fare per kilometre. A real taxi also has a flag fall — the bit you pay before the metres start to run. The model is now
 
 $$
 \text{price} = w \cdot \text{km} + b
@@ -51,7 +51,7 @@ The editor below is live Python in the browser. The first load takes a few secon
 # TODO: find the price of a 7 km trip from eight receipts
 ```
 
-**Why one number isn't enough.** In [Lab#ML01-1](mlab01-1.qmd) the fare was just price = w · km. That cannot fit these receipts: 1 km at €3.50 would mean a rate of €3.50 / km, but 12 km at €20 would mean about €1.67 / km. We need a second number, the flag fall. The model is now price = w · km + b. Two unknowns: the rate `w` and the base fare `b`.
+**Why one number isn't enough.** In [Lab#FU01-1](mlab01-1.qmd) the fare was just price = w · km. That cannot fit these receipts: 1 km at €3.50 would mean a rate of €3.50 / km, but 12 km at €20 would mean about €1.67 / km. We need a second number, the flag fall. The model is now price = w · km + b. Two unknowns: the rate `w` and the base fare `b`.
 
 ```python
 # TODO: price = w * km + b; both w and b are unknown
@@ -233,7 +233,7 @@ Two parameters are coupled, so the walk toward the true $w$ and $b$ is slower th
 
 # See also
 
-- [Lab#ML01-1: Taxi fare, pure Python](mlab01-1.qmd)
+- [Lab#FU01-1: Taxi fare, pure Python](mlab01-1.qmd)
 - [The learning loop](ml-learning-loop.qmd)
 - [Optimization essentials](maths/maths-optimization.qmd)
 - [Code on GitHub](https://github.com/AlbertProfe/wikiml-foundations/blob/Lab%23FU01-2-taxi/taxi/taxi_lab_2_numpy_sklearn.py){.external target="_blank"} — the same script, in [AlbertProfe/wikiml-foundations](https://github.com/AlbertProfe/wikiml-foundations){.external target="_blank"}

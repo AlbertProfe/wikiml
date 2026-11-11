@@ -1,5 +1,5 @@
 ---
-title: "Lab#ML01-1: Taxi fare, pure Python"
+title: "Lab#FU01-1: Taxi fare, pure Python"
 subtitle: Lab
 format:
   live-html:
@@ -17,7 +17,7 @@ pyodide:
 ---
 
 ::: {.labs}
-📘 **Lab#ML01-1: Taxi fare, pure Python**
+📘 **Lab#FU01-1: Taxi fare, pure Python**
 
 In this lab you will:
 
@@ -186,10 +186,10 @@ Loss starts at $96.75$ — every ride predicted as free — and drops to about z
 
 The learning rate $0.01$ is a gentle pinch. The same loop, with a bad learning rate, can be slow or can blow up — that is in [The learning loop](ml-learning-loop.qmd) and in [Optimization essentials](maths/maths-optimization.qmd).
 
-Next: a pickup fee, two parameters, and a check against scikit-learn, in [Lab#ML01-2: Taxi fare, NumPy and scikit-learn](mlab01-2.qmd).
+Next: a pickup fee, two parameters, and a check against scikit-learn, in [Lab#FU01-2: Taxi fare, NumPy and scikit-learn](mlab01-2.qmd).
 
 # See also
 
-- [Lab#ML01-2: Taxi fare, NumPy and scikit-learn](mlab01-2.qmd)
+- [Lab#FU01-2: Taxi fare, NumPy and scikit-learn](mlab01-2.qmd)
 - [The learning loop](ml-learning-loop.qmd)
 - [Code on GitHub](https://github.com/AlbertProfe/wikiml-foundations/blob/Lab%23FU01-2-taxi/taxi/taxi_lab_1_pure_python.py){.external target="_blank"} — the same script, in [AlbertProfe/wikiml-foundations](https://github.com/AlbertProfe/wikiml-foundations){.external target="_blank"}

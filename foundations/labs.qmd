@@ -4,14 +4,14 @@ title: "Foundations: Labs"
 
 # Labs for this section
 
-Step-by-step wiki pages, in the same spirit as the labs on [albertprofe.dev](https://albertprofe.dev){.external target="_blank"}. The code lives in a separate repo, [AlbertProfe/wikiml-labs](https://github.com/AlbertProfe/wikiml-labs){.external target="_blank"}, so you can open the notebooks in Colab.
+Step-by-step wiki pages, in the same spirit as the labs on [albertprofe.dev](https://albertprofe.dev){.external target="_blank"}. The code lives in a separate repo, [AlbertProfe/wikiml-foundations](https://github.com/AlbertProfe/wikiml-foundations){.external target="_blank"}, so you can open the notebooks in Colab.
 
 ## Taxi Lab
 
 The story behind the loop is [The learning loop](ml-learning-loop.qmd).
 
-- [Lab#ML01-1: Taxi fare, pure Python](mlab01-1.qmd) — guess, predict, error, nudge, on three receipts.
-- [Lab#ML01-2: Taxi fare, NumPy and scikit-learn](mlab01-2.qmd) — a pickup fee, two parameters, and `LinearRegression`.
+- [Lab#FU01-1: Taxi fare, pure Python](mlab01-1.qmd) — guess, predict, error, nudge, on three receipts.
+- [Lab#FU01-2: Taxi fare, NumPy and scikit-learn](mlab01-2.qmd) — a pickup fee, two parameters, and `LinearRegression`.
 
 The Helsinki MOOC itself has exercises on [programming-24.mooc.fi](https://programming-24.mooc.fi){.external target="_blank"}; my [Python notes](/python/python-index.qmd) are companions to that course, not a replacement for its labs.
 
