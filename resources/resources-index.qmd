@@ -18,20 +18,3 @@ Each section of this wiki has its own short list.
 - [Training](/training/resources.qmd)
 
 The imported [book notes](/resources/resources-books.qmd) are also here.
-
-# General
-
-These do not belong to a single topic, so they stay on this page.
-
-## Algorithms
-
-MIT's Introduction to Algorithms:
-
-- [Lecture Notes](https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/pages/lecture-notes/ ){.external target='_blank'}
-- [Lecture Videos](http://www.youtube.com/playlist?list=PLUl4u3cNGP63EdVPNLG3ToM6LaEUuStEY){.external target='_blank'}
-
-This is general computer science (MIT 6.006), not the classic ML algorithms in [Classic ML: Resources](/algorithms/resources.qmd).
-
-## Tools
-
-- <span class="chip chip-success">web</span> [IT-Tools](https://it-tools.tech/){.external target='_blank'}
