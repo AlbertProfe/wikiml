@@ -30,6 +30,14 @@ This page walks the family tree of the idea that opened the letter back up.
 
 The original Transformer figure already lives on the [Generative AI overview](generative-index.qmd). A 3Blue1Brown walk-through of the same architecture is on [ANN: model and demos](/ann/ann-model-and-demos.qmd). The teaching page for the Transformer itself is still [in progress](generative-transformer.qmd). Here we tell the story that leads to it, and the work that made attention practical at length.
 
+::: {.light-only}
+![One Idea's Family Tree — The evolution of attention](/images/attention/one-ideas-family-tree-light.png){.lightbox width=100% fig-align="center"}
+:::
+
+::: {.dark-only}
+![One Idea's Family Tree — The evolution of attention](/images/attention/one-ideas-family-tree.png){.lightbox width=100% fig-align="center"}
+:::
+
 ```{mermaid}
 flowchart TD
   P["Seq2seq bottleneck: one fixed-length vector"] --> B["2014 Bahdanau: soft attention"]
