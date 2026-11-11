@@ -8,6 +8,7 @@ Useful pages already on this wiki:
 
 - [ANN introduction](/ann/ann-introduction.qmd)
 - [ANN: model and demos](/ann/ann-model-and-demos.qmd) (includes the 3Blue1Brown transformer video and a Manim Fourier clip)
+- [The evolution of attention](/generative/evolution-of-attention.qmd) — from the seq2seq bottleneck to Bahdanau, Luong, the Transformer, linear attention and FlashAttention
 - The imported [book notes](/resources/resources-books.qmd)
 
 ## Neural Network

@@ -54,7 +54,7 @@ Each layer in a DNN builds on the previous one, allowing the model to capture in
   - This adversarial training process helps improve the quality of generated outputs, making GANs popular in applications such as image generation, video creation, and data augmentation. Their ability to produce high-quality visuals has significantly impacted fields like art, entertainment, and gaming[11][12].
 - **Transformer Models**: `Transformer` models have gained prominence in `natural language processing tasks` due to their efficiency in handling sequential data without relying on recurrence.
   - `Transformers` utilize <mark>**self-attention** mechanisms to weigh the influence of different words in a sentence, allowing for a better understanding of context and relationships within the text</mark>.
-  - This architecture has led to significant advancements in machine translation, text summarization, and conversational AI applications, making Transformers a crucial development in the `deep learning` landscape[3].
+  - This architecture has led to significant advancements in machine translation, text summarization, and conversational AI applications, making Transformers a crucial development in the `deep learning` landscape[3]. The path from the earlier attention models to self-attention, and then to cheaper exact attention, is told in [The evolution of attention](/generative/evolution-of-attention.qmd).
 
 
 

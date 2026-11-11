@@ -8,7 +8,7 @@ This page is in progress. It replaces the old Quarto starter placeholder (“Thi
 
 # What this page will be
 
-The teaching page for the Transformer itself: encoder-decoder versus decoder-only, positional encoding, and the sentence *read in parallel, write one token at a time*.
+The path from the seq2seq bottleneck to self-attention is now told in [The evolution of attention](evolution-of-attention.qmd). This page will be the teaching page for the Transformer itself: encoder-decoder versus decoder-only, positional encoding, and the sentence *read in parallel, write one token at a time*.
 
 The original transformer figure already lives on the [Generative AI overview](generative-index.qmd). A 3Blue1Brown video on the same idea is embedded on [ANN: model and demos](/ann/ann-model-and-demos.qmd). This page will be the written explanation, not another embed.
 

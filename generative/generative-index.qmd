@@ -4,6 +4,12 @@ title: "Generative AI"
 
 # Generative AI Models
 
+::: {.callout-note}
+# In this section
+The path from the seq2seq bottleneck to self-attention — Bahdanau, Luong, the Transformer, linear attention and FlashAttention — is told in [The evolution of attention](evolution-of-attention.qmd). The original transformer figure is on this page; the teaching page for the architecture itself is [The Transformer](generative-transformer.qmd).
+:::
+
+
 > **Generative AI models** are machine learning models that can generate new data from existing data.
 
 Generative AI models are used in many applications, such as image generation, text generation, speech synthesis, and music generation.

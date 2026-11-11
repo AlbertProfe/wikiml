@@ -10,7 +10,7 @@ This page is in progress. It replaces the old Quarto starter placeholder (“Thi
 
 A teaching page on what an LLM is — Large + Language + Model — how it relates to the Transformer, and what it can and cannot do on its own.
 
-The comparison table on the [Generative AI overview](generative-index.qmd) already names LLMs. The longer story follows the path of this wiki: first [what an ANN is](/ann/ann-introduction.qmd), then how sequence models led to attention and the Transformer.
+The comparison table on the [Generative AI overview](generative-index.qmd) already names LLMs. The longer story follows the path of this wiki: first [what an ANN is](/ann/ann-introduction.qmd), then [how sequence models led to attention and the Transformer](evolution-of-attention.qmd).
 
 # Not written yet
 
