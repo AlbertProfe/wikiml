@@ -2,36 +2,36 @@
 title: "ML math symbols, explained easy"
 ---
 
-# Five symbols you will keep seeing
+# The core symbols
 
-Each card is one symbol, one question, a plain analogy, a tiny example with numbers, a NumPy one-liner, and where it turns up in machine learning.
+A short deck of the symbols you will keep seeing. Each card has one question, a figure, a tiny example, and a NumPy line.
 
 # $\nabla$ — gradient
 
 **In one line.** Which direction should the parameters move to reduce the loss?
 
-**Analogy.** You are standing on a hill in the fog, holding a ball. The gradient points *uphill*, to the steepest rise. To reduce the loss, you take a step the other way.
+![Gradient = which way is downhill.](/images/maths-symbols/nabla-gradient.png){.lightbox width=90% fig-align="center"}
 
-**A tiny example.** Let the loss be $L(w)=(w-3)^2$. At $w=5$, the slope is $2(w-3)=4$. The gradient is positive, so a descent step moves left: $w\leftarrow 5-0.1\times 4=4.6$, closer to $3$.
+**Analogy.** You are standing on a hill in the fog. The gradient points *uphill*. To reduce the loss, take a step the other way.
+
+**A tiny example.** Let $L(w)=(w-3)^2$. At $w=5$, the slope is $2(w-3)=4$. A descent step moves left: $w\leftarrow 5-0.1\times 4=4.6$, closer to $3$.
 
 ```python
 w, lr, grad = 5.0, 0.1, 4.0
 w = w - lr * grad   # 4.6
 ```
 
-**Where it shows up.** Gradient descent, and every backward pass in a neural network. See [Calculus essentials](maths-calculus.qmd) and the [gradient primer](/ann/ann-activation-functions.qmd#a-gradient-primer).
+**Where it shows up.** Gradient descent, and every backward pass. See [Calculus essentials](maths-calculus.qmd) and the [gradient primer](/ann/ann-activation-functions.qmd#a-gradient-primer).
 
 # $\mathbb{E}$ — expectation
 
 **In one line.** What is the average value over all possible outcomes, weighted by probability?
 
-**Analogy.** The long-run average if you repeated the same random experiment many times. A fair six-sided die has expectation $3.5$, even though $3.5$ never appears on a face.
+![Expectation = a weighted average.](/images/maths-symbols/expectation.png){.lightbox width=90% fig-align="center"}
 
-**A tiny example.** Outcomes $2$, $4$, $10$ with probabilities $0.5$, $0.25$, $0.25$:
+**Analogy.** The long-run average if you repeated the same random experiment many times. A fair die has expectation $3.5$, even though $3.5$ never appears on a face.
 
-$$
-\mathbb{E}[x]=2\cdot 0.5+4\cdot 0.25+10\cdot 0.25=4.5.
-$$
+**A tiny example.** Outcomes $2$, $4$, $10$ with probabilities $0.5$, $0.25$, $0.25$: $\mathbb{E}[x]=2\cdot 0.5+4\cdot 0.25+10\cdot 0.25=4.5$.
 
 ```python
 import numpy as np
@@ -39,46 +39,51 @@ x, p = np.array([2.0, 4.0, 10.0]), np.array([0.5, 0.25, 0.25])
 np.dot(x, p)   # 4.5
 ```
 
-**Where it shows up.** A loss is often an expectation: the average error over data, or over a predicted distribution. Cross-entropy is the usual example; see [Probability and statistics](maths-probability.qmd).
+**Where it shows up.** A loss is often an expectation — the average error over data. See [Probability and statistics](maths-probability.qmd).
 
 # $\odot$ — element-wise multiplication
 
 **In one line.** Multiply corresponding entries, not entire matrices.
 
-**Analogy.** Two shopping lists, item by item: $2$ apples times a price of $3$ is $6$, $4$ oranges times a price of $1$ is $4$. You never mix the apple row with the orange row. That mix would be a *matrix* product.
+![⊙ multiplies matching cells; a matrix product mixes rows and columns.](/images/maths-symbols/hadamard-vs-matmul.png){.lightbox width=100% fig-align="center"}
+
+**Analogy.** Two shopping lists, item by item. You never mix the apple row with the orange row — that mix would be a *matrix* product.
 
 **A tiny example.** $(1,2,3)\odot(4,5,6)=(4,10,18)$.
 
 ```python
 import numpy as np
 np.array([1, 2, 3]) * np.array([4, 5, 6])   # [4, 10, 18]
-# np.array(...) @ ...  would be a dot product or matrix multiply, not this
 ```
 
-**Where it shows up.** LSTM gates (the forget gate $\odot$ the cell state), attention masks, and any “keep or kill this entry” operation. See [Linear algebra essentials](maths-linear-algebra.qmd).
+**Where it shows up.** LSTM gates (forget gate $\odot$ cell state), attention masks, and any “keep or kill this entry” operation. See [Linear algebra essentials](maths-linear-algebra.qmd).
 
 # $\lVert\cdot\rVert$ — norm
 
 **In one line.** How big is a vector or an error?
 
-**Analogy.** The length of an arrow. For the everyday **L2** (Euclidean) norm, it is the straight-line distance from the origin, the same rule as Pythagoras.
+![A vector with its L2 length and the L1 taxi path.](/images/maths-symbols/norm-l2-l1.png){.lightbox width=90% fig-align="center"}
 
-**A tiny example.** For $v=(3,4)$, $\lVert v\rVert_2=\sqrt{3^2+4^2}=5$. The **squared** L2 norm is $3^2+4^2=25$, which is what you often see in a loss, because the square root is then unnecessary.
+**Analogy.** The length of an arrow. The everyday **L2** (Euclidean) norm is the straight-line distance, the same rule as Pythagoras. The **L1** norm is the taxi-city walk, along the axes.
+
+**A tiny example.** For $v=(3,4)$, $\lVert v\rVert_2=\sqrt{3^2+4^2}=5$ and $\lVert v\rVert_1=3+4=7$. A loss often uses the *squared* L2 norm, $25$, so the square root can be skipped.
 
 ```python
 import numpy as np
 np.linalg.norm([3.0, 4.0])   # 5.0
 ```
 
-**Where it shows up.** How far a point sits from a cluster centre (the terms inside k-means inertia), L2 regularisation $\lambda\lVert w\rVert^2$, and “how large is this error?”. See [k-means](/algorithms/algo-k-means.qmd#the-objective-inertia-or-wcss) and [Linear algebra essentials](maths-linear-algebra.qmd).
+**Where it shows up.** Distance to a cluster centre (k-means inertia), L2 regularisation $\lambda\lVert w\rVert^2$, and “how large is this error?”. See [k-means](/algorithms/algo-k-means.qmd#the-objective-inertia-or-wcss) and [Linear algebra essentials](maths-linear-algebra.qmd).
 
 # $\arg\max$ — argmax
 
 **In one line.** Which input gives the highest value?
 
-**Analogy.** Not “how high did the class score?”, but “**which class** won?”. A judge reads four scores and points at the winner, rather than reading the winning number aloud.
+![A curve with the peak marked; argmax is the x-position, max is the height.](/images/maths-symbols/argmax.png){.lightbox width=90% fig-align="center"}
 
-**A tiny example.** Scores $(0.1, 0.7, 0.2)$: the maximum is $0.7$, and $\arg\max$ is index $1$ (the second class, if we count from $0$).
+**Analogy.** Not “how high did the class score?”, but “**which class** won?”.
+
+**A tiny example.** Scores $(0.1, 0.7, 0.2)$: the maximum is $0.7$, and $\arg\max$ is index $1$ (the second class, counting from $0$).
 
 ```python
 import numpy as np
@@ -87,11 +92,13 @@ np.argmax([0.1, 0.7, 0.2])   # 1
 
 **Where it shows up.** The predicted class in a classifier: take the output scores (or a softmax) and return $\arg\max$.
 
-# A few extras in the same format
+# A few more that complete the set
 
 # $\Sigma$ — summation
 
 **In one line.** Add these terms up.
+
+![Bars of 1, 2 and 3 stacking into a total of 6.](/images/maths-symbols/summation.png){.lightbox width=90% fig-align="center"}
 
 **Analogy.** A running total. The sigma sign is a compact “plus, plus, plus”.
 
@@ -102,18 +109,53 @@ import numpy as np
 np.sum([1, 2, 3])   # 6
 ```
 
-**Where it shows up.** Almost every loss and every mean: inertia in k-means, cross-entropy, “sum of squared errors”.
+**Where it shows up.** Almost every loss and every mean: inertia, cross-entropy, sum of squared errors.
+
+# $\prod$ — product
+
+**In one line.** Multiply these terms together.
+
+![0.9 times 0.5 times 0.2 equals 0.09.](/images/maths-symbols/product.png){.lightbox width=90% fig-align="center"}
+
+**Analogy.** A chain of “and”s: the chance that several *independent* things all happen is the product of their chances.
+
+**A tiny example.** $0.9\times 0.5\times 0.2=0.09$.
+
+```python
+import numpy as np
+np.prod([0.9, 0.5, 0.2])   # 0.09
+```
+
+**Where it shows up.** The likelihood of independent events, and the “naïve” product inside [Naïve Bayes](/algorithms/algo-naive-bayes.qmd). Long products of probabilities get tiny, which is why we usually take a $\log$ next.
+
+# $\log$ — logarithm
+
+**In one line.** Turn a product into a sum, and stretch small probabilities so they are easier to add and to compare.
+
+![A product 0.5 × 0.4 becoming log 0.5 + log 0.4, next to the log curve.](/images/maths-symbols/log.png){.lightbox width=100% fig-align="center"}
+
+**Analogy.** A translator: “times” becomes “plus”. That is why we talk about *log*-likelihood instead of multiplying many tiny numbers (which would underflow).
+
+**A tiny example.** $\log(0.5\times 0.4)=\log 0.5+\log 0.4=\log 0.20$. NumPy’s `np.log` is the natural log.
+
+```python
+import numpy as np
+np.log(0.5) + np.log(0.4)   # same as np.log(0.5 * 0.4)
+```
+
+**Where it shows up.** Log-likelihood, cross-entropy $-\log p$, and log-softmax. See [Probability and statistics](maths-probability.qmd).
 
 # $\partial$ — partial derivative
 
 **In one line.** How fast does this function change if I move *only this* input and hold the others still?
+
+![A contour with one axis held fixed, and the slope of that slice.](/images/maths-symbols/partial-derivative.png){.lightbox width=100% fig-align="center"}
 
 **Analogy.** A kitchen with two knobs, heat and time. The partial with respect to heat asks: if I turn only the heat, how fast does the cake change?
 
 **A tiny example.** $f(x,y)=x^2+3y$. At $(2,1)$, $\partial f/\partial x=2x=4$ and $\partial f/\partial y=3$. The gradient is the vector of both: $\nabla f=(4,3)$.
 
 ```python
-# numeric check of ∂f/∂x at (2, 1), with f = x**2 + 3*y
 h = 1e-6
 ((2+h)**2 + 3*1 - (2**2 + 3*1)) / h   # about 4
 ```
@@ -123,6 +165,8 @@ h = 1e-6
 # $\sigma$ — a letter with two common lives
 
 **In one line.** Look at the context: $\sigma$ may be the **sigmoid** function, or the **standard deviation**.
+
+![Two panels: a sigmoid curve, and a bell curve with the spread marked.](/images/maths-symbols/sigma-two-meanings.png){.lightbox width=100% fig-align="center"}
 
 **Analogy.** The same nickname for two classmates. In a network diagram, $\sigma$ usually means “squash this number into $(0,1)$”. In a statistics paragraph, $\sigma$ is “how spread out is this data?”.
 
@@ -138,9 +182,11 @@ np.std([2.0, 4.0])       # 1.0  (NumPy's default is the population std)
 
 # $^\top$ and the dot product
 
-**In one line.** $^\top$ flips rows and columns; the dot product $\,u^\top v\,$ (or $u\cdot v$) multiplies matching entries and adds them up.
+**In one line.** $^\top$ flips rows and columns; the dot product $u^\top v$ (or $u\cdot v$) multiplies matching entries and adds them up.
 
-**Analogy.** Transpose is turning a tall list on its side, or a table on its corner. The dot product is “how much do these two arrows point the same way?” — or, in a neuron, a weighted sum of inputs.
+![A 2×2 matrix flipped to its transpose, and two arrows with a projection.](/images/maths-symbols/transpose-dot.png){.lightbox width=100% fig-align="center"}
+
+**Analogy.** Transpose is turning a table on its corner. The dot product is “how much do these two arrows point the same way?” — or, in a neuron, a weighted sum of inputs.
 
 **A tiny example.** $(1,2)\cdot(3,4)=1\cdot 3+2\cdot 4=11$. The transpose of $\begin{pmatrix}1&2\\3&4\end{pmatrix}$ is $\begin{pmatrix}1&3\\2&4\end{pmatrix}$.
 
@@ -152,6 +198,75 @@ np.array([[1, 2], [3, 4]]).T    # [[1, 3], [2, 4]]
 
 **Where it shows up.** Almost every layer: $x^\top w$, or a batch written as $Xw$. See [Linear algebra essentials](maths-linear-algebra.qmd).
 
+# $\in$ — belongs to
+
+**In one line.** Does this object belong to that set?
+
+![A point inside a set S, and a point outside.](/images/maths-symbols/belongs-to.png){.lightbox width=90% fig-align="center"}
+
+**Analogy.** A membership badge. $x\in\mathbb{R}^n$ means “$x$ is a real vector with $n$ entries”.
+
+**A tiny example.** $3\in\{1,2,3\}$, but $4\notin\{1,2,3\}$. A paper will write a weight matrix as $W\in\mathbb{R}^{d\times k}$.
+
+```python
+3 in {1, 2, 3}   # True
+```
+
+**Where it shows up.** Shapes and spaces: $x\in\mathbb{R}^n$, a label $y\in\{1,\ldots,K\}$.
+
+# $\approx$ and $\propto$ — approximately, proportional to
+
+**In one line.** $\approx$ means “almost equal”; $\propto$ means “moves in proportion to” (the same shape, maybe a different scale).
+
+![A curve hugging an approximation, and two lines that scale together.](/images/maths-symbols/approx-and-proportional.png){.lightbox width=100% fig-align="center"}
+
+**Analogy.** $\approx$ is a close hug, not a perfect match. $\propto$ is “when this doubles, that doubles” — a constant factor may still be hiding.
+
+**A tiny example.** $\pi\approx 3.14$. In Bayes, the posterior is $\propto$ likelihood $\times$ prior (the missing piece is the normaliser $P(\text{data})$).
+
+```python
+import numpy as np
+np.isclose(22 / 7, 3.14, atol=0.02)   # True, roughly
+# unnormalised posterior:
+# posterior_unnorm = likelihood * prior
+```
+
+**Where it shows up.** Approximations such as $\operatorname{GELU}(x)\approx x\cdot\sigma(1.702x)$, and Bayes in [Probability and statistics](maths-probability.qmd).
+
+# $P(A\mid B)$ — conditional probability
+
+**In one line.** What is the chance of $A$, given that we already know $B$?
+
+![Of the emails that contain “prize”, a slice are spam: 16/24.](/images/maths-symbols/conditional-probability.png){.lightbox width=90% fig-align="center"}
+
+**Analogy.** Of all the emails that contain “prize”, what fraction are spam? You have already narrowed the pile to $B$.
+
+**A tiny example.** $100$ emails, $20$ of them spam. The word “prize” appears in $16$ of the spam emails and in $8$ of the rest, so in $24$ emails altogether: $P(\text{spam}\mid\text{prize})=16/24=2/3$.
+
+```python
+16 / 24   # 2/3
+```
+
+**Where it shows up.** Conditioning, Bayes, and [Naïve Bayes](/algorithms/algo-naive-bayes.qmd). The same example is worked on the [probability](maths-probability.qmd) page.
+
+# $\arg\min$ and $\min$ — the training question
+
+**In one line.** $\min$ is the smallest value; $\arg\min$ is *which input* gives that smallest value. Training is $\arg\min$ of the loss.
+
+![A loss bowl with the bottom marked: min is 0, argmin is w = 3.](/images/maths-symbols/argmin.png){.lightbox width=90% fig-align="center"}
+
+**Analogy.** The lowest point on the hill ($\min$) versus “where do I stand to be at the bottom?” ($\arg\min$). The twin of $\arg\max$.
+
+**A tiny example.** For $L(w)=(w-3)^2$, the minimum value is $0$ and $\arg\min_w L(w)=3$. Training writes $\theta^\star=\arg\min_\theta L(\theta)$.
+
+```python
+import numpy as np
+ws = np.linspace(0, 6, 7)
+ws[np.argmin((ws - 3)**2)]   # 3.0
+```
+
+**Where it shows up.** Every training loop: find the parameters that minimise the loss. Prediction often uses $\arg\max$; learning uses $\arg\min$.
+
 # Summary
 
 | Symbol | Pronunciation | The question it asks | A typical ML home |
@@ -162,9 +277,15 @@ np.array([[1, 2], [3, 4]]).T    # [[1, 3], [2, 4]]
 | $\lVert\cdot\rVert$ | norm | How big is this vector or error? | L2 regularisation, k-means inertia |
 | $\arg\max$ | argmax | Which input gives the highest value? | Predicted class |
 | $\Sigma$ | sigma, sum | Add these terms up? | Every mean and every loss |
+| $\prod$ | pi, product | Multiply these terms together? | Independent likelihoods |
+| $\log$ | log | Turn a product into a sum? | Log-likelihood, cross-entropy |
 | $\partial$ | partial | How does $f$ change if only this input moves? | The pieces of $\nabla$ |
 | $\sigma$ | sigma | Sigmoid, or standard deviation? | Activations, or spread |
 | $^\top$ / $\cdot$ | transpose / dot | Flip the table; or weighted sum? | Layers, $x^\top w$ |
+| $\in$ | in, belongs to | Does this object belong to that set? | $x\in\mathbb{R}^n$, label sets |
+| $\approx$ / $\propto$ | approx. / proportional | Almost equal? Or the same shape, scaled? | Approximations; Bayes |
+| $P(A\mid B)$ | probability of A given B | Of those in $B$, how many are $A$? | Conditioning, naïve Bayes |
+| $\arg\min$ / $\min$ | argmin / min | Which input gives the smallest value? | Training: minimise the loss |
 
 # See also
 
