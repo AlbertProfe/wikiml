@@ -4,10 +4,22 @@ title: "Foundations: Resources"
 
 # Resources for this section
 
-A dedicated reading list for Foundations is not written yet.
+## Python
 
-Until it is, use:
+The [Python Programming MOOC 2024](https://programming-24.mooc.fi){.external target="_blank"} (University of Helsinki), which the [Python notes](/python/python-index.qmd) follow.
 
-- The [Python Programming MOOC 2024](https://programming-24.mooc.fi){.external target="_blank"} (University of Helsinki), which the [Python notes](/python/python-index.qmd) follow.
-- The site-wide [Resources](/resources/resources-index.qmd) list (3Blue1Brown, fast.ai, MIT 6.S191 and others).
-- The imported [book notes](/resources/resources-books.qmd).
+## Maths and statistics
+
+- [Rob J Hyndman | Professor of Statistics](https://robjhyndman.com/){.external target='_blank'}
+- [3blue1brown](https://www.3blue1brown.com/){.external target='_blank'}
+- [3blue1brown github videos](https://github.com/3b1b/videos/?tab=readme-ov-file){.external target='_blank'}
+- <span class="chip">repo</span> [manim](https://github.com/3b1b/manim){.external target='_blank'}
+
+## Machine Learning
+
+- <span class="chip chip-danger">youtube</span> [Learn Machine Learning Like a GENIUS and Not Waste Time](https://youtu.be/qNxrPri1V0I?feature=shared){.external target='_blank'}
+- [6.867 Machine Learning (Fall 2004)](http://www.ai.mit.edu/courses/6.867-f04/){.external target='_blank'}
+- [6.867 | Fall 2006 | GraduateMachine Learning](https://ocw.mit.edu/courses/6-867-machine-learning-fall-2006/){.external target='_blank'}
+- [Machine Learning Resources](https://ml-resources.vercel.app/){.external target='_blank'}
+
+The imported [book notes](/resources/resources-books.qmd) collect longer notes. Every section has its own list, from the [Resources](/resources/resources-index.qmd) hub.
