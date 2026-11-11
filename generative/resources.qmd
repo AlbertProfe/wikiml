@@ -4,6 +4,19 @@ title: "LLMs and Transformers: Resources"
 
 # Resources for this section
 
-A dedicated short list for this section is not written yet. The [Generative AI overview](generative-index.qmd) already compares RAG, GANs, LLMs, GPT, autoencoders and Transformers, and includes the original transformer figure.
+The [Generative AI overview](generative-index.qmd) already compares RAG, GANs, LLMs, GPT, autoencoders and Transformers, and includes the original transformer figure.
 
-The 3Blue1Brown video *Transformers (how LLMs work) explained visually* is embedded on [ANN: model and demos](/ann/ann-model-and-demos.qmd). The site-wide [Resources](/resources/resources-index.qmd) list has further links.
+The 3Blue1Brown video *Transformers (how LLMs work) explained visually* is embedded on [ANN: model and demos](/ann/ann-model-and-demos.qmd).
+
+## Generative AI
+
+- [Generative AI in a Nutshell - how to survive and thrive in the age of AI](https://youtu.be/2IK3DFHRFfw?feature=shared){.external target='_blank'}
+- [Generative AI in a Nutshell: poster](https://blog.crisp.se/wp-content/uploads/2024/01/generative-AI-in-a-nutshell.png){.external target='_blank'}
+
+## Papers and books
+
+- <span class="chip chip-warning">paper</span> [Attention Is All You Need](https://proceedings.neurips.cc/paper_files/paper/2017/file/3f5ee243547dee91fbd053c1c4a845aa-Paper.pdf){.external target='_blank'}
+- [LLM Engineer's Handbook: Master the art of engineering large language models from concept to production ](https://www.packtpub.com/en-us/product/llm-engineers-handbook-9781836200062?srsltid=AfmBOorsghxj1A2sZIK6UQc4ZwnKaaQ2vD5_mKI-ke1-LL-N984ALpOt){.external target='_blank'}
+- [Repo](https://github.com/SylphAI-Inc/LLM-engineer-handbook){.external target='_blank'}
+
+Every section has its own list, from the [Resources](/resources/resources-index.qmd) hub.
