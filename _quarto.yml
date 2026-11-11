@@ -62,6 +62,7 @@ website:
         - text: "---"
         - section: "Machine Learning"
           contents:
+            - foundations/ml-learning-loop.qmd
             - machine/machine-index.qmd
         - text: "---"
         - section: "Python (Helsinki MOOC 2024)"

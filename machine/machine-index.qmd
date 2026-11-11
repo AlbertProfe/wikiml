@@ -12,6 +12,8 @@ title: "Machine Learning"
 - **An Error Function**: An error function evaluates the prediction of the model. If there are known examples, an error function can make a comparison to assess the accuracy of the model.
 - **A Model Optimization Process**: If the model can fit better to the data points in the training set, then weights are adjusted to reduce the discrepancy between the known example and the model estimate. The algorithm will repeat this iterative “evaluate and optimize” process, updating weights autonomously until a threshold of accuracy has been met.
 
+This same loop, with a single weight and a short program, is on [The learning loop](/foundations/ml-learning-loop.qmd).
+
 - [What is machine learning?](https://www.ibm.com/think/topics/machine-learning){.external target='_blank'}
 
 > Machine learning is a subfield of artificial intelligence, which is broadly defined as the capability of a machine to imitate intelligent human behavior. Artificial intelligence systems are used to perform complex tasks in a way that is similar to how humans solve problems.

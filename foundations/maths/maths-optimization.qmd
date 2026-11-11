@@ -24,7 +24,7 @@ $$
 \theta \leftarrow \theta - \eta\,\nabla L(\theta),
 $$
 
-where $\eta>0$ is the **learning rate**.
+where $\eta>0$ is the **learning rate**. A one-weight program that repeats this step is on [The learning loop](/foundations/ml-learning-loop.qmd).
 
 **A tiny numeric example.** Let $L(w)=(w-3)^2$, so $\nabla L=2(w-3)$. Start at $w=5$ with $\eta=0.1$ (the same toy loss as on the [calculus](maths-calculus.qmd#gradient-descent-one-step) page):
 
@@ -96,6 +96,7 @@ The slopes that feed this update come from the chain rule and, in a network, fro
 
 # See also
 
+- [The learning loop](/foundations/ml-learning-loop.qmd) — the same update, with one weight, in a short program
 - [Calculus essentials](maths-calculus.qmd) — the slope, the chain rule, and one step of gradient descent
 - [ML math symbols, explained easy](maths-symbols.qmd) — $\nabla$, $\arg\min$
 - [ANN: Activation functions](/ann/ann-activation-functions.qmd) — why some slopes vanish

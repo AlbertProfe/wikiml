@@ -33,7 +33,7 @@ w, lr, grad = 5.0, 0.1, 4.0
 w = w - lr * grad   # 4.6
 ```
 
-**Where it shows up.** Gradient descent, and every backward pass. See [Calculus essentials](maths-calculus.qmd) and the [gradient primer](/ann/ann-activation-functions.qmd#a-gradient-primer).
+**Where it shows up.** Gradient descent, and every backward pass. The [learning loop](/foundations/ml-learning-loop.qmd) is that nudge, repeated. See [Calculus essentials](maths-calculus.qmd) and the [gradient primer](/ann/ann-activation-functions.qmd#a-gradient-primer).
 
 # $\mathbb{E}$ — expectation
 
