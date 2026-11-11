@@ -4,4 +4,4 @@ title: "Data: Resources"
 
 # Resources for this section
 
-A dedicated reading list for Data is not written yet. The section today is the [Big Data overview](bigdata-index.qmd) (the five Vs). The site-wide [Resources](/resources/resources-index.qmd) list is the place to start until this page has its own short set of links.
+A dedicated reading list for Data is not written yet. The section today is the [Big Data overview](bigdata-index.qmd) (the five Vs). See the [Resources](/resources/resources-index.qmd) hub for every section's list.

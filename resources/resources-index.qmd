@@ -2,74 +2,36 @@
 title: "Resources"
 ---
 
-# Math and Physics
+# Resources by topic
 
-### Physics and Deep Learning
+Each section of this wiki has its own short list.
 
-- <span class="chip chip-primary">book</span> [Welcome to the Physics-based Deep Learning Book (v0.2)](http://physicsbaseddeeplearning.org/intro.html){.external target='_blank'}
-- [Rob J Hyndman | Professor of Statistics](https://robjhyndman.com/){.external target='_blank'}
+- [Foundations](/foundations/resources.qmd) — Python, maths, and an introduction to machine learning
+- [Data](/bigdata/resources.qmd)
+- [Classic ML](/algorithms/resources.qmd)
+- [Model evaluation](/evaluation/resources.qmd)
+- [Deep Learning](/deep/resources.qmd)
+- [LLMs and Transformers](/generative/resources.qmd)
+- [RAG and agents](/rag/resources.qmd)
+- [AI for developers](/aidev/resources.qmd)
+- [MLOps](/mlops/resources.qmd)
+- [Training](/training/resources.qmd)
 
-### Algorithms
+The imported [book notes](/resources/resources-books.qmd) are also here.
+
+# General
+
+These do not belong to a single topic, so they stay on this page.
+
+## Algorithms
 
 MIT's Introduction to Algorithms:
 
 - [Lecture Notes](https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/pages/lecture-notes/ ){.external target='_blank'}
 - [Lecture Videos](http://www.youtube.com/playlist?list=PLUl4u3cNGP63EdVPNLG3ToM6LaEUuStEY){.external target='_blank'}
 
-# Introduction
+This is general computer science (MIT 6.006), not the classic ML algorithms in [Classic ML: Resources](/algorithms/resources.qmd).
 
-### Neural Network
+## Tools
 
-- [A Brief Introduction to Neural Networks](https://dkriesel.com/en/science/neural_networks#dokuwiki__top){.external target='_blank'}
-- [Making neural nets uncool again](https://www.fast.ai/){.external target='_blank'}
-- [3blue1brown github videos](https://github.com/3b1b/videos/?tab=readme-ov-file){.external target='_blank'}
-- [3blue1brown](https://www.3blue1brown.com/){.external target='_blank'}
-- <span class="chip">repo</span> [manim](https://github.com/3b1b/manim){.external target='_blank'}
-- [But what is a neural network? | Deep learning chapter 1](https://youtu.be/aircAruvnKk?feature=shared){.external target='_blank'}
-
-### Deep Learning
-
-- [MIT Introduction to Deep Learning | 6.S191](https://youtu.be/ErnWZxJovaM?feature=shared){.external target='_blank'}
-- [Practical Deep Learning](https://course.fast.ai/){.external target='_blank'}
-- [MIT 6.S191 Introduction to Deep Learning 2025](https://introtodeeplearning.com/){.external target='_blank'}
-- [MIT 6.S191 Introduction to Deep Learning 2024](https://introtodeeplearning.com/2024/index.html){.external target='_blank'}
-
-### Generative AI
-
-- [Generative AI in a Nutshell - how to survive and thrive in the age of AI](https://youtu.be/2IK3DFHRFfw?feature=shared){.external target='_blank'}
-- [Generative AI in a Nutshell: poster](https://blog.crisp.se/wp-content/uploads/2024/01/generative-AI-in-a-nutshell.png){.external target='_blank'}
-
-
-### Machine Learning
-
-- <span class="chip chip-danger">youtube</span> [Learn Machine Learning Like a GENIUS and Not Waste Time](https://youtu.be/qNxrPri1V0I?feature=shared){.external target='_blank'}
-- [6.867 Machine Learning (Fall 2004)](http://www.ai.mit.edu/courses/6.867-f04/){.external target='_blank'}
-- [6.867 | Fall 2006 | GraduateMachine Learning](https://ocw.mit.edu/courses/6-867-machine-learning-fall-2006/){.external target='_blank'}
-- [Machine Learning Resources](https://ml-resources.vercel.app/){.external target='_blank'}
-
-
-# Tools, papers and labs
-
-- <span class="chip chip-warning">paper</span> [Attention Is All You Need](https://proceedings.neurips.cc/paper_files/paper/2017/file/3f5ee243547dee91fbd053c1c4a845aa-Paper.pdf){.external target='_blank'}
 - <span class="chip chip-success">web</span> [IT-Tools](https://it-tools.tech/){.external target='_blank'}
-- <span class="chip chip-danger">youtube</span> [Building a neural network FROM SCRATCH (no Tensorflow/Pytorch, just numpy & math)](https://youtu.be/w8yWXqWQYmU?feature=shared){.external target='_blank'}
-- [AI by hand](https://aibyhand.substack.com/){.external target='_blank'}
-- <span class="chip chip-warning">paper</span> [Deep learning Yann LeCun1,2, Yoshua Bengio3 & Geoffrey Hinton4,](https://www.cs.toronto.edu/~hinton/absps/NatureDeepReview.pdf?utm_source=perplexity){.external target='_blank'}
-
-# Workflows and automation
-
-- [n8n](https://n8n.io/){.external target='_blank'}
-- [Build LLM Apps Easily](https://flowiseai.com/){.external target='_blank'}
-- [Abacus](https://abacus.ai/chatllm){.external target='_blank'}
-
-
-to classify:
-
-
-- <span class="chip chip-primary">book</span> [Welcome to the Physics-based Deep Learning Book (v0.2)](http://physicsbaseddeeplearning.org/intro.html){.external target='_blank'}
-- [LLM Engineer's Handbook: Master the art of engineering large language models from concept to production ](https://www.packtpub.com/en-us/product/llm-engineers-handbook-9781836200062?srsltid=AfmBOorsghxj1A2sZIK6UQc4ZwnKaaQ2vD5_mKI-ke1-LL-N984ALpOt){.external target='_blank'}
-- [Repo](https://github.com/SylphAI-Inc/LLM-engineer-handbook){.external target='_blank'}
-- [The Little Book of Deep Learning](https://fleuret.org/francois/lbdl.html){.external target='_blank'}
-- [Understand Deep Learning: Python notebooks covering the whole text](https://udlbook.github.io/udlbook/){.external target='_blank'}
-- [Deep Learning An MIT Press book Ian Goodfellow and Yoshua Bengio and Aaron Courville](https://www.deeplearningbook.org/){.external target='_blank'}
-

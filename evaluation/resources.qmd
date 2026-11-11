@@ -4,4 +4,4 @@ title: "Model evaluation: Resources"
 
 # Resources for this section
 
-A dedicated reading list for model evaluation is not written yet. The site-wide [Resources](/resources/resources-index.qmd) list is the place to start until this page has its own short set of links.
+A dedicated reading list for model evaluation is not written yet. See the [Resources](/resources/resources-index.qmd) hub for every section's list.

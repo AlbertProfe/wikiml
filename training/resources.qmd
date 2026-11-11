@@ -7,3 +7,5 @@ title: "Training: Resources"
 Course packs, official documents and classroom files will be listed here when an AI course is confirmed. Nothing of that kind is published on this wiki today.
 
 Until then, the sister teaching wiki is the living classroom: [albertprofe.dev](https://albertprofe.dev){.external target="_blank"}.
+
+See the [Resources](/resources/resources-index.qmd) hub for every section's list.
