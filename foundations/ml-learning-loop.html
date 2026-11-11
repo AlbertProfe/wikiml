@@ -900,7 +900,7 @@ window.Quarto = {
 
 <section id="a-real-example-with-one-weight-taxi-fare" class="level1">
 <h1>A real example with one weight: taxi fare</h1>
-<p>Price <span class="math inline">\(= w \cdot\)</span> kilometres, and <span class="math inline">\(w\)</span> is unknown. You have three receipts: 2 km for €3, 5 km for €7.50, 10 km for €15. The true rate is €1.50 per kilometre, but nobody tells the model that.</p>
+<p>Price = w · kilometres, and w is unknown. You have three receipts: 2 km for €3, 5 km for €7.50, 10 km for €15. The true rate is €1.50 per kilometre, but nobody tells the model that.</p>
 <p>The loop is the same one you will see in the code below.</p>
 <ol type="1">
 <li><strong>Guess:</strong> start with <span class="math inline">\(w = 0\)</span> — every ride is free.</li>
@@ -910,6 +910,30 @@ window.Quarto = {
 <li><strong>Repeat:</strong> <span class="math inline">\(1.47\)</span>, then <span class="math inline">\(1.496\)</span>, then about <span class="math inline">\(1.50\)</span>.</li>
 </ol>
 <p>In three or four steps it has learned €1.50/km from three receipts. Nobody programmed the rate.</p>
+<div class="light-only">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/ml-learning-loop/taxi-fare-loop-cycle-light.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="The taxi loop: guess, predict, measure the error, nudge w, and repeat, until w reaches €1.50 / km."><img src="../images/ml-learning-loop/taxi-fare-loop-cycle-light.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%" alt="The taxi loop: guess, predict, measure the error, nudge w, and repeat, until w reaches €1.50 / km."></a></p>
+</figure>
+</div>
+<figcaption>The taxi loop: guess, predict, measure the error, nudge w, and repeat, until w reaches €1.50 / km.</figcaption>
+</figure>
+</div>
+</div>
+<div class="dark-only">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/ml-learning-loop/taxi-fare-loop-cycle.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="The taxi loop: guess, predict, measure the error, nudge w, and repeat, until w reaches €1.50 / km."><img src="../images/ml-learning-loop/taxi-fare-loop-cycle.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%" alt="The taxi loop: guess, predict, measure the error, nudge w, and repeat, until w reaches €1.50 / km."></a></p>
+</figure>
+</div>
+<figcaption>The taxi loop: guess, predict, measure the error, nudge w, and repeat, until w reaches €1.50 / km.</figcaption>
+</figure>
+</div>
+</div>
 <p>A bias (<span class="math inline">\(y = w\cdot x + b\)</span>) would learn a pickup fee as well, the bit you pay before the metres start to run.</p>
 <table class="caption-top table">
 <thead>
@@ -958,7 +982,7 @@ window.Quarto = {
 <figure class="figure">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../images/ml-learning-loop/taxi-fare-w-steps-light.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="The fare per kilometre climbs from 0 to €1.50 in a few steps."><img src="../images/ml-learning-loop/taxi-fare-w-steps-light.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:90.0%" alt="The fare per kilometre climbs from 0 to €1.50 in a few steps."></a></p>
+<p><a href="../images/ml-learning-loop/taxi-fare-w-steps-light.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="The fare per kilometre climbs from 0 to €1.50 in a few steps."><img src="../images/ml-learning-loop/taxi-fare-w-steps-light.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:90.0%" alt="The fare per kilometre climbs from 0 to €1.50 in a few steps."></a></p>
 </figure>
 </div>
 <figcaption>The fare per kilometre climbs from 0 to €1.50 in a few steps.</figcaption>
@@ -970,7 +994,7 @@ window.Quarto = {
 <figure class="figure">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../images/ml-learning-loop/taxi-fare-w-steps.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="The fare per kilometre climbs from 0 to €1.50 in a few steps."><img src="../images/ml-learning-loop/taxi-fare-w-steps.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:90.0%" alt="The fare per kilometre climbs from 0 to €1.50 in a few steps."></a></p>
+<p><a href="../images/ml-learning-loop/taxi-fare-w-steps.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="The fare per kilometre climbs from 0 to €1.50 in a few steps."><img src="../images/ml-learning-loop/taxi-fare-w-steps.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:90.0%" alt="The fare per kilometre climbs from 0 to €1.50 in a few steps."></a></p>
 </figure>
 </div>
 <figcaption>The fare per kilometre climbs from 0 to €1.50 in a few steps.</figcaption>
@@ -1096,7 +1120,7 @@ step 19  w=1.922  loss=0.0624</code></pre>
 <figure class="figure">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../images/ml-learning-loop/w-climbs-loss-falls-light.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="The weight climbs toward 2, and the squared error falls toward 0."><img src="../images/ml-learning-loop/w-climbs-loss-falls-light.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%" alt="The weight climbs toward 2, and the squared error falls toward 0."></a></p>
+<p><a href="../images/ml-learning-loop/w-climbs-loss-falls-light.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="The weight climbs toward 2, and the squared error falls toward 0."><img src="../images/ml-learning-loop/w-climbs-loss-falls-light.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%" alt="The weight climbs toward 2, and the squared error falls toward 0."></a></p>
 </figure>
 </div>
 <figcaption>The weight climbs toward 2, and the squared error falls toward 0.</figcaption>
@@ -1108,7 +1132,7 @@ step 19  w=1.922  loss=0.0624</code></pre>
 <figure class="figure">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../images/ml-learning-loop/w-climbs-loss-falls.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="The weight climbs toward 2, and the squared error falls toward 0."><img src="../images/ml-learning-loop/w-climbs-loss-falls.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%" alt="The weight climbs toward 2, and the squared error falls toward 0."></a></p>
+<p><a href="../images/ml-learning-loop/w-climbs-loss-falls.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="The weight climbs toward 2, and the squared error falls toward 0."><img src="../images/ml-learning-loop/w-climbs-loss-falls.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%" alt="The weight climbs toward 2, and the squared error falls toward 0."></a></p>
 </figure>
 </div>
 <figcaption>The weight climbs toward 2, and the squared error falls toward 0.</figcaption>
@@ -1164,7 +1188,7 @@ Everyday example
 <figure class="figure">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../images/ml-learning-loop/rules-plus-data-versus-data-plus-answers-light.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="An ordinary program is rules plus data, giving answers. Machine learning is data plus answers, giving rules."><img src="../images/ml-learning-loop/rules-plus-data-versus-data-plus-answers-light.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:90.0%" alt="An ordinary program is rules plus data, giving answers. Machine learning is data plus answers, giving rules."></a></p>
+<p><a href="../images/ml-learning-loop/rules-plus-data-versus-data-plus-answers-light.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="An ordinary program is rules plus data, giving answers. Machine learning is data plus answers, giving rules."><img src="../images/ml-learning-loop/rules-plus-data-versus-data-plus-answers-light.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:90.0%" alt="An ordinary program is rules plus data, giving answers. Machine learning is data plus answers, giving rules."></a></p>
 </figure>
 </div>
 <figcaption>An ordinary program is rules plus data, giving answers. Machine learning is data plus answers, giving rules.</figcaption>
@@ -1176,7 +1200,7 @@ Everyday example
 <figure class="figure">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../images/ml-learning-loop/rules-plus-data-versus-data-plus-answers.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="An ordinary program is rules plus data, giving answers. Machine learning is data plus answers, giving rules."><img src="../images/ml-learning-loop/rules-plus-data-versus-data-plus-answers.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:90.0%" alt="An ordinary program is rules plus data, giving answers. Machine learning is data plus answers, giving rules."></a></p>
+<p><a href="../images/ml-learning-loop/rules-plus-data-versus-data-plus-answers.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8" title="An ordinary program is rules plus data, giving answers. Machine learning is data plus answers, giving rules."><img src="../images/ml-learning-loop/rules-plus-data-versus-data-plus-answers.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:90.0%" alt="An ordinary program is rules plus data, giving answers. Machine learning is data plus answers, giving rules."></a></p>
 </figure>
 </div>
 <figcaption>An ordinary program is rules plus data, giving answers. Machine learning is data plus answers, giving rules.</figcaption>
