@@ -45,6 +45,12 @@ flowchart LR
   R --> Y[Second layer: output Y]
 ```
 
+::: {.fig-on-white}
+![The Transformer annotated: which attention is which. Our by-hand example works through one encoder block.](/images/attention/transformer-annotated.png){#fig-transformer-annotated fig-alt="Annotated Transformer architecture diagram, labelled to show encoder self-attention, decoder masked self-attention, decoder-encoder attention, the feed-forward network, and residual connections with layer normalisation." .lightbox fig-align="center" width="100%"}
+:::
+
+From [Lena Voita's NLP Course For You](https://lena-voita.github.io/nlp_course/seq2seq_and_attention.html){.external target="_blank"} (seq2seq and attention).
+
 # The setup
 
 We have a three-word sentence, *Riya bought tea*, already turned into numbers. Each word is one **position** (one row). Each position carries three **features** (the columns). Think of three sticky notes on a desk, each with three scores written on it.

@@ -23,6 +23,10 @@ The [PDF](https://arxiv.org/pdf/1706.03762){.external target="_blank"} is on arX
 
 The story that leads to the paper — Bahdanau, Luong, then self-attention as the foundation — is in [The evolution of attention](evolution-of-attention.qmd). A tiny block, worked with integers you can add by hand, is in [Transformer by hand](transformer-by-hand.qmd). Here we stay close to the paper itself.
 
+::: {.fig-on-white}
+![The Transformer, model architecture ([Figure 1 in Vaswani et al., 2017](https://arxiv.org/abs/1706.03762){.external target="_blank"})](/images/attention/transformer-figure1.png){#fig-transformer-figure1 fig-alt="Diagram of the Transformer architecture from Vaswani et al., 2017, Figure 1: an encoder stack on the left and a decoder stack on the right, each with multi-head attention, feed-forward layers, and residual add-and-norm connections." .lightbox fig-align="center" width="70%"}
+:::
+
 # The problem it solved
 
 Before this paper, the strongest models for translation and other sequence tasks were recurrent: LSTMs and GRUs, usually in an encoder-decoder, often with an attention mechanism on top. A recurrent net reads one token, then the next, then the next. Position $t$ has to wait for position $t-1$. That queue is hard to parallelise, and it gets worse as the sequence gets longer.
