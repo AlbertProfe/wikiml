@@ -32,13 +32,17 @@ Four functions cover most of what you will meet in class and in modern models. A
 | **Tanh** | $\tanh(x)$ | Squash into $(-1,1)$, centred on zero. |
 | **GELU** | $x\cdot\Phi(x)$ | A smooth ReLU that lets a little of the negative side through. |
 
-![The four activations on the left, and their derivatives on the right.](/images/activation-functions/four-functions-and-derivatives.png){.lightbox width=100% fig-align="center"}
+![The four activations on the left, and their derivatives on the right.](/images/activation-functions/four-functions-and-derivatives.png){.light-only .lightbox width=100% fig-align="center"}
+
+![The four activations on the left, and their derivatives on the right.](/images/activation-functions/four-functions-and-derivatives-dark.png){.dark-only .lightbox width=100% fig-align="center"}
 
 # A gradient primer
 
 Training moves the weights by following a **gradient**: the slope of the loss with respect to each weight. A handy picture is a ball on a hill. Where the hillside is steep, the slope is large and the ball rolls fast. Where the hillside is almost flat, the slope is small and the ball barely moves. For the symbol $\nabla$ itself, and a one-step numeric descent, see [ML math symbols](/foundations/maths/maths-symbols.qmd) and [Calculus essentials](/foundations/maths/maths-calculus.qmd).
 
-![A hill with a steep tangent on one side and a gentle tangent on the other. The gradient is that slope.](/images/activation-functions/gradient-slope.png){.lightbox width=80% fig-align="center"}
+![A hill with a steep tangent on one side and a gentle tangent on the other. The gradient is that slope.](/images/activation-functions/gradient-slope.png){.light-only .lightbox width=80% fig-align="center"}
+
+![A hill with a steep tangent on one side and a gentle tangent on the other. The gradient is that slope.](/images/activation-functions/gradient-slope-dark.png){.dark-only .lightbox width=80% fig-align="center"}
 
 Two practical words will keep coming back:
 
@@ -57,7 +61,9 @@ That is why ReLU is **cheap** and, for positive inputs, **does not shrink** the 
 
 The weakness is **dead neurons**. If a unit is pushed into the negative side and stays there, it outputs $0$ and its gradient is $0$, so the weights that feed it stop receiving updates. A high learning rate, or a bad initialisation, can kill many units this way.
 
-![ReLU on top, and its 0-or-1 gradient underneath.](/images/activation-functions/relu-gradient.png){.lightbox width=80% fig-align="center"}
+![ReLU on top, and its 0-or-1 gradient underneath.](/images/activation-functions/relu-gradient.png){.light-only .lightbox width=80% fig-align="center"}
+
+![ReLU on top, and its 0-or-1 gradient underneath.](/images/activation-functions/relu-gradient-dark.png){.dark-only .lightbox width=80% fig-align="center"}
 
 # B. GELU
 
@@ -121,7 +127,9 @@ Later work went a step further. Shazeer (2020) showed that **gated linear units*
 
 Four unlabelled curves. Name each one before you open the answers.
 
-![Four unlabelled plots, A to D. Guess which activation is which.](/images/activation-functions/guess-activation-quiz.png){.lightbox width=100% fig-align="center"}
+![Four unlabelled plots, A to D. Guess which activation is which.](/images/activation-functions/guess-activation-quiz.png){.light-only .lightbox width=100% fig-align="center"}
+
+![Four unlabelled plots, A to D. Guess which activation is which.](/images/activation-functions/guess-activation-quiz-dark.png){.dark-only .lightbox width=100% fig-align="center"}
 
 ::: {.callout-tip collapse="true"}
 # Answers
