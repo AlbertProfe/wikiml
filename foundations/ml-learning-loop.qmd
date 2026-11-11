@@ -2,6 +2,46 @@
 title: "The learning loop"
 ---
 
+# A real example with one weight: taxi fare
+
+Price $= w \cdot$ kilometres, and $w$ is unknown. You have three receipts: 2 km for €3, 5 km for €7.50, 10 km for €15. The true rate is €1.50 per kilometre, but nobody tells the model that.
+
+The loop is the same one you will see in the code below.
+
+1. **Guess:** start with $w = 0$ — every ride is free.
+2. **Predict:** €0, €0, €0.
+3. **Measure:** off by €3, €7.50, and €15.
+4. **Nudge:** the derivative says go up. With a learning rate of $0.01$, $w$ jumps to $1.29$.
+5. **Repeat:** $1.47$, then $1.496$, then about $1.50$.
+
+In three or four steps it has learned €1.50/km from three receipts. Nobody programmed the rate.
+
+A bias ($y = w\cdot x + b$) would learn a pickup fee as well, the bit you pay before the metres start to run.
+
+| After step | $w$ (€/km) | Predictions | Loss |
+| ---: | ---: | --- | ---: |
+| start | 0.00 | €0.00, €0.00, €0.00 | 96.75 |
+| 1 | 1.29 | €2.58, €6.45, €12.90 | 1.90 |
+| 2 | 1.47 | €2.94, €7.35, €14.71 | 0.037 |
+| 3 | 1.496 | €2.99, €7.48, €14.96 | 0.0007 |
+| 4 | 1.499 | €3.00, €7.50, €14.99 | ≈ 0 |
+
+::: {.light-only}
+![The fare per kilometre climbs from 0 to €1.50 in a few steps.](/images/ml-learning-loop/taxi-fare-w-steps-light.png){.lightbox width=90% fig-align="center"}
+:::
+
+::: {.dark-only}
+![The fare per kilometre climbs from 0 to €1.50 in a few steps.](/images/ml-learning-loop/taxi-fare-w-steps.png){.lightbox width=90% fig-align="center"}
+:::
+
+# A real-world example: a spam filter
+
+A spam filter is the same loop, with thousands of weights instead of one.
+
+It starts by guessing that every word matters equally. It predicts spam or not for each email, then measures the error against emails that people have already marked as spam. It nudges the weights: “free money” goes up, “meeting tomorrow” goes down. Then it repeats, millions of times.
+
+Google Maps arrival times and Netflix recommendations work the same way: guess, check against reality, adjust, repeat.
+
 # The simplest model
 
 The simplest model is a single weight: $y = w \cdot x$. We give it data where the true answer is $w = 2$ ($y$ is always $2\times x$) and watch it find that on its own.
