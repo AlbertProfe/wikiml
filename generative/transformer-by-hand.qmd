@@ -22,6 +22,12 @@ The numbers are tiny on purpose. Three positions, three features, and a handful 
 
 The exercise is inspired by Prof. Tom Yeh's [Transformer by hand](https://www.byhand.ai/p/transformer-by-hand){.external target="_blank"} on [AI by hand](https://www.byhand.ai/){.external target="_blank"} — the worksheets that work through architectures on paper. The matrices below are our own classroom example, not a copy of his. If you like this way of seeing, his site is the place to go next with a longer sheet.
 
+::: {.callout-note}
+Spreadsheet version: [Transformer by hand (Google Sheet)](https://docs.google.com/spreadsheets/d/1VjuFxN47HAv0YHHbFp_BlsUAddTaRlxL2U385aX45lg/edit){.external target="_blank"}. It is a copy of Tom Yeh's MIT-licensed advanced/Transformer.xlsx from [https://github.com/ImagineAILab/ai-by-hand-excel](https://github.com/ImagineAILab/ai-by-hand-excel){.external target="_blank"}.
+:::
+
+![In Tom Yeh's spreadsheet (MIT), which uses its own numbers](/images/transformer-by-hand-sheet/00-overview.png){#fig-yeh-sheet-overview fig-alt="Screenshot of Tom Yeh's Transformer spreadsheet, Small tab, showing the full block from the input features through attention, the feed-forward layers, ReLU, and the output to the next block." .lightbox fig-align="center" width="100%"}
+
 A full Transformer has many extra parts: positional encoding, several heads, layer norm, skip connections, and a stack of blocks. We leave those aside. What we compute is the heart of one block: **attention mixes across positions; a feed-forward network mixes across features**. The same two jobs, over and over, are what the stack is doing.
 
 ::: {.callout-tip}
@@ -64,6 +70,8 @@ $$
 
 These numbers are a toy. In a real model they would be learned embeddings, plus a signal for word order. Here they are just three short notes we can add up by hand.
 
+![In Tom Yeh's spreadsheet (MIT), which uses its own numbers](/images/transformer-by-hand-sheet/01-inputs.png){#fig-yeh-sheet-inputs fig-alt="Screenshot of the input feature matrix in Tom Yeh's spreadsheet: four positions with five features, labelled X1 to X5, under Features from the Previous Block." .lightbox fig-align="center" width="40%"}
+
 # 2. The attention weight matrix
 
 In a real block, the attention weights come from queries, keys and $\operatorname{softmax}(QK^{\top}/\sqrt{d_k})$, as in [The evolution of attention](evolution-of-attention.qmd). On this page we start one step later: the weights are already in our hands, in a matrix $A$. Each row says *where this position looks*, and the shares in a row add up to $1$ — a sum, the [$\Sigma$](/foundations/maths/maths-symbols.qmd#sigma-summation) you already know.
@@ -90,6 +98,8 @@ Riya looks only at herself. *Bought* looks half at Riya and half at itself — t
 
 You are at a small table. When your name is said, you look at yourself. When the waiter says "bought", you glance half at Riya and half at the verb. When "tea" is said, you glance at the verb and at the object. $A$ is that seating plan, written as numbers.
 :::
+
+![In Tom Yeh's spreadsheet (MIT), which uses its own numbers](/images/transformer-by-hand-sheet/02-attention.png){#fig-yeh-sheet-attention fig-alt="Screenshot of the attention weight matrix A in Tom Yeh's spreadsheet, a five-by-five grid of zeros and ones with query and key labels." .lightbox fig-align="center" width="100%"}
 
 # 3. Attention-weighted features
 
@@ -129,6 +139,8 @@ $$
 | tea | 2 | 4 | 1 |
 
 There are still three positions. Attention has not invented new words. It has rewritten each note by glancing at its neighbours. That is mixing **across positions**.
+
+![In Tom Yeh's spreadsheet (MIT), which uses its own numbers](/images/transformer-by-hand-sheet/03-attention-weighted-features.png){#fig-yeh-sheet-weighted-features fig-alt="Screenshot of attention-weighted features in Tom Yeh's spreadsheet: the input matrix is mixed by the attention weights A to produce a new four-by-five feature matrix." .lightbox fig-align="center" width="100%"}
 
 # 4. Feed-forward, first layer
 
@@ -176,6 +188,8 @@ $$
 
 This time the mixing is **across features**, on one note at a time. *Bought* does not look at *tea* here. It only rewrites its own four numbers, with the shared recipe $W_1, b_1$.
 
+![In Tom Yeh's spreadsheet (MIT), which uses its own numbers](/images/transformer-by-hand-sheet/04-first-feed-forward.png){#fig-yeh-sheet-first-ffn fig-alt="Screenshot of the first feed-forward layer in Tom Yeh's spreadsheet: weights and a bias are applied to the attention-weighted features, then a ReLU." .lightbox fig-align="center" width="100%"}
+
 # 5. ReLU
 
 [ReLU](/ann/ann-activation-functions.qmd) keeps the positive part and silences the rest: $\max(0, x)$. Two of the cells are negative. They become zero.
@@ -200,6 +214,8 @@ $$
 
 ReLU is a door that only opens one way. A positive number is allowed through; a negative number is stopped and written as zero. Nothing else in this block is changed.
 :::
+
+![In Tom Yeh's spreadsheet (MIT), which uses its own numbers](/images/transformer-by-hand-sheet/05-relu.png){#fig-yeh-sheet-relu fig-alt="Screenshot of a ReLU step in Tom Yeh's spreadsheet. In this example the incoming values are already positive, so the output matches the input." .lightbox fig-align="center" width="80%"}
 
 # 6. Second layer, and the output
 
@@ -240,6 +256,8 @@ $$
 | tea | 1 | $-6$ | 8 |
 
 That is one block. In a real model the next block would start again from $Y$, with a completely separate set of weights.
+
+![In Tom Yeh's spreadsheet (MIT), which uses its own numbers](/images/transformer-by-hand-sheet/06-second-feed-forward-output.png){#fig-yeh-sheet-second-ffn fig-alt="Screenshot of the second feed-forward layer in Tom Yeh's spreadsheet: weights and a bias produce the output, a ReLU is applied, and the result is marked for the next block." .lightbox fig-align="center" width="100%"}
 
 # Creating the algorithm
 
