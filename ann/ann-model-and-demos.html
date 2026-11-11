@@ -65,6 +65,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
+<link href="../ann/ann-activation-functions.html" rel="next">
 <link href="../ann/ann-mathematical.html" rel="prev">
 <link href="..//images/home/favicon.ico" rel="icon">
 <script src="../site_libs/quarto-html/quarto.js"></script>
@@ -391,6 +392,10 @@ window.Quarto = {
     <a class="dropdown-item" href="../ann/ann-model-and-demos.html">
  <span class="dropdown-text">ANN: model and demos</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../ann/ann-activation-functions.html">
+ <span class="dropdown-text">ANN: Activation functions</span></a>
+  </li>  
         <li><hr class="dropdown-divider"></li>
         <li class="dropdown-header">Introduction to Deep Learning</li>
         <li>
@@ -622,6 +627,12 @@ window.Quarto = {
  <span class="menu-text">ANN: model and demos</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ann/ann-activation-functions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">ANN: Activation functions</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="px-0"><hr class="sidebar-divider hi "></li>
@@ -761,6 +772,7 @@ Note
 y = f\left( \sum_{i=1}^{n} w_i x_i + b \right)
 \]</span></p>
 <p>where ( <strong>w_i</strong> ) are the weights, ( <strong>x_i</strong> ) are the inputs, ( <strong>b</strong> ) is the bias, and ( <strong>f</strong> ) is the activation function.</p>
+<p>For a student walk-through of ReLU, sigmoid, tanh and GELU, see <a href="../ann/ann-activation-functions.html">Activation functions</a>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <div class="quarto-figure quarto-figure-center">
@@ -834,7 +846,7 @@ y = f\left( \sum_{i=1}^{n} w_i x_i + b \right)
 <p>This allows you to create fully reproducible documents and reports—the Python code required to produce your output is part of the document itself, and is automatically re-run whenever the document is rendered.</p>
 <section id="matplotlib-demo" class="level3">
 <h3 class="anchored" data-anchor-id="matplotlib-demo">matplotlib demo</h3>
-<div id="cell-fig-polar" class="cell" data-execution_count="1">
+<div id="cell-fig-polar" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -867,7 +879,7 @@ Figure&nbsp;1: A line plot on a polar axis
 <div class="column-page-right">
 <section id="spiking-neuron-potential" class="level3">
 <h3 class="anchored" data-anchor-id="spiking-neuron-potential">Spiking Neuron Potential</h3>
-<div id="cell-fig-neuron" class="cell" data-execution_count="2">
+<div id="cell-fig-neuron" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -929,7 +941,7 @@ Figure&nbsp;2: Membrane Potential of a Spiking Neuron
 </section>
 <section id="perceptron" class="level3">
 <h3 class="anchored" data-anchor-id="perceptron">Perceptron</h3>
-<div id="cell-fig-perceptron" class="cell" data-execution_count="3">
+<div id="cell-fig-perceptron" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -1602,6 +1614,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="../ann/ann-activation-functions.html" class="pagination-link" aria-label="ANN: Activation functions">
+        <span class="nav-page-text">ANN: Activation functions</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->
