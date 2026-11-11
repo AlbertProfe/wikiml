@@ -43,6 +43,88 @@ True values on these receipts: $w = 1.50$, $b = 2.00$. The program is not told t
 
 The editor below is live Python in the browser. The first load takes a few seconds, because it also fetches NumPy and scikit-learn.
 
+# Creating the algorithm
+
+**The question.** A taxi charges a rate per kilometre and a fixed pickup fee. We have eight receipts, from 1 km at €3.50 to 12 km at €20. What does 7 km cost? We don't know the rate or the fee, so we let the receipts teach both to us.
+
+```python
+# TODO: find the price of a 7 km trip from eight receipts
+```
+
+**Why one number isn't enough.** In [Lab#ML01-1](mlab01-1.qmd) the fare was just price = w · km. That cannot fit these receipts: 1 km at €3.50 would mean a rate of €3.50 / km, but 12 km at €20 would mean about €1.67 / km. We need a second number, the flag fall. The model is now price = w · km + b. Two unknowns: the rate `w` and the base fare `b`.
+
+```python
+# TODO: price = w * km + b; both w and b are unknown
+```
+
+**What we know and what we don't.** We know the kilometres (the input) and the prices (the answers). We store them as NumPy arrays, so we can add and multiply the whole list in one go, with no `for` loop. We don't know `w` or `b`.
+
+```python
+import numpy as np
+
+km    = np.array([1.0, 2.0, 3.0, 5.0, 6.0, 8.0, 10.0, 12.0])  # inputs
+price = np.array([3.50, 5.00, 6.50, 9.50, 11.00, 14.00, 17.00, 20.00])  # answers
+# TODO: w and b are unknown, the things to learn
+```
+
+**A first guess.** We have no idea, so we start badly on purpose and watch both numbers improve.
+
+```python
+w = 0.0                  # a bad guess on purpose
+b = 0.0
+```
+
+**Predict.** With our guess, what would each trip cost? With `w = 0` and `b = 0`, every trip comes out free. NumPy multiplies the whole array at once.
+
+```python
+pred = w * km + b        # [0, 0, 0, 0, 0, 0, 0, 0]
+```
+
+**How wrong are we?** We compare each prediction with the real receipt, square the gaps, and average them. That number is the loss, and we want it small. NumPy does it in one line.
+
+```python
+loss = np.mean((pred - price)**2)
+```
+
+**Which way to move?** Every prediction was too low, so both `w` and `b` must go up. We now have two gradients. The one for `w` still multiplies by kilometres, because a change in the rate matters more on a long trip. The one for `b` does not: the flag fall is the same on every ride, short or long.
+
+```python
+grad_w = np.mean(2 * (pred - price) * km)
+grad_b = np.mean(2 * (pred - price))
+```
+
+**A small step.** We nudge both numbers a little that way. The learning rate is the step size: too small and we crawl, too big and we bounce past the bottom.
+
+```python
+lr = 0.01
+w = w - lr * grad_w
+b = b - lr * grad_b
+```
+
+**Again and again.** We predict, measure and nudge, over and over. It takes many more steps than Lab 1: `w` and `b` pull on each other, so a step that helps the rate can undo some of the fee, and the other way around. After 500 steps we are close; after 2000 steps we are there.
+
+```python
+for step in range(2000):
+    # predict, measure, find both directions, step
+    ...
+```
+
+**When to stop.** We stop when the loss barely changes, or after a fixed number of steps.
+
+```python
+# TODO: stop when loss < 0.0001, or after N steps
+```
+
+**Check the answer.** `w ≈ 1.50` and `b ≈ 2.00`, so 7 km costs about €12.50. We also ask scikit-learn's `LinearRegression` for the same fit: a trusted reference, in closed form, with no loop. It lands on the same two numbers. Nobody told the program the rate or the fee; it found them from examples. That's learning.
+
+```python
+from sklearn.linear_model import LinearRegression
+model = LinearRegression().fit(km.reshape(-1, 1), price)
+# model.coef_ ≈ 1.50,  model.intercept_ ≈ 2.00
+print(w * 7 + b)         # ≈ 12.50
+```
+
+
 # More receipts, then two parameters
 
 Eight rides, all generated from $1.5 \cdot \text{km} + 2$. The derivative of the mean squared error with respect to $w$ is the average of $2 \cdot \text{error} \cdot \text{km}$. With respect to $b$, it is the average of $2 \cdot \text{error}$. Start at $w = 0$, $b = 0$, and take $2000$ steps of size $0.01$. Two parameters take more steps than one.
