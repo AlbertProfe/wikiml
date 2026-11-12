@@ -424,6 +424,7 @@ It would start from $Y$, with a new $A$, a new $W_1$ and a new $W_2$. The shape 
 
 # See also
 
+- [Language model architecture](language-model-architecture.qmd) — where this block sits in a full decoder-only model.
 - [The evolution of attention](evolution-of-attention.qmd) — the story of the idea, and the core formula.
 - [Attention Is All You Need](attention-is-all-you-need.qmd) — a reader's guide to the 2017 paper.
 - [$\Sigma$ — summation](/foundations/maths/maths-symbols.qmd#sigma-summation) — each row of $A$ is a sum that equals $1$.

@@ -1,6 +1,8 @@
 ---
 title: "Language model inference"
 subtitle: "Prefill and decode, the roofline, and spending compute at test time"
+aliases:
+  - /rag/language-model-inference.html
 format:
   html:
     fontsize: "1.0em"
@@ -17,7 +19,7 @@ format:
 ::: {.callout-note}
 # Source
 
-A reader's guide to part of [CS 329Z Lecture 2](https://web.stanford.edu/class/cs329z/slides/lecture02.pdf){.external target="_blank"} (Diyi Yang, Michael Ryan and John Yang; [Engineering AI Agents](https://cs329z.stanford.edu/){.external target="_blank"}, Stanford, autumn 2026). The outline and the pointers come from that lecture; the wording on this page is ours. The course is also listed under [Resources](resources.qmd#cs329z).
+A reader's guide to part of [CS 329Z Lecture 2](https://web.stanford.edu/class/cs329z/slides/lecture02.pdf){.external target="_blank"} (Diyi Yang, Michael Ryan and John Yang; [Engineering AI Agents](https://cs329z.stanford.edu/){.external target="_blank"}, Stanford, autumn 2026). The outline and the pointers come from that lecture; the wording on this page is ours. The course is also listed under [Resources](../rag/resources.qmd#cs329z).
 :::
 
 
@@ -31,9 +33,11 @@ A kitchen has two different jobs. *Mise en place* is the burst of work at the st
 
 # Prefill and decode
 
+The attention pages already make the basic distinction: the model can *read* a prompt in parallel, but it *writes* one token at a time. This page is about what that split costs, and how builders spend extra compute at test time.
+
 Autoregressive generation has two phases.
 
-*Prefill* reads the whole prompt and builds the KV cache: the keys and values for every prompt token, in every layer. This is highly parallel. *Decode* then writes one new token at a time. Each step needs the previous cache and appends one new key and value. That is why "adding things to the context out of order" is expensive, a point the [agents](llms-for-agents.qmd) page will come back to.
+*Prefill* reads the whole prompt and builds the KV cache: the keys and values for every prompt token, in every layer. This is highly parallel. *Decode* then writes one new token at a time. Each step needs the previous cache and appends one new key and value. That is why "adding things to the context out of order" is expensive, a point the [agents](../rag/llms-for-agents.qmd) page will come back to.
 
 ::: {.fig-on-white}
 ![Prefill processes the prompt in parallel and fills the KV cache; decode writes one token at a time — CS 329Z Lecture 2 (Diyi Yang, Michael Ryan, John Yang), [slide p. 123](https://web.stanford.edu/class/cs329z/slides/lecture02.pdf#page=123){.external target="_blank"}. Original: the Hugging Face / TNG Technology Consulting blog on [prefill and decode](https://huggingface.co/blog/tngtech/llm-prefill-decode){.external target='_blank'}.](/images/agents-l2/infer-prefill-and-decode.png){#fig-l2-prefill-decode fig-alt="A diagram contrasting a parallel prefill stage over the prompt with a step-by-step decode stage that emits one token at a time." .lightbox fig-align="center" width="100%"}
@@ -106,7 +110,7 @@ flowchart TD
 # FAQ
 
 **Why is chatting with a long prompt slower to *start* than to continue?**
-The first response has to prefill the whole prompt. Later turns mostly decode, and can reuse the cache if you only append. Changing earlier tokens throws that cache away. See [LLMs for agents](llms-for-agents.qmd).
+The first response has to prefill the whole prompt. Later turns mostly decode, and can reuse the cache if you only append. Changing earlier tokens throws that cache away. See [LLMs for agents](../rag/llms-for-agents.qmd).
 
 **Does a bigger GPU always make decode faster?**
 Only if you were compute-bound. Decode often is not. More bandwidth, a smaller cache, or fewer rejected draft tokens can matter more than a higher peak FLOP count.
@@ -122,6 +126,6 @@ Chain of thought is a prompting pattern (and a training ingredient). A reasoning
 - [What is a language model?](what-is-a-language-model.qmd)
 - [Language model architecture](language-model-architecture.qmd)
 - [Language model training](language-model-training.qmd)
-- [LLMs for agents](llms-for-agents.qmd)
-- [Key challenges in building agents](agent-challenges.qmd)
-- [RAG and agents: Resources](resources.qmd#cs329z)
+- [LLMs for agents](../rag/llms-for-agents.qmd)
+- [Key challenges in building agents](../rag/agent-challenges.qmd)
+- [RAG and agents: Resources](../rag/resources.qmd#cs329z)

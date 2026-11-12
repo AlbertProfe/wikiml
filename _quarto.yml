@@ -193,11 +193,15 @@ website:
         - text: "---"
         - section: "LLMs"
           contents:
+            - generative/what-is-a-language-model.qmd
+            - generative/language-model-training.qmd
+            - generative/language-model-inference.qmd
             - generative/generative-llm.qmd
             - generative/generative-gpt.qmd
         - text: "---"
         - section: "Transformers"
           contents:
+            - generative/language-model-architecture.qmd
             - generative/evolution-of-attention.qmd
             - generative/attention-is-all-you-need.qmd
             - generative/transformer-by-hand.qmd
@@ -234,13 +238,6 @@ website:
             - rag/agent-architectures.qmd
             - rag/compound-ai-systems.qmd
             - rag/agent-challenges.qmd
-        - text: "---"
-        - section: "LLMs for builders"
-          contents:
-            - rag/what-is-a-language-model.qmd
-            - rag/language-model-architecture.qmd
-            - rag/language-model-training.qmd
-            - rag/language-model-inference.qmd
             - rag/llms-for-agents.qmd
         - text: "---"
         - section: "Labs"

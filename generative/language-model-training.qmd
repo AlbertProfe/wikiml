@@ -1,6 +1,8 @@
 ---
 title: "Language model training"
 subtitle: "Pretraining, midtraining, post-training, and training for agents"
+aliases:
+  - /rag/language-model-training.html
 format:
   html:
     fontsize: "1.0em"
@@ -17,7 +19,7 @@ format:
 ::: {.callout-note}
 # Source
 
-A reader's guide to part of [CS 329Z Lecture 2](https://web.stanford.edu/class/cs329z/slides/lecture02.pdf){.external target="_blank"} (Diyi Yang, Michael Ryan and John Yang; [Engineering AI Agents](https://cs329z.stanford.edu/){.external target="_blank"}, Stanford, autumn 2026). The outline and the pointers come from that lecture; the wording on this page is ours. The course is also listed under [Resources](resources.qmd#cs329z).
+A reader's guide to part of [CS 329Z Lecture 2](https://web.stanford.edu/class/cs329z/slides/lecture02.pdf){.external target="_blank"} (Diyi Yang, Michael Ryan and John Yang; [Engineering AI Agents](https://cs329z.stanford.edu/){.external target="_blank"}, Stanford, autumn 2026). The outline and the pointers come from that lecture; the wording on this page is ours. The course is also listed under [Resources](../rag/resources.qmd#cs329z).
 :::
 
 
@@ -28,6 +30,8 @@ Training is how the next-token machine gets its instincts. You show it text, ask
 
 Think of an apprenticeship. First the apprentice reads a vast, messy library (pretraining). Then you put more of the books they will actually need on the desk — the maths, the code, the house style (midtraining). Then you stand next to them and correct how they answer a request (instruction fine-tuning), or you compare two answers and say which you prefer (preference learning). For some jobs you do not need a taste judgement at all: the unit tests pass, or they do not. That last kind of feedback is the one the lecture highlights for agents.
 :::
+
+The 2017 paper's own training setup — WMT data, Adam with a warmup, the BLEU numbers — stays on the [reader's guide to Attention Is All You Need](attention-is-all-you-need.qmd#training-and-results). This page is the modern recipe around that same next-token loss: pretraining, midtraining, post-training, and training for agents.
 
 # The loss: next-token cross-entropy
 
@@ -128,6 +132,7 @@ Training decides what the model can do. [Inference](language-model-inference.qmd
 - [What is a language model?](what-is-a-language-model.qmd)
 - [Language model architecture](language-model-architecture.qmd)
 - [Language model inference](language-model-inference.qmd)
-- [LLMs for agents](llms-for-agents.qmd)
-- [Key challenges in building agents](agent-challenges.qmd), for reliability and evaluation
-- [RAG and agents: Resources](resources.qmd#cs329z)
+- [Attention Is All You Need](attention-is-all-you-need.qmd), for the 2017 paper’s training setup
+- [LLMs for agents](../rag/llms-for-agents.qmd)
+- [Key challenges in building agents](../rag/agent-challenges.qmd), for reliability and evaluation
+- [RAG and agents: Resources](../rag/resources.qmd#cs329z)

@@ -1,6 +1,8 @@
 ---
 title: "What is a language model?"
 subtitle: "Next-token probabilities, and how we sample from them"
+aliases:
+  - /rag/what-is-a-language-model.html
 format:
   html:
     fontsize: "1.0em"
@@ -17,13 +19,13 @@ format:
 ::: {.callout-note}
 # Source
 
-A reader's guide to part of [CS 329Z Lecture 2](https://web.stanford.edu/class/cs329z/slides/lecture02.pdf){.external target="_blank"} (Diyi Yang, Michael Ryan and John Yang; [Engineering AI Agents](https://cs329z.stanford.edu/){.external target="_blank"}, Stanford, autumn 2026). The outline and the pointers come from that lecture; the wording on this page is ours. The course is also listed under [Resources](resources.qmd#cs329z).
+A reader's guide to part of [CS 329Z Lecture 2](https://web.stanford.edu/class/cs329z/slides/lecture02.pdf){.external target="_blank"} (Diyi Yang, Michael Ryan and John Yang; [Engineering AI Agents](https://cs329z.stanford.edu/){.external target="_blank"}, Stanford, autumn 2026). The outline and the pointers come from that lecture; the wording on this page is ours. The course is also listed under [Resources](../rag/resources.qmd#cs329z).
 :::
 
 
 A language model is a machine that, given some tokens already written, assigns a probability to every token that could come next. That is the whole trick, and it is older than the current wave of chatbots. Once you can do that, you can write by sampling: pick a next token, add it to the page, and ask again.
 
-The lecture starts one level above the model, with a stack. At the top sit agent frameworks, memory, and multi-agent designs — the material of [Lecture 1](history-of-agents.qmd). Underneath are the language model, the training recipe, and the inference engine. This course works at the top of the stack, but the design decisions lower down leak into every agent you build: how long a context you can afford, how you sample, and what the model is even modelling.
+The lecture starts one level above the model, with a stack. At the top sit agent frameworks, memory, and multi-agent designs — the material of [Lecture 1](../rag/history-of-agents.qmd). Underneath are the language model, the training recipe, and the inference engine. This course works at the top of the stack, but the design decisions lower down leak into every agent you build: how long a context you can afford, how you sample, and what the model is even modelling.
 
 ::: {.callout-tip}
 # Everyday example
@@ -103,7 +105,7 @@ Further reading from the lecture: [decoding strategies](https://huggingface.co/b
 # FAQ
 
 **Is a chatbot the same thing as a language model?**
-No. The language model is the next-token distribution. A chatbot is a system around it: a system prompt, sampling settings, tools, memory, and a user interface. That is the rest of this lecture, and of [Lecture 1](compound-ai-systems.qmd).
+No. The language model is the next-token distribution. A chatbot is a system around it: a system prompt, sampling settings, tools, memory, and a user interface. That is the rest of this lecture, and of [Lecture 1](../rag/compound-ai-systems.qmd).
 
 **Do we always pick the most likely next word?**
 No, and often we should not. Always taking the mode (greedy decoding) can be the right call for a tightly specified answer, and a poor call when you want variety or when the mode is a bland phrase the model likes too much.
@@ -112,13 +114,13 @@ No, and often we should not. Always taking the mode (greedy decoding) can be the
 No. It is a knob on the softmax. At $T = 1$ you sample from the model's raw distribution. As $T$ approaches 0 the sample collapses toward the most likely token.
 
 **Why does the lecture spend time on this if the course is about agents?**
-Because agents *are* language models in a loop. How you sample, and what the model is modelling, shows up later as structured output, tool calls, and the cost of a long context. The next pages take the [architecture](language-model-architecture.qmd), [training](language-model-training.qmd), [inference](language-model-inference.qmd), and [LLMs for agents](llms-for-agents.qmd).
+Because agents *are* language models in a loop. How you sample, and what the model is modelling, shows up later as structured output, tool calls, and the cost of a long context. The next pages take the [architecture](language-model-architecture.qmd), [training](language-model-training.qmd), [inference](language-model-inference.qmd), and [LLMs for agents](../rag/llms-for-agents.qmd).
 
 # See also
 
 - [Language model architecture](language-model-architecture.qmd)
 - [Language model training](language-model-training.qmd)
 - [Language model inference](language-model-inference.qmd)
-- [LLMs for agents](llms-for-agents.qmd)
-- [History of agents](history-of-agents.qmd) and [Compound AI systems](compound-ai-systems.qmd), from Lecture 1
-- [RAG and agents: Resources](resources.qmd#cs329z)
+- [LLMs for agents](../rag/llms-for-agents.qmd)
+- [History of agents](../rag/history-of-agents.qmd) and [Compound AI systems](../rag/compound-ai-systems.qmd), from Lecture 1
+- [RAG and agents: Resources](../rag/resources.qmd#cs329z)

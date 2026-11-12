@@ -1,6 +1,8 @@
 ---
 title: "Language model architecture"
 subtitle: "From n-grams to Transformers, and why linear attention is in the mix"
+aliases:
+  - /rag/language-model-architecture.html
 format:
   html:
     fontsize: "1.0em"
@@ -17,7 +19,7 @@ format:
 ::: {.callout-note}
 # Source
 
-A reader's guide to part of [CS 329Z Lecture 2](https://web.stanford.edu/class/cs329z/slides/lecture02.pdf){.external target="_blank"} (Diyi Yang, Michael Ryan and John Yang; [Engineering AI Agents](https://cs329z.stanford.edu/){.external target="_blank"}, Stanford, autumn 2026). The outline and the pointers come from that lecture; the wording on this page is ours. The course is also listed under [Resources](resources.qmd#cs329z).
+A reader's guide to part of [CS 329Z Lecture 2](https://web.stanford.edu/class/cs329z/slides/lecture02.pdf){.external target="_blank"} (Diyi Yang, Michael Ryan and John Yang; [Engineering AI Agents](https://cs329z.stanford.edu/){.external target="_blank"}, Stanford, autumn 2026). The outline and the pointers come from that lecture; the wording on this page is ours. The course is also listed under [Resources](../rag/resources.qmd#cs329z).
 :::
 
 
@@ -44,16 +46,9 @@ Then the field changed shape.
 
 # Transformers
 
-[Attention Is All You Need](https://arxiv.org/abs/1706.03762){.external target="_blank"} (Vaswani, Shazeer, Parmar, Uszkoreit, Jones, Gomez, Kaiser and Polosukhin, 2017) replaced recurrence with self-attention. Each token can look at the others in the sequence (with a causal mask, if you are generating left to right), in parallel during training. The original paper is an encoder–decoder model for translation. Almost every chatbot you meet today is a *decoder-only* Transformer: embeddings, positional information, blocks of masked self-attention and a feed-forward network, then a softmax over the vocabulary.
+The leap from recurrence to self-attention is already told in two places on this wiki. [The evolution of attention](evolution-of-attention.qmd) is the history: Bahdanau, Luong, then the 2017 decision to drop the recurrent backbone. [Attention Is All You Need](attention-is-all-you-need.qmd) is the reader's guide to that paper — encoder and decoder stacks, scaled dot-product attention, multi-head attention, masking, and positional encoding — with the original Figure 1. [Transformer by hand](transformer-by-hand.qmd) works through one block with small integers.
 
-We already have a slower walk through that paper on [Attention Is All You Need](../generative/attention-is-all-you-need.qmd), and a longer arc on the [evolution of attention](../generative/evolution-of-attention.qmd). The lecture figure below is the 2017 diagram with a teaching annotation that marks the encoder and the decoder.
-
-::: {.fig-on-white}
-![The original Transformer architecture, with the lecture’s encoder and decoder annotation — CS 329Z Lecture 2 (Diyi Yang, Michael Ryan, John Yang), [slide p. 27](https://web.stanford.edu/class/cs329z/slides/lecture02.pdf#page=27){.external target="_blank"}. Original: Figure 1 of [Vaswani et al. (2017)](https://arxiv.org/abs/1706.03762){.external target='_blank'}](/images/agents-l2/arch-transformer-2017.png){#fig-l2-transformer fig-alt="The 2017 Transformer diagram, with a red box around the encoder stack and a label on the decoder stack." .lightbox fig-align="center" width="100%"}
-:::
-
-
-The reason this beat recurrence, in the paper's own comparison, is a mixture of path length, parallelism, and computational complexity.
+What the lecture adds, for a builder, is the shape you actually meet today. The original paper is an encoder–decoder model for translation. Almost every chatbot you meet is a *decoder-only* Transformer: embeddings, positional information, blocks of masked self-attention and a feed-forward network, then a softmax over the vocabulary. The paper's own comparison (Table 1, below) is why that look-back beat recurrence: a shorter path between distant tokens, and more work that can run in parallel, at quadratic cost in the length of the sequence.
 
 ::: {.fig-on-white}
 ![Table 1 from the 2017 paper: self-attention has a shorter path length than recurrence and convolutions, at quadratic cost in sequence length — CS 329Z Lecture 2 (Diyi Yang, Michael Ryan, John Yang), [slide p. 61](https://web.stanford.edu/class/cs329z/slides/lecture02.pdf#page=61){.external target="_blank"}. Original: Table 1 of [Vaswani et al. (2017)](https://arxiv.org/abs/1706.03762){.external target='_blank'}.](/images/agents-l2/arch-attention-vs-recurrence.png){#fig-l2-attn-vs-recurrence fig-alt="A table comparing self-attention, recurrent, convolutional and restricted self-attention layers on complexity, sequential operations, and maximum path length." .lightbox fig-align="center" width="100%"}
@@ -62,9 +57,9 @@ The reason this beat recurrence, in the paper's own comparison, is a mixture of 
 
 # Linear attention
 
-Softmax attention is $O(n^2)$ in the context length, and the KV cache grows with $n$. That is a tax every agent pays when the transcript, the tools, and the files pile up.
+Softmax attention is $O(n^2)$ in the context length, and the KV cache grows with $n$. That is a tax every agent pays when the transcript, the tools, and the files pile up. The quadratic bill, and the 2020 reformulation that attacks it, are in [The evolution of attention](evolution-of-attention.qmd#2020-linear-attention-tackled-quadratic-complexity): [Katharopoulos, Vyas, Pappas and Fleuret](https://arxiv.org/abs/2006.16236){.external target="_blank"} rewrite attention with a kernel feature map so the cost can grow as $O(n)$, with a constant-size state — a different computation, not a faster softmax. FlashAttention, on the same page, is a third idea: keep the original softmax maths, but run it with fewer trips to GPU memory.
 
-*Linear attention* drops the softmax. In the formulation of [Katharopoulos, Vyas, Pappas and Fleuret, Transformers are RNNs](https://arxiv.org/abs/2006.16236){.external target="_blank"} (2020), a kernel feature map lets you rewrite attention so that you can maintain a constant-size state and run in $O(n)$ time. The lecture's comparison is the one to keep:
+The lecture's comparison is the one to keep for builders:
 
 ::: {.fig-on-white}
 ![Full softmax attention versus linear attention: quadratic look-back and a growing KV cache, against a linear scan over a compressed state — CS 329Z Lecture 2 (Diyi Yang, Michael Ryan, John Yang), [slide p. 87](https://web.stanford.edu/class/cs329z/slides/lecture02.pdf#page=87){.external target="_blank"}. Lecture original.](/images/agents-l2/arch-softmax-vs-linear-attention.png){#fig-l2-softmax-vs-linear fig-alt="A two-column comparison of full softmax attention and linear attention, covering complexity, how tokens refer to the past, long-context behaviour, and memory." .lightbox fig-align="center" width="100%"}
@@ -101,7 +96,7 @@ The lecture closes the architecture section with a builder's list, not a theoris
 - Agents meet extremely long contexts.
 - Inference efficiency is a design choice, not a later optimisation.
 - Knowing the architecture helps you pick a model whose memory and attention pattern fit the job.
-- The harness around the model should play to its strengths and cover its weaknesses. That is the job of an agent engineer, and it is the subject of [LLMs for agents](llms-for-agents.qmd).
+- The harness around the model should play to its strengths and cover its weaknesses. That is the job of an agent engineer, and it is the subject of [LLMs for agents](../rag/llms-for-agents.qmd).
 
 # In one table
 
@@ -116,7 +111,7 @@ The lecture closes the architecture section with a builder's list, not a theoris
 # FAQ
 
 **Why did Transformers replace LSTMs for language models?**
-Training can be parallel across the sequence, the path from a token far back is short, and in the mid-2010s that combination scaled better. The 2017 paper's Table 1 is still a clean statement of the tradeoff.
+Training can be parallel across the sequence, and the path from a token far back is short. That tradeoff is Table 1 below, and it is unpacked in [The evolution of attention](evolution-of-attention.qmd) and in the [reader's guide to the 2017 paper](attention-is-all-you-need.qmd).
 
 **If linear attention is faster, why keep softmax attention at all?**
 Because the cheap state is a summary. Benchmarks such as RULER show that long-context work still benefits from being able to look at the original tokens. Hybrids are an attempt to have both.
@@ -125,14 +120,14 @@ Because the cheap state is a summary. Benchmarks such as RULER show that long-co
 Not in the strict sense the lecture is careful about. Attention does not forbid a longer sequence. What usually binds you is the positional scheme the model was trained with, plus the memory bill of the KV cache.
 
 **Where should I go for the attention equations?**
-The lecture walks through queries, keys, values, the causal mask, and multi-head attention. We unpack the same maths in [Attention Is All You Need](../generative/attention-is-all-you-need.qmd). This page stays with the design choices that leak into agents.
+The lecture walks through queries, keys, values, the causal mask, and multi-head attention. We unpack the same maths in [Attention Is All You Need](attention-is-all-you-need.qmd). This page stays with the design choices that leak into agents.
 
 # See also
 
 - [What is a language model?](what-is-a-language-model.qmd)
 - [Language model training](language-model-training.qmd)
 - [Language model inference](language-model-inference.qmd)
-- [LLMs for agents](llms-for-agents.qmd)
-- [Attention Is All You Need](../generative/attention-is-all-you-need.qmd) and [Evolution of attention](../generative/evolution-of-attention.qmd)
-- [Agent architectures](agent-architectures.qmd)
-- [RAG and agents: Resources](resources.qmd#cs329z)
+- [LLMs for agents](../rag/llms-for-agents.qmd)
+- [Attention Is All You Need](attention-is-all-you-need.qmd) and [Evolution of attention](evolution-of-attention.qmd)
+- [Agent architectures](../rag/agent-architectures.qmd)
+- [RAG and agents: Resources](../rag/resources.qmd#cs329z)

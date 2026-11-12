@@ -20,3 +20,14 @@ The 3Blue1Brown video *Transformers (how LLMs work) explained visually* is embed
 - [LLM Engineer's Handbook: Master the art of engineering large language models from concept to production ](https://www.packtpub.com/en-us/product/llm-engineers-handbook-9781836200062?srsltid=AfmBOorsghxj1A2sZIK6UQc4ZwnKaaQ2vD5_mKI-ke1-LL-N984ALpOt){.external target='_blank'}
 - [Repo](https://github.com/SylphAI-Inc/LLM-engineer-handbook){.external target='_blank'}
 
+
+# Language models, on this wiki
+
+Reader's guides drawn from [CS 329Z Lecture 2](https://web.stanford.edu/class/cs329z/slides/lecture02.pdf){.external target="_blank"} (Diyi Yang, Michael Ryan and John Yang; Stanford, autumn 2026):
+
+- [What is a language model?](what-is-a-language-model.qmd)
+- [Language model architecture](language-model-architecture.qmd)
+- [Language model training](language-model-training.qmd)
+- [Language model inference](language-model-inference.qmd)
+
+The same lecture's agent-facing page, [LLMs for agents](../rag/llms-for-agents.qmd), lives in RAG and agents. The course is also listed under [RAG and agents: Resources](../rag/resources.qmd#cs329z).

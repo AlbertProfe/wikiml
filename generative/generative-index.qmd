@@ -6,7 +6,7 @@ title: "Generative AI"
 
 ::: {.callout-note}
 # In this section
-The path from the seq2seq bottleneck to self-attention — Bahdanau, Luong, the Transformer, linear attention and FlashAttention — is told in [The evolution of attention](evolution-of-attention.qmd). The original transformer figure is on this page; the teaching page for the architecture itself is [The Transformer](generative-transformer.qmd).
+The path from the seq2seq bottleneck to self-attention — Bahdanau, Luong, the Transformer, linear attention and FlashAttention — is told in [The evolution of attention](evolution-of-attention.qmd). A builder's overview of language-model architecture is in [Language model architecture](language-model-architecture.qmd). The original transformer figure is on this page.
 :::
 
 
@@ -61,6 +61,8 @@ The generator network is trained to fool the discriminator network, while the di
 
 # Transformers
 
+A builder's overview, from n-grams to decoder-only models and linear attention, is in [Language model architecture](language-model-architecture.qmd). The history of the attention idea is in [The evolution of attention](evolution-of-attention.qmd); the paper itself is in [Attention Is All You Need](attention-is-all-you-need.qmd); one block you can compute by hand is in [Transformer by hand](transformer-by-hand.qmd).
+
 The **Transformer** was introduced in *2017 by Vaswani et al*. 
 
 > It is a neural network architecture that uses **attention** mechanisms to process data sequences.
@@ -73,6 +75,8 @@ The **Transformer** has been used in many applications, such as machine translat
 - [The Transformer Blueprint: A Holistic Guide to the Transformer Neural Network Architecture](https://deeprevision.github.io/posts/001-transformer/#ref-vaswani2017attention){.external target='_blank'}
 
 # Large Language Models (LLM)
+
+What a language model *is*, and how we sample from it, is in [What is a language model?](what-is-a-language-model.qmd). How one is trained and run is in [Language model training](language-model-training.qmd) and [Language model inference](language-model-inference.qmd). A short pointer page remains at [Large Language Models](generative-llm.qmd).
 
 > LLMs are trained on vast amounts of textual data and use transformer models to analyze and produce coherent, contextually relevant language.
 

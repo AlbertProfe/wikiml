@@ -188,7 +188,7 @@ Before the words enter the model, a **positional encoding** is added: a small si
 
 The older recurrent networks had to read word 1 before word 2. Training was a queue. The Transformer can process the whole input in parallel, which is a much better fit for GPUs. That is a large part of why the architecture won.
 
-One careful distinction: *reading* the input can happen in parallel; *writing* the answer is still one token at a time. The model predicts the next word, adds it to the context, and predicts again. The [Transformer page](generative-transformer.qmd) will take that point further, including encoder-decoder versus the decoder-only design used by most chat models.
+One careful distinction: *reading* the input can happen in parallel; *writing* the answer is still one token at a time. The model predicts the next word, adds it to the context, and predicts again. [Language model inference](language-model-inference.qmd) is the builder's account of that split — prefill, decode, the KV cache, and the roofline. [Language model architecture](language-model-architecture.qmd) sketches encoder-decoder versus the decoder-only design used by most chat models.
 
 ::: {.callout-tip}
 # Everyday example
@@ -214,7 +214,7 @@ This is not a problem for a sentence. It becomes a problem for a chapter, a long
 
 They write self-attention as a linear dot-product of kernel feature maps and then use the associativity of matrix products to reduce the complexity from $O(N^2)$ to $O(N)$ in the sequence length $N$. The same formulation has an iterative implementation, which is why the title says that these transformers are RNNs.
 
-This is a different computational path, taken to make long sequences affordable. It is not the same algorithm as the original softmax attention.
+This is a different computational path, taken to make long sequences affordable. It is not the same algorithm as the original softmax attention. For the builder's comparison — a growing KV cache versus a constant-size state, the long-context cost shown by RULER, and the hybrid designs that mix the two — see [Language model architecture](language-model-architecture.qmd#linear-attention).
 
 # 2022: FlashAttention made exact attention faster
 
@@ -242,7 +242,7 @@ You do not change the recipe. You change how often you walk to the pantry. Chop 
 
 Every row keeps what worked and repairs the biggest thing that did not. Soft attention kept the encoder-decoder and opened the letter. Luong kept the look-up and made the scoring and the window practical. The Transformer kept attention and dropped the slow queue. Linear attention and FlashAttention then attacked the cost, in two different ways: one changes the computation to grow with $n$ rather than $n^2$; the other keeps the original computation and runs it with fewer trips to memory.
 
-The story is still going on. A [reader's guide to Attention Is All You Need](attention-is-all-you-need.qmd) walks through the 2017 paper. Then [Transformer by hand](transformer-by-hand.qmd) works through one block with small integer matrices. For the architecture of the Transformer itself — encoder and decoder, and the later decoder-only design — see [The Transformer](generative-transformer.qmd).
+The story is still going on. A [reader's guide to Attention Is All You Need](attention-is-all-you-need.qmd) walks through the 2017 paper. Then [Transformer by hand](transformer-by-hand.qmd) works through one block with small integer matrices. [Language model architecture](language-model-architecture.qmd) is the builder's overview, from n-grams to decoder-only Transformers and mixed attention. The [Transformer page](generative-transformer.qmd) remains a planned teaching page for the same architecture.
 
 # FAQ
 

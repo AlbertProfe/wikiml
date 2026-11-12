@@ -120,10 +120,10 @@ The lecture ends with "see you on Wednesday for RAG." Retrieval is the systemati
 
 # See also
 
-- [What is a language model?](what-is-a-language-model.qmd)
-- [Language model architecture](language-model-architecture.qmd)
-- [Language model training](language-model-training.qmd)
-- [Language model inference](language-model-inference.qmd)
+- [What is a language model?](../generative/what-is-a-language-model.qmd)
+- [Language model architecture](../generative/language-model-architecture.qmd)
+- [Language model training](../generative/language-model-training.qmd)
+- [Language model inference](../generative/language-model-inference.qmd)
 - [Compound AI systems](compound-ai-systems.qmd), [Agent architectures](agent-architectures.qmd), and [Key challenges in building agents](agent-challenges.qmd)
 - [Generative AI: RAG](../generative/generative-rag.qmd)
 - [RAG and agents: Resources](resources.qmd#cs329z)

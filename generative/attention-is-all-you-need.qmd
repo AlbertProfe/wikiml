@@ -179,7 +179,7 @@ The headline at the time was translation quality at a fraction of the previous t
 
 The **encoder** stack is the ancestor of BERT and the family of models that read a text and build a representation of it. The **decoder**, taken on its own and trained to predict the next token, is the ancestor of GPT and the chat models we use now. The original paper is an encoder-decoder, built for translation. The two halves were later used separately, at a much larger scale.
 
-[The evolution of attention](evolution-of-attention.qmd) picks up what came next on the attention formula itself: linear attention, then FlashAttention. This page stops at the 2017 design.
+[The evolution of attention](evolution-of-attention.qmd) picks up what came next on the attention formula itself: linear attention, then FlashAttention. This page stops at the 2017 design. For the modern pretraining, midtraining and post-training recipe around the same next-token loss, see [Language model training](language-model-training.qmd).
 
 # How to read the paper
 
@@ -235,7 +235,9 @@ The abstract and Table 2 report 41.8. The paragraph in §6.1 writes 41.0. We hav
 
 - [The evolution of attention](evolution-of-attention.qmd) — the path from Bahdanau to the Transformer, and then to cheaper attention.
 - [Transformer by hand](transformer-by-hand.qmd) — one block, with small integer matrices, that you can also run in the page.
-- [The Transformer](generative-transformer.qmd) — the teaching page for the architecture itself, still in progress.
+- [Language model architecture](language-model-architecture.qmd) — a builder's overview, from n-grams to decoder-only models and mixed attention.
+- [Language model training](language-model-training.qmd) — the modern training recipe around the same next-token loss.
+- [The Transformer](generative-transformer.qmd) — a planned teaching page for the architecture itself, still in progress.
 - [Attention Is All You Need](https://arxiv.org/abs/1706.03762){.external target="_blank"} — the paper on arXiv, and the [PDF](https://arxiv.org/pdf/1706.03762){.external target="_blank"}.
 - [The Annotated Transformer](https://nlp.seas.harvard.edu/annotated-transformer/){.external target="_blank"} and [The Illustrated Transformer](https://jalammar.github.io/illustrated-transformer/){.external target="_blank"} — two companions to the same paper.
 

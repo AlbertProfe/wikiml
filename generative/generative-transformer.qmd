@@ -3,17 +3,13 @@ title: "The Transformer"
 ---
 
 ::: {.callout-note}
-This page is in progress. It replaces the old Quarto starter placeholder (“This is a Quarto website”).
+Several teaching pages now cover what this stub was going to be. This page stays as a short pointer, so old links keep working, until a further pass is written.
 :::
 
-# What this page will be
+# What is already written
 
-The path from the seq2seq bottleneck to self-attention is now told in [The evolution of attention](evolution-of-attention.qmd). This page will be the teaching page for the Transformer itself: encoder-decoder versus decoder-only, positional encoding, and the sentence *read in parallel, write one token at a time*.
+The path from the seq2seq bottleneck to self-attention is told in [The evolution of attention](evolution-of-attention.qmd). The 2017 paper — encoder and decoder stacks, scaled dot-product attention, multi-head attention, masking, and positional encoding — is in the [reader's guide to Attention Is All You Need](attention-is-all-you-need.qmd). One block, with small integers you can add by hand, is in [Transformer by hand](transformer-by-hand.qmd).
 
-The original transformer figure already lives on the [Generative AI overview](generative-index.qmd). A 3Blue1Brown video on the same idea is embedded on [ANN: model and demos](/ann/ann-model-and-demos.qmd). This page will be the written explanation, not another embed.
+[Language model architecture](language-model-architecture.qmd) is the builder's overview: decoder-only models, the 2017 paper's Table 1, linear attention, and the hybrids that mix the two. The sentence *read in parallel, write one token at a time* is taken further, as prefill and decode, in [Language model inference](language-model-inference.qmd).
 
-# Not written yet
-
-- Self-attention as the reason the recurrent bottleneck went away
-- Multi-head attention as a team of readers
-- A small FAQ of common mix-ups (including “the Transformer does not write in parallel”)
+The original transformer figure also lives on the [Generative AI overview](generative-index.qmd). A 3Blue1Brown video on the same idea is embedded on [ANN: model and demos](/ann/ann-model-and-demos.qmd).

@@ -3,17 +3,15 @@ title: "Large Language Models"
 ---
 
 ::: {.callout-note}
-This page is in progress. It replaces the old Quarto starter placeholder (“This is a Quarto website”).
+The teaching page on what a language model *is* — next-token probabilities, the chain rule, and how we sample — is now [What is a language model?](what-is-a-language-model.qmd). This page stays as a short pointer, and as a list of topics not yet written.
 :::
 
-# What this page will be
+# What this page is
 
-A teaching page on what an LLM is — Large + Language + Model — how it relates to the Transformer, and what it can and cannot do on its own.
-
-The comparison table on the [Generative AI overview](generative-index.qmd) already names LLMs. The longer story follows the path of this wiki: first [what an ANN is](/ann/ann-introduction.qmd), then [how sequence models led to attention and the Transformer](evolution-of-attention.qmd).
+A language model assigns a probability to each next token, given the tokens already written. An *LLM* is that idea at scale, almost always sitting on a Transformer. The comparison table on the [Generative AI overview](generative-index.qmd) already names LLMs. For the architecture, see [Language model architecture](language-model-architecture.qmd) and [The evolution of attention](evolution-of-attention.qmd); for how the typist is trained and run, see [Language model training](language-model-training.qmd) and [Language model inference](language-model-inference.qmd).
 
 # Not written yet
 
 - Tokenization and embeddings, in plain language
-- The context window
+- The context window, as a teaching topic of its own (a builder's note is already on the [architecture](language-model-architecture.qmd) and [inference](language-model-inference.qmd) pages)
 - Scaling, without turning it into a leaderboard
