@@ -1,0 +1,124 @@
+---
+title: "What is a language model?"
+subtitle: "Next-token probabilities, and how we sample from them"
+format:
+  html:
+    fontsize: "1.0em"
+    theme:
+      light: cosmo
+      dark: darkly
+    css: ../styles.css
+    toc: true
+    toc-depth: 5
+---
+
+# A machine that always guesses the next word
+
+::: {.callout-note}
+# Source
+
+A reader's guide to part of [CS 329Z Lecture 2](https://web.stanford.edu/class/cs329z/slides/lecture02.pdf){.external target="_blank"} (Diyi Yang, Michael Ryan and John Yang; [Engineering AI Agents](https://cs329z.stanford.edu/){.external target="_blank"}, Stanford, autumn 2026). The outline and the pointers come from that lecture; the wording on this page is ours. The course is also listed under [Resources](resources.qmd#cs329z).
+:::
+
+
+A language model is a machine that, given some tokens already written, assigns a probability to every token that could come next. That is the whole trick, and it is older than the current wave of chatbots. Once you can do that, you can write by sampling: pick a next token, add it to the page, and ask again.
+
+The lecture starts one level above the model, with a stack. At the top sit agent frameworks, memory, and multi-agent designs — the material of [Lecture 1](history-of-agents.qmd). Underneath are the language model, the training recipe, and the inference engine. This course works at the top of the stack, but the design decisions lower down leak into every agent you build: how long a context you can afford, how you sample, and what the model is even modelling.
+
+::: {.callout-tip}
+# Everyday example
+
+Imagine a typist who has read a huge library and is always guessing the next word. After "The class was about" they might write *agents*, or *to*, or *history*. They do not look the sentence up in a table of whole documents. They keep a running sense of what is likely, given only what has been typed so far. That is a language model. Sampling is the moment you decide whether to always take their first guess, or let them sometimes pick a slightly less obvious word.
+:::
+
+::: {.fig-on-white}
+![The LLM stack, from the model and its training and inference up to agent frameworks — CS 329Z Lecture 2 (Diyi Yang, Michael Ryan, John Yang), [slide p. 2](https://web.stanford.edu/class/cs329z/slides/lecture02.pdf#page=2){.external target="_blank"}. Lecture original.](/images/agents-l2/lm-the-llm-stack.png){#fig-l2-stack fig-alt="A pyramid labelled The LLM Stack, with agent frameworks, multi-agent systems and memory at the top, and the language model lower down." .lightbox fig-align="center" width="100%"}
+:::
+
+
+# The chain rule
+
+A model of a whole sequence is just the product of those next-token guesses. For a sequence $x_{1:T}$ the chain rule says
+
+$$
+P(x_{1:T}) = \prod_{t=1}^{T} P(x_t \mid x_{<t}).
+$$
+
+The lecture works this on a toy sentence, "The class was about agents." Each word has a probability given the ones before it; multiply them and you get the probability of the whole sentence. The numbers on that slide (and later ones) are teaching examples, not measurements from a published model.
+
+::: {.fig-on-white}
+![The chain rule on the toy sentence “The class was about agents.” — CS 329Z Lecture 2 (Diyi Yang, Michael Ryan, John Yang), [slide p. 8](https://web.stanford.edu/class/cs329z/slides/lecture02.pdf#page=8){.external target="_blank"}. The token probabilities are lecture illustrations, not empirical results. Lecture original.](/images/agents-l2/lm-chain-rule-example.png){#fig-l2-chain-rule fig-alt="A slide showing the sentence The class was about agents, with a next-token probability under each word and their product as the sequence probability." .lightbox fig-align="center" width="100%"}
+:::
+
+
+That product is why a single unlikely word can sink a whole sequence, and why training spends its energy raising the probability of the tokens that actually appeared in the data. We will come back to that loss on the [training](language-model-training.qmd) page.
+
+# Generative, not discriminative
+
+A *discriminative* model learns to tell classes apart: spam or not, cat or dog. A *generative* model learns a distribution over the data itself, so you can draw new samples from it. Logistic regression and an SVM sit on one side; naïve Bayes and diffusion models sit on the other.
+
+Language models of the kind in the chain rule above are generative. That is why we can sample from them. The lecture's knowledge check makes the same point: the notation $P(x_t \mid x_{<t})$ can look like a classifier over the vocabulary, but the object being modelled is the distribution of sequences.
+
+::: {.fig-on-white}
+![Generative models learn a distribution of the data; discriminative models learn to distinguish classes — CS 329Z Lecture 2 (Diyi Yang, Michael Ryan, John Yang), [slide p. 11](https://web.stanford.edu/class/cs329z/slides/lecture02.pdf#page=11){.external target="_blank"}. Original: Akanksha Malhotra, as credited on the lecture slide (Medium).](/images/agents-l2/lm-generative-vs-discriminative.png){#fig-l2-gen-vs-disc fig-alt="A comparison slide: discriminative models such as logistic regression and SVMs learn to distinguish classes; generative models such as naïve Bayes and diffusion models learn a distribution of the data." .lightbox fig-align="center" width="100%"}
+:::
+
+
+# Sampling
+
+Once you have a distribution over the next token, you still have to pick one.
+
+- *Greedy* decoding always takes the most probable token. It is cheap and often good for tasks with a narrow right answer, and it can sound stiff or get stuck in loops.
+- *Temperature* reshapes the distribution before you sample. Low temperature sharpens it toward the mode; high temperature flattens it and lets rarer tokens through.
+- *Top-k* keeps only the $k$ most probable tokens and samples from those.
+- *Nucleus*, or top-$p$, keeps the smallest set of tokens whose probabilities add up to at least $p$, so the cutoff moves with the shape of the distribution.
+- *Beam search* keeps several partial hypotheses at once, which can help on more structured output, at a higher cost in time and memory.
+
+::: {.callout-caution}
+# A note on the temperature slide
+
+The lecture slide describes temperature as dividing the *probabilities* by $T$ and then renormalising so they sum to one. The usual definition applies temperature to the *logits* (the scores before the softmax): you compute $\mathrm{softmax}(z / T)$. Dividing already-normalised probabilities by $T$ is not the same operation, except in a loose qualitative sense that $T > 1$ flattens the distribution and $T < 1$ sharpens it. We follow the standard logits definition here.
+:::
+
+::: {.fig-on-white}
+![Temperature reshapes how sharply the model prefers its top tokens — CS 329Z Lecture 2 (Diyi Yang, Michael Ryan, John Yang), [slide p. 20](https://web.stanford.edu/class/cs329z/slides/lecture02.pdf#page=20){.external target="_blank"}. The histograms are from Towards Data Science, as credited on the lecture slide. The slide text says to divide probabilities by $T$; see the note above.](/images/agents-l2/lm-temperature.png){#fig-l2-temperature fig-alt="Three histograms of next-token probabilities at different temperatures, with a short description of dividing by a temperature T." .lightbox fig-align="center" width="100%"}
+:::
+
+
+Which strategy you use depends on the task and on the budget. The lecture's practical rule of thumb is that maths and code are more predictable, so they often want a lower temperature, while creative writing may benefit from more diversity. Beam search is the expensive option. None of these knobs invents knowledge the model does not have; they only change how you draw from the distribution it already learned.
+
+Further reading from the lecture: [decoding strategies](https://huggingface.co/blog/mlabonne/decoding-strategies){.external target="_blank"} (Maxime Labonne, Hugging Face), the Hugging Face course on [tokenizers](https://huggingface.co/learn/llm-course/en/chapter2/4){.external target="_blank"}, and the Stanford [deep generative models](https://deepgenerativemodels.github.io/notes/introduction/){.external target="_blank"} notes.
+
+# In one table
+
+| Idea | In one line |
+|------|-------------|
+| Language model | A distribution over the next token, given the tokens so far |
+| Chain rule | The probability of a sequence is the product of those next-token probabilities |
+| Generative | You can sample new sequences from the model |
+| Greedy / temperature / top-$k$ / top-$p$ | Different ways of drawing the next token from the same distribution |
+| Beam search | Keep several partial hypotheses; costlier in time and memory |
+| Task and budget | Lower temperature for precise work; more diversity for open-ended writing |
+
+# FAQ
+
+**Is a chatbot the same thing as a language model?**
+No. The language model is the next-token distribution. A chatbot is a system around it: a system prompt, sampling settings, tools, memory, and a user interface. That is the rest of this lecture, and of [Lecture 1](compound-ai-systems.qmd).
+
+**Do we always pick the most likely next word?**
+No, and often we should not. Always taking the mode (greedy decoding) can be the right call for a tightly specified answer, and a poor call when you want variety or when the mode is a bland phrase the model likes too much.
+
+**Is temperature a probability?**
+No. It is a knob on the softmax. At $T = 1$ you sample from the model's raw distribution. As $T$ approaches 0 the sample collapses toward the most likely token.
+
+**Why does the lecture spend time on this if the course is about agents?**
+Because agents *are* language models in a loop. How you sample, and what the model is modelling, shows up later as structured output, tool calls, and the cost of a long context. The next pages take the [architecture](language-model-architecture.qmd), [training](language-model-training.qmd), [inference](language-model-inference.qmd), and [LLMs for agents](llms-for-agents.qmd).
+
+# See also
+
+- [Language model architecture](language-model-architecture.qmd)
+- [Language model training](language-model-training.qmd)
+- [Language model inference](language-model-inference.qmd)
+- [LLMs for agents](llms-for-agents.qmd)
+- [History of agents](history-of-agents.qmd) and [Compound AI systems](compound-ai-systems.qmd), from Lecture 1
+- [RAG and agents: Resources](resources.qmd#cs329z)

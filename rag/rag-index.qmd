@@ -19,6 +19,11 @@ I am not starting with a hedge-fund fantasy. The first honest pages here should 
 - [Agent architectures](agent-architectures.qmd) — the model, planning and reasoning, memory, tools, and the environment.
 - [Compound AI systems](compound-ai-systems.qmd) — workflows versus agents, RAG, tool use, and MCP.
 - [Key challenges in building agents](agent-challenges.qmd) — reliability, training, evaluation, and safety.
+- [What is a language model?](what-is-a-language-model.qmd) — next-token probabilities, and how we sample from them.
+- [Language model architecture](language-model-architecture.qmd) — from n-grams to Transformers and linear attention.
+- [Language model training](language-model-training.qmd) — pretraining, midtraining, post-training, and training for agents.
+- [Language model inference](language-model-inference.qmd) — prefill and decode, the roofline, and test-time scaling.
+- [LLMs for agents](llms-for-agents.qmd) — structured I/O, context engineering, and not stuffing the window.
 - A January 2025 bookmark, [Lab#RAG001](/labs/labs-index.qmd), points at an external agents write-up. That is a link list, not a classroom lab.
 
 # Coming next

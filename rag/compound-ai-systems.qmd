@@ -142,4 +142,5 @@ The [Model Context Protocol](https://modelcontextprotocol.io/){.external target=
 - [Agent architectures](agent-architectures.qmd)
 - [Key challenges in building agents](agent-challenges.qmd)
 - [Generative AI: RAG](../generative/generative-rag.qmd)
+- [LLMs for agents](llms-for-agents.qmd) — structured I/O and context engineering, from Lecture 2
 - [RAG and agents: Resources](resources.qmd#cs329z)

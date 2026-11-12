@@ -1,0 +1,129 @@
+---
+title: "LLMs for agents"
+subtitle: "Structured I/O, context engineering, and not stuffing the window"
+format:
+  html:
+    fontsize: "1.0em"
+    theme:
+      light: cosmo
+      dark: darkly
+    css: ../styles.css
+    toc: true
+    toc-depth: 5
+---
+
+# The typist in a loop
+
+::: {.callout-note}
+# Source
+
+A reader's guide to part of [CS 329Z Lecture 2](https://web.stanford.edu/class/cs329z/slides/lecture02.pdf){.external target="_blank"} (Diyi Yang, Michael Ryan and John Yang; [Engineering AI Agents](https://cs329z.stanford.edu/){.external target="_blank"}, Stanford, autumn 2026). The outline and the pointers come from that lecture; the wording on this page is ours. The course is also listed under [Resources](resources.qmd#cs329z).
+:::
+
+
+The last part of Lecture 2 is the bridge back to [Lecture 1](history-of-agents.qmd). You now have a next-token model, an architecture, a training recipe, and an inference engine. An agent is that model in a loop, talking to tools, files, and other components. Two practical problems show up immediately: the parts need a *contract* for how they talk, and the model's context window is a scarce, slightly unreliable working memory.
+
+::: {.callout-tip}
+# Everyday example
+
+Picture a busy office again. The clerk from [Lecture 1](history-of-agents.qmd) can write letters, but the office only works if the forms have a fixed layout (structured input and output), if you do not dump the entire filing cabinet on the desk (context rot), and if you add new papers to the *end* of the pile so nobody has to reshuffle what was already in hand (the KV cache). A short list of tools — a folder, a pen, a terminal — often beats a wall of rarely used gadgets.
+:::
+
+# Structured input and output
+
+[Zaharia and colleagues](https://bair.berkeley.edu/blog/2024/02/18/compound-ai-systems/){.external target="_blank"}, in the BAIR note we already used on [Compound AI systems](compound-ai-systems.qmd), put it plainly: more and more results come from *compound* systems, not from a single model call. Those systems need a shared contract for how the parts communicate.
+
+::: {.fig-on-white}
+![From a single model to a compound system that needs a contract between its parts — CS 329Z Lecture 2 (Diyi Yang, Michael Ryan, John Yang), [slide p. 152](https://web.stanford.edu/class/cs329z/slides/lecture02.pdf#page=152){.external target="_blank"}. Original: [Compound AI Systems](https://bair.berkeley.edu/blog/2024/02/18/compound-ai-systems/){.external target='_blank'} (Zaharia et al., BAIR, 18 February 2024).](/images/agents-l2/agents-structured-io.png){#fig-l2-structured-io fig-alt="A slide moving from one large neural net to a compound system of several nets connected to a database, documents, a calculator and a terminal, with the caption that new results increasingly come from compound systems." .lightbox fig-align="center" width="100%"}
+:::
+
+
+One way to enforce the contract is *constrained decoding*: you only let the model emit tokens that fit a grammar or a finite-state machine, so the output is valid JSON, a legal tool call, or a DSPy-shaped record. [SGLang](https://arxiv.org/abs/2312.07104){.external target="_blank"} (Zheng et al., 2024) is the lecture's example: it uses finite-state machines, among other systems tricks, to keep structured generation fast. [DSPy](https://dspy.ai/){.external target="_blank"} signatures are a higher-level version of the same idea: you declare the fields you want, and the framework takes care of getting the model to fill them.
+
+You can also constrain the model *outside* free text generation. A small classifier head on embeddings can map a state to a label. The lecture mentions a current slogan, "System One" models: roughly, classifiers with adaptable options, used for decisions rather than for open-ended prose (the lecture points at [contrastive-lm.notion.site](https://contrastive-lm.notion.site/){.external target="_blank"}). And for tools, the ancestor paper is [Toolformer](https://arxiv.org/abs/2302.04761){.external target="_blank"} (Schick et al., 2023): a language model that learns, from its own traces, when to call an API and how to put the result back into the text.
+
+# Context engineering
+
+Prompt engineering was about the wording of a single request. *Context engineering* is about everything that goes into the window of an agent over a long run. The lecture's picture is from Anthropic's [Effective context engineering for AI agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents){.external target="_blank"}.
+
+::: {.fig-on-white}
+![Prompt engineering for a single turn, versus curating what of a much larger possible context actually enters an agent’s window — CS 329Z Lecture 2 (Diyi Yang, Michael Ryan, John Yang), [slide p. 161](https://web.stanford.edu/class/cs329z/slides/lecture02.pdf#page=161){.external target="_blank"}. Original: Anthropic, [Effective context engineering for AI agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents){.external target='_blank'}.](/images/agents-l2/agents-context-engineering.png){#fig-l2-context-engineering fig-alt="A two-panel diagram: a small context window with a system prompt and user message on the left, and on the right a pool of documents, tools, memories and history being curated into the window of an agent that can call tools." .lightbox fig-align="center" width="100%"}
+:::
+
+
+What might go in that window? The lecture's list is short and complete enough to start from:
+
+- the system prompt
+- the message history
+- memories
+- tool-call results
+- attached files
+
+The temptation is to put all of it in, every time. That is usually a mistake.
+
+# Context rot, bloat, and the cache
+
+Longer is not always better. [Oolong](https://arxiv.org/abs/2511.02817){.external target="_blank"} (the lecture stylises the name as OOLONG) measures long-context reasoning and aggregation: as the context grows, scores fall, on both synthetic and more realistic splits. The lecture uses that plot as a warning labelled *context rot*.
+
+::: {.fig-on-white}
+![Context rot: scores on Oolong drop as the context gets longer, rather than staying flat out to the advertised window — CS 329Z Lecture 2 (Diyi Yang, Michael Ryan, John Yang), [slide p. 164](https://web.stanford.edu/class/cs329z/slides/lecture02.pdf#page=164){.external target="_blank"}. Original: [Oolong: Evaluating Long Context Reasoning and Aggregation Capabilities](https://arxiv.org/abs/2511.02817){.external target='_blank'}. The lecture writes the name as OOLONG; the paper’s title is Oolong.](/images/agents-l2/agents-context-rot.png){#fig-l2-context-rot fig-alt="Two line charts, Oolong-synth and Oolong-real, showing model scores declining as context length grows from thousands to hundreds of thousands of tokens." .lightbox fig-align="center" width="100%"}
+:::
+
+
+The lecture's practical advice, which students also meet in the course homework, is that there is no single right context. You experiment. A few concrete habits help:
+
+- *Avoid bloat.* Sometimes a few tools are enough. The lecture points at Pi, which exposes just `read`, `write`, `edit`, and `bash` — a case made in [The harness tax](https://arena.ai/blog/coding-agents-harness-tax){.external target="_blank"} on arena.ai. Recovery of the rest can wait for retrieval, which the course takes up in the next lecture (and which we already sketch under [Generative AI: RAG](../generative/generative-rag.qmd)).
+- *Add sequentially.* If you insert or edit tokens *earlier* in the context, the positional embeddings of everything after them change, and the KV cache for that suffix is invalidated. Append new material where you can, so prefill work is not thrown away. This is the inference engine leaking into the agent's bookkeeping.
+- *Evaluate the choices empirically.* Toolformer is the lecture's reminder that you can set up tests and measure whether a context change helped, rather than arguing from taste.
+- *Compact carefully.* By the time you compact, the context is already very long. Keep too much and you will have to compact again soon; drop too much and you lose what the task still needs.
+
+::: {.fig-on-white}
+![Inserting or editing earlier tokens changes later positional embeddings and invalidates the KV cache for the suffix — CS 329Z Lecture 2 (Diyi Yang, Michael Ryan, John Yang), [slide p. 169](https://web.stanford.edu/class/cs329z/slides/lecture02.pdf#page=169){.external target="_blank"}. Lecture original.](/images/agents-l2/agents-kv-cache-invalidation.png){#fig-l2-kv-invalidation fig-alt="A diagram of a token sequence with a crossed-out KV cache, and arrows showing that later position embeddings change when earlier context is edited." .lightbox fig-align="center" width="100%"}
+:::
+
+
+# A different philosophy: recursive language models
+
+Instead of stuffing a huge window, *recursive language models* treat the context as something the model can explore with its own sub-calls: look at a slice, recurse, and only bring back what is needed. The paper is [Recursive Language Models](https://arxiv.org/abs/2512.24601){.external target="_blank"} (2025); the lecture also credits [Alex Zhang's write-up](https://alexzhang13.github.io/blog/2025/rlm/){.external target="_blank"}. On one Oolong setting in that write-up, an RLM built on a smaller model can outscore a larger model used in the ordinary way, and outscore a ReAct baseline. Those bar heights are the source's numbers, not a rerun of our own.
+
+::: {.fig-on-white}
+![Recursive LMs on one Oolong setting with a 263k-token context, as reported by the source — CS 329Z Lecture 2 (Diyi Yang, Michael Ryan, John Yang), [slide p. 173](https://web.stanford.edu/class/cs329z/slides/lecture02.pdf#page=173){.external target="_blank"}. Original: [Recursive Language Models](https://alexzhang13.github.io/blog/2025/rlm/){.external target='_blank'} (see also [arXiv:2512.24601](https://arxiv.org/abs/2512.24601){.external target='_blank'}).](/images/agents-l2/agents-recursive-lms.png){#fig-l2-rlm fig-alt="A bar chart of Oolong scores: GPT-5 at 34.2 percent, GPT-5-mini at 23.2 percent, an RLM of GPT-5-mini at 51.1 percent, an RLM of GPT-5 without sub-calls at 40.9 percent, and ReAct plus GPT-5 with a budget at 30.7 percent." .lightbox fig-align="center" width="100%"}
+:::
+
+
+# In one table
+
+| Habit | Why it matters |
+|-------|----------------|
+| Structured I/O | Compound systems need a contract, not free-form prose between every part |
+| Constrained decoding | Enforce the contract at sample time (FSMs, grammars, DSPy signatures) |
+| Small decision models | Classifiers, or "System One" heads, for some choices instead of a long generation |
+| Context engineering | Curate the window: system prompt, history, memories, tool results, files |
+| Context rot | Longer contexts can *hurt*; measure, do not assume |
+| Few tools, then retrieval | Avoid harness bloat; recover extras when needed |
+| Append, do not reshuffle | Protect the KV cache |
+| Compaction / recursion | When the window is full, summarise carefully — or let the model recurse into the text |
+
+# FAQ
+
+**Is context engineering just a new name for prompt engineering?**
+It is a wider job. Prompt engineering is usually a single wording. Context engineering is the running policy for what an agent can see: what you include, what you retrieve, what you drop, and when you compact.
+
+**Why not always use the model's maximum context?**
+Because the model may not *use* that length well. Oolong is the lecture's exhibit: quality can fall as you fill the window, even inside the advertised limit.
+
+**Why does editing the system prompt mid-run get expensive?**
+The prompt is a prefix. Change it, and every later position shifts, so the cache built for that suffix is no longer valid. You pay a fresh prefill. This is one reason to keep stable instructions stable, and to append results at the end.
+
+**What is coming next in the course?**
+The lecture ends with "see you on Wednesday for RAG." Retrieval is the systematic way to keep the window small and still reach a large store of files and memories. We already have a starting page at [Generative AI: RAG](../generative/generative-rag.qmd).
+
+# See also
+
+- [What is a language model?](what-is-a-language-model.qmd)
+- [Language model architecture](language-model-architecture.qmd)
+- [Language model training](language-model-training.qmd)
+- [Language model inference](language-model-inference.qmd)
+- [Compound AI systems](compound-ai-systems.qmd), [Agent architectures](agent-architectures.qmd), and [Key challenges in building agents](agent-challenges.qmd)
+- [Generative AI: RAG](../generative/generative-rag.qmd)
+- [RAG and agents: Resources](resources.qmd#cs329z)

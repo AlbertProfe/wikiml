@@ -1,0 +1,127 @@
+---
+title: "Language model inference"
+subtitle: "Prefill and decode, the roofline, and spending compute at test time"
+format:
+  html:
+    fontsize: "1.0em"
+    theme:
+      light: cosmo
+      dark: darkly
+    css: ../styles.css
+    toc: true
+    toc-depth: 5
+---
+
+# Running the typist, not training them
+
+::: {.callout-note}
+# Source
+
+A reader's guide to part of [CS 329Z Lecture 2](https://web.stanford.edu/class/cs329z/slides/lecture02.pdf){.external target="_blank"} (Diyi Yang, Michael Ryan and John Yang; [Engineering AI Agents](https://cs329z.stanford.edu/){.external target="_blank"}, Stanford, autumn 2026). The outline and the pointers come from that lecture; the wording on this page is ours. The course is also listed under [Resources](resources.qmd#cs329z).
+:::
+
+
+Inference is the model at work: a prompt goes in, tokens come out. The lecture splits that job in two, then asks a more modern question. First, how do you generate tokens efficiently? Second, when is it worth spending *more* compute at test time — thinking longer, sampling more, checking yourself — instead of only training a bigger model?
+
+::: {.callout-tip}
+# Everyday example
+
+A kitchen has two different jobs. *Mise en place* is the burst of work at the start: chop everything, set the pans out, read the whole recipe. That is prefill. Then you cook step by step, tasting as you go. That is decode. A sous-chef who drafts the next few steps, while the head chef only has to accept or correct them, is speculative decoding. And sometimes the right move is not to cook faster, but to try two recipes and keep the one that works: that is test-time scaling.
+:::
+
+# Prefill and decode
+
+Autoregressive generation has two phases.
+
+*Prefill* reads the whole prompt and builds the KV cache: the keys and values for every prompt token, in every layer. This is highly parallel. *Decode* then writes one new token at a time. Each step needs the previous cache and appends one new key and value. That is why "adding things to the context out of order" is expensive, a point the [agents](llms-for-agents.qmd) page will come back to.
+
+::: {.fig-on-white}
+![Prefill processes the prompt in parallel and fills the KV cache; decode writes one token at a time — CS 329Z Lecture 2 (Diyi Yang, Michael Ryan, John Yang), [slide p. 123](https://web.stanford.edu/class/cs329z/slides/lecture02.pdf#page=123){.external target="_blank"}. Original: the Hugging Face / TNG Technology Consulting blog on [prefill and decode](https://huggingface.co/blog/tngtech/llm-prefill-decode){.external target='_blank'}.](/images/agents-l2/infer-prefill-and-decode.png){#fig-l2-prefill-decode fig-alt="A diagram contrasting a parallel prefill stage over the prompt with a step-by-step decode stage that emits one token at a time." .lightbox fig-align="center" width="100%"}
+:::
+
+
+# The roofline: why decode feels slow
+
+GPUs are extremely good at dense matrix multiplications, and much more often limited by how fast they can move data. A *roofline* plot makes that visible: performance is capped either by peak compute or by memory bandwidth, depending on how much arithmetic you do per byte loaded.
+
+The lecture's point, on a roofline credited to [NERSC](https://docs.nersc.gov/tools/performance/roofline/){.external target="_blank"}, is that the two phases sit in different places. Prefill is usually *compute-bound*: there is a lot of work per loaded weight. Decode is usually *bandwidth-bound*: each new token does a relatively small matmul and has to reload a large KV cache and model weights. Making decode faster is often about reducing memory traffic, not buying a higher FLOP rating.
+
+::: {.fig-on-white}
+![A roofline view of inference: prefill tends to be compute-bound, decode bandwidth-bound — CS 329Z Lecture 2 (Diyi Yang, Michael Ryan, John Yang), [slide p. 134](https://web.stanford.edu/class/cs329z/slides/lecture02.pdf#page=134){.external target="_blank"}. Original: the [NERSC roofline documentation](https://docs.nersc.gov/tools/performance/roofline/){.external target='_blank'}.](/images/agents-l2/infer-roofline.png){#fig-l2-roofline fig-alt="A roofline plot with decode marked in the bandwidth-bound region and prefill in the compute-bound region." .lightbox fig-align="center" width="100%"}
+:::
+
+
+# Speculative decoding
+
+One way to spend compute more kindly is to let a cheaper *draft* model propose several tokens, then have the large *target* model check them in a single parallel pass. Tokens the target agrees with are accepted; at the first disagreement you reject and continue from there. The accepted tokens are distributed as if the target had written them itself. The standard reference is [Chen, Borgeaud, Irving, and colleagues, Speculative Sampling](https://arxiv.org/abs/2302.01318){.external target="_blank"} (2023). The lecture also notes that some domains are more predictable than others: a draft model will be accepted more often when the next tokens are easy to guess, which is why this helps more on some workloads than others.
+
+::: {.fig-on-white}
+![A draft model proposes a short continuation; the target model accepts a prefix and rejects the first disagreement — CS 329Z Lecture 2 (Diyi Yang, Michael Ryan, John Yang), [slide p. 136](https://web.stanford.edu/class/cs329z/slides/lecture02.pdf#page=136){.external target="_blank"}. The lecture marks this figure as inspired by a Medium article on speculative decoding; the algorithm is that of [speculative sampling](https://arxiv.org/abs/2302.01318){.external target='_blank'}.](/images/agents-l2/infer-speculative-decoding.png){#fig-l2-speculative fig-alt="A two-part diagram of speculative decoding: a draft model proposes tokens one after another, then a target model verifies a row of them, accepting three and rejecting the fourth." .lightbox fig-align="center" width="100%"}
+:::
+
+
+# Inference-time scaling
+
+The second half of the lecture is about spending more compute *after* training. The slogan is inference-time, or test-time, scaling.
+
+The oldest widely used move is *chain of thought*: ask the model to write intermediate steps before the answer. [Wei et al., 2022](https://arxiv.org/abs/2201.11903){.external target="_blank"} showed that this can lift reasoning tasks a long way, especially as models get larger. The lecture uses the familiar tennis-ball and apple-word problems from that paper.
+
+::: {.fig-on-white}
+![Chain-of-thought prompting: the same model, asked to show its working, gets the second arithmetic word problem right — CS 329Z Lecture 2 (Diyi Yang, Michael Ryan, John Yang), [slide p. 139](https://web.stanford.edu/class/cs329z/slides/lecture02.pdf#page=139){.external target="_blank"}. Original: [Chain-of-Thought Prompting Elicits Reasoning in Large Language Models](https://arxiv.org/abs/2201.11903){.external target='_blank'} (Wei et al., 2022).](/images/agents-l2/infer-chain-of-thought.png){#fig-l2-cot fig-alt="A comparison of standard prompting, which answers a follow-up arithmetic word problem incorrectly, with chain-of-thought prompting, which shows the working and answers correctly." .lightbox fig-align="center" width="100%"}
+:::
+
+
+*Reasoning models* go further: the model is trained or steered to spend a variable amount of "thinking" before it answers. The lecture shows a jacket-price puzzle in which a reasoning model catches a false cancellation that a shorter answer might miss, in a figure inspired by [Sebastian Raschka's writing on controlling reasoning effort](https://magazine.sebastianraschka.com/p/controlling-reasoning-effort-in-llms){.external target="_blank"}. On open-weight GPT-OSS, the lecture sets that budget with a system prompt: `Reasoning: low`, `medium`, or `high`.
+
+How those effort levels are trained is still moving. The lecture sketches two current approaches. One, associated with Inkling from Thinking Machines, adjusts a penalty (a lambda) so that low-effort answers are cheaper and high-effort answers are allowed to run longer. The other, on Kimi K3, distils from several teachers at high, medium, and low effort, across general, agent, and coding tasks, with a reward of $+1$ / $0$ / $-1$ according to whether the student is right and whether it stayed in budget. Treat that as the lecture's snapshot of a 2026 training recipe, not as a result we re-ran.
+
+Two older, well-studied ways to spend more samples are:
+
+- *Repeated sampling*, in the spirit of [Large Language Monkeys](https://arxiv.org/abs/2407.21787){.external target="_blank"} (Brown et al., 2024): draw many attempts and, if you have a verifier, keep a correct one. Coverage often rises with the number of samples.
+- *Self-consistency* ([Wang et al., 2022](https://arxiv.org/abs/2203.11171){.external target="_blank"}), for when you do *not* have a verifier: sample several chains of thought and take the majority answer.
+
+```{mermaid}
+flowchart TD
+  P["Prompt"] --> C["Chain of thought / a reasoning budget"]
+  C --> A["One answer"]
+  P --> R["Repeated samples"]
+  R --> V{"Do you have a verifier?"}
+  V -->|yes| K["Keep a passing attempt"]
+  V -->|no| S["Self-consistency: majority vote"]
+```
+
+# In one table
+
+| Idea | What it is for |
+|------|----------------|
+| Prefill | Process the prompt in parallel and build the KV cache |
+| Decode | Write one new token at a time; usually bandwidth-bound |
+| Roofline | See whether you are limited by compute or by memory traffic |
+| Speculative decoding | A cheap model drafts; the large model verifies a chunk at once |
+| Chain of thought | Spend tokens on intermediate steps |
+| Reasoning effort | A budget (low / medium / high) for how long the model may think |
+| Repeated sampling | Many attempts, kept if a verifier says so |
+| Self-consistency | Many attempts, no verifier: vote on the answer |
+
+# FAQ
+
+**Why is chatting with a long prompt slower to *start* than to continue?**
+The first response has to prefill the whole prompt. Later turns mostly decode, and can reuse the cache if you only append. Changing earlier tokens throws that cache away. See [LLMs for agents](llms-for-agents.qmd).
+
+**Does a bigger GPU always make decode faster?**
+Only if you were compute-bound. Decode often is not. More bandwidth, a smaller cache, or fewer rejected draft tokens can matter more than a higher peak FLOP count.
+
+**Is test-time scaling a free lunch?**
+No. You pay in latency and in token budget. It is worth it when an extra pass, or an extra sample, is cheaper than a wrong answer — maths, code, and other checkable work are the usual examples.
+
+**Is chain of thought the same as a reasoning model?**
+Chain of thought is a prompting pattern (and a training ingredient). A reasoning model is trained or configured to use a variable thinking budget. The lecture treats the second as a development of the first, not as a synonym.
+
+# See also
+
+- [What is a language model?](what-is-a-language-model.qmd)
+- [Language model architecture](language-model-architecture.qmd)
+- [Language model training](language-model-training.qmd)
+- [LLMs for agents](llms-for-agents.qmd)
+- [Key challenges in building agents](agent-challenges.qmd)
+- [RAG and agents: Resources](resources.qmd#cs329z)

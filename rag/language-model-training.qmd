@@ -1,0 +1,133 @@
+---
+title: "Language model training"
+subtitle: "Pretraining, midtraining, post-training, and training for agents"
+format:
+  html:
+    fontsize: "1.0em"
+    theme:
+      light: cosmo
+      dark: darkly
+    css: ../styles.css
+    toc: true
+    toc-depth: 5
+---
+
+# Teaching the typist what to expect
+
+::: {.callout-note}
+# Source
+
+A reader's guide to part of [CS 329Z Lecture 2](https://web.stanford.edu/class/cs329z/slides/lecture02.pdf){.external target="_blank"} (Diyi Yang, Michael Ryan and John Yang; [Engineering AI Agents](https://cs329z.stanford.edu/){.external target="_blank"}, Stanford, autumn 2026). The outline and the pointers come from that lecture; the wording on this page is ours. The course is also listed under [Resources](resources.qmd#cs329z).
+:::
+
+
+Training is how the next-token machine gets its instincts. You show it text, ask it to guess the next token, and punish it when it is surprised. Do that at huge scale and you get pretraining. Change the mix of data, or the kind of feedback, and you get the later stages: midtraining, instruction following, preference learning, and — when you can check an answer automatically — reinforcement learning with verifiable rewards.
+
+::: {.callout-tip}
+# Everyday example
+
+Think of an apprenticeship. First the apprentice reads a vast, messy library (pretraining). Then you put more of the books they will actually need on the desk — the maths, the code, the house style (midtraining). Then you stand next to them and correct how they answer a request (instruction fine-tuning), or you compare two answers and say which you prefer (preference learning). For some jobs you do not need a taste judgement at all: the unit tests pass, or they do not. That last kind of feedback is the one the lecture highlights for agents.
+:::
+
+# The loss: next-token cross-entropy
+
+The usual training loss is cross-entropy on the next token. For a vocabulary of size $V$, with $y_i = 1$ on the token that actually appeared and $0$ elsewhere,
+
+$$
+L = - \sum_{i=1}^{V} y_i \log p_i,
+$$
+
+which is just $-\log p$ on the correct token. You raise the probability of what was written; everything else is pushed down.
+
+::: {.fig-on-white}
+![Cross-entropy over the vocabulary: only the token that appeared in the data contributes to the sum — CS 329Z Lecture 2 (Diyi Yang, Michael Ryan, John Yang), [slide p. 100](https://web.stanford.edu/class/cs329z/slides/lecture02.pdf#page=100){.external target="_blank"}. Lecture original.](/images/agents-l2/train-cross-entropy-loss.png){#fig-l2-cross-entropy fig-alt="The cross-entropy loss formula, annotated to show a sum over the vocabulary, a one-hot target y i, and the log probability of that token." .lightbox fig-align="center" width="100%"}
+:::
+
+
+The lecture also works a numerical example: if the model assigned probability $0.0124$ to the next word, it writes $\mathrm{Loss} = -\log(0.0124) = 1.907$. That arithmetic uses a logarithm base 10. Standard training implementations use the *natural* log, so the same probability would contribute about $4.39$ nats, not $1.907$. The qualitative point is unchanged: a less confident correct token means a larger loss. The $0.0124$ itself is a teaching number, like the other token probabilities in this lecture.
+
+# Pretraining, and the data pipeline
+
+Pretraining is next-token prediction on a huge public mix: web crawls, books, code, and whatever else the recipe allows. The interesting engineering is not the loss — it is the data.
+
+A typical pipeline extracts text from HTML, filters by language and quality, deduplicates, and only then trains. The lecture shows this with [DataComp-LM](https://arxiv.org/abs/2406.11794){.external target="_blank"} (Li et al., 2024): starting from a Common Crawl pool, a sequence of heuristic filters, deduplication, and model-based quality filters leaves a much smaller training set.
+
+::: {.fig-on-white}
+![Construction of the DataComp-LM baseline from a Common Crawl pool — CS 329Z Lecture 2 (Diyi Yang, Michael Ryan, John Yang), [slide p. 103](https://web.stanford.edu/class/cs329z/slides/lecture02.pdf#page=103){.external target="_blank"}. Original: Figure 4 of [DataComp-LM](https://arxiv.org/abs/2406.11794){.external target='_blank'} (Li et al., 2024).](/images/agents-l2/train-dclm-data-pipeline.png){#fig-l2-dclm fig-alt="A Sankey-style diagram of the DataComp-LM data pipeline, from a Common Crawl pool through language, quality, deduplication and model-based filters down to a baseline training set." .lightbox fig-align="center" width="100%"}
+:::
+
+
+Other pointers from the lecture are in the same spirit: [The Pile](https://arxiv.org/abs/2101.00027){.external target="_blank"} (Gao et al., 2020) as a documented mixed corpus; specialised collections such as [Nemotron-CC-Math](https://arxiv.org/abs/2508.15096){.external target="_blank"}; and [Olmix](https://arxiv.org/abs/2602.12237){.external target="_blank"}, a 2026 framework for thinking about data *mixing* across the whole development process, not only at the start.
+
+# Midtraining
+
+Midtraining sits between the general pretraining mix and the final post-training stage. The idea is simple: change the data mix so that it leans toward the domains you actually care about — maths, code, and so on — before you start instruction tuning.
+
+The lecture cites two recent arguments for doing this on purpose. [The Finetuner's Fallacy](https://arxiv.org/abs/2603.16177){.external target="_blank"} (2026) discusses when it helps to fold target-domain data into the earlier training mix rather than saving it all for fine-tuning. [Midtraining Bridges Pretraining and Posttraining Distributions](https://arxiv.org/abs/2510.14865){.external target="_blank"} sketches why a stop in the middle can be an easier path, in parameter space, than jumping straight from a general pretrained model to the target.
+
+::: {.fig-on-white}
+![A schematic of midtraining as a bridge between the pretrained model and the target, instead of a direct fine-tune across a poorly aligned region — CS 329Z Lecture 2 (Diyi Yang, Michael Ryan, John Yang), [slide p. 111](https://web.stanford.edu/class/cs329z/slides/lecture02.pdf#page=111){.external target="_blank"}. Original: [Midtraining Bridges Pretraining and Posttraining Distributions](https://arxiv.org/abs/2510.14865){.external target='_blank'}.](/images/agents-l2/train-midtraining-bridge.png){#fig-l2-midtraining fig-alt="A contour plot with a dashed direct path from a pretrained checkpoint to a target, and a curved midtraining path that avoids a poorly aligned region." .lightbox fig-align="center" width="100%"}
+:::
+
+
+# Post-training
+
+Post-training is where a pretrained (and perhaps midtrained) model is turned into something that follows instructions and is more pleasant to work with.
+
+*Instruction fine-tuning* trains on examples of a request and a good response. The lecture's picture is from [Flan](https://arxiv.org/abs/2210.11416){.external target="_blank"} (Chung et al., 2022; "Scaling Instruction-Finetuned Language Models").
+
+*Learning from human preferences* is the InstructGPT recipe: collect demonstrations and train a supervised policy; collect comparisons and train a reward model; then optimise the policy against that reward model, typically with PPO. The figure is from [Ouyang et al., 2022](https://arxiv.org/abs/2203.02155){.external target="_blank"}.
+
+::: {.fig-on-white}
+![The InstructGPT three-step recipe: supervised demonstrations, a reward model from comparisons, then PPO against that reward model — CS 329Z Lecture 2 (Diyi Yang, Michael Ryan, John Yang), [slide p. 114](https://web.stanford.edu/class/cs329z/slides/lecture02.pdf#page=114){.external target="_blank"}. Original: [Training language models to follow instructions with human feedback](https://arxiv.org/abs/2203.02155){.external target='_blank'} (Ouyang et al., 2022).](/images/agents-l2/train-rlhf-instructgpt.png){#fig-l2-rlhf fig-alt="A three-column diagram of RLHF: supervised fine-tuning on demonstrations, training a reward model from ranked comparisons, and updating the policy with PPO." .lightbox fig-align="center" width="100%"}
+:::
+
+
+Human feedback has well-known cracks, and the lecture lists them (with a nod to CS 329X). Annotators are unreliable. People disagree. The optimisation can learn bad incentives such as sycophancy and a tone of false authority. And the data itself can be sourced unethically. Those are reasons to be careful with preference training, not reasons to skip post-training altogether.
+
+# Verifiable rewards, and training for agents
+
+When the task has a checkable answer, you can replace a human preference with a verifier. The lecture calls this *reinforcement learning with verifiable rewards* (RLVR). Typical verifiers are unit tests, a Lean proof checker, exact match, or a system state. The method is a good fit for maths and code, and you still have to be careful about the design of the verifier: models will exploit a sloppy check.
+
+The lecture illustrates the idea with Group Relative Policy Optimisation (GRPO) from [DeepSeekMath](https://arxiv.org/abs/2402.03300){.external target="_blank"} (Shao et al., 2024). That paper is a fair credit for group-relative policy updates and for verifiable maths rewards; "RLVR" as a slogan became common a little later.
+
+::: {.fig-on-white}
+![Reinforcement learning with verifiable rewards, illustrated with the GRPO loop — CS 329Z Lecture 2 (Diyi Yang, Michael Ryan, John Yang), [slide p. 116](https://web.stanford.edu/class/cs329z/slides/lecture02.pdf#page=116){.external target="_blank"}. Original: [DeepSeekMath](https://arxiv.org/abs/2402.03300){.external target='_blank'} (Shao et al., 2024). The lecture uses this figure to explain RLVR; the paper itself introduces GRPO and verifiable maths rewards.](/images/agents-l2/train-rlvr-verifiable-rewards.png){#fig-l2-rlvr fig-alt="A diagram of GRPO: a policy model samples a group of outputs, rewards are scored, advantages are computed relative to the group, and the policy is updated, with a list of verifiable reward types such as unit tests and Lean proofs." .lightbox fig-align="center" width="100%"}
+:::
+
+
+For agents, you also need data that looks like the job. The lecture's example is [SWE-smith](https://arxiv.org/abs/2504.21798){.external target="_blank"} (Yang et al., 2025), a recipe for scaling software-engineering agent data rather than hoping general post-training will be enough.
+
+# In one table
+
+| Stage | What you change | Typical signal |
+|-------|-----------------|----------------|
+| Pretraining | A huge, filtered mix of text | Next-token cross-entropy |
+| Midtraining | The mix, toward the target domains | Still next-token prediction, on a more relevant diet |
+| Instruction fine-tuning | How the model answers a request | Supervised input–output examples |
+| Preference learning (RLHF) | What people prefer, via a reward model | Comparisons, then PPO or a relative of it |
+| RLVR | What a program can check | Unit tests, proofs, exact match, system state |
+| Agent-specific data | Trajectories that look like the product | For example, SWE-smith for software agents |
+
+# FAQ
+
+**Is midtraining just more pretraining?**
+It is the same loss, pointed at a different mix. The claim in the papers the lecture cites is that this bridge can matter more than people expect if they save all of the domain data for a short fine-tune at the end.
+
+**Why not always use human preferences?**
+Because annotators disagree, the reward model can be gamed, and the process can teach sycophancy. Where a verifier exists, it is often a cleaner training signal — if you design the verifier honestly.
+
+**Does a passing unit test mean the agent is right?**
+It means it passed the tests you wrote. A weak test suite is a reward the model can hack. The lecture's warning about verifier design is the important part.
+
+**Where does this meet inference?**
+Training decides what the model can do. [Inference](language-model-inference.qmd) decides how much compute you spend when it is already trained — including the test-time scaling that has started to look a little like extra training, done at read time.
+
+# See also
+
+- [What is a language model?](what-is-a-language-model.qmd)
+- [Language model architecture](language-model-architecture.qmd)
+- [Language model inference](language-model-inference.qmd)
+- [LLMs for agents](llms-for-agents.qmd)
+- [Key challenges in building agents](agent-challenges.qmd), for reliability and evaluation
+- [RAG and agents: Resources](resources.qmd#cs329z)

@@ -128,3 +128,4 @@ The *shape* of a single call — select, fill arguments, validate, execute, retu
 - [Key challenges in building agents](agent-challenges.qmd)
 - [RAG and agents: Resources](resources.qmd#cs329z)
 - [Generative AI: RAG](../generative/generative-rag.qmd)
+- [Language model architecture](language-model-architecture.qmd) and [LLMs for agents](llms-for-agents.qmd) — Lecture 2

@@ -235,6 +235,14 @@ website:
             - rag/compound-ai-systems.qmd
             - rag/agent-challenges.qmd
         - text: "---"
+        - section: "LLMs for builders"
+          contents:
+            - rag/what-is-a-language-model.qmd
+            - rag/language-model-architecture.qmd
+            - rag/language-model-training.qmd
+            - rag/language-model-inference.qmd
+            - rag/llms-for-agents.qmd
+        - text: "---"
         - section: "Labs"
           contents:
             - rag/labs.qmd
