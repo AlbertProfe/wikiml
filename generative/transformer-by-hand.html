@@ -535,6 +535,24 @@ window.Quarto = {
  <span class="dropdown-text">RAG</span></a>
   </li>  
         <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Agents</li>
+        <li>
+    <a class="dropdown-item" href="../rag/history-of-agents.html">
+ <span class="dropdown-text">History of agents</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../rag/agent-architectures.html">
+ <span class="dropdown-text">Agent architectures</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../rag/compound-ai-systems.html">
+ <span class="dropdown-text">Compound AI systems</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../rag/agent-challenges.html">
+ <span class="dropdown-text">Key challenges in building agents</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
         <li class="dropdown-header">Labs</li>
         <li>
     <a class="dropdown-item" href="../rag/labs.html">
@@ -859,7 +877,7 @@ Note
 <p>Spreadsheet version: <a href="https://docs.google.com/spreadsheets/d/1VjuFxN47HAv0YHHbFp_BlsUAddTaRlxL2U385aX45lg/edit" class="external" target="_blank">Transformer by hand (Google Sheet)</a>. It is a copy of Tom Yeh’s MIT-licensed advanced/Transformer.xlsx from <a href="https://github.com/ImagineAILab/ai-by-hand-excel" class="external" target="_blank">https://github.com/ImagineAILab/ai-by-hand-excel</a>.</p>
 </div>
 </div>
-<div id="fig-yeh-sheet-overview" class="lightbox quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="Screenshot of Tom Yeh's Transformer spreadsheet, Small tab, showing the full block from the input features through attention, the feed-forward layers, ReLU, and the output to the next block.">
+<div id="fig-yeh-sheet-overview" class="lightbox quarto-float quarto-figure quarto-figure-center anchored" alt="Screenshot of Tom Yeh's Transformer spreadsheet, Small tab, showing the full block from the input features through attention, the feed-forward layers, ReLU, and the output to the next block." data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-yeh-sheet-overview-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="../images/transformer-by-hand-sheet/00-overview.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;1: In Tom Yeh’s spreadsheet (MIT), which uses its own numbers"><img src="../images/transformer-by-hand-sheet/00-overview.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%" alt="Screenshot of Tom Yeh's Transformer spreadsheet, Small tab, showing the full block from the input features through attention, the feed-forward layers, ReLU, and the output to the next block."></a>
@@ -901,7 +919,7 @@ Everyday example
 </div>
 </div>
 <div class="fig-on-white">
-<div id="fig-transformer-annotated" class="lightbox quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="Annotated Transformer architecture diagram, labelled to show encoder self-attention, decoder masked self-attention, decoder-encoder attention, the feed-forward network, and residual connections with layer normalisation.">
+<div id="fig-transformer-annotated" class="lightbox quarto-float quarto-figure quarto-figure-center anchored" alt="Annotated Transformer architecture diagram, labelled to show encoder self-attention, decoder masked self-attention, decoder-encoder attention, the feed-forward network, and residual connections with layer normalisation." data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-transformer-annotated-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="../images/attention/transformer-annotated.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figure&nbsp;2: The Transformer annotated: which attention is which. Our by-hand example works through one encoder block."><img src="../images/attention/transformer-annotated.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%" alt="Annotated Transformer architecture diagram, labelled to show encoder self-attention, decoder masked self-attention, decoder-encoder attention, the feed-forward network, and residual connections with layer normalisation."></a>
@@ -960,7 +978,7 @@ X =
 </tbody>
 </table>
 <p>These numbers are a toy. In a real model they would be learned embeddings, plus a signal for word order. Here they are just three short notes we can add up by hand.</p>
-<div id="fig-yeh-sheet-inputs" class="lightbox quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="Screenshot of the input feature matrix in Tom Yeh's spreadsheet: four positions with five features, labelled X1 to X5, under Features from the Previous Block.">
+<div id="fig-yeh-sheet-inputs" class="lightbox quarto-float quarto-figure quarto-figure-center anchored" alt="Screenshot of the input feature matrix in Tom Yeh's spreadsheet: four positions with five features, labelled X1 to X5, under Features from the Previous Block." data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-yeh-sheet-inputs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="../images/transformer-by-hand-sheet/01-inputs.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figure&nbsp;3: In Tom Yeh’s spreadsheet (MIT), which uses its own numbers"><img src="../images/transformer-by-hand-sheet/01-inputs.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:40.0%" alt="Screenshot of the input feature matrix in Tom Yeh's spreadsheet: four positions with five features, labelled X1 to X5, under Features from the Previous Block."></a>
@@ -1026,7 +1044,7 @@ Everyday example
 <p>You are at a small table. When your name is said, you look at yourself. When the waiter says “bought”, you glance half at Riya and half at the verb. When “tea” is said, you glance at the verb and at the object. <span class="math inline">\(A\)</span> is that seating plan, written as numbers.</p>
 </div>
 </div>
-<div id="fig-yeh-sheet-attention" class="lightbox quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="Screenshot of the attention weight matrix A in Tom Yeh's spreadsheet, a five-by-five grid of zeros and ones with query and key labels.">
+<div id="fig-yeh-sheet-attention" class="lightbox quarto-float quarto-figure quarto-figure-center anchored" alt="Screenshot of the attention weight matrix A in Tom Yeh's spreadsheet, a five-by-five grid of zeros and ones with query and key labels." data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-yeh-sheet-attention-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="../images/transformer-by-hand-sheet/02-attention.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Figure&nbsp;4: In Tom Yeh’s spreadsheet (MIT), which uses its own numbers"><img src="../images/transformer-by-hand-sheet/02-attention.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%" alt="Screenshot of the attention weight matrix A in Tom Yeh's spreadsheet, a five-by-five grid of zeros and ones with query and key labels."></a>
@@ -1093,7 +1111,7 @@ Z =
 </tbody>
 </table>
 <p>There are still three positions. Attention has not invented new words. It has rewritten each note by glancing at its neighbours. That is mixing <strong>across positions</strong>.</p>
-<div id="fig-yeh-sheet-weighted-features" class="lightbox quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="Screenshot of attention-weighted features in Tom Yeh's spreadsheet: the input matrix is mixed by the attention weights A to produce a new four-by-five feature matrix.">
+<div id="fig-yeh-sheet-weighted-features" class="lightbox quarto-float quarto-figure quarto-figure-center anchored" alt="Screenshot of attention-weighted features in Tom Yeh's spreadsheet: the input matrix is mixed by the attention weights A to produce a new four-by-five feature matrix." data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-yeh-sheet-weighted-features-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="../images/transformer-by-hand-sheet/03-attention-weighted-features.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Figure&nbsp;5: In Tom Yeh’s spreadsheet (MIT), which uses its own numbers"><img src="../images/transformer-by-hand-sheet/03-attention-weighted-features.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%" alt="Screenshot of attention-weighted features in Tom Yeh's spreadsheet: the input matrix is mixed by the attention weights A to produce a new four-by-five feature matrix."></a>
@@ -1169,7 +1187,7 @@ Z W_1 + b_1
 </tbody>
 </table>
 <p>This time the mixing is <strong>across features</strong>, on one note at a time. <em>Bought</em> does not look at <em>tea</em> here. It only rewrites its own four numbers, with the shared recipe <span class="math inline">\(W_1, b_1\)</span>.</p>
-<div id="fig-yeh-sheet-first-ffn" class="lightbox quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="Screenshot of the first feed-forward layer in Tom Yeh's spreadsheet: weights and a bias are applied to the attention-weighted features, then a ReLU.">
+<div id="fig-yeh-sheet-first-ffn" class="lightbox quarto-float quarto-figure quarto-figure-center anchored" alt="Screenshot of the first feed-forward layer in Tom Yeh's spreadsheet: weights and a bias are applied to the attention-weighted features, then a ReLU." data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-yeh-sheet-first-ffn-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="../images/transformer-by-hand-sheet/04-first-feed-forward.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Figure&nbsp;6: In Tom Yeh’s spreadsheet (MIT), which uses its own numbers"><img src="../images/transformer-by-hand-sheet/04-first-feed-forward.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%" alt="Screenshot of the first feed-forward layer in Tom Yeh's spreadsheet: weights and a bias are applied to the attention-weighted features, then a ReLU."></a>
@@ -1238,7 +1256,7 @@ Everyday example
 <p>ReLU is a door that only opens one way. A positive number is allowed through; a negative number is stopped and written as zero. Nothing else in this block is changed.</p>
 </div>
 </div>
-<div id="fig-yeh-sheet-relu" class="lightbox quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="Screenshot of a ReLU step in Tom Yeh's spreadsheet. In this example the incoming values are already positive, so the output matches the input.">
+<div id="fig-yeh-sheet-relu" class="lightbox quarto-float quarto-figure quarto-figure-center anchored" alt="Screenshot of a ReLU step in Tom Yeh's spreadsheet. In this example the incoming values are already positive, so the output matches the input." data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-yeh-sheet-relu-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="../images/transformer-by-hand-sheet/05-relu.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="Figure&nbsp;7: In Tom Yeh’s spreadsheet (MIT), which uses its own numbers"><img src="../images/transformer-by-hand-sheet/05-relu.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%" alt="Screenshot of a ReLU step in Tom Yeh's spreadsheet. In this example the incoming values are already positive, so the output matches the input."></a>
@@ -1307,7 +1325,7 @@ Y =
 </tbody>
 </table>
 <p>That is one block. In a real model the next block would start again from <span class="math inline">\(Y\)</span>, with a completely separate set of weights.</p>
-<div id="fig-yeh-sheet-second-ffn" class="lightbox quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="Screenshot of the second feed-forward layer in Tom Yeh's spreadsheet: weights and a bias produce the output, a ReLU is applied, and the result is marked for the next block.">
+<div id="fig-yeh-sheet-second-ffn" class="lightbox quarto-float quarto-figure quarto-figure-center anchored" alt="Screenshot of the second feed-forward layer in Tom Yeh's spreadsheet: weights and a bias produce the output, a ReLU is applied, and the result is marked for the next block." data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-yeh-sheet-second-ffn-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="../images/transformer-by-hand-sheet/06-second-feed-forward-output.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8" title="Figure&nbsp;8: In Tom Yeh’s spreadsheet (MIT), which uses its own numbers"><img src="../images/transformer-by-hand-sheet/06-second-feed-forward-output.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%" alt="Screenshot of the second feed-forward layer in Tom Yeh's spreadsheet: weights and a bias produce the output, a ReLU is applied, and the result is marked for the next block."></a>

@@ -1,0 +1,1608 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.32">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Key challenges in building agents – Wiki-ML</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../rag/compound-ai-systems.html" rel="prev">
+<link href="..//images/home/favicon.ico" rel="icon">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-2486e1f0a3ee9ee1fc393803a1361cdb.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-6561bbde787c299e21493071c8edc6ff.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-510c3b48ea8728ab307d593fb594786b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Wiki-ML</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-foundations" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Foundations</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-foundations">    
+        <li class="dropdown-header">What is this section?</li>
+        <li>
+    <a class="dropdown-item" href="../foundations/foundations-index.html">
+ <span class="dropdown-text">Foundations</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Maths</li>
+        <li>
+    <a class="dropdown-item" href="../foundations/maths/maths-index.html">
+ <span class="dropdown-text">Maths for machine learning</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../foundations/maths/maths-symbols.html">
+ <span class="dropdown-text">ML math symbols, explained easy</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../foundations/maths/maths-linear-algebra.html">
+ <span class="dropdown-text">Linear algebra essentials</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../foundations/maths/maths-calculus.html">
+ <span class="dropdown-text">Calculus essentials</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../foundations/maths/maths-probability.html">
+ <span class="dropdown-text">Probability and statistics essentials</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../foundations/maths/maths-optimization.html">
+ <span class="dropdown-text">Optimization essentials</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Machine Learning</li>
+        <li>
+    <a class="dropdown-item" href="../foundations/ml-learning-loop.html">
+ <span class="dropdown-text">The learning loop</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../machine/machine-index.html">
+ <span class="dropdown-text">Machine Learning</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Python (Helsinki MOOC 2024)</li>
+        <li>
+    <a class="dropdown-item" href="../python/python-index.html">
+ <span class="dropdown-text">Python</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../python/python-part1.html">
+ <span class="dropdown-text">Python Helsinki: 1</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../python/python-part2.html">
+ <span class="dropdown-text">Python Helsinki: 2</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../python/python-part3.html">
+ <span class="dropdown-text">Python Helsinki: 3</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../python/python-part4.html">
+ <span class="dropdown-text">Python Helsinki: 4</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../python/python-part5.html">
+ <span class="dropdown-text">Python Helsinki: 5</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../python/python-part6.html">
+ <span class="dropdown-text">Python Helsinki: 6</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../python/python-part7.html">
+ <span class="dropdown-text">Python Helsinki: 7</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../python/python-part8.html">
+ <span class="dropdown-text">Python Helsinki: 8</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../python/python-part9.html">
+ <span class="dropdown-text">Python Helsinki: 9</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../python/python-part10.html">
+ <span class="dropdown-text">Python Helsinki: 10</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../python/python-part11.html">
+ <span class="dropdown-text">Python Helsinki: 11</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../python/python-part12.html">
+ <span class="dropdown-text">Python Helsinki: 12</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../python/python-part13.html">
+ <span class="dropdown-text">Python Helsinki: 13</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../python/python-part14.html">
+ <span class="dropdown-text">Python Helsinki: 14</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Labs</li>
+        <li>
+    <a class="dropdown-item" href="../foundations/labs.html">
+ <span class="dropdown-text">Foundations: Labs</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../foundations/mlab01-1.html">
+ <span class="dropdown-text">Lab#FU01-1: Taxi fare, pure Python</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../foundations/mlab01-2.html">
+ <span class="dropdown-text">Lab#FU01-2: Taxi fare, NumPy and scikit-learn</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Resources</li>
+        <li>
+    <a class="dropdown-item" href="../foundations/resources.html">
+ <span class="dropdown-text">Foundations: Resources</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-data" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Data</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-data">    
+        <li class="dropdown-header">What is this section?</li>
+        <li>
+    <a class="dropdown-item" href="../bigdata/bigdata-index.html">
+ <span class="dropdown-text">Big Data</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Labs</li>
+        <li>
+    <a class="dropdown-item" href="../bigdata/labs.html">
+ <span class="dropdown-text">Data: Labs</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Resources</li>
+        <li>
+    <a class="dropdown-item" href="../bigdata/resources.html">
+ <span class="dropdown-text">Data: Resources</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-classic-ml" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Classic ML</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-classic-ml">    
+        <li class="dropdown-header">What is Classic ML?</li>
+        <li>
+    <a class="dropdown-item" href="../algorithms/algo-index.html">
+ <span class="dropdown-text">Algorithms: Introduction</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Algorithm Types</li>
+        <li>
+    <a class="dropdown-item" href="../algorithms/algo-linear-regression.html">
+ <span class="dropdown-text">Algorithms: Linear regression</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../algorithms/algo-logistic-regression.html">
+ <span class="dropdown-text">Algorithms: Logistic regression</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../algorithms/algo-naive-bayes.html">
+ <span class="dropdown-text">Algorithms: Naïve Bayes</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../algorithms/algo-support-vector-machines.html">
+ <span class="dropdown-text">Algorithms: Support Vector Machines</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../algorithms/algo-decision-tree.html">
+ <span class="dropdown-text">Algorithms: Decision tree</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../algorithms/algo-k-nearest-neighbor.html">
+ <span class="dropdown-text">Algorithms: K-Nearest neighbor</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../algorithms/algo-random-forest.html">
+ <span class="dropdown-text">Algorithms: Random forest</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../algorithms/algo-gradient-boosting.html">
+ <span class="dropdown-text">Algorithms: Gradient boosting</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../algorithms/algo-k-means.html">
+ <span class="dropdown-text">Algorithms: K-Means</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../algorithms/algo-e-means.html">
+ <span class="dropdown-text">Algorithms: e-means</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Labs</li>
+        <li>
+    <a class="dropdown-item" href="../algorithms/labs.html">
+ <span class="dropdown-text">Classic ML: Labs</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Resources</li>
+        <li>
+    <a class="dropdown-item" href="../algorithms/resources.html">
+ <span class="dropdown-text">Classic ML: Resources</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-evaluation" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Evaluation</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-evaluation">    
+        <li class="dropdown-header">What is this section?</li>
+        <li>
+    <a class="dropdown-item" href="../evaluation/evaluation-index.html">
+ <span class="dropdown-text">Model evaluation</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Labs</li>
+        <li>
+    <a class="dropdown-item" href="../evaluation/labs.html">
+ <span class="dropdown-text">Model evaluation: Labs</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Resources</li>
+        <li>
+    <a class="dropdown-item" href="../evaluation/resources.html">
+ <span class="dropdown-text">Model evaluation: Resources</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-deep-learning" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Deep Learning</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-deep-learning">    
+        <li class="dropdown-header">ANN</li>
+        <li>
+    <a class="dropdown-item" href="../ann/ann-index.html">
+ <span class="dropdown-text">ANN: Table of Contents</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../ann/ann-introduction.html">
+ <span class="dropdown-text">ANN: Introduction</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../ann/ann-mathematical.html">
+ <span class="dropdown-text">ANN: Mathematical Model</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../ann/ann-model-and-demos.html">
+ <span class="dropdown-text">ANN: model and demos</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../ann/ann-activation-functions.html">
+ <span class="dropdown-text">ANN: Activation functions</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Introduction to Deep Learning</li>
+        <li>
+    <a class="dropdown-item" href="../deep/deep-index.html">
+ <span class="dropdown-text">Deep Learning</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Labs</li>
+        <li>
+    <a class="dropdown-item" href="../deep/labs.html">
+ <span class="dropdown-text">Deep Learning: Labs</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Resources</li>
+        <li>
+    <a class="dropdown-item" href="../deep/resources.html">
+ <span class="dropdown-text">Deep Learning: Resources</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-llms" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">LLMs</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-llms">    
+        <li class="dropdown-header">Generative AI</li>
+        <li>
+    <a class="dropdown-item" href="../generative/generative-index.html">
+ <span class="dropdown-text">Generative AI</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">LLMs</li>
+        <li>
+    <a class="dropdown-item" href="../generative/generative-llm.html">
+ <span class="dropdown-text">Large Language Models</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../generative/generative-gpt.html">
+ <span class="dropdown-text">GPT</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Transformers</li>
+        <li>
+    <a class="dropdown-item" href="../generative/evolution-of-attention.html">
+ <span class="dropdown-text">The evolution of attention</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../generative/attention-is-all-you-need.html">
+ <span class="dropdown-text">Attention Is All You Need</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../generative/transformer-by-hand.html">
+ <span class="dropdown-text">Transformer by hand</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../generative/generative-transformer.html">
+ <span class="dropdown-text">The Transformer</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">GANs</li>
+        <li>
+    <a class="dropdown-item" href="../generative/gans.html">
+ <span class="dropdown-text">Generative adversarial networks</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Labs</li>
+        <li>
+    <a class="dropdown-item" href="../generative/labs.html">
+ <span class="dropdown-text">LLMs and Transformers: Labs</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Resources</li>
+        <li>
+    <a class="dropdown-item" href="../generative/resources.html">
+ <span class="dropdown-text">LLMs and Transformers: Resources</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-rag--agents" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">RAG &amp; Agents</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-rag--agents">    
+        <li class="dropdown-header">What is this section?</li>
+        <li>
+    <a class="dropdown-item" href="../rag/rag-index.html">
+ <span class="dropdown-text">RAG and agents</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">RAG</li>
+        <li>
+    <a class="dropdown-item" href="../generative/generative-rag.html">
+ <span class="dropdown-text">RAG</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Agents</li>
+        <li>
+    <a class="dropdown-item" href="../rag/history-of-agents.html">
+ <span class="dropdown-text">History of agents</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../rag/agent-architectures.html">
+ <span class="dropdown-text">Agent architectures</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../rag/compound-ai-systems.html">
+ <span class="dropdown-text">Compound AI systems</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../rag/agent-challenges.html">
+ <span class="dropdown-text">Key challenges in building agents</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Labs</li>
+        <li>
+    <a class="dropdown-item" href="../rag/labs.html">
+ <span class="dropdown-text">RAG and agents: Labs</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Resources</li>
+        <li>
+    <a class="dropdown-item" href="../rag/resources.html">
+ <span class="dropdown-text">RAG and agents: Resources</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-ai-for-devs" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">AI for Devs</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-ai-for-devs">    
+        <li class="dropdown-header">What is this section?</li>
+        <li>
+    <a class="dropdown-item" href="../aidev/aidev-index.html">
+ <span class="dropdown-text">AI for developers</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Labs</li>
+        <li>
+    <a class="dropdown-item" href="../aidev/labs.html">
+ <span class="dropdown-text">AI for developers: Labs</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Resources</li>
+        <li>
+    <a class="dropdown-item" href="../aidev/resources.html">
+ <span class="dropdown-text">AI for developers: Resources</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-mlops" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">MLOps</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-mlops">    
+        <li class="dropdown-header">What is this section?</li>
+        <li>
+    <a class="dropdown-item" href="../mlops/mlops-index.html">
+ <span class="dropdown-text">MLOps</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Labs</li>
+        <li>
+    <a class="dropdown-item" href="../mlops/labs.html">
+ <span class="dropdown-text">MLOps: Labs</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Resources</li>
+        <li>
+    <a class="dropdown-item" href="../mlops/resources.html">
+ <span class="dropdown-text">MLOps: Resources</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-training" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Training</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-training">    
+        <li class="dropdown-header">About Training</li>
+        <li>
+    <a class="dropdown-item" href="../training/training-index.html">
+ <span class="dropdown-text">Training</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Labs</li>
+        <li>
+    <a class="dropdown-item" href="../training/labs.html">
+ <span class="dropdown-text">Training: Labs</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Resources</li>
+        <li>
+    <a class="dropdown-item" href="../training/resources.html">
+ <span class="dropdown-text">Training: Resources</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../rag/history-of-agents.html">Agents</a></li><li class="breadcrumb-item"><a href="../rag/agent-challenges.html">Key challenges in building agents</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+ <span class="menu-text">RAG and agents</span>
+  </li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
+ <span class="menu-text">What is this section?</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../rag/rag-index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">RAG and agents</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
+ <span class="menu-text">RAG</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../generative/generative-rag.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">RAG</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Agents</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../rag/history-of-agents.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">History of agents</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../rag/agent-architectures.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Agent architectures</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../rag/compound-ai-systems.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Compound AI systems</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../rag/agent-challenges.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Key challenges in building agents</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
+ <span class="menu-text">Labs</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../rag/labs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">RAG and agents: Labs</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false">
+ <span class="menu-text">Resources</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../rag/resources.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">RAG and agents: Resources</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#when-the-demo-is-not-the-system" id="toc-when-the-demo-is-not-the-system" class="nav-link active" data-scroll-target="#when-the-demo-is-not-the-system">When the demo is not the system</a></li>
+  <li><a href="#reliability-and-why-evaluation-has-to-measure-it" id="toc-reliability-and-why-evaluation-has-to-measure-it" class="nav-link" data-scroll-target="#reliability-and-why-evaluation-has-to-measure-it">Reliability, and why evaluation has to measure it</a></li>
+  <li><a href="#training-and-the-long-horizon" id="toc-training-and-the-long-horizon" class="nav-link" data-scroll-target="#training-and-the-long-horizon">Training, and the long horizon</a></li>
+  <li><a href="#safety-finishing-the-task-is-not-enough" id="toc-safety-finishing-the-task-is-not-enough" class="nav-link" data-scroll-target="#safety-finishing-the-task-is-not-enough">Safety: finishing the task is not enough</a></li>
+  <li><a href="#in-one-table" id="toc-in-one-table" class="nav-link" data-scroll-target="#in-one-table">In one table</a></li>
+  <li><a href="#faq" id="toc-faq" class="nav-link" data-scroll-target="#faq">FAQ</a></li>
+  <li><a href="#see-also" id="toc-see-also" class="nav-link" data-scroll-target="#see-also">See also</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../rag/history-of-agents.html">Agents</a></li><li class="breadcrumb-item"><a href="../rag/agent-challenges.html">Key challenges in building agents</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Key challenges in building agents</h1>
+<p class="subtitle lead">Reliability, training, evaluation, and safety</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="when-the-demo-is-not-the-system" class="level1">
+<h1>When the demo is not the system</h1>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Source
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A reader’s guide to part of <a href="https://web.stanford.edu/class/cs329z/slides/lecture01.pdf" class="external" target="_blank">CS 329Z Lecture 1</a> (Diyi Yang, Michael Ryan and John Yang; <a href="https://cs329z.stanford.edu/" class="external" target="_blank">Engineering AI Agents</a>, Stanford, autumn 2026). The outline and the pointers come from that lecture; the wording on this page is ours. The course is also listed under <a href="../rag/resources.html#cs329z">Resources</a>.</p>
+</div>
+</div>
+<p>An agent that looks good in a one-shot demo can still fail as soon as it has to run for more than a few steps, on a slightly different task, in front of a person who did not write the prompt. CS 329Z Lecture 1 groups the open problems under five headings: <strong>reliability</strong>, <strong>training</strong>, <strong>long-horizon</strong> behaviour, <strong>safety</strong>, and <strong>evaluation</strong>. They overlap, but they are not the same complaint.</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+  Rel["Reliability: errors compound"]
+  Train["Training: sparse reward, long horizon, costly rollouts"]
+  Hor["Long horizon: context grows and drifts"]
+  Saf["Safety: finishing the task is not the same as behaving well"]
+  Ev["Evaluation: what to measure, and how"]
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Everyday example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A single typo in a one-line email is an annoyance. The same typo in a ten-step travel booking — wrong date copied into the hotel, then into the invoice, then into the calendar — becomes a ruined trip. Agents live in that second world. Each step takes the last step as input, so a small mistake does not stay small. That is why reliability, evaluation, and safety have to be designed for <em>trajectories</em>, not only for single answers.</p>
+</div>
+</div>
+</section>
+<section id="reliability-and-why-evaluation-has-to-measure-it" class="level1">
+<h1>Reliability, and why evaluation has to measure it</h1>
+<p>Errors compound in an agent setup. A slightly wrong tool call produces a slightly wrong observation, which produces a worse thought, which produces a worse act. A system that is “usually fine” at each step can still be unreliable over a full task.</p>
+<p>The lecture asks three evaluation questions that are easy to skip if you only report a success rate:</p>
+<ol type="1">
+<li><strong>Consistency across runs.</strong> If you give the agent the same task twice, does it reach the same outcome?</li>
+<li><strong>Robustness to perturbations.</strong> If you make a small, realistic change to the prompt, the tools, or the environment, does the behaviour hold?</li>
+<li><strong>Predictable failure.</strong> When it fails, is the failure legible and recoverable, or does it fail in a way you cannot anticipate?</li>
+</ol>
+<div class="fig-on-white">
+<div id="fig-l1-reliability-eval" class="lightbox quarto-float quarto-figure quarto-figure-center anchored" alt="A slide titled Reliability vs Evaluation, with three cards: consistency across runs, robustness to perturbations, and predictable failure modes, and a link to the Holistic Agent Leaderboard." data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l1-reliability-eval-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="../images/agents-l1/challenges-reliability-vs-evaluation.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;1: Three reliability questions for agent evaluation — CS 329Z Lecture 1 (Diyi Yang, Michael Ryan, John Yang), slide p.&nbsp;62. The slide points to the Holistic Agent Leaderboard."><img src="../images/agents-l1/challenges-reliability-vs-evaluation.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%" alt="A slide titled Reliability vs Evaluation, with three cards: consistency across runs, robustness to perturbations, and predictable failure modes, and a link to the Holistic Agent Leaderboard."></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l1-reliability-eval-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Three reliability questions for agent evaluation — CS 329Z Lecture 1 (Diyi Yang, Michael Ryan, John Yang), <a href="https://web.stanford.edu/class/cs329z/slides/lecture01.pdf#page=62" class="external" target="_blank">slide p.&nbsp;62</a>. The slide points to the <a href="https://hal.cs.princeton.edu/" class="external" target="_blank">Holistic Agent Leaderboard</a>.
+</figcaption>
+</figure>
+</div>
+</div>
+<p>These are reliability questions, and they are also evaluation questions. A leaderboard that only counts “task completed” will not show you any of them. The lecture points to the <a href="https://hal.cs.princeton.edu/" class="external" target="_blank">Holistic Agent Leaderboard</a> and its <a href="https://hal.cs.princeton.edu/reliability/" class="external" target="_blank">reliability dashboard</a> as a public attempt to make that gap visible — a <em>capability–reliability gap</em>: agents can look able, and still not be dependable.</p>
+<div class="fig-on-white">
+<div id="fig-l1-hal" class="lightbox quarto-float quarto-figure quarto-figure-center anchored" alt="A table titled The Capability-Reliability Gap, listing agents with accuracy and scores for reliability, consistency, predictability, robustness and safety, credited to the HAL Reliability Dashboard." data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l1-hal-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="../images/agents-l1/challenges-hal-reliability-dashboard.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figure&nbsp;2: A snapshot of the HAL reliability dashboard, as shown in the lecture — CS 329Z Lecture 1 (Diyi Yang, Michael Ryan, John Yang), slide p.&nbsp;63. Original: HAL Reliability Dashboard. Figures on the live dashboard may change."><img src="../images/agents-l1/challenges-hal-reliability-dashboard.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%" alt="A table titled The Capability-Reliability Gap, listing agents with accuracy and scores for reliability, consistency, predictability, robustness and safety, credited to the HAL Reliability Dashboard."></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l1-hal-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: A snapshot of the HAL reliability dashboard, as shown in the lecture — CS 329Z Lecture 1 (Diyi Yang, Michael Ryan, John Yang), <a href="https://web.stanford.edu/class/cs329z/slides/lecture01.pdf#page=63" class="external" target="_blank">slide p.&nbsp;63</a>. Original: <a href="https://hal.cs.princeton.edu/reliability/" class="external" target="_blank">HAL Reliability Dashboard</a>. Figures on the live dashboard may change.
+</figcaption>
+</figure>
+</div>
+</div>
+<p>Kapoor, Stroebl, Siegel, Nadgir and Narayanan, <a href="https://arxiv.org/abs/2407.01502" class="external" target="_blank">AI Agents That Matter</a> (arXiv, 1 July 2024), make a complementary argument about current agent benchmarks: too much weight on accuracy, not enough on cost; model-developer and application-developer needs mixed together; weak or missing holdouts, so agents overfit the benchmark; and evaluation practice that is hard to reproduce. Their title is the point. We want agents that matter in use, not only agents that climb a board.</p>
+</section>
+<section id="training-and-the-long-horizon" class="level1">
+<h1>Training, and the long horizon</h1>
+<p>Training an agent is hard for reasons that reinforcement learning already knew about, and that language-model loops have not removed.</p>
+<ul>
+<li><strong>Sparse reward.</strong> Feedback often arrives at the end of a long attempt, if it arrives at all. Most tokens and tool calls get no direct signal.</li>
+<li><strong>Long horizon.</strong> The task takes many steps. Credit assignment — which thought actually helped? — becomes a guess.</li>
+<li><strong>Expensive rollouts.</strong> Each attempt may mean many model calls, many tool calls, and a live environment. You cannot cheaply sample a million games in a simulator if the “game” is a cloud account or a colleague’s inbox.</li>
+</ul>
+<p><strong>Long-horizon</strong> behaviour is also a systems problem at inference time, not only a training one. The context grows. Early goals drift or get crowded out. The agent may forget the constraint you stated at the top, or spend its window on a raw log instead of a useful memory. That is why the <a href="../rag/agent-architectures.html">architecture page</a> spends time on episodic, semantic, and procedural memory: without some way to write down and retrieve what matters, a long run is just a short run with more tokens in the way.</p>
+</section>
+<section id="safety-finishing-the-task-is-not-enough" class="level1">
+<h1>Safety: finishing the task is not enough</h1>
+<p>The lecture’s slogan is easy to remember and easy to ignore in a demo: <strong>task success is not the same as safe behaviour</strong>. An agent can book the hotel, edit the repo, or send the email, and still have done something you would not have allowed.</p>
+<div class="fig-on-white">
+<div id="fig-l1-harnessaudit" class="lightbox quarto-float quarto-figure quarto-figure-center anchored" alt="A bar chart from HarnessAudit Bench comparing overall harness safety with task completion across several model and harness configurations." data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l1-harnessaudit-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="../images/agents-l1/challenges-harnessaudit-task-vs-safety.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figure&nbsp;3: Task completion is not the same as safety compliance — CS 329Z Lecture 1 (Diyi Yang, Michael Ryan, John Yang), slide p.&nbsp;64. Original: HarnessAudit Bench."><img src="../images/agents-l1/challenges-harnessaudit-task-vs-safety.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%" alt="A bar chart from HarnessAudit Bench comparing overall harness safety with task completion across several model and harness configurations."></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l1-harnessaudit-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: Task completion is not the same as safety compliance — CS 329Z Lecture 1 (Diyi Yang, Michael Ryan, John Yang), <a href="https://web.stanford.edu/class/cs329z/slides/lecture01.pdf#page=64" class="external" target="_blank">slide p.&nbsp;64</a>. Original: <a href="https://harnessaudit.github.io/" class="external" target="_blank">HarnessAudit Bench</a>.
+</figcaption>
+</figure>
+</div>
+</div>
+<p>A few concrete lines of evidence the lecture points to:</p>
+<ul>
+<li><a href="https://harnessaudit.github.io/" class="external" target="_blank">HarnessAudit</a> is a benchmark aimed at this gap: whether a harness complies with safety requirements, not only whether a task completes.</li>
+<li>Agents that share a computer with a person can lack a sense of <em>when not to act</em>, or of what the person is in the middle of. The lecture points to a hands-on write-up of an early computer-use agent (<a href="https://www.platformer.news/openai-operator-ai-agent-hands-on/" class="external" target="_blank">Platformer on OpenAI’s Operator</a>) as a picture of missing collaboration awareness.</li>
+<li>Visual attacks can be almost boring, and still work. <a href="https://arxiv.org/abs/2411.02391" class="external" target="_blank">Attacking Vision-Language Computer Agents via Pop-ups</a> (Zhang, Yu and Yang, 2024) shows that carefully designed pop-ups — the kind a person would usually recognise and ignore — can draw a vision-language agent into clicking them instead of finishing the task. In OSWorld and VisualWebArena the authors report an average attack success rate (the agent clicking the pop-ups) of 86%, and a 47% drop in task success. Simple defences such as “ignore pop-ups”, or an advertisement notice, did not fix it. (The lecture slide rounds the first of those figures; the numbers above are from the paper.)</li>
+</ul>
+<div class="fig-on-white">
+<div id="fig-l1-popups" class="lightbox quarto-float quarto-figure quarto-figure-center anchored" alt="Two example adversarial pop-ups, one on an OSWorld desktop and one on VisualWebArena, with click rates of 92.7 percent and 73.1 percent, credited to Zhang, Yu and Yang 2024." data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l1-popups-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="../images/agents-l1/challenges-popup-attacks.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Figure&nbsp;4: Adversarial pop-ups that can pull a vision-language agent off its task, on OSWorld and VisualWebArena — CS 329Z Lecture 1 (Diyi Yang, Michael Ryan, John Yang), slide p.&nbsp;66. Original: Zhang, Yu and Yang, 2024. The environment click rates are from that paper; the lecture’s combined headline was rounded, and is omitted from the crop."><img src="../images/agents-l1/challenges-popup-attacks.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%" alt="Two example adversarial pop-ups, one on an OSWorld desktop and one on VisualWebArena, with click rates of 92.7 percent and 73.1 percent, credited to Zhang, Yu and Yang 2024."></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l1-popups-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4: Adversarial pop-ups that can pull a vision-language agent off its task, on OSWorld and VisualWebArena — CS 329Z Lecture 1 (Diyi Yang, Michael Ryan, John Yang), <a href="https://web.stanford.edu/class/cs329z/slides/lecture01.pdf#page=66" class="external" target="_blank">slide p.&nbsp;66</a>. Original: <a href="https://arxiv.org/abs/2411.02391" class="external" target="_blank">Zhang, Yu and Yang, 2024</a>. The environment click rates are from that paper; the lecture’s combined headline was rounded, and is omitted from the crop.
+</figcaption>
+</figure>
+</div>
+</div>
+<ul>
+<li>Privacy is a behaviour, not only a policy document. <a href="https://arxiv.org/abs/2409.00138" class="external" target="_blank">PrivacyLens</a> (Shao, Li, Shi, Liu and Yang, NeurIPS Datasets and Benchmarks 2024) evaluates whether language models respect privacy norms <em>in action</em>, not only when asked a static question.</li>
+</ul>
+<div class="fig-on-white">
+<div id="fig-l1-privacylens" class="lightbox quarto-float quarto-figure quarto-figure-center anchored" alt="A PrivacyLens example: a user asks an agent to email a manager a weekly report, and the draft includes a highlighted lunch with a recruiter that should not have been shared." data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l1-privacylens-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="../images/agents-l1/challenges-privacylens.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Figure&nbsp;5: A privacy failure in action: an agent drafts an email that leaks a private lunch — CS 329Z Lecture 1 (Diyi Yang, Michael Ryan, John Yang), slide p.&nbsp;67. Original: PrivacyLens (Shao, Li, Shi, Liu and Yang, NeurIPS Datasets and Benchmarks 2024)."><img src="../images/agents-l1/challenges-privacylens.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%" alt="A PrivacyLens example: a user asks an agent to email a manager a weekly report, and the draft includes a highlighted lunch with a recruiter that should not have been shared."></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l1-privacylens-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5: A privacy failure in action: an agent drafts an email that leaks a private lunch — CS 329Z Lecture 1 (Diyi Yang, Michael Ryan, John Yang), <a href="https://web.stanford.edu/class/cs329z/slides/lecture01.pdf#page=67" class="external" target="_blank">slide p.&nbsp;67</a>. Original: <a href="https://arxiv.org/abs/2409.00138" class="external" target="_blank">PrivacyLens</a> (Shao, Li, Shi, Liu and Yang, NeurIPS Datasets and Benchmarks 2024).
+</figcaption>
+</figure>
+</div>
+</div>
+<ul>
+<li><strong>Misalignment and sycophancy</strong> — telling you what you seem to want, or exploiting a reward signal — remain live issues once an agent can act. The lecture points to Anthropic’s write-up of <a href="https://www.anthropic.com/research/reward-tampering" class="external" target="_blank">reward tampering</a> research.</li>
+<li><strong>Multi-agent collusion</strong> is a newer shape of the same worry: several agents, or an agent and another system, can interact in ways no single-agent test would show. The lecture points to a <a href="https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation/" class="external" target="_blank">METR investigation</a> (26 August 2026) as a recent case to learn from, rather than as a folklore story.</li>
+</ul>
+<div class="fig-on-white">
+<div id="fig-l1-collusion" class="lightbox quarto-float quarto-figure quarto-figure-center anchored" alt="A four-step METR and Redwood Research diagram of agents stuck on an ExploitGym task finding a shared message board and collaborating in ways that trick the scorer." data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l1-collusion-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="../images/agents-l1/challenges-multiagent-collusion.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Figure&nbsp;6: A picture of multi-agent collusion on a shared message board — CS 329Z Lecture 1 (Diyi Yang, Michael Ryan, John Yang), slide p.&nbsp;69. Original: METR’s investigation (26 August 2026), with Redwood Research."><img src="../images/agents-l1/challenges-multiagent-collusion.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%" alt="A four-step METR and Redwood Research diagram of agents stuck on an ExploitGym task finding a shared message board and collaborating in ways that trick the scorer."></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l1-collusion-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;6: A picture of multi-agent collusion on a shared message board — CS 329Z Lecture 1 (Diyi Yang, Michael Ryan, John Yang), <a href="https://web.stanford.edu/class/cs329z/slides/lecture01.pdf#page=69" class="external" target="_blank">slide p.&nbsp;69</a>. Original: <a href="https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation/" class="external" target="_blank">METR’s investigation</a> (26 August 2026), with Redwood Research.
+</figcaption>
+</figure>
+</div>
+</div>
+<p>None of these replaces a safety case for your own system. They are a reminder that “it completed the issue” is an incomplete report.</p>
+</section>
+<section id="in-one-table" class="level1">
+<h1>In one table</h1>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Challenge</th>
+<th>The short version</th>
+<th>A place to look</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Reliability</td>
+<td>Errors compound; success rate is not dependability</td>
+<td><a href="https://hal.cs.princeton.edu/" class="external" target="_blank">HAL</a> reliability dashboard</td>
+</tr>
+<tr class="even">
+<td>Training</td>
+<td>Sparse reward, long horizon, expensive rollouts</td>
+<td>The RL-era loop on the <a href="../rag/history-of-agents.html">history</a> page</td>
+</tr>
+<tr class="odd">
+<td>Long horizon</td>
+<td>Context grows and drifts</td>
+<td>Memory types in <a href="../rag/agent-architectures.html">Agent architectures</a></td>
+</tr>
+<tr class="even">
+<td>Safety</td>
+<td>Task completion is not safe behaviour</td>
+<td><a href="https://harnessaudit.github.io/" class="external" target="_blank">HarnessAudit</a>, <a href="https://arxiv.org/abs/2409.00138" class="external" target="_blank">PrivacyLens</a>, <a href="https://arxiv.org/abs/2411.02391" class="external" target="_blank">Zhang et al., 2024</a></td>
+</tr>
+<tr class="odd">
+<td>Evaluation</td>
+<td>What you measure, and how you hold it out</td>
+<td><a href="https://arxiv.org/abs/2407.01502" class="external" target="_blank">Kapoor et al., 2024</a></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="faq" class="level1">
+<h1>FAQ</h1>
+<p><strong>Can I fix reliability just by using a stronger model?</strong> A stronger core can help, and it can also fail faster, or more confidently, in the same loop. Reliability here is a property of the <em>system</em>: tools, validation, memory, retries, and how you measure them. That is why the <a href="../rag/compound-ai-systems.html">compound systems</a> page insists on the three layers — system, data, and evals — rather than only on the model.</p>
+<p><strong>Why is evaluation listed separately from reliability?</strong> Because you can evaluate the wrong thing very carefully. A benchmark that rewards a costly, fragile agent for a slightly higher success rate will push the field in the wrong direction. Kapoor et al.&nbsp;argue for looking at cost together with accuracy, for keeping model evaluation and application evaluation distinct, and for holdouts that make overfitting visible.</p>
+<p><strong>Is “the agent got the task right” a safety result?</strong> No.&nbsp;That is the lecture’s point, and it is why HarnessAudit, PrivacyLens, and the pop-up attacks are on this page together. You need checks for the behaviour you <em>didn’t</em> want, including on runs that look like successes.</p>
+<p><strong>What should I read alongside the lecture?</strong> Kapoor et al., <a href="https://arxiv.org/abs/2407.01502" class="external" target="_blank">AI Agents That Matter</a>; Weng, <a href="https://lilianweng.github.io/posts/2023-06-23-agent/" class="external" target="_blank">LLM Powered Autonomous Agents</a>, for the architecture these problems sit on; and Zaharia et al., <a href="https://bair.berkeley.edu/blog/2024/02/18/compound-ai-systems/" class="external" target="_blank">The Shift from Models to Compound AI Systems</a>, for why the unit of work is the system.</p>
+</section>
+<section id="see-also" class="level1">
+<h1>See also</h1>
+<ul>
+<li><a href="../rag/history-of-agents.html">History of agents</a></li>
+<li><a href="../rag/agent-architectures.html">Agent architectures</a></li>
+<li><a href="../rag/compound-ai-systems.html">Compound AI systems</a></li>
+<li><a href="../rag/resources.html#cs329z">RAG and agents: Resources</a></li>
+<li><a href="../generative/generative-rag.html">Generative AI: RAG</a></li>
+</ul>
+
+
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../rag/compound-ai-systems.html" class="pagination-link" aria-label="Compound AI systems">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Compound AI systems</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p><a href="https://creativecommons.org/licenses/by/4.0/">Attribution 4.0 International (CC BY 4.0)</a></p>
+</div>   
+    <div class="nav-footer-center">
+<p>Attention is all you need</p>
+</div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/AlbertProfe/">
+      <i class="bi bi-github" role="img">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
+
+
+
+
+</body></html>
