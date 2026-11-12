@@ -1,0 +1,130 @@
+---
+title: "Why RAG"
+subtitle: "Just-in-time evidence, and the retrieve–generate loop"
+format:
+  html:
+    fontsize: "1.0em"
+    theme:
+      light: cosmo
+      dark: darkly
+    css: ../styles.css
+    toc: true
+    toc-depth: 5
+---
+
+# A frozen typist, and a library next door
+
+::: {.callout-note}
+# Source
+
+A reader's guide to part of [CS 329Z Lecture 3](https://web.stanford.edu/class/cs329z/slides/lecture03.pdf){.external target="_blank"} (Diyi Yang, Michael Ryan and John Yang; [Engineering AI Agents](https://cs329z.stanford.edu/){.external target="_blank"}, Stanford, autumn 2026). The outline and the pointers come from that lecture; the wording on this page is ours. The course is also listed under [Resources](resources.qmd#cs329z).
+:::
+
+
+A language model only knows what it was trained on. Ask it something that changed last week, or that lives in your own files, and it will still try to answer — from memory, or from a plausible guess. Retrieval-augmented generation (RAG) is the simple alternative: look the fact up, put the passage in the prompt, and *then* write.
+
+That idea is already named, briefly, on [Compound AI systems](compound-ai-systems.qmd) and on the older [RAG](../generative/generative-rag.qmd) outline. This page is the reason to retrieve, and the shape of the loop. The next four pages take [indexing](rag-indexing.qmd), [retrievers](rag-retrieval.qmd), [agentic RAG](agentic-rag.qmd), and [failure modes](rag-failure-modes.qmd).
+
+::: {.callout-tip}
+# Everyday example
+
+You ask a colleague which office hour is quietest this week. If they answer from habit — “Wednesday afternoons are usually calm” — they may be wrong this week. If they glance at the queue log and then answer, you get a number you can check. The language model is the colleague. The log is the retriever. RAG is the habit of looking first.
+:::
+
+::: {.fig-on-white}
+![Without retrieval the model guesses from habit; with a queue log it can cite this week’s numbers — CS 329Z Lecture 3 (Diyi Yang, Michael Ryan, John Yang), [slide p. 10](https://web.stanford.edu/class/cs329z/slides/lecture03.pdf#page=10){.external target="_blank"}. The office-hour figures are a lecture illustration, not a measured dataset. Lecture original.](/images/agents-l3/why-retrieval-office-hours.png){#fig-l3-why-retrieval fig-alt="A comparison titled Why Retrieval: an LLM alone guesses that Wednesday afternoon is usually quietest; an LLM with retrieval cites a queue log and answers Thursday 9am." .lightbox fig-align="center" width="100%"}
+:::
+
+
+# Why retrieve, rather than memorise?
+
+The lecture’s list is short, and it is still the right list:
+
+- *Just in time.* You give the model the relevant passage when it is needed, instead of asking it to memorise the whole library.
+- *Dynamic.* Adding or updating a document is an index change, not a training run. That is how a system keeps up with a queue log, a policy wiki, or last quarter’s filing.
+- *Interpretable.* The model can point at the passages it used, so a person can check the answer.
+
+Open-domain question answering was the early proving ground. [Chen et al., 2017](https://arxiv.org/abs/1704.00051){.external target="_blank"} (*Reading Wikipedia to Answer Open-Domain Questions*, DrQA) already split the job into a *retriever*, which picks passages from a large collection, and a *reader*, which writes the answer from those passages. The retriever in that paper was a fixed TF–IDF index; the reader was a neural reading-comprehension model. Today the reader is often a language model, but the split is the same.
+
+# The RAG loop
+
+[Lewis, Perez, Piktus and colleagues](https://arxiv.org/abs/2005.11401){.external target="_blank"} named the modern recipe *retrieval-augmented generation*. A query encoder looks up passages in a non-parametric document index (they use a dense retriever in the style of [DPR](rag-retrieval.qmd#dpr-dense-passage-retrieval)); a generator — in the paper, an encoder–decoder such as BART — writes the answer given the query and the passages. The retriever and the generator can be trained together, by maximising the marginal likelihood of the answer. Related lines of work, which the lecture points to, include REALM and DPR.
+
+The lecture credits this figure as Lewis et al., 2021. The paper appeared at NeurIPS 2020 (arXiv, May 2020). We follow the venue year here.
+
+::: {.fig-on-white}
+![The RAG model: a retriever over a document index, a generator that writes from the query and the passages, and a training signal that can run through both — CS 329Z Lecture 3 (Diyi Yang, Michael Ryan, John Yang), [slide p. 14](https://web.stanford.edu/class/cs329z/slides/lecture03.pdf#page=14){.external target="_blank"}. Original: [Lewis et al. (2020)](https://arxiv.org/abs/2005.11401){.external target='_blank'}. The lecture labels the paper 2021; it was published at NeurIPS 2020.](/images/agents-l3/why-rag-lewis.png){#fig-l3-lewis-rag fig-alt="A diagram of retrieval-augmented generation: a query encoder, MIPS search over a document index, retrieved passages, and a generator that writes an answer." .lightbox fig-align="center" width="100%"}
+:::
+
+
+Formally, a retriever $p(z \mid x)$ returns the top-$K$ passages for a query $x$, and a generator $p(y \mid x, z)$ writes the answer one token at a time. The answer’s probability is approximated by a sum over those passages:
+
+$$
+p(y \mid x) \approx \sum_{z \in \mathrm{top\text{-}K}} p(z \mid x)\, p(y \mid x, z).
+$$
+
+The paper compares two ways to do the sum. *RAG-Sequence* picks a passage and sticks with it for the whole answer. *RAG-Token* may pick a different passage at each token. Most production pipelines today are closer to the first idea, or to a still simpler *naive* recipe: retrieve once, stuff the passages into the prompt, generate once. The jointly trained models in the paper are the research ancestor, not the only way to wire the loop.
+
+::: {.fig-on-white}
+![A retriever over passages and a generator over query plus passage, with RAG-Sequence versus RAG-Token — CS 329Z Lecture 3 (Diyi Yang, Michael Ryan, John Yang), [slide p. 16](https://web.stanford.edu/class/cs329z/slides/lecture03.pdf#page=16){.external target="_blank"}. The formulation follows [Lewis et al. (2020)](https://arxiv.org/abs/2005.11401){.external target='_blank'}. Lecture original.](/images/agents-l3/why-rag-sequence-token.png){#fig-l3-rag-sequence-token fig-alt="A slide defining the retriever p of z given x, the generator p of y given x and z, a sum over the top K passages, and the RAG-Sequence and RAG-Token variants." .lightbox fig-align="center" width="100%"}
+:::
+
+
+```{mermaid}
+flowchart TD
+  Q["Query"] --> R["Retriever: top-K passages"]
+  D["Document index"] --> R
+  R --> A["Augment the prompt"]
+  Q --> A
+  A --> G["Generator writes the answer"]
+```
+
+# Naive, advanced, and modular
+
+Once you have retrieve-then-generate, people start adding steps around it. A survey by [Gao, Xiong, Gao and colleagues](https://arxiv.org/abs/2312.10997){.external target="_blank"} (posted in December 2023, and usually cited as 2024) is the lecture’s map of those variants.
+
+- *Naive RAG* indexes, retrieves, and prompts a frozen model.
+- *Advanced RAG* adds work before and after retrieval: query rewriting, reranking, summarising, fusing passages.
+- *Modular RAG* treats those steps as interchangeable parts — rewrite, retrieve, rerank, read, even loop — so a system can be a pipeline or a small graph of skills.
+
+::: {.fig-on-white}
+![Naive, advanced, and modular RAG, as mapped by the 2024 survey — CS 329Z Lecture 3 (Diyi Yang, Michael Ryan, John Yang), [slide p. 21](https://web.stanford.edu/class/cs329z/slides/lecture03.pdf#page=21){.external target="_blank"}. Original: [Gao et al., Retrieval-Augmented Generation for Large Language Models: A Survey](https://arxiv.org/abs/2312.10997){.external target='_blank'} (2023/24).](/images/agents-l3/why-rag-variants-gao.png){#fig-l3-rag-variants fig-alt="Three diagrams of RAG variants: a naive retrieve-then-generate pipeline, an advanced pipeline with pre- and post-retrieval steps, and a modular graph of search, rewrite, rerank and memory skills." .lightbox fig-align="center" width="100%"}
+:::
+
+
+The rest of this lecture is about making those parts honest: how you cut and index the library, how you score a passage, when retrieval itself becomes an action, and where the loop fails.
+
+# In one table
+
+| Idea | In one line |
+|------|-------------|
+| Why retrieve | Fresh, checkable evidence, without retraining the model |
+| Retriever–reader | First pick passages, then write the answer from them |
+| RAG (Lewis et al., 2020) | A trainable retriever plus a generator, marginalised over top-$K$ passages |
+| RAG-Sequence / RAG-Token | One passage for the whole answer, or a fresh passage at each token |
+| Naive / advanced / modular | Retrieve-then-generate; the same loop with extra steps; a kit of parts |
+
+# FAQ
+
+**Is RAG the same thing as an agent?**
+No. A fixed retrieve-then-generate graph is a *workflow*, and a compound system. It becomes more agent-like when the model decides *whether* to retrieve, *what* to ask, and *when* to stop. That is the subject of [Agentic RAG](agentic-rag.qmd). The distinction is the one already drawn on [Compound AI systems](compound-ai-systems.qmd).
+
+**Does retrieval replace fine-tuning?**
+It replaces the need to bake every fact into the weights. You may still fine-tune for style, tools, or a domain. The point is that a document that changes tomorrow should not wait for a training run.
+
+**Why not put the whole library in the context window?**
+Because longer is not always better — see [context rot](llms-for-agents.qmd#context-rot-bloat-and-the-cache) — and because a good index lets you pay only for the passages that matter. Retrieval is how you keep the window small and still reach a large store.
+
+**Where should I go next?**
+[Indexing](rag-indexing.qmd) is how the library is cut and stored. [Retrievers](rag-retrieval.qmd) are how a query finds a passage.
+
+# See also
+
+- [Indexing for RAG](rag-indexing.qmd)
+- [Retrievers for RAG](rag-retrieval.qmd)
+- [Agentic RAG](agentic-rag.qmd)
+- [Failure modes of RAG](rag-failure-modes.qmd)
+- [Compound AI systems](compound-ai-systems.qmd)
+- [LLMs for agents](llms-for-agents.qmd)
+- [What is a language model?](../generative/what-is-a-language-model.qmd)
+- [RAG and agents: Resources](resources.qmd#cs329z)

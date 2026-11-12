@@ -117,7 +117,7 @@ The *shape* of a single call — select, fill arguments, validate, execute, retu
 
 **Do I need several agents?** Not to start with. A single loop with tools and memory is already an agent architecture. Multiple agents — debate, or an orchestrator and specialists — are a way to split work or to criticise a draft. They also add coordination failures, which is why they show up again under [challenges](agent-challenges.qmd).
 
-**Where does RAG sit in this diagram?** Retrieval is a tool, and the retrieved text is context, which is a kind of memory. RAG is important enough, and standard enough, to have its own treatment on [Compound AI systems](compound-ai-systems.qmd) and on the section's [RAG page](../generative/generative-rag.qmd).
+**Where does RAG sit in this diagram?** Retrieval is a tool, and the retrieved text is context, which is a kind of memory. RAG is important enough, and standard enough, to have its own treatment on [Compound AI systems](compound-ai-systems.qmd) and in the Lecture 3 pages starting at [Why RAG](why-rag.qmd).
 
 **What should I read first?** Weng's [LLM Powered Autonomous Agents](https://lilianweng.github.io/posts/2023-06-23-agent/){.external target="_blank"} for a guided tour of planning, memory and tools; ReAct for the loop itself; CoALA for a more formal cognitive-architecture vocabulary.
 
@@ -127,5 +127,5 @@ The *shape* of a single call — select, fill arguments, validate, execute, retu
 - [Compound AI systems](compound-ai-systems.qmd)
 - [Key challenges in building agents](agent-challenges.qmd)
 - [RAG and agents: Resources](resources.qmd#cs329z)
-- [Generative AI: RAG](../generative/generative-rag.qmd)
+- [Why RAG](why-rag.qmd) and [Retrievers for RAG](rag-retrieval.qmd)
 - [Language model architecture](../generative/language-model-architecture.qmd) and [LLMs for agents](llms-for-agents.qmd) — Lecture 2

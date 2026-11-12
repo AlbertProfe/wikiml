@@ -1,0 +1,106 @@
+---
+title: "Agentic RAG"
+subtitle: "When retrieval is an action: Self-RAG, CRAG, and Search-R1"
+format:
+  html:
+    fontsize: "1.0em"
+    theme:
+      light: cosmo
+      dark: darkly
+    css: ../styles.css
+    toc: true
+    toc-depth: 5
+---
+
+# Retrieval inside the loop
+
+::: {.callout-note}
+# Source
+
+A reader's guide to part of [CS 329Z Lecture 3](https://web.stanford.edu/class/cs329z/slides/lecture03.pdf){.external target="_blank"} (Diyi Yang, Michael Ryan and John Yang; [Engineering AI Agents](https://cs329z.stanford.edu/){.external target="_blank"}, Stanford, autumn 2026). The outline and the pointers come from that lecture; the wording on this page is ours. The course is also listed under [Resources](resources.qmd#cs329z).
+:::
+
+
+Everything on the previous pages answers one question well: given a query, find passages and write. None of it decides *whether* to retrieve, *what* to ask for, or *when* to stop. Agentic RAG treats retrieval as an action the model can take, in a loop, rather than as a fixed first step.
+
+That is the same turn already described on [Compound AI systems](compound-ai-systems.qmd) and [LLMs for agents](llms-for-agents.qmd): a workflow becomes more agent-like when the model writes the next step. The lecture’s three decisions are a useful test for any such loop.
+
+::: {.callout-tip}
+# Everyday example
+
+A careful researcher does not always go to the library. Sometimes they already know the answer. Sometimes they need a different book from the one they first pulled, or a second search with a better keyword. And they need a rule for when to stop reading and start writing. Self-RAG is the habit of asking “do I need a source?” and of grading the page you found. CRAG is a critic who can send you back for a better search. Search-R1 is *practice*: you learn the habit by being rewarded for questions you eventually get right.
+:::
+
+```{mermaid}
+flowchart TD
+  Q["Question"] --> D{{"Retrieve, or answer directly?"}}
+  D -->|answer| A["Write the answer"]
+  D -->|retrieve| S["Issue a search query"]
+  S --> R["Read the result"]
+  R --> G{{"Is this good enough?"}}
+  G -->|yes| A
+  G -->|no| S
+```
+
+# Self-RAG
+
+[Self-RAG](https://arxiv.org/abs/2310.11511){.external target="_blank"} (Asai et al., ICLR 2024; the lecture writes 2024) trains a language model to *retrieve on demand*, to generate, and to *critique* its own uses of evidence. Special reflection tokens mark whether a retrieval was needed, whether a passage was relevant, and whether a claim is supported. Segments can be generated in parallel from different passages and then compared, so the model can prefer a supported span over an irrelevant one and, if need be, retrieve again.
+
+::: {.fig-on-white}
+![Self-RAG retrieves on demand, generates from several passages, and critiques which segment is supported — CS 329Z Lecture 3 (Diyi Yang, Michael Ryan, John Yang), [slide p. 57](https://web.stanford.edu/class/cs329z/slides/lecture03.pdf#page=57){.external target="_blank"}. Original: [Self-RAG: Learning to Retrieve, Generate, and Critique through Self-Reflection](https://arxiv.org/abs/2310.11511){.external target='_blank'} (Asai et al., 2024).](/images/agents-l3/agentic-self-rag.png){#fig-l3-self-rag fig-alt="A Self-RAG diagram: a question about US state names, a retrieve-on-demand step, three generated segments labelled relevant or irrelevant, and a critique that selects the best-supported answer." .lightbox fig-align="center" width="100%"}
+:::
+
+
+The point is not a new index. It is a model that has learned the three decisions — retrieve or not, which evidence to trust, whether to try again — instead of following a fixed retrieve-then-generate graph.
+
+# CRAG: a critic on the retrieval
+
+[Corrective Retrieval Augmented Generation](https://arxiv.org/abs/2401.15884){.external target="_blank"} (Yan, Jiang, Ren and colleagues, 2024) adds an explicit *evaluator*. A critic looks at the retrieved documents, grades them as correct, ambiguous, or incorrect, and triggers different actions: keep and refine the internal knowledge, or rewrite the query and search the web when the retrieval is wrong. The generator then sees a cleaned or replaced context, not whatever the first retriever happened to return.
+
+::: {.fig-on-white}
+![CRAG’s critic grades the retrieved documents and branches: refine, or search again — CS 329Z Lecture 3 (Diyi Yang, Michael Ryan, John Yang), [slide p. 58](https://web.stanford.edu/class/cs329z/slides/lecture03.pdf#page=58){.external target="_blank"}. Original: [Corrective Retrieval Augmented Generation](https://arxiv.org/abs/2401.15884){.external target='_blank'} (Yan et al., 2024).](/images/agents-l3/agentic-crag.png){#fig-l3-crag fig-alt="A CRAG diagram: retrieved documents are graded correct, ambiguous or incorrect; knowledge is refined or a new web search is issued; a generator writes from the resulting context." .lightbox fig-align="center" width="100%"}
+:::
+
+
+If Self-RAG folds the critique into the generator, CRAG factors it out as a retrieval evaluator. Both are answers to the same failure: a pipeline that always trusts its first top-$k$.
+
+# Search-R1: learning the search policy
+
+[Search-R1](https://arxiv.org/abs/2503.09516){.external target="_blank"} (Jin et al., 2025) goes a step further: it *learns* a multi-turn search policy with reinforcement learning. The model thinks in a `<think>` block, issues a `<search>` query when it lacks knowledge, reads `<information>`, and may search again before it commits to an `<answer>`. The training setup the lecture shows is the one we already met for verifiable rewards — PPO, and [GRPO](../generative/language-model-training.qmd#verifiable-rewards-and-training-for-agents) — with the search engine in the loop and a reward for a correct final answer.
+
+::: {.fig-on-white}
+![Search-R1 trains a policy that can call a search engine across several turns, with PPO or GRPO — CS 329Z Lecture 3 (Diyi Yang, Michael Ryan, John Yang), [slide p. 60](https://web.stanford.edu/class/cs329z/slides/lecture03.pdf#page=60){.external target="_blank"}. Original: [Search-R1: Training LLMs to Reason and Leverage Search Engines with Reinforcement Learning](https://arxiv.org/abs/2503.09516){.external target='_blank'} (Jin et al., 2025).](/images/agents-l3/agentic-search-r1.png){#fig-l3-search-r1 fig-alt="A Search-R1 training diagram comparing PPO and GRPO with a search engine in the loop, and a prompt that requires think, search, information and answer tags." .lightbox fig-align="center" width="100%"}
+:::
+
+
+The example in the lecture is a comparison of two birth dates: the model searches, finds one person, searches again, and only then answers. That is retrieval as a *skill*, trained against a checkable outcome, not as a preprocessor.
+
+# In one table
+
+| System | Who decides to retrieve? | What happens if the evidence is weak? |
+|--------|--------------------------|----------------------------------------|
+| Naive RAG | The pipeline, always, once | The generator sees it anyway |
+| Self-RAG | The model, via reflection tokens | Critique, and another retrieve if needed |
+| CRAG | A critic on the retrieved set | Refine, or rewrite and search again |
+| Search-R1 | A learned, multi-turn policy | Another `<search>`, until it can answer |
+
+# FAQ
+
+**Is agentic RAG just “RAG plus an agent framework”?**
+Not necessarily. The papers above change *who decides* and *how that decision is trained*. You can wrap naive RAG in a tool loop; Self-RAG, CRAG and Search-R1 are recipes for making the loop itself smarter.
+
+**Do I always want the model to retrieve?**
+No. Some questions are already in the weights, and an extra passage can distract. A model that can *skip* retrieval is part of the point of Self-RAG.
+
+**How is this different from ordinary tool use?**
+Search is a tool. What is new is the *policy*: when to call it, how to rewrite the query, how to grade the result, and when to stop. For the shape of a single tool call, see [Compound AI systems](compound-ai-systems.qmd). For the risk of a loop that never stops, or that trusts a poisoned passage, see [failure modes](rag-failure-modes.qmd).
+
+# See also
+
+- [Why RAG](why-rag.qmd)
+- [Indexing for RAG](rag-indexing.qmd)
+- [Retrievers for RAG](rag-retrieval.qmd)
+- [Failure modes of RAG](rag-failure-modes.qmd)
+- [Compound AI systems](compound-ai-systems.qmd) and [LLMs for agents](llms-for-agents.qmd)
+- [Language model training](../generative/language-model-training.qmd), for GRPO and verifiable rewards
+- [RAG and agents: Resources](resources.qmd#cs329z)

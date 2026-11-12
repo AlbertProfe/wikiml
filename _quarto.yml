@@ -230,6 +230,11 @@ website:
         - text: "---"
         - section: "RAG"
           contents:
+            - rag/why-rag.qmd
+            - rag/rag-indexing.qmd
+            - rag/rag-retrieval.qmd
+            - rag/agentic-rag.qmd
+            - rag/rag-failure-modes.qmd
             - generative/generative-rag.qmd
         - text: "---"
         - section: "Agents"

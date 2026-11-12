@@ -3,17 +3,17 @@ title: "RAG"
 ---
 
 ::: {.callout-note}
-This page is in progress. It replaces the old Quarto starter placeholder (“This is a Quarto website”).
+The teaching pages on Retrieval-Augmented Generation now live in the [RAG and agents](/rag/rag-index.qmd) section. This page stays as a short pointer, so older links keep working.
 :::
 
-# What this page will be
+# What this page is
 
-A teaching page on Retrieval-Augmented Generation: why a frozen model is not enough, what embeddings are for, and the loop retrieve → augment → generate. One honest pipeline, not a product demo.
+RAG is how you give a frozen language model fresh, inspectable evidence: retrieve a passage, put it in the prompt, and then generate. The full reader's guides, drawn from CS 329Z Lecture 3, are:
 
-RAG is already named in the comparison table on the [Generative AI overview](generative-index.qmd). This page now lives under the [RAG and agents](/rag/rag-index.qmd) section; its URL stays here so old links do not break.
+- [Why RAG](/rag/why-rag.qmd) — why retrieve, and the shape of the loop
+- [Indexing for RAG](/rag/rag-indexing.qmd) — chunking, contextual retrieval, and the index
+- [Retrievers for RAG](/rag/rag-retrieval.qmd) — BM25, DPR, and ColBERT
+- [Agentic RAG](/rag/agentic-rag.qmd) — when retrieval is an action
+- [Failure modes of RAG](/rag/rag-failure-modes.qmd)
 
-# Not written yet
-
-- A single running example
-- A diagram of retrieve, augment, generate
-- Where agents begin (tools, memory, the next step) — that will be a sibling page, not this one
+RAG is also named in the comparison table on the [Generative AI overview](generative-index.qmd), and as a compound pattern on [Compound AI systems](/rag/compound-ai-systems.qmd).

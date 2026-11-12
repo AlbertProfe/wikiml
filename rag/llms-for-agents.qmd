@@ -72,7 +72,7 @@ Longer is not always better. [Oolong](https://arxiv.org/abs/2511.02817){.externa
 
 The lecture's practical advice, which students also meet in the course homework, is that there is no single right context. You experiment. A few concrete habits help:
 
-- *Avoid bloat.* Sometimes a few tools are enough. The lecture points at Pi, which exposes just `read`, `write`, `edit`, and `bash` — a case made in [The harness tax](https://arena.ai/blog/coding-agents-harness-tax){.external target="_blank"} on arena.ai. Recovery of the rest can wait for retrieval, which the course takes up in the next lecture (and which we already sketch under [Generative AI: RAG](../generative/generative-rag.qmd)).
+- *Avoid bloat.* Sometimes a few tools are enough. The lecture points at Pi, which exposes just `read`, `write`, `edit`, and `bash` — a case made in [The harness tax](https://arena.ai/blog/coding-agents-harness-tax){.external target="_blank"} on arena.ai. Recovery of the rest can wait for retrieval, which is the subject of [Why RAG](why-rag.qmd) and [Indexing for RAG](rag-indexing.qmd).
 - *Add sequentially.* If you insert or edit tokens *earlier* in the context, the positional embeddings of everything after them change, and the KV cache for that suffix is invalidated. Append new material where you can, so prefill work is not thrown away. This is the inference engine leaking into the agent's bookkeeping.
 - *Evaluate the choices empirically.* Toolformer is the lecture's reminder that you can set up tests and measure whether a context change helped, rather than arguing from taste.
 - *Compact carefully.* By the time you compact, the context is already very long. Keep too much and you will have to compact again soon; drop too much and you lose what the task still needs.
@@ -116,7 +116,7 @@ Because the model may not *use* that length well. Oolong is the lecture's exhibi
 The prompt is a prefix. Change it, and every later position shifts, so the cache built for that suffix is no longer valid. You pay a fresh prefill. This is one reason to keep stable instructions stable, and to append results at the end.
 
 **What is coming next in the course?**
-The lecture ends with "see you on Wednesday for RAG." Retrieval is the systematic way to keep the window small and still reach a large store of files and memories. We already have a starting page at [Generative AI: RAG](../generative/generative-rag.qmd).
+The lecture ends with "see you on Wednesday for RAG." Retrieval is the systematic way to keep the window small and still reach a large store of files and memories. That lecture is now a set of pages starting at [Why RAG](why-rag.qmd).
 
 # See also
 
@@ -125,5 +125,5 @@ The lecture ends with "see you on Wednesday for RAG." Retrieval is the systemati
 - [Language model training](../generative/language-model-training.qmd)
 - [Language model inference](../generative/language-model-inference.qmd)
 - [Compound AI systems](compound-ai-systems.qmd), [Agent architectures](agent-architectures.qmd), and [Key challenges in building agents](agent-challenges.qmd)
-- [Generative AI: RAG](../generative/generative-rag.qmd)
+- [Why RAG](why-rag.qmd), [Indexing for RAG](rag-indexing.qmd), [Retrievers for RAG](rag-retrieval.qmd), [Agentic RAG](agentic-rag.qmd), and [Failure modes of RAG](rag-failure-modes.qmd)
 - [RAG and agents: Resources](resources.qmd#cs329z)

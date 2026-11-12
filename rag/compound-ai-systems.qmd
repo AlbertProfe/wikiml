@@ -60,7 +60,7 @@ This is not a moral ranking. A workflow can be more reliable precisely because t
 
 # Retrieval-augmented generation
 
-[RAG](../generative/generative-rag.qmd) is the most familiar compound pattern. The model is connected to an external knowledge source at run time, so the answer can rest on documents the model was never trained on, and that you can inspect.
+[RAG](why-rag.qmd) is the most familiar compound pattern. The model is connected to an external knowledge source at run time, so the answer can rest on documents the model was never trained on, and that you can inspect.
 
 The lecture's three steps are the usual ones:
 
@@ -77,7 +77,7 @@ flowchart LR
 ![Retrieve, augment, generate — CS 329Z Lecture 1 (Diyi Yang, Michael Ryan, John Yang), [slide p. 57](https://web.stanford.edu/class/cs329z/slides/lecture01.pdf#page=57){.external target="_blank"}.](/images/agents-l1/compound-rag.png){#fig-l1-rag fig-alt="A slide titled Retrieval Augmented Generation: a retriever-and-reader sketch above three steps labelled retrieve, augment and generate." .lightbox fig-align="center" width="100%"}
 :::
 
-In the [agent architecture](agent-architectures.qmd), retrieval is a tool, and the retrieved text is context. The reason RAG gets its own heading is practical: it is how many systems first leave the frozen model, and it has its own failure modes (wrong passages, stale indexes, answers that ignore the evidence).
+In the [agent architecture](agent-architectures.qmd), retrieval is a tool, and the retrieved text is context. The reason RAG gets its own heading is practical: it is how many systems first leave the frozen model. The fuller account — why retrieve, how the index is built, how a passage is scored, when retrieval becomes an action, and [where the loop fails](rag-failure-modes.qmd) — is in the Lecture 3 pages starting at [Why RAG](why-rag.qmd).
 
 # Anatomy of a tool call
 
@@ -141,6 +141,6 @@ The [Model Context Protocol](https://modelcontextprotocol.io/){.external target=
 - [History of agents](history-of-agents.qmd)
 - [Agent architectures](agent-architectures.qmd)
 - [Key challenges in building agents](agent-challenges.qmd)
-- [Generative AI: RAG](../generative/generative-rag.qmd)
+- [Why RAG](why-rag.qmd), [Indexing for RAG](rag-indexing.qmd), [Retrievers for RAG](rag-retrieval.qmd), [Agentic RAG](agentic-rag.qmd), and [Failure modes of RAG](rag-failure-modes.qmd)
 - [LLMs for agents](llms-for-agents.qmd) — structured I/O and context engineering, from Lecture 2
 - [RAG and agents: Resources](resources.qmd#cs329z)

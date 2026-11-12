@@ -140,6 +140,6 @@ What followed is less a single invention than a tightening of the same loop: bet
 - [Compound AI systems](compound-ai-systems.qmd)
 - [Key challenges in building agents](agent-challenges.qmd)
 - [RAG and agents: Resources](resources.qmd#cs329z), including the CS 329Z entry
-- [Generative AI: RAG](../generative/generative-rag.qmd)
+- [Why RAG](why-rag.qmd) and [Generative AI: RAG](../generative/generative-rag.qmd)
 - [Evolution of attention](../generative/evolution-of-attention.qmd) and [Attention Is All You Need](../generative/attention-is-all-you-need.qmd), for the models these agents sit on
 - [What is a language model?](../generative/what-is-a-language-model.qmd), [Language model architecture](../generative/language-model-architecture.qmd), and [LLMs for agents](llms-for-agents.qmd) — Lecture 2, on those models and how agents use them

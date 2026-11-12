@@ -1,0 +1,152 @@
+---
+title: "Retrievers for RAG"
+subtitle: "BM25, dense passage retrieval, and late interaction"
+format:
+  html:
+    fontsize: "1.0em"
+    theme:
+      light: cosmo
+      dark: darkly
+    css: ../styles.css
+    toc: true
+    toc-depth: 5
+---
+
+# Three ways to find a passage
+
+::: {.callout-note}
+# Source
+
+A reader's guide to part of [CS 329Z Lecture 3](https://web.stanford.edu/class/cs329z/slides/lecture03.pdf){.external target="_blank"} (Diyi Yang, Michael Ryan and John Yang; [Engineering AI Agents](https://cs329z.stanford.edu/){.external target="_blank"}, Stanford, autumn 2026). The outline and the pointers come from that lecture; the wording on this page is ours. The course is also listed under [Resources](resources.qmd#cs329z).
+:::
+
+
+Once the library is cut and shelved, a query still has to *find* a card. The lecture contrasts three families: word-overlap with **BM25**, a single vector per passage with **DPR**, and token-level late interaction with **ColBERT**. They fail differently, which is why people often run two of them and fuse the lists, then — if they can afford it — rerank a shortlist with a cross-encoder.
+
+::: {.callout-tip}
+# Everyday example
+
+You are looking for a colleague’s desk. A door plate with their exact name is BM25: unmatched if you only remember a nickname. A receptionist who understands “the person who handles invoices” is a dense retriever: good on paraphrase, shaky on a typo in an error code. A late-interaction model is a receptionist who also glances at every word on the badge. A cross-encoder is walking over and having a full conversation with each candidate — accurate, and impossible at the scale of the whole building.
+:::
+
+# BM25
+
+[BM25](https://www.staff.city.ac.uk/~sb317/papers/foundations_bm25_review.pdf){.external target="_blank"} (Robertson and colleagues; the standard account is *The Probabilistic Relevance Framework: BM25 and Beyond*, 2009) is still the default sparse retriever. Each query term contributes a weight that grows with how often it appears in the document, saturates so that the tenth occurrence counts for little, is damped if the document is long, and is scaled by an inverse-document-frequency term: rare words count more than words that appear everywhere.
+
+::: {.fig-on-white}
+![The BM25 score: an IDF weight for each query term, a saturating term frequency, and a length normalisation — CS 329Z Lecture 3 (Diyi Yang, Michael Ryan, John Yang), [slide p. 41](https://web.stanford.edu/class/cs329z/slides/lecture03.pdf#page=41){.external target="_blank"}. The formula is the usual BM25 implementation (Robertson and colleagues). Lecture original.](/images/agents-l3/retr-bm25-formula.png){#fig-l3-bm25 fig-alt="The BM25 formula, annotated to show inverse document frequency, term frequency with saturation, and a document-length normalisation against the average length." .lightbox fig-align="center" width="100%"}
+:::
+
+
+The IDF the lecture writes,
+
+$$
+\mathrm{IDF}(q_i) = \ln \frac{N - n(q_i) + 0.5}{n(q_i) + 0.5},
+$$
+
+is the common Lucene-style form, with a $0.5$ smoother. Implementations differ in small ways; the idea does not: a term that almost every document contains should not dominate the score. BM25 still wins on exact literals — product IDs, error codes, names — and still misses paraphrase and synonyms.
+
+# DPR: dense passage retrieval
+
+[Dense Passage Retrieval](https://arxiv.org/abs/2004.04906){.external target="_blank"} (Karpukhin et al., 2020) is the lecture’s representative bi-encoder. Offline, a passage encoder $E_P$ writes one vector per passage into an index. At query time a *separate* query encoder $E_Q$ writes a query vector, and the system returns the passages with the highest inner product $E_Q(q)^{\top} E_P(p)$, using maximum inner-product search. The two encoders are BERT-sized networks, trained with a contrastive loss, in-batch negatives, and BM25 hard negatives.
+
+::: {.fig-on-white}
+![DPR’s bi-encoder: passages are encoded once into a vector index; a query is encoded at run time and scored by a dot product — CS 329Z Lecture 3 (Diyi Yang, Michael Ryan, John Yang), [slide p. 43](https://web.stanford.edu/class/cs329z/slides/lecture03.pdf#page=43){.external target="_blank"}. The pipeline follows [Karpukhin et al. (2020)](https://arxiv.org/abs/2004.04906){.external target='_blank'}. Lecture original.](/images/agents-l3/retr-dpr-biencoder.png){#fig-l3-dpr fig-alt="A two-row diagram of dense passage retrieval: an offline passage encoder feeding a vector index, and an online query encoder whose vector is compared by a dot product to return the top-k passages." .lightbox fig-align="center" width="100%"}
+:::
+
+
+The paper reports that this dense retriever beats BM25 on four of five open-domain QA datasets, with SQuAD the usual exception — a collection where the questions were written against already-chosen paragraphs, so word overlap is an unusually strong baseline. The lecture shows the paper’s top-20 and top-100 table. Training on as little as a thousand question–answer pairs is, in that paper, already enough to beat BM25; the same work also reports end-to-end gains over earlier retrieve-and-read systems such as ORQA and REALM, without an extra pretraining stage. Those comparisons are Karpukhin et al.’s, not a rerun of our own.
+
+::: {.fig-on-white}
+![Top-20 and top-100 retrieval accuracy: DPR beats BM25 on four of five datasets — CS 329Z Lecture 3 (Diyi Yang, Michael Ryan, John Yang), [slide p. 47](https://web.stanford.edu/class/cs329z/slides/lecture03.pdf#page=47){.external target="_blank"}. Original: Table 2 of [Karpukhin et al. (2020)](https://arxiv.org/abs/2004.04906){.external target='_blank'}. SQuAD is the dataset where BM25 stays competitive.](/images/agents-l3/retr-dpr-vs-bm25.png){#fig-l3-dpr-table fig-alt="A results table from the DPR paper comparing BM25, single-dataset DPR, and multi-dataset DPR on Natural Questions, TriviaQA, WebQuestions, TREC and SQuAD at top-20 and top-100." .lightbox fig-align="center" width="100%"}
+:::
+
+
+# How a retriever is scored
+
+Before you believe a bake-off, you need a metric. The lecture’s short set, all averaged over queries, is worth keeping straight:
+
+- *Hit@k* is 1 if any relevant passage is in the top $k$, else 0. Position inside the $k$ does not matter. *Failed@k* is one minus that, and is the quantity Anthropic plots on the [indexing](rag-indexing.qmd#contextual-retrieval) page.
+- *nDCG@k* credits graded relevance and discounts by rank, then divides by the score of the ideal ranking.
+- *MRR@k* uses the rank of the *first* relevant passage (and counts 0 if it is missing from the top $k$).
+- *Recall@k* is the fraction of all relevant passages that made the top $k$.
+
+Hit tells you whether *something* useful appeared. Recall tells you how much of the useful set you found. nDCG and MRR care about order.
+
+# Hybrid search, then a reranker
+
+The two cheap retrievers fail differently: BM25 misses paraphrase; dense retrieval misses rare literals. *Hybrid search* runs both and fuses the lists. *Reciprocal rank fusion* (Cormack, Clarke and Büttcher, 2009) merges *positions* rather than raw scores, so you do not have to calibrate two different scoring scales:
+
+$$
+\mathrm{RRF}(d) = \sum_{r \in R} \frac{1}{k + \mathrm{rank}_r(d)},
+$$
+
+with $k = 60$ a common default. It works with any number of retrievers.
+
+A *cross-encoder* then reranks a shortlist. The lecture cites [Humeau et al. (2020)](https://arxiv.org/abs/1905.01969){.external target="_blank"} (*Poly-encoders*) for the contrast: a bi-encoder encodes the query and the passage separately, which is what lets you pre-compute an index; a cross-encoder reads them *together*, with full attention across both, and is accurate enough to score a few dozen candidates, not a corpus. You retrieve first, then rerank.
+
+# ColBERT: late interaction
+
+[ColBERT](https://arxiv.org/abs/2004.12832){.external target="_blank"} (Khattab and Zaharia, SIGIR 2020) sits between the two. Query and passage are still encoded independently, so the passage can be indexed offline. But you keep *one vector per token*, not one vector per document. At scoring time each query token takes a MaxSim — the best-matching passage token — and those scores are summed:
+
+$$
+S_{q,d} = \sum_{i \in q} \max_j \; \mathbf{q}_i \cdot \mathbf{d}_j.
+$$
+
+That is *late interaction*: the expensive token-level meeting happens only at the end, and only against candidates you can afford.
+
+::: {.fig-on-white}
+![ColBERT’s late interaction: a query encoder and a document encoder meet at MaxSim over token vectors — CS 329Z Lecture 3 (Diyi Yang, Michael Ryan, John Yang), [slide p. 52](https://web.stanford.edu/class/cs329z/slides/lecture03.pdf#page=52){.external target="_blank"}. Original: [Khattab and Zaharia (2020)](https://arxiv.org/abs/2004.12832){.external target='_blank'}.](/images/agents-l3/retr-colbert-architecture.png){#fig-l3-colbert fig-alt="A ColBERT architecture diagram: a query encoder on the left, a document encoder with offline indexing on the right, MaxSim interactions between token vectors, and a summed score." .lightbox fig-align="center" width="100%"}
+:::
+
+
+The cost is the index: you store tokens, not documents. The lecture’s latency table, from Khattab and Zaharia on MS MARCO, and with DPR’s “tens of milliseconds” taken from Karpukhin et al. on *different hardware*, is a qualitative map, not a single-benchmark bake-off.
+
+::: {.fig-on-white}
+![A qualitative map of retrievers: what they pre-compute, how fast they are, and where they break — CS 329Z Lecture 3 (Diyi Yang, Michael Ryan, John Yang), [slide p. 54](https://web.stanford.edu/class/cs329z/slides/lecture03.pdf#page=54){.external target="_blank"}. Latencies for BM25, ColBERT and the cross-encoder are from [Khattab and Zaharia (2020)](https://arxiv.org/abs/2004.12832){.external target='_blank'}, on MS MARCO; the DPR line is from [Karpukhin et al. (2020)](https://arxiv.org/abs/2004.04906){.external target='_blank'}, on different hardware.](/images/agents-l3/retr-fast-vs-slow.png){#fig-l3-fast-slow fig-alt="A table comparing BM25, DPR, ColBERT and a BERT-base cross-encoder on what they pre-compute, query latency, what they win on, and where they break." .lightbox fig-align="center" width="100%"}
+:::
+
+
+```{mermaid}
+flowchart TD
+  Q["Query"] --> B["BM25: exact terms"]
+  Q --> D["DPR: one vector per passage"]
+  Q --> C["ColBERT: one vector per token"]
+  B --> F["Fuse ranks, e.g. RRF"]
+  D --> F
+  C --> F
+  F --> X["Optional cross-encoder on a shortlist"]
+  X --> K["Top passages into the generator"]
+```
+
+# In one table
+
+| Retriever | What is stored | Wins on | Breaks on |
+|-----------|----------------|---------|-----------|
+| BM25 | An inverted index of terms | IDs, names, error codes | Paraphrase and synonyms |
+| DPR (bi-encoder) | One vector per passage | Semantic match at corpus scale | Rare literals; needs labelled pairs to train |
+| ColBERT (late interaction) | One vector per token | Token-level evidence, still indexable | Index size |
+| Cross-encoder | Nothing pre-computed for the corpus | Accuracy on a shortlist | Cannot scan a corpus |
+
+# FAQ
+
+**If DPR beats BM25, why do people still run BM25?**
+Because the wins are not the same wins. The papers the lecture cites still lose on some collections (SQuAD, in the DPR table), and BM25 is cheap, robust, and uniquely good at literals. Hybrid search is the usual peace treaty.
+
+**Is ColBERT “just a better DPR”?**
+No. DPR collapses a passage into one vector before the query arrives. ColBERT keeps token vectors and lets the query meet them with MaxSim. That is more expressive, and more expensive to store.
+
+**Can I use a cross-encoder as my only retriever?**
+Not at corpus scale. The lecture’s figure — on the order of ten seconds per thousand passages in the 2020 MS MARCO measurement — is why you retrieve first and rerank second.
+
+**What should I read next?**
+When retrieval itself becomes a *decision* in a loop, go to [Agentic RAG](agentic-rag.qmd). For the ways a well-scored passage can still sink the answer, see [failure modes](rag-failure-modes.qmd).
+
+# See also
+
+- [Why RAG](why-rag.qmd)
+- [Indexing for RAG](rag-indexing.qmd)
+- [Agentic RAG](agentic-rag.qmd)
+- [Failure modes of RAG](rag-failure-modes.qmd)
+- [Language model inference](../generative/language-model-inference.qmd), for the cost of stuffing passages into a prompt
+- [RAG and agents: Resources](resources.qmd#cs329z)

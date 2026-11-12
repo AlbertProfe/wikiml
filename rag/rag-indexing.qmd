@@ -1,0 +1,139 @@
+---
+title: "Indexing for RAG"
+subtitle: "Chunking, contextual retrieval, and how the library is arranged"
+format:
+  html:
+    fontsize: "1.0em"
+    theme:
+      light: cosmo
+      dark: darkly
+    css: ../styles.css
+    toc: true
+    toc-depth: 5
+---
+
+# Cutting the library into shelves
+
+::: {.callout-note}
+# Source
+
+A reader's guide to part of [CS 329Z Lecture 3](https://web.stanford.edu/class/cs329z/slides/lecture03.pdf){.external target="_blank"} (Diyi Yang, Michael Ryan and John Yang; [Engineering AI Agents](https://cs329z.stanford.edu/){.external target="_blank"}, Stanford, autumn 2026). The outline and the pointers come from that lecture; the wording on this page is ours. The course is also listed under [Resources](resources.qmd#cs329z).
+:::
+
+
+Retrieval is only as honest as the pieces you stored. If you cut a document in the wrong place, the best retriever in the world will still hand the model a fragment that does not mean what it should. Indexing is that unglamorous work: how you chunk, how you give a chunk its context, how you embed it, and how you organise the shelves so a query can find it quickly.
+
+::: {.callout-tip}
+# Everyday example
+
+Think of photocopying a handbook into index cards. Cut too short and a card says “due Thursday” with no idea *which* Thursday. Cut too long and one card mixes grading, office hours, and the late-day policy, so its “topic” is a blur. Write a one-line header on each card — “From the grading section of the autumn syllabus” — and the same sentence becomes findable. That header is contextual retrieval. A tree of summary cards, or a map of who relates to whom, is what you reach for when the answer is not on a single card.
+:::
+
+# Embeddings, in one table
+
+A retriever that uses vectors needs two things: a fixed-dimension representation of each chunk, and a similarity (usually cosine or an inner product). The lecture’s landscape is enough to steer by; we will not retell the history of word2vec here.
+
+| Type | Examples | One vector covers |
+|------|----------|-------------------|
+| Static word | word2vec, GloVe | a word type |
+| Contextual | BERT, RoBERTa | a token in context |
+| Passage | Sentence-BERT, DPR, E5 | a chunk |
+| Multimodal | CLIP | text or image, in a shared space |
+| Graph | node2vec, GNN encoders | a node or a relation |
+
+Passage embeddings are the usual unit for RAG: one vector per chunk, compared to a query vector. How you *cut* the chunk matters as much as which encoder you pick.
+
+# Chunking
+
+*Fixed-size* chunking cuts on a token budget, often in the 100–500 range. Too small, and the vector has no context. Too large, and one vector averages several topics. A 10–20% overlap is a common hedge, so a sentence is less likely to be split at the cut. *Semantic* or structure-aware chunking follows headings, sections, or sentences instead of a raw counter. You can also carry metadata or a short summary with each chunk, or ask a model to find natural breakpoints. The lecture points at a [Databricks guide to chunking strategies](https://community.databricks.com/t5/technical-blog/the-ultimate-guide-to-chunking-strategies-for-rag-applications/ba-p/113089){.external target="_blank"} for a practical tour.
+
+The same short grading paragraph, split three ways, is the picture to keep:
+
+::: {.fig-on-white}
+![The same syllabus paragraph, cut to a fixed size, cut with overlap, and split on structure — CS 329Z Lecture 3 (Diyi Yang, Michael Ryan, John Yang), [slide p. 25](https://web.stanford.edu/class/cs329z/slides/lecture03.pdf#page=25){.external target="_blank"}. Lecture original.](/images/agents-l3/index-chunking-three-splits.png){#fig-l3-chunking fig-alt="A slide showing one grading paragraph split in three ways: a mid-sentence fixed-size cut, the same cut with overlap, and a structured split on headings." .lightbox fig-align="center" width="100%"}
+:::
+
+
+A mid-sentence cut leaves “11:59pm” on a card that no longer says *what* is due. Overlap saves the join. A heading-aware split keeps “Grading — Milestone” with the date.
+
+# Contextual retrieval
+
+Even a clean chunk can be meaningless on its own. “The company’s revenue grew by 3% over the previous quarter” does not say *which* company or *which* quarter. Anthropic’s [contextual retrieval](https://www.anthropic.com/engineering/contextual-retrieval){.external target="_blank"} prepends a short situating line, written by a model from the whole document, before the chunk is embedded and indexed. The query “What was the revenue growth for ACME Corp in Q2 2023?” can then match the card.
+
+::: {.fig-on-white}
+![A bare chunk versus the same chunk with a situating preface — CS 329Z Lecture 3 (Diyi Yang, Michael Ryan, John Yang), [slide p. 26](https://web.stanford.edu/class/cs329z/slides/lecture03.pdf#page=26){.external target="_blank"}. The ACME figures are a lecture illustration of the idea in [Anthropic’s contextual retrieval](https://www.anthropic.com/engineering/contextual-retrieval){.external target='_blank'}.](/images/agents-l3/index-contextual-retrieval-why.png){#fig-l3-contextual-why fig-alt="Two cards: a chunk that only says revenue grew by 3 percent, and a contextualised chunk that names ACME Corp’s Q2 2023 filing and the prior quarter’s revenue." .lightbox fig-align="center" width="100%"}
+:::
+
+
+The method is a prompt over the whole document and the chunk: ask for a short context that situates the chunk for search, and store that prefix with the text. Anthropic also combines the contextual embedding with a contextual BM25 index, so meaning and exact terms can vote together — a hybrid we will meet again on the [retrievers](rag-retrieval.qmd#hybrid-search-and-reciprocal-rank-fusion) page.
+
+On their evaluation, as shown in the lecture, average failed retrievals at 20 fall from 5.7% (embedding only) and 5.0% (embedding plus BM25) to 3.7% with contextual embeddings and 2.9% with contextual embeddings plus contextual BM25. Those are Anthropic’s reported failure rates, not a rerun of our own. The relative drop from 5.7% to 2.9% is the “about 49%” reduction that the blog highlights.
+
+::: {.fig-on-white}
+![Average failed retrievals at 20, with and without contextual embeddings and contextual BM25 — CS 329Z Lecture 3 (Diyi Yang, Michael Ryan, John Yang), [slide p. 29](https://web.stanford.edu/class/cs329z/slides/lecture03.pdf#page=29){.external target="_blank"}. Original: [Anthropic, Contextual Retrieval](https://www.anthropic.com/engineering/contextual-retrieval){.external target='_blank'}.](/images/agents-l3/index-contextual-failure-rate.png){#fig-l3-contextual-rates fig-alt="A bar chart of average failed retrievals at 20: 5.7 and 5.0 percent for standard embedding and embedding plus BM25, 3.7 and 2.9 percent once the chunks are contextualised." .lightbox fig-align="center" width="100%"}
+:::
+
+
+*Late chunking* ([Günther et al., 2024](https://arxiv.org/abs/2409.04701){.external target="_blank"}) is a different way to give a chunk document context. You embed the *whole* document with a long-context encoder, then mean-pool the token vectors that fall inside each chunk’s span. There is no extra language-model call and no added prefix on the stored text: the context lives in the vector.
+
+# When one chunk is not enough
+
+Some questions are about a theme, not a sentence. *RAPTOR* — [Recursive Abstractive Processing for Tree-Organized Retrieval](https://arxiv.org/abs/2401.18059){.external target="_blank"} (Sarthi et al.) — builds a tree from the bottom up: embed the chunks, cluster them, summarise each cluster with a language model, embed the summaries, and repeat. A detail question can match a leaf; a thematic question can match a node. The lecture labels this Sarthi et al., 2025; the paper appeared in 2024 (arXiv, January 2024; ICLR 2024).
+
+::: {.fig-on-white}
+![RAPTOR builds a tree of summaries above the chunks, and retrieves across levels — CS 329Z Lecture 3 (Diyi Yang, Michael Ryan, John Yang), [slide p. 32](https://web.stanford.edu/class/cs329z/slides/lecture03.pdf#page=32){.external target="_blank"}. Original: [RAPTOR](https://arxiv.org/abs/2401.18059){.external target='_blank'} (Sarthi et al., 2024). The lecture writes 2025; the paper is from 2024.](/images/agents-l3/index-raptor-tree.png){#fig-l3-raptor fig-alt="A three-part RAPTOR diagram: a tree with a leaf layer and a root layer, a clustering-and-summarisation step that builds one layer, and the contents of a summary node." .lightbox fig-align="center" width="100%"}
+:::
+
+
+*GraphRAG* ([Edge et al., 2024](https://arxiv.org/abs/2404.16130){.external target="_blank"}) is a cousin for questions that need a *global* view of a corpus. At index time an LLM extracts entities and relations, builds a knowledge graph, and detects communities. At query time it writes community summaries and then a global answer. Later surveys of graph-based RAG, such as [Han et al. (2025)](https://arxiv.org/abs/2501.00309){.external target="_blank"}, collect the many variants of that idea.
+
+::: {.fig-on-white}
+![GraphRAG: a knowledge graph and its communities at index time, query-focused summaries at read time — CS 329Z Lecture 3 (Diyi Yang, Michael Ryan, John Yang), [slide p. 34](https://web.stanford.edu/class/cs329z/slides/lecture03.pdf#page=34){.external target="_blank"}. Original: [From Local to Global: A Graph RAG Approach to Query-Focused Summarization](https://arxiv.org/abs/2404.16130){.external target='_blank'} (Edge et al., 2024).](/images/agents-l3/index-graphrag.png){#fig-l3-graphrag fig-alt="A GraphRAG pipeline from source documents through chunks, entities, a knowledge graph and communities, to community and global answers, beside a plot of detected graph communities." .lightbox fig-align="center" width="100%"}
+:::
+
+
+# Finding a vector quickly
+
+Once every chunk is a vector, the query is a nearest-neighbour search: given a query vector, return the top-$k$ of $N$ chunk vectors. An exact scan costs $O(N \cdot d)$ per query. Approximate nearest neighbour (ANN) methods trade a little recall for a lot of speed. The lecture’s short list is inverted-file indexes (cluster, then probe nearby centroids), product quantisation (compress each vector into a short code), and *HNSW* — hierarchical navigable small worlds ([Malkov and Yashunin](https://arxiv.org/abs/1603.09320){.external target="_blank"}).
+
+HNSW is a multi-layer proximity graph: every vector lives on the bottom layer, thinner samples live above. Search starts at the top, hops greedily toward the query, and drops a layer when it is stuck. In the usual picture you pay about $\log N$ hops and keep high recall. The index is built by inserting one vector at a time, placing most nodes only on the bottom layer, and linking each to a few neighbours plus a longer-range edge so a greedy walk cannot get trapped.
+
+::: {.fig-on-white}
+![HNSW: a stack of proximity graphs, coarse at the top and complete at the bottom — CS 329Z Lecture 3 (Diyi Yang, Michael Ryan, John Yang), [slide p. 37](https://web.stanford.edu/class/cs329z/slides/lecture03.pdf#page=37){.external target="_blank"}. The idea follows [Malkov and Yashunin](https://arxiv.org/abs/1603.09320){.external target='_blank'}. Lecture original.](/images/agents-l3/index-hnsw.png){#fig-l3-hnsw fig-alt="A three-layer HNSW sketch, with a search path descending from a coarse top layer to a dense bottom layer, and notes on layers, search, and logarithmic hops." .lightbox fig-align="center" width="100%"}
+:::
+
+
+# In one table
+
+| Choice | What it is for |
+|--------|----------------|
+| Fixed-size chunks, with overlap | A simple default; overlap reduces mid-sentence cuts |
+| Structure-aware cuts | Keep headings and sections together |
+| Contextual retrieval | A short preface, so a chunk names its document and moment |
+| Late chunking | Pool a long-context embedding over each chunk’s span |
+| RAPTOR | A tree of summaries, for questions that span many chunks |
+| GraphRAG | A graph of entities and communities, for corpus-level questions |
+| HNSW (and other ANN) | Fast approximate search over a large vector index |
+
+# FAQ
+
+**Is there one right chunk size?**
+No. The lecture’s 100–500 token band is a starting range, not a law. Too short starves the vector; too long mixes topics. You measure, as you would any other index choice.
+
+**Do I need an LLM call for every chunk?**
+Only if you use a method like contextual retrieval. Late chunking gets document context from the encoder itself. A heading and a filename, stored as metadata, are sometimes enough.
+
+**Why not embed the whole document as one vector?**
+Because a single vector is a blur, and because most questions match a passage, not a book. Trees and graphs are there for the questions that do need a wider view.
+
+**Where does this meet retrieval?**
+Indexing decides what a “passage” *is*. [Retrievers](rag-retrieval.qmd) decide how a query finds it: sparse overlap, a dense vector, or something in between.
+
+# See also
+
+- [Why RAG](why-rag.qmd)
+- [Retrievers for RAG](rag-retrieval.qmd)
+- [Agentic RAG](agentic-rag.qmd)
+- [Failure modes of RAG](rag-failure-modes.qmd)
+- [LLMs for agents](llms-for-agents.qmd), for what happens once a passage reaches the context window
+- [RAG and agents: Resources](resources.qmd#cs329z)

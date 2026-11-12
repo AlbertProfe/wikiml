@@ -1,0 +1,100 @@
+---
+title: "Failure modes of RAG"
+subtitle: "What breaks on the way in, in the reader, and in the loop"
+format:
+  html:
+    fontsize: "1.0em"
+    theme:
+      light: cosmo
+      dark: darkly
+    css: ../styles.css
+    toc: true
+    toc-depth: 5
+---
+
+# When the library misleads
+
+::: {.callout-note}
+# Source
+
+A reader's guide to part of [CS 329Z Lecture 3](https://web.stanford.edu/class/cs329z/slides/lecture03.pdf){.external target="_blank"} (Diyi Yang, Michael Ryan and John Yang; [Engineering AI Agents](https://cs329z.stanford.edu/){.external target="_blank"}, Stanford, autumn 2026). The outline and the pointers come from that lecture; the wording on this page is ours. The course is also listed under [Resources](resources.qmd#cs329z).
+:::
+
+
+A tidy pipeline can still be wrong. The last slide of the lecture is a map of *where* it goes wrong: on the way into the index, in the way the model reads what it retrieved, and in the loop that decides the next step. This page stays with that map. It does not invent rates or incidents the lecture does not give.
+
+::: {.callout-tip}
+# Everyday example
+
+A badly labelled filing cabinet, a reader who skims only the middle of a pile, and a researcher who never decides they have enough sources: those are the three columns. Retrieval-side failures are about *what gets into the context*. Reader-side failures are about *what the model does with it*. Loop-side failures are about *how the process runs on*.
+:::
+
+::: {.fig-on-white}
+![Nine failure modes, in three columns: retrieval, reader, and loop — CS 329Z Lecture 3 (Diyi Yang, Michael Ryan, John Yang), [slide p. 63](https://web.stanford.edu/class/cs329z/slides/lecture03.pdf#page=63){.external target="_blank"}. Lecture original.](/images/agents-l3/fail-issues-with-rag.png){#fig-l3-issues fig-alt="A slide titled Issues with RAG, with three columns: retrieval-side (recall ceiling, stale index, permission leak), reader-side (lost in the middle, distraction, evidence conflict), and loop-side (compounding error, no stopping rule, prompt injection)." .lightbox fig-align="center" width="100%"}
+:::
+
+
+# Retrieval-side
+
+- *Recall ceiling.* If the evidence never made the top-$k$, the generator cannot use it. No amount of careful prompting recovers a passage the retriever missed. This is why [indexing](rag-indexing.qmd) and [retriever](rag-retrieval.qmd) choices are not plumbing: they set a hard cap on what the system can get right.
+- *Stale index.* Documents change; embeddings and inverted indexes do not, unless you refresh them. The lecture’s wording is blunt: “embeddings not update.” A queue log from last term will send people to the wrong office hour.
+- *Permission leak.* A retriever that cannot see *who is asking* may return a passage the user is not allowed to read, and the generator will happily quote it. Access control belongs at retrieval time, not only at the front door of the app.
+
+# Reader-side
+
+- *Lost in the middle.* Even when the right passage is in the window, models often use the beginning and the end more reliably than the middle. The lecture tags this as position bias. The usual name in the literature is [lost in the middle](https://arxiv.org/abs/2307.03172){.external target="_blank"} (Liu et al., 2023). It is one more reason not to stuff the window — a point already made under [context rot](llms-for-agents.qmd#context-rot-bloat-and-the-cache).
+- *Distraction.* A similar but irrelevant passage can pull the answer off course. Hybrid search and a reranker exist in part to reduce this; they do not eliminate it.
+- *Evidence conflict.* Two sources, or a source and the model’s own prior, can disagree. A pipeline that always “uses the context” will not tell you which one it believed, unless you ask it to.
+
+# Loop-side
+
+These matter most once retrieval is an action, as in [Agentic RAG](agentic-rag.qmd).
+
+- *Compounding error.* An early bad query, or an early misread, poisons the later turns. The transcript looks busy; the answer is still wrong.
+- *No stopping rule.* Without a clear condition for finishing, the agent can search forever, or stop too soon. Search-R1’s prompt has an explicit path to `<answer>`; many ad hoc loops do not.
+- *Prompt injection.* Retrieved text is still text in the context window. A malicious or simply over-eager document can steer the agent: ignore the user, follow these instructions instead. Treat retrieved content as untrusted input, not as a system prompt.
+
+```{mermaid}
+flowchart TD
+  I["Index and retriever"] --> R["Recall ceiling, stale index, permission leak"]
+  P["Passages in the window"] --> D["Lost in the middle, distraction, conflict"]
+  L["The agent loop"] --> C["Compounding error, no stop, injection"]
+  R --> A["The answer you ship"]
+  D --> A
+  C --> A
+```
+
+# In one table
+
+| Where | Failure | What to ask |
+|-------|---------|-------------|
+| Retrieval | Recall ceiling | Did any gold passage make the top-$k$? |
+| Retrieval | Stale index | When was this document last embedded? |
+| Retrieval | Permission leak | Was this passage allowed for *this* user? |
+| Reader | Lost in the middle | Where in the window did the evidence sit? |
+| Reader | Distraction | Was a near-miss passage more attractive than a dry correct one? |
+| Reader | Evidence conflict | What happens when sources disagree? |
+| Loop | Compounding error | Did an early miss shape the later queries? |
+| Loop | No stopping rule | How does the loop decide it is done? |
+| Loop | Prompt injection | Is retrieved text treated as untrusted? |
+
+# FAQ
+
+**If Hit@k is high, is the system safe?**
+No. Hit@k only says a relevant passage appeared. The reader can still ignore it, a later turn can still drift, and a disallowed passage can still have been in the list.
+
+**Is “lost in the middle” a reason to retrieve fewer passages?**
+It is a reason to retrieve *well*, and to think about order and length, not a reason to give up on retrieval. [Indexing](rag-indexing.qmd) and reranking are how you keep the useful passage out of the slush.
+
+**Where does this meet evaluation?**
+The retriever metrics on the [retrievers](rag-retrieval.qmd#how-a-retriever-is-scored) page catch recall and rank. They do not catch injection, stale documents, or a loop with no stop. You need tests for those too. [Key challenges in building agents](agent-challenges.qmd) is the wider discussion of evaluation and safety.
+
+# See also
+
+- [Why RAG](why-rag.qmd)
+- [Indexing for RAG](rag-indexing.qmd)
+- [Retrievers for RAG](rag-retrieval.qmd)
+- [Agentic RAG](agentic-rag.qmd)
+- [LLMs for agents](llms-for-agents.qmd)
+- [Key challenges in building agents](agent-challenges.qmd)
+- [RAG and agents: Resources](resources.qmd#cs329z)

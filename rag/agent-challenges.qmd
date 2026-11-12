@@ -126,5 +126,5 @@ None of these replaces a safety case for your own system. They are a reminder th
 - [Agent architectures](agent-architectures.qmd)
 - [Compound AI systems](compound-ai-systems.qmd)
 - [RAG and agents: Resources](resources.qmd#cs329z)
-- [Generative AI: RAG](../generative/generative-rag.qmd)
+- [Failure modes of RAG](rag-failure-modes.qmd) and [Why RAG](why-rag.qmd)
 - [Language model training](../generative/language-model-training.qmd) and [Language model inference](../generative/language-model-inference.qmd) — Lecture 2
