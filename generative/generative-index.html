@@ -398,6 +398,18 @@ ul.task-list li input[type="checkbox"] {
         <li><hr class="dropdown-divider"></li>
         <li class="dropdown-header">LLMs</li>
         <li>
+    <a class="dropdown-item" href="../generative/what-is-a-language-model.html">
+ <span class="dropdown-text">What is a language model?</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../generative/language-model-training.html">
+ <span class="dropdown-text">Language model training</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../generative/language-model-inference.html">
+ <span class="dropdown-text">Language model inference</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="../generative/generative-llm.html">
  <span class="dropdown-text">Large Language Models</span></a>
   </li>  
@@ -407,6 +419,10 @@ ul.task-list li input[type="checkbox"] {
   </li>  
         <li><hr class="dropdown-divider"></li>
         <li class="dropdown-header">Transformers</li>
+        <li>
+    <a class="dropdown-item" href="../generative/language-model-architecture.html">
+ <span class="dropdown-text">Language model architecture</span></a>
+  </li>  
         <li>
     <a class="dropdown-item" href="../generative/evolution-of-attention.html">
  <span class="dropdown-text">The evolution of attention</span></a>
@@ -476,24 +492,6 @@ ul.task-list li input[type="checkbox"] {
         <li>
     <a class="dropdown-item" href="../rag/agent-challenges.html">
  <span class="dropdown-text">Key challenges in building agents</span></a>
-  </li>  
-        <li><hr class="dropdown-divider"></li>
-        <li class="dropdown-header">LLMs for builders</li>
-        <li>
-    <a class="dropdown-item" href="../rag/what-is-a-language-model.html">
- <span class="dropdown-text">What is a language model?</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../rag/language-model-architecture.html">
- <span class="dropdown-text">Language model architecture</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../rag/language-model-training.html">
- <span class="dropdown-text">Language model training</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../rag/language-model-inference.html">
- <span class="dropdown-text">Language model inference</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../rag/llms-for-agents.html">
@@ -650,6 +648,24 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../generative/what-is-a-language-model.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">What is a language model?</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../generative/language-model-training.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Language model training</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../generative/language-model-inference.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Language model inference</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../generative/generative-llm.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Large Language Models</span></a>
   </div>
@@ -672,6 +688,12 @@ ul.task-list li input[type="checkbox"] {
           </a> 
       </div>
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../generative/language-model-architecture.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Language model architecture</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../generative/evolution-of-attention.html" class="sidebar-item-text sidebar-link">
@@ -805,7 +827,7 @@ In this section
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>The path from the seq2seq bottleneck to self-attention — Bahdanau, Luong, the Transformer, linear attention and FlashAttention — is told in <a href="../generative/evolution-of-attention.html">The evolution of attention</a>. The original transformer figure is on this page; the teaching page for the architecture itself is <a href="../generative/generative-transformer.html">The Transformer</a>.</p>
+<p>The path from the seq2seq bottleneck to self-attention — Bahdanau, Luong, the Transformer, linear attention and FlashAttention — is told in <a href="../generative/evolution-of-attention.html">The evolution of attention</a>. A builder’s overview of language-model architecture is in <a href="../generative/language-model-architecture.html">Language model architecture</a>. The original transformer figure is on this page.</p>
 </div>
 </div>
 <blockquote class="blockquote">
@@ -922,6 +944,7 @@ In this section
 </section>
 <section id="transformers" class="level1">
 <h1>Transformers</h1>
+<p>A builder’s overview, from n-grams to decoder-only models and linear attention, is in <a href="../generative/language-model-architecture.html">Language model architecture</a>. The history of the attention idea is in <a href="../generative/evolution-of-attention.html">The evolution of attention</a>; the paper itself is in <a href="../generative/attention-is-all-you-need.html">Attention Is All You Need</a>; one block you can compute by hand is in <a href="../generative/transformer-by-hand.html">Transformer by hand</a>.</p>
 <p>The <strong>Transformer</strong> was introduced in <em>2017 by Vaswani et al</em>.</p>
 <blockquote class="blockquote">
 <p>It is a neural network architecture that uses <strong>attention</strong> mechanisms to process data sequences.</p>
@@ -939,6 +962,7 @@ In this section
 </section>
 <section id="large-language-models-llm" class="level1">
 <h1>Large Language Models (LLM)</h1>
+<p>What a language model <em>is</em>, and how we sample from it, is in <a href="../generative/what-is-a-language-model.html">What is a language model?</a>. How one is trained and run is in <a href="../generative/language-model-training.html">Language model training</a> and <a href="../generative/language-model-inference.html">Language model inference</a>. A short pointer page remains at <a href="../generative/generative-llm.html">Large Language Models</a>.</p>
 <blockquote class="blockquote">
 <p>LLMs are trained on vast amounts of textual data and use transformer models to analyze and produce coherent, contextually relevant language.</p>
 </blockquote>

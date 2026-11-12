@@ -30,7 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../rag/language-model-inference.html" rel="prev">
+<link href="../rag/agent-challenges.html" rel="prev">
 <link href="..//images/home/favicon.ico" rel="icon">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -402,6 +402,18 @@ ul.task-list li input[type="checkbox"] {
         <li><hr class="dropdown-divider"></li>
         <li class="dropdown-header">LLMs</li>
         <li>
+    <a class="dropdown-item" href="../generative/what-is-a-language-model.html">
+ <span class="dropdown-text">What is a language model?</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../generative/language-model-training.html">
+ <span class="dropdown-text">Language model training</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../generative/language-model-inference.html">
+ <span class="dropdown-text">Language model inference</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="../generative/generative-llm.html">
  <span class="dropdown-text">Large Language Models</span></a>
   </li>  
@@ -411,6 +423,10 @@ ul.task-list li input[type="checkbox"] {
   </li>  
         <li><hr class="dropdown-divider"></li>
         <li class="dropdown-header">Transformers</li>
+        <li>
+    <a class="dropdown-item" href="../generative/language-model-architecture.html">
+ <span class="dropdown-text">Language model architecture</span></a>
+  </li>  
         <li>
     <a class="dropdown-item" href="../generative/evolution-of-attention.html">
  <span class="dropdown-text">The evolution of attention</span></a>
@@ -480,24 +496,6 @@ ul.task-list li input[type="checkbox"] {
         <li>
     <a class="dropdown-item" href="../rag/agent-challenges.html">
  <span class="dropdown-text">Key challenges in building agents</span></a>
-  </li>  
-        <li><hr class="dropdown-divider"></li>
-        <li class="dropdown-header">LLMs for builders</li>
-        <li>
-    <a class="dropdown-item" href="../rag/what-is-a-language-model.html">
- <span class="dropdown-text">What is a language model?</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../rag/language-model-architecture.html">
- <span class="dropdown-text">Language model architecture</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../rag/language-model-training.html">
- <span class="dropdown-text">Language model training</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../rag/language-model-inference.html">
- <span class="dropdown-text">Language model inference</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../rag/llms-for-agents.html">
@@ -601,7 +599,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../rag/what-is-a-language-model.html">LLMs for builders</a></li><li class="breadcrumb-item"><a href="../rag/llms-for-agents.html">LLMs for agents</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../rag/history-of-agents.html">Agents</a></li><li class="breadcrumb-item"><a href="../rag/llms-for-agents.html">LLMs for agents</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -663,13 +661,13 @@ ul.task-list li input[type="checkbox"] {
         <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
  <span class="menu-text">Agents</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../rag/history-of-agents.html" class="sidebar-item-text sidebar-link">
@@ -694,42 +692,6 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Key challenges in building agents</span></a>
   </div>
 </li>
-      </ul>
-  </li>
-        <li class="px-0"><hr class="sidebar-divider hi "></li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
- <span class="menu-text">LLMs for builders</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../rag/what-is-a-language-model.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">What is a language model?</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../rag/language-model-architecture.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Language model architecture</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../rag/language-model-training.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Language model training</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../rag/language-model-inference.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Language model inference</span></a>
-  </div>
-</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../rag/llms-for-agents.html" class="sidebar-item-text sidebar-link active">
@@ -741,13 +703,13 @@ ul.task-list li input[type="checkbox"] {
         <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
  <span class="menu-text">Labs</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../rag/labs.html" class="sidebar-item-text sidebar-link">
@@ -759,13 +721,13 @@ ul.task-list li input[type="checkbox"] {
         <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false">
  <span class="menu-text">Resources</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../rag/resources.html" class="sidebar-item-text sidebar-link">
@@ -798,7 +760,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../rag/what-is-a-language-model.html">LLMs for builders</a></li><li class="breadcrumb-item"><a href="../rag/llms-for-agents.html">LLMs for agents</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../rag/history-of-agents.html">Agents</a></li><li class="breadcrumb-item"><a href="../rag/llms-for-agents.html">LLMs for agents</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">LLMs for agents</h1>
 <p class="subtitle lead">Structured I/O, context engineering, and not stuffing the window</p>
@@ -852,7 +814,7 @@ Everyday example
 <h1>Structured input and output</h1>
 <p><a href="https://bair.berkeley.edu/blog/2024/02/18/compound-ai-systems/" class="external" target="_blank">Zaharia and colleagues</a>, in the BAIR note we already used on <a href="../rag/compound-ai-systems.html">Compound AI systems</a>, put it plainly: more and more results come from <em>compound</em> systems, not from a single model call. Those systems need a shared contract for how the parts communicate.</p>
 <div class="fig-on-white">
-<div id="fig-l2-structured-io" class="lightbox quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="A slide moving from one large neural net to a compound system of several nets connected to a database, documents, a calculator and a terminal, with the caption that new results increasingly come from compound systems.">
+<div id="fig-l2-structured-io" class="lightbox quarto-float quarto-figure quarto-figure-center anchored" alt="A slide moving from one large neural net to a compound system of several nets connected to a database, documents, a calculator and a terminal, with the caption that new results increasingly come from compound systems." data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-l2-structured-io-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="../images/agents-l2/agents-structured-io.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;1: From a single model to a compound system that needs a contract between its parts — CS 329Z Lecture 2 (Diyi Yang, Michael Ryan, John Yang), slide p.&nbsp;152. Original: Compound AI Systems (Zaharia et al., BAIR, 18 February 2024)."><img src="../images/agents-l2/agents-structured-io.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%" alt="A slide moving from one large neural net to a compound system of several nets connected to a database, documents, a calculator and a terminal, with the caption that new results increasingly come from compound systems."></a>
@@ -870,7 +832,7 @@ Figure&nbsp;1: From a single model to a compound system that needs a contract be
 <h1>Context engineering</h1>
 <p>Prompt engineering was about the wording of a single request. <em>Context engineering</em> is about everything that goes into the window of an agent over a long run. The lecture’s picture is from Anthropic’s <a href="https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents" class="external" target="_blank">Effective context engineering for AI agents</a>.</p>
 <div class="fig-on-white">
-<div id="fig-l2-context-engineering" class="lightbox quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="A two-panel diagram: a small context window with a system prompt and user message on the left, and on the right a pool of documents, tools, memories and history being curated into the window of an agent that can call tools.">
+<div id="fig-l2-context-engineering" class="lightbox quarto-float quarto-figure quarto-figure-center anchored" alt="A two-panel diagram: a small context window with a system prompt and user message on the left, and on the right a pool of documents, tools, memories and history being curated into the window of an agent that can call tools." data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-l2-context-engineering-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="../images/agents-l2/agents-context-engineering.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figure&nbsp;2: Prompt engineering for a single turn, versus curating what of a much larger possible context actually enters an agent’s window — CS 329Z Lecture 2 (Diyi Yang, Michael Ryan, John Yang), slide p.&nbsp;161. Original: Anthropic, Effective context engineering for AI agents."><img src="../images/agents-l2/agents-context-engineering.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%" alt="A two-panel diagram: a small context window with a system prompt and user message on the left, and on the right a pool of documents, tools, memories and history being curated into the window of an agent that can call tools."></a>
@@ -895,7 +857,7 @@ Figure&nbsp;2: Prompt engineering for a single turn, versus curating what of a m
 <h1>Context rot, bloat, and the cache</h1>
 <p>Longer is not always better. <a href="https://arxiv.org/abs/2511.02817" class="external" target="_blank">Oolong</a> (the lecture stylises the name as OOLONG) measures long-context reasoning and aggregation: as the context grows, scores fall, on both synthetic and more realistic splits. The lecture uses that plot as a warning labelled <em>context rot</em>.</p>
 <div class="fig-on-white">
-<div id="fig-l2-context-rot" class="lightbox quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="Two line charts, Oolong-synth and Oolong-real, showing model scores declining as context length grows from thousands to hundreds of thousands of tokens.">
+<div id="fig-l2-context-rot" class="lightbox quarto-float quarto-figure quarto-figure-center anchored" alt="Two line charts, Oolong-synth and Oolong-real, showing model scores declining as context length grows from thousands to hundreds of thousands of tokens." data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-l2-context-rot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="../images/agents-l2/agents-context-rot.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figure&nbsp;3: Context rot: scores on Oolong drop as the context gets longer, rather than staying flat out to the advertised window — CS 329Z Lecture 2 (Diyi Yang, Michael Ryan, John Yang), slide p.&nbsp;164. Original: Oolong: Evaluating Long Context Reasoning and Aggregation Capabilities. The lecture writes the name as OOLONG; the paper’s title is Oolong."><img src="../images/agents-l2/agents-context-rot.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%" alt="Two line charts, Oolong-synth and Oolong-real, showing model scores declining as context length grows from thousands to hundreds of thousands of tokens."></a>
@@ -914,7 +876,7 @@ Figure&nbsp;3: Context rot: scores on Oolong drop as the context gets longer, ra
 <li><em>Compact carefully.</em> By the time you compact, the context is already very long. Keep too much and you will have to compact again soon; drop too much and you lose what the task still needs.</li>
 </ul>
 <div class="fig-on-white">
-<div id="fig-l2-kv-invalidation" class="lightbox quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="A diagram of a token sequence with a crossed-out KV cache, and arrows showing that later position embeddings change when earlier context is edited.">
+<div id="fig-l2-kv-invalidation" class="lightbox quarto-float quarto-figure quarto-figure-center anchored" alt="A diagram of a token sequence with a crossed-out KV cache, and arrows showing that later position embeddings change when earlier context is edited." data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-l2-kv-invalidation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="../images/agents-l2/agents-kv-cache-invalidation.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Figure&nbsp;4: Inserting or editing earlier tokens changes later positional embeddings and invalidates the KV cache for the suffix — CS 329Z Lecture 2 (Diyi Yang, Michael Ryan, John Yang), slide p.&nbsp;169. Lecture original."><img src="../images/agents-l2/agents-kv-cache-invalidation.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%" alt="A diagram of a token sequence with a crossed-out KV cache, and arrows showing that later position embeddings change when earlier context is edited."></a>
@@ -930,7 +892,7 @@ Figure&nbsp;4: Inserting or editing earlier tokens changes later positional embe
 <h1>A different philosophy: recursive language models</h1>
 <p>Instead of stuffing a huge window, <em>recursive language models</em> treat the context as something the model can explore with its own sub-calls: look at a slice, recurse, and only bring back what is needed. The paper is <a href="https://arxiv.org/abs/2512.24601" class="external" target="_blank">Recursive Language Models</a> (2025); the lecture also credits <a href="https://alexzhang13.github.io/blog/2025/rlm/" class="external" target="_blank">Alex Zhang’s write-up</a>. On one Oolong setting in that write-up, an RLM built on a smaller model can outscore a larger model used in the ordinary way, and outscore a ReAct baseline. Those bar heights are the source’s numbers, not a rerun of our own.</p>
 <div class="fig-on-white">
-<div id="fig-l2-rlm" class="lightbox quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="A bar chart of Oolong scores: GPT-5 at 34.2 percent, GPT-5-mini at 23.2 percent, an RLM of GPT-5-mini at 51.1 percent, an RLM of GPT-5 without sub-calls at 40.9 percent, and ReAct plus GPT-5 with a budget at 30.7 percent.">
+<div id="fig-l2-rlm" class="lightbox quarto-float quarto-figure quarto-figure-center anchored" alt="A bar chart of Oolong scores: GPT-5 at 34.2 percent, GPT-5-mini at 23.2 percent, an RLM of GPT-5-mini at 51.1 percent, an RLM of GPT-5 without sub-calls at 40.9 percent, and ReAct plus GPT-5 with a budget at 30.7 percent." data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-l2-rlm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="../images/agents-l2/agents-recursive-lms.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Figure&nbsp;5: Recursive LMs on one Oolong setting with a 263k-token context, as reported by the source — CS 329Z Lecture 2 (Diyi Yang, Michael Ryan, John Yang), slide p.&nbsp;173. Original: Recursive Language Models (see also arXiv:2512.24601)."><img src="../images/agents-l2/agents-recursive-lms.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%" alt="A bar chart of Oolong scores: GPT-5 at 34.2 percent, GPT-5-mini at 23.2 percent, an RLM of GPT-5-mini at 51.1 percent, an RLM of GPT-5 without sub-calls at 40.9 percent, and ReAct plus GPT-5 with a budget at 30.7 percent."></a>
@@ -1001,10 +963,10 @@ Figure&nbsp;5: Recursive LMs on one Oolong setting with a 263k-token context, as
 <section id="see-also" class="level1">
 <h1>See also</h1>
 <ul>
-<li><a href="../rag/what-is-a-language-model.html">What is a language model?</a></li>
-<li><a href="../rag/language-model-architecture.html">Language model architecture</a></li>
-<li><a href="../rag/language-model-training.html">Language model training</a></li>
-<li><a href="../rag/language-model-inference.html">Language model inference</a></li>
+<li><a href="../generative/what-is-a-language-model.html">What is a language model?</a></li>
+<li><a href="../generative/language-model-architecture.html">Language model architecture</a></li>
+<li><a href="../generative/language-model-training.html">Language model training</a></li>
+<li><a href="../generative/language-model-inference.html">Language model inference</a></li>
 <li><a href="../rag/compound-ai-systems.html">Compound AI systems</a>, <a href="../rag/agent-architectures.html">Agent architectures</a>, and <a href="../rag/agent-challenges.html">Key challenges in building agents</a></li>
 <li><a href="../generative/generative-rag.html">Generative AI: RAG</a></li>
 <li><a href="../rag/resources.html#cs329z">RAG and agents: Resources</a></li>
@@ -1580,8 +1542,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../rag/language-model-inference.html" class="pagination-link" aria-label="Language model inference">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Language model inference</span>
+      <a href="../rag/agent-challenges.html" class="pagination-link" aria-label="Key challenges in building agents">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Key challenges in building agents</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
