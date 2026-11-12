@@ -476,6 +476,26 @@ ul.task-list li input[type="checkbox"] {
         <li><hr class="dropdown-divider"></li>
         <li class="dropdown-header">RAG</li>
         <li>
+    <a class="dropdown-item" href="../rag/why-rag.html">
+ <span class="dropdown-text">Why RAG</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../rag/rag-indexing.html">
+ <span class="dropdown-text">Indexing for RAG</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../rag/rag-retrieval.html">
+ <span class="dropdown-text">Retrievers for RAG</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../rag/agentic-rag.html">
+ <span class="dropdown-text">Agentic RAG</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../rag/rag-failure-modes.html">
+ <span class="dropdown-text">Failure modes of RAG</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="../generative/generative-rag.html">
  <span class="dropdown-text">RAG</span></a>
   </li>  
@@ -652,6 +672,36 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../rag/why-rag.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Why RAG</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../rag/rag-indexing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Indexing for RAG</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../rag/rag-retrieval.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Retrievers for RAG</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../rag/agentic-rag.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Agentic RAG</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../rag/rag-failure-modes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Failure modes of RAG</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../generative/generative-rag.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">RAG</span></a>
   </div>
@@ -814,7 +864,7 @@ Everyday example
 <h1>Structured input and output</h1>
 <p><a href="https://bair.berkeley.edu/blog/2024/02/18/compound-ai-systems/" class="external" target="_blank">Zaharia and colleagues</a>, in the BAIR note we already used on <a href="../rag/compound-ai-systems.html">Compound AI systems</a>, put it plainly: more and more results come from <em>compound</em> systems, not from a single model call. Those systems need a shared contract for how the parts communicate.</p>
 <div class="fig-on-white">
-<div id="fig-l2-structured-io" class="lightbox quarto-float quarto-figure quarto-figure-center anchored" alt="A slide moving from one large neural net to a compound system of several nets connected to a database, documents, a calculator and a terminal, with the caption that new results increasingly come from compound systems." data-fig-align="center">
+<div id="fig-l2-structured-io" class="lightbox quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="A slide moving from one large neural net to a compound system of several nets connected to a database, documents, a calculator and a terminal, with the caption that new results increasingly come from compound systems.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-l2-structured-io-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="../images/agents-l2/agents-structured-io.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;1: From a single model to a compound system that needs a contract between its parts — CS 329Z Lecture 2 (Diyi Yang, Michael Ryan, John Yang), slide p.&nbsp;152. Original: Compound AI Systems (Zaharia et al., BAIR, 18 February 2024)."><img src="../images/agents-l2/agents-structured-io.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%" alt="A slide moving from one large neural net to a compound system of several nets connected to a database, documents, a calculator and a terminal, with the caption that new results increasingly come from compound systems."></a>
@@ -832,7 +882,7 @@ Figure&nbsp;1: From a single model to a compound system that needs a contract be
 <h1>Context engineering</h1>
 <p>Prompt engineering was about the wording of a single request. <em>Context engineering</em> is about everything that goes into the window of an agent over a long run. The lecture’s picture is from Anthropic’s <a href="https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents" class="external" target="_blank">Effective context engineering for AI agents</a>.</p>
 <div class="fig-on-white">
-<div id="fig-l2-context-engineering" class="lightbox quarto-float quarto-figure quarto-figure-center anchored" alt="A two-panel diagram: a small context window with a system prompt and user message on the left, and on the right a pool of documents, tools, memories and history being curated into the window of an agent that can call tools." data-fig-align="center">
+<div id="fig-l2-context-engineering" class="lightbox quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="A two-panel diagram: a small context window with a system prompt and user message on the left, and on the right a pool of documents, tools, memories and history being curated into the window of an agent that can call tools.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-l2-context-engineering-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="../images/agents-l2/agents-context-engineering.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figure&nbsp;2: Prompt engineering for a single turn, versus curating what of a much larger possible context actually enters an agent’s window — CS 329Z Lecture 2 (Diyi Yang, Michael Ryan, John Yang), slide p.&nbsp;161. Original: Anthropic, Effective context engineering for AI agents."><img src="../images/agents-l2/agents-context-engineering.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%" alt="A two-panel diagram: a small context window with a system prompt and user message on the left, and on the right a pool of documents, tools, memories and history being curated into the window of an agent that can call tools."></a>
@@ -857,7 +907,7 @@ Figure&nbsp;2: Prompt engineering for a single turn, versus curating what of a m
 <h1>Context rot, bloat, and the cache</h1>
 <p>Longer is not always better. <a href="https://arxiv.org/abs/2511.02817" class="external" target="_blank">Oolong</a> (the lecture stylises the name as OOLONG) measures long-context reasoning and aggregation: as the context grows, scores fall, on both synthetic and more realistic splits. The lecture uses that plot as a warning labelled <em>context rot</em>.</p>
 <div class="fig-on-white">
-<div id="fig-l2-context-rot" class="lightbox quarto-float quarto-figure quarto-figure-center anchored" alt="Two line charts, Oolong-synth and Oolong-real, showing model scores declining as context length grows from thousands to hundreds of thousands of tokens." data-fig-align="center">
+<div id="fig-l2-context-rot" class="lightbox quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="Two line charts, Oolong-synth and Oolong-real, showing model scores declining as context length grows from thousands to hundreds of thousands of tokens.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-l2-context-rot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="../images/agents-l2/agents-context-rot.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figure&nbsp;3: Context rot: scores on Oolong drop as the context gets longer, rather than staying flat out to the advertised window — CS 329Z Lecture 2 (Diyi Yang, Michael Ryan, John Yang), slide p.&nbsp;164. Original: Oolong: Evaluating Long Context Reasoning and Aggregation Capabilities. The lecture writes the name as OOLONG; the paper’s title is Oolong."><img src="../images/agents-l2/agents-context-rot.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%" alt="Two line charts, Oolong-synth and Oolong-real, showing model scores declining as context length grows from thousands to hundreds of thousands of tokens."></a>
@@ -870,13 +920,13 @@ Figure&nbsp;3: Context rot: scores on Oolong drop as the context gets longer, ra
 </div>
 <p>The lecture’s practical advice, which students also meet in the course homework, is that there is no single right context. You experiment. A few concrete habits help:</p>
 <ul>
-<li><em>Avoid bloat.</em> Sometimes a few tools are enough. The lecture points at Pi, which exposes just <code>read</code>, <code>write</code>, <code>edit</code>, and <code>bash</code> — a case made in <a href="https://arena.ai/blog/coding-agents-harness-tax" class="external" target="_blank">The harness tax</a> on arena.ai. Recovery of the rest can wait for retrieval, which the course takes up in the next lecture (and which we already sketch under <a href="../generative/generative-rag.html">Generative AI: RAG</a>).</li>
+<li><em>Avoid bloat.</em> Sometimes a few tools are enough. The lecture points at Pi, which exposes just <code>read</code>, <code>write</code>, <code>edit</code>, and <code>bash</code> — a case made in <a href="https://arena.ai/blog/coding-agents-harness-tax" class="external" target="_blank">The harness tax</a> on arena.ai. Recovery of the rest can wait for retrieval, which is the subject of <a href="../rag/why-rag.html">Why RAG</a> and <a href="../rag/rag-indexing.html">Indexing for RAG</a>.</li>
 <li><em>Add sequentially.</em> If you insert or edit tokens <em>earlier</em> in the context, the positional embeddings of everything after them change, and the KV cache for that suffix is invalidated. Append new material where you can, so prefill work is not thrown away. This is the inference engine leaking into the agent’s bookkeeping.</li>
 <li><em>Evaluate the choices empirically.</em> Toolformer is the lecture’s reminder that you can set up tests and measure whether a context change helped, rather than arguing from taste.</li>
 <li><em>Compact carefully.</em> By the time you compact, the context is already very long. Keep too much and you will have to compact again soon; drop too much and you lose what the task still needs.</li>
 </ul>
 <div class="fig-on-white">
-<div id="fig-l2-kv-invalidation" class="lightbox quarto-float quarto-figure quarto-figure-center anchored" alt="A diagram of a token sequence with a crossed-out KV cache, and arrows showing that later position embeddings change when earlier context is edited." data-fig-align="center">
+<div id="fig-l2-kv-invalidation" class="lightbox quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="A diagram of a token sequence with a crossed-out KV cache, and arrows showing that later position embeddings change when earlier context is edited.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-l2-kv-invalidation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="../images/agents-l2/agents-kv-cache-invalidation.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Figure&nbsp;4: Inserting or editing earlier tokens changes later positional embeddings and invalidates the KV cache for the suffix — CS 329Z Lecture 2 (Diyi Yang, Michael Ryan, John Yang), slide p.&nbsp;169. Lecture original."><img src="../images/agents-l2/agents-kv-cache-invalidation.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%" alt="A diagram of a token sequence with a crossed-out KV cache, and arrows showing that later position embeddings change when earlier context is edited."></a>
@@ -892,7 +942,7 @@ Figure&nbsp;4: Inserting or editing earlier tokens changes later positional embe
 <h1>A different philosophy: recursive language models</h1>
 <p>Instead of stuffing a huge window, <em>recursive language models</em> treat the context as something the model can explore with its own sub-calls: look at a slice, recurse, and only bring back what is needed. The paper is <a href="https://arxiv.org/abs/2512.24601" class="external" target="_blank">Recursive Language Models</a> (2025); the lecture also credits <a href="https://alexzhang13.github.io/blog/2025/rlm/" class="external" target="_blank">Alex Zhang’s write-up</a>. On one Oolong setting in that write-up, an RLM built on a smaller model can outscore a larger model used in the ordinary way, and outscore a ReAct baseline. Those bar heights are the source’s numbers, not a rerun of our own.</p>
 <div class="fig-on-white">
-<div id="fig-l2-rlm" class="lightbox quarto-float quarto-figure quarto-figure-center anchored" alt="A bar chart of Oolong scores: GPT-5 at 34.2 percent, GPT-5-mini at 23.2 percent, an RLM of GPT-5-mini at 51.1 percent, an RLM of GPT-5 without sub-calls at 40.9 percent, and ReAct plus GPT-5 with a budget at 30.7 percent." data-fig-align="center">
+<div id="fig-l2-rlm" class="lightbox quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="A bar chart of Oolong scores: GPT-5 at 34.2 percent, GPT-5-mini at 23.2 percent, an RLM of GPT-5-mini at 51.1 percent, an RLM of GPT-5 without sub-calls at 40.9 percent, and ReAct plus GPT-5 with a budget at 30.7 percent.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-l2-rlm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="../images/agents-l2/agents-recursive-lms.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Figure&nbsp;5: Recursive LMs on one Oolong setting with a 263k-token context, as reported by the source — CS 329Z Lecture 2 (Diyi Yang, Michael Ryan, John Yang), slide p.&nbsp;173. Original: Recursive Language Models (see also arXiv:2512.24601)."><img src="../images/agents-l2/agents-recursive-lms.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%" alt="A bar chart of Oolong scores: GPT-5 at 34.2 percent, GPT-5-mini at 23.2 percent, an RLM of GPT-5-mini at 51.1 percent, an RLM of GPT-5 without sub-calls at 40.9 percent, and ReAct plus GPT-5 with a budget at 30.7 percent."></a>
@@ -958,7 +1008,7 @@ Figure&nbsp;5: Recursive LMs on one Oolong setting with a 263k-token context, as
 <p><strong>Is context engineering just a new name for prompt engineering?</strong> It is a wider job. Prompt engineering is usually a single wording. Context engineering is the running policy for what an agent can see: what you include, what you retrieve, what you drop, and when you compact.</p>
 <p><strong>Why not always use the model’s maximum context?</strong> Because the model may not <em>use</em> that length well. Oolong is the lecture’s exhibit: quality can fall as you fill the window, even inside the advertised limit.</p>
 <p><strong>Why does editing the system prompt mid-run get expensive?</strong> The prompt is a prefix. Change it, and every later position shifts, so the cache built for that suffix is no longer valid. You pay a fresh prefill. This is one reason to keep stable instructions stable, and to append results at the end.</p>
-<p><strong>What is coming next in the course?</strong> The lecture ends with “see you on Wednesday for RAG.” Retrieval is the systematic way to keep the window small and still reach a large store of files and memories. We already have a starting page at <a href="../generative/generative-rag.html">Generative AI: RAG</a>.</p>
+<p><strong>What is coming next in the course?</strong> The lecture ends with “see you on Wednesday for RAG.” Retrieval is the systematic way to keep the window small and still reach a large store of files and memories. That lecture is now a set of pages starting at <a href="../rag/why-rag.html">Why RAG</a>.</p>
 </section>
 <section id="see-also" class="level1">
 <h1>See also</h1>
@@ -968,7 +1018,7 @@ Figure&nbsp;5: Recursive LMs on one Oolong setting with a 263k-token context, as
 <li><a href="../generative/language-model-training.html">Language model training</a></li>
 <li><a href="../generative/language-model-inference.html">Language model inference</a></li>
 <li><a href="../rag/compound-ai-systems.html">Compound AI systems</a>, <a href="../rag/agent-architectures.html">Agent architectures</a>, and <a href="../rag/agent-challenges.html">Key challenges in building agents</a></li>
-<li><a href="../generative/generative-rag.html">Generative AI: RAG</a></li>
+<li><a href="../rag/why-rag.html">Why RAG</a>, <a href="../rag/rag-indexing.html">Indexing for RAG</a>, <a href="../rag/rag-retrieval.html">Retrievers for RAG</a>, <a href="../rag/agentic-rag.html">Agentic RAG</a>, and <a href="../rag/rag-failure-modes.html">Failure modes of RAG</a></li>
 <li><a href="../rag/resources.html#cs329z">RAG and agents: Resources</a></li>
 </ul>
 

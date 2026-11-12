@@ -30,6 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
+<link href="../rag/rag-failure-modes.html" rel="prev">
 <link href="..//images/home/favicon.ico" rel="icon">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -472,6 +473,26 @@ ul.task-list li input[type="checkbox"] {
         <li><hr class="dropdown-divider"></li>
         <li class="dropdown-header">RAG</li>
         <li>
+    <a class="dropdown-item" href="../rag/why-rag.html">
+ <span class="dropdown-text">Why RAG</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../rag/rag-indexing.html">
+ <span class="dropdown-text">Indexing for RAG</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../rag/rag-retrieval.html">
+ <span class="dropdown-text">Retrievers for RAG</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../rag/agentic-rag.html">
+ <span class="dropdown-text">Agentic RAG</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../rag/rag-failure-modes.html">
+ <span class="dropdown-text">Failure modes of RAG</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="../generative/generative-rag.html">
  <span class="dropdown-text">RAG</span></a>
   </li>  
@@ -595,7 +616,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../generative/generative-rag.html">RAG</a></li><li class="breadcrumb-item"><a href="../generative/generative-rag.html">RAG</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../rag/why-rag.html">RAG</a></li><li class="breadcrumb-item"><a href="../generative/generative-rag.html">RAG</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -646,6 +667,36 @@ ul.task-list li input[type="checkbox"] {
           </a> 
       </div>
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../rag/why-rag.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Why RAG</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../rag/rag-indexing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Indexing for RAG</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../rag/rag-retrieval.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Retrievers for RAG</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../rag/agentic-rag.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Agentic RAG</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../rag/rag-failure-modes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Failure modes of RAG</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../generative/generative-rag.html" class="sidebar-item-text sidebar-link active">
@@ -742,15 +793,14 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#what-this-page-will-be" id="toc-what-this-page-will-be" class="nav-link active" data-scroll-target="#what-this-page-will-be">What this page will be</a></li>
-  <li><a href="#not-written-yet" id="toc-not-written-yet" class="nav-link" data-scroll-target="#not-written-yet">Not written yet</a></li>
+  <li><a href="#what-this-page-is" id="toc-what-this-page-is" class="nav-link active" data-scroll-target="#what-this-page-is">What this page is</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../generative/generative-rag.html">RAG</a></li><li class="breadcrumb-item"><a href="../generative/generative-rag.html">RAG</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../rag/why-rag.html">RAG</a></li><li class="breadcrumb-item"><a href="../generative/generative-rag.html">RAG</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">RAG</h1>
 </div>
@@ -779,21 +829,20 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This page is in progress. It replaces the old Quarto starter placeholder (“This is a Quarto website”).</p>
+<p>The teaching pages on Retrieval-Augmented Generation now live in the <a href="../rag/rag-index.html">RAG and agents</a> section. This page stays as a short pointer, so older links keep working.</p>
 </div>
 </div>
-<section id="what-this-page-will-be" class="level1">
-<h1>What this page will be</h1>
-<p>A teaching page on Retrieval-Augmented Generation: why a frozen model is not enough, what embeddings are for, and the loop retrieve → augment → generate. One honest pipeline, not a product demo.</p>
-<p>RAG is already named in the comparison table on the <a href="../generative/generative-index.html">Generative AI overview</a>. This page now lives under the <a href="../rag/rag-index.html">RAG and agents</a> section; its URL stays here so old links do not break.</p>
-</section>
-<section id="not-written-yet" class="level1">
-<h1>Not written yet</h1>
+<section id="what-this-page-is" class="level1">
+<h1>What this page is</h1>
+<p>RAG is how you give a frozen language model fresh, inspectable evidence: retrieve a passage, put it in the prompt, and then generate. The full reader’s guides, drawn from CS 329Z Lecture 3, are:</p>
 <ul>
-<li>A single running example</li>
-<li>A diagram of retrieve, augment, generate</li>
-<li>Where agents begin (tools, memory, the next step) — that will be a sibling page, not this one</li>
+<li><a href="../rag/why-rag.html">Why RAG</a> — why retrieve, and the shape of the loop</li>
+<li><a href="../rag/rag-indexing.html">Indexing for RAG</a> — chunking, contextual retrieval, and the index</li>
+<li><a href="../rag/rag-retrieval.html">Retrievers for RAG</a> — BM25, DPR, and ColBERT</li>
+<li><a href="../rag/agentic-rag.html">Agentic RAG</a> — when retrieval is an action</li>
+<li><a href="../rag/rag-failure-modes.html">Failure modes of RAG</a></li>
 </ul>
+<p>RAG is also named in the comparison table on the <a href="../generative/generative-index.html">Generative AI overview</a>, and as a compound pattern on <a href="../rag/compound-ai-systems.html">Compound AI systems</a>.</p>
 
 
 </section>
@@ -1363,6 +1412,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../rag/rag-failure-modes.html" class="pagination-link" aria-label="Failure modes of RAG">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Failure modes of RAG</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">

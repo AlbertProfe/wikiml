@@ -480,6 +480,26 @@ ul.task-list li input[type="checkbox"] {
         <li><hr class="dropdown-divider"></li>
         <li class="dropdown-header">RAG</li>
         <li>
+    <a class="dropdown-item" href="../rag/why-rag.html">
+ <span class="dropdown-text">Why RAG</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../rag/rag-indexing.html">
+ <span class="dropdown-text">Indexing for RAG</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../rag/rag-retrieval.html">
+ <span class="dropdown-text">Retrievers for RAG</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../rag/agentic-rag.html">
+ <span class="dropdown-text">Agentic RAG</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../rag/rag-failure-modes.html">
+ <span class="dropdown-text">Failure modes of RAG</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="../generative/generative-rag.html">
  <span class="dropdown-text">RAG</span></a>
   </li>  
@@ -656,6 +676,36 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../rag/why-rag.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Why RAG</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../rag/rag-indexing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Indexing for RAG</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../rag/rag-retrieval.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Retrievers for RAG</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../rag/agentic-rag.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Agentic RAG</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../rag/rag-failure-modes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Failure modes of RAG</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../generative/generative-rag.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">RAG</span></a>
   </div>
@@ -802,7 +852,7 @@ Source
 <p>CS 329Z Lecture 1 draws that machine as five parts: an <strong>LLM core</strong>, <strong>planning and reasoning</strong>, <strong>memory</strong>, <strong>tools</strong>, and an <strong>environment</strong>. The environment is the outside world the agent can observe and act on: a desktop, a browser, a repository, a game, a database, a user. The tools are how it acts: retrieval, a calculator, code, search, file operations, a memory read or write. The model sits in the middle. Planning and reasoning are the model’s intermediate generations — the thoughts that update its own state before it commits to an action. Memory is the trace of what has already happened, and whatever was written down so the context window does not have to hold everything.</p>
 <p><a href="https://arxiv.org/abs/2210.03629" class="external" target="_blank">ReAct</a> (Yao et al., 2022) is the usual picture of the loop: the model writes a thought, then an action, then sees an observation, then thinks again. Lilian Weng’s <a href="https://lilianweng.github.io/posts/2023-06-23-agent/" class="external" target="_blank">LLM Powered Autonomous Agents</a> (June 2023) and <a href="https://arxiv.org/abs/2309.02427" class="external" target="_blank">Cognitive Architectures for Language Agents</a> (Sumers, Yao, Narasimhan and Griffiths; often cited as Sumers and Yao, 2024) organise the same pieces in slightly different diagrams. The names vary; the inventory does not.</p>
 <div class="fig-on-white">
-<div id="fig-l1-anatomy" class="lightbox quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="A slide titled Anatomy of an Agent: a ReAct pepper-shaker trace on the left, and arrows mapping the model, thoughts, traces, acts and observations to LLM core, planning and reasoning, memory, tools and environment.">
+<div id="fig-l1-anatomy" class="lightbox quarto-float quarto-figure quarto-figure-center anchored" alt="A slide titled Anatomy of an Agent: a ReAct pepper-shaker trace on the left, and arrows mapping the model, thoughts, traces, acts and observations to LLM core, planning and reasoning, memory, tools and environment." data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-l1-anatomy-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="../images/agents-l1/arch-anatomy-of-an-agent.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;1: A ReAct trace mapped onto the parts of an agent — CS 329Z Lecture 1 (Diyi Yang, Michael Ryan, John Yang), slide p.&nbsp;29. The trace is from Yao et al., 2022."><img src="../images/agents-l1/arch-anatomy-of-an-agent.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%" alt="A slide titled Anatomy of an Agent: a ReAct pepper-shaker trace on the left, and arrows mapping the model, thoughts, traces, acts and observations to LLM core, planning and reasoning, memory, tools and environment."></a>
@@ -831,7 +881,7 @@ Figure&nbsp;1: A ReAct trace mapped onto the parts of an agent — CS 329Z Lectu
 </div>
 </div>
 <div class="fig-on-white">
-<div id="fig-l1-key-components" class="lightbox quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="A block diagram: planning and reasoning and memory feed an LLM core, which uses tools to act on an environment that is observed in return.">
+<div id="fig-l1-key-components" class="lightbox quarto-float quarto-figure quarto-figure-center anchored" alt="A block diagram: planning and reasoning and memory feed an LLM core, which uses tools to act on an environment that is observed in return." data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-l1-key-components-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="../images/agents-l1/arch-key-components.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figure&nbsp;2: The lecture’s diagram of an agent’s key components — CS 329Z Lecture 1 (Diyi Yang, Michael Ryan, John Yang), slide p.&nbsp;30."><img src="../images/agents-l1/arch-key-components.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%" alt="A block diagram: planning and reasoning and memory feed an LLM core, which uses tools to act on an environment that is observed in return."></a>
@@ -843,7 +893,7 @@ Figure&nbsp;2: The lecture’s diagram of an agent’s key components — CS 329
 </div>
 </div>
 <div class="fig-on-white">
-<div id="fig-l1-similar-definitions" class="lightbox quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="A slide titled Similar Definitions of Agents: Lilian Weng's agent diagram with tools, memory and planning on the left, and the Cognitive Language Agent diagram of Sumers and Yao on the right.">
+<div id="fig-l1-similar-definitions" class="lightbox quarto-float quarto-figure quarto-figure-center anchored" alt="A slide titled Similar Definitions of Agents: Lilian Weng's agent diagram with tools, memory and planning on the left, and the Cognitive Language Agent diagram of Sumers and Yao on the right." data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-l1-similar-definitions-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="../images/agents-l1/arch-similar-definitions.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figure&nbsp;3: Two standard pictures of a language-model agent — CS 329Z Lecture 1 (Diyi Yang, Michael Ryan, John Yang), slide p.&nbsp;31. Left: Weng, LLM Powered Autonomous Agents (2023). Right: Cognitive Architectures for Language Agents (Sumers, Yao, Narasimhan and Griffiths, 2024)."><img src="../images/agents-l1/arch-similar-definitions.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%" alt="A slide titled Similar Definitions of Agents: Lilian Weng's agent diagram with tools, memory and planning on the left, and the Cognitive Language Agent diagram of Sumers and Yao on the right."></a>
@@ -873,7 +923,7 @@ Everyday example
 <p>The lecture puts this in plain terms. For a person, reasoning covers deduction, analogy, planning. For a language model, “reasoning” is an intermediate generation that <em>imitates</em> some of those processes — not all of them, and not with a guarantee. For an agent, those intermediates are internal actions: they update the agent’s state, and only then comes an external act.</p>
 <p>That helps in two directions the lecture labels <strong>generalisation</strong> and <strong>alignment</strong>. Generalisation: a thought can carry a goal (“this should be savoury”) across a new kitchen, a new cupboard, a new bottle, so the policy is not a brittle lookup from one observation to one action. Alignment: the thought can also be a place to recall a constraint (“don’t use the bottle that isn’t yours”) before the hand moves.</p>
 <div class="fig-on-white">
-<div id="fig-l1-why-reason" class="lightbox quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="A slide with a cooking example: the agent notices the salt is gone, reasons that soy sauce is in the cabinet, turns right, then opens the cabinet. Caption: observation to action mapping could be hard. Reason to act: generalisation and alignment.">
+<div id="fig-l1-why-reason" class="lightbox quarto-float quarto-figure quarto-figure-center anchored" alt="A slide with a cooking example: the agent notices the salt is gone, reasons that soy sauce is in the cabinet, turns right, then opens the cabinet. Caption: observation to action mapping could be hard. Reason to act: generalisation and alignment." data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-l1-why-reason-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="../images/agents-l1/arch-why-reasoning-helps.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Figure&nbsp;4: Why a thought between observation and action helps — CS 329Z Lecture 1 (Diyi Yang, Michael Ryan, John Yang), slide p.&nbsp;34."><img src="../images/agents-l1/arch-why-reasoning-helps.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%" alt="A slide with a cooking example: the agent notices the salt is gone, reasons that soy sauce is in the cabinet, turns right, then opens the cabinet. Caption: observation to action mapping could be hard. Reason to act: generalisation and alignment."></a>
@@ -886,7 +936,7 @@ Figure&nbsp;4: Why a thought between observation and action helps — CS 329Z Le
 </div>
 <p>Reasoning without acting is the older idea: chain-of-thought, where the model thinks in text and then answers, still inside its own context. It can help, and it can also hallucinate a confident wrong path, because nothing in the outside world ever contradicts it. ReAct’s point is that acting — searching, running code, reading a file — gives the next thought something real to work with. The lecture notes, following the paper, that combining the two can reduce the kind of hallucination you get from thought alone, and that acting without thought is a weaker baseline than acting with it. We will not recopy the paper’s tables; the idea is the loop, not a particular score.</p>
 <div class="fig-on-white">
-<div id="fig-l1-react" class="lightbox quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="A ReAct transcript for a question about the Apple Remote: the model searches, hits a failed query, refines the search, and finishes with keyboard function keys.">
+<div id="fig-l1-react" class="lightbox quarto-float quarto-figure quarto-figure-center anchored" alt="A ReAct transcript for a question about the Apple Remote: the model searches, hits a failed query, refines the search, and finishes with keyboard function keys." data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-l1-react-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="../images/agents-l1/arch-react-reasoning-with-acting.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Figure&nbsp;5: A ReAct trace: the model searches, reads, and only then answers — CS 329Z Lecture 1 (Diyi Yang, Michael Ryan, John Yang), slide p.&nbsp;36. Example from Yao et al., 2022."><img src="../images/agents-l1/arch-react-reasoning-with-acting.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%" alt="A ReAct transcript for a question about the Apple Remote: the model searches, hits a failed query, refines the search, and finishes with keyboard function keys."></a>
@@ -908,7 +958,7 @@ Figure&nbsp;5: A ReAct trace: the model searches, reads, and only then answers �
 <h1>Memory, because the window is not a life</h1>
 <p>The context window cannot hold every event an agent will see. Even if it could, attending to the <em>relevant</em> events, or digesting them, would still be hard. So agents need a memory that sits beside the prompt.</p>
 <div class="fig-on-white">
-<div id="fig-l1-memory" class="lightbox quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="A diagram labelled Generative Agent Memory: perceive leads into a memory stream, retrieve, and retrieved memories, then act, with plan and reflect loops.">
+<div id="fig-l1-memory" class="lightbox quarto-float quarto-figure quarto-figure-center anchored" alt="A diagram labelled Generative Agent Memory: perceive leads into a memory stream, retrieve, and retrieved memories, then act, with plan and reflect loops." data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-l1-memory-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="../images/agents-l1/arch-need-for-memory.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Figure&nbsp;6: A memory stream between perceiving and acting — CS 329Z Lecture 1 (Diyi Yang, Michael Ryan, John Yang), slide p.&nbsp;45. The lecture labels this Park et al., 2025; the diagram follows Generative Agents (Park et al., 2023)."><img src="../images/agents-l1/arch-need-for-memory.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%" alt="A diagram labelled Generative Agent Memory: perceive leads into a memory stream, retrieve, and retrieved memories, then act, with plan and reflect loops."></a>
@@ -1002,7 +1052,7 @@ Figure&nbsp;6: A memory stream between perceiving and acting — CS 329Z Lecture
 <h1>FAQ</h1>
 <p><strong>Is this the same as a reinforcement-learning agent?</strong> Same loop, different flesh. Sutton and Barto’s agent observes, acts, and receives a next state and a reward. An LLM agent often has no scalar reward at each step: it has a thought, a tool result, and a user. The <a href="../rag/history-of-agents.html">history page</a> traces how one picture became the other.</p>
 <p><strong>Do I need several agents?</strong> Not to start with. A single loop with tools and memory is already an agent architecture. Multiple agents — debate, or an orchestrator and specialists — are a way to split work or to criticise a draft. They also add coordination failures, which is why they show up again under <a href="../rag/agent-challenges.html">challenges</a>.</p>
-<p><strong>Where does RAG sit in this diagram?</strong> Retrieval is a tool, and the retrieved text is context, which is a kind of memory. RAG is important enough, and standard enough, to have its own treatment on <a href="../rag/compound-ai-systems.html">Compound AI systems</a> and on the section’s <a href="../generative/generative-rag.html">RAG page</a>.</p>
+<p><strong>Where does RAG sit in this diagram?</strong> Retrieval is a tool, and the retrieved text is context, which is a kind of memory. RAG is important enough, and standard enough, to have its own treatment on <a href="../rag/compound-ai-systems.html">Compound AI systems</a> and in the Lecture 3 pages starting at <a href="../rag/why-rag.html">Why RAG</a>.</p>
 <p><strong>What should I read first?</strong> Weng’s <a href="https://lilianweng.github.io/posts/2023-06-23-agent/" class="external" target="_blank">LLM Powered Autonomous Agents</a> for a guided tour of planning, memory and tools; ReAct for the loop itself; CoALA for a more formal cognitive-architecture vocabulary.</p>
 </section>
 <section id="see-also" class="level1">
@@ -1012,7 +1062,7 @@ Figure&nbsp;6: A memory stream between perceiving and acting — CS 329Z Lecture
 <li><a href="../rag/compound-ai-systems.html">Compound AI systems</a></li>
 <li><a href="../rag/agent-challenges.html">Key challenges in building agents</a></li>
 <li><a href="../rag/resources.html#cs329z">RAG and agents: Resources</a></li>
-<li><a href="../generative/generative-rag.html">Generative AI: RAG</a></li>
+<li><a href="../rag/why-rag.html">Why RAG</a> and <a href="../rag/rag-retrieval.html">Retrievers for RAG</a></li>
 <li><a href="../generative/language-model-architecture.html">Language model architecture</a> and <a href="../rag/llms-for-agents.html">LLMs for agents</a> — Lecture 2</li>
 </ul>
 

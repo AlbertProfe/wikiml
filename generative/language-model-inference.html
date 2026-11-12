@@ -509,6 +509,26 @@ window.Quarto = {
         <li><hr class="dropdown-divider"></li>
         <li class="dropdown-header">RAG</li>
         <li>
+    <a class="dropdown-item" href="../rag/why-rag.html">
+ <span class="dropdown-text">Why RAG</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../rag/rag-indexing.html">
+ <span class="dropdown-text">Indexing for RAG</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../rag/rag-retrieval.html">
+ <span class="dropdown-text">Retrievers for RAG</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../rag/agentic-rag.html">
+ <span class="dropdown-text">Agentic RAG</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../rag/rag-failure-modes.html">
+ <span class="dropdown-text">Failure modes of RAG</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="../generative/generative-rag.html">
  <span class="dropdown-text">RAG</span></a>
   </li>  
@@ -891,7 +911,7 @@ Everyday example
 <p>Autoregressive generation has two phases.</p>
 <p><em>Prefill</em> reads the whole prompt and builds the KV cache: the keys and values for every prompt token, in every layer. This is highly parallel. <em>Decode</em> then writes one new token at a time. Each step needs the previous cache and appends one new key and value. That is why “adding things to the context out of order” is expensive, a point the <a href="../rag/llms-for-agents.html">agents</a> page will come back to.</p>
 <div class="fig-on-white">
-<div id="fig-l2-prefill-decode" class="lightbox quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="A diagram contrasting a parallel prefill stage over the prompt with a step-by-step decode stage that emits one token at a time.">
+<div id="fig-l2-prefill-decode" class="lightbox quarto-float quarto-figure quarto-figure-center anchored" alt="A diagram contrasting a parallel prefill stage over the prompt with a step-by-step decode stage that emits one token at a time." data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-l2-prefill-decode-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="../images/agents-l2/infer-prefill-and-decode.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;1: Prefill processes the prompt in parallel and fills the KV cache; decode writes one token at a time — CS 329Z Lecture 2 (Diyi Yang, Michael Ryan, John Yang), slide p.&nbsp;123. Original: the Hugging Face / TNG Technology Consulting blog on prefill and decode."><img src="../images/agents-l2/infer-prefill-and-decode.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%" alt="A diagram contrasting a parallel prefill stage over the prompt with a step-by-step decode stage that emits one token at a time."></a>
@@ -908,7 +928,7 @@ Figure&nbsp;1: Prefill processes the prompt in parallel and fills the KV cache; 
 <p>GPUs are extremely good at dense matrix multiplications, and much more often limited by how fast they can move data. A <em>roofline</em> plot makes that visible: performance is capped either by peak compute or by memory bandwidth, depending on how much arithmetic you do per byte loaded.</p>
 <p>The lecture’s point, on a roofline credited to <a href="https://docs.nersc.gov/tools/performance/roofline/" class="external" target="_blank">NERSC</a>, is that the two phases sit in different places. Prefill is usually <em>compute-bound</em>: there is a lot of work per loaded weight. Decode is usually <em>bandwidth-bound</em>: each new token does a relatively small matmul and has to reload a large KV cache and model weights. Making decode faster is often about reducing memory traffic, not buying a higher FLOP rating.</p>
 <div class="fig-on-white">
-<div id="fig-l2-roofline" class="lightbox quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="A roofline plot with decode marked in the bandwidth-bound region and prefill in the compute-bound region.">
+<div id="fig-l2-roofline" class="lightbox quarto-float quarto-figure quarto-figure-center anchored" alt="A roofline plot with decode marked in the bandwidth-bound region and prefill in the compute-bound region." data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-l2-roofline-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="../images/agents-l2/infer-roofline.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figure&nbsp;2: A roofline view of inference: prefill tends to be compute-bound, decode bandwidth-bound — CS 329Z Lecture 2 (Diyi Yang, Michael Ryan, John Yang), slide p.&nbsp;134. Original: the NERSC roofline documentation."><img src="../images/agents-l2/infer-roofline.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%" alt="A roofline plot with decode marked in the bandwidth-bound region and prefill in the compute-bound region."></a>
@@ -924,7 +944,7 @@ Figure&nbsp;2: A roofline view of inference: prefill tends to be compute-bound, 
 <h1>Speculative decoding</h1>
 <p>One way to spend compute more kindly is to let a cheaper <em>draft</em> model propose several tokens, then have the large <em>target</em> model check them in a single parallel pass. Tokens the target agrees with are accepted; at the first disagreement you reject and continue from there. The accepted tokens are distributed as if the target had written them itself. The standard reference is <a href="https://arxiv.org/abs/2302.01318" class="external" target="_blank">Chen, Borgeaud, Irving, and colleagues, Speculative Sampling</a> (2023). The lecture also notes that some domains are more predictable than others: a draft model will be accepted more often when the next tokens are easy to guess, which is why this helps more on some workloads than others.</p>
 <div class="fig-on-white">
-<div id="fig-l2-speculative" class="lightbox quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="A two-part diagram of speculative decoding: a draft model proposes tokens one after another, then a target model verifies a row of them, accepting three and rejecting the fourth.">
+<div id="fig-l2-speculative" class="lightbox quarto-float quarto-figure quarto-figure-center anchored" alt="A two-part diagram of speculative decoding: a draft model proposes tokens one after another, then a target model verifies a row of them, accepting three and rejecting the fourth." data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-l2-speculative-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="../images/agents-l2/infer-speculative-decoding.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figure&nbsp;3: A draft model proposes a short continuation; the target model accepts a prefix and rejects the first disagreement — CS 329Z Lecture 2 (Diyi Yang, Michael Ryan, John Yang), slide p.&nbsp;136. The lecture marks this figure as inspired by a Medium article on speculative decoding; the algorithm is that of speculative sampling."><img src="../images/agents-l2/infer-speculative-decoding.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%" alt="A two-part diagram of speculative decoding: a draft model proposes tokens one after another, then a target model verifies a row of them, accepting three and rejecting the fourth."></a>
@@ -941,7 +961,7 @@ Figure&nbsp;3: A draft model proposes a short continuation; the target model acc
 <p>The second half of the lecture is about spending more compute <em>after</em> training. The slogan is inference-time, or test-time, scaling.</p>
 <p>The oldest widely used move is <em>chain of thought</em>: ask the model to write intermediate steps before the answer. <a href="https://arxiv.org/abs/2201.11903" class="external" target="_blank">Wei et al., 2022</a> showed that this can lift reasoning tasks a long way, especially as models get larger. The lecture uses the familiar tennis-ball and apple-word problems from that paper.</p>
 <div class="fig-on-white">
-<div id="fig-l2-cot" class="lightbox quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="A comparison of standard prompting, which answers a follow-up arithmetic word problem incorrectly, with chain-of-thought prompting, which shows the working and answers correctly.">
+<div id="fig-l2-cot" class="lightbox quarto-float quarto-figure quarto-figure-center anchored" alt="A comparison of standard prompting, which answers a follow-up arithmetic word problem incorrectly, with chain-of-thought prompting, which shows the working and answers correctly." data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-l2-cot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="../images/agents-l2/infer-chain-of-thought.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Figure&nbsp;4: Chain-of-thought prompting: the same model, asked to show its working, gets the second arithmetic word problem right — CS 329Z Lecture 2 (Diyi Yang, Michael Ryan, John Yang), slide p.&nbsp;139. Original: Chain-of-Thought Prompting Elicits Reasoning in Large Language Models (Wei et al., 2022)."><img src="../images/agents-l2/infer-chain-of-thought.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%" alt="A comparison of standard prompting, which answers a follow-up arithmetic word problem incorrectly, with chain-of-thought prompting, which shows the working and answers correctly."></a>

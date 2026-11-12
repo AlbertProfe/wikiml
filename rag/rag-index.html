@@ -472,6 +472,26 @@ ul.task-list li input[type="checkbox"] {
         <li><hr class="dropdown-divider"></li>
         <li class="dropdown-header">RAG</li>
         <li>
+    <a class="dropdown-item" href="../rag/why-rag.html">
+ <span class="dropdown-text">Why RAG</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../rag/rag-indexing.html">
+ <span class="dropdown-text">Indexing for RAG</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../rag/rag-retrieval.html">
+ <span class="dropdown-text">Retrievers for RAG</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../rag/agentic-rag.html">
+ <span class="dropdown-text">Agentic RAG</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../rag/rag-failure-modes.html">
+ <span class="dropdown-text">Failure modes of RAG</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="../generative/generative-rag.html">
  <span class="dropdown-text">RAG</span></a>
   </li>  
@@ -648,6 +668,36 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../rag/why-rag.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Why RAG</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../rag/rag-indexing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Indexing for RAG</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../rag/rag-retrieval.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Retrievers for RAG</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../rag/agentic-rag.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Agentic RAG</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../rag/rag-failure-modes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Failure modes of RAG</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../generative/generative-rag.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">RAG</span></a>
   </div>
@@ -744,7 +794,6 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#why-this-section-exists" id="toc-why-this-section-exists" class="nav-link active" data-scroll-target="#why-this-section-exists">Why this section exists</a></li>
   <li><a href="#already-here" id="toc-already-here" class="nav-link" data-scroll-target="#already-here">Already here</a></li>
-  <li><a href="#coming-next" id="toc-coming-next" class="nav-link" data-scroll-target="#coming-next">Coming next</a></li>
   <li><a href="#labs-and-resources" id="toc-labs-and-resources" class="nav-link" data-scroll-target="#labs-and-resources">Labs and resources</a></li>
   </ul>
 </nav>
@@ -781,7 +830,7 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This section is in progress. RAG is named in the <a href="../generative/generative-index.html">Generative AI overview</a> and has a child page that is still an outline. The first agents pages are reader’s guides to <a href="https://web.stanford.edu/class/cs329z/slides/lecture01.pdf" class="external" target="_blank">CS 329Z Lecture 1</a>.</p>
+<p>RAG now has a set of reader’s guides to <a href="https://web.stanford.edu/class/cs329z/slides/lecture03.pdf" class="external" target="_blank">CS 329Z Lecture 3</a>. The agents pages remain reader’s guides to <a href="https://web.stanford.edu/class/cs329z/slides/lecture01.pdf" class="external" target="_blank">Lecture 1</a>. The old <a href="../generative/generative-rag.html">RAG outline</a> is kept as a short pointer, so earlier links still work.</p>
 </div>
 </div>
 <section id="why-this-section-exists" class="level1">
@@ -792,7 +841,12 @@ Note
 <section id="already-here" class="level1">
 <h1>Already here</h1>
 <ul>
-<li><a href="../generative/generative-rag.html">Generative AI RAG</a> — a short outline of what that page will become (it used to be the Quarto starter text).</li>
+<li><a href="../rag/why-rag.html">Why RAG</a> — why a frozen model is not enough, and the retrieve–generate loop.</li>
+<li><a href="../rag/rag-indexing.html">Indexing for RAG</a> — chunking, contextual retrieval, trees and graphs, and HNSW.</li>
+<li><a href="../rag/rag-retrieval.html">Retrievers for RAG</a> — BM25, DPR, hybrid fusion, and ColBERT.</li>
+<li><a href="../rag/agentic-rag.html">Agentic RAG</a> — Self-RAG, CRAG, and Search-R1.</li>
+<li><a href="../rag/rag-failure-modes.html">Failure modes of RAG</a> — retrieval-side, reader-side, and loop-side failures.</li>
+<li><a href="../generative/generative-rag.html">RAG</a> — a short pointer at the older URL, kept so existing links do not break.</li>
 <li><a href="../rag/history-of-agents.html">History of agents</a> — from the ACTOR formalism to the LLM loop.</li>
 <li><a href="../rag/agent-architectures.html">Agent architectures</a> — the model, planning and reasoning, memory, tools, and the environment.</li>
 <li><a href="../rag/compound-ai-systems.html">Compound AI systems</a> — workflows versus agents, RAG, tool use, and MCP.</li>
@@ -800,14 +854,6 @@ Note
 <li>The language-model pages now live under <a href="../generative/generative-index.html">LLMs and Transformers</a>: <a href="../generative/what-is-a-language-model.html">What is a language model?</a>, <a href="../generative/language-model-architecture.html">Language model architecture</a>, <a href="../generative/language-model-training.html">Language model training</a>, and <a href="../generative/language-model-inference.html">Language model inference</a>.</li>
 <li><a href="../rag/llms-for-agents.html">LLMs for agents</a> — structured I/O, context engineering, and not stuffing the window.</li>
 <li>A January 2025 bookmark, <a href="../labs/labs-index.html">Lab#RAG001</a>, points at an external agents write-up. That is a link list, not a classroom lab.</li>
-</ul>
-</section>
-<section id="coming-next" class="level1">
-<h1>Coming next</h1>
-<ul>
-<li>Why a frozen model is not enough.</li>
-<li>Embeddings and retrieval, in plain language.</li>
-<li>One honest retrieve → augment → generate diagram.</li>
 </ul>
 </section>
 <section id="labs-and-resources" class="level1">

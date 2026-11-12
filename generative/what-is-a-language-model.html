@@ -505,6 +505,26 @@ window.Quarto = {
         <li><hr class="dropdown-divider"></li>
         <li class="dropdown-header">RAG</li>
         <li>
+    <a class="dropdown-item" href="../rag/why-rag.html">
+ <span class="dropdown-text">Why RAG</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../rag/rag-indexing.html">
+ <span class="dropdown-text">Indexing for RAG</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../rag/rag-retrieval.html">
+ <span class="dropdown-text">Retrievers for RAG</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../rag/agentic-rag.html">
+ <span class="dropdown-text">Agentic RAG</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../rag/rag-failure-modes.html">
+ <span class="dropdown-text">Failure modes of RAG</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="../generative/generative-rag.html">
  <span class="dropdown-text">RAG</span></a>
   </li>  
@@ -881,7 +901,7 @@ Everyday example
 </div>
 </div>
 <div class="fig-on-white">
-<div id="fig-l2-stack" class="lightbox quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="A pyramid labelled The LLM Stack, with agent frameworks, multi-agent systems and memory at the top, and the language model lower down.">
+<div id="fig-l2-stack" class="lightbox quarto-float quarto-figure quarto-figure-center anchored" alt="A pyramid labelled The LLM Stack, with agent frameworks, multi-agent systems and memory at the top, and the language model lower down." data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-l2-stack-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="../images/agents-l2/lm-the-llm-stack.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;1: The LLM stack, from the model and its training and inference up to agent frameworks — CS 329Z Lecture 2 (Diyi Yang, Michael Ryan, John Yang), slide p.&nbsp;2. Lecture original."><img src="../images/agents-l2/lm-the-llm-stack.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%" alt="A pyramid labelled The LLM Stack, with agent frameworks, multi-agent systems and memory at the top, and the language model lower down."></a>
@@ -901,7 +921,7 @@ P(x_{1:T}) = \prod_{t=1}^{T} P(x_t \mid x_{&lt;t}).
 \]</span></p>
 <p>The lecture works this on a toy sentence, “The class was about agents.” Each word has a probability given the ones before it; multiply them and you get the probability of the whole sentence. The numbers on that slide (and later ones) are teaching examples, not measurements from a published model.</p>
 <div class="fig-on-white">
-<div id="fig-l2-chain-rule" class="lightbox quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="A slide showing the sentence The class was about agents, with a next-token probability under each word and their product as the sequence probability.">
+<div id="fig-l2-chain-rule" class="lightbox quarto-float quarto-figure quarto-figure-center anchored" alt="A slide showing the sentence The class was about agents, with a next-token probability under each word and their product as the sequence probability." data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-l2-chain-rule-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="../images/agents-l2/lm-chain-rule-example.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figure&nbsp;2: The chain rule on the toy sentence “The class was about agents.” — CS 329Z Lecture 2 (Diyi Yang, Michael Ryan, John Yang), slide p.&nbsp;8. The token probabilities are lecture illustrations, not empirical results. Lecture original."><img src="../images/agents-l2/lm-chain-rule-example.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%" alt="A slide showing the sentence The class was about agents, with a next-token probability under each word and their product as the sequence probability."></a>
@@ -919,7 +939,7 @@ Figure&nbsp;2: The chain rule on the toy sentence “The class was about agents.
 <p>A <em>discriminative</em> model learns to tell classes apart: spam or not, cat or dog. A <em>generative</em> model learns a distribution over the data itself, so you can draw new samples from it. Logistic regression and an SVM sit on one side; naïve Bayes and diffusion models sit on the other.</p>
 <p>Language models of the kind in the chain rule above are generative. That is why we can sample from them. The lecture’s knowledge check makes the same point: the notation <span class="math inline">\(P(x_t \mid x_{&lt;t})\)</span> can look like a classifier over the vocabulary, but the object being modelled is the distribution of sequences.</p>
 <div class="fig-on-white">
-<div id="fig-l2-gen-vs-disc" class="lightbox quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="A comparison slide: discriminative models such as logistic regression and SVMs learn to distinguish classes; generative models such as naïve Bayes and diffusion models learn a distribution of the data.">
+<div id="fig-l2-gen-vs-disc" class="lightbox quarto-float quarto-figure quarto-figure-center anchored" alt="A comparison slide: discriminative models such as logistic regression and SVMs learn to distinguish classes; generative models such as naïve Bayes and diffusion models learn a distribution of the data." data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-l2-gen-vs-disc-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="../images/agents-l2/lm-generative-vs-discriminative.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figure&nbsp;3: Generative models learn a distribution of the data; discriminative models learn to distinguish classes — CS 329Z Lecture 2 (Diyi Yang, Michael Ryan, John Yang), slide p.&nbsp;11. Original: Akanksha Malhotra, as credited on the lecture slide (Medium)."><img src="../images/agents-l2/lm-generative-vs-discriminative.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%" alt="A comparison slide: discriminative models such as logistic regression and SVMs learn to distinguish classes; generative models such as naïve Bayes and diffusion models learn a distribution of the data."></a>
@@ -955,7 +975,7 @@ A note on the temperature slide
 </div>
 </div>
 <div class="fig-on-white">
-<div id="fig-l2-temperature" class="lightbox quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="Three histograms of next-token probabilities at different temperatures, with a short description of dividing by a temperature T.">
+<div id="fig-l2-temperature" class="lightbox quarto-float quarto-figure quarto-figure-center anchored" alt="Three histograms of next-token probabilities at different temperatures, with a short description of dividing by a temperature T." data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-l2-temperature-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="../images/agents-l2/lm-temperature.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Figure&nbsp;4: Temperature reshapes how sharply the model prefers its top tokens — CS 329Z Lecture 2 (Diyi Yang, Michael Ryan, John Yang), slide p.&nbsp;20. The histograms are from Towards Data Science, as credited on the lecture slide. The slide text says to divide probabilities by T; see the note above."><img src="../images/agents-l2/lm-temperature.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%" alt="Three histograms of next-token probabilities at different temperatures, with a short description of dividing by a temperature T."></a>

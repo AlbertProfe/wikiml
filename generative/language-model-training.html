@@ -506,6 +506,26 @@ window.Quarto = {
         <li><hr class="dropdown-divider"></li>
         <li class="dropdown-header">RAG</li>
         <li>
+    <a class="dropdown-item" href="../rag/why-rag.html">
+ <span class="dropdown-text">Why RAG</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../rag/rag-indexing.html">
+ <span class="dropdown-text">Indexing for RAG</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../rag/rag-retrieval.html">
+ <span class="dropdown-text">Retrievers for RAG</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../rag/agentic-rag.html">
+ <span class="dropdown-text">Agentic RAG</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../rag/rag-failure-modes.html">
+ <span class="dropdown-text">Failure modes of RAG</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="../generative/generative-rag.html">
  <span class="dropdown-text">RAG</span></a>
   </li>  
@@ -892,7 +912,7 @@ L = - \sum_{i=1}^{V} y_i \log p_i,
 \]</span></p>
 <p>which is just <span class="math inline">\(-\log p\)</span> on the correct token. You raise the probability of what was written; everything else is pushed down.</p>
 <div class="fig-on-white">
-<div id="fig-l2-cross-entropy" class="lightbox quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="The cross-entropy loss formula, annotated to show a sum over the vocabulary, a one-hot target y i, and the log probability of that token.">
+<div id="fig-l2-cross-entropy" class="lightbox quarto-float quarto-figure quarto-figure-center anchored" alt="The cross-entropy loss formula, annotated to show a sum over the vocabulary, a one-hot target y i, and the log probability of that token." data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-l2-cross-entropy-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="../images/agents-l2/train-cross-entropy-loss.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;1: Cross-entropy over the vocabulary: only the token that appeared in the data contributes to the sum — CS 329Z Lecture 2 (Diyi Yang, Michael Ryan, John Yang), slide p.&nbsp;100. Lecture original."><img src="../images/agents-l2/train-cross-entropy-loss.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%" alt="The cross-entropy loss formula, annotated to show a sum over the vocabulary, a one-hot target y i, and the log probability of that token."></a>
@@ -910,7 +930,7 @@ Figure&nbsp;1: Cross-entropy over the vocabulary: only the token that appeared i
 <p>Pretraining is next-token prediction on a huge public mix: web crawls, books, code, and whatever else the recipe allows. The interesting engineering is not the loss — it is the data.</p>
 <p>A typical pipeline extracts text from HTML, filters by language and quality, deduplicates, and only then trains. The lecture shows this with <a href="https://arxiv.org/abs/2406.11794" class="external" target="_blank">DataComp-LM</a> (Li et al., 2024): starting from a Common Crawl pool, a sequence of heuristic filters, deduplication, and model-based quality filters leaves a much smaller training set.</p>
 <div class="fig-on-white">
-<div id="fig-l2-dclm" class="lightbox quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="A Sankey-style diagram of the DataComp-LM data pipeline, from a Common Crawl pool through language, quality, deduplication and model-based filters down to a baseline training set.">
+<div id="fig-l2-dclm" class="lightbox quarto-float quarto-figure quarto-figure-center anchored" alt="A Sankey-style diagram of the DataComp-LM data pipeline, from a Common Crawl pool through language, quality, deduplication and model-based filters down to a baseline training set." data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-l2-dclm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="../images/agents-l2/train-dclm-data-pipeline.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figure&nbsp;2: Construction of the DataComp-LM baseline from a Common Crawl pool — CS 329Z Lecture 2 (Diyi Yang, Michael Ryan, John Yang), slide p.&nbsp;103. Original: Figure 4 of DataComp-LM (Li et al., 2024)."><img src="../images/agents-l2/train-dclm-data-pipeline.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%" alt="A Sankey-style diagram of the DataComp-LM data pipeline, from a Common Crawl pool through language, quality, deduplication and model-based filters down to a baseline training set."></a>
@@ -928,7 +948,7 @@ Figure&nbsp;2: Construction of the DataComp-LM baseline from a Common Crawl pool
 <p>Midtraining sits between the general pretraining mix and the final post-training stage. The idea is simple: change the data mix so that it leans toward the domains you actually care about — maths, code, and so on — before you start instruction tuning.</p>
 <p>The lecture cites two recent arguments for doing this on purpose. <a href="https://arxiv.org/abs/2603.16177" class="external" target="_blank">The Finetuner’s Fallacy</a> (2026) discusses when it helps to fold target-domain data into the earlier training mix rather than saving it all for fine-tuning. <a href="https://arxiv.org/abs/2510.14865" class="external" target="_blank">Midtraining Bridges Pretraining and Posttraining Distributions</a> sketches why a stop in the middle can be an easier path, in parameter space, than jumping straight from a general pretrained model to the target.</p>
 <div class="fig-on-white">
-<div id="fig-l2-midtraining" class="lightbox quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="A contour plot with a dashed direct path from a pretrained checkpoint to a target, and a curved midtraining path that avoids a poorly aligned region.">
+<div id="fig-l2-midtraining" class="lightbox quarto-float quarto-figure quarto-figure-center anchored" alt="A contour plot with a dashed direct path from a pretrained checkpoint to a target, and a curved midtraining path that avoids a poorly aligned region." data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-l2-midtraining-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="../images/agents-l2/train-midtraining-bridge.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figure&nbsp;3: A schematic of midtraining as a bridge between the pretrained model and the target, instead of a direct fine-tune across a poorly aligned region — CS 329Z Lecture 2 (Diyi Yang, Michael Ryan, John Yang), slide p.&nbsp;111. Original: Midtraining Bridges Pretraining and Posttraining Distributions."><img src="../images/agents-l2/train-midtraining-bridge.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%" alt="A contour plot with a dashed direct path from a pretrained checkpoint to a target, and a curved midtraining path that avoids a poorly aligned region."></a>
@@ -946,7 +966,7 @@ Figure&nbsp;3: A schematic of midtraining as a bridge between the pretrained mod
 <p><em>Instruction fine-tuning</em> trains on examples of a request and a good response. The lecture’s picture is from <a href="https://arxiv.org/abs/2210.11416" class="external" target="_blank">Flan</a> (Chung et al., 2022; “Scaling Instruction-Finetuned Language Models”).</p>
 <p><em>Learning from human preferences</em> is the InstructGPT recipe: collect demonstrations and train a supervised policy; collect comparisons and train a reward model; then optimise the policy against that reward model, typically with PPO. The figure is from <a href="https://arxiv.org/abs/2203.02155" class="external" target="_blank">Ouyang et al., 2022</a>.</p>
 <div class="fig-on-white">
-<div id="fig-l2-rlhf" class="lightbox quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="A three-column diagram of RLHF: supervised fine-tuning on demonstrations, training a reward model from ranked comparisons, and updating the policy with PPO.">
+<div id="fig-l2-rlhf" class="lightbox quarto-float quarto-figure quarto-figure-center anchored" alt="A three-column diagram of RLHF: supervised fine-tuning on demonstrations, training a reward model from ranked comparisons, and updating the policy with PPO." data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-l2-rlhf-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="../images/agents-l2/train-rlhf-instructgpt.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Figure&nbsp;4: The InstructGPT three-step recipe: supervised demonstrations, a reward model from comparisons, then PPO against that reward model — CS 329Z Lecture 2 (Diyi Yang, Michael Ryan, John Yang), slide p.&nbsp;114. Original: Training language models to follow instructions with human feedback (Ouyang et al., 2022)."><img src="../images/agents-l2/train-rlhf-instructgpt.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%" alt="A three-column diagram of RLHF: supervised fine-tuning on demonstrations, training a reward model from ranked comparisons, and updating the policy with PPO."></a>
@@ -964,7 +984,7 @@ Figure&nbsp;4: The InstructGPT three-step recipe: supervised demonstrations, a r
 <p>When the task has a checkable answer, you can replace a human preference with a verifier. The lecture calls this <em>reinforcement learning with verifiable rewards</em> (RLVR). Typical verifiers are unit tests, a Lean proof checker, exact match, or a system state. The method is a good fit for maths and code, and you still have to be careful about the design of the verifier: models will exploit a sloppy check.</p>
 <p>The lecture illustrates the idea with Group Relative Policy Optimisation (GRPO) from <a href="https://arxiv.org/abs/2402.03300" class="external" target="_blank">DeepSeekMath</a> (Shao et al., 2024). That paper is a fair credit for group-relative policy updates and for verifiable maths rewards; “RLVR” as a slogan became common a little later.</p>
 <div class="fig-on-white">
-<div id="fig-l2-rlvr" class="lightbox quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="A diagram of GRPO: a policy model samples a group of outputs, rewards are scored, advantages are computed relative to the group, and the policy is updated, with a list of verifiable reward types such as unit tests and Lean proofs.">
+<div id="fig-l2-rlvr" class="lightbox quarto-float quarto-figure quarto-figure-center anchored" alt="A diagram of GRPO: a policy model samples a group of outputs, rewards are scored, advantages are computed relative to the group, and the policy is updated, with a list of verifiable reward types such as unit tests and Lean proofs." data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-l2-rlvr-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="../images/agents-l2/train-rlvr-verifiable-rewards.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Figure&nbsp;5: Reinforcement learning with verifiable rewards, illustrated with the GRPO loop — CS 329Z Lecture 2 (Diyi Yang, Michael Ryan, John Yang), slide p.&nbsp;116. Original: DeepSeekMath (Shao et al., 2024). The lecture uses this figure to explain RLVR; the paper itself introduces GRPO and verifiable maths rewards."><img src="../images/agents-l2/train-rlvr-verifiable-rewards.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%" alt="A diagram of GRPO: a policy model samples a group of outputs, rewards are scored, advantages are computed relative to the group, and the policy is updated, with a list of verifiable reward types such as unit tests and Lean proofs."></a>

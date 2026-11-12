@@ -511,6 +511,26 @@ window.Quarto = {
         <li><hr class="dropdown-divider"></li>
         <li class="dropdown-header">RAG</li>
         <li>
+    <a class="dropdown-item" href="../rag/why-rag.html">
+ <span class="dropdown-text">Why RAG</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../rag/rag-indexing.html">
+ <span class="dropdown-text">Indexing for RAG</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../rag/rag-retrieval.html">
+ <span class="dropdown-text">Retrievers for RAG</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../rag/agentic-rag.html">
+ <span class="dropdown-text">Agentic RAG</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../rag/rag-failure-modes.html">
+ <span class="dropdown-text">Failure modes of RAG</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="../generative/generative-rag.html">
  <span class="dropdown-text">RAG</span></a>
   </li>  
@@ -873,7 +893,7 @@ window.Quarto = {
 <p>That idea was introduced in <a href="https://arxiv.org/abs/1406.2661" class="external" target="_blank">Generative Adversarial Nets</a> (Goodfellow, Pouget-Abadie, Mirza, Xu, Warde-Farley, Ozair, Courville and Bengio, 2014). The paper appeared at NIPS 2014; the <a href="https://proceedings.neurips.cc/paper_files/paper/2014/file/f033ed80deb0234979a61f95710dbe25-Paper.pdf" class="external" target="_blank">proceedings PDF</a> is the published version, and the <a href="https://arxiv.org/pdf/1406.2661" class="external" target="_blank">arXiv PDF</a> is 1406.2661.</p>
 <p>The <a href="../generative/generative-index.html">Generative AI overview</a> already has a short GAN panel. This page is the walk-through: the analogy, the two players, the minimax objective, the training loop, a tiny live example, the usual failure modes, and the line of famous variants.</p>
 <div class="fig-on-white">
-<div id="fig-gan-generator-vs-discriminator" class="lightbox quarto-float quarto-figure quarto-figure-center anchored" alt="Diagram of a generative adversarial network: random noise z enters a generator, which produces a fake sample; a discriminator compares that sample with real data and answers real or fake; a feedback arrow runs back to the generator." data-fig-align="center">
+<div id="fig-gan-generator-vs-discriminator" class="lightbox quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="Diagram of a generative adversarial network: random noise z enters a generator, which produces a fake sample; a discriminator compares that sample with real data and answers real or fake; a feedback arrow runs back to the generator.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-gan-generator-vs-discriminator-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="../images/gan/gan-generator-vs-discriminator.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;1: GANs: Generator vs Discriminator — both improve by competing."><img src="../images/gan/gan-generator-vs-discriminator.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%" alt="Diagram of a generative adversarial network: random noise z enters a generator, which produces a fake sample; a discriminator compares that sample with real data and answers real or fake; a feedback arrow runs back to the generator."></a>

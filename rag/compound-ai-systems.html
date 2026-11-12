@@ -480,6 +480,26 @@ ul.task-list li input[type="checkbox"] {
         <li><hr class="dropdown-divider"></li>
         <li class="dropdown-header">RAG</li>
         <li>
+    <a class="dropdown-item" href="../rag/why-rag.html">
+ <span class="dropdown-text">Why RAG</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../rag/rag-indexing.html">
+ <span class="dropdown-text">Indexing for RAG</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../rag/rag-retrieval.html">
+ <span class="dropdown-text">Retrievers for RAG</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../rag/agentic-rag.html">
+ <span class="dropdown-text">Agentic RAG</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../rag/rag-failure-modes.html">
+ <span class="dropdown-text">Failure modes of RAG</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="../generative/generative-rag.html">
  <span class="dropdown-text">RAG</span></a>
   </li>  
@@ -654,6 +674,36 @@ ul.task-list li input[type="checkbox"] {
           </a> 
       </div>
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../rag/why-rag.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Why RAG</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../rag/rag-indexing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Indexing for RAG</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../rag/rag-retrieval.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Retrievers for RAG</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../rag/agentic-rag.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Agentic RAG</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../rag/rag-failure-modes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Failure modes of RAG</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../generative/generative-rag.html" class="sidebar-item-text sidebar-link">
@@ -859,7 +909,7 @@ Figure&nbsp;1: Workflows versus agents: who decides the next step — CS 329Z Le
 </section>
 <section id="retrieval-augmented-generation" class="level1">
 <h1>Retrieval-augmented generation</h1>
-<p><a href="../generative/generative-rag.html">RAG</a> is the most familiar compound pattern. The model is connected to an external knowledge source at run time, so the answer can rest on documents the model was never trained on, and that you can inspect.</p>
+<p><a href="../rag/why-rag.html">RAG</a> is the most familiar compound pattern. The model is connected to an external knowledge source at run time, so the answer can rest on documents the model was never trained on, and that you can inspect.</p>
 <p>The lecture’s three steps are the usual ones:</p>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
@@ -891,7 +941,7 @@ Figure&nbsp;2: Retrieve, augment, generate — CS 329Z Lecture 1 (Diyi Yang, Mic
 </figure>
 </div>
 </div>
-<p>In the <a href="../rag/agent-architectures.html">agent architecture</a>, retrieval is a tool, and the retrieved text is context. The reason RAG gets its own heading is practical: it is how many systems first leave the frozen model, and it has its own failure modes (wrong passages, stale indexes, answers that ignore the evidence).</p>
+<p>In the <a href="../rag/agent-architectures.html">agent architecture</a>, retrieval is a tool, and the retrieved text is context. The reason RAG gets its own heading is practical: it is how many systems first leave the frozen model. The fuller account — why retrieve, how the index is built, how a passage is scored, when retrieval becomes an action, and <a href="../rag/rag-failure-modes.html">where the loop fails</a> — is in the Lecture 3 pages starting at <a href="../rag/why-rag.html">Why RAG</a>.</p>
 </section>
 <section id="anatomy-of-a-tool-call" class="level1">
 <h1>Anatomy of a tool call</h1>
@@ -1007,7 +1057,7 @@ Figure&nbsp;4: MCP as a standard socket between applications and tools or data �
 <li><a href="../rag/history-of-agents.html">History of agents</a></li>
 <li><a href="../rag/agent-architectures.html">Agent architectures</a></li>
 <li><a href="../rag/agent-challenges.html">Key challenges in building agents</a></li>
-<li><a href="../generative/generative-rag.html">Generative AI: RAG</a></li>
+<li><a href="../rag/why-rag.html">Why RAG</a>, <a href="../rag/rag-indexing.html">Indexing for RAG</a>, <a href="../rag/rag-retrieval.html">Retrievers for RAG</a>, <a href="../rag/agentic-rag.html">Agentic RAG</a>, and <a href="../rag/rag-failure-modes.html">Failure modes of RAG</a></li>
 <li><a href="../rag/llms-for-agents.html">LLMs for agents</a> — structured I/O and context engineering, from Lecture 2</li>
 <li><a href="../rag/resources.html#cs329z">RAG and agents: Resources</a></li>
 </ul>
