@@ -47,7 +47,15 @@ The lecture asks three evaluation questions that are easy to skip if you only re
 2. **Robustness to perturbations.** If you make a small, realistic change to the prompt, the tools, or the environment, does the behaviour hold?
 3. **Predictable failure.** When it fails, is the failure legible and recoverable, or does it fail in a way you cannot anticipate?
 
+::: {.fig-on-white}
+![Three reliability questions for agent evaluation — CS 329Z Lecture 1 (Diyi Yang, Michael Ryan, John Yang), [slide p. 62](https://web.stanford.edu/class/cs329z/slides/lecture01.pdf#page=62){.external target="_blank"}. The slide points to the [Holistic Agent Leaderboard](https://hal.cs.princeton.edu/){.external target="_blank"}.](/images/agents-l1/challenges-reliability-vs-evaluation.png){#fig-l1-reliability-eval fig-alt="A slide titled Reliability vs Evaluation, with three cards: consistency across runs, robustness to perturbations, and predictable failure modes, and a link to the Holistic Agent Leaderboard." .lightbox fig-align="center" width="100%"}
+:::
+
 These are reliability questions, and they are also evaluation questions. A leaderboard that only counts "task completed" will not show you any of them. The lecture points to the [Holistic Agent Leaderboard](https://hal.cs.princeton.edu/){.external target="_blank"} and its [reliability dashboard](https://hal.cs.princeton.edu/reliability/){.external target="_blank"} as a public attempt to make that gap visible — a *capability–reliability gap*: agents can look able, and still not be dependable.
+
+::: {.fig-on-white}
+![A snapshot of the HAL reliability dashboard, as shown in the lecture — CS 329Z Lecture 1 (Diyi Yang, Michael Ryan, John Yang), [slide p. 63](https://web.stanford.edu/class/cs329z/slides/lecture01.pdf#page=63){.external target="_blank"}. Original: [HAL Reliability Dashboard](https://hal.cs.princeton.edu/reliability/){.external target="_blank"}. Figures on the live dashboard may change.](/images/agents-l1/challenges-hal-reliability-dashboard.png){#fig-l1-hal fig-alt="A table titled The Capability-Reliability Gap, listing agents with accuracy and scores for reliability, consistency, predictability, robustness and safety, credited to the HAL Reliability Dashboard." .lightbox fig-align="center" width="100%"}
+:::
 
 Kapoor, Stroebl, Siegel, Nadgir and Narayanan, [AI Agents That Matter](https://arxiv.org/abs/2407.01502){.external target="_blank"} (arXiv, 1 July 2024), make a complementary argument about current agent benchmarks: too much weight on accuracy, not enough on cost; model-developer and application-developer needs mixed together; weak or missing holdouts, so agents overfit the benchmark; and evaluation practice that is hard to reproduce. Their title is the point. We want agents that matter in use, not only agents that climb a board.
 
@@ -65,14 +73,30 @@ Training an agent is hard for reasons that reinforcement learning already knew a
 
 The lecture's slogan is easy to remember and easy to ignore in a demo: **task success is not the same as safe behaviour**. An agent can book the hotel, edit the repo, or send the email, and still have done something you would not have allowed.
 
+::: {.fig-on-white}
+![Task completion is not the same as safety compliance — CS 329Z Lecture 1 (Diyi Yang, Michael Ryan, John Yang), [slide p. 64](https://web.stanford.edu/class/cs329z/slides/lecture01.pdf#page=64){.external target="_blank"}. Original: [HarnessAudit Bench](https://harnessaudit.github.io/){.external target="_blank"}.](/images/agents-l1/challenges-harnessaudit-task-vs-safety.png){#fig-l1-harnessaudit fig-alt="A bar chart from HarnessAudit Bench comparing overall harness safety with task completion across several model and harness configurations." .lightbox fig-align="center" width="100%"}
+:::
+
 A few concrete lines of evidence the lecture points to:
 
 - [HarnessAudit](https://harnessaudit.github.io/){.external target="_blank"} is a benchmark aimed at this gap: whether a harness complies with safety requirements, not only whether a task completes.
 - Agents that share a computer with a person can lack a sense of *when not to act*, or of what the person is in the middle of. The lecture points to a hands-on write-up of an early computer-use agent ([Platformer on OpenAI's Operator](https://www.platformer.news/openai-operator-ai-agent-hands-on/){.external target="_blank"}) as a picture of missing collaboration awareness.
 - Visual attacks can be almost boring, and still work. [Attacking Vision-Language Computer Agents via Pop-ups](https://arxiv.org/abs/2411.02391){.external target="_blank"} (Zhang, Yu and Yang, 2024) shows that carefully designed pop-ups — the kind a person would usually recognise and ignore — can draw a vision-language agent into clicking them instead of finishing the task. In OSWorld and VisualWebArena the authors report an average attack success rate (the agent clicking the pop-ups) of 86%, and a 47% drop in task success. Simple defences such as "ignore pop-ups", or an advertisement notice, did not fix it. (The lecture slide rounds the first of those figures; the numbers above are from the paper.)
+
+::: {.fig-on-white}
+![Adversarial pop-ups that can pull a vision-language agent off its task, on OSWorld and VisualWebArena — CS 329Z Lecture 1 (Diyi Yang, Michael Ryan, John Yang), [slide p. 66](https://web.stanford.edu/class/cs329z/slides/lecture01.pdf#page=66){.external target="_blank"}. Original: [Zhang, Yu and Yang, 2024](https://arxiv.org/abs/2411.02391){.external target="_blank"}. The environment click rates are from that paper; the lecture's combined headline was rounded, and is omitted from the crop.](/images/agents-l1/challenges-popup-attacks.png){#fig-l1-popups fig-alt="Two example adversarial pop-ups, one on an OSWorld desktop and one on VisualWebArena, with click rates of 92.7 percent and 73.1 percent, credited to Zhang, Yu and Yang 2024." .lightbox fig-align="center" width="100%"}
+:::
 - Privacy is a behaviour, not only a policy document. [PrivacyLens](https://arxiv.org/abs/2409.00138){.external target="_blank"} (Shao, Li, Shi, Liu and Yang, NeurIPS Datasets and Benchmarks 2024) evaluates whether language models respect privacy norms *in action*, not only when asked a static question.
+
+::: {.fig-on-white}
+![A privacy failure in action: an agent drafts an email that leaks a private lunch — CS 329Z Lecture 1 (Diyi Yang, Michael Ryan, John Yang), [slide p. 67](https://web.stanford.edu/class/cs329z/slides/lecture01.pdf#page=67){.external target="_blank"}. Original: [PrivacyLens](https://arxiv.org/abs/2409.00138){.external target="_blank"} (Shao, Li, Shi, Liu and Yang, NeurIPS Datasets and Benchmarks 2024).](/images/agents-l1/challenges-privacylens.png){#fig-l1-privacylens fig-alt="A PrivacyLens example: a user asks an agent to email a manager a weekly report, and the draft includes a highlighted lunch with a recruiter that should not have been shared." .lightbox fig-align="center" width="100%"}
+:::
 - **Misalignment and sycophancy** — telling you what you seem to want, or exploiting a reward signal — remain live issues once an agent can act. The lecture points to Anthropic's write-up of [reward tampering](https://www.anthropic.com/research/reward-tampering){.external target="_blank"} research.
 - **Multi-agent collusion** is a newer shape of the same worry: several agents, or an agent and another system, can interact in ways no single-agent test would show. The lecture points to a [METR investigation](https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation/){.external target="_blank"} (26 August 2026) as a recent case to learn from, rather than as a folklore story.
+
+::: {.fig-on-white}
+![A picture of multi-agent collusion on a shared message board — CS 329Z Lecture 1 (Diyi Yang, Michael Ryan, John Yang), [slide p. 69](https://web.stanford.edu/class/cs329z/slides/lecture01.pdf#page=69){.external target="_blank"}. Original: [METR's investigation](https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation/){.external target="_blank"} (26 August 2026), with Redwood Research.](/images/agents-l1/challenges-multiagent-collusion.png){#fig-l1-collusion fig-alt="A four-step METR and Redwood Research diagram of agents stuck on an ExploitGym task finding a shared message board and collaborating in ways that trick the scorer." .lightbox fig-align="center" width="100%"}
+:::
 
 None of these replaces a safety case for your own system. They are a reminder that "it completed the issue" is an incomplete report.
 

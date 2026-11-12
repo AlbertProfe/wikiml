@@ -50,9 +50,17 @@ Each step is a reason for the next, not just a date on a poster. Actors needed a
 
 CS 329Z Lecture 1 points to [A Universal Modular ACTOR Formalism for Artificial Intelligence](https://ijcai.org/proceedings/1973/0031.pdf){.external target="_blank"} (Hewitt, Bishop and Steiger, IJCAI 1973) as an early indexed use of *agent* in AI. The paper is about actors: independent computational entities that communicate by passing messages. That is already a step away from "one big program that knows everything".
 
+::: {.fig-on-white}
+![The first page of Hewitt, Bishop and Steiger's ACTOR formalism paper (IJCAI 1973) — CS 329Z Lecture 1 (Diyi Yang, Michael Ryan, John Yang), [slide p. 19](https://web.stanford.edu/class/cs329z/slides/lecture01.pdf#page=19){.external target="_blank"}. Original: [A Universal Modular ACTOR Formalism for Artificial Intelligence](https://ijcai.org/proceedings/1973/0031.pdf){.external target="_blank"}.](/images/agents-l1/history-hewitt-actor-1973.png){#fig-l1-hewitt fig-alt="Scan of the first page of the 1973 IJCAI paper A Universal Modular ACTOR Formalism for Artificial Intelligence, under the heading History of Agents before 1990." .lightbox fig-align="center" width="100%"}
+:::
+
 In 1980 the [Contract Net Protocol](https://ieeexplore.ieee.org/document/1675516){.external target="_blank"} (Smith) described how such agents could negotiate tasks: announce work, bid, award a contract. The picture is a small labour market, not a single controller with a fixed plan.
 
 In 1986 Marvin Minsky published *The Society of Mind*. Intelligence, in that book, is not one homunculus. It is a society of simpler processes whose interactions add up to something that looks like a mind. You can see the rhyme with later multi-agent designs, even if the mechanisms are different.
+
+::: {.fig-on-white}
+![Smith's Contract Net Protocol (1980) and Minsky's *The Society of Mind* (1986) — CS 329Z Lecture 1 (Diyi Yang, Michael Ryan, John Yang), [slide p. 20](https://web.stanford.edu/class/cs329z/slides/lecture01.pdf#page=20){.external target="_blank"}. Originals: [The Contract Net Protocol](https://ieeexplore.ieee.org/document/1675516){.external target="_blank"} (Smith, 1980); Minsky, *The Society of Mind*, 1986.](/images/agents-l1/history-contract-net-society-of-mind.png){#fig-l1-contract-net fig-alt="A slide showing the title page of Reid Smith's 1980 Contract Net Protocol paper beside the cover of Marvin Minsky's book The Society of Mind." .lightbox fig-align="center" width="100%"}
+:::
 
 # The 1990s: trying to say what an agent is
 
@@ -64,6 +72,10 @@ By the mid-1990s the word needed a definition, because everyone was using it.
 
 Those three views are not in conflict so much as they are at different zoom levels. Russell and Norvig give you a test you can apply to a thermostat. Wooldridge and Jennings tell you what people usually mean when they want something richer than a thermostat.
 
+::: {.fig-on-white}
+![Three 1990s definitions of an agent: Maes (1994), Wooldridge and Jennings (1995), and Russell and Norvig — CS 329Z Lecture 1 (Diyi Yang, Michael Ryan, John Yang), [slide p. 21](https://web.stanford.edu/class/cs329z/slides/lecture01.pdf#page=21){.external target="_blank"}. The lecture cites the 1995 first-edition definition; the cover shown is a later edition. Originals: Maes, *Designing Autonomous Agents*, 1994; [Wooldridge and Jennings (1995)](https://www.cs.ox.ac.uk/people/michael.wooldridge/pubs/ker95.pdf){.external target="_blank"}; Russell and Norvig, *Artificial Intelligence: A Modern Approach*.](/images/agents-l1/history-1990s-definitions.png){#fig-l1-1990s fig-alt="A slide with the cover of Designing Autonomous Agents edited by Pattie Maes, the first page of Wooldridge and Jennings 1995, and a later-edition cover of Russell and Norvig's Artificial Intelligence A Modern Approach." .lightbox fig-align="center" width="100%"}
+:::
+
 # The reinforcement-learning era
 
 *Reinforcement Learning: An Introduction* (Sutton and Barto, 1998) put the agent–environment loop at the centre of a textbook: at each step the agent observes a state, chooses an action, and receives a next state and a reward. The goal is to learn a policy that accumulates reward. For a couple of decades, when someone in machine learning said "agent", this was often what they meant.
@@ -72,17 +84,29 @@ The loop became famous again when deep networks started to learn it from raw obs
 
 That success is part of why today's language-model agents still talk about *observations*, *actions*, and *environments*. The objects changed — a web page instead of a game screen, a tool call instead of a joystick — but the loop did not.
 
+::: {.fig-on-white}
+![The agent–environment loop and a deep Q-network on Atari — CS 329Z Lecture 1 (Diyi Yang, Michael Ryan, John Yang), [slide p. 22](https://web.stanford.edu/class/cs329z/slides/lecture01.pdf#page=22){.external target="_blank"}. Originals: the loop from Sutton and Barto (1998); the network diagram from [Mnih et al., 2015](https://www.nature.com/articles/nature14236){.external target="_blank"}. The slide also shows AlphaGo and an OpenAI / OG event graphic.](/images/agents-l1/history-rl-era-loop-dqn.png){#fig-l1-rl-era fig-alt="A slide of the Sutton and Barto agent-environment loop beside a deep Q-network diagram for Atari, with AlphaGo and OpenAI event logos." .lightbox fig-align="center" width="100%"}
+:::
+
 # The language-model era
 
 Two things had to happen before "LLM agent" became a common phrase.
 
 First, the models had to be able to change their behaviour from the prompt alone. [Language Models are Few-Shot Learners](https://arxiv.org/abs/2005.14165){.external target="_blank"} (Brown et al., 2020) showed that GPT-3 could pick up a new format or a new task from a handful of examples in context, without a gradient step. Once you can teach a model a pattern in the prompt, you can also teach it a *procedure*: think, then act, then look at the result.
 
+::: {.fig-on-white}
+![A Transformer and GPT-3-style in-context learning — CS 329Z Lecture 1 (Diyi Yang, Michael Ryan, John Yang), [slide p. 23](https://web.stanford.edu/class/cs329z/slides/lecture01.pdf#page=23){.external target="_blank"}. Originals: the architecture is [Figure 1 of Vaswani et al., 2017](https://arxiv.org/abs/1706.03762){.external target="_blank"}; the few-shot prompt is from [Brown et al., 2020](https://arxiv.org/abs/2005.14165){.external target="_blank"}.](/images/agents-l1/history-llm-era-gpt3.png){#fig-l1-llm-era fig-alt="A slide with the Transformer architecture diagram on the left and a few-shot English-to-French prompt example labelled GPT-3 and in-context learning on the right." .lightbox fig-align="center" width="100%"}
+:::
+
 Second, people started to wrap the model in other components. [MRKL Systems](https://arxiv.org/abs/2205.00445){.external target="_blank"} (Karpas et al., 2022) argued for a modular, neuro-symbolic design: a language model plus external knowledge sources and discrete reasoners, rather than asking the model to do everything in its parameters. That is already a compound system, even if the word "agent" is not yet on every slide.
 
 Then the loop was written out in the model's own language. [ReAct](https://arxiv.org/abs/2210.03629){.external target="_blank"} (Yao, Zhao, Yu, Du, Shafran, Narasimhan and Cao; arXiv, October 2022) interleaved reasoning traces with actions and observations. The model does not only answer. It can decide to search, read what came back, think again, and only then commit. The lecture treats this paper as the hinge between "an LLM that reasons" and "an LLM that acts".
 
 Public systems arrived in a hurry around the same time. ChatGPT was released on 30 November 2022. GPT-4 was announced on 14 March 2023. In late March 2023, public loops such as BabyAGI and AutoGPT made the same idea tangible for a much wider audience: give a model a goal, let it propose the next step, let it use tools, repeat. Capability was moving; so was attention.
+
+::: {.fig-on-white}
+![A 2022–23 timeline from ReAct to public agent loops — CS 329Z Lecture 1 (Diyi Yang, Michael Ryan, John Yang), [slide p. 25](https://web.stanford.edu/class/cs329z/slides/lecture01.pdf#page=25){.external target="_blank"}. The ReAct trace is from [Yao et al., 2022](https://arxiv.org/abs/2210.03629){.external target="_blank"}; the BabyAGI diagram is from [yoheinakajima/babyagi_archive](https://github.com/yoheinakajima/babyagi_archive){.external target="_blank"}.](/images/agents-l1/history-emergence-of-agents.png){#fig-l1-emergence fig-alt="A timeline slide from ReAct in October 2022 through ChatGPT, GPT-4, BabyAGI and AutoGPT in late March 2023, with a ReAct trace and a BabyAGI loop diagram." .lightbox fig-align="center" width="100%"}
+:::
 
 What followed is less a single invention than a tightening of the same loop: better models, better tools, longer memory, more evaluation. The architecture of that loop is the [next page](agent-architectures.qmd). The compound systems around it are on [Compound AI systems](compound-ai-systems.qmd). The problems that appeared as soon as the loops left the demo — reliability, training, evaluation, safety — are on [Key challenges](agent-challenges.qmd).
 

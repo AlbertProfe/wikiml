@@ -54,6 +54,10 @@ flowchart TD
 
 This is not a moral ranking. A workflow can be more reliable precisely because the path is narrow. An agent can attempt tasks whose steps you could not have listed. Many production systems sit in between: a coded outer loop with a little agency inside a step, or an agent whose tools are themselves small workflows. The question to ask is always the same: who is allowed to decide what happens next?
 
+::: {.fig-on-white}
+![Workflows versus agents: who decides the next step — CS 329Z Lecture 1 (Diyi Yang, Michael Ryan, John Yang), [slide p. 56](https://web.stanford.edu/class/cs329z/slides/lecture01.pdf#page=56){.external target="_blank"}. The chart and the AlphaCode 2 example are from Zaharia et al., [The Shift from Models to Compound AI Systems](https://bair.berkeley.edu/blog/2024/02/18/compound-ai-systems/){.external target="_blank"} (BAIR, 18 February 2024).](/images/agents-l1/compound-workflows-vs-agents.png){#fig-l1-workflows-vs-agents fig-alt="A slide defining workflows and agents as compound AI systems, with a chart of AlphaCode 2 against the human contestant percentile curve." .lightbox fig-align="center" width="100%"}
+:::
+
 # Retrieval-augmented generation
 
 [RAG](../generative/generative-rag.qmd) is the most familiar compound pattern. The model is connected to an external knowledge source at run time, so the answer can rest on documents the model was never trained on, and that you can inspect.
@@ -68,6 +72,10 @@ flowchart LR
 1. **Retrieve** — search your documents for passages that look relevant.
 2. **Augment** — add those passages to the user's question as context.
 3. **Generate** — let the model write an answer that can use the retrieved facts.
+
+::: {.fig-on-white}
+![Retrieve, augment, generate — CS 329Z Lecture 1 (Diyi Yang, Michael Ryan, John Yang), [slide p. 57](https://web.stanford.edu/class/cs329z/slides/lecture01.pdf#page=57){.external target="_blank"}.](/images/agents-l1/compound-rag.png){#fig-l1-rag fig-alt="A slide titled Retrieval Augmented Generation: a retriever-and-reader sketch above three steps labelled retrieve, augment and generate." .lightbox fig-align="center" width="100%"}
+:::
 
 In the [agent architecture](agent-architectures.qmd), retrieval is a tool, and the retrieved text is context. The reason RAG gets its own heading is practical: it is how many systems first leave the frozen model, and it has its own failure modes (wrong passages, stale indexes, answers that ignore the evidence).
 
@@ -90,6 +98,10 @@ flowchart LR
 
 The lecture's toy example is "What does `test.py` contain?": the model selects a `read_file` tool, fills `{ "path": "test.py" }`, the path is checked as a string, the file body comes back, and the model can now answer. The interesting engineering is all the cases that are not this simple: the wrong tool, a path that escapes a directory, an argument that looks well-typed and is still harmful, a result so large it drowns the next prompt.
 
+::: {.fig-on-white}
+![The four stages of a tool call, with a read_file example — CS 329Z Lecture 1 (Diyi Yang, Michael Ryan, John Yang), [slide p. 58](https://web.stanford.edu/class/cs329z/slides/lecture01.pdf#page=58){.external target="_blank"}.](/images/agents-l1/compound-tool-call-anatomy.png){#fig-l1-tool-call fig-alt="A slide titled Tool Use: Anatomy of a Call, with four stages — select, arguments, validate, execute — and a read_file example asking what test.py contains." .lightbox fig-align="center" width="100%"}
+:::
+
 Two papers that taught models to *choose* tools, rather than merely describe them, are discussed on the [architectures](agent-architectures.qmd#tools-in-brief) page: [Toolformer](https://arxiv.org/abs/2302.04761){.external target="_blank"} (Schick et al., 2023) and [Gorilla](https://arxiv.org/abs/2305.15334){.external target="_blank"} (Patil et al., 2023).
 
 # Model Context Protocol
@@ -97,6 +109,10 @@ Two papers that taught models to *choose* tools, rather than merely describe the
 Once you have many tools, and many data sources, the integration problem ceases to be a model problem and becomes a socket problem. Each new application should not need a one-off adapter to each new model host.
 
 The [Model Context Protocol](https://modelcontextprotocol.io/){.external target="_blank"} (MCP) is an open standard for that socket: a common way for a host (the application that owns the model) to connect to servers that offer tools, data, and other context. CS 329Z Lecture 1 points at the [architecture page](https://modelcontextprotocol.io/docs/2026-07-28/learn/architecture){.external target="_blank"} of the 28 July 2026 documentation. The idea to carry away is not a particular field in the spec. It is the move from "we wired this one API into this one agent" to "tools and context are interchangeable behind a protocol".
+
+::: {.fig-on-white}
+![MCP as a standard socket between applications and tools or data — CS 329Z Lecture 1 (Diyi Yang, Michael Ryan, John Yang), [slide p. 59](https://web.stanford.edu/class/cs329z/slides/lecture01.pdf#page=59){.external target="_blank"}. Diagram after the [MCP architecture](https://modelcontextprotocol.io/docs/2026-07-28/learn/architecture){.external target="_blank"} documentation (28 July 2026).](/images/agents-l1/compound-mcp.png){#fig-l1-mcp fig-alt="A diagram of the Model Context Protocol in the centre, with chat interfaces, IDEs and other AI applications on the left, and data stores, development tools and productivity tools on the right." .lightbox fig-align="center" width="100%"}
+:::
 
 # In one table
 
