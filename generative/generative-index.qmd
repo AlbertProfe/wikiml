@@ -57,6 +57,7 @@ The generator network is trained to fool the discriminator network, while the di
 ![Illustration of GAN model](/images/generative/generative-gan.png)
 
 - [From GAN to WGAN](https://lilianweng.github.io/posts/2017-08-20-gan/){.external target='_blank'}
+- A full walk-through of the idea, the training loop and a tiny live example is in [Generative adversarial networks](gans.qmd).
 
 # Transformers
 

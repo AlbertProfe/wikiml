@@ -203,6 +203,10 @@ website:
             - generative/transformer-by-hand.qmd
             - generative/generative-transformer.qmd
         - text: "---"
+        - section: "GANs"
+          contents:
+            - generative/gans.qmd
+        - text: "---"
         - section: "Labs"
           contents:
             - generative/labs.qmd
