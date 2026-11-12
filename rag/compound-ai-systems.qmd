@@ -1,0 +1,129 @@
+---
+title: "Compound AI systems"
+subtitle: "An LLM plus the parts around it: RAG, tool use, and MCP"
+format:
+  html:
+    fontsize: "1.0em"
+    theme:
+      light: cosmo
+      dark: darkly
+    css: ../styles.css
+    toc: true
+    toc-depth: 5
+---
+
+# Not just a model
+
+::: {.callout-note}
+# Source
+
+A reader's guide to part of [CS 329Z Lecture 1](https://web.stanford.edu/class/cs329z/slides/lecture01.pdf){.external target="_blank"} (Diyi Yang, Michael Ryan and John Yang; [Engineering AI Agents](https://cs329z.stanford.edu/){.external target="_blank"}, Stanford, autumn 2026). The outline and the pointers come from that lecture; the wording on this page is ours. The course is also listed under [Resources](resources.qmd#cs329z).
+:::
+
+A compound AI system is a system that uses a language model *plus other components*. Retrieval, tools, code execution, ranking, control flow written in ordinary software — all of that counts. The name, and the argument that leading results increasingly come from such systems rather than from a single monolithic model, is from Zaharia, Khattab, Chen, Davis, Miller, Potts, Zou, Carbin, Frankle, Rao and Ghodsi, [The Shift from Models to Compound AI Systems](https://bair.berkeley.edu/blog/2024/02/18/compound-ai-systems/){.external target="_blank"} (BAIR, 18 February 2024). CS 329Z Lecture 1 takes that essay as the frame for this part of the course.
+
+The lecture also splits agent *engineering* into three layers, which is a useful map even before you choose a design:
+
+- the **system** — architecture, control flow, tools, interfaces;
+- the **data** — training examples, demonstrations, whatever you put in context;
+- the **evals**, and the metric they implement.
+
+Most of this page is about the first layer. Data and evaluation come back under [Key challenges](agent-challenges.qmd).
+
+::: {.callout-tip}
+# Everyday example
+
+A chef is not a recipe. A restaurant is a chef, a pantry, a set of utensils, a ticket rail that says which tickets come next, and a pass where someone checks the plate before it leaves. You can hire a better chef and still send out the wrong dish if the pantry is empty or the rail is a mess. A language model is the chef. RAG is the pantry. Tools are the utensils. The ticket rail is the control flow — and the interesting design question is who writes it: a person, in code, or the model, step by step.
+:::
+
+# Who decides the next step?
+
+The lecture's distinction is sharp, and it is about *control*, not about marketing.
+
+Both a **workflow** and an **agent** can be compound AI systems. In a workflow, *code* fixes the steps. The model fills in a stage: it drafts, or scores, or classifies, but the graph is already drawn. The lecture's examples are Agentless and AlphaCode 2: programmed pipelines that may sample and filter a lot of candidates, still under a fixed skeleton. In an **agent**, the *model* decides the steps. It looks at the current state and chooses a tool or a reply; the path is not wired in advance. The lecture's example is SWE-agent.
+
+```{mermaid}
+flowchart TD
+  subgraph workflow [Workflow]
+    W1[Code already fixed the steps] --> W2[The model fills a stage] --> W3[The next coded step]
+  end
+  subgraph agentloop [Agent]
+    A1[The model chooses the next step] --> A2[A tool call or a reply] --> A1
+  end
+```
+
+This is not a moral ranking. A workflow can be more reliable precisely because the path is narrow. An agent can attempt tasks whose steps you could not have listed. Many production systems sit in between: a coded outer loop with a little agency inside a step, or an agent whose tools are themselves small workflows. The question to ask is always the same: who is allowed to decide what happens next?
+
+# Retrieval-augmented generation
+
+[RAG](../generative/generative-rag.qmd) is the most familiar compound pattern. The model is connected to an external knowledge source at run time, so the answer can rest on documents the model was never trained on, and that you can inspect.
+
+The lecture's three steps are the usual ones:
+
+```{mermaid}
+flowchart LR
+  Q[The question] --> R[1. Retrieve] --> A[2. Augment] --> G[3. Generate]
+```
+
+1. **Retrieve** — search your documents for passages that look relevant.
+2. **Augment** — add those passages to the user's question as context.
+3. **Generate** — let the model write an answer that can use the retrieved facts.
+
+In the [agent architecture](agent-architectures.qmd), retrieval is a tool, and the retrieved text is context. The reason RAG gets its own heading is practical: it is how many systems first leave the frozen model, and it has its own failure modes (wrong passages, stale indexes, answers that ignore the evidence).
+
+# Anatomy of a tool call
+
+Tool use is the more general pattern. A model that can only retrieve documents is already useful. A model that can also read a file, run a test, or query an API can *change* the environment, not only quote it.
+
+The lecture breaks one call into four stages:
+
+```{mermaid}
+flowchart LR
+  S[Select] --> A[Arguments] --> V[Validate] --> E[Execute]
+  E --> C[Result returns to context]
+```
+
+- **Select** — which tool, from the schemas sitting in context.
+- **Arguments** — fill the typed fields from the task (a path, a query, a command).
+- **Validate** — check the arguments against the schema, sometimes with constrained decoding, *before* anything runs.
+- **Execute** — preferably in a sandbox; then return the result to the model's context so the next thought can use it.
+
+The lecture's toy example is "What does `test.py` contain?": the model selects a `read_file` tool, fills `{ "path": "test.py" }`, the path is checked as a string, the file body comes back, and the model can now answer. The interesting engineering is all the cases that are not this simple: the wrong tool, a path that escapes a directory, an argument that looks well-typed and is still harmful, a result so large it drowns the next prompt.
+
+Two papers that taught models to *choose* tools, rather than merely describe them, are discussed on the [architectures](agent-architectures.qmd#tools-in-brief) page: [Toolformer](https://arxiv.org/abs/2302.04761){.external target="_blank"} (Schick et al., 2023) and [Gorilla](https://arxiv.org/abs/2305.15334){.external target="_blank"} (Patil et al., 2023).
+
+# Model Context Protocol
+
+Once you have many tools, and many data sources, the integration problem ceases to be a model problem and becomes a socket problem. Each new application should not need a one-off adapter to each new model host.
+
+The [Model Context Protocol](https://modelcontextprotocol.io/){.external target="_blank"} (MCP) is an open standard for that socket: a common way for a host (the application that owns the model) to connect to servers that offer tools, data, and other context. CS 329Z Lecture 1 points at the [architecture page](https://modelcontextprotocol.io/docs/2026-07-28/learn/architecture){.external target="_blank"} of the 28 July 2026 documentation. The idea to carry away is not a particular field in the spec. It is the move from "we wired this one API into this one agent" to "tools and context are interchangeable behind a protocol".
+
+# In one table
+
+| Idea | In one sentence |
+| --- | --- |
+| Compound AI system | An LLM plus other components, not a model alone (Zaharia et al., 2024) |
+| Three layers | System, data, and evals — the job of engineering an agent |
+| Workflow | Code fixes the steps; the model fills a stage |
+| Agent | The model decides the next step |
+| RAG | Retrieve, augment the prompt, then generate |
+| Tool call | Select, fill arguments, validate, execute, return the result |
+| MCP | A standard interface between a model host and tool or data servers |
+
+# FAQ
+
+**Is every agent a compound AI system?** In the sense of this lecture, yes, once it has tools, retrieval, or any control flow around the model. A lone completion from a frozen model is not. The converse is false: a RAG pipeline with a fixed retrieve-then-generate graph is a compound system, but it is a workflow, not yet an agent.
+
+**Why not let the model do everything?** Because the model's parameters are a poor place to store your latest documents, a poor calculator, and a poor permission system. Retrieval, tools, validation, and sandboxing exist for reasons a bigger model does not remove. The BAIR essay is explicit about this: some of the gains now come from engineering the system, not only from scaling training.
+
+**Is MCP a kind of agent?** No. It is a protocol that agents (and other hosts) can use to reach tools and data. You can have agents without MCP, and MCP connections without much agency.
+
+**Where do evaluation and safety fit?** They are the other two layers, and they are easy to postpone until a demo looks good. That postponement is itself a [key challenge](agent-challenges.qmd). Kapoor et al., [AI Agents That Matter](https://arxiv.org/abs/2407.01502){.external target="_blank"} (arXiv, July 2024), is the reading for why accuracy-only agent benchmarks can mislead.
+
+# See also
+
+- [History of agents](history-of-agents.qmd)
+- [Agent architectures](agent-architectures.qmd)
+- [Key challenges in building agents](agent-challenges.qmd)
+- [Generative AI: RAG](../generative/generative-rag.qmd)
+- [RAG and agents: Resources](resources.qmd#cs329z)

@@ -228,6 +228,13 @@ website:
           contents:
             - generative/generative-rag.qmd
         - text: "---"
+        - section: "Agents"
+          contents:
+            - rag/history-of-agents.qmd
+            - rag/agent-architectures.qmd
+            - rag/compound-ai-systems.qmd
+            - rag/agent-challenges.qmd
+        - text: "---"
         - section: "Labs"
           contents:
             - rag/labs.qmd

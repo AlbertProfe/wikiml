@@ -3,7 +3,7 @@ title: "RAG and agents"
 ---
 
 ::: {.callout-note}
-This section is in progress. RAG is named in the [Generative AI overview](/generative/generative-index.qmd) and has a child page that is still an outline. There is no agents article yet.
+This section is in progress. RAG is named in the [Generative AI overview](/generative/generative-index.qmd) and has a child page that is still an outline. The first agents pages are reader's guides to [CS 329Z Lecture 1](https://web.stanford.edu/class/cs329z/slides/lecture01.pdf){.external target="_blank"}.
 :::
 
 # Why this section exists
@@ -15,6 +15,10 @@ I am not starting with a hedge-fund fantasy. The first honest pages here should 
 # Already here
 
 - [Generative AI RAG](/generative/generative-rag.qmd) — a short outline of what that page will become (it used to be the Quarto starter text).
+- [History of agents](history-of-agents.qmd) — from the ACTOR formalism to the LLM loop.
+- [Agent architectures](agent-architectures.qmd) — the model, planning and reasoning, memory, tools, and the environment.
+- [Compound AI systems](compound-ai-systems.qmd) — workflows versus agents, RAG, tool use, and MCP.
+- [Key challenges in building agents](agent-challenges.qmd) — reliability, training, evaluation, and safety.
 - A January 2025 bookmark, [Lab#RAG001](/labs/labs-index.qmd), points at an external agents write-up. That is a link list, not a classroom lab.
 
 # Coming next
@@ -22,7 +26,6 @@ I am not starting with a hedge-fund fantasy. The first honest pages here should 
 - Why a frozen model is not enough.
 - Embeddings and retrieval, in plain language.
 - One honest retrieve → augment → generate diagram.
-- A first agents page: tools, memory, the loop.
 
 # Labs and resources
 

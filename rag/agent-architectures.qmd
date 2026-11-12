@@ -1,0 +1,106 @@
+---
+title: "Agent architectures"
+subtitle: "A model, a plan, a memory, and a way to act"
+format:
+  html:
+    fontsize: "1.0em"
+    theme:
+      light: cosmo
+      dark: darkly
+    css: ../styles.css
+    toc: true
+    toc-depth: 5
+---
+
+# The skeleton of an agent
+
+::: {.callout-note}
+# Source
+
+A reader's guide to part of [CS 329Z Lecture 1](https://web.stanford.edu/class/cs329z/slides/lecture01.pdf){.external target="_blank"} (Diyi Yang, Michael Ryan and John Yang; [Engineering AI Agents](https://cs329z.stanford.edu/){.external target="_blank"}, Stanford, autumn 2026). The outline and the pointers come from that lecture; the wording on this page is ours. The course is also listed under [Resources](resources.qmd#cs329z).
+:::
+
+A modern language-model agent is not "the model". It is a small machine built around the model.
+
+CS 329Z Lecture 1 draws that machine as five parts: an **LLM core**, **planning and reasoning**, **memory**, **tools**, and an **environment**. The environment is the outside world the agent can observe and act on: a desktop, a browser, a repository, a game, a database, a user. The tools are how it acts: retrieval, a calculator, code, search, file operations, a memory read or write. The model sits in the middle. Planning and reasoning are the model's intermediate generations — the thoughts that update its own state before it commits to an action. Memory is the trace of what has already happened, and whatever was written down so the context window does not have to hold everything.
+
+[ReAct](https://arxiv.org/abs/2210.03629){.external target="_blank"} (Yao et al., 2022) is the usual picture of the loop: the model writes a thought, then an action, then sees an observation, then thinks again. Lilian Weng's [LLM Powered Autonomous Agents](https://lilianweng.github.io/posts/2023-06-23-agent/){.external target="_blank"} (June 2023) and [Cognitive Architectures for Language Agents](https://arxiv.org/abs/2309.02427){.external target="_blank"} (Sumers, Yao, Narasimhan and Griffiths; often cited as Sumers and Yao, 2024) organise the same pieces in slightly different diagrams. The names vary; the inventory does not.
+
+```{mermaid}
+flowchart LR
+  Env[Environment] -->|observe| Core[LLM core]
+  Plan[Planning and reasoning] --- Core
+  Mem[Memory] --- Core
+  Core --> Tools[Tools]
+  Tools -->|act| Env
+```
+
+::: {.callout-tip}
+# Everyday example
+
+You are cooking, you taste the pan, and the salt is gone. A reflex would be to stand still, or to grab the first bottle in reach. A more useful response is to think first: the dish should be savoury; soy sauce is in the cupboard on the right; turn, open the cupboard, look again. The thought is not the action. It is an internal step that changes what you do next. That is what reasoning is for in an agent: not a decoration on the transcript, but a way to choose a better act when the mapping from "what I see" to "what I should do" is hard.
+:::
+
+# Why reason before you act
+
+The lecture puts this in plain terms. For a person, reasoning covers deduction, analogy, planning. For a language model, "reasoning" is an intermediate generation that *imitates* some of those processes — not all of them, and not with a guarantee. For an agent, those intermediates are internal actions: they update the agent's state, and only then comes an external act.
+
+That helps in two directions the lecture labels **generalisation** and **alignment**. Generalisation: a thought can carry a goal ("this should be savoury") across a new kitchen, a new cupboard, a new bottle, so the policy is not a brittle lookup from one observation to one action. Alignment: the thought can also be a place to recall a constraint ("don't use the bottle that isn't yours") before the hand moves.
+
+Reasoning without acting is the older idea: chain-of-thought, where the model thinks in text and then answers, still inside its own context. It can help, and it can also hallucinate a confident wrong path, because nothing in the outside world ever contradicts it. ReAct's point is that acting — searching, running code, reading a file — gives the next thought something real to work with. The lecture notes, following the paper, that combining the two can reduce the kind of hallucination you get from thought alone, and that acting without thought is a weaker baseline than acting with it. We will not recopy the paper's tables; the idea is the loop, not a particular score.
+
+Two close cousins are worth knowing by name:
+
+- [Self-Consistency](https://arxiv.org/abs/2203.11171){.external target="_blank"} (Wang et al., ICLR 2023) samples several reasoning paths and keeps the answer they agree on most. Diversity, then a vote.
+- [Reflexion](https://arxiv.org/abs/2303.11366){.external target="_blank"} (Shinn et al., 2023) lets an agent write a short verbal reflection after feedback, and store that text as a hint for later attempts. A long failed trajectory is distilled into something the next try can actually use.
+
+When several models (or several roles) argue and revise, you get **multi-agent debate** — the lecture points to Du et al., 2023. When one controller assigns work to specialists, you get an **orchestrator**. [Magentic-One](https://www.microsoft.com/en-us/research/publication/magentic-one-a-generalist-multi-agent-system-for-solving-complex-tasks/){.external target="_blank"} (Microsoft Research) is the example on the slide: a generalist multi-agent system in which an orchestrator coordinates others to solve a complex task. Multi-agent design is a scaling of the same architecture, not a different species. It also creates new failure modes, which we take up under [Key challenges](agent-challenges.qmd).
+
+# Memory, because the window is not a life
+
+The context window cannot hold every event an agent will see. Even if it could, attending to the *relevant* events, or digesting them, would still be hard. So agents need a memory that sits beside the prompt.
+
+The lecture, following a distinction inspired by human long-term memory, classifies memory by *content* — not by the underlying store:
+
+| Type | What it stores | Write / read, as the lecture frames them | A standard example |
+| --- | --- | --- | --- |
+| Episodic | Experience: what happened | Write an append-only event stream; read by a retrieval score | [Generative Agents](https://arxiv.org/abs/2304.03442){.external target="_blank"} (Park et al., 2023) |
+| Semantic | Knowledge: what is true, or believed | Write by reasoning over events; read by retrieval | A distilled fact or profile, not the raw log |
+| Procedural | Skills: how to do a thing | Write as code-like skills; read by embedding retrieval | [Voyager](https://arxiv.org/abs/2305.16291){.external target="_blank"} (Wang et al., 2023) |
+
+A useful test is: if you deleted the current prompt, what would still be there? The event log, the notes the agent wrote to itself, the skills it saved. That is memory. The tokens on the present screen are only the working set.
+
+# Tools, in brief
+
+Tools are how the core reaches the environment. Early papers taught models to *choose* a tool, not only to talk about one. [Toolformer](https://arxiv.org/abs/2302.04761){.external target="_blank"} (Schick et al., 2023) trains a language model to decide which API to call, when, with what arguments, and how to put the result back into the text. The tools in that paper are a calculator, a question-answering system, a search engine, a translation system, and a calendar. [Gorilla](https://arxiv.org/abs/2305.15334){.external target="_blank"} (Patil et al., 2023) focuses on calling a large number of APIs correctly.
+
+The *shape* of a single call — select, fill arguments, validate, execute, return the result to context — belongs with [compound AI systems](compound-ai-systems.qmd), alongside RAG and MCP. The architectural point here is simpler: without tools, the agent can only speak; with tools, speech can become an action.
+
+# In one table
+
+| Piece | Role in the loop |
+| --- | --- |
+| LLM core | The model that writes thoughts, tool calls, and replies |
+| Planning and reasoning | Intermediate generations that update the agent's state before an act |
+| Memory | Experience, knowledge, and skills that do not all fit in the current window |
+| Tools | The actions: retrieval, code, search, files, and so on |
+| Environment | What the agent observes and changes: OS, browser, repo, database, user |
+| The loop | Observe, think, act, see what happened, repeat — as in ReAct |
+
+# FAQ
+
+**Is this the same as a reinforcement-learning agent?** Same loop, different flesh. Sutton and Barto's agent observes, acts, and receives a next state and a reward. An LLM agent often has no scalar reward at each step: it has a thought, a tool result, and a user. The [history page](history-of-agents.qmd) traces how one picture became the other.
+
+**Do I need several agents?** Not to start with. A single loop with tools and memory is already an agent architecture. Multiple agents — debate, or an orchestrator and specialists — are a way to split work or to criticise a draft. They also add coordination failures, which is why they show up again under [challenges](agent-challenges.qmd).
+
+**Where does RAG sit in this diagram?** Retrieval is a tool, and the retrieved text is context, which is a kind of memory. RAG is important enough, and standard enough, to have its own treatment on [Compound AI systems](compound-ai-systems.qmd) and on the section's [RAG page](../generative/generative-rag.qmd).
+
+**What should I read first?** Weng's [LLM Powered Autonomous Agents](https://lilianweng.github.io/posts/2023-06-23-agent/){.external target="_blank"} for a guided tour of planning, memory and tools; ReAct for the loop itself; CoALA for a more formal cognitive-architecture vocabulary.
+
+# See also
+
+- [History of agents](history-of-agents.qmd)
+- [Compound AI systems](compound-ai-systems.qmd)
+- [Key challenges in building agents](agent-challenges.qmd)
+- [RAG and agents: Resources](resources.qmd#cs329z)
+- [Generative AI: RAG](../generative/generative-rag.qmd)

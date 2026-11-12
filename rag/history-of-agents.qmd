@@ -1,0 +1,120 @@
+---
+title: "History of agents"
+subtitle: "From one who acts, to a language model in a loop"
+format:
+  html:
+    fontsize: "1.0em"
+    theme:
+      light: cosmo
+      dark: darkly
+    css: ../styles.css
+    toc: true
+    toc-depth: 5
+---
+
+# The word is older than the models
+
+::: {.callout-note}
+# Source
+
+A reader's guide to part of [CS 329Z Lecture 1](https://web.stanford.edu/class/cs329z/slides/lecture01.pdf){.external target="_blank"} (Diyi Yang, Michael Ryan and John Yang; [Engineering AI Agents](https://cs329z.stanford.edu/){.external target="_blank"}, Stanford, autumn 2026). The outline and the pointers come from that lecture; the wording on this page is ours. The course is also listed under [Resources](resources.qmd#cs329z).
+:::
+
+The word *agent* comes from the Latin *agens*: one who acts. That is a late-fifteenth-century sense, and it is still the right starting point. A thermostat acts. A trading program acts. A language model that only completes a prompt does not, on its own, act in the world: it writes tokens. The interesting story is how "agent" moved from a word for a person who acts on someone else's behalf, into AI, into reinforcement learning, and then, quite suddenly, onto a language model that can plan, call a tool, and look at the result.
+
+This page is the history. The next three pages take the architecture, the compound systems around an LLM, and the open problems.
+
+::: {.callout-tip}
+# Everyday example
+
+Think of a junior clerk in an office. At first they only copy letters (a language model with no tools). Then someone gives them a telephone, a filing cabinet, and a list of people they may call. Now they can *do* things: look something up, ring a supplier, write down what happened, and decide the next step. The clerk is the same person. What changed is the loop around them: observe, think, act, remember. That is the move this history is about.
+:::
+
+# A causal timeline
+
+```{mermaid}
+flowchart TD
+  H["1973: Hewitt, Bishop and Steiger, ACTOR formalism"] --> N["1980: Contract Net Protocol"]
+  N --> M["1986: Minsky, Society of Mind"]
+  M --> D["1990s: Maes; Wooldridge and Jennings; Russell and Norvig"]
+  D --> R["1998: Sutton and Barto, the agent–environment loop"]
+  R --> Q["2015: DQN on Atari"]
+  Q --> G["2020: GPT-3 and in-context learning"]
+  G --> K["2022: MRKL and ReAct"]
+  K --> C["2022–23: ChatGPT, then public agent loops"]
+```
+
+Each step is a reason for the next, not just a date on a poster. Actors needed a way to talk about independent processes that send messages. Negotiation protocols needed a way for those processes to hand off work. Cognitive metaphors and textbook definitions made "agent" a standard unit of AI. Reinforcement learning gave the unit a loop and a reward. Deep RL showed that the loop could learn hard games from pixels. Large language models then made the "think" step cheap to write in English, and tool use made the "act" step reach outside the model.
+
+# Before 1990
+
+CS 329Z Lecture 1 points to [A Universal Modular ACTOR Formalism for Artificial Intelligence](https://ijcai.org/proceedings/1973/0031.pdf){.external target="_blank"} (Hewitt, Bishop and Steiger, IJCAI 1973) as an early indexed use of *agent* in AI. The paper is about actors: independent computational entities that communicate by passing messages. That is already a step away from "one big program that knows everything".
+
+In 1980 the [Contract Net Protocol](https://ieeexplore.ieee.org/document/1675516){.external target="_blank"} (Smith) described how such agents could negotiate tasks: announce work, bid, award a contract. The picture is a small labour market, not a single controller with a fixed plan.
+
+In 1986 Marvin Minsky published *The Society of Mind*. Intelligence, in that book, is not one homunculus. It is a society of simpler processes whose interactions add up to something that looks like a mind. You can see the rhyme with later multi-agent designs, even if the mechanisms are different.
+
+# The 1990s: trying to say what an agent is
+
+By the mid-1990s the word needed a definition, because everyone was using it.
+
+- Pattie Maes, in work collected as *Designing Autonomous Agents* (1994), is a standard pointer for agents that act in a world with some independence from a human operator.
+- [Wooldridge and Jennings (1995)](https://www.cs.ox.ac.uk/people/michael.wooldridge/pubs/ker95.pdf){.external target="_blank"} gave a widely cited cluster of properties: autonomy, social ability, reactivity, and proactiveness. An agent is not only a function from an input to an output. It has its own thread of control, it can deal with other agents, it responds to what just happened, and it can take the initiative.
+- The first edition of Russell and Norvig's *Artificial Intelligence: A Modern Approach* (1995) made a cleaner, more operational definition: an agent is anything that perceives its environment through sensors and acts upon that environment through actuators. A thermostat counts. So does a robot. So, later, does a language model with tools.
+
+Those three views are not in conflict so much as they are at different zoom levels. Russell and Norvig give you a test you can apply to a thermostat. Wooldridge and Jennings tell you what people usually mean when they want something richer than a thermostat.
+
+# The reinforcement-learning era
+
+*Reinforcement Learning: An Introduction* (Sutton and Barto, 1998) put the agent–environment loop at the centre of a textbook: at each step the agent observes a state, chooses an action, and receives a next state and a reward. The goal is to learn a policy that accumulates reward. For a couple of decades, when someone in machine learning said "agent", this was often what they meant.
+
+The loop became famous again when deep networks started to learn it from raw observations. [Human-level control through deep reinforcement learning](https://www.nature.com/articles/nature14236){.external target="_blank"} (Mnih et al., 2015) trained a deep Q-network on Atari games from pixels and scores. The agent was no longer a hand-built controller with a small state table. It was a network that improved by playing.
+
+That success is part of why today's language-model agents still talk about *observations*, *actions*, and *environments*. The objects changed — a web page instead of a game screen, a tool call instead of a joystick — but the loop did not.
+
+# The language-model era
+
+Two things had to happen before "LLM agent" became a common phrase.
+
+First, the models had to be able to change their behaviour from the prompt alone. [Language Models are Few-Shot Learners](https://arxiv.org/abs/2005.14165){.external target="_blank"} (Brown et al., 2020) showed that GPT-3 could pick up a new format or a new task from a handful of examples in context, without a gradient step. Once you can teach a model a pattern in the prompt, you can also teach it a *procedure*: think, then act, then look at the result.
+
+Second, people started to wrap the model in other components. [MRKL Systems](https://arxiv.org/abs/2205.00445){.external target="_blank"} (Karpas et al., 2022) argued for a modular, neuro-symbolic design: a language model plus external knowledge sources and discrete reasoners, rather than asking the model to do everything in its parameters. That is already a compound system, even if the word "agent" is not yet on every slide.
+
+Then the loop was written out in the model's own language. [ReAct](https://arxiv.org/abs/2210.03629){.external target="_blank"} (Yao, Zhao, Yu, Du, Shafran, Narasimhan and Cao; arXiv, October 2022) interleaved reasoning traces with actions and observations. The model does not only answer. It can decide to search, read what came back, think again, and only then commit. The lecture treats this paper as the hinge between "an LLM that reasons" and "an LLM that acts".
+
+Public systems arrived in a hurry around the same time. ChatGPT was released on 30 November 2022. GPT-4 was announced on 14 March 2023. In late March 2023, public loops such as BabyAGI and AutoGPT made the same idea tangible for a much wider audience: give a model a goal, let it propose the next step, let it use tools, repeat. Capability was moving; so was attention.
+
+What followed is less a single invention than a tightening of the same loop: better models, better tools, longer memory, more evaluation. The architecture of that loop is the [next page](agent-architectures.qmd). The compound systems around it are on [Compound AI systems](compound-ai-systems.qmd). The problems that appeared as soon as the loops left the demo — reliability, training, evaluation, safety — are on [Key challenges](agent-challenges.qmd).
+
+# In one table
+
+| When | What changed | Why it mattered |
+| --- | --- | --- |
+| 1973 | Hewitt, Bishop and Steiger, ACTOR formalism | An early AI use of independent, message-passing "agents" |
+| 1980 | Smith's Contract Net Protocol | Agents can negotiate and hand off tasks |
+| 1986 | Minsky, *The Society of Mind* | Intelligence as many simple processes, not one homunculus |
+| 1994–95 | Maes; Wooldridge and Jennings; Russell and Norvig | Shared vocabulary: autonomy, social ability, sensors and actuators |
+| 1998 | Sutton and Barto | The agent–environment loop, with reward, becomes a standard |
+| 2015 | Mnih et al., DQN on Atari | The loop can be learned at scale from raw observations |
+| 2020 | Brown et al., GPT-3 | In-context learning makes a new procedure cheap to write in the prompt |
+| 2022 | MRKL; ReAct (October) | Modular tools, then an explicit reason–act–observe loop |
+| 2022–23 | ChatGPT, GPT-4, public agent loops | The pattern leaves the paper and becomes a product idea |
+
+# FAQ
+
+**Is a language model already an agent?** Not by itself, if you take the word in the Russell and Norvig sense. A frozen model maps a prompt to tokens. It becomes agent-like when you put it in a loop with observations and actions — tools, a browser, a codebase, a user.
+
+**Did "agent" in AI start with ChatGPT?** No. The lecture is careful about this. The word has a long AI history: actors, negotiation protocols, textbook definitions, reinforcement learning. What changed in 2022–23 was that the *policy* could be a large language model, and the *actions* could be tool calls written in text.
+
+**Why does ReAct sit at the centre of the recent story?** Because it made the loop explicit in the model's own generations: a thought, an action, an observation, another thought. Later designs add memory, more tools, or several agents, but they are still variations on that skeleton. See [Agent architectures](agent-architectures.qmd).
+
+**Where should I read next, besides the lecture?** Lilian Weng's [LLM Powered Autonomous Agents](https://lilianweng.github.io/posts/2023-06-23-agent/){.external target="_blank"} (23 June 2023) is a clear survey of planning, memory, and tools. For the move from a single model to a system, see Zaharia et al., [The Shift from Models to Compound AI Systems](https://bair.berkeley.edu/blog/2024/02/18/compound-ai-systems/){.external target="_blank"} (BAIR, 18 February 2024). For how we know whether an agent is actually useful, see Kapoor, Stroebl, Siegel, Nadgir and Narayanan, [AI Agents That Matter](https://arxiv.org/abs/2407.01502){.external target="_blank"} (arXiv, July 2024).
+
+# See also
+
+- [Agent architectures](agent-architectures.qmd)
+- [Compound AI systems](compound-ai-systems.qmd)
+- [Key challenges in building agents](agent-challenges.qmd)
+- [RAG and agents: Resources](resources.qmd#cs329z), including the CS 329Z entry
+- [Generative AI: RAG](../generative/generative-rag.qmd)
+- [Evolution of attention](../generative/evolution-of-attention.qmd) and [Attention Is All You Need](../generative/attention-is-all-you-need.qmd), for the models these agents sit on
