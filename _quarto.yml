@@ -34,6 +34,7 @@ website:
       - sidebar:rag
       - sidebar:aidev
       - sidebar:mlops
+      - sidebar:sysdesign
       - sidebar:training
 
   sidebar:
@@ -286,6 +287,23 @@ website:
         - section: "Resources"
           contents:
             - mlops/resources.qmd
+
+    - id: "sysdesign"
+      title: "System Design"
+      contents:
+        - text: "System Design"
+        - text: "---"
+        - section: "What is this section?"
+          contents:
+            - sysdesign/sysdesign-index.qmd
+        - text: "---"
+        - section: "Labs"
+          contents:
+            - sysdesign/labs.qmd
+        - text: "---"
+        - section: "Resources"
+          contents:
+            - sysdesign/resources.qmd
 
     - id: "training"
       title: "Training"

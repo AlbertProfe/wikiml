@@ -332,6 +332,7 @@ format:
           <li role="none"><a role="menuitem" href="rag/rag-index.html">RAG and agents</a></li>
           <li role="none"><a role="menuitem" href="aidev/aidev-index.html">AI for developers</a></li>
           <li role="none"><a role="menuitem" href="mlops/mlops-index.html">MLOps</a></li>
+          <li role="none"><a role="menuitem" href="sysdesign/sysdesign-index.html">System Design</a></li>
           <li role="none"><a role="menuitem" href="training/training-index.html">Training</a></li>
         </ul>
       </div>
@@ -417,7 +418,7 @@ format:
 
   <section id="library" class="lp-reveal">
     <div class="lp-label">The library</div>
-    <h2>Ten sections, each with Labs and Resources</h2>
+    <h2>Eleven sections, each with Labs and Resources</h2>
     <p class="lp-lead">Existing articles stay at their URLs. New sections begin with an honest outline rather than empty boilerplate. About is not a section here — it lives on the teaching wiki.</p>
     <div class="lp-grid">
       <a class="lp-card" href="foundations/foundations-index.html"><div class="lp-card-icon">🧱</div><h3>Foundations</h3>
@@ -447,6 +448,9 @@ format:
       <a class="lp-card" href="mlops/mlops-index.html"><div class="lp-card-icon">⚙️</div><h3>MLOps</h3>
         <p class="lp-muted">How the code is structured, how a run is repeated, train versus serve. Outline only.</p>
         <div class="lp-card-meta">3 pages · in progress</div></a>
+      <a class="lp-card" href="sysdesign/sysdesign-index.html"><div class="lp-card-icon">🏗️</div><h3>System Design</h3>
+        <p class="lp-muted">ML system design first — framing, pipelines, feature stores, evaluation, monitoring, LLM and RAG serving — then general system design. A roadmap; articles still to come.</p>
+        <div class="lp-card-meta">3 pages · roadmap</div></a>
       <a class="lp-card" href="training/training-index.html"><div class="lp-card-icon">🎓</div><h3>Training</h3>
         <p class="lp-muted">Mirrors Training on albertprofe.dev. No live AI course is documented here yet — no invented sprint or calendar.</p>
         <div class="lp-card-meta">3 pages · waiting for a course</div></a>
@@ -482,6 +486,7 @@ format:
       <a href="rag/rag-index.html">RAG</a><span class="sep">·</span>
       <a href="aidev/aidev-index.html">AI for developers</a><span class="sep">·</span>
       <a href="mlops/mlops-index.html">MLOps</a><span class="sep">·</span>
+      <a href="sysdesign/sysdesign-index.html">System Design</a><span class="sep">·</span>
       <a href="training/training-index.html">Training</a>
     </div>
   </footer>

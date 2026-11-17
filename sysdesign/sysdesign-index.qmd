@@ -1,0 +1,80 @@
+---
+title: "System Design"
+subtitle: "How an ML idea becomes a system, and how systems stay up"
+---
+
+::: {.callout-note}
+This section is new. The roadmap below is real — the articles are not written yet. Where a topic already lives in [MLOps](/mlops/mlops-index.qmd), [Model evaluation](/evaluation/evaluation-index.qmd), [RAG and agents](/rag/rag-index.qmd) or [LLMs and Transformers](/generative/generative-index.qmd), this page points there instead of saying it twice.
+:::
+
+# Why this section exists
+
+A model in a notebook is a prototype. A system is what happens when that prototype has to answer real requests, on fresh data, while someone watches whether it is still doing the job.
+
+This wiki already talks about how a model is trained, how it is evaluated, how a language model is served at inference time, and how RAG retrieves before it generates. System design is the layer that ties those pieces together: what problem is worth a model, how data reaches it, how training and serving are kept apart, and what fails when traffic, latency or the world itself changes.
+
+The section has two parts, in this order. **ML system design comes first**, because that is the work this wiki is built around. **General system design comes second**, because an ML service still sits on the same ideas as any other service: load, caches, queues, databases and consistency.
+
+```{mermaid}
+flowchart LR
+  A["Problem framing"] --> B["Data pipelines"]
+  B --> C["Train vs serve"]
+  C --> D["Feature store"]
+  D --> E["Evaluate"]
+  E --> F["Monitor"]
+  F --> G["LLM / RAG serving"]
+  G --> H["Scale, cache, queues"]
+```
+
+# Part 1 — ML system design
+
+These are the pages I intend to write here. None of them exist yet, except as links to work already done elsewhere.
+
+## Problem framing
+
+Not every useful prediction needs a learned model. Sometimes a rule, a query or a simpler statistical baseline is enough, cheaper, and easier to explain. A first page should ask: what is the decision, what is the cost of being wrong, and is machine learning the right tool? This sits next to [What is machine learning](/machine/machine-index.qmd), which already covers the decision / error / optimisation loop.
+
+## Data pipelines
+
+Training data is collected, cleaned, labelled and versioned long before a training job starts. Serving data has to look like that training data, or the model quietly degrades. The [Data](/bigdata/bigdata-index.qmd) section currently holds a Big Data overview; pipelines, freshness and training–serving skew belong here once they are written.
+
+## Training versus serving
+
+Two different jobs, often mistaken for one. Training is slow, batchy and allowed to retry. Serving is latency-bound and has to stay up. [MLOps](/mlops/mlops-index.qmd) is where I will write how code is structured, how a run is repeated, and how train and serve differ as a practice. This section will use that distinction, not repeat it, and then follow the request as it travels through features, the model and a response.
+
+## Feature stores
+
+A feature used at training time has to be available, with the same definition, at serving time. A feature store is the shared catalogue and the serving path for those values — point-in-time correctness for training, low-latency lookups for inference. That page will live here.
+
+## Online and offline evaluation
+
+[Model evaluation](/evaluation/evaluation-index.qmd) is the home for splits, metrics, overfitting and cross-validation. What this section adds is the system question: the offline test that says a new model is better, and the online test (a canary, an A/B experiment, a shadow run) that asks whether it is better for live users.
+
+## Monitoring
+
+Once a model is in production it can fail without crashing. Data drift, concept drift, a silent drop in precision, a feature that stopped arriving — these are system failures. Monitoring here means watching inputs, outputs and business metrics, not only CPU.
+
+## LLM and RAG serving
+
+Language models and retrieval pipelines have their own serving shape: prefill and decode, context windows, index freshness, fallback when retrieval is empty. The model internals are already written — [language-model inference](/generative/language-model-inference.qmd), [why RAG](/rag/why-rag.qmd), [indexing](/rag/rag-indexing.qmd), [retrieval](/rag/rag-retrieval.qmd), [agentic RAG](/rag/agentic-rag.qmd) and [failure modes](/rag/rag-failure-modes.qmd). A later page here will talk about deploying that stack: batching, caching generations, keeping an index in sync, and what to measure when the “model” is a pipeline.
+
+# Part 2 — General system design
+
+An ML service is still a service. These topics are not ML-specific, but they decide whether the service holds under load. Pages I intend to write:
+
+| Topic | What the page should make clear |
+|---|---|
+| Scalability | Vertical versus horizontal growth, and where a bottleneck actually sits. |
+| Load balancing | How requests are spread, and what happens when one replica is slow or dead. |
+| Caching | What is safe to remember, for how long, and how a stale cache becomes a wrong answer. |
+| Queues | Turning a spike of work into a backlog that can be drained, with retries and dead letters. |
+| Databases | When a row store, a document store, a warehouse or a vector index is the right tool. |
+| Consistency | What a reader is allowed to see after a write — strong, eventual, and the trade-off with availability. |
+
+# How to read this section
+
+Start with this roadmap. When an article appears, the outline above will shrink and the sidebar will grow. For day-to-day ML engineering practice, begin at [MLOps](/mlops/mlops-index.qmd). For the models themselves, begin at [LLMs and Transformers](/generative/generative-index.qmd) or [RAG and agents](/rag/rag-index.qmd). For putting a model inside a program, see [AI for developers](/aidev/aidev-index.qmd).
+
+# Labs and resources
+
+See [Labs](labs.qmd) and [Resources](resources.qmd) for this section.

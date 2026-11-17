@@ -1,0 +1,18 @@
+---
+title: "System Design: Resources"
+---
+
+# Resources for this section
+
+Real references, checked on 17 November 2026 (Europe/Madrid). Each link below returned HTTP 200.
+
+## ML system design
+
+- [Designing Machine Learning Systems](https://www.amazon.com/Designing-Machine-Learning-Systems-Production-Ready/dp/1098107969){.external target="_blank"} — Chip Huyen, O'Reilly, 2022. A production-oriented walk through data, training, serving and monitoring. The author's companion repo is [chiphuyen/dmls-book](https://github.com/chiphuyen/dmls-book){.external target="_blank"}; her site is [huyenchip.com](https://huyenchip.com/){.external target="_blank"}.
+- [Rules of Machine Learning](https://developers.google.com/machine-learning/guides/rules-of-ml){.external target="_blank"} — Martin Zinkevich, Google. A practical checklist for shipping and iterating on ML in a production system.
+
+## General system design
+
+- [Core topics of system design](https://designed-to-scale.vercel.app/#/hld-lld/1){.external target="_blank"} — [Designed to Scale](https://designed-to-scale.vercel.app/){.external target="_blank"}, an interactive system-design course with stepped animated diagrams. The linked lesson, *HLD & LLD*, is the first of the Whole Systems module: high-level design is the map of services and how they connect; low-level design is the inside of one of them — classes, tables and rules. The rest of the course covers foundations, scaling, data and storage, communication, reliability, architecture, security and shipping.
+- [system-design-primer](https://github.com/donnemartin/system-design-primer){.external target="_blank"} — Donne Martin. A widely used, open walkthrough of scalability, databases, caching, queues and consistency, with exercises.
+- [ByteByteGo](https://bytebytego.com/){.external target="_blank"} — Alex Xu and the ByteByteGo team. System-design explainers and diagrams; the [blog](https://blog.bytebytego.com/){.external target="_blank"} is freely readable.
