@@ -15,3 +15,7 @@ title: "AI for developers: Resources"
 - [AI Engineering from Scratch](https://aiengineeringfromscratch.com/){.external target='_blank'} — a free open-source course: build the maths and the code first, then the frameworks, from linear algebra to agents.
 - [Agentic Engineering 101](https://agenticengineering101.ai/){.external target='_blank'} — a free course on running many AI coding agents at once, and still keeping the quality.
 
+
+## Interview practice
+
+- [Buncho: AI, ML and GenAI interview questions](https://www.buncho.live/problems){.external target="_blank"} — a curated question library for AI engineering interviews, covering LLMs, RAG, deep learning, MLOps and system design. Read the question and practise the answer in your own words.

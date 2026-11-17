@@ -13,6 +13,12 @@ The 3Blue1Brown video *Transformers (how LLMs work) explained visually* is embed
 - [Generative AI in a Nutshell - how to survive and thrive in the age of AI](https://youtu.be/2IK3DFHRFfw?feature=shared){.external target='_blank'}
 - [Generative AI in a Nutshell: poster](https://blog.crisp.se/wp-content/uploads/2024/01/generative-AI-in-a-nutshell.png){.external target='_blank'}
 
+## Visualisations and walk-throughs
+
+- [LLM Visualization](https://bbycroft.net/llm){.external target="_blank"} — Brendan Bycroft. A 3D animated walkthrough of the algorithm behind a GPT-style model, down to each add and multiply.
+- [How GPT-3 Works — Visualizations and Animations](https://jalammar.github.io/how-gpt3-works-visualizations-animations/){.external target="_blank"} — Jay Alammar. A picture-and-animation tour of how a trained language model generates text, and how a prompt steers it.
+- [How ChatGPT Works](https://howchatgptworks.com/){.external target="_blank"} — an interactive visual guide to the Transformer behind ChatGPT, from tokenisation to attention.
+
 ## Papers and books
 
 - <span class="chip chip-warning">paper</span> [Attention Is All You Need](https://proceedings.neurips.cc/paper_files/paper/2017/file/3f5ee243547dee91fbd053c1c4a845aa-Paper.pdf){.external target='_blank'} — the 2017 Transformer paper. A [reader's guide](attention-is-all-you-need.qmd) walks through it; the story that leads to it is in [The evolution of attention](evolution-of-attention.qmd).

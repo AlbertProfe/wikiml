@@ -11,6 +11,10 @@ Real references, checked on 17 November 2026 (Europe/Madrid). Each link below re
 - [Designing Machine Learning Systems](https://www.amazon.com/Designing-Machine-Learning-Systems-Production-Ready/dp/1098107969){.external target="_blank"} — Chip Huyen, O'Reilly, 2022. A production-oriented walk through data, training, serving and monitoring. The author's companion repo is [chiphuyen/dmls-book](https://github.com/chiphuyen/dmls-book){.external target="_blank"}; her site is [huyenchip.com](https://huyenchip.com/){.external target="_blank"}.
 - [Rules of Machine Learning](https://developers.google.com/machine-learning/guides/rules-of-ml){.external target="_blank"} — Martin Zinkevich, Google. A practical checklist for shipping and iterating on ML in a production system.
 
+## Courses
+
+- [First Principles Approach](https://firstprinciplesapproach.dev/){.external target="_blank"} — a catalogue of free long-form courses that rebuild a subject from the first idea. It includes *System Design From First Principles*, plus databases, LLMs from scratch, and the mathematics inside them.
+
 ## General system design
 
 - [Core topics of system design](https://designed-to-scale.vercel.app/#/hld-lld/1){.external target="_blank"} — [Designed to Scale](https://designed-to-scale.vercel.app/){.external target="_blank"}, an interactive system-design course with stepped animated diagrams. The linked lesson, *HLD & LLD*, is the first of the Whole Systems module: high-level design is the map of services and how they connect; low-level design is the inside of one of them — classes, tables and rules. The rest of the course covers foundations, scaling, data and storage, communication, reliability, architecture, security and shipping.
