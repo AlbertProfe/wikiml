@@ -1718,7 +1718,7 @@
     "href": "generative/resources.html",
     "title": "LLMs and Transformers: Resources",
     "section": "",
-    "text": "The Generative AI overview already compares RAG, GANs, LLMs, GPT, autoencoders and Transformers, and includes the original transformer figure.\nThe 3Blue1Brown video Transformers (how LLMs work) explained visually is embedded on ANN: model and demos.\n\n\n\nGenerative AI in a Nutshell - how to survive and thrive in the age of AI\nGenerative AI in a Nutshell: poster\n\n\n\n\n\npaper Attention Is All You Need — the 2017 Transformer paper. A reader’s guide walks through it; the story that leads to it is in The evolution of attention.\npaper Generative Adversarial Nets — the 2014 GAN paper (NIPS 2014; also on arXiv). A walk-through of the game, the training loop and a tiny live example is in Generative adversarial networks.\nLLM Engineer’s Handbook: Master the art of engineering large language models from concept to production\nRepo",
+    "text": "The Generative AI overview already compares RAG, GANs, LLMs, GPT, autoencoders and Transformers, and includes the original transformer figure.\nThe 3Blue1Brown video Transformers (how LLMs work) explained visually is embedded on ANN: model and demos.\n\n\n\nGenerative AI in a Nutshell - how to survive and thrive in the age of AI\nGenerative AI in a Nutshell: poster\n\n\n\n\n\nLLM Visualization — Brendan Bycroft. A 3D animated walkthrough of the algorithm behind a GPT-style model, down to each add and multiply.\nHow GPT-3 Works — Visualizations and Animations — Jay Alammar. A picture-and-animation tour of how a trained language model generates text, and how a prompt steers it.\nHow ChatGPT Works — an interactive visual guide to the Transformer behind ChatGPT, from tokenisation to attention.\n\n\n\n\n\npaper Attention Is All You Need — the 2017 Transformer paper. A reader’s guide walks through it; the story that leads to it is in The evolution of attention.\npaper Generative Adversarial Nets — the 2014 GAN paper (NIPS 2014; also on arXiv). A walk-through of the game, the training loop and a tiny live example is in Generative adversarial networks.\nLLM Engineer’s Handbook: Master the art of engineering large language models from concept to production\nRepo",
     "crumbs": [
       "Resources",
       "LLMs and Transformers: Resources"
@@ -1730,6 +1730,17 @@
     "title": "LLMs and Transformers: Resources",
     "section": "",
     "text": "Generative AI in a Nutshell - how to survive and thrive in the age of AI\nGenerative AI in a Nutshell: poster",
+    "crumbs": [
+      "Resources",
+      "LLMs and Transformers: Resources"
+    ]
+  },
+  {
+    "objectID": "generative/resources.html#visualisations-and-walk-throughs",
+    "href": "generative/resources.html#visualisations-and-walk-throughs",
+    "title": "LLMs and Transformers: Resources",
+    "section": "",
+    "text": "LLM Visualization — Brendan Bycroft. A 3D animated walkthrough of the algorithm behind a GPT-style model, down to each add and multiply.\nHow GPT-3 Works — Visualizations and Animations — Jay Alammar. A picture-and-animation tour of how a trained language model generates text, and how a prompt steers it.\nHow ChatGPT Works — an interactive visual guide to the Transformer behind ChatGPT, from tokenisation to attention.",
     "crumbs": [
       "Resources",
       "LLMs and Transformers: Resources"
@@ -2159,7 +2170,7 @@
     "href": "aidev/resources.html",
     "title": "AI for developers: Resources",
     "section": "",
-    "text": "n8n\nBuild LLM Apps Easily\nAbacus\n\n\n\n\n\nAI Engineering from Scratch — a free open-source course: build the maths and the code first, then the frameworks, from linear algebra to agents.\nAgentic Engineering 101 — a free course on running many AI coding agents at once, and still keeping the quality.",
+    "text": "n8n\nBuild LLM Apps Easily\nAbacus\n\n\n\n\n\nAI Engineering from Scratch — a free open-source course: build the maths and the code first, then the frameworks, from linear algebra to agents.\nAgentic Engineering 101 — a free course on running many AI coding agents at once, and still keeping the quality.\n\n\n\n\n\nBuncho: AI, ML and GenAI interview questions — a curated question library for AI engineering interviews, covering LLMs, RAG, deep learning, MLOps and system design. Read the question and practise the answer in your own words.",
     "crumbs": [
       "Resources",
       "AI for developers: Resources"
@@ -2182,6 +2193,17 @@
     "title": "AI for developers: Resources",
     "section": "",
     "text": "AI Engineering from Scratch — a free open-source course: build the maths and the code first, then the frameworks, from linear algebra to agents.\nAgentic Engineering 101 — a free course on running many AI coding agents at once, and still keeping the quality.",
+    "crumbs": [
+      "Resources",
+      "AI for developers: Resources"
+    ]
+  },
+  {
+    "objectID": "aidev/resources.html#interview-practice",
+    "href": "aidev/resources.html#interview-practice",
+    "title": "AI for developers: Resources",
+    "section": "",
+    "text": "Buncho: AI, ML and GenAI interview questions — a curated question library for AI engineering interviews, covering LLMs, RAG, deep learning, MLOps and system design. Read the question and practise the answer in your own words.",
     "crumbs": [
       "Resources",
       "AI for developers: Resources"
@@ -2390,7 +2412,7 @@
     "href": "sysdesign/resources.html",
     "title": "System Design: Resources",
     "section": "",
-    "text": "Real references, checked on 17 November 2026 (Europe/Madrid). Each link below returned HTTP 200.\n\n\n\nDesigning Machine Learning Systems — Chip Huyen, O’Reilly, 2022. A production-oriented walk through data, training, serving and monitoring. The author’s companion repo is chiphuyen/dmls-book; her site is huyenchip.com.\nRules of Machine Learning — Martin Zinkevich, Google. A practical checklist for shipping and iterating on ML in a production system.\n\n\n\n\n\nCore topics of system design — Designed to Scale, an interactive system-design course with stepped animated diagrams. The linked lesson, HLD & LLD, is the first of the Whole Systems module: high-level design is the map of services and how they connect; low-level design is the inside of one of them — classes, tables and rules. The rest of the course covers foundations, scaling, data and storage, communication, reliability, architecture, security and shipping.\nsystem-design-primer — Donne Martin. A widely used, open walkthrough of scalability, databases, caching, queues and consistency, with exercises.\nByteByteGo — Alex Xu and the ByteByteGo team. System-design explainers and diagrams; the blog is freely readable.",
+    "text": "Real references, checked on 17 November 2026 (Europe/Madrid). Each link below returned HTTP 200.\n\n\n\nDesigning Machine Learning Systems — Chip Huyen, O’Reilly, 2022. A production-oriented walk through data, training, serving and monitoring. The author’s companion repo is chiphuyen/dmls-book; her site is huyenchip.com.\nRules of Machine Learning — Martin Zinkevich, Google. A practical checklist for shipping and iterating on ML in a production system.\n\n\n\n\n\nFirst Principles Approach — a catalogue of free long-form courses that rebuild a subject from the first idea. It includes System Design From First Principles, plus databases, LLMs from scratch, and the mathematics inside them.\n\n\n\n\n\nCore topics of system design — Designed to Scale, an interactive system-design course with stepped animated diagrams. The linked lesson, HLD & LLD, is the first of the Whole Systems module: high-level design is the map of services and how they connect; low-level design is the inside of one of them — classes, tables and rules. The rest of the course covers foundations, scaling, data and storage, communication, reliability, architecture, security and shipping.\nsystem-design-primer — Donne Martin. A widely used, open walkthrough of scalability, databases, caching, queues and consistency, with exercises.\nByteByteGo — Alex Xu and the ByteByteGo team. System-design explainers and diagrams; the blog is freely readable.",
     "crumbs": [
       "Resources",
       "System Design: Resources"
@@ -2402,6 +2424,17 @@
     "title": "System Design: Resources",
     "section": "",
     "text": "Designing Machine Learning Systems — Chip Huyen, O’Reilly, 2022. A production-oriented walk through data, training, serving and monitoring. The author’s companion repo is chiphuyen/dmls-book; her site is huyenchip.com.\nRules of Machine Learning — Martin Zinkevich, Google. A practical checklist for shipping and iterating on ML in a production system.",
+    "crumbs": [
+      "Resources",
+      "System Design: Resources"
+    ]
+  },
+  {
+    "objectID": "sysdesign/resources.html#courses",
+    "href": "sysdesign/resources.html#courses",
+    "title": "System Design: Resources",
+    "section": "",
+    "text": "First Principles Approach — a catalogue of free long-form courses that rebuild a subject from the first idea. It includes System Design From First Principles, plus databases, LLMs from scratch, and the mathematics inside them.",
     "crumbs": [
       "Resources",
       "System Design: Resources"
