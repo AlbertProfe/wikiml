@@ -25,6 +25,41 @@ website:
     right:
       - href: index.qmd
         text: Home
+      - text: Sections
+        menu:
+          - text: Foundations
+            icon: bricks
+            file: foundations/foundations-index.qmd
+          - text: Data
+            icon: database
+            file: bigdata/bigdata-index.qmd
+          - text: Classic ML
+            icon: graph-up
+            file: algorithms/algo-index.qmd
+          - text: Model evaluation
+            icon: bullseye
+            file: evaluation/evaluation-index.qmd
+          - text: Deep Learning
+            icon: share
+            file: deep/deep-index.qmd
+          - text: LLMs and Transformers
+            icon: stars
+            file: generative/generative-index.qmd
+          - text: RAG and agents
+            icon: search
+            file: rag/rag-index.qmd
+          - text: AI for developers
+            icon: code-slash
+            file: aidev/aidev-index.qmd
+          - text: MLOps
+            icon: gear-wide-connected
+            file: mlops/mlops-index.qmd
+          - text: System Design
+            icon: diagram-3
+            file: sysdesign/sysdesign-index.qmd
+          - text: Training
+            icon: mortarboard
+            file: training/training-index.qmd
       - sidebar:foundations
       - sidebar:data
       - sidebar:classicml
