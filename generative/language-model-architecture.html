@@ -132,6 +132,68 @@ window.Quarto = {
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-sections" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Sections</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-sections">    
+        <li>
+    <a class="dropdown-item" href="../foundations/foundations-index.html"><i class="bi bi-bricks" role="img">
+</i> 
+ <span class="dropdown-text">Foundations</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../bigdata/bigdata-index.html"><i class="bi bi-database" role="img">
+</i> 
+ <span class="dropdown-text">Data</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../algorithms/algo-index.html"><i class="bi bi-graph-up" role="img">
+</i> 
+ <span class="dropdown-text">Classic ML</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../evaluation/evaluation-index.html"><i class="bi bi-bullseye" role="img">
+</i> 
+ <span class="dropdown-text">Model evaluation</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../deep/deep-index.html"><i class="bi bi-share" role="img">
+</i> 
+ <span class="dropdown-text">Deep Learning</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../generative/generative-index.html"><i class="bi bi-stars" role="img">
+</i> 
+ <span class="dropdown-text">LLMs and Transformers</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../rag/rag-index.html"><i class="bi bi-search" role="img">
+</i> 
+ <span class="dropdown-text">RAG and agents</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../aidev/aidev-index.html"><i class="bi bi-code-slash" role="img">
+</i> 
+ <span class="dropdown-text">AI for developers</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../mlops/mlops-index.html"><i class="bi bi-gear-wide-connected" role="img">
+</i> 
+ <span class="dropdown-text">MLOps</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../sysdesign/sysdesign-index.html"><i class="bi bi-diagram-3" role="img">
+</i> 
+ <span class="dropdown-text">System Design</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../training/training-index.html"><i class="bi bi-mortarboard" role="img">
+</i> 
+ <span class="dropdown-text">Training</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-foundations" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Foundations</span>
     </a>
@@ -616,6 +678,30 @@ window.Quarto = {
     </ul>
   </li>
   <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-system-design" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">System Design</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-system-design">    
+        <li class="dropdown-header">What is this section?</li>
+        <li>
+    <a class="dropdown-item" href="../sysdesign/sysdesign-index.html">
+ <span class="dropdown-text">System Design</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Labs</li>
+        <li>
+    <a class="dropdown-item" href="../sysdesign/labs.html">
+ <span class="dropdown-text">System Design: Labs</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Resources</li>
+        <li>
+    <a class="dropdown-item" href="../sysdesign/resources.html">
+ <span class="dropdown-text">System Design: Resources</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-training" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Training</span>
     </a>
@@ -922,7 +1008,7 @@ Everyday example
 <p>The leap from recurrence to self-attention is already told in two places on this wiki. <a href="../generative/evolution-of-attention.html">The evolution of attention</a> is the history: Bahdanau, Luong, then the 2017 decision to drop the recurrent backbone. <a href="../generative/attention-is-all-you-need.html">Attention Is All You Need</a> is the reader’s guide to that paper — encoder and decoder stacks, scaled dot-product attention, multi-head attention, masking, and positional encoding — with the original Figure 1. <a href="../generative/transformer-by-hand.html">Transformer by hand</a> works through one block with small integers.</p>
 <p>What the lecture adds, for a builder, is the shape you actually meet today. The original paper is an encoder–decoder model for translation. Almost every chatbot you meet is a <em>decoder-only</em> Transformer: embeddings, positional information, blocks of masked self-attention and a feed-forward network, then a softmax over the vocabulary. The paper’s own comparison (Table 1, below) is why that look-back beat recurrence: a shorter path between distant tokens, and more work that can run in parallel, at quadratic cost in the length of the sequence.</p>
 <div class="fig-on-white">
-<div id="fig-l2-attn-vs-recurrence" class="lightbox quarto-float quarto-figure quarto-figure-center anchored" alt="A table comparing self-attention, recurrent, convolutional and restricted self-attention layers on complexity, sequential operations, and maximum path length." data-fig-align="center">
+<div id="fig-l2-attn-vs-recurrence" class="lightbox quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="A table comparing self-attention, recurrent, convolutional and restricted self-attention layers on complexity, sequential operations, and maximum path length.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-l2-attn-vs-recurrence-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="../images/agents-l2/arch-attention-vs-recurrence.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;1: Table 1 from the 2017 paper: self-attention has a shorter path length than recurrence and convolutions, at quadratic cost in sequence length — CS 329Z Lecture 2 (Diyi Yang, Michael Ryan, John Yang), slide p.&nbsp;61. Original: Table 1 of Vaswani et al.&nbsp;(2017)."><img src="../images/agents-l2/arch-attention-vs-recurrence.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%" alt="A table comparing self-attention, recurrent, convolutional and restricted self-attention layers on complexity, sequential operations, and maximum path length."></a>
@@ -939,7 +1025,7 @@ Figure&nbsp;1: Table 1 from the 2017 paper: self-attention has a shorter path le
 <p>Softmax attention is <span class="math inline">\(O(n^2)\)</span> in the context length, and the KV cache grows with <span class="math inline">\(n\)</span>. That is a tax every agent pays when the transcript, the tools, and the files pile up. The quadratic bill, and the 2020 reformulation that attacks it, are in <a href="../generative/evolution-of-attention.html#2020-linear-attention-tackled-quadratic-complexity">The evolution of attention</a>: <a href="https://arxiv.org/abs/2006.16236" class="external" target="_blank">Katharopoulos, Vyas, Pappas and Fleuret</a> rewrite attention with a kernel feature map so the cost can grow as <span class="math inline">\(O(n)\)</span>, with a constant-size state — a different computation, not a faster softmax. FlashAttention, on the same page, is a third idea: keep the original softmax maths, but run it with fewer trips to GPU memory.</p>
 <p>The lecture’s comparison is the one to keep for builders:</p>
 <div class="fig-on-white">
-<div id="fig-l2-softmax-vs-linear" class="lightbox quarto-float quarto-figure quarto-figure-center anchored" alt="A two-column comparison of full softmax attention and linear attention, covering complexity, how tokens refer to the past, long-context behaviour, and memory." data-fig-align="center">
+<div id="fig-l2-softmax-vs-linear" class="lightbox quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="A two-column comparison of full softmax attention and linear attention, covering complexity, how tokens refer to the past, long-context behaviour, and memory.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-l2-softmax-vs-linear-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="../images/agents-l2/arch-softmax-vs-linear-attention.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figure&nbsp;2: Full softmax attention versus linear attention: quadratic look-back and a growing KV cache, against a linear scan over a compressed state — CS 329Z Lecture 2 (Diyi Yang, Michael Ryan, John Yang), slide p.&nbsp;87. Lecture original."><img src="../images/agents-l2/arch-softmax-vs-linear-attention.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%" alt="A two-column comparison of full softmax attention and linear attention, covering complexity, how tokens refer to the past, long-context behaviour, and memory."></a>
@@ -976,7 +1062,7 @@ Figure&nbsp;2: Full softmax attention versus linear attention: quadratic look-ba
 <h1>Mixing the two</h1>
 <p>So people mix them. Some layers, or some heads, keep global softmax attention; the rest use a linear or similarly cheap recurrence. The lecture illustrates this with figures credited to Songlin Yang, <em>DeltaNet Explained (Part III)</em> — the same line of work that sits behind <a href="https://github.com/fla-org/flash-linear-attention" class="external" target="_blank">flash-linear-attention</a> — and with a recent hybrid, <a href="https://arxiv.org/abs/2607.24653" class="external" target="_blank">Kimi K3</a> (Moonshot, 2026).</p>
 <div class="fig-on-white">
-<div id="fig-l2-kimi-k3" class="lightbox quarto-float quarto-figure quarto-figure-center anchored" alt="A diagram of the Kimi K3 hybrid architecture, mixing attention mechanisms." data-fig-align="center">
+<div id="fig-l2-kimi-k3" class="lightbox quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="A diagram of the Kimi K3 hybrid architecture, mixing attention mechanisms.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-l2-kimi-k3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="../images/agents-l2/arch-kimi-k3-mixed-attention.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figure&nbsp;3: Kimi K3 as an example of mixed global and linear attention — CS 329Z Lecture 2 (Diyi Yang, Michael Ryan, John Yang), slide p.&nbsp;90. Original: Kimi K3: Open Frontier Intelligence."><img src="../images/agents-l2/arch-kimi-k3-mixed-attention.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%" alt="A diagram of the Kimi K3 hybrid architecture, mixing attention mechanisms."></a>

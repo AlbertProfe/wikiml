@@ -135,6 +135,68 @@ window.Quarto = {
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-sections" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Sections</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-sections">    
+        <li>
+    <a class="dropdown-item" href="../foundations/foundations-index.html"><i class="bi bi-bricks" role="img">
+</i> 
+ <span class="dropdown-text">Foundations</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../bigdata/bigdata-index.html"><i class="bi bi-database" role="img">
+</i> 
+ <span class="dropdown-text">Data</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../algorithms/algo-index.html"><i class="bi bi-graph-up" role="img">
+</i> 
+ <span class="dropdown-text">Classic ML</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../evaluation/evaluation-index.html"><i class="bi bi-bullseye" role="img">
+</i> 
+ <span class="dropdown-text">Model evaluation</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../deep/deep-index.html"><i class="bi bi-share" role="img">
+</i> 
+ <span class="dropdown-text">Deep Learning</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../generative/generative-index.html"><i class="bi bi-stars" role="img">
+</i> 
+ <span class="dropdown-text">LLMs and Transformers</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../rag/rag-index.html"><i class="bi bi-search" role="img">
+</i> 
+ <span class="dropdown-text">RAG and agents</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../aidev/aidev-index.html"><i class="bi bi-code-slash" role="img">
+</i> 
+ <span class="dropdown-text">AI for developers</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../mlops/mlops-index.html"><i class="bi bi-gear-wide-connected" role="img">
+</i> 
+ <span class="dropdown-text">MLOps</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../sysdesign/sysdesign-index.html"><i class="bi bi-diagram-3" role="img">
+</i> 
+ <span class="dropdown-text">System Design</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../training/training-index.html"><i class="bi bi-mortarboard" role="img">
+</i> 
+ <span class="dropdown-text">Training</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-foundations" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Foundations</span>
     </a>
@@ -619,6 +681,30 @@ window.Quarto = {
     </ul>
   </li>
   <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-system-design" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">System Design</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-system-design">    
+        <li class="dropdown-header">What is this section?</li>
+        <li>
+    <a class="dropdown-item" href="../sysdesign/sysdesign-index.html">
+ <span class="dropdown-text">System Design</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Labs</li>
+        <li>
+    <a class="dropdown-item" href="../sysdesign/labs.html">
+ <span class="dropdown-text">System Design: Labs</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Resources</li>
+        <li>
+    <a class="dropdown-item" href="../sysdesign/resources.html">
+ <span class="dropdown-text">System Design: Resources</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-training" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Training</span>
     </a>
@@ -893,7 +979,7 @@ window.Quarto = {
 <p>That idea was introduced in <a href="https://arxiv.org/abs/1406.2661" class="external" target="_blank">Generative Adversarial Nets</a> (Goodfellow, Pouget-Abadie, Mirza, Xu, Warde-Farley, Ozair, Courville and Bengio, 2014). The paper appeared at NIPS 2014; the <a href="https://proceedings.neurips.cc/paper_files/paper/2014/file/f033ed80deb0234979a61f95710dbe25-Paper.pdf" class="external" target="_blank">proceedings PDF</a> is the published version, and the <a href="https://arxiv.org/pdf/1406.2661" class="external" target="_blank">arXiv PDF</a> is 1406.2661.</p>
 <p>The <a href="../generative/generative-index.html">Generative AI overview</a> already has a short GAN panel. This page is the walk-through: the analogy, the two players, the minimax objective, the training loop, a tiny live example, the usual failure modes, and the line of famous variants.</p>
 <div class="fig-on-white">
-<div id="fig-gan-generator-vs-discriminator" class="lightbox quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="Diagram of a generative adversarial network: random noise z enters a generator, which produces a fake sample; a discriminator compares that sample with real data and answers real or fake; a feedback arrow runs back to the generator.">
+<div id="fig-gan-generator-vs-discriminator" class="lightbox quarto-float quarto-figure quarto-figure-center anchored" alt="Diagram of a generative adversarial network: random noise z enters a generator, which produces a fake sample; a discriminator compares that sample with real data and answers real or fake; a feedback arrow runs back to the generator." data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-gan-generator-vs-discriminator-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="../images/gan/gan-generator-vs-discriminator.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;1: GANs: Generator vs Discriminator — both improve by competing."><img src="../images/gan/gan-generator-vs-discriminator.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%" alt="Diagram of a generative adversarial network: random noise z enters a generator, which produces a fake sample; a discriminator compares that sample with real data and answers real or fake; a feedback arrow runs back to the generator."></a>
