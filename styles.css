@@ -202,111 +202,149 @@ body.quarto-dark .card.exercise-editor .card-header {
 }
 
 
-/* Sample output panels. Wrap a static fence or <pre> in ::: {.sample-output}.
-   The header is drawn in CSS so later pages only need the wrapper.
-   Mark typed values with <span class="sample-input">. */
-.sample-output {
-  --sample-bg: #f4f2ee;
-  --sample-fg: #2c2a32;
-  --sample-header-bg: #ebe7e0;
-  --sample-header-fg: #4a4758;
-  --sample-accent: #3d3c96;
-  --sample-border: #ddd8d0;
-  --sample-input: #0b6e4f;
+/* Code units: one square frame around a quarto-live editor, its live
+   output, and an optional book sample. Wrap them in ::: {.code-unit}.
+   Mark typed values in the sample with <span class="sample-input">.
+   tools/code-unit.html adds Output / Sample output tabs when a sample
+   is present; a unit with no sample is just the editor plus output. */
+.code-unit {
+  --code-unit-border: #d5d8de;
+  --code-unit-tab: #5c6370;
+  --code-unit-tab-active: #2c2a32;
+  --code-unit-bottom-bg: #f7f8fa;
+  --code-unit-input: #0b6e4f;
   margin: 1rem 0 1.5rem;
-  background: var(--sample-bg);
-  color: var(--sample-fg);
-  border: 1px solid var(--sample-border);
-  border-left: 3px solid var(--sample-accent);
-  border-radius: 8px;
-  overflow: hidden;
+  border: 1px solid var(--code-unit-border);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
 }
-.sample-output::before {
-  content: "Sample output";
-  display: block;
-  padding: 0.35rem 0.85rem;
-  background: var(--sample-header-bg);
-  color: var(--sample-header-fg);
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  border-bottom: 1px solid var(--sample-border);
+body.quarto-dark .code-unit {
+  --code-unit-border: #393552;
+  --code-unit-tab: #908caa;
+  --code-unit-tab-active: #e0def4;
+  --code-unit-bottom-bg: #2a273f;
+  --code-unit-input: #f6c177;
 }
-.sample-output > pre,
-.sample-output pre {
+.code-unit,
+.code-unit .card,
+.code-unit .card-header,
+.code-unit .card-body,
+.code-unit .cm-editor,
+.code-unit .btn,
+.code-unit .code-unit-tabs,
+.code-unit .code-unit-tab,
+.code-unit .cell-output-container,
+.code-unit .sample-output,
+.code-unit pre {
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* Flatten the live editor so the unit frame is the only chrome. */
+.code-unit .card.exercise-editor {
+  margin: 0 !important;
+  border: 0;
+  background: transparent;
+}
+.code-unit .card.exercise-editor .card-header {
+  padding: 0.3rem 0.6rem;
+  background: transparent;
+  border-bottom: 1px solid var(--code-unit-border);
+  color: inherit;
+}
+body.quarto-dark .code-unit .card.exercise-editor,
+body.quarto-dark .code-unit .card.exercise-editor .cm-editor {
+  background-color: transparent;
+  color: inherit;
+}
+body.quarto-dark .code-unit .card.exercise-editor .card-header {
+  background-color: transparent;
+  border-bottom-color: var(--code-unit-border);
+  color: inherit;
+}
+
+/* Compact tab strip: a thin divider, no extra boxes. */
+.code-unit-tabs {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
   margin: 0;
-  padding: 0.7rem 0.85rem;
+  padding: 0 0.35rem;
+  border: 0;
+  border-top: 1px solid var(--code-unit-border);
+  background: transparent;
+}
+.code-unit-tab {
+  appearance: none;
+  margin: 0;
+  padding: 0.28rem 0.7rem 0.32rem;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  background: transparent;
+  color: var(--code-unit-tab);
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1.2;
+  cursor: pointer;
+}
+.code-unit-tab.is-active {
+  color: var(--code-unit-tab-active);
+  border-bottom-color: var(--code-unit-tab-active);
+}
+.code-unit-tab:focus-visible {
+  outline: 1px solid var(--code-unit-tab-active);
+  outline-offset: -1px;
+}
+
+/* Bottom area: live result or book sample, one subtle surface. */
+.code-unit .code-unit-output,
+.code-unit .cell-output-container,
+.code-unit .sample-output {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: var(--code-unit-bottom-bg);
+}
+.code-unit .cell-output-container,
+.code-unit .sample-output pre {
+  margin: 0;
+  padding: 0.5rem 0.7rem;
   background: transparent;
   border: 0;
-  border-radius: 0;
   color: inherit;
   white-space: pre-wrap;
 }
-.sample-output pre code,
-.sample-output code {
-  background: transparent;
-  color: inherit;
+.code-unit .sample-output pre code,
+.code-unit .cell-output-container pre,
+.code-unit .cell-output-container pre code {
+  margin: 0;
   padding: 0;
+  background: transparent;
   border: 0;
+  color: inherit;
   font-size: 0.9em;
 }
-.sample-output .sample-input {
-  color: var(--sample-input);
+.code-unit .sample-output {
+  display: none;
+}
+.code-unit[data-tab="sample"] .sample-output {
+  display: block;
+}
+.code-unit[data-tab="sample"] .code-unit-output {
+  display: none;
+}
+.code-unit .sample-input {
+  color: var(--code-unit-input);
   font-weight: 700;
 }
-body.quarto-dark .sample-output {
-  --sample-bg: #2a273f;
-  --sample-fg: #e0def4;
-  --sample-header-bg: #232136;
-  --sample-header-fg: #c4a7e7;
-  --sample-accent: #9ccfd8;
-  --sample-border: #393552;
-  --sample-input: #f6c177;
-}
 
-/* quarto-live Run Code result: frame the output container and label it.
-   The container is empty until a cell has been run, so :not(:empty)
-   keeps the frame off before the first result. */
-.cell-output-container:not(:empty) {
-  --live-out-bg: #f7f8fa;
-  --live-out-fg: #2c2a32;
-  --live-out-header-bg: #eef1f4;
-  --live-out-header-fg: #4a4758;
-  --live-out-border: #d5d8de;
-  margin: 0.6rem 0 0.25rem;
-  background: var(--live-out-bg);
-  color: var(--live-out-fg);
-  border: 1px solid var(--live-out-border);
-  border-radius: 8px;
-  overflow: hidden;
+/* Highlight helper if a sample is used outside a unit. */
+.sample-input {
+  color: var(--code-unit-input, #0b6e4f);
+  font-weight: 700;
 }
-.cell-output-container:not(:empty)::before {
-  content: "Output";
-  display: block;
-  padding: 0.35rem 0.85rem;
-  background: var(--live-out-header-bg);
-  color: var(--live-out-header-fg);
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  border-bottom: 1px solid var(--live-out-border);
-}
-.cell-output-container:not(:empty) .exercise-cell-output,
-.cell-output-container:not(:empty) .cell-output-display {
-  margin: 0;
-  padding: 0.7rem 0.85rem;
-}
-.cell-output-container:not(:empty) pre,
-.cell-output-container:not(:empty) pre code {
-  margin: 0;
-  background: transparent;
-  border: 0;
-  color: inherit;
-}
-body.quarto-dark .cell-output-container:not(:empty) {
-  --live-out-bg: #2a273f;
-  --live-out-fg: #e0def4;
-  --live-out-header-bg: #232136;
-  --live-out-header-fg: #c4a7e7;
-  --live-out-border: #393552;
+body.quarto-dark .sample-input {
+  color: var(--code-unit-input, #f6c177);
 }

@@ -1,0 +1,79 @@
+<script>
+/* Enhance .code-unit wrappers: tab strip for live Output vs Sample output.
+   The quarto-live result stays in its OJS slot; we only toggle visibility. */
+(function () {
+  const outputSlot = (cell) => {
+    const slots = cell.querySelectorAll(":scope > .observablehq:not(.quarto-ojs-hide)");
+    for (const el of slots) {
+      if (!el.querySelector(".card.exercise-editor")) return el;
+    }
+    return null;
+  };
+
+  const enhance = (unit) => {
+    const cell = unit.querySelector(".exercise-cell");
+    if (!cell) return;
+    const editorSlot = Array.from(
+      cell.querySelectorAll(":scope > .observablehq")
+    ).find((el) => el.querySelector(".card.exercise-editor"));
+    if (!editorSlot) return;
+
+    const sample = unit.querySelector(".sample-output");
+    const slot = outputSlot(cell);
+    if (slot && !slot.classList.contains("code-unit-output")) {
+      slot.classList.add("code-unit-output");
+    }
+
+    if (!sample) {
+      unit.dataset.tab = "output";
+      unit.dataset.enhanced = "true";
+      return;
+    }
+
+    if (!unit.querySelector(":scope .code-unit-tabs")) {
+      const tabs = document.createElement("div");
+      tabs.className = "code-unit-tabs";
+      tabs.setAttribute("role", "tablist");
+      tabs.innerHTML =
+        '<button type="button" class="code-unit-tab is-active" role="tab" aria-selected="true" data-tab="output">Output</button>' +
+        '<button type="button" class="code-unit-tab" role="tab" aria-selected="false" data-tab="sample">Sample output</button>';
+      tabs.addEventListener("click", (event) => {
+        const btn = event.target.closest(".code-unit-tab");
+        if (!btn || !tabs.contains(btn)) return;
+        unit.dataset.tab = btn.dataset.tab;
+        tabs.querySelectorAll(".code-unit-tab").forEach((b) => {
+          const on = b === btn;
+          b.classList.toggle("is-active", on);
+          b.setAttribute("aria-selected", on ? "true" : "false");
+        });
+      });
+      // Sit between the editor and the live-output slot, inside the cell.
+      if (slot) slot.before(tabs);
+      else cell.appendChild(tabs);
+    }
+
+    const tabs = unit.querySelector(".code-unit-tabs");
+    if (slot && tabs && tabs.nextElementSibling !== slot) {
+      slot.before(tabs);
+    }
+    if (sample.parentElement !== cell) {
+      cell.appendChild(sample);
+    }
+
+    if (!unit.dataset.tab) unit.dataset.tab = "output";
+    unit.dataset.enhanced = "true";
+  };
+
+  const scan = () => {
+    document.querySelectorAll(".code-unit").forEach(enhance);
+  };
+
+  const observer = new MutationObserver(scan);
+  observer.observe(document.documentElement, { childList: true, subtree: true });
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", scan);
+  } else {
+    scan();
+  }
+})();
+</script>
