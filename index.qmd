@@ -368,7 +368,7 @@ format:
           <li role="none"><a role="menuitem" href="aidev/aidev-index.html"><i class="bi bi-code-slash" aria-hidden="true"></i>AI for developers</a></li>
           <li role="none"><a role="menuitem" href="mlops/mlops-index.html"><i class="bi bi-gear-wide-connected" aria-hidden="true"></i>MLOps</a></li>
           <li role="none"><a role="menuitem" href="sysdesign/sysdesign-index.html"><i class="bi bi-diagram-3" aria-hidden="true"></i>System Design</a></li>
-          <li role="none"><a role="menuitem" href="training/training-index.html"><i class="bi bi-mortarboard" aria-hidden="true"></i>Training</a></li>
+          <li role="none"><a role="menuitem" href="books/books-index.html"><i class="bi bi-book" aria-hidden="true"></i>Books</a></li>
         </ul>
       </div>
       <a href="#library">Library</a>
@@ -435,6 +435,7 @@ format:
       <a class="lp-topic" style="--c:#4ade80" href="aidev/aidev-index.html"><i class="bi bi-code-slash" aria-hidden="true"></i>AI Devs</a>
       <a class="lp-topic" style="--c:#c084fc" href="mlops/mlops-index.html"><i class="bi bi-gear-wide-connected" aria-hidden="true"></i>MLOps</a>
       <a class="lp-topic" style="--c:#60a5fa" href="sysdesign/sysdesign-index.html"><i class="bi bi-diagram-3" aria-hidden="true"></i>Sys Design</a>
+      <a class="lp-topic" style="--c:#c084fc" href="books/books-index.html"><i class="bi bi-book" aria-hidden="true"></i>Books</a>
     </nav>
   </div>
 
@@ -469,7 +470,7 @@ format:
 
   <section id="library" class="lp-reveal">
     <div class="lp-label">The library</div>
-    <h2>Eleven sections, each with Labs and Resources</h2>
+    <h2>Eleven sections. Most have Labs and Resources</h2>
     <p class="lp-lead">Existing articles stay at their URLs. New sections begin with an honest outline rather than empty boilerplate. About is not a section here — it lives on the teaching wiki.</p>
     <div class="lp-grid">
       <a class="lp-card" href="foundations/foundations-index.html"><div class="lp-card-icon">🧱</div><h3>Foundations</h3>
@@ -502,9 +503,9 @@ format:
       <a class="lp-card" href="sysdesign/sysdesign-index.html"><div class="lp-card-icon">🏗️</div><h3>System Design</h3>
         <p class="lp-muted">ML system design first — framing, pipelines, feature stores, evaluation, monitoring, LLM and RAG serving — then general system design. A roadmap; articles still to come.</p>
         <div class="lp-card-meta">3 pages · roadmap</div></a>
-      <a class="lp-card" href="training/training-index.html"><div class="lp-card-icon">🎓</div><h3>Training</h3>
-        <p class="lp-muted">Mirrors Training on albertprofe.dev. No live AI course is documented here yet — no invented sprint or calendar.</p>
-        <div class="lp-card-meta">3 pages · waiting for a course</div></a>
+      <a class="lp-card" href="books/books-index.html"><div class="lp-card-icon">📖</div><h3>Books</h3>
+        <p class="lp-muted">Notes on books I keep for this library, starting with Kriesel’s introduction to neural networks. Course Training lives on the teaching wiki.</p>
+        <div class="lp-card-meta">2 pages · library</div></a>
       <a class="lp-card" href="https://albertprofe.dev" target="_blank" rel="noopener"><div class="lp-card-icon">⌘</div><h3>albertprofe.dev ↗</h3>
         <p class="lp-muted">The teaching wiki this site sits next to: Java SE, Spring Boot, React, DevOps, Linux, Scrum, labs and course editions.</p>
         <div class="lp-card-meta">sister wiki · About lives there</div></a>
@@ -538,7 +539,7 @@ format:
       <a href="aidev/aidev-index.html">AI for developers</a><span class="sep">·</span>
       <a href="mlops/mlops-index.html">MLOps</a><span class="sep">·</span>
       <a href="sysdesign/sysdesign-index.html">System Design</a><span class="sep">·</span>
-      <a href="training/training-index.html">Training</a>
+      <a href="books/books-index.html">Books</a>
     </div>
   </footer>
 </div>

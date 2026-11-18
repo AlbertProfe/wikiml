@@ -1,5 +1,7 @@
 project:
   type: website
+  resources:
+    - resources/books/cover
 
 website:
   title: "Wiki-ML"
@@ -57,9 +59,9 @@ website:
           - text: System Design
             icon: diagram-3
             file: sysdesign/sysdesign-index.qmd
-          - text: Training
-            icon: mortarboard
-            file: training/training-index.qmd
+          - text: Books
+            icon: book
+            file: books/books-index.qmd
       - sidebar:foundations
       - sidebar:data
       - sidebar:classicml
@@ -70,7 +72,7 @@ website:
       - sidebar:aidev
       - sidebar:mlops
       - sidebar:sysdesign
-      - sidebar:training
+      - sidebar:books
 
   sidebar:
     - id: "foundations"
@@ -340,22 +342,18 @@ website:
           contents:
             - sysdesign/resources.qmd
 
-    - id: "training"
-      title: "Training"
+    - id: "books"
+      title: "Books"
       contents:
-        - text: "Training"
+        - text: "Books"
         - text: "---"
-        - section: "About Training"
+        - section: "Library"
           contents:
-            - training/training-index.qmd
+            - books/books-index.qmd
         - text: "---"
-        - section: "Labs"
+        - section: "Notes"
           contents:
-            - training/labs.qmd
-        - text: "---"
-        - section: "Resources"
-          contents:
-            - training/resources.qmd
+            - books/a-brief-introduction-to-neural-networks.qmd
 
 format:
   html:

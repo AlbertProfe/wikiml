@@ -1,0 +1,38 @@
+---
+title: "Books"
+aliases:
+  - /training/training-index.html
+  - /training/labs.html
+  - /training/resources.html
+  - /resources/resources-books.html
+description: "Notes on books in this library, starting with David Kriesel’s introduction to neural networks."
+categories: [listing, books, reading]
+format:
+  html
+listing:
+  id: books
+  contents:
+    - a-brief-introduction-to-neural-networks.qmd
+  sort-ui: [title]
+  filter-ui: [title]
+  type: default
+  image-align: left
+  fields: [image, categories, title, description, reading-time, date, author]
+  date-format: full
+  categories: true
+---
+
+::: {.callout-note}
+Course Training — official docs, a sprint backlog, a product backlog, and calendar & deliveries — lives on the sister teaching wiki, [albertprofe.dev](https://albertprofe.dev){.external target="_blank"}, under Training Courses (for example the current edition, [IFCD0021-26](https://albertprofe.dev/ifcd0021-26/ifcd0021-26.html){.external target="_blank"}). This section used to be reserved for that same pattern when an AI course was confirmed. There is still no live AI course documented on this wiki, and I will not invent a sprint, a calendar, or a student count here.
+
+Classroom Training labs — numbered work tied to a sprint — and course packs belong on the sister wiki as well. They are not listed in this Books section.
+:::
+
+# Books
+
+Notes I keep for this library. The first entry is David Kriesel’s introduction to neural networks; more will be added as I write them.
+
+> Reading is essential for those who seek to rise above the ordinary. — Jim Rohn
+
+::: {#books}
+:::

@@ -41,4 +41,4 @@ MIT's Introduction to Algorithms:
 
 - [Kurate.org — AI Paper Rankings](https://kurate.org/?cat=cs.AI&period=week){.external target='_blank'} — a weekly leaderboard of new arXiv cs.AI preprints, meant as a discovery signal rather than peer review.
 
-The imported [book notes](/resources/resources-books.qmd) collect longer notes.
+The [Books](/books/books-index.qmd) section collects longer notes, starting with Kriesel’s introduction to neural networks.

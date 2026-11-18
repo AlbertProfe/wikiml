@@ -8,13 +8,16 @@ date-format: full
 description: "An introduction to the fundamentals of neural networks and their applications in artificial intelligence."
 categories: [artificial neural networks, machine learning]
 subcategories: [neural networks, deep learning]
+image: /books/covers/cover_A_Brief_Introduction_to_Neural_Networks_DavidKriesel.png
+aliases:
+  - /resources/books/articles/A_Brief_Introduction_to_Neural_Networks_DavidKriesel.html
 format:
   html
 ---
 
 # Book Information
 
-![](/resources/books/cover/cover_A_Brief_Introduction_to_Neural_Networks_DavidKriesel.png){width="60%"}
+![](/books/covers/cover_A_Brief_Introduction_to_Neural_Networks_DavidKriesel.png){width="60%"}
 
 - [A Brief Introduction to Neural Networks David Kriesel](https://dkriesel.com/_media/science/neuronalenetze-en-zeta2-2col-dkrieselcom.pdf){.external target='_blank'}
 
