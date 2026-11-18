@@ -430,7 +430,9 @@ body.quarto-dark .code-unit .card.exercise-editor .card-header {
   align-items: center;
   gap: 0.3rem;
   margin: 0;
-  padding: 0.28rem 0.55rem;
+  /* 0.6rem under the label, same air as the other tab/output gaps,
+     so the active underline is not tight against the text. */
+  padding: 0.28rem 0.55rem 0.6rem;
   border: 0;
   border-bottom: 2px solid transparent;
   border-radius: 0;
