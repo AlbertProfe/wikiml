@@ -1,5 +1,14 @@
 ---
 title: "Python Helsinki: 1"
+format:
+  live-html:
+    fontsize: "1.0em"
+    theme:
+      light: cosmo
+      dark: [darkly, tools/dark-rosepine.scss]
+    css: ../styles.css
+    toc: true
+    toc-depth: 5
 ---
 
 # Introduction to Programming: Part 1
@@ -24,7 +33,8 @@ Any line beginning with the pound sign #, also known as a hash or a number sign,
 
 Comments are used for explaining how a program works, to both the programmer themselves, and others reading the program code. In this program a comment explains the calculation performed in the code:
 
-``` py
+```{pyodide}
+#| autorun: true
 print("Hours in a year:")
 # there are 365 days in a year and 24 hours in each day
 print(365*24)
@@ -50,7 +60,8 @@ What if we want to have more flexibility and control over what we print out? So 
 
 With f-strings the previous example would look like this:
 
-``` py
+```{pyodide}
+#| autorun: true
 result = 10 * 25
 print(f"The result is {result}")
 ```
@@ -68,12 +79,13 @@ Usually you do not need to create two separate variables (like input_str and yea
 
 Similarly, a string can be converted into a floating point number with the function float. This programs asks the user for their height and weight, and uses these to calculate their BMI:
 
-``` py
-year = int(input("Which year were you born? "))
+```{pyodide}
+#| autorun: true
+year = 1995  # preset: input() is not available in the in-page editor
 print(f"Your age at the end of the year 2021: {2021 - year}" )
 
-height = float(input("What is your height? "))
-weight = float(input("What is your weight? "))
+height = 163.0  # preset: centimetres, as in the sample output below
+weight = 74.45  # preset: kilograms, as in the sample output below
 
 height = height / 100
 bmi = weight / height ** 2
@@ -100,7 +112,8 @@ The BMI is 28.02137829801649
 :::
 
 
-``` py
+```{pyodide}
+#| autorun: true
 a = 3
 condition = a < 5
 print(condition)
@@ -114,8 +127,9 @@ True
 a is less than 5
 ```
 
-``` py
-points = int(input("How many points are on your card? "))
+```{pyodide}
+#| autorun: true
+points = 55  # preset: input() is not available in the in-page editor
 if points < 100:
     points *= 1.1
     print("Your bonus is 10 %")
