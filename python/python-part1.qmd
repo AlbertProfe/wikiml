@@ -34,7 +34,8 @@ Any line beginning with the pound sign #, also known as a hash or a number sign,
 
 Comments are used for explaining how a program works, to both the programmer themselves, and others reading the program code. In this program a comment explains the calculation performed in the code:
 
-::: {.code-unit}
+::: {.code-unit #ex-py01-1 data-id="Ex#PY01-1"}
+[Ex#PY01-1](#ex-py01-1){.code-unit-id}
 ```{pyodide}
 #| autorun: true
 print("Hours in a year:")
@@ -63,7 +64,8 @@ What if we want to have more flexibility and control over what we print out? So 
 
 With f-strings the previous example would look like this:
 
-::: {.code-unit}
+::: {.code-unit #ex-py01-2 data-id="Ex#PY01-2"}
+[Ex#PY01-2](#ex-py01-2){.code-unit-id}
 ```{pyodide}
 #| autorun: true
 result = 10 * 25
@@ -85,7 +87,8 @@ Usually you do not need to create two separate variables (like input_str and yea
 
 Similarly, a string can be converted into a floating point number with the function float. This programs asks the user for their height and weight, and uses these to calculate their BMI:
 
-::: {.code-unit}
+::: {.code-unit #ex-py01-3 data-id="Ex#PY01-3"}
+[Ex#PY01-3](#ex-py01-3){.code-unit-id}
 ```{pyodide}
 #| autorun: true
 year = 1995  # preset (no input() in browser)
@@ -119,7 +122,8 @@ The BMI is 28.02137829801649</code></pre>
 :::
 
 
-::: {.code-unit}
+::: {.code-unit #ex-py01-4 data-id="Ex#PY01-4"}
+[Ex#PY01-4](#ex-py01-4){.code-unit-id}
 ```{pyodide}
 #| autorun: true
 a = 3
@@ -137,7 +141,8 @@ a is less than 5
 :::
 :::
 
-::: {.code-unit}
+::: {.code-unit #ex-py01-5 data-id="Ex#PY01-5"}
+[Ex#PY01-5](#ex-py01-5){.code-unit-id}
 ```{pyodide}
 #| autorun: true
 points = 55  # preset (no input() in browser)

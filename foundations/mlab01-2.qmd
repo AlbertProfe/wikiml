@@ -10,6 +10,7 @@ format:
     css: ../styles.css
     toc: true
     toc-depth: 5
+    include-after-body: ../tools/code-unit.html
 number-sections: true
 pyodide:
   packages:
@@ -135,6 +136,9 @@ Eight rides, all generated from $1.5 \cdot \text{km} + 2$. The derivative of the
 Change `learning_rate` and press Run. Try a smaller rate, or a larger one. You can also try fewer `steps` and watch $w$ and $b$ stop short of 1.50 and 2.00.
 :::
 
+::: {.code-unit #lab-fu01-2 data-id="Lab#FU01-2"}
+[Lab#FU01-2](#lab-fu01-2){.code-unit-id}
+
 ```{pyodide}
 #| autorun: true
 #| fig-width: 10
@@ -224,6 +228,7 @@ ax.grid(True, color="#dddddd")
 fig.tight_layout()
 plt.show()
 ```
+:::
 
 After 500 steps the fit is already close ($w \approx 1.514$, $b \approx 1.887$). After 2000 steps, $w = 1.500004$ and $b = 1.999971$. `LinearRegression` lands on the true $w$ and $b$. The two lines sit on top of each other. That is the point: your loop and the library are doing the same job. The library is faster and more stable; the loop is the one you can see.
 

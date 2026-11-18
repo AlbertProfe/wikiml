@@ -10,6 +10,7 @@ format:
     css: ../styles.css
     toc: true
     toc-depth: 5
+    include-after-body: ../tools/code-unit.html
 number-sections: true
 pyodide:
   packages:
@@ -119,6 +120,9 @@ $$
 Change `learning_rate` and press Run. Try a smaller rate, or a larger one.
 :::
 
+::: {.code-unit #lab-fu01-1 data-id="Lab#FU01-1"}
+[Lab#FU01-1](#lab-fu01-1){.code-unit-id}
+
 ```{pyodide}
 #| autorun: true
 #| fig-width: 7
@@ -177,6 +181,7 @@ ax.grid(True, color="#dddddd")
 fig.tight_layout()
 plt.show()
 ```
+:::
 
 After the first nudge, $w$ jumps from $0$ to $1.29$. After four steps it is already $1.4994$. By step 6 it has settled on $1.50$. Nobody programmed the rate.
 

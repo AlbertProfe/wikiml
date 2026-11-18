@@ -87,6 +87,29 @@
     header.appendChild(actions);
   };
 
+
+  const placeBadge = (unit) => {
+    const header = unit.querySelector(".exercise-editor-header");
+    if (!header) return;
+    let badge = unit.querySelector(".code-unit-id");
+    const label = unit.dataset.id;
+    const href = unit.id ? "#" + unit.id : "";
+    if (!badge && label) {
+      badge = document.createElement("a");
+      badge.className = "code-unit-id";
+    }
+    if (!badge) return;
+    if (label) badge.textContent = label;
+    if (href) badge.setAttribute("href", href);
+    const parent = badge.parentElement;
+    const actions = header.querySelector(".code-unit-actions");
+    if (actions) actions.before(badge);
+    else if (badge.parentElement !== header) header.appendChild(badge);
+    if (parent && parent !== header && parent.tagName === "P" && parent.childNodes.length === 0) {
+      parent.remove();
+    }
+  };
+
   const outputSlot = (cell) => {
     const slots = cell.querySelectorAll(":scope > .observablehq:not(.quarto-ojs-hide)");
     for (const el of slots) {
@@ -104,6 +127,7 @@
     if (!editorSlot) return;
 
     restyleToolbar(unit);
+    placeBadge(unit);
 
     const sample = unit.querySelector(".sample-output");
     const slot = outputSlot(cell);
