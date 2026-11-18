@@ -34,15 +34,7 @@ Any line beginning with the pound sign #, also known as a hash or a number sign,
 
 Comments are used for explaining how a program works, to both the programmer themselves, and others reading the program code. In this program a comment explains the calculation performed in the code:
 
-::: {.code-unit #ex-py01-1 data-id="Ex#PY01-1"}
-[Ex#PY01-1](#ex-py01-1){.code-unit-id}
-```{pyodide}
-#| autorun: true
-print("Hours in a year:")
-# there are 365 days in a year and 24 hours in each day
-print(365*24)
-```
-:::
+{{< ex Ex#PY-0001 >}}
 
 ::: {.callout-note}
 # Choosing a good name for a variable
@@ -64,20 +56,7 @@ What if we want to have more flexibility and control over what we print out? So 
 
 With f-strings the previous example would look like this:
 
-::: {.code-unit #ex-py01-2 data-id="Ex#PY01-2"}
-[Ex#PY01-2](#ex-py01-2){.code-unit-id}
-```{pyodide}
-#| autorun: true
-result = 10 * 25
-print(f"The result is {result}")
-```
-
-::: {.sample-output}
-```
-The result is 250
-```
-:::
-:::
+{{< ex Ex#PY-0002 >}}
 
 Let's break this apart. In the very beginning of the string we are printing out there is the character f. This tells `Python` that what follows is an f-string. Within the string, enclosed in curly brackets, is the variable name result. The value it contains becomes a part of the printed string. The printout is exactly the same as in the previous examples.
 
@@ -87,31 +66,7 @@ Usually you do not need to create two separate variables (like input_str and yea
 
 Similarly, a string can be converted into a floating point number with the function float. This programs asks the user for their height and weight, and uses these to calculate their BMI:
 
-::: {.code-unit #ex-py01-3 data-id="Ex#PY01-3"}
-[Ex#PY01-3](#ex-py01-3){.code-unit-id}
-```{pyodide}
-#| autorun: true
-year = 1995  # preset (no input() in browser)
-print(f"Your age at the end of the year 2021: {2021 - year}" )
-
-height = 163.0  # preset (no input() in browser)
-weight = 74.45  # preset (no input() in browser)
-
-height = height / 100
-bmi = weight / height ** 2
-
-print(f"The BMI is {bmi}")
-```
-
-::: {.sample-output}
-<pre><code>Which year were you born? <span class="sample-input">1995</span>
-Your age at the end of the year 2021: 26
-
-What is your height? <span class="sample-input">163</span>
-What is your weight? <span class="sample-input">74.45</span>
-The BMI is 28.02137829801649</code></pre>
-:::
-:::
+{{< ex Ex#PY-0003 >}}
 
 ## Conditional statements
 
@@ -122,44 +77,6 @@ The BMI is 28.02137829801649</code></pre>
 :::
 
 
-::: {.code-unit #ex-py01-4 data-id="Ex#PY01-4"}
-[Ex#PY01-4](#ex-py01-4){.code-unit-id}
-```{pyodide}
-#| autorun: true
-a = 3
-condition = a < 5
-print(condition)
-if condition:
-    print("a is less than 5")
-```
+{{< ex Ex#PY-0004 >}}
 
-::: {.sample-output}
-```
-True
-a is less than 5
-```
-:::
-:::
-
-::: {.code-unit #ex-py01-5 data-id="Ex#PY01-5"}
-[Ex#PY01-5](#ex-py01-5){.code-unit-id}
-```{pyodide}
-#| autorun: true
-points = 55  # preset (no input() in browser)
-if points < 100:
-    points *= 1.1
-    print("Your bonus is 10 %")
-
-elif points >= 100:
-    points *= 1.15
-    print("Your bonus is 15 %")
-
-print("You now have", points, "points")
-```
-
-::: {.sample-output}
-<pre><code>How many points are on your card? <span class="sample-input">55</span>
-Your bonus is 10 %
-You now have 60.5 points</code></pre>
-:::
-:::
+{{< ex Ex#PY-0005 >}}

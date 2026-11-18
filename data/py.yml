@@ -1,0 +1,99 @@
+# Python section catalog (SSoT). IDs are fixed forever and do not encode a page.
+# Code lives in data/py/<ex-0001>/starter.py (and solution.py when there is one).
+# files / filesQty are computed from that folder at render time and must not be stored here.
+entries:
+  - id: Ex#PY-0001
+    name: Hours in a year
+    tags: [comments, print, arithmetic]
+    description: Print the number of hours in a year, with a comment explaining the calculation.
+    credit:
+      author: University of Helsinki
+      url: https://programming-24.mooc.fi/part-1/
+      licence: CC BY-NC-SA 4.0
+    type: helsinki
+    section: PY
+    level: 1
+    source: https://programming-24.mooc.fi/part-1/
+    page: python/python-part1.qmd
+    status: ready
+    solution: hidden
+
+  - id: Ex#PY-0002
+    name: Printing with f-strings
+    tags: [f-strings, print, variables]
+    description: Format a printout with an f-string so a variable value is interpolated into the text.
+    credit:
+      author: University of Helsinki
+      url: https://programming-24.mooc.fi/part-1/3-more-about-variables
+      licence: CC BY-NC-SA 4.0
+    type: helsinki
+    section: PY
+    level: 1
+    source: https://programming-24.mooc.fi/part-1/3-more-about-variables
+    page: python/python-part1.qmd
+    status: ready
+    solution: hidden
+    sample_output: |
+      The result is 250
+
+  - id: Ex#PY-0003
+    name: Numbers as input
+    tags: [input, types, f-strings]
+    description: Convert input to int and float (here as presets, since the browser cell cannot prompt) and compute age and BMI.
+    credit:
+      author: University of Helsinki
+      url: https://programming-24.mooc.fi/part-1/2-information-from-the-user
+      licence: CC BY-NC-SA 4.0
+    type: helsinki
+    section: PY
+    level: 1
+    source: https://programming-24.mooc.fi/part-1/2-information-from-the-user
+    page: python/python-part1.qmd
+    status: ready
+    solution: hidden
+    sample_output: |
+      <pre><code>Which year were you born? <span class="sample-input">1995</span>
+      Your age at the end of the year 2021: 26
+
+      What is your height? <span class="sample-input">163</span>
+      What is your weight? <span class="sample-input">74.45</span>
+      The BMI is 28.02137829801649</code></pre>
+
+  - id: Ex#PY-0004
+    name: Conditional statements
+    tags: [conditionals, booleans]
+    description: Store a comparison in a Boolean variable and branch on it with if.
+    credit:
+      author: University of Helsinki
+      url: https://programming-24.mooc.fi/part-1/5-conditional-statements
+      licence: CC BY-NC-SA 4.0
+    type: helsinki
+    section: PY
+    level: 1
+    source: https://programming-24.mooc.fi/part-1/5-conditional-statements
+    page: python/python-part1.qmd
+    status: ready
+    solution: hidden
+    sample_output: |
+      True
+      a is less than 5
+
+  - id: Ex#PY-0005
+    name: Points bonus
+    tags: [conditionals, elif, input]
+    description: Apply a 10% or 15% bonus according to the number of points, using a preset in place of input().
+    credit:
+      author: University of Helsinki
+      url: https://programming-24.mooc.fi/part-1/5-conditional-statements
+      licence: CC BY-NC-SA 4.0
+    type: helsinki
+    section: PY
+    level: 1
+    source: https://programming-24.mooc.fi/part-1/5-conditional-statements
+    page: python/python-part1.qmd
+    status: ready
+    solution: hidden
+    sample_output: |
+      <pre><code>How many points are on your card? <span class="sample-input">55</span>
+      Your bonus is 10 %
+      You now have 60.5 points</code></pre>

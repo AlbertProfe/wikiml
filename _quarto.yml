@@ -1,5 +1,13 @@
 project:
   type: website
+  pre-render:
+    - python3 tools/validate-data.py
+    - python3 tools/expand-exercises.py
+  post-render:
+    - python3 tools/expand-exercises.py --restore
+
+shortcodes:
+  - tools/ex.lua
 
 website:
   title: "Wiki-ML"
