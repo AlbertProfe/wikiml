@@ -3,7 +3,9 @@
 
 Fails the render on a missing required field, a duplicate id, or a missing
 code folder (and starter.py) for types that keep their code in data/.
+sample_output must not be stored in YAML; it lives in sample.txt.
 files / filesQty are computed from the folder and never read from YAML.
+Warns if solution is show or toggle but solution.py is missing.
 """
 from __future__ import annotations
 
@@ -25,13 +27,18 @@ SOLUTIONS = {"show", "toggle", "hidden"}
 # Labs live in GitHub repos; examples and Helsinki exercises keep code here.
 LOCAL_CODE_TYPES = {"example", "helsinki"}
 ID_RE = re.compile(r"^(Ex|Lab)#[A-Z]{2}-\d{4}$")
-FORBIDDEN_STORED = ("files", "filesQty", "files_qty")
+FORBIDDEN_STORED = ("files", "filesQty", "files_qty", "sample_output")
 
 errors: list[str] = []
+warnings: list[str] = []
 
 
 def err(msg: str) -> None:
     errors.append(msg)
+
+
+def warn(msg: str) -> None:
+    warnings.append(msg)
 
 
 def id_parts(eid: str) -> tuple[str, str, str] | None:
@@ -152,8 +159,11 @@ def validate_entry(
         files = list_code_files(folder)
         if "starter.py" not in files:
             err(f"{loc}: {rel}/ is missing starter.py")
+        # solution: show|toggle|hidden is visibility *when* solution.py exists.
+        # hidden with no file is normal for worked examples; warn if the field
+        # asks to display a solution that is not in the folder.
         if item.get("solution") in {"show", "toggle"} and "solution.py" not in files:
-            err(f"{loc}: solution is '{item.get('solution')}' but {rel}/ has no solution.py")
+            warn(f"{loc}: solution is '{item.get('solution')}' but {rel}/ has no solution.py")
 
 
 def enrich(item: dict) -> dict:
@@ -177,6 +187,7 @@ def enrich(item: dict) -> dict:
         out["filesQty"] = len(files)
         out["has_starter"] = "starter.py" in files
         out["has_solution"] = "solution.py" in files
+        out["has_sample"] = "sample.txt" in files
     return out
 
 
@@ -186,6 +197,8 @@ def main() -> int:
         print("data catalog validation failed:", file=sys.stderr)
         for msg in errors:
             print(f"  - {msg}", file=sys.stderr)
+        for msg in warnings:
+            print(f"  ! {msg}", file=sys.stderr)
         return 1
 
     catalog = {"entries": {e["id"]: enrich(e) for e in entries if e.get("id")}}
@@ -193,6 +206,8 @@ def main() -> int:
     dest = GEN / "data-catalog.json"
     dest.write_text(json.dumps(catalog, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print(f"data catalog ok: {len(catalog['entries'])} entries -> {dest.relative_to(ROOT)}")
+    for msg in warnings:
+        print(f"warning: {msg}", file=sys.stderr)
     return 0
 
 

@@ -1,0 +1,3 @@
+<pre><code>How many points are on your card? <span class="sample-input">55</span>
+Your bonus is 10 %
+You now have 60.5 points</code></pre>

@@ -1,0 +1,6 @@
+<pre><code>Which year were you born? <span class="sample-input">1995</span>
+Your age at the end of the year 2021: 26
+
+What is your height? <span class="sample-input">163</span>
+What is your weight? <span class="sample-input">74.45</span>
+The BMI is 28.02137829801649</code></pre>

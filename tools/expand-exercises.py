@@ -109,13 +109,18 @@ def render_card(entry: dict, root: Path) -> str:
         "```",
     ]
 
-    sample = entry.get("sample_output")
-    if isinstance(sample, str) and sample.strip():
-        parts += ["", "::: {.sample-output}", sample_inner(sample), ":::"]
+    sample_path = root / folder / "sample.txt"
+    if sample_path.is_file():
+        sample = sample_path.read_text(encoding="utf-8")
+        if sample.strip():
+            parts += ["", "::: {.sample-output}", sample_inner(sample), ":::"]
 
     mode = str(entry.get("solution") or "hidden")
-    if mode in {"show", "toggle"} and entry.get("has_solution"):
-        sol = (root / folder / "solution.py").read_text(encoding="utf-8")
+    solution_path = root / folder / "solution.py"
+    # Visibility comes from the YAML field; the block is emitted only when
+    # solution.py is actually in the folder.
+    if mode in {"show", "toggle"} and solution_path.is_file():
+        sol = solution_path.read_text(encoding="utf-8")
         escaped = html_escape(sol.rstrip("\n"))
         if mode == "toggle":
             parts += [
