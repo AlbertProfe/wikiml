@@ -5,7 +5,7 @@ format:
     fontsize: "1.0em"
     theme:
       light: cosmo
-      dark: darkly
+      dark: [darkly, tools/dark-rosepine.scss]
     css: ../styles.css
     toc: true
     toc-depth: 5

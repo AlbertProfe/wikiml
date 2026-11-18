@@ -362,10 +362,15 @@ format:
     fontsize: "1.0em"
     theme:
       light: cosmo
-      dark: darkly
+      dark: [darkly, tools/dark-rosepine.scss]
     css: styles.css
     toc: true
     toc-depth: 5
+    code-overflow: "scroll"
+
+highlight-style:
+  light: tools/highlight-arrow-light.theme
+  dark: tools/highlight-rose-pine-moon.theme
 
 execute:
   cache: true

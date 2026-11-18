@@ -60,15 +60,15 @@ https://www.w3schools.com/howto/howto_css_contact_chips.asp
 }
 
 body.quarto-dark {
-  --mermaid-bg-color: #1a1d21;
-  --mermaid-edge-color: #d5e3f5;
-  --mermaid-fg-color: #f4f7fb;
-  --mermaid-fg-color--lighter: #b9cbe0;
-  --mermaid-fg-color--lightest: #243044;
-  --mermaid-label-bg-color: #1a1d21;
-  --mermaid-label-fg-color: #f4f7fb;
-  --mermaid-node-bg-color: #2c5278;
-  --mermaid-node-fg-color: #f4f7fb;
+  --mermaid-bg-color: #232136;
+  --mermaid-edge-color: #e0def4;
+  --mermaid-fg-color: #e0def4;
+  --mermaid-fg-color--lighter: #908caa;
+  --mermaid-fg-color--lightest: #393552;
+  --mermaid-label-bg-color: #232136;
+  --mermaid-label-fg-color: #e0def4;
+  --mermaid-node-bg-color: #393552;
+  --mermaid-node-fg-color: #e0def4;
 }
 
 pre.mermaid,
@@ -88,8 +88,8 @@ body.quarto-dark svg.mermaid-js .legend text,
 body.quarto-dark svg.mermaid-js .nodeLabel p,
 body.quarto-dark svg.mermaid-js foreignObject span,
 body.quarto-dark svg.mermaid-js foreignObject div {
-  color: #f4f7fb !important;
-  fill: #f4f7fb !important;
+  color: #e0def4 !important;
+  fill: #e0def4 !important;
 }
 
 body.quarto-light svg.mermaid-js .nodeLabel,
@@ -124,8 +124,15 @@ body.quarto-dark .light-only {
   margin: 1rem 0 1.5rem 0;
 }
 body.quarto-dark .labs {
-  background: #4a49a8;
-  color: #f7f4ef;
+  background: #2a273f;
+  color: #e0def4;
+  border: 1px solid #393552;
+}
+body.quarto-dark .labs a {
+  color: #f6c177;
+}
+body.quarto-dark .labs a:hover {
+  color: #e0def4;
 }
 .labs a {
   color: #ffe08a;
@@ -148,4 +155,48 @@ body.quarto-dark .labs {
 .fig-on-white .quarto-figure {
   background-color: #ffffff;
   border-radius: 12px;
+}
+
+
+/* Dark mode (Rosé Pine Moon) overrides for always-on styles.css rules.
+   Light rules above are unchanged. Code-block background matches
+   tools/dark-rosepine.scss ($code-block-bg: #232136). */
+
+.quarto-dark div.sourceCode,
+body.quarto-dark div.sourceCode {
+  background-color: #232136;
+}
+
+body.quarto-dark .chip {
+  background-color: #2a273f;
+  color: #e0def4;
+  border: 1px solid #393552;
+}
+body.quarto-dark .chip-primary {
+  background-color: rgba(62, 143, 176, 0.28);
+  color: #e0def4;
+}
+body.quarto-dark .chip-success {
+  background-color: rgba(156, 207, 216, 0.22);
+  color: #e0def4;
+}
+body.quarto-dark .chip-warning {
+  background-color: rgba(246, 193, 119, 0.22);
+  color: #e0def4;
+}
+body.quarto-dark .chip-danger {
+  background-color: rgba(235, 111, 146, 0.22);
+  color: #e0def4;
+}
+
+/* quarto-live / exercise editors: use the same code-block surface. */
+body.quarto-dark .card.exercise-editor .cm-editor,
+body.quarto-dark .card.exercise-editor {
+  background-color: #232136;
+  color: #e0def4;
+}
+body.quarto-dark .card.exercise-editor .card-header {
+  background-color: #2a273f;
+  border-bottom-color: #393552;
+  color: #e0def4;
 }
