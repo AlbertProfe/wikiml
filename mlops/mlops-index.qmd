@@ -14,7 +14,7 @@ A notebook that trains once on a laptop is not a system. MLOps is the unglamorou
 
 Pages I intend to write, not pages that exist today:
 
-- How to structure ML code (the [labs index](/labs/labs-index.qmd) already bookmarks an external note on this; it should become a real page).
+- How to structure ML code (an annotated external note from January 2025 already bookmarks this; it should become a real page).
 - Train versus serve.
 - Evaluation in the loop, pointing at [Model evaluation](/evaluation/evaluation-index.qmd).
 - Versioning of data, code and models, in plain language.

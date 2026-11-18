@@ -1,8 +1,6 @@
 ---
 title: "Language model architecture"
 subtitle: "From n-grams to Transformers, and why linear attention is in the mix"
-aliases:
-  - /rag/language-model-architecture.html
 format:
   html:
     fontsize: "1.0em"

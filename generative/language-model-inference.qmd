@@ -1,8 +1,6 @@
 ---
 title: "Language model inference"
 subtitle: "Prefill and decode, the roofline, and spending compute at test time"
-aliases:
-  - /rag/language-model-inference.html
 format:
   html:
     fontsize: "1.0em"

@@ -1,7 +1,5 @@
 project:
   type: website
-  resources:
-    - resources/books/cover
 
 website:
   title: "Wiki-ML"

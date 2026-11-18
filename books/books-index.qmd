@@ -1,10 +1,5 @@
 ---
 title: "Books"
-aliases:
-  - /training/training-index.html
-  - /training/labs.html
-  - /training/resources.html
-  - /resources/resources-books.html
 description: "Notes on books in this library, starting with David Kriesel’s introduction to neural networks."
 categories: [listing, books, reading]
 format:

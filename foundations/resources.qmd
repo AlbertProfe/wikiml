@@ -1,7 +1,5 @@
 ---
 title: "Foundations: Resources"
-aliases:
-  - /resources/resources-index.html
 ---
 
 # Resources for this section

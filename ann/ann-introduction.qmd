@@ -191,4 +191,4 @@ Despite the advancements in `ANN` technology, several barriers to adoption remai
 The future of `ANNs` also hinges on community-driven research efforts. Initiatives like Frontiers' Research Topics encourage collaboration among researchers across disciplines, fostering a vibrant ecosystem for knowledge exchange and innovation[28]. This collaborative spirit is expected to accelerate the pace of discovery and application in the field of AI, opening up new opportunities for exploration and development.
 
 
-- [Artificial Neural Networks](/files/ArtificialNeuralNetworks.pdf){.external target='_blank'}
+- [Artificial Neural Networks](/files/ann/ArtificialNeuralNetworks.pdf){.external target='_blank'}

@@ -26,7 +26,7 @@ I am not starting with a hedge-fund fantasy. The first honest pages here should 
 - [Key challenges in building agents](agent-challenges.qmd) — reliability, training, evaluation, and safety.
 - The language-model pages now live under [LLMs and Transformers](../generative/generative-index.qmd): [What is a language model?](../generative/what-is-a-language-model.qmd), [Language model architecture](../generative/language-model-architecture.qmd), [Language model training](../generative/language-model-training.qmd), and [Language model inference](../generative/language-model-inference.qmd).
 - [LLMs for agents](llms-for-agents.qmd) — structured I/O, context engineering, and not stuffing the window.
-- A January 2025 bookmark, [Lab#RAG001](/labs/labs-index.qmd), points at an external agents write-up. That is a link list, not a classroom lab.
+- A January 2025 bookmark, Lab#RAG001, points at an external agents write-up. That is a link list, not a classroom lab.
 
 # Labs and resources
 

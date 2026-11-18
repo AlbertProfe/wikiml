@@ -15,4 +15,3 @@ The story behind the loop is [The learning loop](ml-learning-loop.qmd).
 
 The Helsinki MOOC itself has exercises on [programming-24.mooc.fi](https://programming-24.mooc.fi){.external target="_blank"}; my [Python notes](/python/python-index.qmd) are companions to that course, not a replacement for its labs.
 
-A site-wide list of annotated external exercises from January 2025 still lives at the [labs index](/labs/labs-index.qmd).

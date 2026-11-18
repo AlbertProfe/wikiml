@@ -55,7 +55,7 @@ For a student walk-through of ReLU, sigmoid, tanh and GELU, see [Activation func
 > The **Fourier** series animation using **Manim** serves as an excellent example of how **Python** can be used to create complex visualizations and animations for mathematical concepts.
 
 
-![](/images/home/FourierSeriesAnimation.mp4)
+![](/videos/home/FourierSeriesAnimation.mp4)
 
 <mark>The Fourier series animation showcases Python's ability to visualize complex mathematical concepts, which is crucial in ML for understanding data distributions, model architectures, and algorithm behavior.</mark>
 

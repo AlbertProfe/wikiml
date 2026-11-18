@@ -1,8 +1,6 @@
 ---
 title: "Language model training"
 subtitle: "Pretraining, midtraining, post-training, and training for agents"
-aliases:
-  - /rag/language-model-training.html
 format:
   html:
     fontsize: "1.0em"

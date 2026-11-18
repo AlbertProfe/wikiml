@@ -1,8 +1,6 @@
 ---
 title: "What is a language model?"
 subtitle: "Next-token probabilities, and how we sample from them"
-aliases:
-  - /rag/what-is-a-language-model.html
 format:
   html:
     fontsize: "1.0em"
