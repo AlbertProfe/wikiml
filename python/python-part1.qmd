@@ -68,10 +68,11 @@ print(f"The result is {result}")
 
 Let's break this apart. In the very beginning of the string we are printing out there is the character f. This tells `Python` that what follows is an f-string. Within the string, enclosed in curly brackets, is the variable name result. The value it contains becomes a part of the printed string. The printout is exactly the same as in the previous examples:
 
-Sample output
+::: {.sample-output}
 ```
 The result is 250
 ```
+:::
 
 ## Numbers as input
 
@@ -81,11 +82,11 @@ Similarly, a string can be converted into a floating point number with the funct
 
 ```{pyodide}
 #| autorun: true
-year = 1995  # preset: input() is not available in the in-page editor
+year = 1995  # preset (no input() in browser)
 print(f"Your age at the end of the year 2021: {2021 - year}" )
 
-height = 163.0  # preset: centimetres, as in the sample output below
-weight = 74.45  # preset: kilograms, as in the sample output below
+height = 163.0  # preset (no input() in browser)
+weight = 74.45  # preset (no input() in browser)
 
 height = height / 100
 bmi = weight / height ** 2
@@ -93,15 +94,14 @@ bmi = weight / height ** 2
 print(f"The BMI is {bmi}")
 ```
 
-Sample output
-```
-Which year were you born? 1995
+::: {.sample-output}
+<pre><code>Which year were you born? <span class="sample-input">1995</span>
 Your age at the end of the year 2021: 26
 
-What is your height? 163
-What is your weight? 74.45
-The BMI is 28.02137829801649
-```
+What is your height? <span class="sample-input">163</span>
+What is your weight? <span class="sample-input">74.45</span>
+The BMI is 28.02137829801649</code></pre>
+:::
 
 ## Conditional statements
 
@@ -121,15 +121,16 @@ if condition:
     print("a is less than 5")
 ```
 
-Sample output
+::: {.sample-output}
 ```
 True
 a is less than 5
 ```
+:::
 
 ```{pyodide}
 #| autorun: true
-points = 55  # preset: input() is not available in the in-page editor
+points = 55  # preset (no input() in browser)
 if points < 100:
     points *= 1.1
     print("Your bonus is 10 %")
@@ -141,9 +142,8 @@ elif points >= 100:
 print("You now have", points, "points")
 ```
 
-Sample output
-```
-How many points are on your card? 55
+::: {.sample-output}
+<pre><code>How many points are on your card? <span class="sample-input">55</span>
 Your bonus is 10 %
-You now have 60.5 points
-```
+You now have 60.5 points</code></pre>
+:::
