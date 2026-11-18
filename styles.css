@@ -478,7 +478,10 @@ body.quarto-dark .code-unit .card.exercise-editor .card-header {
 .code-unit-tab[data-tab="output"]::before { content: "\f5c3"; } /* bi-terminal */
 .code-unit-tab[data-tab="sample"]::before { content: "\f444"; } /* bi-journal-text */
 
-/* Bottom area: live result or book sample, one subtle surface. */
+/* Bottom area: live result or book sample, one subtle surface.
+   When tabs are present, 0.6rem above the content matches the gap
+   between the divider and the tab labels (and the card's bottom padding).
+   Tabless cells keep their existing inset and stay unaffected. */
 .code-unit .code-unit-output,
 .code-unit .cell-output-container,
 .code-unit .sample-output {
@@ -486,6 +489,10 @@ body.quarto-dark .code-unit .card.exercise-editor .card-header {
   padding: 0;
   border: 0;
   background: var(--code-unit-bottom-bg);
+}
+.code-unit:has(.code-unit-tabs) .code-unit-output,
+.code-unit .sample-output {
+  padding-top: 0.6rem;
 }
 .code-unit .cell-output-container,
 .code-unit .sample-output pre {
@@ -495,6 +502,10 @@ body.quarto-dark .code-unit .card.exercise-editor .card-header {
   border: 0;
   color: inherit;
   white-space: pre-wrap;
+}
+.code-unit:has(.code-unit-tabs) .cell-output-container,
+.code-unit .sample-output pre {
+  padding-top: 0;
 }
 .code-unit .sample-output pre code,
 .code-unit .cell-output-container pre,
