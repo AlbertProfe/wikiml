@@ -187,9 +187,9 @@ window.Quarto = {
  <span class="dropdown-text">System Design</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../training/training-index.html"><i class="bi bi-mortarboard" role="img">
+    <a class="dropdown-item" href="../books/books-index.html"><i class="bi bi-book" role="img">
 </i> 
- <span class="dropdown-text">Training</span></a>
+ <span class="dropdown-text">Books</span></a>
   </li>  
     </ul>
   </li>
@@ -702,26 +702,20 @@ window.Quarto = {
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-training" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Training</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-books" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Books</span>
     </a>
-    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-training">    
-        <li class="dropdown-header">About Training</li>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-books">    
+        <li class="dropdown-header">Library</li>
         <li>
-    <a class="dropdown-item" href="../training/training-index.html">
- <span class="dropdown-text">Training</span></a>
+    <a class="dropdown-item" href="../books/books-index.html">
+ <span class="dropdown-text">Books</span></a>
   </li>  
         <li><hr class="dropdown-divider"></li>
-        <li class="dropdown-header">Labs</li>
+        <li class="dropdown-header">Notes</li>
         <li>
-    <a class="dropdown-item" href="../training/labs.html">
- <span class="dropdown-text">Training: Labs</span></a>
-  </li>  
-        <li><hr class="dropdown-divider"></li>
-        <li class="dropdown-header">Resources</li>
-        <li>
-    <a class="dropdown-item" href="../training/resources.html">
- <span class="dropdown-text">Training: Resources</span></a>
+    <a class="dropdown-item" href="../books/a-brief-introduction-to-neural-networks.html">
+ <span class="dropdown-text">A Brief Introduction to Neural Networks</span></a>
   </li>  
     </ul>
   </li>
@@ -978,7 +972,7 @@ Everyday example
 </div>
 </div>
 <div class="fig-on-white">
-<div id="fig-l3-why-retrieval" class="lightbox quarto-float quarto-figure quarto-figure-center anchored" alt="A comparison titled Why Retrieval: an LLM alone guesses that Wednesday afternoon is usually quietest; an LLM with retrieval cites a queue log and answers Thursday 9am." data-fig-align="center">
+<div id="fig-l3-why-retrieval" class="lightbox quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="A comparison titled Why Retrieval: an LLM alone guesses that Wednesday afternoon is usually quietest; an LLM with retrieval cites a queue log and answers Thursday 9am.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-l3-why-retrieval-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="../images/agents-l3/why-retrieval-office-hours.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;1: Without retrieval the model guesses from habit; with a queue log it can cite this week’s numbers — CS 329Z Lecture 3 (Diyi Yang, Michael Ryan, John Yang), slide p.&nbsp;10. The office-hour figures are a lecture illustration, not a measured dataset. Lecture original."><img src="../images/agents-l3/why-retrieval-office-hours.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%" alt="A comparison titled Why Retrieval: an LLM alone guesses that Wednesday afternoon is usually quietest; an LLM with retrieval cites a queue log and answers Thursday 9am."></a>
@@ -1005,7 +999,7 @@ Figure&nbsp;1: Without retrieval the model guesses from habit; with a queue log 
 <p><a href="https://arxiv.org/abs/2005.11401" class="external" target="_blank">Lewis, Perez, Piktus and colleagues</a> named the modern recipe <em>retrieval-augmented generation</em>. A query encoder looks up passages in a non-parametric document index (they use a dense retriever in the style of <a href="../rag/rag-retrieval.html#dpr-dense-passage-retrieval">DPR</a>); a generator — in the paper, an encoder–decoder such as BART — writes the answer given the query and the passages. The retriever and the generator can be trained together, by maximising the marginal likelihood of the answer. Related lines of work, which the lecture points to, include REALM and DPR.</p>
 <p>The lecture credits this figure as Lewis et al., 2021. The paper appeared at NeurIPS 2020 (arXiv, May 2020). We follow the venue year here.</p>
 <div class="fig-on-white">
-<div id="fig-l3-lewis-rag" class="lightbox quarto-float quarto-figure quarto-figure-center anchored" alt="A diagram of retrieval-augmented generation: a query encoder, MIPS search over a document index, retrieved passages, and a generator that writes an answer." data-fig-align="center">
+<div id="fig-l3-lewis-rag" class="lightbox quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="A diagram of retrieval-augmented generation: a query encoder, MIPS search over a document index, retrieved passages, and a generator that writes an answer.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-l3-lewis-rag-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="../images/agents-l3/why-rag-lewis.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figure&nbsp;2: The RAG model: a retriever over a document index, a generator that writes from the query and the passages, and a training signal that can run through both — CS 329Z Lecture 3 (Diyi Yang, Michael Ryan, John Yang), slide p.&nbsp;14. Original: Lewis et al.&nbsp;(2020). The lecture labels the paper 2021; it was published at NeurIPS 2020."><img src="../images/agents-l3/why-rag-lewis.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%" alt="A diagram of retrieval-augmented generation: a query encoder, MIPS search over a document index, retrieved passages, and a generator that writes an answer."></a>
@@ -1022,7 +1016,7 @@ p(y \mid x) \approx \sum_{z \in \mathrm{top\text{-}K}} p(z \mid x)\, p(y \mid x,
 \]</span></p>
 <p>The paper compares two ways to do the sum. <em>RAG-Sequence</em> picks a passage and sticks with it for the whole answer. <em>RAG-Token</em> may pick a different passage at each token. Most production pipelines today are closer to the first idea, or to a still simpler <em>naive</em> recipe: retrieve once, stuff the passages into the prompt, generate once. The jointly trained models in the paper are the research ancestor, not the only way to wire the loop.</p>
 <div class="fig-on-white">
-<div id="fig-l3-rag-sequence-token" class="lightbox quarto-float quarto-figure quarto-figure-center anchored" alt="A slide defining the retriever p of z given x, the generator p of y given x and z, a sum over the top K passages, and the RAG-Sequence and RAG-Token variants." data-fig-align="center">
+<div id="fig-l3-rag-sequence-token" class="lightbox quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="A slide defining the retriever p of z given x, the generator p of y given x and z, a sum over the top K passages, and the RAG-Sequence and RAG-Token variants.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-l3-rag-sequence-token-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="../images/agents-l3/why-rag-sequence-token.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figure&nbsp;3: A retriever over passages and a generator over query plus passage, with RAG-Sequence versus RAG-Token — CS 329Z Lecture 3 (Diyi Yang, Michael Ryan, John Yang), slide p.&nbsp;16. The formulation follows Lewis et al.&nbsp;(2020). Lecture original."><img src="../images/agents-l3/why-rag-sequence-token.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%" alt="A slide defining the retriever p of z given x, the generator p of y given x and z, a sum over the top K passages, and the RAG-Sequence and RAG-Token variants."></a>
@@ -1060,7 +1054,7 @@ Figure&nbsp;3: A retriever over passages and a generator over query plus passage
 <li><em>Modular RAG</em> treats those steps as interchangeable parts — rewrite, retrieve, rerank, read, even loop — so a system can be a pipeline or a small graph of skills.</li>
 </ul>
 <div class="fig-on-white">
-<div id="fig-l3-rag-variants" class="lightbox quarto-float quarto-figure quarto-figure-center anchored" alt="Three diagrams of RAG variants: a naive retrieve-then-generate pipeline, an advanced pipeline with pre- and post-retrieval steps, and a modular graph of search, rewrite, rerank and memory skills." data-fig-align="center">
+<div id="fig-l3-rag-variants" class="lightbox quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="Three diagrams of RAG variants: a naive retrieve-then-generate pipeline, an advanced pipeline with pre- and post-retrieval steps, and a modular graph of search, rewrite, rerank and memory skills.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-l3-rag-variants-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="../images/agents-l3/why-rag-variants-gao.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Figure&nbsp;4: Naive, advanced, and modular RAG, as mapped by the 2024 survey — CS 329Z Lecture 3 (Diyi Yang, Michael Ryan, John Yang), slide p.&nbsp;21. Original: Gao et al., Retrieval-Augmented Generation for Large Language Models: A Survey (2023/24)."><img src="../images/agents-l3/why-rag-variants-gao.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%" alt="Three diagrams of RAG variants: a naive retrieve-then-generate pipeline, an advanced pipeline with pre- and post-retrieval steps, and a modular graph of search, rewrite, rerank and memory skills."></a>
