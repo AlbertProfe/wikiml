@@ -250,14 +250,11 @@ body.quarto-dark .code-unit {
   box-shadow: none;
 }
 
-/* Flatten the live editor so the unit frame is the only chrome.
-   Leave a little air between the last code line and the tab strip
-   (or the live output when there are no tabs). */
+/* Flatten the live editor so the unit frame is the only chrome. */
 .code-unit .card.exercise-editor {
   margin: 0 !important;
   border: 0;
   background: transparent;
-  padding-bottom: 0.7rem;
 }
 .code-unit .card.exercise-editor .cm-editor {
   background-color: var(--code-unit-editor-bg);
@@ -418,7 +415,8 @@ body.quarto-dark .code-unit .card.exercise-editor .card-header {
   align-items: stretch;
   gap: 0;
   margin: 0;
-  padding: 0.15rem 0.35rem 0;
+  /* Space sits under the divider and above the tab labels. */
+  padding: 0.6rem 0.35rem 0;
   border: 0;
   border-top: 1px solid var(--code-unit-border);
   background: transparent;
