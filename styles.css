@@ -200,3 +200,294 @@ body.quarto-dark .card.exercise-editor .card-header {
   border-bottom-color: #393552;
   color: #e0def4;
 }
+
+
+/* Code units: one rounded frame around a quarto-live editor, its live
+   output, and an optional book sample. Wrap them in ::: {.code-unit}.
+   Mark typed values in the sample with <span class="sample-input">.
+   tools/code-unit.html right-aligns the toolbar (Download, Reload,
+   Clear, Run Code) and adds Output / Sample output tabs when a sample
+   is present. A unit with no sample is just the editor plus output. */
+.code-unit {
+  --code-unit-border: #d5d8de;
+  --code-unit-tab: #5c6370;
+  --code-unit-tab-active: #2c2a32;
+  --code-unit-bottom-bg: #f7f8fa;
+  --code-unit-input: #0b6e4f;
+  --code-unit-header-bg: #eceff3;
+  --code-unit-header-fg: #3a3d45;
+  --code-unit-run: #2780e3;
+  --code-unit-editor-bg: #ffffff;
+  margin: 1rem 0 1.5rem;
+  border: 1px solid var(--code-unit-border);
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--code-unit-editor-bg);
+  box-shadow: none;
+}
+body.quarto-dark .code-unit {
+  --code-unit-border: #393552;
+  --code-unit-tab: #908caa;
+  --code-unit-tab-active: #e0def4;
+  --code-unit-bottom-bg: #2a273f;
+  --code-unit-input: #f6c177;
+  --code-unit-header-bg: #2a273f;
+  --code-unit-header-fg: #e0def4;
+  --code-unit-run: #9ccfd8;
+  --code-unit-editor-bg: #232136;
+}
+.code-unit .card,
+.code-unit .card-header,
+.code-unit .card-body,
+.code-unit .cm-editor,
+.code-unit .btn,
+.code-unit .code-unit-tabs,
+.code-unit .code-unit-tab,
+.code-unit .cell-output-container,
+.code-unit .sample-output,
+.code-unit pre {
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* Flatten the live editor so the unit frame is the only chrome. */
+.code-unit .card.exercise-editor {
+  margin: 0 !important;
+  border: 0;
+  background: transparent;
+}
+.code-unit .card.exercise-editor .cm-editor {
+  background-color: var(--code-unit-editor-bg);
+  color: inherit;
+}
+
+/* Toolbar: slightly lighter bar, actions right-aligned, no button chrome. */
+.code-unit .card.exercise-editor .card-header,
+.code-unit .exercise-editor-header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.1rem;
+  padding: 0.28rem 0.45rem 0.28rem 0.7rem;
+  background: var(--code-unit-header-bg);
+  color: var(--code-unit-header-fg);
+  border-bottom: 1px solid var(--code-unit-border);
+}
+/* Badge stays left; the first header group grows so its button
+   cluster (Download, Reload, Clear) can be pushed to the right,
+   sitting against Run Code in the second group. No re-parenting. */
+.code-unit .exercise-editor-header > .d-flex:first-child {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0;
+}
+.code-unit .exercise-editor-header > .d-flex:first-child .btn-group,
+.code-unit .exercise-editor-header > .d-flex:first-child .btn-group-exercise-editor {
+  margin-left: auto;
+}
+.code-unit .exercise-editor-header > .d-flex:last-child {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+body.quarto-dark .code-unit .card.exercise-editor .card-header {
+  background-color: var(--code-unit-header-bg);
+  border-bottom-color: var(--code-unit-border);
+  color: var(--code-unit-header-fg);
+}
+/* Hide the default "Python Code" caption; it clutters the bar. */
+.code-unit .exercise-editor-header > .d-flex:first-child > div:first-child:not(:has(a, button, .btn)),
+.code-unit .code-unit-caption {
+  display: none;
+}
+.code-unit-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 0.1rem;
+  margin-left: auto;
+}
+.code-unit-id + .code-unit-actions {
+  margin-left: 0;
+}
+/* ID badge: muted monospace, left side of the toolbar. */
+.code-unit .exercise-editor-header .code-unit-id,
+.code-unit-id {
+  margin-left: 0;
+  margin-right: auto;
+  padding: 0.28rem 0.55rem;
+  border: 0;
+  background: transparent;
+  color: var(--code-unit-tab);
+  font-family: var(--bs-font-monospace, ui-monospace, SFMono-Regular, Menlo, Consolas, monospace);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  line-height: 1;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.code-unit-id:hover,
+.code-unit-id:focus-visible {
+  color: var(--code-unit-tab-active);
+  text-decoration: none;
+}
+.code-unit-action,
+.code-unit a.code-unit-action,
+.code-unit button.code-unit-action,
+.code-unit .code-unit-actions .btn,
+.code-unit .code-unit-actions .btn-exercise-editor {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin: 0;
+  padding: 0.28rem 0.55rem;
+  border: 0 !important;
+  border-radius: 0;
+  background: transparent !important;
+  box-shadow: none !important;
+  color: var(--code-unit-header-fg) !important;
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 500;
+  line-height: 1;
+  text-decoration: none !important;
+  cursor: pointer;
+}
+.code-unit-action .bi,
+.code-unit .code-unit-actions .bi {
+  font-size: 0.95em;
+  line-height: 1;
+}
+.code-unit-action:hover,
+.code-unit .code-unit-actions .btn:hover {
+  background: transparent !important;
+  color: var(--code-unit-tab-active) !important;
+  text-decoration: none !important;
+}
+.code-unit-action-run,
+.code-unit a.code-unit-action-run,
+.code-unit .code-unit-actions .exercise-editor-btn-run-code,
+.code-unit .code-unit-actions .btn-primary {
+  color: var(--code-unit-run) !important;
+  font-weight: 600;
+  --bs-btn-color: var(--code-unit-run);
+  --bs-btn-bg: transparent;
+  --bs-btn-border-color: transparent;
+  --bs-btn-hover-color: var(--code-unit-run);
+  --bs-btn-hover-bg: transparent;
+  --bs-btn-hover-border-color: transparent;
+  --bs-btn-active-color: var(--code-unit-run);
+  --bs-btn-active-bg: transparent;
+}
+.code-unit-action-run:hover,
+.code-unit .code-unit-actions .exercise-editor-btn-run-code:hover {
+  color: var(--code-unit-run) !important;
+  opacity: 0.85;
+}
+.code-unit-action.disabled,
+.code-unit-action:disabled,
+.code-unit .code-unit-actions .btn.disabled,
+.code-unit .code-unit-actions .btn:disabled {
+  opacity: 0.45;
+  pointer-events: none;
+}
+.code-unit .exercise-editor-eval-indicator {
+  margin: 0 0.15rem 0 0;
+  color: var(--code-unit-header-fg);
+}
+.code-unit .code-unit-actions .btn-group,
+.code-unit .code-unit-actions .btn-group-exercise-editor {
+  display: contents;
+}
+
+/* Compact tab strip: a thin divider, no extra boxes. */
+.code-unit-tabs {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  margin: 0;
+  padding: 0 0.35rem;
+  border: 0;
+  border-top: 1px solid var(--code-unit-border);
+  background: transparent;
+}
+.code-unit-tab {
+  appearance: none;
+  margin: 0;
+  padding: 0.28rem 0.7rem 0.32rem;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  background: transparent;
+  color: var(--code-unit-tab);
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1.2;
+  cursor: pointer;
+}
+.code-unit-tab.is-active {
+  color: var(--code-unit-tab-active);
+  border-bottom-color: var(--code-unit-tab-active);
+}
+.code-unit-tab:focus-visible {
+  outline: 1px solid var(--code-unit-tab-active);
+  outline-offset: -1px;
+}
+
+/* Bottom area: live result or book sample, one subtle surface. */
+.code-unit .code-unit-output,
+.code-unit .cell-output-container,
+.code-unit .sample-output {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: var(--code-unit-bottom-bg);
+}
+.code-unit .cell-output-container,
+.code-unit .sample-output pre {
+  margin: 0;
+  padding: 0.5rem 0.7rem;
+  background: transparent;
+  border: 0;
+  color: inherit;
+  white-space: pre-wrap;
+}
+.code-unit .sample-output pre code,
+.code-unit .cell-output-container pre,
+.code-unit .cell-output-container pre code {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  color: inherit;
+  font-size: 0.9em;
+}
+.code-unit .sample-output {
+  display: none;
+}
+.code-unit[data-tab="sample"] .sample-output {
+  display: block;
+}
+.code-unit[data-tab="sample"] .code-unit-output {
+  display: none;
+}
+.code-unit .sample-input {
+  color: var(--code-unit-input);
+  font-weight: 700;
+}
+
+/* Highlight helper if a sample is used outside a unit. */
+.sample-input {
+  color: var(--code-unit-input, #0b6e4f);
+  font-weight: 700;
+}
+body.quarto-dark .sample-input {
+  color: var(--code-unit-input, #f6c177);
+}

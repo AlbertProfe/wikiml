@@ -1143,6 +1143,8 @@ Try it
 <p>Change <code>learning_rate</code> and press Run. Try a smaller rate, or a larger one. You can also try fewer <code>steps</code> and watch <span class="math inline">\(w\)</span> and <span class="math inline">\(b\)</span> stop short of 1.50 and 2.00.</p>
 </div>
 </div>
+<div id="lab-fu01-2" class="code-unit" data-id="Lab#FU01-2">
+<p><a href="#lab-fu01-2" class="code-unit-id">Lab#FU01-2</a></p>
 <div>
 <div id="pyodide-1" class="exercise-cell">
 
@@ -1150,6 +1152,7 @@ Try it
 <script type="pyodide-1-contents">
 eyJhdHRyIjp7ImF1dG9ydW4iOnRydWUsImVkaXQiOnRydWUsImV2YWwiOnRydWUsImZpZy1oZWlnaHQiOjgsImZpZy13aWR0aCI6MTB9LCJjb2RlIjoiaW1wb3J0IG1hdHBsb3RsaWIucHlwbG90IGFzIHBsdFxuaW1wb3J0IG51bXB5IGFzIG5wXG5mcm9tIHNrbGVhcm4ubGluZWFyX21vZGVsIGltcG9ydCBMaW5lYXJSZWdyZXNzaW9uXG5cbmttID0gbnAuYXJyYXkoWzEuMCwgMi4wLCAzLjAsIDUuMCwgNi4wLCA4LjAsIDEwLjAsIDEyLjBdKVxucHJpY2UgPSBucC5hcnJheShbMy41MCwgNS4wMCwgNi41MCwgOS41MCwgMTEuMDAsIDE0LjAwLCAxNy4wMCwgMjAuMDBdKVxuXG5wcmludChcIlJlY2VpcHRzOlwiKVxuZm9yIHgsIHkgaW4gemlwKGttLCBwcmljZSk6XG4gICAgcHJpbnQoZlwiICB7eDo0LjBmfSBrbSAgIOKCrHt5Oi4yZn1cIilcblxudyA9IDAuMFxuYiA9IDAuMFxubGVhcm5pbmdfcmF0ZSA9IDAuMDFcbnN0ZXBzID0gMjAwMFxuc2hvd19hdCA9IHswLCAxLCA1LCAxMCwgNTAsIDEwMCwgMjAwLCA1MDAsIDEwMDAsIDIwMDB9XG5cbmhpc3RvcnlfdyA9IFt3XVxuaGlzdG9yeV9iID0gW2JdXG5oaXN0b3J5X2xvc3MgPSBbXVxuXG5wcmVkID0gdyAqIGttICsgYlxubG9zcyA9IGZsb2F0KG5wLm1lYW4oKHByZWQgLSBwcmljZSkgKiogMikpXG5oaXN0b3J5X2xvc3MuYXBwZW5kKGxvc3MpXG5cbnByaW50KFwiXFxuQWZ0ZXIgc3RlcCB8ICAgICAgICB3IHwgICAgICAgIGIgfCAgICAgbG9zc1wiKVxucHJpbnQoXCItLS0tLS0tLS0tLSstLS0tLS0tLS0tKy0tLS0tLS0tLS0rLS0tLS0tLS0tXCIpXG5wcmludChmXCIgICAgIHN0YXJ0IHwge3c6OC40Zn0gfCB7Yjo4LjRmfSB8IHtsb3NzOjcuNGZ9XCIpXG5cbmZvciBzdGVwIGluIHJhbmdlKDEsIHN0ZXBzICsgMSk6XG4gICAgcHJlZCA9IHcgKiBrbSArIGJcbiAgICBlcnIgPSBwcmVkIC0gcHJpY2VcbiAgICBncmFkX3cgPSBmbG9hdChucC5tZWFuKDIgKiBlcnIgKiBrbSkpXG4gICAgZ3JhZF9iID0gZmxvYXQobnAubWVhbigyICogZXJyKSlcbiAgICB3ID0gdyAtIGxlYXJuaW5nX3JhdGUgKiBncmFkX3dcbiAgICBiID0gYiAtIGxlYXJuaW5nX3JhdGUgKiBncmFkX2JcbiAgICBwcmVkID0gdyAqIGttICsgYlxuICAgIGxvc3MgPSBmbG9hdChucC5tZWFuKChwcmVkIC0gcHJpY2UpICoqIDIpKVxuICAgIGhpc3Rvcnlfdy5hcHBlbmQodylcbiAgICBoaXN0b3J5X2IuYXBwZW5kKGIpXG4gICAgaGlzdG9yeV9sb3NzLmFwcGVuZChsb3NzKVxuICAgIGlmIHN0ZXAgaW4gc2hvd19hdDpcbiAgICAgICAgcHJpbnQoZlwie3N0ZXA6MTBkfSB8IHt3OjguNGZ9IHwge2I6OC40Zn0gfCB7bG9zczo3LjRmfVwiKVxuXG5wcmludChmXCJcXG5HcmFkaWVudCBkZXNjZW50OiAgdyA9IHt3Oi42Zn0gICBiID0ge2I6LjZmfVwiKVxuXG5tb2RlbCA9IExpbmVhclJlZ3Jlc3Npb24oKVxubW9kZWwuZml0KGttLnJlc2hhcGUoLTEsIDEpLCBwcmljZSlcbnNrX3cgPSBmbG9hdChtb2RlbC5jb2VmX1swXSlcbnNrX2IgPSBmbG9hdChtb2RlbC5pbnRlcmNlcHRfKVxucHJpbnQoZlwiTGluZWFyUmVncmVzc2lvbjogIHcgPSB7c2tfdzouNmZ9ICAgYiA9IHtza19iOi42Zn1cIilcbnByaW50KGZcIlRydWUgdmFsdWVzOiAgICAgICB3ID0gMS41MDAwMDAgICBiID0gMi4wMDAwMDBcIilcblxuZmlnLCBheGVzID0gcGx0LnN1YnBsb3RzKDEsIDIsIGZpZ3NpemU9KDEwLCA0KSlcbmF4ZXNbMF0ucGxvdChoaXN0b3J5X2xvc3MsIGNvbG9yPVwiI2QzNTQwMFwiKVxuYXhlc1swXS5zZXRfeGxhYmVsKFwic3RlcFwiKVxuYXhlc1swXS5zZXRfeWxhYmVsKFwibWVhbiBzcXVhcmVkIGVycm9yXCIpXG5heGVzWzBdLnNldF90aXRsZShcIkxvc3NcIilcbmF4ZXNbMF0uZ3JpZChUcnVlLCBjb2xvcj1cIiNkZGRkZGRcIilcblxuYXhlc1sxXS5wbG90KGhpc3RvcnlfdywgY29sb3I9XCIjM2QzYzk2XCIsIGxhYmVsPVwidyAocmF0ZSlcIilcbmF4ZXNbMV0ucGxvdChoaXN0b3J5X2IsIGNvbG9yPVwiIzFlODQ0OVwiLCBsYWJlbD1cImIgKGJhc2UgZmFyZSlcIilcbmF4ZXNbMV0uYXhobGluZSgxLjUsIGNvbG9yPVwiIzNkM2M5NlwiLCBsaW5lc3R5bGU9XCItLVwiLCBsaW5ld2lkdGg9MSlcbmF4ZXNbMV0uYXhobGluZSgyLjAsIGNvbG9yPVwiIzFlODQ0OVwiLCBsaW5lc3R5bGU9XCItLVwiLCBsaW5ld2lkdGg9MSlcbmF4ZXNbMV0uc2V0X3hsYWJlbChcInN0ZXBcIilcbmF4ZXNbMV0uc2V0X3RpdGxlKFwidyBhbmQgYlwiKVxuYXhlc1sxXS5sZWdlbmQoKVxuYXhlc1sxXS5ncmlkKFRydWUsIGNvbG9yPVwiI2RkZGRkZFwiKVxuZmlnLnN1cHRpdGxlKFwiVGF4aSBMYWIgMiDigJQgZ3JhZGllbnQgZGVzY2VudCBmb3IgcHJpY2UgPSB3IMK3IGttICsgYlwiKVxuZmlnLnRpZ2h0X2xheW91dCgpXG5wbHQuc2hvdygpXG5cbmZpZywgYXggPSBwbHQuc3VicGxvdHMoZmlnc2l6ZT0oNywgNCkpXG54cyA9IG5wLmxpbnNwYWNlKDAsIDEzLCA1MClcbmF4LnNjYXR0ZXIoa20sIHByaWNlLCBjb2xvcj1cIiNkMzU0MDBcIiwgem9yZGVyPTMsIGxhYmVsPVwicmVjZWlwdHNcIilcbmF4LnBsb3QoeHMsIHcgKiB4cyArIGIsIGNvbG9yPVwiIzNkM2M5NlwiLCBsYWJlbD1cImdyYWRpZW50IGRlc2NlbnRcIilcbmF4LnBsb3QoeHMsIHNrX3cgKiB4cyArIHNrX2IsIGNvbG9yPVwiIzFlODQ0OVwiLCBsaW5lc3R5bGU9XCItLVwiLCBsYWJlbD1cIkxpbmVhclJlZ3Jlc3Npb25cIilcbmF4LnNldF94bGFiZWwoXCJraWxvbWV0cmVzXCIpXG5heC5zZXRfeWxhYmVsKFwicHJpY2UgKOKCrClcIilcbmF4LnNldF90aXRsZShcIlRoZSBmaXR0ZWQgbGluZSwgYWdhaW5zdCB0aGUgcmVjZWlwdHNcIilcbmF4LmxlZ2VuZCgpXG5heC5ncmlkKFRydWUsIGNvbG9yPVwiI2RkZGRkZFwiKVxuZmlnLnRpZ2h0X2xheW91dCgpXG5wbHQuc2hvdygpIn0=
 </script>
+</div>
 </div>
 <p>After 500 steps the fit is already close (<span class="math inline">\(w \approx 1.514\)</span>, <span class="math inline">\(b \approx 1.887\)</span>). After 2000 steps, <span class="math inline">\(w = 1.500004\)</span> and <span class="math inline">\(b = 1.999971\)</span>. <code>LinearRegression</code> lands on the true <span class="math inline">\(w\)</span> and <span class="math inline">\(b\)</span>. The two lines sit on top of each other. That is the point: your loop and the library are doing the same job. The library is faster and more stable; the loop is the one you can see.</p>
 </section>
@@ -1187,6 +1190,263 @@ W10=
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<script>
+/* Enhance .code-unit wrappers: toolbar actions, ID badge, Output / Sample tabs.
+   The quarto-live result stays in its OJS slot; we only toggle visibility.
+   Fork is omitted: there is no sensible target for these in-page cells.
+   Do not re-parent OJS-owned nodes (the editor card, header groups, Run /
+   Reload buttons, or output slot). A previous version moved those nodes
+   and called Node.before() on every MutationObserver tick, which could
+   livelock the page — especially on WebKit, which mounts cells more
+   slowly — leaving only the static badge visible. */
+(function () {
+  const setIcon = (el, iconClass) => {
+    if (!el || el.querySelector("i.bi." + iconClass)) return;
+    el.querySelectorAll("svg, i.bi").forEach((node) => node.remove());
+    const icon = document.createElement("i");
+    icon.className = "bi " + iconClass;
+    icon.setAttribute("aria-hidden", "true");
+    el.insertBefore(icon, el.firstChild);
+  };
+
+  const unitCode = (unit) => {
+    const root = unit.querySelector(".card.exercise-editor") &&
+      unit.querySelector(".card.exercise-editor").parentElement;
+    if (root && root.value && typeof root.value.code === "string") return root.value.code;
+    const cm = unit.querySelector(".cm-content");
+    return cm ? cm.innerText : "";
+  };
+
+  const downloadCode = (unit) => {
+    const code = unitCode(unit);
+    const page = (location.pathname.split("/").pop() || "cell").replace(/\.html$/, "");
+    const index = Array.prototype.indexOf.call(document.querySelectorAll(".code-unit"), unit) + 1;
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(new Blob([code], { type: "text/x-python" }));
+    a.download = page + "-" + index + ".py";
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+  };
+
+  const clearOutput = (unit) => {
+    unit.querySelectorAll(".cell-output-container").forEach((el) => {
+      while (el.firstChild) el.removeChild(el.firstChild);
+    });
+  };
+
+  const actionButton = (label, iconClass, className, onClick) => {
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "code-unit-action " + className;
+    btn.setAttribute("aria-label", label);
+    const icon = document.createElement("i");
+    icon.className = "bi " + iconClass;
+    icon.setAttribute("aria-hidden", "true");
+    const span = document.createElement("span");
+    span.textContent = label;
+    btn.appendChild(icon);
+    btn.appendChild(span);
+    btn.addEventListener("click", onClick);
+    return btn;
+  };
+
+  const hideCaption = (group) => {
+    if (!group) return;
+    Array.prototype.forEach.call(group.children, (child) => {
+      if (child.matches && child.matches("a, button, .btn, .btn-group, .code-unit-action, .code-unit-id")) return;
+      if (child.querySelector && child.querySelector("a, button, .btn, .code-unit-action")) return;
+      child.classList.add("code-unit-caption");
+    });
+  };
+
+  // Direct child of the header that contains the given node (the left
+  // or right header group). Never use header.closest(".d-flex") — the
+  // header itself is a .d-flex, and insertBefore would then be called
+  // with a reference node that is not a child of that group.
+  const headerGroup = (node, header) => {
+    let el = node;
+    while (el && el.parentElement && el.parentElement !== header) el = el.parentElement;
+    return (el && el.parentElement === header) ? el : header;
+  };
+
+  // Relabel in place and insert only nodes we own. Leave OJS header
+  // groups and their Run / Start Over buttons where they were built.
+  const restyleToolbar = (unit) => {
+    const header = unit.querySelector(".exercise-editor-header");
+    if (!header || header.dataset.codeUnitToolbar) return;
+    const runBtn = header.querySelector(".exercise-editor-btn-run-code");
+    const reloadBtn =
+      header.querySelector('[aria-label="Start Over"]') ||
+      header.querySelector(".btn-outline-dark");
+    if (!runBtn || !reloadBtn) return;
+    header.dataset.codeUnitToolbar = "true";
+
+    runBtn.classList.add("code-unit-action", "code-unit-action-run");
+    runBtn.setAttribute("aria-label", "Run Code");
+    setIcon(runBtn, "bi-play-fill");
+    const runLabel = runBtn.querySelector(".btn-label-exercise-editor");
+    if (runLabel) runLabel.textContent = "Run Code";
+
+    reloadBtn.classList.add("code-unit-action", "code-unit-action-reload");
+    reloadBtn.setAttribute("aria-label", "Reload");
+    setIcon(reloadBtn, "bi-arrow-clockwise");
+    const reloadLabel = reloadBtn.querySelector(".btn-label-exercise-editor");
+    if (reloadLabel) reloadLabel.textContent = "Reload";
+
+    hideCaption(headerGroup(reloadBtn, header));
+
+    if (!header.querySelector(".code-unit-action-download")) {
+      const download = actionButton("Download", "bi-download", "code-unit-action-download", () => downloadCode(unit));
+      const clear = actionButton("Clear", "bi-x-lg", "code-unit-action-clear", () => clearOutput(unit));
+      const host = reloadBtn.parentElement || header;
+      host.insertBefore(download, reloadBtn);
+      if (reloadBtn.nextSibling) host.insertBefore(clear, reloadBtn.nextSibling);
+      else host.appendChild(clear);
+    }
+  };
+
+  const placeBadge = (unit) => {
+    const header = unit.querySelector(".exercise-editor-header");
+    if (!header) return;
+    let badge = unit.querySelector(".code-unit-id");
+    const label = unit.getAttribute("data-id");
+    const href = unit.id ? "#" + unit.id : "";
+    if (!badge && label) {
+      badge = document.createElement("a");
+      badge.className = "code-unit-id";
+      if (label) badge.textContent = label;
+      if (href) badge.setAttribute("href", href);
+    }
+    if (!badge) return;
+    if (label && badge.textContent !== label) badge.textContent = label;
+    if (href && badge.getAttribute("href") !== href) badge.setAttribute("href", href);
+
+    const reloadBtn =
+      header.querySelector(".code-unit-action-reload") ||
+      header.querySelector("[aria-label='Reload']") ||
+      header.querySelector("[aria-label='Start Over']");
+    if (!reloadBtn) return;
+    const group = headerGroup(reloadBtn, header);
+    // Sit just before the button group, as a sibling, not inside it.
+    const btnGroup = reloadBtn.parentElement && reloadBtn.parentElement !== group
+      ? reloadBtn.parentElement
+      : reloadBtn;
+    if (badge.parentElement === group && badge.nextElementSibling === btnGroup) return;
+
+    const parent = badge.parentElement;
+    if (btnGroup.parentElement === group) group.insertBefore(badge, btnGroup);
+    else if (badge.parentElement !== group) group.insertBefore(badge, group.firstChild);
+
+    if (parent && parent !== header && parent !== group && parent.tagName === "P" && !parent.firstChild) {
+      parent.remove();
+    }
+  };
+
+  const outputSlot = (cell) => {
+    const slots = cell.querySelectorAll(".observablehq:not(.quarto-ojs-hide)");
+    for (let i = 0; i < slots.length; i++) {
+      const el = slots[i];
+      if (el.parentElement !== cell) continue;
+      if (!el.querySelector(".card.exercise-editor")) return el;
+    }
+    return null;
+  };
+
+  const enhance = (unit) => {
+    const cell = unit.querySelector(".exercise-cell");
+    if (!cell) return;
+    if (!cell.querySelector(".card.exercise-editor")) return;
+
+    restyleToolbar(unit);
+    placeBadge(unit);
+
+    const sample = unit.querySelector(".sample-output");
+    const slot = outputSlot(cell);
+    if (slot && !slot.classList.contains("code-unit-output")) {
+      slot.classList.add("code-unit-output");
+    }
+
+    if (!sample) {
+      unit.dataset.tab = "output";
+      unit.dataset.enhanced = "true";
+      return;
+    }
+
+    let tabs = unit.querySelector(".code-unit-tabs");
+    if (!tabs) {
+      tabs = document.createElement("div");
+      tabs.className = "code-unit-tabs";
+      tabs.setAttribute("role", "tablist");
+      tabs.innerHTML =
+        '<button type="button" class="code-unit-tab is-active" role="tab" aria-selected="true" data-tab="output">Output</button>' +
+        '<button type="button" class="code-unit-tab" role="tab" aria-selected="false" data-tab="sample">Sample output</button>';
+      tabs.addEventListener("click", (event) => {
+        const btn = event.target.closest(".code-unit-tab");
+        if (!btn || !tabs.contains(btn)) return;
+        unit.dataset.tab = btn.dataset.tab;
+        tabs.querySelectorAll(".code-unit-tab").forEach((b) => {
+          const on = b === btn;
+          b.classList.toggle("is-active", on);
+          b.setAttribute("aria-selected", on ? "true" : "false");
+        });
+      });
+    }
+    // Tabs are our node; place them once as a sibling before the output slot,
+    // never inside an OJS inspector.
+    if (slot && tabs.nextElementSibling !== slot) {
+      if (tabs.parentElement !== cell || tabs.nextElementSibling !== slot) {
+        slot.parentElement.insertBefore(tabs, slot);
+      }
+    } else if (!slot && !tabs.parentElement) {
+      cell.appendChild(tabs);
+    }
+    if (sample.parentElement !== cell) {
+      cell.appendChild(sample);
+    }
+
+    if (!unit.dataset.tab) unit.dataset.tab = "output";
+    unit.dataset.enhanced = "true";
+  };
+
+  const scan = () => {
+    const units = document.querySelectorAll(".code-unit");
+    for (let i = 0; i < units.length; i++) {
+      try {
+        enhance(units[i]);
+      } catch (err) {
+        console.error("code-unit enhance failed:", err);
+      }
+    }
+  };
+
+  let scheduled = false;
+  const requestScan = () => {
+    if (scheduled) return;
+    scheduled = true;
+    setTimeout(() => {
+      scheduled = false;
+      observer.disconnect();
+      try {
+        scan();
+      } catch (err) {
+        console.error("code-unit scan failed:", err);
+      } finally {
+        observer.observe(document.documentElement, { childList: true, subtree: true });
+      }
+    }, 0);
+  };
+
+  const observer = new MutationObserver(requestScan);
+  observer.observe(document.documentElement, { childList: true, subtree: true });
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", requestScan);
+  } else {
+    requestScan();
+  }
+})();
+</script>
 <script type="ojs-module-contents">
 eyJjb250ZW50cyI6W119
 </script>
