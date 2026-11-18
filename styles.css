@@ -407,7 +407,9 @@ body.quarto-dark .code-unit .card.exercise-editor .card-header {
   display: contents;
 }
 
-/* Compact tab strip: a thin divider, no extra boxes. */
+/* Compact tab strip: same typography as the header buttons
+   and Ex# badge (muted, 0.8rem, weight 500). Active tab uses
+   the Run Code accent plus a thin accent underline. */
 .code-unit-tabs {
   display: flex;
   align-items: stretch;
@@ -420,26 +422,57 @@ body.quarto-dark .code-unit .card.exercise-editor .card-header {
 }
 .code-unit-tab {
   appearance: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
   margin: 0;
-  padding: 0.28rem 0.7rem 0.32rem;
+  padding: 0.28rem 0.55rem;
   border: 0;
   border-bottom: 2px solid transparent;
+  border-radius: 0;
   background: transparent;
+  box-shadow: none;
   color: var(--code-unit-tab);
   font: inherit;
   font-size: 0.8rem;
-  font-weight: 600;
-  line-height: 1.2;
+  font-weight: 500;
+  line-height: 1;
+  text-decoration: none;
   cursor: pointer;
 }
-.code-unit-tab.is-active {
+.code-unit-tab:hover {
+  background: transparent;
   color: var(--code-unit-tab-active);
-  border-bottom-color: var(--code-unit-tab-active);
+  text-decoration: none;
+}
+.code-unit-tab.is-active {
+  color: var(--code-unit-run);
+  border-bottom-color: var(--code-unit-run);
+}
+.code-unit-tab.is-active:hover {
+  color: var(--code-unit-run);
+  opacity: 0.85;
 }
 .code-unit-tab:focus-visible {
-  outline: 1px solid var(--code-unit-tab-active);
+  outline: 1px solid var(--code-unit-run);
   outline-offset: -1px;
 }
+/* CSS-only icons, same family and size as the header buttons. */
+.code-unit-tab[data-tab="output"]::before,
+.code-unit-tab[data-tab="sample"]::before {
+  display: inline-block;
+  font-family: bootstrap-icons;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  font-size: 0.95em;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.code-unit-tab[data-tab="output"]::before { content: "\f5c3"; } /* bi-terminal */
+.code-unit-tab[data-tab="sample"]::before { content: "\f444"; } /* bi-journal-text */
 
 /* Bottom area: live result or book sample, one subtle surface. */
 .code-unit .code-unit-output,
