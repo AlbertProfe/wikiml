@@ -404,25 +404,43 @@ body.quarto-dark .code-unit .card.exercise-editor .card-header {
   opacity: 0.45;
   pointer-events: none;
 }
+/* Per-editor quarto-live grow spinner. It is created without d-none, so
+   after the global toast is removed it would otherwise keep blinking
+   between Clear and Run Code and overlap the toolbar. Hide it by
+   default (and while the toast is up). When this cell is busy — Run
+   Code is disabled, toast gone — park it over the play icon, out of
+   the flex flow, so the toolbar spacing stays even. No OJS re-parenting. */
+.code-unit .exercise-editor-header > .d-flex:last-child {
+  position: relative;
+}
 .code-unit .exercise-editor-eval-indicator {
-  flex: 0 0 auto;
-  align-self: center;
+  display: none !important;
+  position: absolute;
+  left: 0.5rem;
+  top: 50%;
+  margin: -0.325rem 0 0 0;
   width: 0.65rem;
   height: 0.65rem;
   min-width: 0.65rem;
-  margin: 0 0.45rem 0 0.4rem;
+  --bs-spinner-width: 0.65rem;
+  --bs-spinner-height: 0.65rem;
   color: var(--code-unit-run);
   background-color: currentColor;
-  /* Keep the grow animation inside its reserved box so it cannot
-     sit on the neighbouring Clear or Run Code icons. */
-  overflow: visible;
   pointer-events: none;
+  z-index: 1;
 }
-/* While the global Pyodide/webR toast is up, that toast already shows
-   status. Hide the per-editor grow spinner so the toolbar icons stay
-   evenly spaced and unobscured. */
+.code-unit:has(.exercise-editor-btn-run-code.disabled) .exercise-editor-eval-indicator,
+.code-unit:has(.exercise-editor-btn-run-code:disabled) .exercise-editor-eval-indicator {
+  display: block !important;
+}
 body:has(#exercise-loading-indicator:not(.d-none)) .code-unit .exercise-editor-eval-indicator {
   display: none !important;
+}
+body:not(:has(#exercise-loading-indicator:not(.d-none)))
+  .code-unit:has(.exercise-editor-btn-run-code.disabled) .code-unit-action-run i.bi,
+body:not(:has(#exercise-loading-indicator:not(.d-none)))
+  .code-unit:has(.exercise-editor-btn-run-code:disabled) .code-unit-action-run i.bi {
+  visibility: hidden;
 }
 
 /* Global quarto-live loading toast ("Downloading package: …").
