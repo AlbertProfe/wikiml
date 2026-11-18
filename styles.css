@@ -224,6 +224,9 @@ body.quarto-dark .card.exercise-editor .card-header {
   overflow: hidden;
   background: var(--code-unit-editor-bg);
   box-shadow: none;
+  /* Same 0.6rem air under the last output/sample line as between
+     the divider and the tab labels. */
+  padding-bottom: 0.6rem;
 }
 body.quarto-dark .code-unit {
   --code-unit-border: #393552;
