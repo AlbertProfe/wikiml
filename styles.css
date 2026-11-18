@@ -227,6 +227,9 @@ body.quarto-dark .card.exercise-editor .card-header {
   /* Same 0.6rem air under the last output/sample line as between
      the divider and the tab labels. */
   padding-bottom: 0.6rem;
+  max-width: 100%;
+  container-type: inline-size;
+  container-name: code-unit;
 }
 body.quarto-dark .code-unit {
   --code-unit-border: #393552;
@@ -402,12 +405,209 @@ body.quarto-dark .code-unit .card.exercise-editor .card-header {
   pointer-events: none;
 }
 .code-unit .exercise-editor-eval-indicator {
-  margin: 0 0.15rem 0 0;
-  color: var(--code-unit-header-fg);
+  flex: 0 0 auto;
+  align-self: center;
+  width: 0.65rem;
+  height: 0.65rem;
+  min-width: 0.65rem;
+  margin: 0 0.45rem 0 0.4rem;
+  color: var(--code-unit-run);
+  background-color: currentColor;
+  /* Keep the grow animation inside its reserved box so it cannot
+     sit on the neighbouring Clear or Run Code icons. */
+  overflow: visible;
+  pointer-events: none;
+}
+/* While the global Pyodide/webR toast is up, that toast already shows
+   status. Hide the per-editor grow spinner so the toolbar icons stay
+   evenly spaced and unobscured. */
+body:has(#exercise-loading-indicator:not(.d-none)) .code-unit .exercise-editor-eval-indicator {
+  display: none !important;
+}
+
+/* Global quarto-live loading toast ("Downloading package: …").
+   Default is a sharp corner stuck at bottom-right, which covers the
+   footer licence on a phone. Lift it into a compact pill above the
+   footer, with a little extra footer padding while it is visible. */
+#exercise-loading-indicator:not(.d-none) {
+  position: fixed;
+  z-index: 1050;
+  right: max(0.75rem, env(safe-area-inset-right));
+  bottom: max(0.7rem, env(safe-area-inset-bottom));
+  left: auto;
+  max-width: min(24rem, calc(100vw - 1.5rem));
+  margin: 0;
+  padding: 0.35rem 0.75rem;
+  border: 1px solid #d5d8de;
+  border-radius: 999px;
+  background: #eceff3;
+  color: #3a3d45;
+  box-shadow: 0 2px 10px rgba(15, 18, 24, 0.12);
+  font-size: 0.8rem;
+  font-weight: 500;
+  line-height: 1.25;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  gap: 0.4rem;
+  pointer-events: none;
+}
+body.quarto-dark #exercise-loading-indicator:not(.d-none) {
+  border-color: #393552;
+  background: #2a273f;
+  color: #e0def4;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
+}
+#exercise-loading-indicator:not(.d-none) .spinner-grow {
+  flex: 0 0 auto;
+  width: 0.65rem;
+  height: 0.65rem;
+  min-width: 0.65rem;
+  --bs-spinner-width: 0.65rem;
+  --bs-spinner-height: 0.65rem;
+  color: #2780e3;
+  background-color: currentColor;
+}
+body.quarto-dark #exercise-loading-indicator:not(.d-none) .spinner-grow {
+  color: #9ccfd8;
+}
+body:has(#exercise-loading-indicator:not(.d-none)) .footer {
+  padding-bottom: 3.25rem;
 }
 .code-unit .code-unit-actions .btn-group,
 .code-unit .code-unit-actions .btn-group-exercise-editor {
   display: contents;
+}
+.code-unit .card.exercise-editor,
+.code-unit .exercise-editor-header {
+  min-width: 0;
+  max-width: 100%;
+}
+.code-unit-action {
+  flex: 0 0 auto;
+  white-space: nowrap;
+}
+
+/* Keep long code lines scrolling horizontally, with a slim scrollbar. */
+.code-unit .cm-editor {
+  max-width: 100%;
+}
+.code-unit .cm-scroller {
+  overflow-x: scroll;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--code-unit-border) transparent;
+}
+.code-unit .cm-scroller::-webkit-scrollbar {
+  height: 6px;
+}
+.code-unit .cm-scroller::-webkit-scrollbar-thumb {
+  background: var(--code-unit-border);
+  border-radius: 3px;
+}
+.code-unit .cm-scroller::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Output may wrap rather than force a second horizontal scrollbar. */
+.code-unit .code-unit-output,
+.code-unit .cell-output-container,
+.code-unit .sample-output,
+.code-unit .sample-output pre,
+.code-unit .cell-output-container pre {
+  max-width: 100%;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+/* quarto-live collapses editor button labels below 576px (max-width: 0).
+   Run Code must keep its label; we only hide the secondary actions below. */
+@media only screen and (max-width: 576px) {
+  .code-unit .card-header .btn-exercise-editor.code-unit-action-run > .btn-label-exercise-editor {
+    max-width: none !important;
+    margin-left: 0 !important;
+    overflow: visible !important;
+    position: static !important;
+  }
+}
+
+/* Hide secondary action labels when the card is too narrow for a full toolbar.
+   Run Code keeps its label. Labels stay in the DOM; aria-label and title remain. */
+@container code-unit (max-width: 30rem) {
+  .code-unit .exercise-editor-header {
+    padding-left: 0.4rem;
+    padding-right: 0.3rem;
+    column-gap: 0.15rem;
+  }
+  .code-unit-action:not(.code-unit-action-run) {
+    padding: 0.28rem 0.42rem;
+    gap: 0;
+  }
+  .code-unit-action:not(.code-unit-action-run) > span,
+  .code-unit-action:not(.code-unit-action-run) .btn-label-exercise-editor {
+    display: none;
+  }
+}
+
+/* At the tightest widths, put the ID badge on its own line (left) and
+   keep the action cluster together on the next row, right-aligned.
+   display: contents is CSS-only; it does not re-parent OJS nodes.
+   Only the first header group is unpacked so the badge can take a full
+   row while Download/Reload/Clear stay with Run Code on the next. */
+@container code-unit (max-width: 19rem) {
+  .code-unit .exercise-editor-header {
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    row-gap: 0.15rem;
+  }
+  .code-unit .exercise-editor-header > .d-flex:first-child {
+    display: contents !important;
+  }
+  .code-unit .exercise-editor-header .code-unit-id,
+  .code-unit-id {
+    flex: 1 0 100%;
+    margin-right: 0;
+  }
+  .code-unit .exercise-editor-header > .d-flex:first-child .btn-group,
+  .code-unit .exercise-editor-header > .d-flex:first-child .btn-group-exercise-editor {
+    margin-left: auto;
+  }
+}
+
+/* Viewport fallback when container queries are unavailable. */
+@media (max-width: 480px) {
+  .code-unit .exercise-editor-header {
+    padding-left: 0.4rem;
+    padding-right: 0.3rem;
+    column-gap: 0.15rem;
+  }
+  .code-unit-action:not(.code-unit-action-run) {
+    padding: 0.28rem 0.42rem;
+    gap: 0;
+  }
+  .code-unit-action:not(.code-unit-action-run) > span,
+  .code-unit-action:not(.code-unit-action-run) .btn-label-exercise-editor {
+    display: none;
+  }
+}
+@media (max-width: 320px) {
+  .code-unit .exercise-editor-header {
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    row-gap: 0.15rem;
+  }
+  .code-unit .exercise-editor-header > .d-flex:first-child {
+    display: contents !important;
+  }
+  .code-unit .exercise-editor-header .code-unit-id,
+  .code-unit-id {
+    flex: 1 0 100%;
+    margin-right: 0;
+  }
+  .code-unit .exercise-editor-header > .d-flex:first-child .btn-group,
+  .code-unit .exercise-editor-header > .d-flex:first-child .btn-group-exercise-editor {
+    margin-left: auto;
+  }
 }
 
 /* Compact tab strip: same typography as the header buttons

@@ -995,12 +995,22 @@ ul.task-list li input[type="checkbox"] {
   #lp .lp-topic:hover { background: color-mix(in srgb, var(--c, #60a5fa) 18%, transparent); transform: translateY(-1px); color: var(--text); }
   #lp .lp-topic i.bi { font-size: .95em; color: var(--c, #60a5fa); line-height: 1; flex: none; }
   @media (max-width: 999px) {
-    #lp .lp-topics { flex-wrap: wrap; justify-content: center; }
+    #lp .lp-topics-wrap { max-width: 100%; min-width: 0; padding: 0 .85rem 1.35rem; }
+    #lp .lp-topics {
+      flex-wrap: wrap; justify-content: center; align-items: center;
+      gap: .45rem .4rem; overflow: visible; width: 100%;
+    }
+    /* Label on its own line so it never collides with the chips. */
+    #lp .lp-topics-label {
+      flex: 1 0 100%; text-align: center; margin: 0 0 .2rem;
+    }
+    #lp .lp-topic {
+      min-height: 36px; padding: .45rem .7rem; font-size: .78rem;
+      box-sizing: border-box;
+    }
   }
   @media (max-width: 760px) {
-    #lp .lp-topics-wrap { padding: 0 1rem 1.25rem; margin-top: .25rem; }
-    #lp .lp-topics { flex-wrap: nowrap; justify-content: flex-start; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: thin; padding-bottom: .15rem; }
-    #lp .lp-topic { font-size: .7rem; padding: .2rem .5rem; }
+    #lp .lp-topics-wrap { padding: 0 .75rem 1.25rem; margin-top: .25rem; }
   }
 
   #lp .lp-final { text-align: center; max-width: none; background: linear-gradient(180deg, transparent, var(--final-tint)); }
