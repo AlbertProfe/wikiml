@@ -49,6 +49,7 @@
     btn.type = "button";
     btn.className = "code-unit-action " + className;
     btn.setAttribute("aria-label", label);
+    btn.setAttribute("title", label);
     const icon = document.createElement("i");
     icon.className = "bi " + iconClass;
     icon.setAttribute("aria-hidden", "true");
@@ -93,12 +94,14 @@
 
     runBtn.classList.add("code-unit-action", "code-unit-action-run");
     runBtn.setAttribute("aria-label", "Run Code");
+    runBtn.setAttribute("title", "Run Code");
     setIcon(runBtn, "bi-play-fill");
     const runLabel = runBtn.querySelector(".btn-label-exercise-editor");
     if (runLabel) runLabel.textContent = "Run Code";
 
     reloadBtn.classList.add("code-unit-action", "code-unit-action-reload");
     reloadBtn.setAttribute("aria-label", "Reload");
+    reloadBtn.setAttribute("title", "Reload");
     setIcon(reloadBtn, "bi-arrow-clockwise");
     const reloadLabel = reloadBtn.querySelector(".btn-label-exercise-editor");
     if (reloadLabel) reloadLabel.textContent = "Reload";
