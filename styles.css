@@ -279,7 +279,8 @@ body.quarto-dark .code-unit .card.exercise-editor .card-header {
   color: var(--code-unit-header-fg);
 }
 /* Hide the default "Python Code" caption; it clutters the bar. */
-.code-unit .exercise-editor-header > .d-flex:first-child > div:first-child:not(:has(a, button, .btn)) {
+.code-unit .exercise-editor-header > .d-flex:first-child > div:first-child:not(:has(a, button, .btn)),
+.code-unit .code-unit-caption {
   display: none;
 }
 .code-unit-actions {
@@ -294,6 +295,7 @@ body.quarto-dark .code-unit .card.exercise-editor .card-header {
   margin-left: 0;
 }
 /* ID badge: muted monospace, right side, just before the actions. */
+.code-unit .exercise-editor-header .code-unit-id,
 .code-unit-id {
   margin-left: auto;
   padding: 0.28rem 0.55rem;

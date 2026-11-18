@@ -1,10 +1,15 @@
 <script>
-/* Enhance .code-unit wrappers: right-aligned toolbar and Output / Sample tabs.
+/* Enhance .code-unit wrappers: toolbar actions, ID badge, Output / Sample tabs.
    The quarto-live result stays in its OJS slot; we only toggle visibility.
-   Fork is omitted: there is no sensible target for these in-page cells. */
+   Fork is omitted: there is no sensible target for these in-page cells.
+   Do not re-parent OJS-owned nodes (the editor card, header groups, Run /
+   Reload buttons, or output slot). A previous version moved those nodes
+   and called Node.before() on every MutationObserver tick, which could
+   livelock the page — especially on WebKit, which mounts cells more
+   slowly — leaving only the static badge visible. */
 (function () {
   const setIcon = (el, iconClass) => {
-    if (!el) return;
+    if (!el || el.querySelector("i.bi." + iconClass)) return;
     el.querySelectorAll("svg, i.bi").forEach((node) => node.remove());
     const icon = document.createElement("i");
     icon.className = "bi " + iconClass;
@@ -13,7 +18,8 @@
   };
 
   const unitCode = (unit) => {
-    const root = unit.querySelector(".card.exercise-editor")?.parentElement;
+    const root = unit.querySelector(".card.exercise-editor") &&
+      unit.querySelector(".card.exercise-editor").parentElement;
     if (root && root.value && typeof root.value.code === "string") return root.value.code;
     const cm = unit.querySelector(".cm-content");
     return cm ? cm.innerText : "";
@@ -22,7 +28,7 @@
   const downloadCode = (unit) => {
     const code = unitCode(unit);
     const page = (location.pathname.split("/").pop() || "cell").replace(/\.html$/, "");
-    const index = [...document.querySelectorAll(".code-unit")].indexOf(unit) + 1;
+    const index = Array.prototype.indexOf.call(document.querySelectorAll(".code-unit"), unit) + 1;
     const a = document.createElement("a");
     a.href = URL.createObjectURL(new Blob([code], { type: "text/x-python" }));
     a.download = page + "-" + index + ".py";
@@ -33,7 +39,9 @@
   };
 
   const clearOutput = (unit) => {
-    unit.querySelectorAll(".cell-output-container").forEach((el) => el.replaceChildren());
+    unit.querySelectorAll(".cell-output-container").forEach((el) => {
+      while (el.firstChild) el.removeChild(el.firstChild);
+    });
   };
 
   const actionButton = (label, iconClass, className, onClick) => {
@@ -46,11 +54,33 @@
     icon.setAttribute("aria-hidden", "true");
     const span = document.createElement("span");
     span.textContent = label;
-    btn.append(icon, span);
+    btn.appendChild(icon);
+    btn.appendChild(span);
     btn.addEventListener("click", onClick);
     return btn;
   };
 
+  const hideCaption = (group) => {
+    if (!group) return;
+    Array.prototype.forEach.call(group.children, (child) => {
+      if (child.matches && child.matches("a, button, .btn, .btn-group, .code-unit-action, .code-unit-id")) return;
+      if (child.querySelector && child.querySelector("a, button, .btn, .code-unit-action")) return;
+      child.classList.add("code-unit-caption");
+    });
+  };
+
+  // Direct child of the header that contains the given node (the left
+  // or right header group). Never use header.closest(".d-flex") — the
+  // header itself is a .d-flex, and insertBefore would then be called
+  // with a reference node that is not a child of that group.
+  const headerGroup = (node, header) => {
+    let el = node;
+    while (el && el.parentElement && el.parentElement !== header) el = el.parentElement;
+    return (el && el.parentElement === header) ? el : header;
+  };
+
+  // Relabel in place and insert only nodes we own. Leave OJS header
+  // groups and their Run / Start Over buttons where they were built.
   const restyleToolbar = (unit) => {
     const header = unit.querySelector(".exercise-editor-header");
     if (!header || header.dataset.codeUnitToolbar) return;
@@ -64,55 +94,69 @@
     runBtn.classList.add("code-unit-action", "code-unit-action-run");
     runBtn.setAttribute("aria-label", "Run Code");
     setIcon(runBtn, "bi-play-fill");
-    const runLabel = runBtn.querySelector(".btn-label-exercise-editor, span");
+    const runLabel = runBtn.querySelector(".btn-label-exercise-editor");
     if (runLabel) runLabel.textContent = "Run Code";
 
     reloadBtn.classList.add("code-unit-action", "code-unit-action-reload");
     reloadBtn.setAttribute("aria-label", "Reload");
     setIcon(reloadBtn, "bi-arrow-clockwise");
-    const reloadLabel = reloadBtn.querySelector(".btn-label-exercise-editor, span");
+    const reloadLabel = reloadBtn.querySelector(".btn-label-exercise-editor");
     if (reloadLabel) reloadLabel.textContent = "Reload";
 
-    const spinner = header.querySelector(".exercise-editor-eval-indicator");
-    const actions = document.createElement("div");
-    actions.className = "code-unit-actions";
-    actions.append(
-      actionButton("Download", "bi-download", "code-unit-action-download", () => downloadCode(unit)),
-      reloadBtn,
-      actionButton("Clear", "bi-x-lg", "code-unit-action-clear", () => clearOutput(unit)),
-      runBtn
-    );
-    header.replaceChildren();
-    if (spinner) header.appendChild(spinner);
-    header.appendChild(actions);
-  };
+    hideCaption(headerGroup(reloadBtn, header));
 
+    if (!header.querySelector(".code-unit-action-download")) {
+      const download = actionButton("Download", "bi-download", "code-unit-action-download", () => downloadCode(unit));
+      const clear = actionButton("Clear", "bi-x-lg", "code-unit-action-clear", () => clearOutput(unit));
+      const host = reloadBtn.parentElement || header;
+      host.insertBefore(download, reloadBtn);
+      if (reloadBtn.nextSibling) host.insertBefore(clear, reloadBtn.nextSibling);
+      else host.appendChild(clear);
+    }
+  };
 
   const placeBadge = (unit) => {
     const header = unit.querySelector(".exercise-editor-header");
     if (!header) return;
     let badge = unit.querySelector(".code-unit-id");
-    const label = unit.dataset.id;
+    const label = unit.getAttribute("data-id");
     const href = unit.id ? "#" + unit.id : "";
     if (!badge && label) {
       badge = document.createElement("a");
       badge.className = "code-unit-id";
+      if (label) badge.textContent = label;
+      if (href) badge.setAttribute("href", href);
     }
     if (!badge) return;
-    if (label) badge.textContent = label;
-    if (href) badge.setAttribute("href", href);
+    if (label && badge.textContent !== label) badge.textContent = label;
+    if (href && badge.getAttribute("href") !== href) badge.setAttribute("href", href);
+
+    const reloadBtn =
+      header.querySelector(".code-unit-action-reload") ||
+      header.querySelector("[aria-label='Reload']") ||
+      header.querySelector("[aria-label='Start Over']");
+    if (!reloadBtn) return;
+    const group = headerGroup(reloadBtn, header);
+    // Sit just before the button group, as a sibling, not inside it.
+    const btnGroup = reloadBtn.parentElement && reloadBtn.parentElement !== group
+      ? reloadBtn.parentElement
+      : reloadBtn;
+    if (badge.parentElement === group && badge.nextElementSibling === btnGroup) return;
+
     const parent = badge.parentElement;
-    const actions = header.querySelector(".code-unit-actions");
-    if (actions) actions.before(badge);
-    else if (badge.parentElement !== header) header.appendChild(badge);
-    if (parent && parent !== header && parent.tagName === "P" && parent.childNodes.length === 0) {
+    if (btnGroup.parentElement === group) group.insertBefore(badge, btnGroup);
+    else if (badge.parentElement !== group) group.insertBefore(badge, group.firstChild);
+
+    if (parent && parent !== header && parent !== group && parent.tagName === "P" && !parent.firstChild) {
       parent.remove();
     }
   };
 
   const outputSlot = (cell) => {
-    const slots = cell.querySelectorAll(":scope > .observablehq:not(.quarto-ojs-hide)");
-    for (const el of slots) {
+    const slots = cell.querySelectorAll(".observablehq:not(.quarto-ojs-hide)");
+    for (let i = 0; i < slots.length; i++) {
+      const el = slots[i];
+      if (el.parentElement !== cell) continue;
       if (!el.querySelector(".card.exercise-editor")) return el;
     }
     return null;
@@ -121,10 +165,7 @@
   const enhance = (unit) => {
     const cell = unit.querySelector(".exercise-cell");
     if (!cell) return;
-    const editorSlot = Array.from(
-      cell.querySelectorAll(":scope > .observablehq")
-    ).find((el) => el.querySelector(".card.exercise-editor"));
-    if (!editorSlot) return;
+    if (!cell.querySelector(".card.exercise-editor")) return;
 
     restyleToolbar(unit);
     placeBadge(unit);
@@ -141,8 +182,9 @@
       return;
     }
 
-    if (!unit.querySelector(":scope .code-unit-tabs")) {
-      const tabs = document.createElement("div");
+    let tabs = unit.querySelector(".code-unit-tabs");
+    if (!tabs) {
+      tabs = document.createElement("div");
       tabs.className = "code-unit-tabs";
       tabs.setAttribute("role", "tablist");
       tabs.innerHTML =
@@ -158,13 +200,15 @@
           b.setAttribute("aria-selected", on ? "true" : "false");
         });
       });
-      if (slot) slot.before(tabs);
-      else cell.appendChild(tabs);
     }
-
-    const tabs = unit.querySelector(".code-unit-tabs");
-    if (slot && tabs && tabs.nextElementSibling !== slot) {
-      slot.before(tabs);
+    // Tabs are our node; place them once as a sibling before the output slot,
+    // never inside an OJS inspector.
+    if (slot && tabs.nextElementSibling !== slot) {
+      if (tabs.parentElement !== cell || tabs.nextElementSibling !== slot) {
+        slot.parentElement.insertBefore(tabs, slot);
+      }
+    } else if (!slot && !tabs.parentElement) {
+      cell.appendChild(tabs);
     }
     if (sample.parentElement !== cell) {
       cell.appendChild(sample);
@@ -175,15 +219,39 @@
   };
 
   const scan = () => {
-    document.querySelectorAll(".code-unit").forEach(enhance);
+    const units = document.querySelectorAll(".code-unit");
+    for (let i = 0; i < units.length; i++) {
+      try {
+        enhance(units[i]);
+      } catch (err) {
+        console.error("code-unit enhance failed:", err);
+      }
+    }
   };
 
-  const observer = new MutationObserver(scan);
+  let scheduled = false;
+  const requestScan = () => {
+    if (scheduled) return;
+    scheduled = true;
+    setTimeout(() => {
+      scheduled = false;
+      observer.disconnect();
+      try {
+        scan();
+      } catch (err) {
+        console.error("code-unit scan failed:", err);
+      } finally {
+        observer.observe(document.documentElement, { childList: true, subtree: true });
+      }
+    }, 0);
+  };
+
+  const observer = new MutationObserver(requestScan);
   observer.observe(document.documentElement, { childList: true, subtree: true });
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", scan);
+    document.addEventListener("DOMContentLoaded", requestScan);
   } else {
-    scan();
+    requestScan();
   }
 })();
 </script>
