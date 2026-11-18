@@ -1,7 +1,92 @@
 <script>
-/* Enhance .code-unit wrappers: tab strip for live Output vs Sample output.
-   The quarto-live result stays in its OJS slot; we only toggle visibility. */
+/* Enhance .code-unit wrappers: right-aligned toolbar and Output / Sample tabs.
+   The quarto-live result stays in its OJS slot; we only toggle visibility.
+   Fork is omitted: there is no sensible target for these in-page cells. */
 (function () {
+  const setIcon = (el, iconClass) => {
+    if (!el) return;
+    el.querySelectorAll("svg, i.bi").forEach((node) => node.remove());
+    const icon = document.createElement("i");
+    icon.className = "bi " + iconClass;
+    icon.setAttribute("aria-hidden", "true");
+    el.insertBefore(icon, el.firstChild);
+  };
+
+  const unitCode = (unit) => {
+    const root = unit.querySelector(".card.exercise-editor")?.parentElement;
+    if (root && root.value && typeof root.value.code === "string") return root.value.code;
+    const cm = unit.querySelector(".cm-content");
+    return cm ? cm.innerText : "";
+  };
+
+  const downloadCode = (unit) => {
+    const code = unitCode(unit);
+    const page = (location.pathname.split("/").pop() || "cell").replace(/\.html$/, "");
+    const index = [...document.querySelectorAll(".code-unit")].indexOf(unit) + 1;
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(new Blob([code], { type: "text/x-python" }));
+    a.download = page + "-" + index + ".py";
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+  };
+
+  const clearOutput = (unit) => {
+    unit.querySelectorAll(".cell-output-container").forEach((el) => el.replaceChildren());
+  };
+
+  const actionButton = (label, iconClass, className, onClick) => {
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "code-unit-action " + className;
+    btn.setAttribute("aria-label", label);
+    const icon = document.createElement("i");
+    icon.className = "bi " + iconClass;
+    icon.setAttribute("aria-hidden", "true");
+    const span = document.createElement("span");
+    span.textContent = label;
+    btn.append(icon, span);
+    btn.addEventListener("click", onClick);
+    return btn;
+  };
+
+  const restyleToolbar = (unit) => {
+    const header = unit.querySelector(".exercise-editor-header");
+    if (!header || header.dataset.codeUnitToolbar) return;
+    const runBtn = header.querySelector(".exercise-editor-btn-run-code");
+    const reloadBtn =
+      header.querySelector('[aria-label="Start Over"]') ||
+      header.querySelector(".btn-outline-dark");
+    if (!runBtn || !reloadBtn) return;
+    header.dataset.codeUnitToolbar = "true";
+
+    runBtn.classList.add("code-unit-action", "code-unit-action-run");
+    runBtn.setAttribute("aria-label", "Run Code");
+    setIcon(runBtn, "bi-play-fill");
+    const runLabel = runBtn.querySelector(".btn-label-exercise-editor, span");
+    if (runLabel) runLabel.textContent = "Run Code";
+
+    reloadBtn.classList.add("code-unit-action", "code-unit-action-reload");
+    reloadBtn.setAttribute("aria-label", "Reload");
+    setIcon(reloadBtn, "bi-arrow-clockwise");
+    const reloadLabel = reloadBtn.querySelector(".btn-label-exercise-editor, span");
+    if (reloadLabel) reloadLabel.textContent = "Reload";
+
+    const spinner = header.querySelector(".exercise-editor-eval-indicator");
+    const actions = document.createElement("div");
+    actions.className = "code-unit-actions";
+    actions.append(
+      actionButton("Download", "bi-download", "code-unit-action-download", () => downloadCode(unit)),
+      reloadBtn,
+      actionButton("Clear", "bi-x-lg", "code-unit-action-clear", () => clearOutput(unit)),
+      runBtn
+    );
+    header.replaceChildren();
+    if (spinner) header.appendChild(spinner);
+    header.appendChild(actions);
+  };
+
   const outputSlot = (cell) => {
     const slots = cell.querySelectorAll(":scope > .observablehq:not(.quarto-ojs-hide)");
     for (const el of slots) {
@@ -17,6 +102,8 @@
       cell.querySelectorAll(":scope > .observablehq")
     ).find((el) => el.querySelector(".card.exercise-editor"));
     if (!editorSlot) return;
+
+    restyleToolbar(unit);
 
     const sample = unit.querySelector(".sample-output");
     const slot = outputSlot(cell);
@@ -47,7 +134,6 @@
           b.setAttribute("aria-selected", on ? "true" : "false");
         });
       });
-      // Sit between the editor and the live-output slot, inside the cell.
       if (slot) slot.before(tabs);
       else cell.appendChild(tabs);
     }

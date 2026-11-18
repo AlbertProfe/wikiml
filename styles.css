@@ -202,21 +202,27 @@ body.quarto-dark .card.exercise-editor .card-header {
 }
 
 
-/* Code units: one square frame around a quarto-live editor, its live
+/* Code units: one rounded frame around a quarto-live editor, its live
    output, and an optional book sample. Wrap them in ::: {.code-unit}.
    Mark typed values in the sample with <span class="sample-input">.
-   tools/code-unit.html adds Output / Sample output tabs when a sample
-   is present; a unit with no sample is just the editor plus output. */
+   tools/code-unit.html right-aligns the toolbar (Download, Reload,
+   Clear, Run Code) and adds Output / Sample output tabs when a sample
+   is present. A unit with no sample is just the editor plus output. */
 .code-unit {
   --code-unit-border: #d5d8de;
   --code-unit-tab: #5c6370;
   --code-unit-tab-active: #2c2a32;
   --code-unit-bottom-bg: #f7f8fa;
   --code-unit-input: #0b6e4f;
+  --code-unit-header-bg: #eceff3;
+  --code-unit-header-fg: #3a3d45;
+  --code-unit-run: #2780e3;
+  --code-unit-editor-bg: #ffffff;
   margin: 1rem 0 1.5rem;
   border: 1px solid var(--code-unit-border);
-  border-radius: 0;
-  background: transparent;
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--code-unit-editor-bg);
   box-shadow: none;
 }
 body.quarto-dark .code-unit {
@@ -225,8 +231,11 @@ body.quarto-dark .code-unit {
   --code-unit-tab-active: #e0def4;
   --code-unit-bottom-bg: #2a273f;
   --code-unit-input: #f6c177;
+  --code-unit-header-bg: #2a273f;
+  --code-unit-header-fg: #e0def4;
+  --code-unit-run: #9ccfd8;
+  --code-unit-editor-bg: #232136;
 }
-.code-unit,
 .code-unit .card,
 .code-unit .card-header,
 .code-unit .card-body,
@@ -247,21 +256,108 @@ body.quarto-dark .code-unit {
   border: 0;
   background: transparent;
 }
-.code-unit .card.exercise-editor .card-header {
-  padding: 0.3rem 0.6rem;
-  background: transparent;
-  border-bottom: 1px solid var(--code-unit-border);
+.code-unit .card.exercise-editor .cm-editor {
+  background-color: var(--code-unit-editor-bg);
   color: inherit;
 }
-body.quarto-dark .code-unit .card.exercise-editor,
-body.quarto-dark .code-unit .card.exercise-editor .cm-editor {
-  background-color: transparent;
-  color: inherit;
+
+/* Toolbar: slightly lighter bar, actions right-aligned, no button chrome. */
+.code-unit .card.exercise-editor .card-header,
+.code-unit .exercise-editor-header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.28rem 0.45rem 0.28rem 0.7rem;
+  background: var(--code-unit-header-bg);
+  color: var(--code-unit-header-fg);
+  border-bottom: 1px solid var(--code-unit-border);
 }
 body.quarto-dark .code-unit .card.exercise-editor .card-header {
-  background-color: transparent;
+  background-color: var(--code-unit-header-bg);
   border-bottom-color: var(--code-unit-border);
-  color: inherit;
+  color: var(--code-unit-header-fg);
+}
+/* Hide the default "Python Code" caption; it clutters the bar. */
+.code-unit .exercise-editor-header > .d-flex:first-child > div:first-child:not(:has(a, button, .btn)) {
+  display: none;
+}
+.code-unit-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 0.1rem;
+  margin-left: auto;
+}
+.code-unit-action,
+.code-unit a.code-unit-action,
+.code-unit button.code-unit-action,
+.code-unit .code-unit-actions .btn,
+.code-unit .code-unit-actions .btn-exercise-editor {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin: 0;
+  padding: 0.28rem 0.55rem;
+  border: 0 !important;
+  border-radius: 0;
+  background: transparent !important;
+  box-shadow: none !important;
+  color: var(--code-unit-header-fg) !important;
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 500;
+  line-height: 1;
+  text-decoration: none !important;
+  cursor: pointer;
+}
+.code-unit-action .bi,
+.code-unit .code-unit-actions .bi {
+  font-size: 0.95em;
+  line-height: 1;
+}
+.code-unit-action:hover,
+.code-unit .code-unit-actions .btn:hover {
+  background: transparent !important;
+  color: var(--code-unit-tab-active) !important;
+  text-decoration: none !important;
+}
+.code-unit-action-run,
+.code-unit a.code-unit-action-run,
+.code-unit .code-unit-actions .exercise-editor-btn-run-code,
+.code-unit .code-unit-actions .btn-primary {
+  color: var(--code-unit-run) !important;
+  font-weight: 600;
+  --bs-btn-color: var(--code-unit-run);
+  --bs-btn-bg: transparent;
+  --bs-btn-border-color: transparent;
+  --bs-btn-hover-color: var(--code-unit-run);
+  --bs-btn-hover-bg: transparent;
+  --bs-btn-hover-border-color: transparent;
+  --bs-btn-active-color: var(--code-unit-run);
+  --bs-btn-active-bg: transparent;
+}
+.code-unit-action-run:hover,
+.code-unit .code-unit-actions .exercise-editor-btn-run-code:hover {
+  color: var(--code-unit-run) !important;
+  opacity: 0.85;
+}
+.code-unit-action.disabled,
+.code-unit-action:disabled,
+.code-unit .code-unit-actions .btn.disabled,
+.code-unit .code-unit-actions .btn:disabled {
+  opacity: 0.45;
+  pointer-events: none;
+}
+.code-unit .exercise-editor-eval-indicator {
+  margin-right: auto;
+  color: var(--code-unit-header-fg);
+}
+.code-unit .code-unit-actions .btn-group,
+.code-unit .code-unit-actions .btn-group-exercise-editor {
+  display: contents;
 }
 
 /* Compact tab strip: a thin divider, no extra boxes. */
